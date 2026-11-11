@@ -8,7 +8,21 @@ The current implementation uses Python 3.14, async SQLAlchemy and psycopg, Postg
 
 The target is Python orchestration with locally operated models. No paid cloud inference service or RAGFlow dependency is required. Self-hosting pretrained models is distinct from training a language model from scratch; initial development should focus on retrieval and evaluation. Local operation still requires hardware, maintenance, and compliance with model licenses. All model-dependent stages, including OCR, embeddings, reranking, and generation, must be considered when keeping data local.
 
-Command entrypoints live in `app/cli/`; database infrastructure remains in `app/db/`, including per-table ORM modules in `models/` and Alembic revisions in `migrations/`. The `app/catalog/` package separates inventory, validation, storage, reports and database import. The `app/ingestion/` package separates PDF extraction, chunking, embeddings, artifacts, review and publication. Source documents stay in `assets/`, while generated extraction results, caches, and reports belong under `data/` according to [its conventions](data/README.md). Review and publish create generated-data subdirectories as needed.
+Command entrypoints live in `app/cli/`; database infrastructure remains in `app/database/`, including per-table ORM modules in `models/` and Alembic revisions in `migrations/`. The `app/catalog/` package separates inventory, validation, storage, reports and database import. The `app/ingestion/` package separates PDF extraction, chunking, embeddings, artifacts, review and publication. Source documents stay in `app/assets/`, while generated extraction results, caches, and reports belong under `indexing_workspace/` according to [its conventions](indexing_workspace/README.md). Review and publish create generated-data subdirectories as needed.
+
+The shared `app.paths` module anchors the indexing workspace and `app/assets/`
+to the repository root without filesystem writes at import. Review output and
+publication artifacts use separate locations. Historical artifacts are archived
+without rewriting provenance. Two additional CLI entrypoints implement local
+PDF/XLSX/CSV/Markdown/TXT preparation, editable review JSON, explicit approval and
+publication of approved content. Review source/extraction snapshots remain intact;
+approval hashes bind the reviewed payload and provenance. The new publisher reads
+a verified snapshot, checks token limits, and uses shared atomic activation without
+reparsing or rechunking. Existing JSONB columns carry detailed source locations and
+processing identity; no schema migration is required. Table structure is retained
+for review, but exact table-query/computation services are not implemented.
+See the [offline indexing contract](docs/offline-indexing.md). The legacy PDF
+publisher remains separate and still processes the source PDF.
 
 ## Data sources and retrieval strategy
 
@@ -44,7 +58,7 @@ authorization and policy eligibility checks remain required before retrieval.
 
 Classification depends on meaning and freshness requirements, not file extension or storage location. An Excel policy table may need an exact row lookup. A CSV aggregate requires computation over the applicable records rather than counting retrieved chunks. An exported personnel file is not automatically authoritative for current assignments.
 
-`assets/` is the source collection; the implemented ingestion command supports one approved PDF revision per invocation. The current collection contains 40 files: 31 PDF, 7 Excel (`.xlsx`) and 2 Word (`.doc`); no DOCX files remain. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree and remain available in Git history; video formats under `assets/` are ignored by Git. Candidate inputs also include CSV, JSON, Markdown, TXT, and structured objects; supported formats and extraction quality must be established during Type A implementation. Video transcription and archive processing are not assumed MVP capabilities. The catalog recognizes PDF, DOC, DOCX and XLSX independently of which formats are currently present; inventory recognition does not establish extraction support. The current source groups are `noi-quy-qui-dinh`, `huong-dan-su-dung` and `phone-list`; see the [source synchronization record](docs/asset-catalog.md#source-synchronization-after-manual-changes) for path changes and removed records. That local update did not synchronize the database.
+`app/assets/` is the source collection; the legacy ingestion command supports one approved PDF revision per invocation; the new document CLIs support individual and batch reviewed-JSON ingestion. The current collection contains 40 files: 31 PDF, 7 Excel (`.xlsx`) and 2 Word (`.doc`); no DOCX files remain. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree and remain available in Git history; video formats under `app/assets/` are ignored by Git. The new preparation CLI supports PDF, XLSX, CSV, Markdown and TXT. Generic JSON source ingestion and other structured objects remain future work; real extraction quality still requires evaluation. Video transcription and archive processing are not assumed MVP capabilities. The catalog recognizes PDF, DOC, DOCX, XLSX, CSV, Markdown and TXT independently of which formats are currently present; inventory recognition does not establish extraction support. The current source groups are `noi-quy-qui-dinh`, `huong-dan-su-dung` and `phone-list`; see the [source synchronization record](docs/asset-catalog.md#source-synchronization-after-manual-changes) for path changes and removed records. That local update did not synchronize the database.
 
 ## Target components and data flow
 
@@ -119,7 +133,7 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
-| 0 — implemented | Database foundation, explicit migrations, local source catalog, Type A metadata import/storage and single-PDF ingestion | Database behavior; source identity, consistency, history and metadata validation |
+| 0 — implemented | Database foundation, explicit migrations, local source catalog, Type A metadata import/storage, reviewed-JSON batch ingestion and legacy single-PDF ingestion | Database behavior; source identity, consistency, history and metadata validation |
 | 1 — planned | Type A MVP using an agreed document subset, retrieval, citations, and follow-up handling | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |

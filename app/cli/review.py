@@ -3,6 +3,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from app.paths import workspace
 
 
 def parse_pages(value: str) -> list[tuple[int, int]]:
@@ -33,7 +34,7 @@ def create_parser():
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("data/extracted/chunks.jsonl"),
+        default=workspace() / "review/chunks.jsonl",
     )
     parser.add_argument("--skip-embeddings", action="store_true")
     parser.add_argument("--ocr-language", default="vie+eng")

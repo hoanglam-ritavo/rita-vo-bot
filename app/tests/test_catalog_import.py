@@ -15,17 +15,17 @@ from app.catalog.inventory import inventory
 from app.catalog.validation import new_catalog
 from app.catalog import importer
 from app.cli import import_catalog as cli
-from app.db.models import DocumentRevision
-from app.db.runtime import run_async
+from app.database.models import DocumentRevision
+from app.database.runtime import run_async
 
 
 @pytest.fixture
 def catalog_root(tmp_path):
-    (tmp_path / 'assets').mkdir()
-    (tmp_path / 'assets/a.pdf').write_bytes(b'synthetic')
-    catalog = new_catalog(inventory(tmp_path / 'assets'))
-    (tmp_path / 'data/catalog').mkdir(parents=True)
-    (tmp_path / 'data/catalog/documents.json').write_text(json.dumps(catalog), encoding='utf-8')
+    (tmp_path / 'app/assets').mkdir(parents=True)
+    (tmp_path / 'app/assets/a.pdf').write_bytes(b'synthetic')
+    catalog = new_catalog(inventory(tmp_path / 'app/assets'))
+    (tmp_path / 'indexing_workspace/catalog').mkdir(parents=True)
+    (tmp_path / 'indexing_workspace/catalog/documents.json').write_text(json.dumps(catalog), encoding='utf-8')
     return tmp_path, catalog
 
 
@@ -47,23 +47,23 @@ def test_preflight_and_mapping(catalog_root):
 def test_preflight_blocks(catalog_root, change):
     root, catalog = catalog_root
     if change == 'added':
-        (root / 'assets/b.pdf').write_bytes(b'new')
+        (root / 'app/assets/b.pdf').write_bytes(b'new')
     elif change == 'missing':
-        (root / 'assets/a.pdf').unlink()
+        (root / 'app/assets/a.pdf').unlink()
     elif change == 'changed':
-        (root / 'assets/a.pdf').write_bytes(b'different')
+        (root / 'app/assets/a.pdf').write_bytes(b'different')
     else:
         catalog['documents'][0]['review_status'] = 'invalid'
-        (root / 'data/catalog/documents.json').write_text(json.dumps(catalog))
+        (root / 'indexing_workspace/catalog/documents.json').write_text(json.dumps(catalog))
     with pytest.raises(importer.ImportRejected):
         importer.prepare_catalog(root)
 
 
 def test_duplicates_and_unknown_formats_are_warnings(catalog_root):
     root, _ = catalog_root
-    (root / 'assets/c.unknown').write_bytes(b'synthetic')
-    catalog = new_catalog(inventory(root / 'assets'))
-    (root / 'data/catalog/documents.json').write_text(json.dumps(catalog))
+    (root / 'app/assets/c.unknown').write_bytes(b'synthetic')
+    catalog = new_catalog(inventory(root / 'app/assets'))
+    (root / 'indexing_workspace/catalog/documents.json').write_text(json.dumps(catalog))
     assert importer.prepare_catalog(root)[1] == 2
 
 

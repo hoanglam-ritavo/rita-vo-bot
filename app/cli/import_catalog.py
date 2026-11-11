@@ -1,11 +1,12 @@
 """Synchronize the local catalog into explicitly migrated PostgreSQL storage."""
 import argparse
 from pathlib import Path
+from app.paths import REPOSITORY_ROOT
 import sys
 
 from app.catalog.importer import ImportRejected, prepare_catalog, synchronize
-from app.db import close_database
-from app.db.runtime import run_async
+from app.database import close_database
+from app.database.runtime import run_async
 
 
 async def run(root: Path, *, dry_run=False):
@@ -31,7 +32,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args(argv)
-    return run_async(run(Path(__file__).resolve().parents[2], dry_run=args.dry_run))
+    return run_async(run(REPOSITORY_ROOT, dry_run=args.dry_run))
 
 
 if __name__ == '__main__':

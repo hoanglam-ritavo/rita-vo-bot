@@ -17,23 +17,23 @@ from app.cli.asset_catalog import run
 
 @pytest.fixture
 def workspace(tmp_path):
-    assets = tmp_path / 'assets'
-    assets.mkdir()
+    assets = tmp_path / 'app/assets'
+    assets.mkdir(parents=True)
     (assets / 'policy.pdf').write_bytes(b'synthetic policy')
     return tmp_path
 
 
 def read_catalog(root):
-    return storage.load_catalog(root / 'data/catalog/documents.json')
+    return storage.load_catalog(root / 'indexing_workspace/catalog/documents.json')
 
 
 def save_catalog(root, value):
-    storage.atomic_write(root / 'data/catalog/documents.json', storage.json_text(value))
+    storage.atomic_write(root / 'indexing_workspace/catalog/documents.json', storage.json_text(value))
 
 
 def latest_reports(root):
     return [json.loads(p.read_text(encoding='utf-8'))
-            for p in (root / 'data/reports').glob('asset-catalog-*.json')]
+            for p in (root / 'indexing_workspace/reports').glob('asset-catalog-*.json')]
 
 
 def test_init_scan_validate_preserve_ids_and_manual_metadata(workspace):
@@ -41,7 +41,7 @@ def test_init_scan_validate_preserve_ids_and_manual_metadata(workspace):
     value = read_catalog(workspace)
     value['documents'][0]['review_notes'] = ['Manual note preserved.']
     save_catalog(workspace, value)
-    path = workspace / 'data/catalog/documents.json'
+    path = workspace / 'indexing_workspace/catalog/documents.json'
     before = path.read_bytes()
     assert run('scan', workspace) == 0
     assert run('validate', workspace) == 0
@@ -53,7 +53,7 @@ def test_init_scan_validate_preserve_ids_and_manual_metadata(workspace):
 
 
 def test_diff_duplicates_and_moves(workspace):
-    assets = workspace / 'assets'
+    assets = workspace / 'app/assets'
     (assets / 'copy.pdf').write_bytes(b'synthetic policy')
     (assets / 'changing.doc').write_bytes(b'old')
     assert run('init', workspace) == 1
@@ -73,19 +73,19 @@ def test_diff_duplicates_and_moves(workspace):
 @pytest.mark.parametrize('value', ['../outside.pdf', '/absolute.pdf', 'C:/a.pdf',
                                   'a\\b.pdf', 'a//b.pdf', 'a/./b.pdf', 'a:stream', 'a./b.pdf'])
 def test_reject_unsafe_paths(workspace, value):
-    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'app/assets'))
     data['documents'][0]['source_path'] = value
     assert any('source_path' in error for error in validation.validate_schema(data))
 
 
 def test_reject_symlink(workspace):
-    link = workspace / 'assets/link.pdf'
+    link = workspace / 'app/assets/link.pdf'
     try:
-        link.symlink_to(workspace / 'assets/policy.pdf')
+        link.symlink_to(workspace / 'app/assets/policy.pdf')
     except OSError:
         pytest.skip('Creating symlinks requires OS permission; reparse-point rejection tested separately.')
     with pytest.raises(inventory.CatalogError, match='Link'):
-        inventory.inventory(workspace / 'assets')
+        inventory.inventory(workspace / 'app/assets')
 
 
 def test_reject_windows_reparse_point(workspace, monkeypatch):
@@ -97,7 +97,7 @@ def test_reject_windows_reparse_point(workspace, monkeypatch):
         return original(path, *args, **kwargs)
     monkeypatch.setattr(Path, 'lstat', lstat)
     with pytest.raises(inventory.CatalogError, match='reparse'):
-        inventory.inventory(workspace / 'assets')
+        inventory.inventory(workspace / 'app/assets')
 
 
 @pytest.mark.parametrize('field,value', [
@@ -106,13 +106,13 @@ def test_reject_windows_reparse_point(workspace, monkeypatch):
     ('effective_from', '2025-02-30'), ('access_groups', ['']), ('owner', 5),
 ])
 def test_malformed_fields_are_validation_errors(workspace, field, value):
-    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'app/assets'))
     data['documents'][0][field] = value
     assert reports.build_report('validate', data, {})['exit_code'] == 1
 
 
 def test_duplicate_ids_and_relations(workspace):
-    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'app/assets'))
     first = data['documents'][0]
     second = validation.new_record('second.pdf', {k: first[k] for k in ('sha256', 'size_bytes', 'extension')})
     data['documents'].append(second)
@@ -138,7 +138,7 @@ def test_duplicate_ids_and_relations(workspace):
 
 
 def test_readiness_and_effective_dates(workspace):
-    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'app/assets'))
     record = data['documents'][0]
     assert validation.validate_schema(data) == []
     record['indexing_decision'] = 'include'
@@ -153,8 +153,8 @@ def test_readiness_and_effective_dates(workspace):
 
 
 def test_duplicate_review_does_not_merge_rights(workspace):
-    (workspace / 'assets/copy.pdf').write_bytes(b'synthetic policy')
-    files = inventory.inventory(workspace / 'assets')
+    (workspace / 'app/assets/copy.pdf').write_bytes(b'synthetic policy')
+    files = inventory.inventory(workspace / 'app/assets')
     data = validation.new_catalog(files)
     for record in data['documents']:
         record.update(review_status='reviewed', indexing_decision='exclude')
@@ -167,12 +167,12 @@ def test_duplicate_review_does_not_merge_rights(workspace):
 
 
 def test_unknown_format_and_thumbnail(workspace):
-    (workspace / 'assets/Thumbs.db').write_bytes(b'ignored')
-    (workspace / 'assets/input.csv').write_bytes(b'a,b')
-    files = inventory.inventory(workspace / 'assets')
+    (workspace / 'app/assets/Thumbs.db').write_bytes(b'ignored')
+    (workspace / 'app/assets/input.unknown').write_bytes(b'a,b')
+    files = inventory.inventory(workspace / 'app/assets')
     assert 'Thumbs.db' not in files
     report = reports.build_report('scan', validation.new_catalog(files), files)
-    assert report['unrecognized_formats'] == ['input.csv']
+    assert report['unrecognized_formats'] == ['input.unknown']
     assert report['exit_code'] == 1
 
 
@@ -193,7 +193,7 @@ def test_atomic_failures_and_no_clobber(tmp_path, monkeypatch):
 
 def test_read_failure_preserves_catalog_and_no_success_report(workspace, monkeypatch, capsys):
     assert run('init', workspace) == 0
-    path = workspace / 'data/catalog/documents.json'
+    path = workspace / 'indexing_workspace/catalog/documents.json'
     before = path.read_bytes()
     reports_before = len(latest_reports(workspace))
     def fail(path):
@@ -207,7 +207,7 @@ def test_read_failure_preserves_catalog_and_no_success_report(workspace, monkeyp
 
 def test_invalid_json_is_operational_failure(workspace):
     assert run('init', workspace) == 0
-    path = workspace / 'data/catalog/documents.json'
+    path = workspace / 'indexing_workspace/catalog/documents.json'
     path.write_text('{invalid', encoding='utf-8')
     assert run('validate', workspace) == 2
     assert path.read_text() == '{invalid'
@@ -216,7 +216,7 @@ def test_invalid_json_is_operational_failure(workspace):
 def test_report_write_failure_preserves_existing_catalog(workspace, monkeypatch):
     from app.cli import asset_catalog as cli
     assert run('init', workspace) == 0
-    path = workspace / 'data/catalog/documents.json'
+    path = workspace / 'indexing_workspace/catalog/documents.json'
     before = path.read_bytes()
     def fail(*args):
         raise OSError('synthetic report failure')
@@ -230,14 +230,14 @@ def test_initial_publish_failure_leaves_no_partial_catalog(workspace, monkeypatc
         raise OSError('synthetic publish failure')
     monkeypatch.setattr(os, 'link', fail)
     assert run('init', workspace) == 2
-    assert not (workspace / 'data/catalog/documents.json').exists()
-    assert list((workspace / 'data/catalog').iterdir()) == []
+    assert not (workspace / 'indexing_workspace/catalog/documents.json').exists()
+    assert list((workspace / 'indexing_workspace/catalog').iterdir()) == []
 
 
 def test_cli_import_does_not_import_database():
     result = subprocess.run([sys.executable, '-c',
                              'import sys; import app.cli.asset_catalog; '
-                             'assert "app.db" not in sys.modules; '
+                             'assert "app.database" not in sys.modules; '
                              'assert "sqlalchemy" not in sys.modules'],
                             capture_output=True, text=True)
     assert result.returncode == 0, result.stderr

@@ -1,6 +1,7 @@
 """Database-free review orchestration."""
 import json
 import time
+from app.paths import workspace
 from app.ingestion import pdf, chunking, embeddings, artifacts
 
 
@@ -42,7 +43,7 @@ def run(args) -> int:
     # 3. Embed
     if not args.skip_embeddings:
         try:
-            chunks = embeddings.generate_embeddings(chunks)
+            chunks = embeddings.generate_embeddings(chunks, cache_folder=workspace() / "cache/huggingface")
         except Exception:
             raise RuntimeError("Embedding failed; check the model, dependencies and available memory.") from None
         print(f"Embedding dimensions: {len(chunks[0]['embedding'])}")

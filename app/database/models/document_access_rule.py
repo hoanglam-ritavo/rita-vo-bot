@@ -1,7 +1,7 @@
 from uuid import UUID
 from sqlalchemy import CheckConstraint, ForeignKey, Text
 from sqlalchemy.orm import Mapped, mapped_column
-from app.db.base import Base
+from app.database.base import Base
 
 
 class DocumentAccessRule(Base):

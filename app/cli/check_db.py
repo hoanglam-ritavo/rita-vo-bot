@@ -1,9 +1,9 @@
 import sys
 
-from app.db import check_database, close_database
-from app.db.config import ConfigurationError
-from app.db.runtime import run_async
-from app.db.session import DatabaseCheckError
+from app.database import check_database, close_database
+from app.database.config import ConfigurationError
+from app.database.runtime import run_async
+from app.database.session import DatabaseCheckError
 
 
 async def main() -> int:

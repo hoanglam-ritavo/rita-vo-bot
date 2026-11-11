@@ -1,6 +1,6 @@
 # Local asset catalog
 
-The catalog prepares source management for future RAG ingestion. It does not parse
+The catalog prepares source management for local ingestion and future RAG retrieval. It does not parse
 documents, generate embeddings, connect to PostgreSQL, or establish policy validity.
 All catalog operations described here run locally using Python's standard library.
 The separate [database importer](catalog-database.md) synchronizes this metadata
@@ -17,10 +17,10 @@ python -m app.cli.asset_catalog validate
 ```
 
 Paths are anchored to the repository, independent of the current working directory.
-`init` inventories every regular file under `assets`, except case-insensitive
-`Thumbs.db`, and creates `data/catalog/documents.json`. It refuses to overwrite an
+`init` inventories every regular file under `app/assets`, except case-insensitive
+`Thumbs.db`, and creates `indexing_workspace/catalog/documents.json`. It refuses to overwrite an
 existing catalog. Links, Windows junctions/reparse points, non-regular entries and
-non-portable source paths are rejected. PDF, DOC, DOCX and XLSX are recognized
+non-portable source paths are rejected. PDF, DOC, DOCX, XLSX, CSV, Markdown and TXT are recognized
 inventory formats, not a promise of parser support. Other extensions require review.
 
 `scan` and `validate` both validate the catalog and compare it with the current
@@ -31,7 +31,7 @@ multiple candidates can exist. A changed size or checksum is a discrepancy even 
 the path stays the same. Files must not be concurrently edited during a scan.
 
 Each invocation that completes produces a UUID-named JSON report and a readable TXT
-report in `data/reports`. Console output contains counts and status only. Reports may
+report in `indexing_workspace/reports`. Console output contains counts and status only. Reports may
 contain private filenames: keep them local. Operational failure prints a generic
 error and returns 2; no successful result is claimed. If report publication fails,
 an already-published catalog or individual report can remain; inspect the outputs
@@ -64,7 +64,7 @@ has one tracked source revision. Independently retained copies receive separate
 IDs; use relations to describe them. Revision history is retained through secured
 catalog backups, not multiple revisions sharing a document ID in this v1 schema.
 
-- `source_path` is relative to `assets`, with `/`, without drive, `..`, empty
+- `source_path` is relative to `app/assets`, with `/`, without drive, `..`, empty
   components, backslashes, Windows stream syntax or reserved filename characters.
 - `sha256` is a lowercase 64-digit hexadecimal checksum; `size_bytes` is a nonnegative
   integer; `extension` is the lowercase suffix including its dot (or empty).
@@ -128,7 +128,7 @@ validating a real source):
 
 Back up the catalog to approved private storage before editing. It contains curated
 work and UUIDs that cannot be recovered by rescanning sources. Git ignores this file;
-do not treat `data/catalog` like disposable cache or force-add it to Git.
+do not treat `indexing_workspace/catalog` like disposable cache or force-add it to Git.
 
 1. Run `scan` and inspect the local report. Review source content and obtain owner
    confirmation for policy applicability, relations and access rights.
@@ -181,7 +181,7 @@ replace the catalog. Stop if the source or catalog changes during reconciliation
 Do not recreate the catalog with `init`, infer moves from duplicate hashes alone,
 or change approval/access metadata merely to clear validation warnings.
 
-Local recovery records are stored in `data/reports/asset-sync/<run_id>/`:
+Local recovery records are stored in `indexing_workspace/archive/pre-reorganization/reports/asset-sync/<run_id>/`:
 `documents.before.json` is the exact pre-update catalog; `report.json` records
 old/new paths, UUIDs, fingerprints, removed records and completion status;
 `files.before.json` records pre-update file hashes for scope verification.
@@ -204,11 +204,12 @@ to be regenerated; changed source content requires a separately reviewed run.
 ## Extraction contract
 
 The [single-PDF publisher](ingestion.md) creates
-`data/extracted/<document_id>/<revision_id>/<run_id>/` for each attempt, containing
+`indexing_workspace/published_artifacts/<document_id>/<revision_id>/<run_id>/` for each attempt, containing
 a source snapshot, JSONL and a manifest recording source checksum and parser/OCR,
 chunking and embedding versions/configuration. Database chunks reference their
-run/revision and original one-based page range. Section and sheet/cell extraction
-remain future work.
+run/revision and original one-based page range. The separate reviewed-JSON
+workflow adds text heading/line context and sheet/cell provenance; see
+[offline indexing](offline-indexing.md).
 Existing experimental JSONL files remain unchanged and are not automatically
 migrated or imported. No extraction or index is created by catalog commands.
 
@@ -221,16 +222,16 @@ Its mapping does not cover the later manual moves or removal of `03-bieu-mau`.
 Do not apply or roll back that migration across subsequent changes without first
 reconciling the source and catalog snapshots.
 
-The task-specific `scripts/restructure_assets.py` utility performs a fixed, reviewed
+The task-specific `app/scripts/restructure_assets.py` utility performs a fixed, reviewed
 mapping of 15 source files. It does not infer a new taxonomy, rename filenames,
 delete duplicate files or change review decisions. It uses the existing Python
 environment and standard library; no database connection is made.
 
 ```powershell
-python scripts/restructure_assets.py
-python scripts/restructure_assets.py preview
-python scripts/restructure_assets.py apply
-python scripts/restructure_assets.py rollback --run-id <run-id-from-apply>
+python app/scripts/restructure_assets.py
+python app/scripts/restructure_assets.py preview
+python app/scripts/restructure_assets.py apply
+python app/scripts/restructure_assets.py rollback --run-id <run-id-from-apply>
 ```
 
 Preview is the default and writes nothing. Paths are anchored to this repository.
@@ -262,8 +263,11 @@ Only explicitly listed old directories are removed, using empty-directory remova
 after their files have moved. There is no recursive deletion or `.gitkeep`.
 The remaining top-level numeric prefixes are not renumbered.
 
-Before moving files, apply saves a manifest, journal and exact original catalog in
-`data/reports/asset-restructure/<run_id>/`. Keep this ignored directory in approved
+The original apply saved a manifest, journal and exact original catalog in its
+legacy data directory. Existing records have been relocated to
+`indexing_workspace/archive/pre-reorganization/reports/asset-restructure/<run_id>/`.
+The historical utility still uses its legacy paths and must not be run against the
+new workspace. Keep this ignored directory in approved
 private backups: it is the old-to-new path mapping and recovery record. The manifest
 records source fingerprints/attributes, identities, and original/created/removed
 directories. Moves do not overwrite destinations; each completed move is journaled.
@@ -283,3 +287,11 @@ layout without first resolving the newer migration.
 Historical rename manifests/journals, experimental JSONL, earlier reports and catalog
 backups are preserved. Their old paths describe their original snapshots; use the
 new manifest to trace them to current locations. No extraction outputs are rewritten.
+
+## Reviewed JSON ingestion
+
+The [offline indexing CLIs](offline-indexing.md) prepare supported catalog revisions
+without database access, seal reviewed JSON, and publish its embeddings after an
+explicit metadata import. Recognition does not imply parser support: DOC/DOCX
+remain catalog-only. Extraction may start from hold/pending records; approval and
+publication require the full include/reviewed/active eligibility contract.

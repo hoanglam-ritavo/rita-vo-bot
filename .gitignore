@@ -15,7 +15,7 @@ pytest-cache-files-*/
 /app/data/*
 !/app/data/README.md
 
-# Existing commands may still generate data at the repository root.
+# Legacy output locations stay ignored to protect residual private files.
 /data/*
 !/data/README.md
 
@@ -37,3 +37,7 @@ pytest-cache-files-*/
 /app/assets/**/*.[mM][tT][sS]
 /app/assets/**/*.[mM]2[tT][sS]
 /app/assets/**/*.3[gG][pP]
+
+# Indexing workspace: private working artifacts, not database storage.
+/indexing_workspace/*
+!/indexing_workspace/README.md

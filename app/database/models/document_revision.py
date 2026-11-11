@@ -3,8 +3,8 @@ from uuid import UUID, uuid4
 from sqlalchemy import BigInteger, Boolean, CheckConstraint, Date, ForeignKey, Index, Text, text
 from sqlalchemy.dialects.postgresql import JSONB, UUID as PGUUID
 from sqlalchemy.orm import Mapped, mapped_column
-from app.db.base import Base
-from app.db.models.mixins import Timestamps
+from app.database.base import Base
+from app.database.models.mixins import Timestamps
 
 
 class DocumentRevision(Timestamps, Base):

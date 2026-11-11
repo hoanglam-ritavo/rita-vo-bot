@@ -74,14 +74,20 @@ def resolve_tessdata(tessdata: Path | None, language: str) -> str:
 
 def load_pdf(pdf_path: Path, *, ocr_language: str = "vie+eng", ocr_dpi: int = 300,
              tessdata: Path | None = None, selected_pages=None, ocr_mode="auto",
-             ocr_region=None, review_dir: Path | None = None, manifest=None) -> list[dict]:
+             ocr_region=None, review_dir: Path | None = None, manifest=None, raw_pages=None) -> list[dict]:
     if ocr_dpi <= 0:
         raise ValueError("OCR DPI must be positive")
     validate_ocr_options(ocr_mode, ocr_region)
     pages = []
     counts = {"native": 0, "ocr": 0, "empty": 0}
     resolved_tessdata = None
-    source = Path(os.path.relpath(pdf_path.resolve(), Path.cwd())).as_posix()
+    # Normalize extended Windows spelling before computing provenance paths.
+    def ordinary(path):
+        value = str(path)
+        if value.startswith('\\\\?\\UNC\\'):
+            return '\\\\' + value[8:]
+        return value[4:] if value.startswith('\\\\?\\') else value
+    source = Path(os.path.relpath(ordinary(pdf_path.resolve()), ordinary(Path.cwd()))).as_posix()
 
     with pymupdf.open(pdf_path) as document:
         selection = set()
@@ -123,6 +129,8 @@ def load_pdf(pdf_path: Path, *, ocr_language: str = "vie+eng", ocr_dpi: int = 30
             counts[method] += 1
 
             raw_text = text
+            if raw_pages is not None:
+                raw_pages.append({'page': page_number, 'raw': raw_text, 'extraction_method': method})
             text = normalize_text(raw_text)
             if review_dir is not None:
                 (review_dir / f"page-{page_number}.raw.txt").write_text(raw_text, encoding="utf-8")

@@ -7,7 +7,7 @@ from uuid import UUID, uuid4
 from app.catalog.inventory import safe_relative
 
 
-KNOWN_EXTENSIONS = {'.pdf', '.doc', '.docx', '.xlsx'}
+KNOWN_EXTENSIONS = {'.pdf', '.doc', '.docx', '.xlsx', '.csv', '.md', '.txt'}
 
 
 RELATIONS = {'duplicate_of', 'supplements', 'supersedes', 'form_for'}

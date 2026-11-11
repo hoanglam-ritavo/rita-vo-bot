@@ -15,7 +15,7 @@ python -m app.cli.import_catalog --dry-run
 python -m app.cli.import_catalog
 ```
 
-Commands resolve `data/catalog/documents.json` and `assets/` relative to the
+Commands resolve `indexing_workspace/catalog/documents.json` and `app/assets/` relative to the
 repository, independently of the working directory. Import never runs migrations.
 Dry-run needs an already migrated database and uses a read-only, repeatable-read
 transaction to report planned additions, updates and retirement from the current
@@ -44,7 +44,7 @@ database or other operational failure. Failure messages omit private payloads.
 | `document_chunks` | Extracted content, source location, extraction method and nullable 384-dimensional vectors |
 
 Catalog document/revision UUIDs are preserved. Source paths retain the catalog's
-relative-to-`assets` convention. The importer maintains a Python `casefold()` path
+relative-to-`app/assets` convention. The importer maintains a Python `casefold()` path
 key, unique among current revisions; direct database writers must maintain that
 key too. Checksums are not unique and never merge source identities or permissions.
 Only one revision per document may be current. Historical revisions can retain
@@ -58,7 +58,11 @@ structural integrity; catalog validation enforces cross-record review rules.
 Chunks reference runs; runs reference revisions. Chunk indices are unique per
 run. `source_location` is a JSON object reserved for page ranges, section paths or
 sheet/cell ranges; PDF publication records one-based `page_start` and `page_end`.
-Other formats remain future work.
+The [reviewed-JSON publisher](offline-indexing.md) additionally stores review chunk
+IDs and lists of text/page/sheet spans derived from approved extraction snapshots.
+Mixed-source chunks preserve each span's method; the summary method is `ocr` if
+any contributing span used OCR. These values use existing JSONB columns and need
+no schema migration.
 `configuration` records parser/OCR/chunking/embedding versions and settings.
 The importer never creates these records. The [PDF producer](ingestion.md)
 explicitly records the model name/revision; future retrieval must use compatible

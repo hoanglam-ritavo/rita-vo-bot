@@ -3,7 +3,7 @@ from pgvector.sqlalchemy import Vector
 from sqlalchemy import CheckConstraint, ForeignKey, Integer, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import JSONB, UUID as PGUUID
 from sqlalchemy.orm import Mapped, mapped_column
-from app.db.base import Base
+from app.database.base import Base
 
 
 class DocumentChunk(Base):

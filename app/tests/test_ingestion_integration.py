@@ -9,9 +9,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from ingestion_helpers import setup_source, options, chunk
 from app.catalog.importer import synchronize
-from app.db import close_database, session_scope
-from app.db.models import IngestionRun, DocumentChunk
-from app.db.runtime import run_async
+from app.database import close_database, session_scope
+from app.database.models import IngestionRun, DocumentChunk
+from app.database.runtime import run_async
 from app.ingestion import publish as producer
 
 pytestmark = pytest.mark.integration

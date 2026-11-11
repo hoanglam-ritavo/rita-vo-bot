@@ -7,8 +7,8 @@ from pgvector.sqlalchemy import Vector
 from sqlalchemy import Column, Integer, MetaData, Table, insert, select
 from sqlalchemy.exc import StatementError
 
-from app.db import check_database, close_database, get_engine, session_scope
-from app.db.runtime import run_async
+from app.database import check_database, close_database, get_engine, session_scope
+from app.database.runtime import run_async
 
 pytestmark = pytest.mark.integration
 

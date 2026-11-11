@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from app.paths import REPOSITORY_ROOT, workspace, assets
 from app.catalog.inventory import CatalogError, inventory, reject_links
 from app.catalog.storage import atomic_write, json_text, load_catalog
 from app.catalog.reports import build_report, report_summary, write_report
@@ -15,19 +16,19 @@ def main(argv=None) -> int:
     parser.add_argument('command', choices=('init', 'scan', 'validate'))
     args = parser.parse_args(argv)
     # Repository-root paths do not depend on the caller's working directory.
-    root = Path(__file__).resolve().parents[2]
+    root = REPOSITORY_ROOT
     return run(args.command, root)
 
 
 def run(command: str, root: Path) -> int:
-    catalog_path = root / 'data/catalog/documents.json'
-    reports = root / 'data/reports'
+    catalog_path = workspace(root) / 'catalog/documents.json'
+    reports = workspace(root) / 'reports'
     try:
         reject_links(catalog_path)
         reject_links(reports)
         if command == 'init' and catalog_path.exists():
             raise CatalogError('Catalog already exists; init never overwrites it.')
-        files = inventory(root / 'assets')
+        files = inventory(assets(root))
         catalog = new_catalog(files) if command == 'init' else load_catalog(catalog_path)
         report = build_report(command, catalog, files)
         if command == 'init':

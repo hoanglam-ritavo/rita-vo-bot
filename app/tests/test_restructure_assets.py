@@ -10,7 +10,7 @@ import pytest
 from app.catalog.storage import atomic_write, json_text, load_catalog
 from app.catalog.inventory import inventory
 from app.catalog.validation import new_catalog
-from scripts import restructure_assets as migration
+from app.scripts import restructure_assets as migration
 
 
 @pytest.fixture

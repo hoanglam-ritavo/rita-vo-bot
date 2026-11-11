@@ -7,10 +7,11 @@ from uuid import UUID
 from sqlalchemy import delete, select, text
 
 from app.catalog.validation import NULLABLE_TEXT, STATES, compare, validate_schema
+from app.paths import workspace, assets
 from app.catalog.inventory import inventory, reject_links
 from app.catalog.storage import load_catalog
-from app.db import session_scope
-from app.db.models import Document, DocumentAccessRule, DocumentRelation, DocumentRevision
+from app.database import session_scope
+from app.database.models import Document, DocumentAccessRule, DocumentRelation, DocumentRevision
 
 IMPORT_LOCK = 728194031  # Shared by all full-catalog synchronization transactions.
 
@@ -29,13 +30,13 @@ class ImportResult:
 
 
 def prepare_catalog(root: Path):
-    path = root / 'data/catalog/documents.json'
+    path = workspace(root) / 'catalog/documents.json'
     reject_links(path)
     catalog = load_catalog(path)
     errors = validate_schema(catalog)
     if errors:
         raise ImportRejected(f'Catalog validation failed ({len(errors)} errors).')
-    differences = compare(catalog, inventory(root / 'assets'))
+    differences = compare(catalog, inventory(assets(root)))
     if any(differences[key] for key in ('added', 'missing', 'changed')):
         raise ImportRejected('Source inventory differs from catalog; reconcile it before import.')
     warnings = sum(len(differences[key]) for key in ('unresolved_duplicates', 'unrecognized_formats'))

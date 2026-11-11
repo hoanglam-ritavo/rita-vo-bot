@@ -1,4 +1,4 @@
-from app.db.base import Base
+from app.database.base import Base
 
 
 def include_object(obj, name, type_, reflected, compare_to):

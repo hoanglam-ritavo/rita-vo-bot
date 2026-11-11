@@ -11,9 +11,9 @@ from alembic.config import Config
 
 import main as entrypoint
 from app.cli import check_db
-from app.db import config, session
-from app.db.migrations import include_object
-from app.db.runtime import run_async
+from app.database import config, session
+from app.database.migrations import include_object
+from app.database.runtime import run_async
 
 
 @pytest.fixture(autouse=True)
@@ -97,8 +97,8 @@ with patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionEr
     import app.cli.ingest
     import app.cli.review
     import app.cli.import_catalog
-    import app.db.models
-    import app.db.migrations
+    import app.database.models
+    import app.database.migrations
     import app.ingestion.chunking
     import app.ingestion.embeddings
     import app.ingestion.artifacts

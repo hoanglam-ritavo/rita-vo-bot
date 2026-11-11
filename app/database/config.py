@@ -1,13 +1,13 @@
 """Configuration without connection side effects."""
 
 import os
-from pathlib import Path
+from app.paths import REPOSITORY_ROOT
 
 from dotenv import load_dotenv
 from sqlalchemy.engine import URL, make_url
 from sqlalchemy.exc import ArgumentError
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = REPOSITORY_ROOT
 
 
 class ConfigurationError(ValueError):

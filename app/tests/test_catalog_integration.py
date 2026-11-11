@@ -14,10 +14,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.catalog.validation import new_record
 from app.catalog.importer import ImportRejected, synchronize
-from app.db import Base, close_database, get_engine, session_scope
-from app.db.models import (Document, DocumentRevision, DocumentAccessRule,
+from app.database import Base, close_database, get_engine, session_scope
+from app.database.models import (Document, DocumentRevision, DocumentAccessRule,
                            DocumentRelation, IngestionRun, DocumentChunk)
-from app.db.runtime import run_async
+from app.database.runtime import run_async
 
 pytestmark = pytest.mark.integration
 

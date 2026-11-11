@@ -4,15 +4,15 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Scope and project status
 
-- The implemented system provides a Python database foundation, local catalog metadata import and single-PDF review/publication, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
+- The implemented system provides a Python database foundation, local catalog metadata import, multi-format reviewed-JSON ingestion and legacy single-PDF review/publication, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
 - Follow the requested task scope. Do not implement later phases or add dependencies merely because the architecture mentions them.
 - Keep documentation in English and synchronize it with changes to setup, supported behavior, and architectural decisions.
 
 ## Code and generated-data layout
 
 - Keep command entrypoints in `app/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
-- Put automated tests in `tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
-- Keep generated extraction results, caches, and reports under `data/` following [data/README.md](data/README.md). Do not commit these outputs or create unused feature directories ahead of implementation.
+- Put automated tests in `app/tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
+- Keep generated extraction results, caches, and reports under `indexing_workspace/` following [indexing_workspace/README.md](indexing_workspace/README.md). Do not commit these outputs or create unused feature directories ahead of implementation.
 
 ## Database conventions
 
@@ -24,7 +24,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Data and future chatbot behavior
 
-- Treat `assets/`, rename manifests, journals, and `rename-history/` as source material. Do not rename, rewrite, or regenerate them as incidental cleanup.
+- Treat `app/assets/`, rename manifests, journals, and `rename-history/` as source material. Do not rename, rewrite, or regenerate them as incidental cleanup.
 - Keep credentials and private document/personnel content out of committed examples and logs. Use synthetic examples and retain generic credential-safe database errors.
 - Preserve the Type A/Type B distinction: documents provide policy evidence; authoritative operational tools provide current personnel/project facts. Choose exact lookup/computation for structured questions when semantic retrieval is insufficient.
 - Validate tool parameters and access rights in the backend before execution or exposing data to a model. Resolve self-references from authenticated identity.

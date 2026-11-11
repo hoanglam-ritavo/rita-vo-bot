@@ -5,10 +5,10 @@ from alembic import command
 from alembic.config import Config
 from dotenv import load_dotenv
 from sqlalchemy import delete, func, select
-from app.db import Base, close_database, session_scope
-from app.db import models  # Register all tables before fixture cleanup.
-from app.db.config import ROOT, validate_url
-from app.db.runtime import run_async
+from app.database import Base, close_database, session_scope
+from app.database import models  # Register all tables before fixture cleanup.
+from app.database.config import ROOT, validate_url
+from app.database.runtime import run_async
 
 
 @pytest.fixture

@@ -1,11 +1,12 @@
 """Review PDFs locally or publish one catalog revision to PostgreSQL."""
 import argparse
 from pathlib import Path
+from app.paths import REPOSITORY_ROOT
 import re
 import sys
 from uuid import UUID
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = REPOSITORY_ROOT
 
 
 def commit(value):
@@ -47,12 +48,12 @@ def main(argv=None):
     publish.add_argument('--tessdata', type=Path)
     publish.add_argument('--ocr-mode', choices=('auto', 'always'), default='auto')
     args = parser.parse_args(argv)
-    from app.db.runtime import run_async
+    from app.database.runtime import run_async
     return run_async(run_publish(args))
 
 
 async def run_publish(args):
-    from app.db import close_database
+    from app.database import close_database
     from app.ingestion.publish import publish, PublishRejected
     try:
         result = await publish(ROOT, args)

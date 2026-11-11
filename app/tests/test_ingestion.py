@@ -11,7 +11,7 @@ import pytest
 from ingestion_helpers import setup_source, options, chunk
 
 from app.cli import ingest
-from app.db.runtime import run_async
+from app.database.runtime import run_async
 from app.ingestion import publish as producer
 
 
@@ -30,7 +30,7 @@ def test_publish_source_rejection(tmp_path, change):
             record['indexing_decision'] = 'hold'
         else:
             record['effective_to'] = '2000-01-01'
-        (tmp_path / 'data/catalog/documents.json').write_text(
+        (tmp_path / 'indexing_workspace/catalog/documents.json').write_text(
             json.dumps({'schema_version': 1, 'documents': [record]}), encoding='utf-8')
     with pytest.raises(producer.PublishRejected):
         producer.selected_record(tmp_path, revision)
@@ -77,9 +77,9 @@ def test_review_calls_shared_implementation(monkeypatch):
 
 @pytest.mark.parametrize('error,exit_code', [(producer.PublishRejected('Rejected.'), 1), (RuntimeError('private'), 2)])
 def test_publish_cli_closes_and_redacts(monkeypatch, capsys, error, exit_code):
-    import app.db
+    import app.database
     close = AsyncMock()
-    monkeypatch.setattr(app.db, 'close_database', close)
+    monkeypatch.setattr(app.database, 'close_database', close)
     monkeypatch.setattr(producer, 'publish', AsyncMock(side_effect=error))
     assert run_async(ingest.run_publish(SimpleNamespace())) == exit_code
     close.assert_awaited_once()
@@ -212,7 +212,7 @@ def test_final_preflight_rejects_changed_source_or_catalog(tmp_path, monkeypatch
         source.write_bytes(b'changed')
     else:
         modified = dict(record, title='Changed title')
-        (tmp_path / 'data/catalog/documents.json').write_text(
+        (tmp_path / 'indexing_workspace/catalog/documents.json').write_text(
             json.dumps({'schema_version': 1, 'documents': [modified]}), encoding='utf-8')
     session = Mock(side_effect=AssertionError('Should reject before transaction'))
     monkeypatch.setattr(producer, 'session_scope', session)

@@ -12,10 +12,11 @@ from uuid import UUID, uuid4
 
 from sqlalchemy import select, text
 
+from app.paths import workspace, assets
 from app.catalog.inventory import CatalogError, file_fingerprint, reject_links
 from app.catalog.importer import IMPORT_LOCK, ImportRejected, prepare_catalog, revision_values
-from app.db import session_scope
-from app.db.models import DocumentRevision, DocumentAccessRule, DocumentRelation, IngestionRun, DocumentChunk
+from app.database import session_scope
+from app.database.models import DocumentRevision, DocumentAccessRule, DocumentRelation, IngestionRun, DocumentChunk
 
 
 class PublishRejected(ValueError):
@@ -33,9 +34,9 @@ def selected_record(root, revision_id):
     if (record['extension'] != '.pdf' or record['indexing_decision'] != 'include'
             or record['review_status'] != 'reviewed' or record['lifecycle_status'] != 'active'):
         raise PublishRejected('Publish requires an included, reviewed, active PDF revision.')
-    source = root / 'assets' / record['source_path']
+    source = assets(root) / record['source_path']
     reject_links(source)
-    if not source.resolve().is_relative_to((root / 'assets').resolve()):
+    if not source.resolve().is_relative_to(assets(root).resolve()):
         raise PublishRejected('Source must be inside assets.')
     return record, source
 
@@ -122,7 +123,7 @@ def process_snapshot(root, snapshot, record, args, configuration, tessdata, dire
     for chunk in chunks:
         chunk['source'] = record['source_path']
     chunks = embeddings.generate_embeddings(chunks, model_revision=args.model_revision,
-                                     cache_folder=root / 'data/cache/huggingface')
+                                     cache_folder=workspace(root) / 'cache/huggingface')
     validate_chunks(chunks)
     actual_languages = {key: item['sha256'] for key, item in manifest['language_files'].items()}
     if actual_languages != configuration['language_sha256']:
@@ -163,6 +164,12 @@ async def finish_run(root, record, run_id, expected_active, chunks):
     if current != record:
         raise PublishRejected('Catalog changed during processing; retry after synchronization.')
     validate_chunks(chunks)
+    await activate_run(record, run_id, expected_active, [
+        {**c, 'source_location': {'page_start': c['page'], 'page_end': c['page']}} for c in chunks])
+
+
+async def activate_run(record, run_id, expected_active, chunks):
+    """Shared atomic activation; callers validate their source-specific contract first."""
     async with session_scope() as db:
         await lock(db)
         await check_revision(db, record)
@@ -173,7 +180,7 @@ async def finish_run(root, record, run_id, expected_active, chunks):
         if run is None or run.status != 'running' or run.revision_id != UUID(record['revision_id']):
             raise PublishRejected('Run is no longer eligible for publication.')
         db.add_all([DocumentChunk(run_id=run_id, chunk_index=c['chunk_index'], content=c['content'],
-                                  source_location={'page_start': c['page'], 'page_end': c['page']},
+                                  source_location=c['source_location'],
                                   extraction_method=c['extraction_method'], embedding=c['embedding']) for c in chunks])
         if active:
             active.is_active = False
@@ -207,7 +214,7 @@ async def publish(root, args):
         return previous
     print(f'Processing: run={run_id}')
     try:
-        directory = root / 'data/extracted' / record['document_id'] / record['revision_id'] / str(run_id)
+        directory = workspace(root) / 'published_artifacts' / record['document_id'] / record['revision_id'] / str(run_id)
         reject_links(directory)
         directory.mkdir(parents=True, exist_ok=False)
         snapshot = directory / 'source.pdf'

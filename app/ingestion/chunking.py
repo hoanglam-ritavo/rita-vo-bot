@@ -5,11 +5,11 @@ CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
 
 
-def chunk_text(
+def chunk_spans(
     text: str,
     chunk_size: int = CHUNK_SIZE,
     overlap: int = CHUNK_OVERLAP,
-) -> list[str]:
+) -> list[tuple[int, int]]:
     if chunk_size <= 0 or not 0 <= overlap < chunk_size:
         raise ValueError("Invalid chunk size or overlap")
 
@@ -30,10 +30,11 @@ def chunk_text(
                     end = lower + boundaries[-1].start()
                     break
 
-        chunk = text[start:end].strip()
+        raw = text[start:end]
+        chunk = raw.strip()
 
         if chunk:
-            chunks.append(chunk)
+            chunks.append((start + len(raw) - len(raw.lstrip()), end - len(raw) + len(raw.rstrip())))
         covered_until = end
         while covered_until < len(text) and text[covered_until].isspace():
             covered_until += 1
@@ -51,6 +52,10 @@ def chunk_text(
             start += 1
 
     return chunks
+
+
+def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> list[str]:
+    return [text[start:end] for start, end in chunk_spans(text, chunk_size, overlap)]
 
 
 def build_chunks(pages: list[dict]) -> list[dict]:
