@@ -5,7 +5,7 @@ Rita Bot is a planned Python chatbot for internal knowledge and operational info
 - **Type A:** relatively stable documents, procedures, policies, and reference data, answered through retrieval-augmented generation (RAG) and exact lookup where appropriate.
 - **Type B:** changing personnel and project information, queried from authoritative systems through controlled read-only tools. A future service adapter is intended to use gRPC.
 
-Implemented capabilities are the database foundation (Python 3.14, async SQLAlchemy, psycopg 3, PostgreSQL/pgvector, Alembic, and database tests), a local asset catalog CLI, and six Type A storage tables with transactional catalog metadata import. A separate experimental `test.py` example supports local PDF extraction/OCR and embeddings; it is not an application ingestion pipeline. There is no chatbot/API framework or question-routing implementation. `python -m app.cli.check_db` checks the database; it does not start a chatbot. `python main.py` is also supported as a thin wrapper entrypoint.
+Implemented capabilities are the database foundation (Python 3.14, async SQLAlchemy, psycopg 3, PostgreSQL/pgvector, Alembic, and database tests), a local asset catalog CLI, and six Type A storage tables with transactional catalog metadata import. Local PDF ingestion supports review and transactional publication of one approved catalog revision, including OCR, chunks and embeddings. There is no chatbot/API framework or question-routing implementation. `python -m app.cli.check_db` checks the database; it does not start a chatbot. `python main.py` defaults to the database check; explicit `check-db` and `ingest` commands are also supported.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGENTS.md) for contributor instructions.
 
@@ -13,9 +13,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGE
 
 | Location | Purpose |
 | --- | --- |
-| `app/cli/` | Database/pgvector check, local catalog operations and database import |
+| `app/cli/` | Database/pgvector check, local catalog operations, metadata import and PDF ingestion |
 | `app/asset_catalog.py` | Source inventory, catalog validation and atomic local reports |
-| `main.py` | Thin wrapper for the database check |
+| `main.py` | Thin dispatcher for database checks and PDF ingestion |
+| `app/ingestion/` | Shared local PDF processing and transactional publication |
 | `app/db/` | Configuration, async sessions, runtime helpers, Type A models and migration filtering |
 | `migrations/`, `alembic.ini` | Explicit migrations for vector and six Type A storage tables |
 | `tests/`, `pytest.ini` | Unit and PostgreSQL integration tests |
@@ -27,7 +28,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGE
 
 Files present in `assets/` do not imply parser support. The current collection contains 40 files: 31 PDF, 7 Excel (`.xlsx`) and 2 Word (`.doc`); no DOCX files remain; supported ingestion formats will be established during Type A implementation. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree but remain in Git history. Video formats under `assets/` are ignored by Git to avoid accidental reintroduction.
 
-Generated extraction/OCR outputs, caches, and evaluation reports belong under `data/`, separately from original assets. See [data/README.md](data/README.md) for the reserved locations; the example creates processing subdirectories as needed; no application ingestion pipeline exists yet. Automated tests belong in `tests/`; task-specific manual utilities belong in `scripts/`. The experimental `test.py` remains at the root by explicit request.
+Generated extraction/OCR outputs, caches, and evaluation reports belong under `data/`, separately from original assets. See [data/README.md](data/README.md) for the reserved locations; review and publish create processing subdirectories as needed. Automated tests belong in `tests/`; task-specific manual utilities belong in `scripts/`.
 
 ## Source folder layout
 
@@ -90,7 +91,13 @@ a validation error. Back up the curated catalog separately from disposable cache
 See the [catalog guide](docs/asset-catalog.md) for schema, synthetic example and
 maintenance workflows. Inventory format recognition is not ingestion support.
 
-## Optional local PDF/OCR example
+## Local PDF review and publication
+
+See the [ingestion guide](docs/ingestion.md) for publish prerequisites, failure behavior and examples.
+`python main.py ingest review <pdf>` and `python -m app.cli.ingest review <pdf>` expose the existing review options.
+Review never connects to PostgreSQL.
+
+### PDF/OCR review
 
 For Type A metadata storage, see the [catalog database guide](docs/catalog-database.md).
 After explicit migrations, preview with `python -m app.cli.import_catalog --dry-run`,
@@ -111,19 +118,19 @@ These are official Tesseract language files. PyMuPDF uses integrated OCR support
 First inspect extraction without loading an embedding model:
 
 ```powershell
-python test.py ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/rita-vo-ocr-chunks.jsonl
+python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/rita-vo-ocr-chunks.jsonl
 ```
 
 Remove `--skip-embeddings` to generate normalized vectors with `intfloat/multilingual-e5-small`. The first run may download public model weights from Hugging Face. Set `$env:HF_HOME = "$PWD/data/cache/huggingface"` before running to keep its cache under generated data.
 
-The example defaults to `--ocr-mode auto`: native text first, then full-page OCR only for pages without text. Use `--ocr-mode always` to OCR even an existing incomplete/corrupt text layer. Page rotation metadata is normalized in memory before OCR so text sorting uses upright coordinates; the source PDF is never saved or rewritten. Defaults remain `--ocr-language vie+eng`, `--ocr-dpi 300`, and `--output data/extracted/chunks.jsonl`. Language data resolution uses `--tessdata`, then `TESSDATA_PREFIX`, then PyMuPDF discovery. All requested language files must exist when OCR is needed. Missing data or a page OCR error produces a nonzero exit without replacing output. Successfully OCRed but empty pages are reported and skipped; an entirely empty result exits nonzero. JSONL is staged in the output directory and atomically replaced after successful processing; serialization and replacement failures preserve the existing file.
+Review defaults to `--ocr-mode auto`: native text first, then full-page OCR only for pages without text. Use `--ocr-mode always` to OCR even an existing incomplete/corrupt text layer. Page rotation metadata is normalized in memory before OCR so text sorting uses upright coordinates; the source PDF is never saved or rewritten. Defaults remain `--ocr-language vie+eng`, `--ocr-dpi 300`, and `--output data/extracted/chunks.jsonl`. Language data resolution uses `--tessdata`, then `TESSDATA_PREFIX`, then PyMuPDF discovery. All requested language files must exist when OCR is needed. Missing data or a page OCR error produces a nonzero exit without replacing output. Successfully OCRed but empty pages are reported and skipped; an entirely empty result exits nonzero. JSONL is staged in the output directory and atomically replaced after successful processing; serialization and replacement failures preserve the existing file.
 
-JSONL records contain `chunk_index`, original one-based `page`, `content`, `source` (relative to the working directory), and `extraction_method` (`native` or `ocr`), plus `embedding` unless skipped. Text is normalized to Unicode NFC with horizontal whitespace collapsed within each line; line and paragraph breaks are retained. Chunks contain at most 500 characters, prefer paragraph/line/word boundaries, and overlap by at most 100 characters using complete words. Oversized individual tokens require hard splitting. Chunks never cross pages. This is not automatic clause recognition or correction of missing words, diacritics, or reading order. Tables are not reconstructed. Do not commit generated/private content.
+Review JSONL records contain `chunk_index`, original one-based `page`, `content`, `source` (relative to the working directory), and `extraction_method` (`native` or `ocr`), plus `embedding` unless skipped. Text is normalized to Unicode NFC with horizontal whitespace collapsed within each line; line and paragraph breaks are retained. Chunks contain at most 500 characters, prefer paragraph/line/word boundaries, and overlap by at most 100 characters using complete words. Oversized individual tokens require hard splitting. Chunks never cross pages. This is not automatic clause recognition or correction of missing words, diacritics, or reading order. Tables are not reconstructed. Do not commit generated/private content.
 
 For a reproducible review without embeddings, choose a new review directory and output filename:
 
 ```powershell
-python test.py ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --pages 1-3,8,15,26,29 --ocr-mode always --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/ocr-fast-review.jsonl --review-dir data/reports/ocr-review/fast-run
+python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --pages 1-3,8,15,26,29 --ocr-mode always --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/ocr-fast-review.jsonl --review-dir data/reports/ocr-review/fast-run
 ```
 
 `--pages` uses one-based numbers and inclusive ranges, removes duplicates and processes pages in document order. All ranges are validated before OCR. `--review-dir` must be new or empty, and the JSONL output must be outside it. Each selected page produces `.raw.txt` and `.normalized.txt` files; OCR pages additionally produce a PNG rendered with the same settings as the raster passed to integrated OCR. Native pages have no OCR input image. The manifest records the source SHA-256, PyMuPDF version, selected pages, language-file paths and hashes, mode, region, DPI, timings and chunk count. `status: extraction_complete` describes extraction, not approval or successful JSONL publication; check the command exit status. Failed runs may leave partial review artifacts; use a fresh directory when retrying. Console messages do not include extracted document content.
@@ -142,7 +149,7 @@ Compare the same pages with `fast + vie+eng`, `best + vie+eng`, then `best + vie
 
 An exploratory local comparison found that `tessdata_best` with `vie` separated an interleaved passage better than the mixed-language runs. That observation is limited to an agent-transcribed excerpt awaiting human verification; neither cropping nor 400 DPI improved that excerpt further. It is a candidate for evaluation, not a validated winning configuration. Generated local comparison artifacts, when present, are under `data/reports/ocr-review/` and are not committed.
 
-The synthetic example tests mock OCR and embeddings and skip if PyMuPDF is not installed. They also exercise real in-memory PDF rotation/crop geometry without running recognition. Passing them does not establish real-document OCR quality.
+The synthetic PDF tests mock OCR and embeddings and skip if PyMuPDF is not installed. They also exercise real in-memory PDF rotation/crop geometry without running recognition. Passing them does not establish real-document OCR quality.
 
 ## Database configuration and behavior
 
@@ -202,8 +209,8 @@ To verify both extension states, run the suite against a fresh test database whe
 
 ## Roadmap
 
-1. **Implemented:** database foundation and checks; local asset catalog, source consistency checks, Type A storage schema and metadata import.
-2. **Planned:** Type A ingestion, retrieval, cited answers, and conversational context. Recognize Type B requests and report that the source is not connected.
+1. **Implemented:** database foundation and checks; local asset catalog, source consistency checks, Type A metadata import and single-PDF ingestion with atomic database publication.
+2. **Planned:** broader format/batch ingestion, Type A retrieval, cited answers, and conversational context. Recognize Type B requests and report that the source is not connected.
 3. **Planned:** authenticated, authorized Type B read-only service integration.
 4. **Planned:** combined questions using document rules and current operational data.
 

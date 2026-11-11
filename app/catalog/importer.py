@@ -6,8 +6,9 @@ from uuid import UUID
 
 from sqlalchemy import delete, select, text
 
-from app.asset_catalog import (NULLABLE_TEXT, STATES, compare, inventory, load_catalog,
-                               reject_links, validate_schema)
+from app.catalog.validation import NULLABLE_TEXT, STATES, compare, validate_schema
+from app.catalog.inventory import inventory, reject_links
+from app.catalog.storage import load_catalog
 from app.db import session_scope
 from app.db.models import Document, DocumentAccessRule, DocumentRelation, DocumentRevision
 

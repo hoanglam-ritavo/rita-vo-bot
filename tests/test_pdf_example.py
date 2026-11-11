@@ -1,5 +1,4 @@
 """Synthetic checks for the optional local PDF example; no model downloads."""
-import importlib.util
 import json
 import unicodedata
 from pathlib import Path
@@ -10,9 +9,7 @@ from unittest.mock import Mock
 import pytest
 
 pytest.importorskip("pymupdf", reason="Install requirements-example.txt for PDF example tests")
-spec = importlib.util.spec_from_file_location("pdf_example", Path(__file__).parents[1] / "test.py")
-example = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(example)
+from app.ingestion import pdf as example
 
 
 class Document(list):

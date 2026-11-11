@@ -9,10 +9,9 @@ import sys
 from uuid import UUID, uuid4
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from app.asset_catalog import (  # noqa: E402
-    CatalogError, atomic_write, compare, file_fingerprint, inventory,
-    json_text, load_catalog, reject_links, safe_relative, validate_schema,
-)
+from app.catalog.inventory import CatalogError, file_fingerprint, inventory, reject_links, safe_relative
+from app.catalog.storage import atomic_write, json_text, load_catalog
+from app.catalog.validation import compare, validate_schema
 
 
 GUIDES = '05-huong-dan-su-dung'

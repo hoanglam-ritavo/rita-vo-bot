@@ -241,10 +241,15 @@ def build_chunks(pages: list[dict]) -> list[dict]:
 
 
 # STEP 3: Embedding
-def generate_embeddings(chunks: list[dict]) -> list[dict]:
+def generate_embeddings(chunks: list[dict], *, model_revision=None, cache_folder=None) -> list[dict]:
     from sentence_transformers import SentenceTransformer
 
-    model = SentenceTransformer(MODEL_NAME)
+    options = {}
+    if model_revision is not None:
+        options["revision"] = model_revision
+    if cache_folder is not None:
+        options["cache_folder"] = str(cache_folder)
+    model = SentenceTransformer(MODEL_NAME, **options)
 
     # E5 models use passage: for documents
     texts = [
@@ -260,6 +265,8 @@ def generate_embeddings(chunks: list[dict]) -> list[dict]:
         show_progress_bar=True,
     )
 
+    if len(embeddings) != len(chunks):
+        raise RuntimeError("Embedding count mismatch")
     for chunk, vector in zip(chunks, embeddings):
         chunk["embedding"] = vector.tolist()
 
@@ -291,7 +298,7 @@ def positive_int(value: str) -> int:
     return result
 
 
-def main(argv=None) -> int:
+def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("pdf", type=Path)
     parser.add_argument(
@@ -308,8 +315,11 @@ def main(argv=None) -> int:
     parser.add_argument("--ocr-region", type=float, nargs=4, metavar=("LEFT", "TOP", "RIGHT", "BOTTOM"),
                         help="Upright page fractions (0..1); requires --ocr-mode always")
     parser.add_argument("--review-dir", type=Path, help="New or empty directory for private review artifacts")
-    args = parser.parse_args(argv)
+    return parser
 
+
+def main(argv=None) -> int:
+    args = create_parser().parse_args(argv)
     try:
         return run(args)
     except Exception as exc:

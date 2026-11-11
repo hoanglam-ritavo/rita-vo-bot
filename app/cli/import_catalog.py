@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 import sys
 
-from app.catalog_import import ImportRejected, prepare_catalog, synchronize
+from app.catalog.importer import ImportRejected, prepare_catalog, synchronize
 from app.db import close_database
 from app.db.runtime import run_async
 

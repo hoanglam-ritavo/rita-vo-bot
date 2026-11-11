@@ -40,8 +40,8 @@ database or other operational failure. Failure messages omit private payloads.
 | `document_revisions` | Source fingerprint, path, metadata, review, applicability, effective dates and current-catalog flag |
 | `document_access_rules` | Group names per revision; an empty set never means public |
 | `document_relations` | Explicit directed revision links: duplicate, supplement, replacement and form |
-| `ingestion_runs` | Future processing attempts, configuration/model provenance, status and active-run selection |
-| `document_chunks` | Future content, source location, extraction method and nullable 384-dimensional vectors |
+| `ingestion_runs` | PDF processing attempts, configuration/model provenance, status and active-run selection |
+| `document_chunks` | Extracted content, source location, extraction method and nullable 384-dimensional vectors |
 
 Catalog document/revision UUIDs are preserved. Source paths retain the catalog's
 relative-to-`assets` convention. The importer maintains a Python `casefold()` path
@@ -57,11 +57,14 @@ structural integrity; catalog validation enforces cross-record review rules.
 
 Chunks reference runs; runs reference revisions. Chunk indices are unique per
 run. `source_location` is a JSON object reserved for page ranges, section paths or
-sheet/cell ranges; semantic locator validation belongs to the future parser.
+sheet/cell ranges; PDF publication records one-based `page_start` and `page_end`.
+Other formats remain future work.
 `configuration` records parser/OCR/chunking/embedding versions and settings.
-The importer never creates these records. A future producer must explicitly
-record the model name/revision and use compatible query vectors: equal dimension
-does not establish equal embedding space. Only successful runs can be active,
+The importer never creates these records. The [PDF producer](ingestion.md)
+explicitly records the model name/revision; future retrieval must use compatible
+query vectors: equal dimension does not establish equal embedding space. PDF
+publication writes all chunks and switches active runs in one transaction.
+Only successful runs can be active,
 with at most one active run per revision. No vector search index is created yet.
 
 ## Synchronization and history

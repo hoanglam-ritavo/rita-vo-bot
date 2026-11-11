@@ -4,10 +4,10 @@ import argparse
 import sys
 from pathlib import Path
 
-from app.asset_catalog import (
-    CatalogError, atomic_write, build_report, inventory, json_text,
-    load_catalog, new_catalog, reject_links, report_summary, write_report,
-)
+from app.catalog.inventory import CatalogError, inventory, reject_links
+from app.catalog.storage import atomic_write, json_text, load_catalog
+from app.catalog.reports import build_report, report_summary, write_report
+from app.catalog.validation import new_catalog
 
 
 def main(argv=None) -> int:

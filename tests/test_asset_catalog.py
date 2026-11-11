@@ -11,7 +11,7 @@ from uuid import uuid4
 
 import pytest
 
-from app import asset_catalog as catalog
+from app.catalog import inventory, validation, storage, reports
 from app.cli.asset_catalog import run
 
 
@@ -24,11 +24,11 @@ def workspace(tmp_path):
 
 
 def read_catalog(root):
-    return catalog.load_catalog(root / 'data/catalog/documents.json')
+    return storage.load_catalog(root / 'data/catalog/documents.json')
 
 
 def save_catalog(root, value):
-    catalog.atomic_write(root / 'data/catalog/documents.json', catalog.json_text(value))
+    storage.atomic_write(root / 'data/catalog/documents.json', storage.json_text(value))
 
 
 def latest_reports(root):
@@ -61,7 +61,7 @@ def test_diff_duplicates_and_moves(workspace):
     (assets / 'policy.pdf').rename(assets / 'moved.pdf')
     (assets / 'changing.doc').write_bytes(b'new')
     (assets / 'new.xlsx').write_bytes(b'table')
-    report = catalog.build_report('scan', value, catalog.inventory(assets))
+    report = reports.build_report('scan', value, inventory.inventory(assets))
     assert report['added'] == ['moved.pdf', 'new.xlsx']
     assert report['missing'] == ['policy.pdf']
     assert report['changed'] == ['changing.doc']
@@ -73,9 +73,9 @@ def test_diff_duplicates_and_moves(workspace):
 @pytest.mark.parametrize('value', ['../outside.pdf', '/absolute.pdf', 'C:/a.pdf',
                                   'a\\b.pdf', 'a//b.pdf', 'a/./b.pdf', 'a:stream', 'a./b.pdf'])
 def test_reject_unsafe_paths(workspace, value):
-    data = catalog.new_catalog(catalog.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
     data['documents'][0]['source_path'] = value
-    assert any('source_path' in error for error in catalog.validate_schema(data))
+    assert any('source_path' in error for error in validation.validate_schema(data))
 
 
 def test_reject_symlink(workspace):
@@ -84,8 +84,8 @@ def test_reject_symlink(workspace):
         link.symlink_to(workspace / 'assets/policy.pdf')
     except OSError:
         pytest.skip('Creating symlinks requires OS permission; reparse-point rejection tested separately.')
-    with pytest.raises(catalog.CatalogError, match='Link'):
-        catalog.inventory(workspace / 'assets')
+    with pytest.raises(inventory.CatalogError, match='Link'):
+        inventory.inventory(workspace / 'assets')
 
 
 def test_reject_windows_reparse_point(workspace, monkeypatch):
@@ -96,8 +96,8 @@ def test_reject_windows_reparse_point(workspace, monkeypatch):
                                    st_file_attributes=0x400)
         return original(path, *args, **kwargs)
     monkeypatch.setattr(Path, 'lstat', lstat)
-    with pytest.raises(catalog.CatalogError, match='reparse'):
-        catalog.inventory(workspace / 'assets')
+    with pytest.raises(inventory.CatalogError, match='reparse'):
+        inventory.inventory(workspace / 'assets')
 
 
 @pytest.mark.parametrize('field,value', [
@@ -106,61 +106,61 @@ def test_reject_windows_reparse_point(workspace, monkeypatch):
     ('effective_from', '2025-02-30'), ('access_groups', ['']), ('owner', 5),
 ])
 def test_malformed_fields_are_validation_errors(workspace, field, value):
-    data = catalog.new_catalog(catalog.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
     data['documents'][0][field] = value
-    assert catalog.build_report('validate', data, {})['exit_code'] == 1
+    assert reports.build_report('validate', data, {})['exit_code'] == 1
 
 
 def test_duplicate_ids_and_relations(workspace):
-    data = catalog.new_catalog(catalog.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
     first = data['documents'][0]
-    second = catalog.new_record('second.pdf', {k: first[k] for k in ('sha256', 'size_bytes', 'extension')})
+    second = validation.new_record('second.pdf', {k: first[k] for k in ('sha256', 'size_bytes', 'extension')})
     data['documents'].append(second)
     second['document_id'] = first['document_id']
-    assert any('duplicate document_id' in e for e in catalog.validate_schema(data))
+    assert any('duplicate document_id' in e for e in validation.validate_schema(data))
     second['document_id'] = str(uuid4())
     second['revision_id'] = first['revision_id']
-    assert any('duplicate revision_id' in e for e in catalog.validate_schema(data))
+    assert any('duplicate revision_id' in e for e in validation.validate_schema(data))
     second['revision_id'] = str(uuid4())
     first['relations'] = [{'type': 'duplicate_of', 'revision_id': second['revision_id']}]
-    assert catalog.validate_schema(data) == []
+    assert validation.validate_schema(data) == []
     second['sha256'] = '0' * 64
-    assert any('hashes differ' in e for e in catalog.validate_schema(data))
+    assert any('hashes differ' in e for e in validation.validate_schema(data))
     first['relations'][0]['revision_id'] = str(uuid4())
-    assert any('relation target' in e for e in catalog.validate_schema(data))
+    assert any('relation target' in e for e in validation.validate_schema(data))
     first['relations'][0]['revision_id'] = first['revision_id']
-    assert any('self-referencing' in e for e in catalog.validate_schema(data))
+    assert any('self-referencing' in e for e in validation.validate_schema(data))
     first['relations'] = [{'type': 'supersedes', 'revision_id': second['revision_id']}]
     second['relations'] = [{'type': 'supersedes', 'revision_id': first['revision_id']}]
-    errors = catalog.validate_schema(data)
+    errors = validation.validate_schema(data)
     assert any('requires review' in e for e in errors)
     assert any('Cycle' in e for e in errors)
 
 
 def test_readiness_and_effective_dates(workspace):
-    data = catalog.new_catalog(catalog.inventory(workspace / 'assets'))
+    data = validation.new_catalog(inventory.inventory(workspace / 'assets'))
     record = data['documents'][0]
-    assert catalog.validate_schema(data) == []
+    assert validation.validate_schema(data) == []
     record['indexing_decision'] = 'include'
-    assert catalog.validate_schema(data)
+    assert validation.validate_schema(data)
     record.update(review_status='reviewed', lifecycle_status='active', owner='Synthetic owner',
                   applicability='Synthetic team', access_groups=['synthetic-readers'],
                   review_notes=['Applicability confirmed by synthetic owner.'])
-    assert catalog.validate_schema(data) == []
+    assert validation.validate_schema(data) == []
     record.update(effective_from='2099-01-01', effective_to='2000-01-01')
-    assert any('reversed' in e for e in catalog.validate_schema(data))
-    assert any('outside' in e for e in catalog.validate_schema(data))
+    assert any('reversed' in e for e in validation.validate_schema(data))
+    assert any('outside' in e for e in validation.validate_schema(data))
 
 
 def test_duplicate_review_does_not_merge_rights(workspace):
     (workspace / 'assets/copy.pdf').write_bytes(b'synthetic policy')
-    files = catalog.inventory(workspace / 'assets')
-    data = catalog.new_catalog(files)
+    files = inventory.inventory(workspace / 'assets')
+    data = validation.new_catalog(files)
     for record in data['documents']:
         record.update(review_status='reviewed', indexing_decision='exclude')
     data['documents'][0]['access_groups'] = ['synthetic-a']
     data['documents'][1]['access_groups'] = ['synthetic-b']
-    report = catalog.build_report('scan', data, files)
+    report = reports.build_report('scan', data, files)
     assert report['exit_code'] == 0
     assert len(report['duplicates']) == 1
     assert data['documents'][0]['document_id'] != data['documents'][1]['document_id']
@@ -169,9 +169,9 @@ def test_duplicate_review_does_not_merge_rights(workspace):
 def test_unknown_format_and_thumbnail(workspace):
     (workspace / 'assets/Thumbs.db').write_bytes(b'ignored')
     (workspace / 'assets/input.csv').write_bytes(b'a,b')
-    files = catalog.inventory(workspace / 'assets')
+    files = inventory.inventory(workspace / 'assets')
     assert 'Thumbs.db' not in files
-    report = catalog.build_report('scan', catalog.new_catalog(files), files)
+    report = reports.build_report('scan', validation.new_catalog(files), files)
     assert report['unrecognized_formats'] == ['input.csv']
     assert report['exit_code'] == 1
 
@@ -180,13 +180,13 @@ def test_atomic_failures_and_no_clobber(tmp_path, monkeypatch):
     path = tmp_path / 'catalog.json'
     path.write_text('old', encoding='utf-8')
     with pytest.raises(FileExistsError):
-        catalog.atomic_write(path, 'new', create_only=True)
+        storage.atomic_write(path, 'new', create_only=True)
     assert path.read_text() == 'old'
     def fail(*args):
         raise OSError('synthetic failure')
     monkeypatch.setattr(os, 'replace', fail)
     with pytest.raises(OSError):
-        catalog.atomic_write(path, 'new')
+        storage.atomic_write(path, 'new')
     assert path.read_text() == 'old'
     assert list(tmp_path.iterdir()) == [path]
 
@@ -198,7 +198,7 @@ def test_read_failure_preserves_catalog_and_no_success_report(workspace, monkeyp
     reports_before = len(latest_reports(workspace))
     def fail(path):
         raise PermissionError('private details must not appear')
-    monkeypatch.setattr(catalog, 'file_fingerprint', fail)
+    monkeypatch.setattr(inventory, 'file_fingerprint', fail)
     assert run('scan', workspace) == 2
     assert path.read_bytes() == before
     assert len(latest_reports(workspace)) == reports_before

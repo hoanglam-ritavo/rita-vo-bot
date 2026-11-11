@@ -1,95 +1,38 @@
-"""Local source inventory and catalog validation. No extraction or database access."""
-
-import hashlib
-import json
-import os
 import re
-import stat
-import tempfile
 from collections import defaultdict
 from datetime import date
-from pathlib import Path, PurePosixPath, PureWindowsPath
+from pathlib import PurePosixPath
 from uuid import UUID, uuid4
+from app.catalog.inventory import safe_relative
 
 
 KNOWN_EXTENSIONS = {'.pdf', '.doc', '.docx', '.xlsx'}
+
+
+
 RELATIONS = {'duplicate_of', 'supplements', 'supersedes', 'form_for'}
+
+
+
 NULLABLE_TEXT = {'title', 'category', 'document_type', 'owner', 'applicability',
                  'version_label'}
+
+
+
 STATES = {
     'lifecycle_status': {'unknown', 'active', 'superseded', 'withdrawn', 'expired'},
     'review_status': {'pending', 'reviewed'},
     'indexing_decision': {'hold', 'include', 'exclude'},
 }
+
+
+
 FIELDS = (NULLABLE_TEXT | set(STATES) | {
     'document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes',
     'extension', 'effective_from', 'effective_to', 'access_groups',
     'review_notes', 'relations',
 })
 
-
-class CatalogError(ValueError):
-    """A safe, operational error message for the CLI."""
-
-
-def reject_links(path: Path) -> None:
-    """Inspect every existing component without resolving away links/junctions."""
-    absolute = Path(os.path.abspath(path))
-    for component in (*reversed(absolute.parents), absolute):
-        try:
-            info = component.lstat()
-        except FileNotFoundError:
-            continue
-        if stat.S_ISLNK(info.st_mode) or (
-            getattr(info, 'st_file_attributes', 0)
-            & getattr(stat, 'FILE_ATTRIBUTE_REPARSE_POINT', 0x400)
-        ):
-            raise CatalogError('Link or reparse point rejected.')
-
-
-def safe_relative(value: object) -> bool:
-    if not isinstance(value, str) or not value or '\\' in value:
-        return False
-    parts = value.split('/')
-    return (not PureWindowsPath(value).drive and not value.startswith('/')
-            and all(part not in {'', '.', '..'} and not part.endswith((' ', '.'))
-                    and not re.search(r'[<>:"|?*\x00-\x1f]', part) for part in parts))
-
-
-def file_fingerprint(path: Path) -> dict:
-    reject_links(path)
-    with path.open('rb') as stream:
-        before = os.fstat(stream.fileno())
-        digest = hashlib.file_digest(stream, 'sha256').hexdigest()
-        after = os.fstat(stream.fileno())
-    if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
-        raise CatalogError('Source changed while being read; retry after updates stop.')
-    return {'sha256': digest, 'size_bytes': after.st_size,
-            'extension': path.suffix.lower()}
-
-
-def inventory(root: Path) -> dict:
-    reject_links(root)
-    if not root.is_dir():
-        raise CatalogError('Assets directory is unavailable.')
-    result = {}
-    pending = [root]
-    while pending:
-        directory = pending.pop()
-        for path in sorted(directory.iterdir()):
-            reject_links(path)
-            if path.is_dir():
-                pending.append(path)
-            elif path.is_file():
-                if path.name.lower() == 'thumbs.db':
-                    continue
-                relative = path.relative_to(root).as_posix()
-                if not safe_relative(relative):
-                    raise CatalogError('Source filename is not portable; review required.')
-                result[relative] = file_fingerprint(path)
-            else:
-                raise CatalogError('Non-regular source entry rejected.')
-    return dict(sorted(result.items()))
 
 
 def new_record(path: str, fingerprint: dict) -> dict:
@@ -106,43 +49,11 @@ def new_record(path: str, fingerprint: dict) -> dict:
     }
 
 
+
 def new_catalog(files: dict) -> dict:
     return {'schema_version': 1,
             'documents': [new_record(path, value) for path, value in files.items()]}
 
-
-def atomic_write(path: Path, text: str, *, create_only: bool = False) -> None:
-    """Publish a complete file; init uses a hard link for atomic no-clobber."""
-    reject_links(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    reject_links(path.parent)
-    temporary = None
-    try:
-        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', newline='\n',
-                                         dir=path.parent, delete=False) as stream:
-            temporary = Path(stream.name)
-            stream.write(text)
-            stream.flush()
-            os.fsync(stream.fileno())
-        if create_only:
-            os.link(temporary, path)
-        else:
-            os.replace(temporary, path)
-    finally:
-        if temporary is not None:
-            temporary.unlink(missing_ok=True)
-
-
-def json_text(value: object) -> str:
-    return json.dumps(value, ensure_ascii=False, indent=2) + '\n'
-
-
-def load_catalog(path: Path) -> object:
-    reject_links(path)
-    try:
-        return json.loads(path.read_text(encoding='utf-8-sig'))
-    except (json.JSONDecodeError, UnicodeError) as exc:
-        raise CatalogError('Catalog is not valid UTF-8 JSON.') from exc
 
 
 def valid_uuid(value: object) -> bool:
@@ -152,9 +63,11 @@ def valid_uuid(value: object) -> bool:
         return False
 
 
+
 def text_list(value: object) -> bool:
     return (isinstance(value, list)
             and all(isinstance(item, str) and item.strip() for item in value))
+
 
 
 def validate_schema(catalog: object) -> list[str]:
@@ -268,6 +181,7 @@ def validate_schema(catalog: object) -> list[str]:
     return errors
 
 
+
 def compare(catalog: dict, files: dict) -> dict:
     stored = {r['source_path']: r for r in catalog['documents']}
     added = sorted(files.keys() - stored.keys())
@@ -293,38 +207,3 @@ def compare(catalog: dict, files: dict) -> dict:
                            if stored[old]['sha256'] == files[new]['sha256']],
         'unrecognized_formats': [p for p, f in files.items() if f['extension'] not in KNOWN_EXTENSIONS],
     }
-
-
-def build_report(command: str, catalog: object, files: dict) -> dict:
-    errors = validate_schema(catalog)
-    report = {'command': command, 'errors': errors, 'source_count': len(files),
-              'catalog_count': 0, 'hold_count': 0, 'include_count': 0,
-              'reviewed_count': 0, 'exit_code': 1}
-    if errors:
-        return report
-    documents = catalog['documents']
-    report.update(compare(catalog, files))
-    report.update(catalog_count=len(documents),
-                  hold_count=sum(r['indexing_decision'] == 'hold' for r in documents),
-                  include_count=sum(r['indexing_decision'] == 'include' for r in documents),
-                  reviewed_count=sum(r['review_status'] == 'reviewed' for r in documents))
-    report['exit_code'] = int(any(report[key] for key in
-                                 ('added', 'missing', 'changed', 'unresolved_duplicates', 'unrecognized_formats')))
-    return report
-
-
-def report_summary(report: dict) -> str:
-    counts = {key: len(value) if isinstance(value, list) else value
-              for key, value in report.items() if key != 'command'}
-    return ' '.join(f'{key}={value}' for key, value in counts.items())
-
-
-def write_report(directory: Path, report: dict) -> None:
-    run_id = str(uuid4())
-    basename = f'asset-catalog-{report["command"]}-{run_id}'
-    atomic_write(directory / f'{basename}.json', json_text(report), create_only=True)
-    lines = ['Asset catalog report', report_summary(report), '']
-    for key, value in report.items():
-        if isinstance(value, list) and value:
-            lines.extend([key + ':', json.dumps(value, ensure_ascii=False, indent=2), ''])
-    atomic_write(directory / f'{basename}.txt', '\n'.join(lines), create_only=True)

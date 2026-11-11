@@ -13,8 +13,8 @@ from sqlalchemy.exc import IntegrityError, StatementError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from test_integration import test_database  # Reuse dedicated-database URL guard.
-from app.asset_catalog import new_record
-from app.catalog_import import ImportRejected, synchronize
+from app.catalog.validation import new_record
+from app.catalog.importer import ImportRejected, synchronize
 from app.db import Base, close_database, get_engine, session_scope
 from app.db.models import (Document, DocumentRevision, DocumentAccessRule,
                            DocumentRelation, IngestionRun, DocumentChunk)

@@ -76,7 +76,9 @@ def test_entrypoint_always_closes(monkeypatch, capsys, error):
 
 @pytest.mark.parametrize('exit_code', [0, 1])
 def test_main_entrypoint_delegates(monkeypatch, exit_code):
-    assert entrypoint.main is check_db.main
+    from app.cli.main import main as dispatch
+    assert entrypoint.main is dispatch
+    monkeypatch.setattr(sys, 'argv', ['main.py'])
     main = AsyncMock(return_value=exit_code)
     monkeypatch.setattr(check_db, 'main', main)
     with pytest.raises(SystemExit) as result:
@@ -92,7 +94,10 @@ with patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionEr
      patch('dotenv.load_dotenv', side_effect=AssertionError('Unexpected configuration loading')):
     import app.cli.check_db
     import main as entrypoint
-    assert entrypoint.main is app.cli.check_db.main
+    import app.cli.ingest
+    assert callable(entrypoint.main)
+    assert "pymupdf" not in __import__("sys").modules
+    assert "sentence_transformers" not in __import__("sys").modules
 '''
     result = subprocess.run([sys.executable, '-c', script], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr

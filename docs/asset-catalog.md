@@ -201,12 +201,14 @@ current source. For artifacts predating the earlier folder migration, follow tha
 migration's mapping first. A path-only change does not require OCR or embeddings
 to be regenerated; changed source content requires a separately reviewed run.
 
-## Future extraction contract (not implemented)
+## Extraction contract
 
-Reserve `data/extracted/<document_id>/<revision_id>/<run_id>/` for future runs; do
-not create empty directories ahead of implementation. A run manifest will record
-source checksum and parser/OCR, chunking and embedding versions/configuration.
-Chunks will retain document/revision IDs and page, section or sheet/cell locations.
+The [single-PDF publisher](ingestion.md) creates
+`data/extracted/<document_id>/<revision_id>/<run_id>/` for each attempt, containing
+a source snapshot, JSONL and a manifest recording source checksum and parser/OCR,
+chunking and embedding versions/configuration. Database chunks reference their
+run/revision and original one-based page range. Section and sheet/cell extraction
+remain future work.
 Existing experimental JSONL files remain unchanged and are not automatically
 migrated or imported. No extraction or index is created by catalog commands.
 

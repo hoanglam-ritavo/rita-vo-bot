@@ -7,7 +7,9 @@ from pathlib import Path
 
 import pytest
 
-from app.asset_catalog import atomic_write, inventory, json_text, load_catalog, new_catalog
+from app.catalog.storage import atomic_write, json_text, load_catalog
+from app.catalog.inventory import inventory
+from app.catalog.validation import new_catalog
 from scripts import restructure_assets as migration
 
 

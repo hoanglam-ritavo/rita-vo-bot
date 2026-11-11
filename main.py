@@ -1,8 +1,7 @@
-"""Wrapper entrypoint for the database check command."""
+"""Thin command dispatcher; no database or model work at import time."""
 
-from app.cli.check_db import main
-from app.db.runtime import run_async
+from app.cli.main import main
 
 
 if __name__ == '__main__':
-    raise SystemExit(run_async(main()))
+    raise SystemExit(main())

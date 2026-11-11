@@ -11,8 +11,9 @@ import pytest
 from alembic import command
 from alembic.config import Config
 
-from app.asset_catalog import inventory, new_catalog
-from app import catalog_import as importer
+from app.catalog.inventory import inventory
+from app.catalog.validation import new_catalog
+from app.catalog import importer
 from app.cli import import_catalog as cli
 from app.db.models import DocumentRevision
 from app.db.runtime import run_async
