@@ -25,7 +25,8 @@ def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] == 'review':
         try:
-            from app.ingestion.pdf import create_parser, run
+            from app.cli.review import create_parser
+            from app.ingestion.review import run
             args = create_parser().parse_args(argv[1:])
             return run(args)
         except ValueError:

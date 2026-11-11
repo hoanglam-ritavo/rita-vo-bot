@@ -14,15 +14,15 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGE
 | Location | Purpose |
 | --- | --- |
 | `app/cli/` | Database/pgvector check, local catalog operations, metadata import and PDF ingestion |
-| `app/asset_catalog.py` | Source inventory, catalog validation and atomic local reports |
+| `app/catalog/` | Source inventory, metadata validation, local reports and database import |
 | `main.py` | Thin dispatcher for database checks and PDF ingestion |
 | `app/ingestion/` | Shared local PDF processing and transactional publication |
-| `app/db/` | Configuration, async sessions, runtime helpers, Type A models and migration filtering |
-| `migrations/`, `alembic.ini` | Explicit migrations for vector and six Type A storage tables |
+| `app/db/` | Configuration, async sessions, runtime helpers, per-table ORM models and explicit migrations |
+| `app/db/migrations/`, `alembic.ini` | Explicit migrations for vector and six Type A storage tables |
 | `tests/`, `pytest.ini` | Unit and PostgreSQL integration tests |
 | `assets/` | Source documents and other reference assets |
 | `data/` | Curated local catalog and generated outputs; only its README is kept in Git |
-| `scripts/normalize-assets.ps1`, `scripts/test-normalize-assets.ps1` | Asset-renaming utility and its checks, separate from chatbot ingestion |
+| `scripts/normalize-assets.ps1`, `tests/powershell/test-normalize-assets.ps1` | Asset-renaming utility and its checks, separate from chatbot ingestion |
 | `assets-rename-manifest.json`, `assets-rename-journal.json`, `rename-history/` | Asset-renaming records |
 | `requirements.txt`, `requirements-dev.txt`, `.env.example` | Dependencies and example configuration |
 
@@ -97,59 +97,13 @@ See the [ingestion guide](docs/ingestion.md) for publish prerequisites, failure 
 `python main.py ingest review <pdf>` and `python -m app.cli.ingest review <pdf>` expose the existing review options.
 Review never connects to PostgreSQL.
 
-### PDF/OCR review
-
-For Type A metadata storage, see the [catalog database guide](docs/catalog-database.md).
-After explicit migrations, preview with `python -m app.cli.import_catalog --dry-run`,
-then synchronize with `python -m app.cli.import_catalog`. Both require the configured
-database; neither creates chunks or embeddings or changes the local catalog.
-
-Install example dependencies separately from the database dependencies:
+Install `requirements-example.txt` for local PDF processing, then follow the
+[OCR setup and evaluation guide](docs/ingestion.md#pdfocr-review).
+For a first review (replace the illustrative path with a real source):
 
 ```powershell
-python -m pip install -r requirements-example.txt
-New-Item -ItemType Directory -Force data/cache/tessdata | Out-Null
-Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/vie.traineddata -OutFile data/cache/tessdata/vie.traineddata
-Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/eng.traineddata -OutFile data/cache/tessdata/eng.traineddata
+python main.py ingest review ./assets/synthetic.pdf --skip-embeddings --tessdata data/cache/tessdata
 ```
-
-These are official Tesseract language files. PyMuPDF uses integrated OCR support directly, without `pytesseract` or Poppler. Processing runs locally; the PDF is not uploaded.
-
-First inspect extraction without loading an embedding model:
-
-```powershell
-python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/rita-vo-ocr-chunks.jsonl
-```
-
-Remove `--skip-embeddings` to generate normalized vectors with `intfloat/multilingual-e5-small`. The first run may download public model weights from Hugging Face. Set `$env:HF_HOME = "$PWD/data/cache/huggingface"` before running to keep its cache under generated data.
-
-Review defaults to `--ocr-mode auto`: native text first, then full-page OCR only for pages without text. Use `--ocr-mode always` to OCR even an existing incomplete/corrupt text layer. Page rotation metadata is normalized in memory before OCR so text sorting uses upright coordinates; the source PDF is never saved or rewritten. Defaults remain `--ocr-language vie+eng`, `--ocr-dpi 300`, and `--output data/extracted/chunks.jsonl`. Language data resolution uses `--tessdata`, then `TESSDATA_PREFIX`, then PyMuPDF discovery. All requested language files must exist when OCR is needed. Missing data or a page OCR error produces a nonzero exit without replacing output. Successfully OCRed but empty pages are reported and skipped; an entirely empty result exits nonzero. JSONL is staged in the output directory and atomically replaced after successful processing; serialization and replacement failures preserve the existing file.
-
-Review JSONL records contain `chunk_index`, original one-based `page`, `content`, `source` (relative to the working directory), and `extraction_method` (`native` or `ocr`), plus `embedding` unless skipped. Text is normalized to Unicode NFC with horizontal whitespace collapsed within each line; line and paragraph breaks are retained. Chunks contain at most 500 characters, prefer paragraph/line/word boundaries, and overlap by at most 100 characters using complete words. Oversized individual tokens require hard splitting. Chunks never cross pages. This is not automatic clause recognition or correction of missing words, diacritics, or reading order. Tables are not reconstructed. Do not commit generated/private content.
-
-For a reproducible review without embeddings, choose a new review directory and output filename:
-
-```powershell
-python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --pages 1-3,8,15,26,29 --ocr-mode always --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/ocr-fast-review.jsonl --review-dir data/reports/ocr-review/fast-run
-```
-
-`--pages` uses one-based numbers and inclusive ranges, removes duplicates and processes pages in document order. All ranges are validated before OCR. `--review-dir` must be new or empty, and the JSONL output must be outside it. Each selected page produces `.raw.txt` and `.normalized.txt` files; OCR pages additionally produce a PNG rendered with the same settings as the raster passed to integrated OCR. Native pages have no OCR input image. The manifest records the source SHA-256, PyMuPDF version, selected pages, language-file paths and hashes, mode, region, DPI, timings and chunk count. `status: extraction_complete` describes extraction, not approval or successful JSONL publication; check the command exit status. Failed runs may leave partial review artifacts; use a fresh directory when retrying. Console messages do not include extracted document content.
-
-To isolate a region, add `--ocr-region LEFT TOP RIGHT BOTTOM` together with `--ocr-mode always`. Coordinates are fractions in `[0, 1]` of the upright page, with origin at the top left, and must describe a positive-area rectangle. For example, `--ocr-region 0.1 0.1 0.9 0.9` selects the central 80%; it is an illustration, **not** a validated crop for this document. Inspect the saved raster for clipped text. The region is rendered at the chosen DPI into a temporary in-memory PDF at its physical size and OCRed. All selected pages share that region; run cover, body and signing pages separately if they need different bounds. Cropping is explicit: no automatic border/stamp removal, deskew, layout detection or handwriting recognition is added.
-
-For an optional model comparison, manually download the official best weights separately; the script never downloads OCR models:
-
-```powershell
-New-Item -ItemType Directory -Force data/cache/tessdata_best | Out-Null
-Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/vie.traineddata -OutFile data/cache/tessdata_best/vie.traineddata
-Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/eng.traineddata -OutFile data/cache/tessdata_best/eng.traineddata
-```
-
-Compare the same pages with `fast + vie+eng`, `best + vie+eng`, then `best + vie`, all at 300 DPI, using distinct output/review paths. Compare inspected body regions separately; test 400 DPI on pages 15 and 26 only after choosing a candidate. Keep human-verified reference transcriptions under `data/reports/ocr-review/`, outside run directories. Evaluate before chunking, normalize Unicode and whitespace identically, and compare exactly the same source region. Measure character errors alongside missing lines, numbers, negations and clause order. Better-looking formatting or passing mock tests is not evidence of improved recognition. No winning configuration or policy-grade accuracy is established without that comparison; defaults remain unchanged. Handwritten dates and stamp/signature regions still require manual verification.
-
-An exploratory local comparison found that `tessdata_best` with `vie` separated an interleaved passage better than the mixed-language runs. That observation is limited to an agent-transcribed excerpt awaiting human verification; neither cropping nor 400 DPI improved that excerpt further. It is a candidate for evaluation, not a validated winning configuration. Generated local comparison artifacts, when present, are under `data/reports/ocr-review/` and are not committed.
-
-The synthetic PDF tests mock OCR and embeddings and skip if PyMuPDF is not installed. They also exercise real in-memory PDF rotation/crop geometry without running recognition. Passing them does not establish real-document OCR quality.
 
 ## Database configuration and behavior
 
@@ -181,7 +135,7 @@ On Windows, the entrypoint and Alembic use `SelectorEventLoop` through `app.db.r
 
 ## Adding migrations
 
-Future models must inherit `app.db.Base` and be imported into `migrations/env.py` before metadata is configured. Generate a revision:
+Future models must inherit `app.db.Base`, live in `app/db/models/`, and be exported by its `__init__.py`. Alembic imports this package in `app/db/migrations/env.py` to register all tables before metadata is configured. Generate a revision:
 
 ```powershell
 python -m alembic revision --autogenerate -m "description"
@@ -191,7 +145,7 @@ Review the generated migration before applying it with `python -m alembic upgrad
 
 ## Testing
 
-Run unit tests:
+Run unit tests (shared database fixtures only execute when requested by integration tests):
 
 ```powershell
 python -m pytest -m 'not integration'
@@ -206,6 +160,12 @@ python -m pytest -m integration
 Integration tests migrate that database, create/drop randomly named test tables, and use a temporary table for vector checks. They leave `alembic_version` and the extension in the test database. Never use production. The guard rejects a test URL matching the application or migration host/port/database, but cannot detect different hostname aliases for the same server.
 
 To verify both extension states, run the suite against a fresh test database where vector has not been enabled, then rerun with vector already enabled. Missing `TEST_DATABASE_URL` causes integration tests to be skipped; a skipped run does not verify real PostgreSQL connectivity. Do not substitute SQLite for these checks.
+
+The PowerShell utility checks use synthetic temporary sources:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tests/powershell/test-normalize-assets.ps1
+```
 
 ## Roadmap
 

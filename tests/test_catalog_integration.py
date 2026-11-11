@@ -8,11 +8,10 @@ from alembic import command
 from alembic.config import Config
 from alembic.autogenerate import compare_metadata
 from alembic.migration import MigrationContext
-from sqlalchemy import delete, func, select, text
+from sqlalchemy import func, select, text
 from sqlalchemy.exc import IntegrityError, StatementError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from test_integration import test_database  # Reuse dedicated-database URL guard.
 from app.catalog.validation import new_record
 from app.catalog.importer import ImportRejected, synchronize
 from app.db import Base, close_database, get_engine, session_scope
@@ -30,27 +29,6 @@ def snapshot():
     records[0]['relations'] = [{'type': 'duplicate_of', 'revision_id': records[1]['revision_id']}]
     records[1]['indexing_decision'] = 'exclude'
     return {'schema_version': 1, 'documents': records}
-
-
-@pytest.fixture
-def empty_catalog_db(test_database):
-    async def check():
-        try:
-            async with session_scope() as db:
-                for table in Base.metadata.sorted_tables:
-                    assert await db.scalar(select(func.count()).select_from(table)) == 0, 'Catalog tests require empty application tables.'
-        finally:
-            await close_database()
-    run_async(check())
-    yield
-    async def clean():
-        try:
-            async with session_scope() as db:
-                for table in reversed(Base.metadata.sorted_tables):
-                    await db.execute(delete(table))
-        finally:
-            await close_database()
-    run_async(clean())
 
 
 def test_import_lifecycle(empty_catalog_db):

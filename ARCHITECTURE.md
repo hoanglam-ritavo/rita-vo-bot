@@ -1,4 +1,4 @@
-﻿# Rita Bot Architecture
+# Rita Bot Architecture
 
 ## Status and direction
 
@@ -8,7 +8,7 @@ The current implementation uses Python 3.14, async SQLAlchemy and psycopg, Postg
 
 The target is Python orchestration with locally operated models. No paid cloud inference service or RAGFlow dependency is required. Self-hosting pretrained models is distinct from training a language model from scratch; initial development should focus on retrieval and evaluation. Local operation still requires hardware, maintenance, and compliance with model licenses. All model-dependent stages, including OCR, embeddings, reranking, and generation, must be considered when keeping data local.
 
-Command entrypoints live in `app/cli/`; database infrastructure remains in `app/db/`. Source documents stay in `assets/`, while generated extraction results, caches, and reports belong under `data/` according to [its conventions](data/README.md). Review and publish create generated-data subdirectories as needed.
+Command entrypoints live in `app/cli/`; database infrastructure remains in `app/db/`, including per-table ORM modules in `models/` and Alembic revisions in `migrations/`. The `app/catalog/` package separates inventory, validation, storage, reports and database import. The `app/ingestion/` package separates PDF extraction, chunking, embeddings, artifacts, review and publication. Source documents stay in `assets/`, while generated extraction results, caches, and reports belong under `data/` according to [its conventions](data/README.md). Review and publish create generated-data subdirectories as needed.
 
 ## Data sources and retrieval strategy
 

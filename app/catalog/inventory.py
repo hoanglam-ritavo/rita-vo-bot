@@ -1,3 +1,4 @@
+"""Portable source paths, link rejection and content inventory."""
 import hashlib
 import os
 import re
@@ -7,7 +8,6 @@ from pathlib import Path, PureWindowsPath
 
 class CatalogError(ValueError):
     """A safe, operational error message for the CLI."""
-
 
 
 def reject_links(path: Path) -> None:
@@ -25,7 +25,6 @@ def reject_links(path: Path) -> None:
             raise CatalogError('Link or reparse point rejected.')
 
 
-
 def safe_relative(value: object) -> bool:
     if not isinstance(value, str) or not value or '\\' in value:
         return False
@@ -33,7 +32,6 @@ def safe_relative(value: object) -> bool:
     return (not PureWindowsPath(value).drive and not value.startswith('/')
             and all(part not in {'', '.', '..'} and not part.endswith((' ', '.'))
                     and not re.search(r'[<>:"|?*\x00-\x1f]', part) for part in parts))
-
 
 
 def file_fingerprint(path: Path) -> dict:
@@ -46,7 +44,6 @@ def file_fingerprint(path: Path) -> dict:
         raise CatalogError('Source changed while being read; retry after updates stop.')
     return {'sha256': digest, 'size_bytes': after.st_size,
             'extension': path.suffix.lower()}
-
 
 
 def inventory(root: Path) -> dict:

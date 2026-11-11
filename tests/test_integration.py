@@ -1,40 +1,16 @@
 """Writes only to the explicitly configured, dedicated test database."""
 import asyncio
-import os
 from uuid import uuid4
 
 import pytest
-from alembic import command
-from alembic.config import Config
-from dotenv import load_dotenv
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import Column, Integer, MetaData, Table, insert, select
 from sqlalchemy.exc import StatementError
 
 from app.db import check_database, close_database, get_engine, session_scope
-from app.db.config import ROOT, validate_url
 from app.db.runtime import run_async
 
 pytestmark = pytest.mark.integration
-
-
-@pytest.fixture
-def test_database(monkeypatch):
-    load_dotenv(ROOT / '.env', override=False)
-    value = os.environ.get('TEST_DATABASE_URL')
-    if not value:
-        pytest.skip('Set TEST_DATABASE_URL to a dedicated PostgreSQL test database.')
-    url = validate_url(value, 'TEST_DATABASE_URL')
-    for name in ('DATABASE_URL', 'MIGRATION_DATABASE_URL'):
-        existing = os.environ.get(name)
-        if existing:
-            other = validate_url(existing, name)
-            if (url.host, url.port or 5432, url.database) == (other.host, other.port or 5432, other.database):
-                pytest.fail('TEST_DATABASE_URL must use a separate database.')
-    monkeypatch.setenv('DATABASE_URL', value)
-    monkeypatch.setenv('MIGRATION_DATABASE_URL', value)
-    command.upgrade(Config('alembic.ini'), 'head')
-    command.upgrade(Config('alembic.ini'), 'head')
 
 
 def test_transactions_and_concurrent_sessions(test_database):

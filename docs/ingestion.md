@@ -9,7 +9,7 @@ not supported.
 
 Install the database dependencies and optional `requirements-example.txt` in the
 project environment. Prepare local Tesseract language files as described in the
-[README](../README.md#pdfocr-review). Apply migrations explicitly, then validate
+[OCR setup below](#pdfocr-review). Apply migrations explicitly, then validate
 and import the catalog using the [database guide](catalog-database.md).
 
 ```powershell
@@ -103,3 +103,67 @@ Before a real publish, review representative pages against their originals,
 including numbers, negations, missing lines and clause order. Mock OCR/embedding
 tests do not establish recognition quality. Do not publish to an application
 database merely to validate implementation.
+
+## PDF/OCR review
+
+For Type A metadata storage, see the [catalog database guide](catalog-database.md).
+After explicit migrations, preview with `python -m app.cli.import_catalog --dry-run`,
+then synchronize with `python -m app.cli.import_catalog`. Both require the configured
+database; neither creates chunks or embeddings or changes the local catalog.
+
+Install example dependencies separately from the database dependencies:
+
+```powershell
+python -m pip install -r requirements-example.txt
+New-Item -ItemType Directory -Force data/cache/tessdata | Out-Null
+Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/vie.traineddata -OutFile data/cache/tessdata/vie.traineddata
+Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/eng.traineddata -OutFile data/cache/tessdata/eng.traineddata
+```
+
+These are official Tesseract language files. PyMuPDF uses integrated OCR support directly, without `pytesseract` or Poppler. Processing runs locally; the PDF is not uploaded.
+
+First inspect extraction without loading an embedding model:
+
+```powershell
+python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/rita-vo-ocr-chunks.jsonl
+```
+
+Remove `--skip-embeddings` to generate normalized vectors with `intfloat/multilingual-e5-small`. The first run may download public model weights from Hugging Face. Set `$env:HF_HOME = "$PWD/data/cache/huggingface"` before running to keep its cache under generated data.
+
+Review defaults to `--ocr-mode auto`: native text first, then full-page OCR only for pages without text. Use `--ocr-mode always` to OCR even an existing incomplete/corrupt text layer. Page rotation metadata is normalized in memory before OCR so text sorting uses upright coordinates; the source PDF is never saved or rewritten. Defaults remain `--ocr-language vie+eng`, `--ocr-dpi 300`, and `--output data/extracted/chunks.jsonl`. Language data resolution uses `--tessdata`, then `TESSDATA_PREFIX`, then PyMuPDF discovery. All requested language files must exist when OCR is needed. Missing data or a page OCR error produces a nonzero exit without replacing output. Successfully OCRed but empty pages are reported and skipped; an entirely empty result exits nonzero. JSONL is staged in the output directory and atomically replaced after successful processing; serialization and replacement failures preserve the existing file.
+
+Review JSONL records contain `chunk_index`, original one-based `page`, `content`, `source` (relative to the working directory), and `extraction_method` (`native` or `ocr`), plus `embedding` unless skipped. Text is normalized to Unicode NFC with horizontal whitespace collapsed within each line; line and paragraph breaks are retained. Chunks contain at most 500 characters, prefer paragraph/line/word boundaries, and overlap by at most 100 characters using complete words. Oversized individual tokens require hard splitting. Chunks never cross pages. This is not automatic clause recognition or correction of missing words, diacritics, or reading order. Tables are not reconstructed. Do not commit generated/private content.
+
+For a reproducible review without embeddings, choose a new review directory and output filename:
+
+```powershell
+python main.py ingest review ./assets/noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf --pages 1-3,8,15,26,29 --ocr-mode always --tessdata data/cache/tessdata --skip-embeddings --output data/extracted/ocr-fast-review.jsonl --review-dir data/reports/ocr-review/fast-run
+```
+
+`--pages` uses one-based numbers and inclusive ranges, removes duplicates and processes pages in document order. All ranges are validated before OCR. `--review-dir` must be new or empty, and the JSONL output must be outside it. Each selected page produces `.raw.txt` and `.normalized.txt` files; OCR pages additionally produce a PNG rendered with the same settings as the raster passed to integrated OCR. Native pages have no OCR input image. The manifest records the source SHA-256, PyMuPDF version, selected pages, language-file paths and hashes, mode, region, DPI, timings and chunk count. `status: extraction_complete` describes extraction, not approval or successful JSONL publication; check the command exit status. Failed runs may leave partial review artifacts; use a fresh directory when retrying. Console messages do not include extracted document content.
+
+To isolate a region, add `--ocr-region LEFT TOP RIGHT BOTTOM` together with `--ocr-mode always`. Coordinates are fractions in `[0, 1]` of the upright page, with origin at the top left, and must describe a positive-area rectangle. For example, `--ocr-region 0.1 0.1 0.9 0.9` selects the central 80%; it is an illustration, **not** a validated crop for this document. Inspect the saved raster for clipped text. The region is rendered at the chosen DPI into a temporary in-memory PDF at its physical size and OCRed. All selected pages share that region; run cover, body and signing pages separately if they need different bounds. Cropping is explicit: no automatic border/stamp removal, deskew, layout detection or handwriting recognition is added.
+
+For an optional model comparison, manually download the official best weights separately; the script never downloads OCR models:
+
+```powershell
+New-Item -ItemType Directory -Force data/cache/tessdata_best | Out-Null
+Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/vie.traineddata -OutFile data/cache/tessdata_best/vie.traineddata
+Invoke-WebRequest https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/eng.traineddata -OutFile data/cache/tessdata_best/eng.traineddata
+```
+
+Compare the same pages with `fast + vie+eng`, `best + vie+eng`, then `best + vie`, all at 300 DPI, using distinct output/review paths. Compare inspected body regions separately; test 400 DPI on pages 15 and 26 only after choosing a candidate. Keep human-verified reference transcriptions under `data/reports/ocr-review/`, outside run directories. Evaluate before chunking, normalize Unicode and whitespace identically, and compare exactly the same source region. Measure character errors alongside missing lines, numbers, negations and clause order. Better-looking formatting or passing mock tests is not evidence of improved recognition. No winning configuration or policy-grade accuracy is established without that comparison; defaults remain unchanged. Handwritten dates and stamp/signature regions still require manual verification.
+
+An exploratory local comparison found that `tessdata_best` with `vie` separated an interleaved passage better than the mixed-language runs. That observation is limited to an agent-transcribed excerpt awaiting human verification; neither cropping nor 400 DPI improved that excerpt further. It is a candidate for evaluation, not a validated winning configuration. Generated local comparison artifacts, when present, are under `data/reports/ocr-review/` and are not committed.
+
+The synthetic PDF tests mock OCR and embeddings and skip if PyMuPDF is not installed. They also exercise real in-memory PDF rotation/crop geometry without running recognition. Passing them does not establish real-document OCR quality.
+
+
+## Code organization
+
+CLI parsing lives in `app/cli/ingest.py` and `app/cli/review.py`. The ingestion
+package separates PDF extraction/OCR (`pdf`), page-local chunks (`chunking`), local
+model execution (`embeddings`), atomic JSONL output (`artifacts`), database-free
+review orchestration (`review`) and transactional publication (`publish`).
+Model dependencies load only when embeddings are requested; database-only commands
+do not import the PDF processing stack. Output paths and formats are unchanged.

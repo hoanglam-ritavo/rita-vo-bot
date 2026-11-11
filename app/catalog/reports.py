@@ -1,3 +1,4 @@
+"""Local catalog discrepancy reports."""
 import json
 from pathlib import Path
 from uuid import uuid4
@@ -23,12 +24,10 @@ def build_report(command: str, catalog: object, files: dict) -> dict:
     return report
 
 
-
 def report_summary(report: dict) -> str:
     counts = {key: len(value) if isinstance(value, list) else value
               for key, value in report.items() if key != 'command'}
     return ' '.join(f'{key}={value}' for key, value in counts.items())
-
 
 
 def write_report(directory: Path, report: dict) -> None:

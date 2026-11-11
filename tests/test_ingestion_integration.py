@@ -7,9 +7,7 @@ import pytest
 from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from test_integration import test_database
-from test_catalog_integration import empty_catalog_db
-from test_ingestion import setup_source, options, chunk
+from ingestion_helpers import setup_source, options, chunk
 from app.catalog.importer import synchronize
 from app.db import close_database, session_scope
 from app.db.models import IngestionRun, DocumentChunk

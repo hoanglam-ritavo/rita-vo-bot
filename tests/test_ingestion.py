@@ -8,37 +8,11 @@ from unittest.mock import AsyncMock, Mock
 from uuid import UUID, uuid4
 
 import pytest
+from ingestion_helpers import setup_source, options, chunk
 
-from app.catalog.validation import new_record
-from app.catalog.inventory import file_fingerprint
 from app.cli import ingest
 from app.db.runtime import run_async
 from app.ingestion import publish as producer
-
-
-def setup_source(root):
-    source = root / 'assets' / 'synthetic.pdf'
-    source.parent.mkdir(parents=True)
-    source.write_bytes(b'synthetic PDF bytes')
-    record = new_record('synthetic.pdf', file_fingerprint(source))
-    record.update(indexing_decision='include', review_status='reviewed', lifecycle_status='active',
-                  owner='Synthetic owner', applicability='Synthetic scope', access_groups=['staff'],
-                  review_notes=['Synthetic approval'])
-    catalog = root / 'data/catalog/documents.json'
-    catalog.parent.mkdir(parents=True)
-    catalog.write_text(json.dumps({'schema_version': 1, 'documents': [record]}), encoding='utf-8')
-    return record, source
-
-
-def options(record, **kwargs):
-    return SimpleNamespace(revision_id=UUID(record['revision_id']), model_revision='a' * 40,
-                           ocr_language='vie+eng', ocr_dpi=300, tessdata=None, ocr_mode='auto',
-                           force=kwargs.get('force', False))
-
-
-def chunk():
-    return dict(chunk_index=0, page=1, content='Synthetic policy.', source='synthetic.pdf',
-                extraction_method='native', embedding=[1.0] + [0.0] * 383)
 
 
 @pytest.mark.parametrize('change', ['hold', 'missing', 'changed', 'unknown', 'expired'])
@@ -91,8 +65,9 @@ def test_requires_pinned_model(revision):
 
 def test_review_calls_shared_implementation(monkeypatch):
     pdf = pytest.importorskip('app.ingestion.pdf')
+    from app.ingestion import embeddings, artifacts, review
     mocked = Mock(return_value=0)
-    monkeypatch.setattr(pdf, 'run', mocked)
+    monkeypatch.setattr(review, 'run', mocked)
     assert ingest.main(['review', 'synthetic.pdf', '--skip-embeddings']) == 0
     mocked.assert_called_once()
     args = mocked.call_args.args[0]
@@ -176,6 +151,7 @@ def test_failed_run_never_reports_success(tmp_path, monkeypatch, failure):
 
 def test_native_processing_provenance_and_artifact_errors(tmp_path, monkeypatch):
     pdf = pytest.importorskip('app.ingestion.pdf')
+    from app.ingestion import embeddings, artifacts, review
     source = tmp_path / 'source.pdf'
     with pdf.pymupdf.open() as document:
         page = document.new_page()
@@ -192,25 +168,26 @@ def test_native_processing_provenance_and_artifact_errors(tmp_path, monkeypatch)
         for item in chunks:
             item['embedding'] = chunk()['embedding']
         return chunks
-    monkeypatch.setattr(pdf, 'generate_embeddings', embed)
+    monkeypatch.setattr(embeddings, 'generate_embeddings', embed)
     result = producer.process_snapshot(tmp_path, source, record, args, config, tessdata, tmp_path)
     assert result[0]['source'] == 'synthetic.pdf'
     manifest = json.loads((tmp_path / 'manifest.json').read_text())
     assert manifest['configuration'] == config
     assert manifest['source_sha256'] == record['sha256']
-    monkeypatch.setattr(pdf, 'save_jsonl', Mock(side_effect=OSError('private')))
+    monkeypatch.setattr(artifacts, 'save_jsonl', Mock(side_effect=OSError('private')))
     with pytest.raises(OSError):
         producer.process_snapshot(tmp_path, source, record, args, config, tessdata, tmp_path)
 
 
 def test_empty_page_blocks_embedding(tmp_path, monkeypatch):
     pdf = pytest.importorskip('app.ingestion.pdf')
+    from app.ingestion import embeddings, artifacts, review
     def extract(*args, manifest, **kwargs):
         manifest['pages'] = [{'page': 2, 'empty': True}]
         return []
     monkeypatch.setattr(pdf, 'load_pdf', extract)
     embed = Mock(side_effect=AssertionError('Must not embed'))
-    monkeypatch.setattr(pdf, 'generate_embeddings', embed)
+    monkeypatch.setattr(embeddings, 'generate_embeddings', embed)
     record = {'sha256': 'a' * 64, 'source_path': 'synthetic.pdf', 'revision_id': str(uuid4())}
     with pytest.raises(producer.PublishRejected, match='2'):
         producer.process_snapshot(tmp_path, tmp_path / 'source.pdf', record, options(record), {}, None, tmp_path)
@@ -220,11 +197,12 @@ def test_empty_page_blocks_embedding(tmp_path, monkeypatch):
 def test_embedding_revision_and_cardinality(tmp_path, monkeypatch):
     import sys
     pdf = pytest.importorskip('app.ingestion.pdf')
+    from app.ingestion import embeddings, artifacts, review
     factory = Mock(return_value=SimpleNamespace(encode=Mock(return_value=[])))
     monkeypatch.setitem(sys.modules, 'sentence_transformers', SimpleNamespace(SentenceTransformer=factory))
     with pytest.raises(RuntimeError, match='count'):
-        pdf.generate_embeddings([chunk()], model_revision='a' * 40, cache_folder=tmp_path)
-    factory.assert_called_once_with(pdf.MODEL_NAME, revision='a' * 40, cache_folder=str(tmp_path))
+        embeddings.generate_embeddings([chunk()], model_revision='a' * 40, cache_folder=tmp_path)
+    factory.assert_called_once_with(embeddings.MODEL_NAME, revision='a' * 40, cache_folder=str(tmp_path))
 
 
 @pytest.mark.parametrize('change', ['source', 'catalog'])

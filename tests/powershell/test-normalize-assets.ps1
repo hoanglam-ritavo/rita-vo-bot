@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$source = Join-Path $PSScriptRoot 'normalize-assets.ps1'
+$source = Join-Path $PSScriptRoot '../../scripts/normalize-assets.ps1'
 $testRoot = Join-Path ([IO.Path]::GetTempPath()) ('assets-rename-test-' + [guid]::NewGuid().ToString('N'))
 
 function New-Fixture([string]$Name) {

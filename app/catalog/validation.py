@@ -1,3 +1,4 @@
+"""Catalog schema, review eligibility and source comparison."""
 import re
 from collections import defaultdict
 from datetime import date
@@ -9,14 +10,11 @@ from app.catalog.inventory import safe_relative
 KNOWN_EXTENSIONS = {'.pdf', '.doc', '.docx', '.xlsx'}
 
 
-
 RELATIONS = {'duplicate_of', 'supplements', 'supersedes', 'form_for'}
-
 
 
 NULLABLE_TEXT = {'title', 'category', 'document_type', 'owner', 'applicability',
                  'version_label'}
-
 
 
 STATES = {
@@ -26,13 +24,11 @@ STATES = {
 }
 
 
-
 FIELDS = (NULLABLE_TEXT | set(STATES) | {
     'document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes',
     'extension', 'effective_from', 'effective_to', 'access_groups',
     'review_notes', 'relations',
 })
-
 
 
 def new_record(path: str, fingerprint: dict) -> dict:
@@ -49,11 +45,9 @@ def new_record(path: str, fingerprint: dict) -> dict:
     }
 
 
-
 def new_catalog(files: dict) -> dict:
     return {'schema_version': 1,
             'documents': [new_record(path, value) for path, value in files.items()]}
-
 
 
 def valid_uuid(value: object) -> bool:
@@ -63,11 +57,9 @@ def valid_uuid(value: object) -> bool:
         return False
 
 
-
 def text_list(value: object) -> bool:
     return (isinstance(value, list)
             and all(isinstance(item, str) and item.strip() for item in value))
-
 
 
 def validate_schema(catalog: object) -> list[str]:
@@ -179,7 +171,6 @@ def validate_schema(catalog: object) -> list[str]:
     if visited != len(graph):
         errors.append('Cycle in supersedes relations.')
     return errors
-
 
 
 def compare(catalog: dict, files: dict) -> dict:

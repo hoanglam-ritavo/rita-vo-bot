@@ -1,10 +1,10 @@
-﻿# Repository Contributor Instructions
+# Repository Contributor Instructions
 
 These instructions apply throughout this repository. Read [README.md](README.md) for operation and [ARCHITECTURE.md](ARCHITECTURE.md) for design and phases.
 
 ## Scope and project status
 
-- The implemented system is a Python database foundation, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
+- The implemented system provides a Python database foundation, local catalog metadata import and single-PDF review/publication, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
 - Follow the requested task scope. Do not implement later phases or add dependencies merely because the architecture mentions them.
 - Keep documentation in English and synchronize it with changes to setup, supported behavior, and architectural decisions.
 

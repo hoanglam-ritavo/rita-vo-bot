@@ -64,7 +64,7 @@ async def active_run(db, revision_id):
 
 
 def processing_configuration(source, args):
-    from app.ingestion import pdf
+    from app.ingestion import pdf, chunking, embeddings, artifacts
     if not re.fullmatch(r'[0-9a-f]{40}', args.model_revision):
         raise PublishRejected('Model revision must be a full lowercase commit hash.')
     pdf.validate_ocr_options(args.ocr_mode, None)
@@ -83,8 +83,8 @@ def processing_configuration(source, args):
         'pipeline_version': 1, 'pymupdf_version': pdf.pymupdf.VersionBind,
         'libraries': {name: version(name) for name in ('sentence-transformers', 'transformers', 'torch', 'numpy', 'tokenizers')},
         'ocr_mode': args.ocr_mode, 'ocr_language': args.ocr_language, 'ocr_dpi': args.ocr_dpi,
-        'language_sha256': languages, 'chunk_size': pdf.CHUNK_SIZE, 'chunk_overlap': pdf.CHUNK_OVERLAP,
-        'model_name': pdf.MODEL_NAME, 'model_revision': args.model_revision,
+        'language_sha256': languages, 'chunk_size': chunking.CHUNK_SIZE, 'chunk_overlap': chunking.CHUNK_OVERLAP,
+        'model_name': embeddings.MODEL_NAME, 'model_revision': args.model_revision,
         'embedding_dimensions': 384, 'normalize_embeddings': True, 'prefix': 'passage: ',
         'batch_size': 16,
     }
@@ -106,7 +106,7 @@ def validate_chunks(chunks):
 
 
 def process_snapshot(root, snapshot, record, args, configuration, tessdata, directory):
-    from app.ingestion import pdf
+    from app.ingestion import pdf, chunking, embeddings, artifacts
     started = time.perf_counter()
     manifest = {'status': 'extraction_complete', 'source_sha256': record['sha256'],
                 'source': record['source_path'], 'configuration': configuration}
@@ -116,12 +116,12 @@ def process_snapshot(root, snapshot, record, args, configuration, tessdata, dire
     empty = [p['page'] for p in manifest['pages'] if p['empty']]
     if empty:
         raise PublishRejected('Empty extracted pages; review first: ' + ','.join(map(str, empty)))
-    chunks = pdf.build_chunks(pages)
+    chunks = chunking.build_chunks(pages)
     if not chunks:
         raise PublishRejected('No chunks extracted; review the PDF first.')
     for chunk in chunks:
         chunk['source'] = record['source_path']
-    chunks = pdf.generate_embeddings(chunks, model_revision=args.model_revision,
+    chunks = embeddings.generate_embeddings(chunks, model_revision=args.model_revision,
                                      cache_folder=root / 'data/cache/huggingface')
     validate_chunks(chunks)
     actual_languages = {key: item['sha256'] for key, item in manifest['language_files'].items()}
@@ -134,7 +134,7 @@ def process_snapshot(root, snapshot, record, args, configuration, tessdata, dire
     manifest.update(chunk_count=len(chunks), document_id=record['document_id'],
                     revision_id=record['revision_id'], run_id=directory.name,
                     elapsed_seconds=time.perf_counter() - started)
-    pdf.save_jsonl(chunks, directory / 'chunks.jsonl')
+    artifacts.save_jsonl(chunks, directory / 'chunks.jsonl')
     (directory / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return chunks
 

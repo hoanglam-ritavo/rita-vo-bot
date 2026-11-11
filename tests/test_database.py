@@ -95,6 +95,13 @@ with patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionEr
     import app.cli.check_db
     import main as entrypoint
     import app.cli.ingest
+    import app.cli.review
+    import app.cli.import_catalog
+    import app.db.models
+    import app.db.migrations
+    import app.ingestion.chunking
+    import app.ingestion.embeddings
+    import app.ingestion.artifacts
     assert callable(entrypoint.main)
     assert "pymupdf" not in __import__("sys").modules
     assert "sentence_transformers" not in __import__("sys").modules

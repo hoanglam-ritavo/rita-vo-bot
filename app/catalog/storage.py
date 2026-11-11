@@ -1,3 +1,4 @@
+"""Catalog JSON persistence with atomic writes."""
 import json
 import os
 import tempfile
@@ -27,10 +28,8 @@ def atomic_write(path: Path, text: str, *, create_only: bool = False) -> None:
             temporary.unlink(missing_ok=True)
 
 
-
 def json_text(value: object) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2) + '\n'
-
 
 
 def load_catalog(path: Path) -> object:

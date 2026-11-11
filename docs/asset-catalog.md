@@ -133,7 +133,7 @@ do not treat `data/catalog` like disposable cache or force-add it to Git.
 1. Run `scan` and inspect the local report. Review source content and obtain owner
    confirmation for policy applicability, relations and access rights.
 2. For a new file, add a record with fresh document/revision UUIDs and the fingerprint
-   from a local inventory (`app.asset_catalog.inventory` and `new_record` are available
+   from a local inventory (`app.catalog.inventory.inventory` and `app.catalog.validation.new_record` are available
    to manual utilities). Keep unknown metadata null and indexing on hold. Do not
    rerun init or regenerate the whole catalog to incorporate one file.
 3. For a confirmed move, edit only the source path and extension if applicable;
