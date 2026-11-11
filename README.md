@@ -24,7 +24,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGE
 | `assets-rename-manifest.json`, `assets-rename-journal.json`, `rename-history/` | Asset-renaming records |
 | `requirements.txt`, `requirements-dev.txt`, `.env.example` | Dependencies and example configuration |
 
-Files present in `assets/` do not imply parser support. The collection includes PDF, Office documents, and archives; supported ingestion formats will be established during Type A implementation. Video files have been removed from the current source tree but remain in Git history. Video formats under `assets/` are ignored by Git to avoid accidental reintroduction.
+Files present in `assets/` do not imply parser support. The current collection contains PDF, Word (`.doc`, `.docx`), and Excel (`.xlsx`) files; supported ingestion formats will be established during Type A implementation. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree but remain in Git history. Video formats under `assets/` are ignored by Git to avoid accidental reintroduction.
 
 Generated extraction/OCR outputs, caches, and evaluation reports belong under `data/`, separately from original assets. See [data/README.md](data/README.md) for the reserved locations; no processing subdirectories or pipelines exist yet. Automated tests belong in `tests/`; task-specific manual utilities belong in `scripts/`.
 

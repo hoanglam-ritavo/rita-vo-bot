@@ -19,7 +19,7 @@ Command entrypoints live in `app/cli/`; database infrastructure remains in `app/
 
 Classification depends on meaning and freshness requirements, not file extension or storage location. An Excel policy table may need an exact row lookup. A CSV aggregate requires computation over the applicable records rather than counting retrieved chunks. An exported personnel file is not automatically authoritative for current assignments.
 
-`assets/` is the existing source collection, not an implemented ingestion service. It includes PDF, Office documents, and archives. Video files have been removed from the current source tree and remain available in Git history; video formats under `assets/` are ignored by Git. Candidate inputs also include CSV, JSON, Markdown, TXT, and structured objects; supported formats and extraction quality must be established during Type A implementation. Video transcription and archive processing are not assumed MVP capabilities.
+`assets/` is the existing source collection, not an implemented ingestion service. The current collection contains PDF, Word (`.doc`, `.docx`), and Excel (`.xlsx`) files. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree and remain available in Git history; video formats under `assets/` are ignored by Git. Candidate inputs also include CSV, JSON, Markdown, TXT, and structured objects; supported formats and extraction quality must be established during Type A implementation. Video transcription and archive processing are not assumed MVP capabilities.
 
 ## Target components and data flow
 
