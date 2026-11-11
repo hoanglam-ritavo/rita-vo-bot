@@ -9,3 +9,19 @@ __pycache__/
 /pytest-cache-files-*/
 /data/*
 !/data/README.md
+
+# Keep video source files out of assets (including nested paths).
+/assets/**/*.[mM][pP]4
+/assets/**/*.[mM][kK][vV]
+/assets/**/*.[mM][oO][vV]
+/assets/**/*.[aA][vV][iI]
+/assets/**/*.[wW][mM][vV]
+/assets/**/*.[wW][eE][bB][mM]
+/assets/**/*.[mM]4[vV]
+/assets/**/*.[mM][pP][eE][gG]
+/assets/**/*.[mM][pP][gG]
+/assets/**/*.[fF][lL][vV]
+/assets/**/*.[tT][sS]
+/assets/**/*.[mM][tT][sS]
+/assets/**/*.[mM]2[tT][sS]
+/assets/**/*.3[gG][pP]
