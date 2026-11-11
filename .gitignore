@@ -10,6 +10,9 @@ __pycache__/
 /data/*
 !/data/README.md
 
+# Ignore Windows thumbnail caches in assets.
+/assets/**/[tT][hH][uU][mM][bB][sS].[dD][bB]
+
 # Keep video source files out of assets (including nested paths).
 /assets/**/*.[mM][pP]4
 /assets/**/*.[mM][kK][vV]

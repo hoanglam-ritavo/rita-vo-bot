@@ -10,7 +10,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Code and generated-data layout
 
-- Keep command entrypoints in `app/cli/`. Keep `index.py` as a thin compatibility wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
+- Keep command entrypoints in `app/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
 - Put automated tests in `tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
 - Keep generated extraction results, caches, and reports under `data/` following [data/README.md](data/README.md). Do not commit these outputs or create unused feature directories ahead of implementation.
 

@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from app.db.config import ConfigurationError, database_url
 from app.db.migrations import migration_options
 from app.db.runtime import run_async
+from app.db import models  # noqa: F401 -- register application metadata
 
 
 def run_sync_migrations(connection):

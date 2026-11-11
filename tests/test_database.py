@@ -9,7 +9,7 @@ import pytest
 from alembic import command
 from alembic.config import Config
 
-import index
+import main as entrypoint
 from app.cli import check_db
 from app.db import config, session
 from app.db.migrations import include_object
@@ -75,12 +75,12 @@ def test_entrypoint_always_closes(monkeypatch, capsys, error):
 
 
 @pytest.mark.parametrize('exit_code', [0, 1])
-def test_legacy_entrypoint_delegates(monkeypatch, exit_code):
-    assert index.main is check_db.main
+def test_main_entrypoint_delegates(monkeypatch, exit_code):
+    assert entrypoint.main is check_db.main
     main = AsyncMock(return_value=exit_code)
     monkeypatch.setattr(check_db, 'main', main)
     with pytest.raises(SystemExit) as result:
-        runpy.run_path('index.py', run_name='__main__')
+        runpy.run_path('main.py', run_name='__main__')
     assert result.value.code == exit_code
     main.assert_awaited_once()
 
@@ -91,8 +91,8 @@ from unittest.mock import patch
 with patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionError('Unexpected engine creation')), \\
      patch('dotenv.load_dotenv', side_effect=AssertionError('Unexpected configuration loading')):
     import app.cli.check_db
-    import index
-    assert index.main is app.cli.check_db.main
+    import main as entrypoint
+    assert entrypoint.main is app.cli.check_db.main
 '''
     result = subprocess.run([sys.executable, '-c', script], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
