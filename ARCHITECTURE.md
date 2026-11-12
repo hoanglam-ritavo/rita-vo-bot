@@ -2,7 +2,7 @@
 
 ## Implemented storage and ingestion
 
-Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide six Type A storage tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. There is no chatbot/API or retrieval implementation.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide six Type A storage tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. A local health-only gRPC transport is implemented; chatbot business RPCs and retrieval remain planned.
 
 Source documents stay in `app/assets/`. `app.paths` anchors `app/chunks/` to the repository. Its only children are `review/` and `approved/`. Historical `indexing_chunks/` packages remain untouched and are not scanned or merged automatically. Self-contained versioned packages replace the local catalog; metadata-only pending packages retain unsupported or unprocessed document identities. Ready packages contain source snapshots, extraction and editable drafts. Approval seals content, metadata and provenance.
 
@@ -11,6 +11,18 @@ Package assembly, validation and approval are database-free. The primary prepara
 Publication embeds approved bytes using an explicitly installed local model, synchronizes metadata per revision and activates chunks atomically. It never performs full-catalog retirement or regenerates chunks. Model/OCR resources for the optional tools are supplied externally, without automatic download or managed caches. Reports go to stdout. Approved snapshots and database run configuration replace published artifact copies. Pre-transaction failures have no persisted run record. See the [package contract](docs/offline-indexing.md).
 
 Local catalog and direct PDF publication commands are retired. The verified migration utility preserves required metadata and review evidence before deleting the old workspace, without backups. There are no schema changes for this refactor.
+
+Explicit content-only approval can seal a review package while retaining unverified metadata. Its approval manifest records `approval_scope: "content"`; publication rejects that scope before model or database access. Standard publication approval still requires reviewed, active metadata with owner, applicability and access groups. Both modes preserve source and provenance checks.
+
+## Implemented local gRPC transport
+
+`app/helper/grpc` owns explicit configuration and an instance-scoped `grpc.aio` server. `python -m app.cli.serve_grpc` runs it through the existing Windows-compatible async runner. Imports and server construction do not load `.env`, create an async server or bind a port. Server creation, health registration and binding occur during `start()` on the owning event loop; lifecycle operations must remain on that loop.
+
+The intended inbound direction is monolithic backend to chatbot microservice. Currently only the standard gRPC Health Checking service is registered. Overall health (`service=""`) becomes `SERVING` after startup and `NOT_SERVING` on graceful shutdown. It reflects transport availability only, without database/model checks. Shutdown waits up to the configured grace period and releases the listening socket.
+
+The initial server is plaintext and restricted to `127.0.0.1`, with no authentication or business data. It supports same-machine development only. Public configuration rejects port zero and non-loopback binds; tests privately request ephemeral ports. Configuration, startup and shutdown failures produce nonzero CLI exits. See the [local server instructions](README.md#local-grpc-server) for configuration and a health call.
+
+Remote/container connectivity, business RPC contracts, TLS/mTLS and authentication require a separate implementation. This inbound server does not implement outbound Type B access or change the database schema.
 
 ## Planned retrieval
 
@@ -52,7 +64,7 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
-| 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, reviewed-JSON batch ingestion and atomic approved-package publication | Database behavior; source identity, consistency, history and metadata validation |
+| 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, reviewed-JSON batch ingestion, atomic approved-package publication and local health-only gRPC transport | Database behavior; source identity, consistency, history and metadata validation; local gRPC health and lifecycle |
 | 1 — planned | Type A MVP using an agreed document subset, retrieval, citations, and follow-up handling | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |

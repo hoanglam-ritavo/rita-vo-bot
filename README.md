@@ -1,12 +1,14 @@
 # Rita Bot
 
-Implemented: Python database foundation, local multi-format chunk preparation, reviewed JSON approval and transactional PostgreSQL publication. Planned: Type A retrieval/chatbot, authenticated Type B service tools and routing. There is no running chatbot/API yet.
+Implemented: Python database foundation, local multi-format chunk preparation, reviewed JSON approval, transactional PostgreSQL publication and a local gRPC server with health checking only. Planned: chatbot business RPCs, Type A retrieval, authenticated Type B service tools and routing. There is no functioning chatbot yet.
 
 Source documents remain in `app/assets/`. New processing data lives in ignored `app/chunks/review/` and `app/chunks/approved/`. Each package owns its metadata and provenance; no local catalog, cache, reports, archive or published artifact copy is maintained. Historical `indexing_chunks/` data stays in place and is not scanned or merged automatically. See the [indexing guide](docs/offline-indexing.md) for the agent workflow, commands, schemas and legacy migration.
 
 The primary preparation workflow uses a Codex agent to read the source, retain a provenance-bearing transcription and compose semantic chunks in the existing review package format. Existing loaders/chunkers remain optional. Validation, human review, approval and local-model publication remain separate steps. Agent use is not necessarily offline; the model environment and authorization to process internal content must be established before reading it.
 
 Entrypoints are in `app/cli/`, package processing in `app/ingestion/`, shared metadata validation in `app/catalog/`, database code in `app/database/`, automated tests in `app/tests/`, and manual maintenance utilities in `scripts/`. `main.py` remains a thin database-check dispatcher; its old ingest command returns retirement guidance. Source rename manifests, journals and `rename-history/` remain historical evidence and are not regenerated.
+
+Explicit `prepare_documents approve --content-only` can seal reviewed content under `app/chunks/approved/` with unverified metadata retained. These packages are available for inspection; publication requires a separate approval with complete metadata. See the [content approval workflow](docs/offline-indexing.md#content-approval-with-unverified-metadata).
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
@@ -33,6 +35,37 @@ python -m app.cli.check_db
 ```
 
 PostgreSQL must already have the target database and the pgvector extension installed on the server. Installing the Python `pgvector` package does not install the server extension. If the migration account cannot enable it, ask the DBA to run `CREATE EXTENSION IF NOT EXISTS vector;` in the target database before migration.
+
+## Local gRPC server
+
+After installing the dependencies, run `python -m app.cli.serve_grpc` from the repository root. This command does not require database configuration, migrations or a model. The intended inbound direction is the monolithic backend calling this chatbot microservice; business RPC contracts are not implemented yet.
+
+| Variable | Default | Accepted values |
+| --- | --- | --- |
+| `GRPC_HOST` | `127.0.0.1` | Only `127.0.0.1` |
+| `GRPC_PORT` | `50051` | Integer from 1 to 65535 |
+| `GRPC_SHUTDOWN_GRACE_SECONDS` | `5` | Finite, non-negative seconds |
+
+Configuration loads explicitly from the repository-root `.env`; environment variables take precedence. Imports do not load configuration or open sockets. Invalid configuration or an occupied port fails startup with exit code 1, without selecting another port. Ctrl+C stops the server gracefully and exits with 0; shutdown failures exit with 1.
+
+From a second PowerShell terminal with the virtual environment activated, call the standard health RPC:
+
+```powershell
+@'
+import grpc
+from grpc_health.v1 import health_pb2, health_pb2_grpc
+
+with grpc.insecure_channel('127.0.0.1:50051') as channel:
+    response = health_pb2_grpc.HealthStub(channel).Check(
+        health_pb2.HealthCheckRequest(service=''), timeout=3,
+    )
+    print(health_pb2.HealthCheckResponse.ServingStatus.Name(response.status))
+'@ | python -
+```
+
+Use your configured port if changed. `SERVING` confirms only the gRPC transport; it does not check the database, model, retrieval or chatbot readiness. Unknown service names return `NOT_FOUND`. Shutdown marks health `NOT_SERVING` and allows in-flight RPCs up to the configured grace period.
+
+This development server uses plaintext loopback only, without authentication or TLS. It cannot accept calls from another machine or a separate container network namespace. Remote backend connectivity, authentication, TLS/mTLS and chatbot contracts remain future work. The pinned gRPC packages are checked on Windows with Python 3.14 and the existing psycopg-compatible `SelectorEventLoop` runner. `main.py` retains its database-check behavior.
 
 ## Database configuration and behavior
 
@@ -79,6 +112,8 @@ Run unit tests (shared database fixtures only execute when requested by integrat
 ```powershell
 python -m pytest -m 'not integration'
 ```
+
+The suite includes real loopback gRPC calls on ephemeral ports, without an external backend or database. On Windows, if the default temporary directory causes cross-drive PDF path errors or long-path failures, use `--basetemp` with a same-drive, extended-length Windows path whose parent directory already exists.
 
 For integration tests, configure `TEST_DATABASE_URL` to a dedicated disposable PostgreSQL database with pgvector installed on its server, then run:
 

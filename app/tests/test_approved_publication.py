@@ -42,6 +42,20 @@ def test_publish_and_dry_run(tmp_path, publication):
     assert chunks[0].content == 'Human corrected policy.'
     assert set(d.name for d in p.workspace(tmp_path).iterdir()) == {'review', 'approved'}
 
+@pytest.mark.parametrize('dry_run', [False, True])
+def test_content_only_approval_rejected_before_model_or_database(tmp_path, monkeypatch, dry_run):
+    _, _, review, _ = approved(tmp_path)
+    approval = p.approve(tmp_path, review, 'Reviewer', content_only=True)
+    model = Mock(side_effect=AssertionError('Must not access model'))
+    database = Mock(side_effect=AssertionError('Must not access database'))
+    monkeypatch.setattr(service, 'model_fingerprint', model)
+    monkeypatch.setattr(service, 'session_scope', database)
+    with pytest.raises(p.Rejected, match='metadata_not_approved_for_publication'):
+        run_async(service.publish(tmp_path, approval, 'a'*40, model_path=tmp_path, dry_run=dry_run))
+    model.assert_not_called()
+    database.assert_not_called()
+
+
 def test_concurrency_rejected_before_metadata(tmp_path, publication):
     _, model = publication
     *_, approval = approved(tmp_path)

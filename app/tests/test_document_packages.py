@@ -128,6 +128,45 @@ def test_pending_extract_allowed_approval_requires_metadata(tmp_path):
         p.approve(tmp_path, directory, 'Reviewer')
 
 
+def test_content_only_approval_preserves_unverified_metadata(tmp_path, monkeypatch, capsys):
+    from app.cli import prepare_documents as cli
+    pending, source = setup_document(tmp_path)
+    record = p.metadata(pending)
+    record.update(indexing_decision='hold', review_status='pending', lifecycle_status='unknown',
+                  owner=None, applicability=None, access_groups=[])
+    (pending / 'metadata.json').write_bytes(p.encoded(record))
+    review = prepare(tmp_path, pending)
+    before = {f.name: f.read_bytes() for f in review.iterdir()}
+    monkeypatch.setattr(cli, 'REPOSITORY_ROOT', tmp_path)
+    assert cli.main(['approve', '--review', str(review), '--reviewer', 'Synthetic reviewer',
+                     '--content-only', '--json']) == 0
+    result = json.loads(capsys.readouterr().out)['results'][0]
+    approval = tmp_path / result['package']
+    actual, payload, manifest, _ = p.load_approval(tmp_path, approval)
+    assert actual == record
+    assert manifest['approval_scope'] == 'content'
+    assert payload['chunks'] and source.read_bytes() == before['source.txt']
+    assert before == {f.name: f.read_bytes() for f in review.iterdir()}
+    with pytest.raises(p.Rejected, match='not_approved'):
+        p.approve(tmp_path, review, 'Reviewer')
+    with (approval / 'metadata.json').open('ab') as stream:
+        stream.write(b' ')
+    with pytest.raises(p.Rejected, match='hash_mismatch'):
+        p.load_approval(tmp_path, approval)
+
+
+def test_content_only_approval_still_rejects_invalid_spans_and_source_drift(tmp_path):
+    pending, source = setup_document(tmp_path)
+    review = prepare(tmp_path, pending)
+    edit(review, lambda d: d['chunks'][0]['source_refs'][0].update(end=99999))
+    with pytest.raises(p.Rejected, match='reference_range'):
+        p.approve(tmp_path, review, 'Reviewer', content_only=True)
+    review = prepare(tmp_path, pending)
+    source.write_text('Changed synthetic source')
+    with pytest.raises(p.Rejected, match='source_changed'):
+        p.approve(tmp_path, review, 'Reviewer', content_only=True)
+
+
 def test_markdown_headings_fences_and_unicode(tmp_path):
     raw = '# Policy\n\nTiếng Việt\n\n```python\n  # not a heading\n  x = "001"\n```\n\n## Scope\nApplies here.'
     path = tmp_path / 'sample.md'

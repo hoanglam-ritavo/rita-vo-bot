@@ -42,6 +42,12 @@ Each command accepts `--json` for structured stdout. Exit codes are 0 for succes
 
 Replace angle-bracket placeholders with actual IDs/paths before running the PowerShell examples. Validation and approval do not need a database or embedding model. Publication, including dry-run, reads the configured PostgreSQL database; actual publication embeds with an existing local model and writes transactionally. Dry-run does not generate embeddings or prove that chunks fit the model. Relative user paths use the caller's working directory; default roots are repository anchored.
 
+### Content approval with unverified metadata
+
+When explicitly requested, `approve --content-only` seals the reviewed content and its existing metadata without requiring an owner, access groups or confirmation of active status. Use the same `--review` and `--reviewer` arguments. Missing metadata remains missing; no values are invented. This creates a normal snapshot under `approved/`, retains the review package, and records `approval_scope: "content"` in the approval manifest. All source identity, hash, schema, reference and coverage checks still apply; excluded or known inactive sources remain ineligible.
+
+`load_approval` can inspect these packages. Publication and publication dry-run reject them with `metadata_not_approved_for_publication` before accessing a model or database. To make content eligible for publication later, complete metadata in the review package and create a new approval without `--content-only`; do not edit the existing approved snapshot. Approvals without an `approval_scope` field retain their existing publication behavior.
+
 ## Optional initialization and loader/chunker workflow
 
 The existing commands remain available and are not retired:

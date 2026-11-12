@@ -23,6 +23,8 @@ def parser():
         command.add_argument('--review', type=Path, required=True)
         if name == 'approve':
             command.add_argument('--reviewer', required=True)
+            command.add_argument('--content-only', action='store_true',
+                                 help='Seal reviewed content with unverified metadata; not eligible for publication.')
         if name == 'revise':
             command.add_argument('--source', required=True, help='Path relative to app/assets; creates a new revision of the same document.')
     for command in commands.choices.values():
@@ -74,7 +76,7 @@ def main(argv=None):
             p.source_for(root, p.metadata(args.review))
             results.append({'status': 'processed', 'code': 'valid_review', 'chunk_count': len(chunks)})
         else:
-            path = p.approve(root, args.review, args.reviewer)
+            path = p.approve(root, args.review, args.reviewer, content_only=args.content_only)
             results.append({'status': 'processed', 'code': 'approved', 'package': str(path.relative_to(root))})
     except p.Rejected as exc:
         results.append({'status': 'rejected', 'code': str(exc)})

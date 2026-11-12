@@ -143,6 +143,8 @@ async def write_metadata(db, record, revision):
 
 async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
     record, payload, approval, files = packages.load_approval(root, directory)
+    packages.require(approval.get('approval_scope', 'publication') != 'content',
+                     'metadata_not_approved_for_publication')
     config = configuration(payload, model_revision)
     config.update(pipeline='approved-json-v2', model_files_sha256=model_fingerprint(model_path),
                   approval_id=approval['approval_id'], approval_manifest_sha256=packages.sha(files['manifest.json']),

@@ -314,11 +314,11 @@ def load_review(directory):
     return extraction, draft, chunks, files
 
 
-def approve(root, directory, reviewer):
+def approve(root, directory, reviewer, *, content_only=False):
     require(isinstance(reviewer, str) and reviewer.strip(), 'reviewer_required')
     extraction, draft, chunks, files = load_review(directory)
     record = metadata(directory)
-    source_for(root, record, eligible=True)
+    source_for(root, record, eligible=not content_only)
     require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'metadata_identity_mismatch')
     approval_id = str(uuid4())
     files['review-manifest.json'] = files.pop('manifest.json')
@@ -328,6 +328,8 @@ def approve(root, directory, reviewer):
     manifest = {'schema_version': 2, 'kind': 'approval', 'approval_id': approval_id,
                 'reviewer': reviewer, 'approved_at': datetime.now(timezone.utc).isoformat(),
                 'content_hash': canonical_hash(payload), 'files': {k: sha(v) for k, v in files.items()}}
+    if content_only:
+        manifest['approval_scope'] = 'content'
     files['manifest.json'] = encoded(manifest)
     return write_package(workspace(root) / 'approved' / record['revision_id'], approval_id, files)
 
@@ -340,6 +342,8 @@ def load_approval(root, directory):
     manifest = decode(read_file(directory, 'manifest.json'))
     require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
             and manifest.get('schema_version') == 2 and manifest.get('kind') == 'approval', 'not_approved')
+    scope = manifest.get('approval_scope', 'publication')
+    require(scope in ('content', 'publication'), 'approval_scope')
     uuid(manifest.get('approval_id'))
     require(isinstance(manifest.get('reviewer'), str) and bool(manifest['reviewer'].strip()), 'reviewer_required')
     try:
@@ -371,7 +375,11 @@ def load_approval(root, directory):
     require(sha(files[source_file]) == payload['identity']['sha256'], 'snapshot_mismatch')
     record = validate_metadata(decode(files['metadata.json']))
     require({k: record[k] for k in IDENTITY_FIELDS} == review_manifest.get('identity'), 'metadata_identity_changed')
-    require(record['indexing_decision'] == 'include', 'source_not_approved')
+    if scope == 'content':
+        require(record['indexing_decision'] != 'exclude'
+                and record['lifecycle_status'] in ('unknown', 'active'), 'source_ineligible')
+    else:
+        require(record['indexing_decision'] == 'include', 'source_not_approved')
     require(len(files[source_file]) == record['size_bytes'], 'snapshot_size')
     require(identity(record, payload['identity']['extraction_id']) == payload['identity'], 'metadata_identity_mismatch')
     require(directory.name == manifest['approval_id'] and directory.parent.name == record['revision_id'], 'approval_location')
