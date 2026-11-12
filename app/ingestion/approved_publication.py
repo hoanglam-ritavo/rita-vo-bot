@@ -1,17 +1,14 @@
 """Publish validated v2 packages using local models and atomic per-revision metadata."""
 import copy
-import math
 import re
-from pathlib import Path
 from uuid import UUID, uuid4
 from datetime import datetime, timezone
 from sqlalchemy import select, delete, text, or_
 from app.database import session_scope
 from app.database.models import Document, DocumentRevision, DocumentAccessRule, DocumentRelation, IngestionRun, DocumentChunk
 from app.catalog.importer import revision_values, IMPORT_LOCK
-from app.catalog.inventory import reject_links, file_fingerprint
 from app.ingestion import document_packages as packages
-from app.ingestion.embeddings import MODEL_NAME
+from app.ingestion.embeddings import MODEL_NAME, embed, validate_vectors, model_fingerprint
 
 def configuration(payload, model_revision):
     packages.require(isinstance(model_revision, str) and re.fullmatch('[0-9a-f]{40}', model_revision), 'model_commit_required')
@@ -22,52 +19,6 @@ def configuration(payload, model_revision):
             'content_hash': packages.canonical_hash(evidence), 'model_name': MODEL_NAME,
             'model_revision': model_revision, 'embedding_dimensions': 384,
             'normalize_embeddings': True, 'prefix': 'passage: ', 'batch_size': 16}
-
-
-def embed(model_path, chunks, model_revision):
-    from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer(str(model_path), local_files_only=True, trust_remote_code=False)
-    packages.require(model.get_sentence_embedding_dimension() == 384, 'model_dimensions')
-    texts = ['passage: ' + c['content'] for c in chunks]
-    # Do not rely on encode's truncation. Include all special tokens in the count.
-    limit = min(model.max_seq_length, model.tokenizer.model_max_length)
-    packages.require(type(limit) is int and limit > 0, 'invalid_model_token_limit')
-    for content in texts:
-        tokens = model.tokenizer(content, add_special_tokens=True, truncation=False)['input_ids']
-        packages.require(len(tokens) <= limit, 'chunk_exceeds_model_limit')
-    vectors = model.encode(texts, batch_size=16, normalize_embeddings=True,
-                           convert_to_numpy=True, show_progress_bar=False)
-    packages.require(len(vectors) == len(chunks), 'embedding_count')
-    for chunk, vector in zip(chunks, vectors):
-        chunk['embedding'] = vector.tolist()
-    return chunks
-
-
-def validate_vectors(chunks):
-    packages.require(bool(chunks), 'empty_chunks')
-    for index, chunk in enumerate(chunks):
-        vector = chunk.get('embedding')
-        packages.require(chunk['chunk_index'] == index and isinstance(vector, list) and len(vector) == 384
-                         and all(type(v) in (int, float) and math.isfinite(v) for v in vector), 'invalid_vectors')
-
-
-def model_fingerprint(path):
-    path = Path(path)
-    reject_links(path)
-    packages.require(path.is_dir(), 'local_model_missing')
-    files = {}
-    queue = [path]
-    while queue:
-        for item in sorted(queue.pop().iterdir()):
-            reject_links(item)
-            if item.is_dir():
-                queue.append(item)
-            elif item.is_file():
-                files[item.relative_to(path).as_posix()] = file_fingerprint(item)['sha256']
-            else:
-                raise packages.Rejected('nonregular_model_file')
-    packages.require(bool(files), 'local_model_empty')
-    return packages.canonical_hash(files)
 
 
 async def snapshot(db, record, update_metadata=False):

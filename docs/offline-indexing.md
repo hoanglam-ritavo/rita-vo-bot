@@ -42,6 +42,25 @@ Commands support `--json` for structured stdout. Exit codes: 0 success/skips, 1 
 
 `approve`, `extract`, `--review`, `--reviewer`, `--content-only` and publication `--approved` return retirement guidance without filesystem/model/database work. Other historical ingestion/catalog/PDF commands and destructive workspace migration are retired too. Python extraction/chunking runtimes remain retired. Supported complete packages are PDF, XLSX, CSV, MD and TXT; DOC/DOCX may be initialized with metadata/snapshot but cannot be published.
 
+## Technical preflight
+
+Use preflight after agent authoring and before publication to check the actual local tokenizer/model. Unlike publication, it does not connect to PostgreSQL or require include/active metadata. Package schema, source snapshot, references, coverage and warning decisions must still be valid. Existing metadata schema rules still apply: for example, an include record with missing access groups is invalid, even for preflight.
+
+```powershell
+python -m pip install -r requirements-example.txt
+python -m app.cli.preflight_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --json
+# Optional: also compute all vectors in memory; never write them to the database:
+python -m app.cli.preflight_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --check-embeddings --json
+```
+
+Replace placeholders before execution. One package is accepted per invocation. The default loads the supplied local model but does not call encode. Counts include `passage: ` and special tokens, without truncation, using the minimum of the model and tokenizer limits. Every chunk is reported with its zero-based `chunk_index`, `token_count` and `passed`/`exceeded` status. All oversized chunks are reported; any oversized chunk prevents optional embedding. No automatic splitting or content rewriting occurs.
+
+With `--check-embeddings`, preflight generates all vectors using batch size 16 and normalized embeddings, checks count, 384 dimensions and finite values, then discards the vectors. The report includes document/revision IDs, model name and declared revision, package/model fingerprints, token limit, per-chunk results and `embedding_check` (`not_run`, `skipped`, `passed`, or `failed`). Metadata blockers are reported separately; `database_checked` is always false. Neither mode resolves database conflicts or relation targets. A valid hold/unknown package can pass technical checks while remaining ineligible for publication.
+
+Reports go only to stdout (structured JSON with `--json`); no package files or reports are written. Runtime diagnostics are suppressed in favor of safe error codes. Exit codes are 0 for successful requested technical checks, 1 for rejected package/token/vector data or detected input changes, and 2 for operational failures such as a missing model/runtime. Package/model fingerprints are rechecked after token/embedding checks; changed inputs invalidate the result. No model download or hosted service is used. The supplied model commit and file hashes do not authenticate model identity.
+
+Workflow: author package, run preflight, establish publication eligibility from verified facts, then publish. Preflight is not approval, transcription verification or a retrieval evaluation. Publication repeats its checks even after a successful preflight. Publication `--dry-run` remains a separate database-aware check that does not load the tokenizer or create embeddings. Synthetic tests exercise these contracts; testing a real package/model requires explicitly supplied local model files and is reported separately.
+
 ## Strict schema v2
 
 All three JSON files have integer `schema_version: 2`. Old schemas and undefined fields are rejected; arbitrary dictionaries are permitted only for configuration, parser metadata, segment details and warning locations. Use `app.ingestion.document_packages` and `app.catalog.validation` as schema authorities.
