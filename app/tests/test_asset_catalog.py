@@ -63,8 +63,8 @@ def test_reject_windows_reparse_point(workspace, monkeypatch):
 
 
 @pytest.mark.parametrize('field,value', [
-    ('size_bytes', True), ('sha256', 'invalid'), ('review_status', []),
-    ('review_notes', 'not a list'), ('relations', [{'type': [], 'revision_id': 'bad'}]),
+    ('size_bytes', True), ('sha256', 'invalid'), ('lifecycle_status', []),
+    ('evidence_notes', 'not a list'), ('relations', [{'type': [], 'revision_id': 'bad'}]),
     ('effective_from', '2025-02-30'), ('access_groups', ['']), ('owner', 5),
 ])
 def test_malformed_fields_are_validation_errors(workspace, field, value):
@@ -95,7 +95,6 @@ def test_duplicate_ids_and_relations(workspace):
     first['relations'] = [{'type': 'supersedes', 'revision_id': second['revision_id']}]
     second['relations'] = [{'type': 'supersedes', 'revision_id': first['revision_id']}]
     errors = validation.validate_schema(data)
-    assert any('requires review' in e for e in errors)
     assert any('Cycle' in e for e in errors)
 
 
@@ -105,9 +104,9 @@ def test_readiness_and_effective_dates(workspace):
     assert validation.validate_schema(data) == []
     record['indexing_decision'] = 'include'
     assert validation.validate_schema(data)
-    record.update(review_status='reviewed', lifecycle_status='active', owner='Synthetic owner',
+    record.update(lifecycle_status='active', owner='Synthetic owner',
                   applicability='Synthetic team', access_groups=['synthetic-readers'],
-                  review_notes=['Applicability confirmed by synthetic owner.'])
+                  evidence_notes=['Applicability confirmed by synthetic owner.'])
     assert validation.validate_schema(data) == []
     record.update(effective_from='2099-01-01', effective_to='2000-01-01')
     assert any('reversed' in e for e in validation.validate_schema(data))
@@ -119,7 +118,7 @@ def test_duplicate_review_does_not_merge_rights(workspace):
     files = inventory.inventory(workspace / 'app/assets')
     data = validation.new_catalog(files)
     for record in data['documents']:
-        record.update(review_status='reviewed', indexing_decision='exclude')
+        record.update(indexing_decision='exclude')
     data['documents'][0]['access_groups'] = ['synthetic-a']
     data['documents'][1]['access_groups'] = ['synthetic-b']
     report = reports.build_report('scan', data, files)

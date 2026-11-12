@@ -41,6 +41,50 @@ def test_invalid_configuration_is_redacted(value):
     assert 'secret' not in str(error.value)
 
 
+@pytest.mark.parametrize(('encoded', 'password'), [
+    ('abc%40123', 'abc@123'),
+    ('abc%40%40123', 'abc@@123'),
+    ('abc%2540', 'abc%40'),
+])
+def test_encoded_password_preserves_host_and_query(encoded, password):
+    url = config.validate_url(
+        f'postgresql+psycopg://u:{encoded}@localhost:5432/test'
+        '?sslmode=verify-full&sslrootcert=C%3A%2Fcerts%2Froot.crt&application_name=a@b@c'
+    )
+    assert url.password == password
+    assert url.host == 'localhost'
+    assert url.port == 5432
+    assert dict(url.query) == {
+        'sslmode': 'verify-full', 'sslrootcert': 'C:/certs/root.crt',
+        'application_name': 'a@b@c',
+    }
+
+
+@pytest.mark.parametrize('name', ['DATABASE_URL', 'MIGRATION_DATABASE_URL', 'TEST_DATABASE_URL'])
+@pytest.mark.parametrize('credentials', ['u:secret@tail', 'u:secret@@tail', 'u@name:secret'])
+def test_unencoded_at_is_rejected_without_credentials(name, credentials):
+    value = f'postgresql+psycopg://{credentials}@private-host/test'
+    with pytest.raises(config.ConfigurationError) as error:
+        config.validate_url(value, name)
+    message = str(error.value)
+    assert name in message
+    assert '%40' in message
+    assert 'secret' not in message
+    assert 'private-host' not in message
+    assert value not in message
+
+
+def test_encoded_password_environment_and_migration_fallback(monkeypatch, tmp_path):
+    (tmp_path / '.env').write_text('DATABASE_URL=postgresql+psycopg://u:file%40pass@local/db')
+    assert config.database_url().password == 'file@pass'
+    monkeypatch.setenv('DATABASE_URL', 'postgresql+psycopg://u:env%40pass@remote/db')
+    monkeypatch.setenv('MIGRATION_DATABASE_URL', '')
+    assert config.database_url().password == 'env@pass'
+    assert config.database_url(migration=True) == config.database_url()
+    monkeypatch.setenv('MIGRATION_DATABASE_URL', 'postgresql+psycopg://u:mig%40pass@remote/db')
+    assert config.database_url(migration=True).password == 'mig@pass'
+
+
 def test_lazy_engine_and_disposal(monkeypatch):
     monkeypatch.setenv('DATABASE_URL', 'postgresql+psycopg://u:p@localhost/test')
     assert session._engine is None
@@ -99,9 +143,8 @@ with patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionEr
     import app.cli.import_catalog
     import app.database.models
     import app.database.migrations
-    import app.ingestion.chunking
+    import app.ingestion.document_packages
     import app.ingestion.embeddings
-    import app.ingestion.artifacts
     assert callable(entrypoint.main)
     assert "pymupdf" not in __import__("sys").modules
     assert "sentence_transformers" not in __import__("sys").modules

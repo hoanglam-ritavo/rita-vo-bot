@@ -13,7 +13,7 @@ LEGACY_DATA_ROOT = REPOSITORY_ROOT / 'app'
 sys.path.insert(0, str(REPOSITORY_ROOT))
 from app.catalog.inventory import CatalogError, file_fingerprint, inventory, reject_links, safe_relative
 from app.catalog.storage import atomic_write, json_text, load_catalog
-from app.catalog.validation import compare, validate_schema
+from app.catalog.legacy_validation import compare, validate_schema
 
 
 GUIDES = '05-huong-dan-su-dung'

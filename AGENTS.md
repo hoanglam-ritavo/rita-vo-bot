@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Scope and project status
 
-- The implemented system provides a Python database foundation, package-owned document metadata, multi-format reviewed-JSON ingestion with package-owned metadata, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
+- The implemented system provides a Python database foundation, package-owned document metadata, multi-format agent-authored JSON ingestion with package-owned metadata, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
 - Follow the requested task scope. Do not implement later phases or add dependencies merely because the architecture mentions them.
 - Keep documentation in English and synchronize it with changes to setup, supported behavior, and architectural decisions.
 
@@ -12,8 +12,8 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 - Keep command entrypoints in `app/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
 - Put automated tests in `app/tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
-- Keep review and approved chunk packages under `app/chunks/review/` and `app/chunks/approved/` following [docs/offline-indexing.md](docs/offline-indexing.md). Do not commit these outputs or create unused feature directories ahead of implementation. Leave historical `indexing_chunks/` data untouched; it is not scanned or merged into the new workspace.
-- Use agent-authored extraction and semantic chunk review as the primary preparation workflow; existing loader/chunker commands remain optional. Preserve snapshots, transcription, source spans and review evidence using the existing package schema. Validation checks structural consistency, not transcription accuracy or business approval. Follow the guide before producing packages.
+- Keep v2 chunk packages under `app/chunks/<document_id>/<revision_id>/` following [docs/offline-indexing.md](docs/offline-indexing.md). Do not commit these outputs or create unused feature directories ahead of implementation. Leave historical `indexing_chunks/` data untouched; it is not scanned or merged into the new workspace.
+- Use agent-authored extraction and semantic chunking as the primary preparation workflow; automatic Python loader/chunker commands are retired. Keep Python initialization, revision management, validation and publication; there is no approval step or reviewer identity. Preserve source snapshots, transcription, source spans, exclusions, warnings and evidence notes using the v2 schema. Convert selected old review/approved packages only with the explicit non-destructive converter; never infer a preferred legacy version. Validation checks structural consistency, not transcription accuracy or business approval. Follow the guide before producing packages.
 
 ## Database conventions
 
@@ -34,7 +34,10 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Validation and reporting
 
+- Keep pytest cache and temporary test data under the ignored `.tmp/` workspace. Standard pytest runs configure this automatically; do not create `pytest-cache-*` directories at the repository root. Explicit temporary-root overrides must stay under `.tmp/`. Prefer pytest's numbered session directories for concurrent runs; never share an explicit `--basetemp`, which pytest may delete before running and which bypasses normal three-session retention. See README testing instructions for Windows paths and cleanup. Do not change permissions or delete inaccessible legacy directories as incidental cleanup.
 - Run checks appropriate to the change. For Python database behavior, start with `python -m pytest -m 'not integration'`.
 - Integration tests require a dedicated disposable PostgreSQL database configured through `TEST_DATABASE_URL`; they perform migrations and table writes. Never point them at production or the application database. Do not substitute SQLite.
+- Integration fixtures check URL separation before migrations, but check application-table emptiness after upgrading. Tests may downgrade/upgrade schemas, write application tables and delete their rows during cleanup; use only disposable data.
+- Keep synthetic package/converter tests distinct from real document extraction and real-model verification. Historical source-utility tests protect legacy compatibility, not current ingestion behavior.
 - Missing test configuration means integration checks are skipped, not validated. Report skipped and unexecuted checks honestly.
 - For documentation-only changes, inspect statements against source, check links and examples, and review the change scope. Do not run migrations, asset-renaming utilities, or integration tests merely to validate prose.

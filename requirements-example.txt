@@ -1,4 +1,2 @@
-# Optional local PDF/OCR, XLSX and embedding dependencies; separate from database setup.
-PyMuPDF==2.1
+# Optional local embedding dependency; separate from database setup.
 sentence-transformers==6.2.0
-openpyxl==3.1.5

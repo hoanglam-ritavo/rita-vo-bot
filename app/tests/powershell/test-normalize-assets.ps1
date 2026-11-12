@@ -1,3 +1,5 @@
+# Standalone historical rename-utility checks, outside pytest and v2 ingestion.
+# All operations target synthetic temporary fixtures, never repository assets.
 $ErrorActionPreference = 'Stop'
 $source = Join-Path $PSScriptRoot '../../../scripts/normalize-assets.ps1'
 $testRoot = Join-Path ([IO.Path]::GetTempPath()) ('assets-rename-test-' + [guid]::NewGuid().ToString('N'))

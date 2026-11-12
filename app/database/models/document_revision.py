@@ -25,18 +25,16 @@ class DocumentRevision(Timestamps, Base):
     effective_from: Mapped[date | None] = mapped_column(Date)
     effective_to: Mapped[date | None] = mapped_column(Date)
     lifecycle_status: Mapped[str] = mapped_column(Text, server_default='unknown')
-    review_status: Mapped[str] = mapped_column(Text, server_default='pending')
     indexing_decision: Mapped[str] = mapped_column(Text, server_default='hold')
-    review_notes: Mapped[list] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
+    evidence_notes: Mapped[list] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
     is_catalog_current: Mapped[bool] = mapped_column(Boolean, server_default=text('false'))
     __table_args__ = (
         CheckConstraint("sha256 ~ '^[0-9a-f]{64}$'", name='sha256'),
         CheckConstraint('size_bytes >= 0', name='size_bytes'),
         CheckConstraint('effective_from <= effective_to', name='effective_dates'),
         CheckConstraint("lifecycle_status IN ('unknown','active','superseded','withdrawn','expired')", name='lifecycle'),
-        CheckConstraint("review_status IN ('pending','reviewed')", name='review'),
         CheckConstraint("indexing_decision IN ('hold','include','exclude')", name='indexing'),
-        CheckConstraint("jsonb_typeof(review_notes) = 'array'", name='notes_array'),
+        CheckConstraint("jsonb_typeof(evidence_notes) = 'array'", name='notes_array'),
         Index('uq_revision_current_document', 'document_id', unique=True, postgresql_where=text('is_catalog_current')),
         Index('uq_revision_current_path', 'source_path_key', unique=True, postgresql_where=text('is_catalog_current')),
     )

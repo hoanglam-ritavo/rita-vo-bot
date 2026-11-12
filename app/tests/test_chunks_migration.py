@@ -1,121 +1,182 @@
-"""Synthetic migration and retired-command checks."""
-import json
+"""Explicit legacy conversion; no private documents or live database."""
 from pathlib import Path
 import pytest
 from app.ingestion import document_packages as p
-from app.catalog.inventory import inventory
-from app.catalog.validation import new_catalog
-from app.paths import assets, workspace
-from scripts.migrate_indexing_chunks import migrate
+from package_fixtures import legacy_package
+from scripts.convert_chunk_package import convert
 
 
-def legacy(root):
-    assets(root).mkdir(parents=True)
-    (assets(root) / 'sample.doc').write_bytes(b'synthetic')
-    catalog = new_catalog(inventory(assets(root)))
-    old = root / 'indexing_workspace'
-    (old / 'catalog').mkdir(parents=True)
-    (old / 'catalog/documents.json').write_bytes(p.encoded(catalog))
-    (old / 'archive').mkdir()
-    (old / 'archive/old.txt').write_bytes(b'discarded history')
-    return catalog
+@pytest.mark.parametrize('kind', ['pending', 'ready', 'approved'])
+def test_preview_apply_repeat_preserves_original(tmp_path, kind):
+    old, source = legacy_package(tmp_path, kind)
+    before = p.snapshot_files(old)
+    result = convert(tmp_path, old)
+    target = tmp_path / result['package']
+    assert result['code'] == 'conversion_preview' and not target.exists()
+    assert convert(tmp_path, old, apply=True)['code'] == 'package_converted'
+    assert convert(tmp_path, old, apply=True)['code'] == 'already_converted'
+    assert p.snapshot_files(old) == before
+    assert (target / 'source.txt').read_bytes() == source.read_bytes()
+    record = p.metadata(target)
+    assert 'review_status' not in record and 'review_notes' not in record
+    if kind != 'pending':
+        _, payload, _ = p.load_package(tmp_path, target, eligible=True)
+        assert payload['chunks'][0]['content'] == 'Original policy.'
+        chunks = p.decode((target / 'chunks.json').read_bytes())
+        assert chunks['chunks'][0]['notes'] == 'Synthetic note'
+    else:
+        with pytest.raises(p.Rejected, match='incomplete_package'):
+            p.load_package(tmp_path, target)
 
 
-def test_migration_preserves_metadata_and_removes_old(tmp_path):
-    catalog = legacy(tmp_path)
-    assert migrate(tmp_path)['code'] == 'migration_preview'
-    assert not workspace(tmp_path).exists()
-    assert migrate(tmp_path, True)['records'] == 1
-    assert not (tmp_path / 'indexing_workspace').exists()
-    assert set(x.name for x in workspace(tmp_path).iterdir()) == {'review', 'approved'}
-    path, = p.review_paths(tmp_path)
-    assert p.metadata(path) == catalog['documents'][0]
-    with pytest.raises(p.Rejected):
-        p.approve(tmp_path, path, 'Reviewer')
-    assert migrate(tmp_path, True)['code'] == 'already_migrated'
+@pytest.mark.parametrize('kind', ['ready', 'approved'])
+def test_tampered_legacy_hash_rejected(tmp_path, kind):
+    old, _ = legacy_package(tmp_path, kind)
+    with (old / 'extraction.json').open('ab') as stream:
+        stream.write(b' ')
+    with pytest.raises(p.Rejected, match='hash_mismatch'):
+        convert(tmp_path, old, apply=True)
 
 
-def test_migration_unknown_entry_blocks_delete(tmp_path):
-    legacy(tmp_path)
-    (tmp_path / 'indexing_workspace/unexpected').write_bytes(b'unknown')
-    with pytest.raises(p.Rejected, match='unknown_workspace'):
-        migrate(tmp_path, True)
-    assert (tmp_path / 'indexing_workspace/catalog/documents.json').exists()
+def test_unresolved_warnings_remain_blocking(tmp_path):
+    old, _ = legacy_package(tmp_path, unresolved=True)
+    target = tmp_path / convert(tmp_path, old, apply=True)['package']
+    with pytest.raises(p.Rejected, match='unresolved_warnings'):
+        p.load_package(tmp_path, target)
 
 
-def test_resume_after_partial_delete(tmp_path, monkeypatch):
-    legacy(tmp_path)
-    original = Path.unlink
-    calls = []
-    def interrupted(path, *args, **kwargs):
-        if 'indexing_workspace' in path.parts:
-            calls.append(path)
-            if len(calls) == 2:
-                raise OSError('synthetic interruption')
-        return original(path, *args, **kwargs)
-    monkeypatch.setattr(Path, 'unlink', interrupted)
-    with pytest.raises(OSError):
-        migrate(tmp_path, True)
-    monkeypatch.setattr(Path, 'unlink', original)
-    assert migrate(tmp_path, True)['code'] == 'migration_resumed'
-    assert not (tmp_path / 'indexing_workspace').exists()
+def test_conflicting_target_never_overwritten(tmp_path):
+    old, _ = legacy_package(tmp_path)
+    target = tmp_path / convert(tmp_path, old, apply=True)['package']
+    (target / 'chunks.json').write_bytes(b'{}')
+    with pytest.raises(p.Rejected, match='conversion_target_conflict'):
+        convert(tmp_path, old, apply=True)
+    assert (target / 'chunks.json').read_bytes() == b'{}'
 
 
-def test_init_idempotence_and_drift(tmp_path):
-    assets(tmp_path).mkdir(parents=True)
-    source = assets(tmp_path) / 'sample.txt'
-    source.write_text('synthetic')
-    assert len(p.initialize(tmp_path)) == 1
-    assert p.initialize(tmp_path) == []
-    source.write_text('changed')
-    with pytest.raises(p.Rejected, match='source_changed'):
+def test_init_requires_explicit_legacy_conversion(tmp_path):
+    old, _ = legacy_package(tmp_path)
+    with pytest.raises(p.Rejected, match='legacy_source_convert_explicitly'):
         p.initialize(tmp_path)
+    convert(tmp_path, old, apply=True)
+    assert p.initialize(tmp_path) == []
+
+
+def test_pending_missing_original_retains_metadata(tmp_path):
+    old, source = legacy_package(tmp_path, 'pending')
+    source.unlink()
+    target = tmp_path / convert(tmp_path, old, apply=True)['package']
+    assert set(p.snapshot_files(target)) == {'metadata.json'}
+
+
+def test_source_changes_during_conversion_never_finalizes(tmp_path, monkeypatch):
+    old, source = legacy_package(tmp_path, 'pending')
+    original = p.write_package
+    def interrupted(parent, name, files, **kwargs):
+        source.write_bytes(b'changed')
+        return original(parent, name, files, **kwargs)
+    target = tmp_path / convert(tmp_path, old)['package']
+    monkeypatch.setattr(p, 'write_package', interrupted)
+    with pytest.raises(p.Rejected, match='source_changed'):
+        convert(tmp_path, old, apply=True)
+    assert not target.exists()
+
+
+def test_multiple_legacy_versions_require_selection(tmp_path):
+    from uuid import uuid4
+    old, _ = legacy_package(tmp_path)
+    files = p.snapshot_files(old)
+    second = p.write_package(old.parent, str(uuid4()), files)
+    draft = p.decode((second / 'draft.json').read_bytes())
+    draft['chunks'][0]['content'] = 'Another version'
+    (second / 'draft.json').write_bytes(p.encoded(draft))
+    convert(tmp_path, old, apply=True)
+    with pytest.raises(p.Rejected, match='conversion_target_conflict'):
+        convert(tmp_path, second, apply=True)
 
 
 def test_retired_commands_do_not_write(tmp_path, monkeypatch):
-    from app.cli import asset_catalog, import_catalog, ingest, review
+    from app.cli import asset_catalog, import_catalog, ingest, review, publish_documents
+    from scripts import migrate_indexing_chunks, migrate_indexing_workspace
     monkeypatch.chdir(tmp_path)
-    for cli in (asset_catalog, import_catalog, ingest, review):
+    for cli in (asset_catalog, import_catalog, ingest, review, migrate_indexing_chunks, migrate_indexing_workspace):
         assert cli.main(['anything']) == 2
+    assert publish_documents.main(['--approved', 'absent']) == 2
     assert list(tmp_path.iterdir()) == []
 
 
-def test_migration_conflict_and_source_drift(tmp_path):
-    from uuid import uuid5
-    from scripts.migrate_indexing_chunks import NAMESPACE
-    record = legacy(tmp_path)['documents'][0]
-    (assets(tmp_path) / record['source_path']).unlink()
-    # Missing source metadata is retained, but cannot be extracted/approved.
-    migrate(tmp_path, True)
-    path, = p.review_paths(tmp_path)
-    assert p.metadata(path) == record
-    with pytest.raises(p.Rejected):
-        p.source_for(tmp_path, record)
+@pytest.mark.parametrize('extension', ['.pdf', '.xlsx', '.csv', '.md', '.txt'])
+@pytest.mark.parametrize('kind', ['pending', 'ready', 'approved'])
+def test_multiformat_conversion_preserves_contract_evidence(tmp_path, extension, kind):
+    """Opaque synthetic source bytes exercise contracts, not actual format parsing."""
+    old, source = legacy_package(tmp_path, kind, extension=extension, with_exclusion=True)
+    before = p.snapshot_files(old)
+    preview = convert(tmp_path, old)
+    target = tmp_path / preview['package']
+    assert not target.exists() and p.snapshot_files(old) == before
+    convert(tmp_path, old, apply=True)
+    assert p.snapshot_files(old) == before
+    assert (target / ('source' + extension)).read_bytes() == source.read_bytes()
+    if kind == 'pending':
+        with pytest.raises(p.Rejected, match='incomplete_package'):
+            p.load_package(tmp_path, target)
+        return
+    record, payload, _ = p.load_package(tmp_path, target, eligible=True)
+    extraction = p.decode(before['extraction.json'])
+    draft = p.decode(before['draft.json'])
+    actual_extraction = p.decode((target / 'extraction.json').read_bytes())
+    actual_chunks = p.decode((target / 'chunks.json').read_bytes())
+    assert actual_extraction['segments'] == extraction['segments']
+    assert actual_extraction['parser_metadata'] == extraction['parser_metadata']
+    assert actual_chunks['chunks'][0]['content'] == draft['chunks'][0]['content']
+    assert actual_chunks['chunks'][0]['source_refs'] == draft['chunks'][0]['source_refs']
+    assert actual_chunks['chunks'][0]['notes'] == draft['chunks'][0]['review_notes']
+    assert actual_chunks['excluded'] == draft['excluded']
+    assert actual_chunks['warning_decisions'] == draft['warning_decisions']
+    assert record['evidence_notes'] == p.decode(before['metadata.json'])['review_notes']
+    assert payload['chunks'][0]['source_location']['spans'][0]['location'] == extraction['segments'][0]['location']
 
 
-def test_metadata_identity_and_approval_tampering(tmp_path):
-    from test_document_packages import approved
-    _, _, review, approval = approved(tmp_path)
-    data = p.metadata(review)
-    data['sha256'] = '0'*64
-    (review / 'metadata.json').write_bytes(p.encoded(data))
-    with pytest.raises(p.Rejected, match='identity_changed'):
-        p.metadata(review)
-    with (approval / 'metadata.json').open('ab') as stream:
-        stream.write(b' ')
-    with pytest.raises(p.Rejected, match='hash_mismatch'):
-        p.load_approval(tmp_path, approval)
+@pytest.mark.parametrize('kind', ['ready', 'approved'])
+@pytest.mark.parametrize('location', [
+    {'kind': 'xlsx', 'row': 2, 'column_start': 1, 'column_end': 2, 'header_row': 1},
+    {'kind': 'xlsx', 'sheet': 'Synthetic', 'row': 2, 'column_start': 1, 'column_end': 2,
+     'header_row': 1, 'legacy_extra': 'not-supported-in-v2'},
+])
+def test_legacy_location_validity_does_not_guarantee_v2_compatibility(tmp_path, kind, location):
+    from app.ingestion import legacy_packages as legacy
+    old, _ = legacy_package(tmp_path, kind, extension='.xlsx', location=location)
+    before = p.snapshot_files(old)
+    if kind == 'approved':
+        legacy.load_approval(tmp_path, old)
+    else:
+        legacy.load_review(old)
+    record = p.decode(before['metadata.json'])
+    target = p.workspace(tmp_path) / record['document_id'] / record['revision_id']
+    for apply in (False, True):
+        with pytest.raises(p.Rejected, match='segment_location_fields'):
+            convert(tmp_path, old, apply=apply)
+        assert not target.exists()
+        assert p.snapshot_files(old) == before
 
 
-def test_unreadable_directory_is_not_silently_skipped(tmp_path, monkeypatch):
-    from scripts.migrate_indexing_chunks import tree
-    blocked = tmp_path / 'blocked'
-    blocked.mkdir()
-    original = Path.iterdir
-    def denied(path):
-        if path.name == 'blocked':
-            raise PermissionError('synthetic')
-        return original(path)
-    monkeypatch.setattr(Path, 'iterdir', denied)
-    with pytest.raises(PermissionError):
-        tree(tmp_path)
+@pytest.mark.parametrize('dry_run', [False, True])
+def test_content_only_conversion_does_not_invent_publication_metadata(tmp_path, monkeypatch, dry_run):
+    from unittest.mock import Mock
+    from app.ingestion import approved_publication as service
+    from app.database.runtime import run_async
+    old, _ = legacy_package(tmp_path, 'approved', content_only=True)
+    before = p.snapshot_files(old)
+    target = tmp_path / convert(tmp_path, old, apply=True)['package']
+    record, _, _ = p.load_package(tmp_path, target)
+    assert record['owner'] is None and record['applicability'] is None
+    assert record['access_groups'] == [] and record['indexing_decision'] == 'hold'
+    assert record['lifecycle_status'] == 'unknown' and record['evidence_notes'] == []
+    model, database = Mock(), Mock()
+    monkeypatch.setattr(service, 'model_fingerprint', model)
+    monkeypatch.setattr(service, 'session_scope', database)
+    with pytest.raises(p.Rejected, match='source_ineligible'):
+        run_async(service.publish(tmp_path, target, 'a'*40, model_path=tmp_path, dry_run=dry_run))
+    model.assert_not_called()
+    database.assert_not_called()
+    assert p.snapshot_files(old) == before

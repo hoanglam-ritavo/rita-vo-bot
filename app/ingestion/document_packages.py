@@ -1,20 +1,20 @@
-"""Versioned local review contracts. No database, OCR or model imports."""
-from datetime import datetime, timezone
+"""Agent-authored v2 chunk packages; no database, model or extraction runtime."""
 import hashlib
 import json
 import os
-import re
 from pathlib import Path
 from uuid import UUID, uuid4
 
-from app.catalog.inventory import reject_links, file_fingerprint, inventory
-from app.catalog.inventory import safe_relative
+from app.catalog.inventory import reject_links, file_fingerprint, inventory, safe_relative
 from app.catalog.storage import json_text
-from app.catalog.validation import validate_schema
+from app.catalog.validation import validate_schema, new_record, RELATIONS
 from app.paths import assets, workspace
 
 SUPPORTED = {'.pdf', '.xlsx', '.csv', '.md', '.txt'}
+IDENTITY_FIELDS = ('document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes', 'extension')
 
+class Rejected(ValueError):
+    """Fixed credential/content-safe rejection codes."""
 
 def io_path(path):
     """Extended Windows paths for package IO, without changing public path values."""
@@ -24,27 +24,18 @@ def io_path(path):
         path = Path('\\\\?\\UNC\\' + value[2:] if value.startswith('\\\\') else '\\\\?\\' + value)
     return path
 
-
-class Rejected(ValueError):
-    """Messages contain fixed error codes, never document content."""
-
-
 def require(condition, code):
     if not condition:
         raise Rejected(code)
 
-
 def sha(data):
     return hashlib.sha256(data).hexdigest()
-
 
 def encoded(value):
     return json_text(value).encode('utf-8')
 
-
 def canonical_hash(value):
     return sha(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False).encode('utf-8'))
-
 
 def decode(data):
     def unique(pairs):
@@ -59,110 +50,11 @@ def decode(data):
     except (UnicodeError, json.JSONDecodeError):
         raise Rejected('invalid_json') from None
 
-
 def uuid(value):
     try:
         require(isinstance(value, str) and str(UUID(value)) == value, 'invalid_uuid')
     except (ValueError, TypeError, AttributeError):
         raise Rejected('invalid_uuid') from None
-
-
-IDENTITY_FIELDS = ('document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes', 'extension')
-
-
-def validate_metadata(record):
-    # Cross-revision relations are checked against the database at publication.
-    candidate = dict(record)
-    relations = candidate.get('relations')
-    require(isinstance(relations, list), 'metadata_relations')
-    candidate['relations'] = []
-    require(not validate_schema({'schema_version': 1, 'documents': [candidate]}), 'metadata_invalid')
-    from app.catalog.validation import RELATIONS
-    for relation in relations:
-        require(isinstance(relation, dict) and set(relation) == {'type', 'revision_id'}
-                and relation['type'] in RELATIONS, 'metadata_relation')
-        uuid(relation['revision_id'])
-        require(relation['revision_id'] != record['revision_id'], 'self_relation')
-        if relation['type'] != 'duplicate_of':
-            require(record['review_status'] == 'reviewed' and bool(record['review_notes']), 'relation_review_required')
-    return record
-
-
-def metadata(directory):
-    manifest = decode(read_file(directory, 'manifest.json'))
-    require(manifest.get('schema_version') == 2 and manifest.get('kind') == 'review', 'not_review_package')
-    record = validate_metadata(decode(read_file(directory, 'metadata.json')))
-    require({k: record[k] for k in IDENTITY_FIELDS} == manifest.get('identity'), 'metadata_identity_changed')
-    return record
-
-
-def source_for(root, record, *, eligible=False):
-    validate_metadata(record)
-    require(record['extension'] in SUPPORTED, 'unsupported_format')
-    require(record['indexing_decision'] != 'exclude' and record['lifecycle_status'] in ('unknown', 'active'), 'source_ineligible')
-    if eligible:
-        require(record['indexing_decision'] == 'include' and record['review_status'] == 'reviewed'
-                and record['lifecycle_status'] == 'active', 'source_not_approved')
-    source = assets(root) / record['source_path']
-    reject_links(source)
-    require(source.resolve().is_relative_to(assets(root).resolve()), 'source_outside_assets')
-    require(file_fingerprint(source) == {k: record[k] for k in ('sha256', 'size_bytes', 'extension')}, 'source_changed')
-    return source
-
-
-def review_paths(root):
-    base = workspace(root) / 'review'
-    reject_links(base)
-    result = []
-    if base.exists():
-        for revision in sorted(base.iterdir()):
-            reject_links(revision)
-            if revision.name.startswith('.'):
-                continue
-            require(revision.is_dir(), 'unexpected_review_entry')
-            for path in sorted(revision.iterdir()):
-                reject_links(path)
-                if path.name.startswith('.'):
-                    continue
-                require(path.is_dir(), 'unexpected_review_entry')
-                record = metadata(path)
-                require(revision.name == record['revision_id'], 'review_location')
-                result.append(path)
-    return result
-
-
-def pending(root, record, *, package_id=None, extra=None):
-    validate_metadata(record)
-    manifest = {'schema_version': 2, 'kind': 'review', 'state': 'pending',
-                'identity': {k: record[k] for k in IDENTITY_FIELDS}}
-    files = {'metadata.json': encoded(record), 'manifest.json': encoded(manifest)}
-    if extra:
-        files.update(extra)
-    return write_package(workspace(root) / 'review' / record['revision_id'], package_id or str(uuid4()), files)
-
-
-def initialize(root):
-    from app.catalog.validation import new_record
-    known = {}
-    for path in review_paths(root):
-        record = metadata(path)
-        known.setdefault(record['source_path'].casefold(), []).append(record)
-    incoming = inventory(assets(root))
-    for name, fingerprint in incoming.items():
-        candidates = known.get(name.casefold(), [])
-        require(len({r['document_id'] for r in candidates}) <= 1, 'source_identity_conflict')
-        require(not candidates or any(all(r[k] == v for k, v in fingerprint.items()) for r in candidates),
-                'source_changed_explicit_revision_required')
-    for kind in ('review', 'approved'):
-        target = workspace(root) / kind
-        reject_links(target)
-        target.mkdir(parents=True, exist_ok=True)
-    return [pending(root, new_record(name, fp)) for name, fp in incoming.items() if name.casefold() not in known]
-
-
-def identity(record, extraction_id):
-    return {key: record[key] for key in ('document_id', 'revision_id', 'source_path', 'sha256', 'extension')} | {'extraction_id': extraction_id}
-
 
 def read_file(directory, name):
     require(isinstance(name, str) and Path(name).name == name and name not in ('', '.', '..')
@@ -174,9 +66,9 @@ def read_file(directory, name):
     except FileNotFoundError:
         raise Rejected('package_file_missing') from None
 
-
-def write_package(parent, package_id, files):
+def write_package(parent, package_id, files, *, before_finalize=None):
     """A staged directory becomes visible only after every file is complete."""
+    require(safe_relative(package_id) and '/' not in package_id, 'unsafe_package_path')
     public_target = parent / package_id
     parent = io_path(parent)
     reject_links(parent)
@@ -186,54 +78,68 @@ def write_package(parent, package_id, files):
     staging = parent / ('.staging-' + str(uuid4()))
     staging.mkdir()
     for name, data in files.items():
-        require(Path(name).name == name, 'unsafe_package_path')
+        require(safe_relative(name) and '/' not in name, 'unsafe_package_path')
         with (staging / name).open('xb') as stream:
             stream.write(data)
     # Failure leaves an explicitly incomplete staging directory, never a valid package.
+    if before_finalize is not None:
+        before_finalize()
     staging.rename(target)
     return public_target
 
+def report(root, operation, results, *, as_json=False):
+    counts = {s: sum(r['status'] == s for r in results) for s in ('processed', 'skipped', 'rejected', 'failed')}
+    incomplete = sum(r.get('code') in ('incomplete_package', 'package_file_missing') for r in results)
+    if as_json:
+        print(json.dumps({'operation': operation, 'counts': counts, 'incomplete_count': incomplete,
+                          'results': results}, ensure_ascii=True))
+    else:
+        print(' '.join(f'{key}={value}' for key, value in counts.items()) + f' incomplete={incomplete}')
+        for result in results:
+            print(json.dumps(result, ensure_ascii=True))
+    return 2 if counts['failed'] else 1 if counts['rejected'] else 0
 
 def validate_extraction(extraction):
     require(isinstance(extraction, dict) and set(extraction) == {
-        'schema_version', 'status', 'identity', 'configuration', 'parser_metadata', 'segments', 'warnings'}, 'extraction_fields')
-    require(type(extraction['schema_version']) is int and extraction['schema_version'] == 1
+        'schema_version', 'status', 'configuration', 'parser_metadata', 'segments', 'warnings'}, 'extraction_fields')
+    require(type(extraction['schema_version']) is int and extraction['schema_version'] == 2
             and extraction['status'] == 'complete', 'incomplete_extraction')
-    ident = extraction['identity']
-    require(isinstance(ident, dict) and set(ident) == {
-        'document_id', 'revision_id', 'source_path', 'sha256', 'extension', 'extraction_id'}, 'identity_fields')
-    for key in ('document_id', 'revision_id', 'extraction_id'):
-        uuid(ident[key])
-    require(isinstance(ident['sha256'], str) and re.fullmatch('[0-9a-f]{64}', ident['sha256']), 'source_hash')
-    require(safe_relative(ident['source_path']) and ident['extension'] in SUPPORTED
-            and Path(ident['source_path']).suffix.lower() == ident['extension'], 'source_identity')
     require(isinstance(extraction['configuration'], dict) and isinstance(extraction['parser_metadata'], dict), 'extraction_configuration')
     require(isinstance(extraction['segments'], list) and bool(extraction['segments']), 'extraction_segments')
     for segment in extraction['segments']:
         require(isinstance(segment, dict) and set(segment) == {'segment_id', 'raw', 'text', 'location', 'extraction_method', 'details'}, 'segment_fields')
         require(isinstance(segment['segment_id'], str) and bool(segment['segment_id'])
                 and isinstance(segment['raw'], str) and isinstance(segment['text'], str) and bool(segment['text'].strip())
+                and isinstance(segment['extraction_method'], str)
                 and segment['extraction_method'] in ('native', 'ocr') and isinstance(segment['details'], dict), 'segment_content')
         location = segment['location']
-        require(isinstance(location, dict) and location.get('kind') in ('pdf', 'text', 'csv', 'xlsx'), 'segment_location')
+        require(isinstance(location, dict) and isinstance(location.get('kind'), str)
+                and location['kind'] in ('pdf', 'text', 'csv', 'xlsx'), 'segment_location')
         keys = ('page_start', 'page_end') if location['kind'] == 'pdf' else ('line_start', 'line_end') if location['kind'] in ('text', 'csv') else ('row', 'column_start', 'column_end', 'header_row')
+        require(set(location) == {'kind', *keys, *(['sheet'] if location['kind'] == 'xlsx' else [])}, 'segment_location_fields')
         require(all(type(location.get(key)) is int and location[key] > 0 for key in keys), 'segment_location_range')
+        if location['kind'] == 'pdf':
+            require(location['page_start'] <= location['page_end'], 'segment_location_range')
+        elif location['kind'] in ('text', 'csv'):
+            require(location['line_start'] <= location['line_end'], 'segment_location_range')
+        else:
+            require(isinstance(location.get('sheet'), str) and bool(location['sheet'].strip())
+                    and location['column_start'] <= location['column_end'], 'segment_location_range')
     require(isinstance(extraction['warnings'], list), 'warnings_type')
     ids = set()
     for warning in extraction['warnings']:
         require(isinstance(warning, dict) and set(warning) == {'warning_id', 'code', 'location'}
-                and isinstance(warning['warning_id'], str) and isinstance(warning['code'], str)
+                and isinstance(warning['warning_id'], str) and bool(warning['warning_id'].strip())
+                and isinstance(warning['code'], str) and bool(warning['code'].strip())
                 and isinstance(warning['location'], dict), 'warning_fields')
         require(warning['warning_id'] not in ids, 'duplicate_warning')
         ids.add(warning['warning_id'])
 
-
-def validate_draft(extraction, draft):
+def validate_chunks(extraction, draft, *, allow_unresolved=False):
     validate_extraction(extraction)
     require(isinstance(draft, dict) and set(draft) == {
-        'schema_version', 'identity', 'chunks', 'excluded', 'warning_decisions'}, 'draft_fields')
-    require(type(draft['schema_version']) is int and draft['schema_version'] == 1, 'draft_version')
-    require(draft['identity'] == extraction['identity'], 'identity_mismatch')
+        'schema_version', 'chunks', 'excluded', 'warning_decisions'}, 'draft_fields')
+    require(type(draft['schema_version']) is int and draft['schema_version'] == 2, 'draft_version')
     segments = {s['segment_id']: s for s in extraction['segments']}
     require(len(segments) == len(extraction['segments']), 'duplicate_segment')
     coverage = {key: [] for key in segments}
@@ -248,18 +154,16 @@ def validate_draft(extraction, draft):
                 'location': segments[key]['location'], 'extraction_method': segments[key]['extraction_method']}
 
     require(isinstance(draft['chunks'], list) and bool(draft['chunks']), 'empty_chunks')
-    output, ids = [], set()
+    output = []
     for item in draft['chunks']:
-        require(isinstance(item, dict) and set(item) == {'chunk_id', 'content', 'source_refs', 'review_notes'}, 'chunk_fields')
-        uuid(item['chunk_id'])
-        require(item['chunk_id'] not in ids, 'duplicate_chunk')
-        ids.add(item['chunk_id'])
+        require(isinstance(item, dict) and {'content', 'source_refs'} <= set(item)
+                and set(item) <= {'content', 'source_refs', 'notes'}, 'chunk_fields')
         require(isinstance(item['content'], str) and bool(item['content'].strip()), 'empty_content')
-        require(isinstance(item['review_notes'], str), 'review_notes_type')
+        require(isinstance(item.get('notes', ''), str), 'chunk_notes_type')
         require(isinstance(item['source_refs'], list) and bool(item['source_refs']), 'empty_references')
         spans = [reference(ref) for ref in item['source_refs']]
         output.append({'chunk_index': len(output), 'content': item['content'],
-            'source_location': {'review_chunk_id': item['chunk_id'], 'spans': spans},
+            'source_location': {'spans': spans},
             'extraction_method': 'ocr' if any(s['extraction_method'] == 'ocr' for s in spans) else 'native'})
     require(isinstance(draft['excluded'], list), 'excluded_type')
     for item in draft['excluded']:
@@ -276,131 +180,172 @@ def validate_draft(extraction, draft):
     decisions = draft['warning_decisions']
     require(isinstance(decisions, dict), 'warning_decisions_type')
     warning_ids = {w['warning_id'] for w in extraction['warnings']}
-    require(set(decisions) == warning_ids and all(isinstance(v, str) and v.strip() for v in decisions.values()),
-            'unresolved_warnings')
+    require(set(decisions) == warning_ids and all(isinstance(v, str) for v in decisions.values()), 'warning_decisions_type')
+    if not allow_unresolved:
+        require(all(v.strip() for v in decisions.values()), 'unresolved_warnings')
     return output
 
 
-def load_review(directory):
+def validate_metadata(record, *, eligible=False):
+    require(isinstance(record, dict), 'metadata_invalid')
+    candidate = dict(record)
+    relations = candidate.get('relations')
+    require(isinstance(relations, list), 'metadata_relations')
+    candidate['relations'] = []
+    require(not validate_schema({'schema_version': 1, 'documents': [candidate]}), 'metadata_invalid')
+    for relation in relations:
+        require(isinstance(relation, dict) and set(relation) == {'type', 'revision_id'}
+                and isinstance(relation['type'], str) and relation['type'] in RELATIONS, 'metadata_relation')
+        uuid(relation['revision_id'])
+        require(relation['revision_id'] != record['revision_id'], 'self_relation')
+    if eligible:
+        require(record['indexing_decision'] == 'include' and record['lifecycle_status'] == 'active',
+                'source_ineligible')
+    return record
+
+
+def package_directory(root, directory):
     directory = io_path(directory)
     reject_links(directory)
-    require(not directory.name.startswith('.'), 'incomplete_package')
-    manifest = decode(read_file(directory, 'manifest.json'))
-    require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
-            and manifest.get('schema_version') == 2 and manifest.get('kind') == 'review', 'not_review_package')
-    require(isinstance(manifest.get('source_file'), str) and isinstance(manifest.get('files'), dict), 'review_manifest_fields')
-    require(manifest.get('state') == 'ready', 'incomplete_review')
-    record = metadata(directory)
-    expected = {'extraction.json', 'draft.initial.json', manifest.get('source_file')}
-    require(set(manifest.get('files', {})) == expected, 'review_manifest_files')
-    files = {}
-    for name, fingerprint in manifest['files'].items():
-        files[name] = read_file(directory, name)
-        require(sha(files[name]) == fingerprint, 'review_hash_mismatch')
-    extraction = decode(files['extraction.json'])
-    validate_extraction(extraction)
-    require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'metadata_identity_changed')
-    require(len(files[manifest['source_file']]) == record['size_bytes'], 'snapshot_size')
-    require(extraction.get('schema_version') == 1 and extraction.get('status') == 'complete', 'incomplete_extraction')
-    require(manifest['source_file'] == 'source' + extraction['identity']['extension'], 'source_filename')
-    require(sha(files[manifest['source_file']]) == extraction['identity']['sha256'], 'snapshot_mismatch')
-    draft_bytes = read_file(directory, 'draft.json')
-    draft = decode(draft_bytes)
-    chunks = validate_draft(extraction, draft)
-    require(decode(files['draft.initial.json'])['identity'] == extraction['identity'], 'initial_identity_mismatch')
-    files['draft.json'] = draft_bytes
-    files['manifest.json'] = encoded(manifest)
-    files['metadata.json'] = encoded(record)
-    return extraction, draft, chunks, files
+    base = io_path(workspace(root))
+    require(directory.resolve().is_relative_to(base.resolve()), 'package_outside_workspace')
+    relative = directory.resolve().relative_to(base.resolve())
+    require(len(relative.parts) == 2 and not any(p.startswith('.') for p in relative.parts), 'package_location')
+    for part in relative.parts:
+        uuid(part)
+    return directory
 
 
-def approve(root, directory, reviewer, *, content_only=False):
-    require(isinstance(reviewer, str) and reviewer.strip(), 'reviewer_required')
-    extraction, draft, chunks, files = load_review(directory)
-    record = metadata(directory)
-    source_for(root, record, eligible=not content_only)
-    require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'metadata_identity_mismatch')
-    approval_id = str(uuid4())
-    files['review-manifest.json'] = files.pop('manifest.json')
-    payload = {'schema_version': 1, 'identity': extraction['identity'], 'chunks': chunks,
+def metadata(directory):
+    directory = io_path(directory)
+    record = validate_metadata(decode(read_file(directory, 'metadata.json')))
+    require(directory.name == record['revision_id'] and directory.parent.name == record['document_id'], 'metadata_identity_changed')
+    return record
+
+
+def package_paths(root):
+    base = io_path(workspace(root))
+    reject_links(base)
+    result = []
+    if not base.exists():
+        return result
+    for document in sorted(base.iterdir()):
+        if document.name in ('review', 'approved') or document.name.startswith('.'):
+            continue
+        reject_links(document)
+        uuid(document.name)
+        require(document.is_dir(), 'unexpected_package_entry')
+        for revision in sorted(document.iterdir()):
+            if revision.name.startswith('.'):
+                continue
+            reject_links(revision)
+            uuid(revision.name)
+            require(revision.is_dir(), 'unexpected_package_entry')
+            result.append(workspace(root) / document.name / revision.name)
+    return result
+
+
+def snapshot_files(directory):
+    directory = io_path(directory)
+    reject_links(directory)
+    result = {}
+    for path in sorted(directory.iterdir()):
+        reject_links(path)
+        require(path.is_file(), 'unexpected_package_entry')
+        result[path.name] = read_file(directory, path.name)
+    return result
+
+
+def load_package(root, directory, *, eligible=False, allow_unresolved=False):
+    directory = package_directory(root, directory)
+    files = snapshot_files(directory)
+    require('metadata.json' in files, 'package_file_missing')
+    record = validate_metadata(decode(files['metadata.json']), eligible=eligible)
+    require(directory.name == record['revision_id'] and directory.parent.name == record['document_id'], 'metadata_identity_changed')
+    require(record['extension'] in SUPPORTED, 'unsupported_format')
+    source_file = 'source' + record['extension']
+    require(source_file in files, 'package_file_missing')
+    require(sha(files[source_file]) == record['sha256'] and len(files[source_file]) == record['size_bytes'], 'snapshot_mismatch')
+    require({'extraction.json', 'chunks.json'} <= files.keys(), 'incomplete_package')
+    require(set(files) == {'metadata.json', 'extraction.json', 'chunks.json', source_file}, 'package_files')
+    extraction, draft = decode(files['extraction.json']), decode(files['chunks.json'])
+    chunks = validate_chunks(extraction, draft, allow_unresolved=allow_unresolved)
+    require(all(s['location']['kind'] == {'.pdf': 'pdf', '.xlsx': 'xlsx', '.csv': 'csv', '.txt': 'text', '.md': 'text'}[record['extension']]
+                for s in extraction['segments']), 'source_location_kind')
+    payload = {'identity': {k: record[k] for k in IDENTITY_FIELDS}, 'chunks': chunks,
                'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
-    files['payload.json'] = encoded(payload)
-    manifest = {'schema_version': 2, 'kind': 'approval', 'approval_id': approval_id,
-                'reviewer': reviewer, 'approved_at': datetime.now(timezone.utc).isoformat(),
-                'content_hash': canonical_hash(payload), 'files': {k: sha(v) for k, v in files.items()}}
-    if content_only:
-        manifest['approval_scope'] = 'content'
-    files['manifest.json'] = encoded(manifest)
-    return write_package(workspace(root) / 'approved' / record['revision_id'], approval_id, files)
+    return record, payload, files
 
 
-def load_approval(root, directory):
-    directory = io_path(directory)
-    reject_links(directory)
-    require(directory.resolve().is_relative_to(io_path(workspace(root) / 'approved').resolve()), 'approval_outside_workspace')
-    require(not directory.name.startswith('.'), 'incomplete_package')
-    manifest = decode(read_file(directory, 'manifest.json'))
-    require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
-            and manifest.get('schema_version') == 2 and manifest.get('kind') == 'approval', 'not_approved')
-    scope = manifest.get('approval_scope', 'publication')
-    require(scope in ('content', 'publication'), 'approval_scope')
-    uuid(manifest.get('approval_id'))
-    require(isinstance(manifest.get('reviewer'), str) and bool(manifest['reviewer'].strip()), 'reviewer_required')
-    try:
-        require(datetime.fromisoformat(manifest['approved_at']).utcoffset() is not None, 'approval_time')
-    except (KeyError, ValueError, TypeError):
-        raise Rejected('approval_time') from None
-    files = {}
-    require(isinstance(manifest.get('files'), dict), 'approval_files')
-    for name, fingerprint in manifest['files'].items():
-        files[name] = read_file(directory, name)
-        require(sha(files[name]) == fingerprint, 'approval_hash_mismatch')
-    require({'payload.json', 'extraction.json', 'draft.initial.json', 'draft.json', 'review-manifest.json'} <= files.keys(), 'approval_files')
-    payload = decode(files['payload.json'])
-    extraction = decode(files['extraction.json'])
-    validate_extraction(extraction)
-    draft = decode(files['draft.json'])
-    require(isinstance(payload, dict) and type(payload.get('schema_version')) is int
-            and payload.get('schema_version') == 1 and extraction.get('schema_version') == 1
-            and extraction.get('status') == 'complete', 'package_version')
-    source_file = 'source' + extraction['identity']['extension']
-    require(set(files) == {'payload.json', 'extraction.json', 'draft.initial.json', 'draft.json', 'review-manifest.json', 'metadata.json', source_file}, 'approval_files')
-    review_manifest = decode(files['review-manifest.json'])
-    require(review_manifest.get('kind') == 'review' and review_manifest.get('schema_version') == 2
-            and set(review_manifest.get('files', {})) == {'extraction.json', 'draft.initial.json', source_file}, 'review_manifest_files')
-    require(all(sha(files[k]) == v for k, v in review_manifest['files'].items()), 'review_hash_mismatch')
-    expected = {'schema_version': 1, 'identity': extraction['identity'], 'chunks': validate_draft(extraction, draft),
-                'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
-    require(payload == expected and canonical_hash(payload) == manifest.get('content_hash'), 'payload_mismatch')
-    require(sha(files[source_file]) == payload['identity']['sha256'], 'snapshot_mismatch')
-    record = validate_metadata(decode(files['metadata.json']))
-    require({k: record[k] for k in IDENTITY_FIELDS} == review_manifest.get('identity'), 'metadata_identity_changed')
-    if scope == 'content':
-        require(record['indexing_decision'] != 'exclude'
-                and record['lifecycle_status'] in ('unknown', 'active'), 'source_ineligible')
+def files_hash(files):
+    return canonical_hash({name: sha(data) for name, data in files.items()})
+
+
+def source_for(root, record):
+    validate_metadata(record)
+    source = assets(root) / record['source_path']
+    reject_links(source)
+    require(source.resolve().is_relative_to(assets(root).resolve()), 'source_outside_assets')
+    require(file_fingerprint(source) == {k: record[k] for k in ('sha256', 'size_bytes', 'extension')}, 'source_changed')
+    return source
+
+
+def pending(root, record):
+    validate_metadata(record)
+    source = source_for(root, record)
+    data = source.read_bytes()
+    require(sha(data) == record['sha256'] and len(data) == record['size_bytes'], 'source_changed')
+    files = {'metadata.json': encoded(record), 'source' + record['extension']: data}
+    source_for(root, record)
+    return write_package(workspace(root) / record['document_id'], record['revision_id'], files,
+                         before_finalize=lambda: source_for(root, record))
+
+
+def initialize(root, source=None):
+    known = {}
+    for path in package_paths(root):
+        record = metadata(path)
+        known.setdefault(record['source_path'].casefold(), []).append(record)
+    if source is None:
+        incoming = inventory(assets(root))
     else:
-        require(record['indexing_decision'] == 'include', 'source_not_approved')
-    require(len(files[source_file]) == record['size_bytes'], 'snapshot_size')
-    require(identity(record, payload['identity']['extraction_id']) == payload['identity'], 'metadata_identity_mismatch')
-    require(directory.name == manifest['approval_id'] and directory.parent.name == record['revision_id'], 'approval_location')
-    files['manifest.json'] = encoded(manifest)
-    return record, payload, manifest, files
+        require(safe_relative(source), 'unsafe_source')
+        incoming = {source: file_fingerprint(assets(root) / source)}
+    # Existing legacy identities require explicit conversion instead of reinitialization.
+    legacy = {}
+    for kind in ('review', 'approved'):
+        base = io_path(workspace(root) / kind)
+        reject_links(base)
+        if base.exists():
+            for revision in base.iterdir():
+                reject_links(revision)
+                if not revision.is_dir() or revision.name.startswith('.'):
+                    continue
+                for package in revision.iterdir():
+                    reject_links(package)
+                    if package.is_dir() and not package.name.startswith('.'):
+                        record = decode(read_file(package, 'metadata.json'))
+                        legacy.setdefault(record['source_path'].casefold(), set()).add(record['document_id'])
+    for name, fingerprint in incoming.items():
+        candidates = known.get(name.casefold(), [])
+        ids = {r['document_id'] for r in candidates} | legacy.get(name.casefold(), set())
+        require(len(ids) <= 1, 'source_identity_conflict')
+        require(candidates or not ids, 'legacy_source_convert_explicitly')
+        require(not candidates or any(all(r[k] == v for k, v in fingerprint.items()) for r in candidates),
+                'source_changed_explicit_revision_required')
+    return [pending(root, new_record(name, fp)) for name, fp in incoming.items() if name.casefold() not in known]
 
 
-def report(root, operation, results, *, as_json=False):
-    counts = {s: sum(r['status'] == s for r in results) for s in ('processed', 'skipped', 'rejected', 'failed')}
-    if as_json:
-        print(json.dumps({'operation': operation, 'results': results}, ensure_ascii=True))
-    else:
-        print(' '.join(f'{key}={value}' for key, value in counts.items()))
-        for result in results:
-            print(json.dumps(result, ensure_ascii=True))
-    return 2 if counts['failed'] else 1 if counts['rejected'] else 0
-
-
-def inspect_legacy_approval(directory):
-    sidecar = decode(read_file(directory, 'migration.json'))
-    require(sidecar.get('requires_reapproval') is True, 'not_legacy_approval')
-    for name, digest in sidecar['original_files'].items():
-        require(sha(read_file(directory, name)) == digest, 'legacy_hash_mismatch')
-    return {'requires_reapproval': True, 'metadata': validate_metadata(sidecar['metadata'])}
+def revise(root, directory, source):
+    package_directory(root, directory)
+    record = dict(metadata(directory))
+    require(safe_relative(source), 'unsafe_source')
+    fingerprint = file_fingerprint(assets(root) / source)
+    require(fingerprint['sha256'] != record['sha256'], 'source_unchanged')
+    for path in package_paths(root):
+        other = metadata(path)
+        require(other['source_path'].casefold() != source.casefold() or other['document_id'] == record['document_id'], 'source_identity_conflict')
+    record.update(fingerprint)
+    record.update(source_path=source, revision_id=str(uuid4()), indexing_decision='hold',
+                  lifecycle_status='unknown', relations=[], evidence_notes=[])
+    return pending(root, record)

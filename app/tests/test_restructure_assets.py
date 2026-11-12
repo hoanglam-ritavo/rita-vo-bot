@@ -1,4 +1,4 @@
-"""Migration tests use synthetic bytes, including failure and crash recovery."""
+"""Historical source-utility compatibility, not v2 ingestion; synthetic bytes only."""
 
 import copy
 import ctypes
@@ -9,7 +9,7 @@ import pytest
 
 from app.catalog.storage import atomic_write, json_text, load_catalog
 from app.catalog.inventory import inventory
-from app.catalog.validation import new_catalog
+from app.catalog.legacy_validation import new_catalog
 from scripts import restructure_assets as migration
 
 

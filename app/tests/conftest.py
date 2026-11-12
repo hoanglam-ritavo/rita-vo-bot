@@ -11,6 +11,23 @@ from app.database.config import ROOT, validate_url
 from app.database.runtime import run_async
 
 
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config):
+    """Keep default pytest temporary files in the repository workspace."""
+    if config.option.basetemp is not None or 'PYTEST_DEBUG_TEMPROOT' in os.environ:
+        return
+    temporary_root = ROOT / '.tmp' / 'pytest-work'
+    try:
+        temporary_root.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise pytest.UsageError(
+            f'Cannot create pytest temporary root {temporary_root}: {exc}'
+        ) from exc
+    environment = pytest.MonkeyPatch()
+    config.add_cleanup(environment.undo)
+    environment.setenv('PYTEST_DEBUG_TEMPROOT', str(temporary_root))
+
+
 @pytest.fixture
 def test_database(monkeypatch):
     load_dotenv(ROOT / '.env', override=False)

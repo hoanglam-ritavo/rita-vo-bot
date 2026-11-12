@@ -1,4 +1,4 @@
-"""Catalog schema, review eligibility and source comparison."""
+"""Package metadata schema, eligibility and source comparison."""
 import re
 from collections import defaultdict
 from datetime import date
@@ -19,28 +19,27 @@ NULLABLE_TEXT = {'title', 'category', 'document_type', 'owner', 'applicability',
 
 STATES = {
     'lifecycle_status': {'unknown', 'active', 'superseded', 'withdrawn', 'expired'},
-    'review_status': {'pending', 'reviewed'},
     'indexing_decision': {'hold', 'include', 'exclude'},
 }
 
 
 FIELDS = (NULLABLE_TEXT | set(STATES) | {
-    'document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes',
+    'schema_version', 'document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes',
     'extension', 'effective_from', 'effective_to', 'access_groups',
-    'review_notes', 'relations',
+    'evidence_notes', 'relations',
 })
 
 
 def new_record(path: str, fingerprint: dict) -> dict:
     source = PurePosixPath(path)
     return {
-        'document_id': str(uuid4()), 'revision_id': str(uuid4()),
+        'schema_version': 2, 'document_id': str(uuid4()), 'revision_id': str(uuid4()),
         'source_path': path, **fingerprint,
         'title': source.stem, 'category': source.parts[0] if len(source.parts) > 1 else None,
         'document_type': None, 'owner': None, 'applicability': None,
         'effective_from': None, 'effective_to': None, 'version_label': None,
         'lifecycle_status': 'unknown', 'access_groups': [],
-        'review_status': 'pending', 'review_notes': [],
+        'evidence_notes': [],
         'indexing_decision': 'hold', 'relations': [],
     }
 
@@ -74,6 +73,8 @@ def validate_schema(catalog: object) -> list[str]:
         if not isinstance(record, dict) or set(record) != FIELDS:
             errors.append(f'{prefix}: incorrect fields.')
             continue
+        if type(record['schema_version']) is not int or record['schema_version'] != 2:
+            errors.append(f'{prefix}: expected metadata schema_version=2.')
         for key in ('document_id', 'revision_id'):
             value = record[key]
             if not valid_uuid(value):
@@ -103,7 +104,7 @@ def validate_schema(catalog: object) -> list[str]:
         for key, choices in STATES.items():
             if not isinstance(record[key], str) or record[key] not in choices:
                 errors.append(f'{prefix}: invalid {key}.')
-        for key in ('access_groups', 'review_notes'):
+        for key in ('access_groups', 'evidence_notes'):
             if not text_list(record[key]):
                 errors.append(f'{prefix}: invalid {key}.')
         dates = {}
@@ -128,10 +129,9 @@ def validate_schema(catalog: object) -> list[str]:
                         or not valid_uuid(relation['revision_id'])):
                     errors.append(f'{prefix}: invalid relation.')
         if record['indexing_decision'] == 'include':
-            if (record['review_status'] != 'reviewed' or record['lifecycle_status'] != 'active'
-                    or not record['owner'] or not record['applicability']
-                    or not record['access_groups'] or not record['review_notes']):
-                errors.append(f'{prefix}: include requires reviewed active source, owner, applicability, access groups and evidence notes.')
+            if (record['lifecycle_status'] != 'active' or not record['applicability']
+                    or not record['access_groups']):
+                errors.append(f'{prefix}: include requires active source, applicability and access groups.')
             today = date.today()
             if (dates.get('effective_from', today) > today
                     or dates.get('effective_to', today) < today):
@@ -149,9 +149,6 @@ def validate_schema(catalog: object) -> list[str]:
                 continue
             if relation['type'] == 'duplicate_of' and record['sha256'] != target['sha256']:
                 errors.append(f'documents[{index}]: duplicate_of hashes differ.')
-            if relation['type'] in {'supplements', 'supersedes', 'form_for'}:
-                if record['review_status'] != 'reviewed' or not record['review_notes']:
-                    errors.append(f'documents[{index}]: business relation requires review and evidence notes.')
             if relation['type'] == 'supersedes':
                 graph[record['revision_id']].append(target_id)
     # Kahn's algorithm avoids recursion limits on large catalogs.
@@ -188,7 +185,7 @@ def compare(catalog: dict, files: dict) -> dict:
     unresolved = []
     for paths in duplicates:
         members = [stored.get(path) for path in paths]
-        if any(r is None or r['review_status'] != 'reviewed' or r['indexing_decision'] == 'hold'
+        if any(r is None or r['indexing_decision'] == 'hold'
                for r in members):
             unresolved.append(paths)
     return {

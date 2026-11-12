@@ -1,4 +1,4 @@
-"""Publish sealed packages using local models and atomic per-revision metadata."""
+"""Publish validated v2 packages using local models and atomic per-revision metadata."""
 import copy
 import math
 import re
@@ -15,13 +15,10 @@ from app.ingestion.embeddings import MODEL_NAME
 
 def configuration(payload, model_revision):
     packages.require(isinstance(model_revision, str) and re.fullmatch('[0-9a-f]{40}', model_revision), 'model_commit_required')
-    # Review/extraction IDs and approval timestamps are audit identity, not content identity.
     content = copy.deepcopy(payload['chunks'])
-    for chunk in content:
-        chunk['source_location'].pop('review_chunk_id', None)
     evidence = {'chunks': content, 'excluded': payload['excluded'],
                 'warning_decisions': payload['warning_decisions']}
-    return {'pipeline': 'approved-json-v1', 'source_sha256': payload['identity']['sha256'],
+    return {'pipeline': 'agent-json-v2', 'source_sha256': payload['identity']['sha256'],
             'content_hash': packages.canonical_hash(evidence), 'model_name': MODEL_NAME,
             'model_revision': model_revision, 'embedding_dimensions': 384,
             'normalize_embeddings': True, 'prefix': 'passage: ', 'batch_size': 16}
@@ -37,7 +34,7 @@ def embed(model_path, chunks, model_revision):
     packages.require(type(limit) is int and limit > 0, 'invalid_model_token_limit')
     for content in texts:
         tokens = model.tokenizer(content, add_special_tokens=True, truncation=False)['input_ids']
-        packages.require(len(tokens) <= limit, 'chunk_exceeds_model_limit_reapprove')
+        packages.require(len(tokens) <= limit, 'chunk_exceeds_model_limit')
     vectors = model.encode(texts, batch_size=16, normalize_embeddings=True,
                            convert_to_numpy=True, show_progress_bar=False)
     packages.require(len(vectors) == len(chunks), 'embedding_count')
@@ -84,6 +81,8 @@ async def snapshot(db, record, update_metadata=False):
     for target, kind in desired_relations:
         other = await db.get(DocumentRevision, target)
         packages.require(other is not None, 'relation_target_missing')
+        if kind == 'supersedes':
+            packages.require(other.document_id == UUID(record['document_id']), 'supersedes_document_mismatch')
         if kind == 'duplicate_of':
             packages.require(other.sha256 == record['sha256'], 'duplicate_hash_mismatch')
     edges = list((await db.execute(select(DocumentRelation.source_revision_id, DocumentRelation.target_revision_id)
@@ -142,12 +141,10 @@ async def write_metadata(db, record, revision):
 
 
 async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
-    record, payload, approval, files = packages.load_approval(root, directory)
-    packages.require(approval.get('approval_scope', 'publication') != 'content',
-                     'metadata_not_approved_for_publication')
+    record, payload, files = packages.load_package(root, directory, eligible=True)
     config = configuration(payload, model_revision)
-    config.update(pipeline='approved-json-v2', model_files_sha256=model_fingerprint(model_path),
-                  approval_id=approval['approval_id'], approval_manifest_sha256=packages.sha(files['manifest.json']),
+    config.update(model_files_sha256=model_fingerprint(model_path),
+                  package_sha256=packages.files_hash(files),
                   metadata_sha256=packages.sha(files['metadata.json']))
     async with session_scope() as db:
         await db.execute(text('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY'))
@@ -160,12 +157,13 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
     validate_vectors(chunks)
     packages.require([{k: v for k, v in c.items() if k != 'embedding'} for c in chunks] == payload['chunks'], 'embedding_changed_content')
     packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
-    packages.require(packages.load_approval(root, directory)[3] == files, 'approval_changed')
+    packages.require(packages.snapshot_files(directory) == files, 'package_changed')
     run_id = uuid4()
     now = datetime.now(timezone.utc)
     async with session_scope() as db:
         await db.execute(text('SELECT pg_advisory_xact_lock(:key)'), {'key': IMPORT_LOCK})
         revision, active, actual = await snapshot(db, record, update_metadata)
+        packages.require(packages.snapshot_files(directory) == files, 'package_changed')
         packages.require(actual == expected, 'concurrent_publication_or_metadata_change')
         await write_metadata(db, record, revision)
         if active:
