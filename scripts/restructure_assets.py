@@ -8,7 +8,9 @@ from pathlib import Path
 import sys
 from uuid import UUID, uuid4
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+LEGACY_DATA_ROOT = REPOSITORY_ROOT / 'app'
+sys.path.insert(0, str(REPOSITORY_ROOT))
 from app.catalog.inventory import CatalogError, file_fingerprint, inventory, reject_links, safe_relative
 from app.catalog.storage import atomic_write, json_text, load_catalog
 from app.catalog.validation import compare, validate_schema
@@ -276,7 +278,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if (args.mode == 'rollback') != bool(args.run_id):
         parser.error('--run-id is required only for rollback')
-    root = Path(__file__).resolve().parents[1]
+    root = LEGACY_DATA_ROOT
     try:
         if args.mode == 'preview':
             plan = preview(root)

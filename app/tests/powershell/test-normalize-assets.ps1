@@ -1,16 +1,16 @@
 $ErrorActionPreference = 'Stop'
-$source = Join-Path $PSScriptRoot '../../scripts/normalize-assets.ps1'
+$source = Join-Path $PSScriptRoot '../../../scripts/normalize-assets.ps1'
 $testRoot = Join-Path ([IO.Path]::GetTempPath()) ('assets-rename-test-' + [guid]::NewGuid().ToString('N'))
 
 function New-Fixture([string]$Name) {
     $path = Join-Path $testRoot $Name
     $null = New-Item -ItemType Directory -Path (Join-Path $path 'scripts') -Force
-    $null = New-Item -ItemType Directory -Path (Join-Path $path 'assets')
+    $null = New-Item -ItemType Directory -Path (Join-Path $path 'app/assets') -Force
     Copy-Item -LiteralPath $source -Destination (Join-Path $path 'scripts/normalize-assets.ps1')
-    return $path
+    return (Join-Path $path 'app')
 }
 function Run-Tool([string]$Path, [string]$Mode = '') {
-    $argsList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', (Join-Path $Path 'scripts/normalize-assets.ps1'))
+    $argsList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', (Join-Path (Split-Path -Parent $Path) 'scripts/normalize-assets.ps1'))
     if ($Mode) { $argsList += $Mode }
     $output = & powershell @argsList 2>&1
     if ($LASTEXITCODE -ne 0) { throw ($output | Out-String) }

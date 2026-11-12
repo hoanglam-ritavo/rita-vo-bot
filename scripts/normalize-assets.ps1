@@ -6,7 +6,9 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
-$project = Split-Path -Parent $PSScriptRoot
+$repositoryRoot = Split-Path -Parent $PSScriptRoot
+# Preserve the historical data locations independently of the script location.
+$project = Join-Path $repositoryRoot 'app'
 $root = [IO.Path]::GetFullPath((Join-Path $project 'assets'))
 $manifestPath = Join-Path $project 'assets-rename-manifest.json'
 $journalPath = Join-Path $project 'assets-rename-journal.json'

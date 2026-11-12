@@ -22,7 +22,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the target design and [AGENTS.md](AGE
 | `app/tests/`, `pytest.ini` | Unit and PostgreSQL integration tests |
 | `app/assets/` | Source documents and other reference assets |
 | `indexing_workspace/` | Curated local catalog and generated outputs; only its README is kept in Git |
-| `app/scripts/normalize-assets.ps1`, `app/tests/powershell/test-normalize-assets.ps1` | Asset-renaming utility and its checks, separate from chatbot ingestion |
+| `scripts/` | Task-specific maintenance and historical data-migration utilities; automated checks remain in `app/tests/` |
 | `assets-rename-manifest.json`, `assets-rename-journal.json`, `rename-history/` | Asset-renaming records |
 | `requirements.txt`, `requirements-dev.txt`, `.env.example` | Dependencies and example configuration |
 
@@ -54,10 +54,15 @@ source paths changed. Categories are independent of storage folder names.
 Catalog backups and path mappings for this update are kept under ignored
 `indexing_workspace/archive/pre-reorganization/reports/asset-sync/<run_id>/`; database synchronization was not performed.
 See the [source synchronization workflow](docs/asset-catalog.md#source-synchronization-after-manual-changes).
-The fixed `app/scripts/restructure_assets.py` utility describes an earlier numbered
+The fixed `scripts/restructure_assets.py` utility describes an earlier numbered
 layout and must not be applied to the current tree. Its
 [historical folder migration workflow](docs/asset-catalog.md#folder-migration)
 and the old name-normalization records are retained for provenance and recovery.
+The maintenance scripts are consolidated under `scripts/`; their historical data
+locations are unchanged. `restructure_assets.py` still targets `app/assets/` and
+`app/data/`; `normalize-assets.ps1` still targets `app/assets/` and the manifest
+and journal directly under `app/`, not the records at repository root. These
+historical utilities are not a maintenance workflow for the current source tree.
 
 ## Setup (PowerShell)
 

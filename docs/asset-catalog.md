@@ -222,19 +222,24 @@ Its mapping does not cover the later manual moves or removal of `03-bieu-mau`.
 Do not apply or roll back that migration across subsequent changes without first
 reconciling the source and catalog snapshots.
 
-The task-specific `app/scripts/restructure_assets.py` utility performs a fixed, reviewed
+The task-specific `scripts/restructure_assets.py` utility performs a fixed, reviewed
 mapping of 15 source files. It does not infer a new taxonomy, rename filenames,
 delete duplicate files or change review decisions. It uses the existing Python
 environment and standard library; no database connection is made.
 
 ```powershell
-python app/scripts/restructure_assets.py
-python app/scripts/restructure_assets.py preview
-python app/scripts/restructure_assets.py apply
-python app/scripts/restructure_assets.py rollback --run-id <run-id-from-apply>
+python scripts/restructure_assets.py
+python scripts/restructure_assets.py preview
+python scripts/restructure_assets.py apply
+python scripts/restructure_assets.py rollback --run-id <run-id-from-apply>
 ```
 
 Preview is the default and writes nothing. Paths are anchored to this repository.
+Moving the utility to `scripts/` preserves its historical targets: `app/assets/`,
+`app/data/catalog/documents.json` and `app/data/reports/asset-restructure`.
+It has not been adapted to the current `indexing_workspace/` layout and must not
+be applied to the current source tree. The commands above document historical
+usage only.
 Exit 0 means a successful preview, verified apply/rollback or already-normalized
 no-op; exit 2 means a rejected operation or execution error. Unlike catalog checks,
 existing duplicate warnings do not block this migration. Source/catalog drift and

@@ -10,7 +10,26 @@ import pytest
 from app.catalog.storage import atomic_write, json_text, load_catalog
 from app.catalog.inventory import inventory
 from app.catalog.validation import new_catalog
-from app.scripts import restructure_assets as migration
+from scripts import restructure_assets as migration
+
+
+def test_cli_preserves_legacy_data_paths(monkeypatch, capsys):
+    roots = []
+
+    def preview(root):
+        roots.append(root)
+        return {'operations': [], 'create_dirs': [], 'remove_dirs': []}
+
+    monkeypatch.setattr(migration, 'preview', preview)
+    assert migration.main([]) == 0
+    repository = Path(__file__).resolve().parents[2]
+    assert roots == [repository / 'app']
+    assert migration.paths(roots[0]) == (
+        repository / 'app/assets',
+        repository / 'app/data/catalog/documents.json',
+        repository / 'app/data/reports/asset-restructure',
+    )
+    assert 'Files=0' in capsys.readouterr().out
 
 
 @pytest.fixture
