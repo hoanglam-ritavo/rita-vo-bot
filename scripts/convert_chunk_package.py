@@ -75,7 +75,7 @@ def convert(root, directory, *, apply=False):
                   'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
         p.validate_chunks(extraction, chunks, allow_unresolved=True)
         files.update({'extraction.json': p.encoded(extraction), 'chunks.json': p.encoded(chunks)})
-    target = workspace(root) / record['document_id'] / record['revision_id']
+    target = workspace(root) / record['document_id']
     reject_links(target)
 
     def unchanged():
@@ -85,11 +85,24 @@ def convert(root, directory, *, apply=False):
             p.require(source.read_bytes() == data, 'source_changed')
 
     unchanged()
+    def unique_source():
+        for existing in p._package_paths(root):
+            other = p.metadata(existing)
+            p.require(other['document_id'] == record['document_id'] or
+                      other['source_path'].casefold() != record['source_path'].casefold(), 'duplicate_source_package')
+
+    unique_source()
     if p.io_path(target).exists():
         p.require(equivalent(p.snapshot_files(target), files), 'conversion_target_conflict')
         return {'status': 'skipped', 'code': 'already_converted', 'package': str(target.relative_to(root))}
     if apply:
-        p.write_package(target.parent, target.name, files, before_finalize=unchanged)
+        from app.ingestion.package_storage import lock, available
+        with lock(root, 'workspace'):
+            unique_source()
+            with lock(root, record['document_id']):
+                available(root, record['document_id'])
+                p.write_package(target.parent, target.name, files, before_finalize=unchanged,
+                                staging_parent=root / '.tmp/package-staging')
     return {'status': 'processed', 'code': 'package_converted' if apply else 'conversion_preview',
             'package': str(target.relative_to(root)), 'complete': extraction is not None}
 

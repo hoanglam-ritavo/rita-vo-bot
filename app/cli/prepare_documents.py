@@ -13,10 +13,11 @@ def parser():
     selection = init.add_mutually_exclusive_group(required=True)
     selection.add_argument('--all', action='store_true')
     selection.add_argument('--source')
-    for name in ('validate', 'revise'):
+    for name in ('validate', 'revise', 'recover'):
         command = commands.add_parser(name)
         command.add_argument('--package', type=Path, required=True)
         if name == 'revise':
+            command.add_argument('--supersedes-current', action='store_true', required=True)
             command.add_argument('--source', required=True, help='Path relative to app/assets.')
     for command in commands.choices.values():
         command.add_argument('--json', action='store_true')
@@ -42,8 +43,12 @@ def main(argv=None):
             if not results:
                 results.append({'status': 'skipped', 'code': 'already_initialized'})
         elif args.command == 'revise':
-            path = p.revise(REPOSITORY_ROOT, args.package, args.source)
+            path = p.revise(REPOSITORY_ROOT, args.package, args.source, supersedes_current=args.supersedes_current)
             results.append({'status': 'processed', 'code': 'revision_created', 'package': str(path.relative_to(REPOSITORY_ROOT))})
+        elif args.command == 'recover':
+            from app.ingestion.package_storage import recover
+            backup = recover(REPOSITORY_ROOT, args.package)
+            results.append({'status': 'processed', 'code': 'package_recovered', 'backup': str(backup)})
         else:
             _, payload, _ = p.load_package(REPOSITORY_ROOT, args.package)
             results.append({'status': 'processed', 'code': 'valid_package', 'chunk_count': len(payload['chunks'])})

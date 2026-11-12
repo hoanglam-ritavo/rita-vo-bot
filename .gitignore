@@ -39,7 +39,23 @@ pytest-cache-files-*/
 /app/assets/**/*.[mM]2[tT][sS]
 /app/assets/**/*.3[gG][pP]
 
-# Indexing workspace: private working artifacts, not database storage.
+# Historical indexing workspaces remain private.
 /indexing_workspace/
 /indexing_chunks/
-/app/chunks/
+# Track only current package artifacts; exclude old layouts and temporary files.
+/app/chunks/*
+!/app/chunks/*/
+/app/chunks/*/*
+!/app/chunks/*/metadata.json
+!/app/chunks/*/extraction.json
+!/app/chunks/*/chunks.json
+!/app/chunks/*/source.pdf
+!/app/chunks/*/source.txt
+!/app/chunks/*/source.md
+!/app/chunks/*/source.csv
+!/app/chunks/*/source.xlsx
+!/app/chunks/*/source.doc
+!/app/chunks/*/source.docx
+/app/chunks/.*/
+/app/chunks/review/
+/app/chunks/approved/

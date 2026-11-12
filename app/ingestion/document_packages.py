@@ -66,7 +66,7 @@ def read_file(directory, name):
     except FileNotFoundError:
         raise Rejected('package_file_missing') from None
 
-def write_package(parent, package_id, files, *, before_finalize=None):
+def write_package(parent, package_id, files, *, before_finalize=None, staging_parent=None):
     """A staged directory becomes visible only after every file is complete."""
     require(safe_relative(package_id) and '/' not in package_id, 'unsafe_package_path')
     public_target = parent / package_id
@@ -75,7 +75,10 @@ def write_package(parent, package_id, files, *, before_finalize=None):
     parent.mkdir(parents=True, exist_ok=True)
     target = parent / package_id
     require(not target.exists(), 'package_exists')
-    staging = parent / ('.staging-' + str(uuid4()))
+    staging_parent = io_path(staging_parent) if staging_parent is not None else parent
+    reject_links(staging_parent)
+    staging_parent.mkdir(parents=True, exist_ok=True)
+    staging = staging_parent / ('.staging-' + str(uuid4()))
     staging.mkdir()
     for name, data in files.items():
         require(safe_relative(name) and '/' not in name, 'unsafe_package_path')
@@ -210,7 +213,8 @@ def package_directory(root, directory):
     base = io_path(workspace(root))
     require(directory.resolve().is_relative_to(base.resolve()), 'package_outside_workspace')
     relative = directory.resolve().relative_to(base.resolve())
-    require(len(relative.parts) == 2 and not any(p.startswith('.') for p in relative.parts), 'package_location')
+    require(len(relative.parts) != 2, 'legacy_layout_convert_explicitly')
+    require(len(relative.parts) == 1 and not any(p.startswith('.') for p in relative.parts), 'package_location')
     for part in relative.parts:
         uuid(part)
     return directory
@@ -218,34 +222,55 @@ def package_directory(root, directory):
 
 def metadata(directory):
     directory = io_path(directory)
-    record = validate_metadata(decode(read_file(directory, 'metadata.json')))
-    require(directory.name == record['revision_id'] and directory.parent.name == record['document_id'], 'metadata_identity_changed')
+    from app.ingestion.package_storage import reading
+    with reading(directory):
+        record = validate_metadata(decode(read_file(directory, 'metadata.json')))
+    require(directory.name == record['document_id'], 'metadata_identity_changed')
     return record
 
 
 def package_paths(root):
+    from app.ingestion.package_storage import lock
+    with lock(root, 'workspace'):
+        return _package_paths(root)
+
+
+def _package_paths(root):
+    from app.ingestion.package_storage import workspace_available
+    workspace_available(root)
     base = io_path(workspace(root))
     reject_links(base)
     result = []
     if not base.exists():
         return result
+    known = set()
     for document in sorted(base.iterdir()):
         if document.name in ('review', 'approved') or document.name.startswith('.'):
             continue
         reject_links(document)
         uuid(document.name)
         require(document.is_dir(), 'unexpected_package_entry')
-        for revision in sorted(document.iterdir()):
-            if revision.name.startswith('.'):
-                continue
-            reject_links(revision)
-            uuid(revision.name)
-            require(revision.is_dir(), 'unexpected_package_entry')
-            result.append(workspace(root) / document.name / revision.name)
+        if not (document / 'metadata.json').exists():
+            from app.ingestion.package_storage import available
+            available(root, document.name)
+            if any(child.is_dir() and not child.name.startswith('.') for child in document.iterdir()):
+                raise Rejected('legacy_layout_convert_explicitly')
+            raise Rejected('package_file_missing')
+        record = metadata(document)
+        key = record['source_path'].casefold()
+        require(key not in known, 'duplicate_source_package')
+        known.add(key)
+        result.append(workspace(root) / document.name)
     return result
 
 
 def snapshot_files(directory):
+    from app.ingestion.package_storage import reading
+    with reading(directory):
+        return _snapshot_files(directory)
+
+
+def _snapshot_files(directory):
     directory = io_path(directory)
     reject_links(directory)
     result = {}
@@ -258,10 +283,11 @@ def snapshot_files(directory):
 
 def load_package(root, directory, *, eligible=False, allow_unresolved=False):
     directory = package_directory(root, directory)
+    package_paths(root)
     files = snapshot_files(directory)
     require('metadata.json' in files, 'package_file_missing')
     record = validate_metadata(decode(files['metadata.json']), eligible=eligible)
-    require(directory.name == record['revision_id'] and directory.parent.name == record['document_id'], 'metadata_identity_changed')
+    require(directory.name == record['document_id'], 'metadata_identity_changed')
     require(record['extension'] in SUPPORTED, 'unsupported_format')
     source_file = 'source' + record['extension']
     require(source_file in files, 'package_file_missing')
@@ -297,13 +323,23 @@ def pending(root, record):
     require(sha(data) == record['sha256'] and len(data) == record['size_bytes'], 'source_changed')
     files = {'metadata.json': encoded(record), 'source' + record['extension']: data}
     source_for(root, record)
-    return write_package(workspace(root) / record['document_id'], record['revision_id'], files,
-                         before_finalize=lambda: source_for(root, record))
+    from app.ingestion.package_storage import lock, available
+    with lock(root, record['document_id']):
+        available(root, record['document_id'])
+        return write_package(workspace(root), record['document_id'], files,
+                             before_finalize=lambda: source_for(root, record),
+                             staging_parent=root / '.tmp/package-staging')
 
 
 def initialize(root, source=None):
+    from app.ingestion.package_storage import lock
+    with lock(root, 'workspace'):
+        return _initialize(root, source)
+
+
+def _initialize(root, source=None):
     known = {}
-    for path in package_paths(root):
+    for path in _package_paths(root):
         record = metadata(path)
         known.setdefault(record['source_path'].casefold(), []).append(record)
     if source is None:
@@ -311,6 +347,7 @@ def initialize(root, source=None):
     else:
         require(safe_relative(source), 'unsafe_source')
         incoming = {source: file_fingerprint(assets(root) / source)}
+    require(len({name.casefold() for name in incoming}) == len(incoming), 'duplicate_source_path')
     # Existing legacy identities require explicit conversion instead of reinitialization.
     legacy = {}
     for kind in ('review', 'approved'):
@@ -336,16 +373,33 @@ def initialize(root, source=None):
     return [pending(root, new_record(name, fp)) for name, fp in incoming.items() if name.casefold() not in known]
 
 
-def revise(root, directory, source):
-    package_directory(root, directory)
-    record = dict(metadata(directory))
-    require(safe_relative(source), 'unsafe_source')
-    fingerprint = file_fingerprint(assets(root) / source)
-    require(fingerprint['sha256'] != record['sha256'], 'source_unchanged')
-    for path in package_paths(root):
-        other = metadata(path)
-        require(other['source_path'].casefold() != source.casefold() or other['document_id'] == record['document_id'], 'source_identity_conflict')
-    record.update(fingerprint)
-    record.update(source_path=source, revision_id=str(uuid4()), indexing_decision='hold',
-                  lifecycle_status='unknown', relations=[], evidence_notes=[])
-    return pending(root, record)
+def revise(root, directory, source, *, supersedes_current=False):
+    from app.ingestion.package_storage import lock, available, replace
+    require(supersedes_current, 'supersedes_current_required')
+    directory = package_directory(root, directory)
+    with lock(root, 'workspace'):
+        _package_paths(root)  # Reject ambiguous workspace identities before changing anything.
+        with lock(root, directory.name):
+            available(root, directory.name)
+            original = _snapshot_files(directory)
+            record = dict(validate_metadata(decode(original['metadata.json'])))
+            require(record['document_id'] == directory.name, 'metadata_identity_changed')
+            require(safe_relative(source), 'unsafe_source')
+            require(source.casefold() == record['source_path'].casefold(), 'source_path_change_unsupported')
+            fingerprint = file_fingerprint(assets(root) / source)
+            require(fingerprint['sha256'] != record['sha256'], 'source_unchanged')
+            ancestors = {r['revision_id'] for r in record['relations'] if r['type'] == 'supersedes'}
+            ancestors.add(record['revision_id'])
+            record.update(fingerprint)
+            record.update(revision_id=str(uuid4()), indexing_decision='hold',
+                          lifecycle_status='unknown', evidence_notes=[],
+                          relations=[{'type': 'supersedes', 'revision_id': r} for r in sorted(ancestors)])
+            snapshot = source_for(root, record).read_bytes()
+            require(sha(snapshot) == record['sha256'] and len(snapshot) == record['size_bytes'], 'source_changed')
+            files = {'metadata.json': encoded(record), 'source' + record['extension']: snapshot}
+
+            def unchanged():
+                require(_snapshot_files(directory) == original, 'package_changed')
+                source_for(root, record)
+
+            return replace(root, directory.name, files, before_finalize=unchanged)

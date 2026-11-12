@@ -1,8 +1,10 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication and a local gRPC server with health checking only. Planned: chatbot business RPCs, Type A retrieval, authenticated Type B service tools and routing. There is no functioning chatbot yet.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and a local gRPC server with health checking only. Planned: answer generation, chatbot business RPCs, authenticated Type B service tools and routing. There is no answer-generating chatbot yet.
 
-Source documents remain in `app/assets/`. Ignored packages live at `app/chunks/<document_id>/<revision_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
+Source documents remain in `app/assets/`. Git-trackable current packages live at `app/chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
+
+Each source has at most one current package. Editing chunks keeps the source revision; changed source bytes require `python -m app.cli.prepare_documents revise --package app/chunks/<document_id> --source <relative-source-path> --supersedes-current`. Revision identity stays in metadata while the directory remains stable. Git preserves committed package history; `.gitattributes` preserves exact bytes across checkouts. Each environment still needs its own local model and explicit publication to its own database. See [layout migration and deployment](docs/offline-indexing.md#layout-migration-and-deployment) before using an older checkout's packages.
 
 See the [indexing guide](docs/offline-indexing.md) for schemas, commands, metadata requirements and explicit non-destructive conversion of existing review/approved packages. Historical `indexing_chunks/` is untouched and never scanned. Model environments and authorization to process internal content must be established before agent reading; no hosted processing is implied.
 
@@ -37,6 +39,48 @@ python -m app.cli.check_db
 ```
 
 PostgreSQL must already have the target database and the pgvector extension installed on the server. Installing the Python `pgvector` package does not install the server extension. If the migration account cannot enable it, ask the DBA to run `CREATE EXTENSION IF NOT EXISTS vector;` in the target database before migration.
+
+## Local question retrieval
+
+Install `requirements-example.txt` for the local embedding runtime. Call the retrieval CLI with an existing local model directory and its declared full commit:
+
+```powershell
+python -m app.cli.retrieve_documents --question "What benefits are available?" --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --top-k 5 --json
+```
+
+Replace the model placeholders before execution. The command returns source chunks, not an LLM answer. `--top-k` defaults to 5 (range 1–20). Questions must be nonempty strings with at most 8,000 characters after trimming and fit the model token limit including `query: ` and special tokens; no truncation is performed. The local model is loaded without downloads or remote code. Match output includes content, source spans, document/revision/run IDs, title, relative source path, applicability, effective dates and cosine distance. Smaller distances rank first; distances are not confidence scores. There is no relevance threshold, so even unrelated questions may return candidates.
+
+Only current, include/active, effective public revisions with active successful runs are searched. Runtime model name, revision, file fingerprint, normalization, dimension and passage prefix must match the indexed run. Private documents cannot be enabled through a CLI argument. Exact cosine search needs no new vector index. Database transactions are read-only; no package or vector data is modified. Statuses distinguish `matches_found`, `no_eligible_documents`, `model_mismatch` and `no_matches`; operational failures are errors, never empty evidence. Exit codes are 0 for valid results including empty results, 1 for invalid input/model incompatibility and 2 for operational errors. There is no automatic file logging of questions or retrieved text.
+
+To avoid passing Vietnamese text through shell arguments, open `scripts/try_retrieval.py`, save it as UTF-8, and edit `QUESTION`, `TOP_K`, `MODEL_PATH` and `MODEL_REVISION` at the top. Select this repository's `env/Scripts/python.exe` interpreter in your IDE, then run the file. Its default model path points to the locally prepared pinned model under `.tmp/models`; that model directory and PostgreSQL configured in `.env` must still be available. Direct file execution works from any working directory; imports and model paths are anchored to the repository, without changing the working directory. Alternatively, from the repository root run:
+
+```powershell
+.\env\Scripts\python.exe -m scripts.try_retrieval
+```
+
+The script always prints a compact Vietnamese text view: the question, up to three candidates in retrieval order, each document title and deduplicated source locations, and the complete chunk content. The footer shows displayed/total matches; `TOP_K` still controls retrieval, independently of the fixed display limit. IDs, distances and other technical metadata are hidden. There is no DEBUG mode or additional environment setting. Use `app.cli.retrieve_documents --json` with its normal arguments for detailed JSON. UTF-8 output is configured where supported; incompatible IDE streams receive lossless character escapes in the same text format, rather than replacement question marks. The script cannot restore accents already lost in `QUESTION`. It reuses the CLI runner and shutdown/error handling, preserves exit codes and saves no questions/results to files. Empty results and errors have short Vietnamese messages. These are source candidates, not an LLM answer; presentation changes do not improve retrieval ranking.
+
+The script always ends with two timings: model initialization (including fingerprinting and loading inside `service.start()`) and retrieval after the model is ready (query embedding, PostgreSQL search and result construction inside `service.retrieve()`). Measurements use `time.perf_counter()` and exclude input validation, service construction, shutdown, formatting and terminal output. CLI JSON includes unrounded seconds in `timings.model_initialization_seconds` and `timings.retrieval_seconds`; the script displays seconds to three decimal places. A failed or unstarted step has `null`, displayed as an unavailable completed measurement, not zero. Completed measurements survive later retrieval/shutdown errors. Each script invocation loads the model again, and the first retrieval may include database connection setup and first-execution overhead. These are observations of that invocation, not a stable benchmark or LLM answer-generation latency; no warm-up or extra query is performed.
+
+For repeated calls, reuse a service instance on one event loop:
+
+```python
+from app.retrieval import RetrievalService
+from app.database import close_database
+
+async def retrieve_example(model_path, model_revision):
+    service = RetrievalService(model_path=model_path, model_revision=model_revision)
+    try:
+        await service.start()
+        return await service.retrieve("What benefits are available?", top_k=5)
+    finally:
+        await service.close()
+        await close_database()  # Application owner closes the shared database at shutdown.
+```
+
+The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. There is no HTTP/RPC chat endpoint, conversation history, personnel lookup or answer generation.
+
+For the locally published benefits package, `python -m scripts.evaluate_retrieval --model-path <local-model-directory> --model-revision <40-hex-commit> --output .tmp/retrieval-evaluation.json` runs a fixed manual evaluation: 12 questions across six topics plus two unsupported questions, always at top-5. It records expected-source hits, distances, timings and before/after database counts without printing source content or changing packages. Exit 1 means the recall target was not met; it is not a database error. The real-model evaluation is separate from synthetic unit/integration tests, and an embedding/publication success alone does not prove retrieval quality.
 
 ## Local gRPC server
 

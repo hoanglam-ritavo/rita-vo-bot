@@ -89,17 +89,19 @@ def source_location(extension):
     return {'kind': 'csv' if extension == '.csv' else 'text', 'line_start': 1, 'line_end': 1}
 
 
-def revised_package(root, previous, *, name='replacement.txt'):
-    """A source-byte revision with unchanged synthetic non-whitespace text."""
-    source = assets(root) / name
-    source.write_bytes((previous / 'source.txt').read_bytes() + b'\n')
-    target = p.revise(root, previous, name)
+def revised_package(root, previous):
+    """Replace source bytes while retaining synthetic transcription for tests."""
+    record = p.metadata(previous)
+    original = p.snapshot_files(previous)
+    source = assets(root) / record['source_path']
+    source.write_bytes(original['source' + record['extension']] + b'\n')
+    target = p.revise(root, previous, record['source_path'], supersedes_current=True)
     record = p.metadata(target)
     record.update(indexing_decision='include', lifecycle_status='active',
                   applicability='Synthetic scope', access_groups=['staff'])
     (target / 'metadata.json').write_bytes(p.encoded(record))
     for filename in ('extraction.json', 'chunks.json'):
-        (target / filename).write_bytes((previous / filename).read_bytes())
+        (target / filename).write_bytes(original[filename])
     return target
 
 

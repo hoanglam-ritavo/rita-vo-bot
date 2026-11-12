@@ -29,9 +29,17 @@ async def snapshot(db, record, update_metadata=False):
     relations = set((await db.execute(select(DocumentRelation.target_revision_id, DocumentRelation.relation_type)
                    .where(DocumentRelation.source_revision_id == revision_id))).all())
     desired_relations = {(UUID(r['revision_id']), r['type']) for r in record['relations']}
-    for target, kind in desired_relations:
+    resolved = set()
+    missing = []
+    target_state = []
+    for target, kind in sorted(desired_relations, key=lambda item: (str(item[0]), item[1])):
         other = await db.get(DocumentRevision, target)
+        target_state.append((str(target), kind, str(other.document_id) if other else None, other.sha256 if other else None))
+        if other is None and kind == 'supersedes':
+            missing.append(str(target))
+            continue
         packages.require(other is not None, 'relation_target_missing')
+        resolved.add((target, kind))
         if kind == 'supersedes':
             packages.require(other.document_id == UUID(record['document_id']), 'supersedes_document_mismatch')
         if kind == 'duplicate_of':
@@ -58,13 +66,15 @@ async def snapshot(db, record, update_metadata=False):
                          (collision.id, 'supersedes') in desired_relations, 'current_revision_requires_explicit_supersedes')
     if revision:
         packages.require(all(getattr(revision, k) == values[k] for k in ('document_id', 'sha256', 'size_bytes', 'extension')), 'revision_identity_conflict')
-        differs = (any(getattr(revision, k) != v for k, v in values.items()) or groups != set(record['access_groups']) or relations != desired_relations)
+        differs = (any(getattr(revision, k) != v for k, v in values.items()) or groups != set(record['access_groups']) or relations != resolved)
         packages.require(not differs or update_metadata, 'metadata_conflict_use_update_metadata')
     active = await db.scalar(select(IngestionRun).where(IngestionRun.revision_id == revision_id, IngestionRun.is_active.is_(True)))
     # Include metadata in the concurrency token even when an explicit update is allowed.
     token = (tuple((k, str(getattr(revision, k))) for k in sorted(values)) if revision else None,
-             tuple(sorted(groups)), tuple(sorted((str(t), k) for t, k in relations)), str(active.id) if active else None, str(collision.id) if collision else None)
-    return revision, active, token
+             tuple(sorted(groups)), tuple(sorted((str(t), k) for t, k in relations)), str(active.id) if active else None, str(collision.id) if collision else None, tuple(target_state))
+    resolved_record = dict(record, relations=[{'revision_id': str(t), 'type': k}
+                                             for t, k in sorted(resolved, key=lambda item: (str(item[0]), item[1]))])
+    return revision, active, token, resolved_record, missing
 
 
 async def write_metadata(db, record, revision):
@@ -99,11 +109,14 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
                   metadata_sha256=packages.sha(files['metadata.json']))
     async with session_scope() as db:
         await db.execute(text('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY'))
-        revision, active, expected = await snapshot(db, record, update_metadata)
+        revision, active, expected, resolved_record, missing = await snapshot(db, record, update_metadata)
+        declared = sorted({r['revision_id'] for r in record['relations'] if r['type'] == 'supersedes'})
+        if declared:
+            config.update(declared_supersedes=declared, missing_supersedes=missing)
         if not force and active is not None and active.configuration == config:
-            return {'status': 'skipped', 'code': 'identical_active_run', 'run_id': str(active.id)}
+            return {'status': 'skipped', 'code': 'identical_active_run', 'run_id': str(active.id), 'missing_supersedes': missing}
     if dry_run:
-        return {'status': 'processed', 'code': 'dry_run', 'revision_id': record['revision_id']}
+        return {'status': 'processed', 'code': 'dry_run', 'revision_id': record['revision_id'], 'missing_supersedes': missing}
     chunks = embed(model_path, copy.deepcopy(payload['chunks']), model_revision)
     validate_vectors(chunks)
     packages.require([{k: v for k, v in c.items() if k != 'embedding'} for c in chunks] == payload['chunks'], 'embedding_changed_content')
@@ -113,10 +126,10 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
     now = datetime.now(timezone.utc)
     async with session_scope() as db:
         await db.execute(text('SELECT pg_advisory_xact_lock(:key)'), {'key': IMPORT_LOCK})
-        revision, active, actual = await snapshot(db, record, update_metadata)
+        revision, active, actual, resolved_record, _ = await snapshot(db, record, update_metadata)
         packages.require(packages.snapshot_files(directory) == files, 'package_changed')
         packages.require(actual == expected, 'concurrent_publication_or_metadata_change')
-        await write_metadata(db, record, revision)
+        await write_metadata(db, resolved_record, revision)
         if active:
             active.is_active = False
             await db.flush()
@@ -126,4 +139,4 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
         await db.flush()
         db.add_all(DocumentChunk(run_id=run_id, chunk_index=c['chunk_index'], content=c['content'], source_location=c['source_location'],
             extraction_method=c['extraction_method'], embedding=c['embedding']) for c in chunks)
-    return {'status': 'processed', 'code': 'published', 'run_id': str(run_id), 'revision_id': record['revision_id']}
+    return {'status': 'processed', 'code': 'published', 'run_id': str(run_id), 'revision_id': record['revision_id'], 'missing_supersedes': missing}

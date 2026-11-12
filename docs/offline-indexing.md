@@ -4,21 +4,21 @@ The workflow is **agent-authored package -> automatic validation -> local embedd
 
 ## Workspace and identity
 
-Original documents remain in `app/assets/`. Generated packages are ignored by Git:
+Original documents remain in `app/assets/`. Each source path has one current package, tracked in Git:
 
 ```text
-app/chunks/<document_id>/<revision_id>/
+app/chunks/<document_id>/
     metadata.json
     extraction.json
     chunks.json
     source.<extension>
 ```
 
-The snapshot is named `source.pdf`, `source.txt`, etc. A complete package has exactly these four files. Initialization creates metadata and snapshot; missing extraction/chunks means incomplete input, not a review state. No local catalog, manifest, initial draft, payload, approval copy, cache or report is maintained. Source identity appears only in metadata; directory IDs must match it.
+The snapshot is named `source.pdf`, `source.txt`, etc. A complete package has exactly these four files. Initialization creates metadata and snapshot; missing extraction/chunks means incomplete input, not a review state. No local catalog, manifest, initial draft, payload, approval copy, cache or report is maintained. Source identity appears only in metadata; the directory name must match document_id.
 
 `package_paths` scans only this layout. Old `review/`, `approved/` and hidden staging directories are excluded. Historical `indexing_chunks/` and `indexing_workspace/` are never scanned, merged or removed. Initialization refuses to create duplicate identities for sources represented only in the current legacy review/approved workspace; explicitly convert a selected legacy package first.
 
-Edit extraction/chunks and non-identity metadata in place for the same source revision. Do not replace snapshot bytes or change identity/fingerprint fields to disguise source changes. Use `revise` for changed bytes; it creates a new revision of the same document, preserves old packages and resets lifecycle/indexing eligibility and relations. It does not infer supersedes. Database run history retains previous indexed chunks; local authoring edit history is not maintained.
+Edit extraction/chunks and non-identity metadata in place for the same source revision. Do not replace snapshot bytes or change identity/fingerprint fields to disguise source changes. Use `revise` for changed bytes; it requires `--supersedes-current`, creates a new revision of the same document at the same package path, and resets lifecycle/indexing eligibility and evidence notes. Old extraction/chunks are removed from the current package. It records the previous revision and its declared supersedes ancestors, dropping other relations. Source renaming is unsupported. Git retains committed authoring history; the database retains previous indexed chunks. Local displaced packages remain in ignored `.tmp/package-backups/` for recovery, not as publication candidates.
 
 ## Commands
 
@@ -29,14 +29,14 @@ python -m app.cli.prepare_documents init --source policies/example.txt
 # Or initialize all current sources:
 python -m app.cli.prepare_documents init --all
 # Have an agent author extraction.json/chunks.json and complete metadata.
-python -m app.cli.prepare_documents validate --package app/chunks/<document_id>/<revision_id>
-python -m app.cli.publish_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --dry-run
-python -m app.cli.publish_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit>
+python -m app.cli.prepare_documents validate --package app/chunks/<document_id>
+python -m app.cli.publish_documents --package app/chunks/<document_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --dry-run
+python -m app.cli.publish_documents --package app/chunks/<document_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit>
 # Only when the source bytes change:
-python -m app.cli.prepare_documents revise --package app/chunks/<document_id>/<revision_id> --source policies/example.txt
+python -m app.cli.prepare_documents revise --package app/chunks/<document_id> --source policies/example.txt --supersedes-current
 ```
 
-Replace placeholders before execution; the source path is relative to `app/assets/`. Package/model paths use the caller's working directory. Defaults remain repository anchored. `--package` can repeat for publication; `--all` selects new-layout packages only and reports incomplete/rejected packages individually. It does not select a latest revision by filename or time. Relations order batches; cycles and duplicate revision selections are rejected. Each revision is published independently, not in a batch-wide transaction. An independent publication failure does not prevent other eligible independent packages from being processed. If the remaining dependency graph contains a cycle, the cyclic remainder is rejected but independent packages already ordered by the batch still run. A nonzero batch exit code therefore does not imply that nothing was published. Dry-run checks against the current database; a relation target selected in that same dry-run is still missing if it has never been published.
+Replace placeholders before execution; the source path is relative to `app/assets/`. Package/model paths use the caller's working directory. Defaults remain repository anchored. `--package` can repeat for publication; `--all` selects current-layout packages only. Workspace identity/layout errors reject the scan; incomplete extraction/chunks are reported per package. It does not select a latest revision by filename or time. Relations order batches; cycles and duplicate revision selections are rejected. Each revision is published independently, not in a batch-wide transaction. An independent publication failure does not prevent other eligible independent packages from being processed. If the remaining dependency graph contains a cycle, the cyclic remainder is rejected but independent packages already ordered by the batch still run. A nonzero batch exit code therefore does not imply that nothing was published. Dry-run checks against the current database; a relation target selected in that same dry-run is still missing if it has never been published.
 
 Commands support `--json` for structured stdout. Exit codes: 0 success/skips, 1 rejected input, 2 operational failure or retired command. Diagnostics never print source text or credentials. Initialization, revision creation and validation need no model/database. Publication including dry-run reads PostgreSQL. Dry-run checks model files but does not load the tokenizer, generate vectors or prove chunk token limits.
 
@@ -48,16 +48,16 @@ Use preflight after agent authoring and before publication to check the actual l
 
 ```powershell
 python -m pip install -r requirements-example.txt
-python -m app.cli.preflight_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --json
+python -m app.cli.preflight_documents --package app/chunks/<document_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --json
 # Optional: also compute all vectors in memory; never write them to the database:
-python -m app.cli.preflight_documents --package app/chunks/<document_id>/<revision_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --check-embeddings --json
+python -m app.cli.preflight_documents --package app/chunks/<document_id> --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --check-embeddings --json
 ```
 
 Replace placeholders before execution. One package is accepted per invocation. The default loads the supplied local model but does not call encode. Counts include `passage: ` and special tokens, without truncation, using the minimum of the model and tokenizer limits. Every chunk is reported with its zero-based `chunk_index`, `token_count` and `passed`/`exceeded` status. All oversized chunks are reported; any oversized chunk prevents optional embedding. No automatic splitting or content rewriting occurs.
 
 With `--check-embeddings`, preflight generates all vectors using batch size 16 and normalized embeddings, checks count, 384 dimensions and finite values, then discards the vectors. The report includes document/revision IDs, model name and declared revision, package/model fingerprints, token limit, per-chunk results and `embedding_check` (`not_run`, `skipped`, `passed`, or `failed`). Metadata blockers are reported separately; `database_checked` is always false. Neither mode resolves database conflicts or relation targets. A valid hold/unknown package can pass technical checks while remaining ineligible for publication.
 
-Reports go only to stdout (structured JSON with `--json`); no package files or reports are written. Runtime diagnostics are suppressed in favor of safe error codes. Exit codes are 0 for successful requested technical checks, 1 for rejected package/token/vector data or detected input changes, and 2 for operational failures such as a missing model/runtime. Package/model fingerprints are rechecked after token/embedding checks; changed inputs invalidate the result. No model download or hosted service is used. The supplied model commit and file hashes do not authenticate model identity.
+Package reads may create OS lock files under ignored `.tmp/package-locks/`, requiring a writable `.tmp/` directory even for validation and preflight. Reports go only to stdout (structured JSON with `--json`); no package files or reports are written. Runtime diagnostics are suppressed in favor of safe error codes. Exit codes are 0 for successful requested technical checks, 1 for rejected package/token/vector data or detected input changes, and 2 for operational failures such as a missing model/runtime. Package/model fingerprints are rechecked after token/embedding checks; changed inputs invalidate the result. No model download or hosted service is used. The supplied model commit and file hashes do not authenticate model identity.
 
 Workflow: author package, run preflight, establish publication eligibility from verified facts, then publish. Preflight is not approval, transcription verification or a retrieval evaluation. Publication repeats its checks even after a successful preflight. Publication `--dry-run` remains a separate database-aware check that does not load the tokenizer or create embeddings. Synthetic tests exercise these contracts; testing a real package/model requires explicitly supplied local model files and is reported separately.
 
@@ -130,9 +130,9 @@ Publication fingerprints all package bytes and embeds a validated in-memory snap
 
 Provide an existing local multilingual-e5-small model directory and declared 40-hex revision. Downloads and remote code are disabled. Local model files are fingerprinted; the commit string alone does not authenticate them. Actual embedding counts prefixed text plus special tokens using the model tokenizer and rejects oversize input instead of truncating. Vectors must be finite and 384-dimensional. Install `requirements-example.txt` only for this local embedding runtime.
 
-Run configuration records source/content/metadata/package/model fingerprints and embedding parameters. Identical active configuration skips unless `--force`; metadata/notes/formatting changes to package bytes also change the package fingerprint. Existing database metadata conflicts require explicit `--update-metadata`. For an existing revision, publication rejects changes to `document_id`, source `sha256`, `size_bytes` or `extension` even with `--update-metadata`. Directory IDs must also match metadata. The runtime currently treats `source_path` as updatable metadata: it can change with `--update-metadata` when no current-document/path collision exists. This only changes stored metadata; it does not rename files. Agents should still preserve identity fields during authoring and use `revise` when source bytes change. Model/package changes and concurrent publication/metadata changes are rejected. Metadata, access rules, relations, chunks and active-run activation commit atomically per revision; the prior active run survives failure. No pre-transaction failed-run log is persisted.
+Run configuration records source/content/metadata/package/model fingerprints and embedding parameters. Identical active configuration skips unless `--force`; metadata/notes/formatting changes to package bytes also change the package fingerprint. Existing database metadata conflicts require explicit `--update-metadata`. For an existing revision, publication rejects changes to `document_id`, source `sha256`, `size_bytes` or `extension` even with `--update-metadata`. The directory name must match document_id in metadata. The runtime currently treats `source_path` as updatable metadata: it can change with `--update-metadata` when no current-document/path collision exists. This only changes stored metadata; it does not rename files. Agents should still preserve identity fields during authoring and use `revise` when source bytes change. Model/package changes and concurrent publication/metadata changes are rejected. Metadata, access rules, relations, chunks and active-run activation commit atomically per revision; the prior active run survives failure. No pre-transaction failed-run log is persisted.
 
-A replacement current revision needs an explicit `supersedes` relation to the prior current revision of the same document. Missing sources do not retire database records. Missing relation targets, incompatible duplicate hashes, source-path collisions and supersedes cycles are rejected.
+A replacement current revision needs an explicit `supersedes` relation to the prior current revision of the same document. Missing sources do not retire database records. Missing non-supersedes relation targets, incompatible duplicate hashes, source-path collisions and supersedes cycles are rejected. A missing supersedes target is retained as declared provenance but does not create a placeholder revision or relation row. Dry-run, successful publication and identical-run skips report `missing_supersedes`. Successful run configuration records `declared_supersedes` and `missing_supersedes` when supersedes is declared. Present targets must belong to the same document. Resolved target state is included in concurrency checks and rechecked under the publication lock. Metadata comparison uses only relations whose targets exist in that database.
 
 ## Legacy conversion and rollout
 
@@ -144,7 +144,7 @@ python scripts/convert_chunk_package.py --package app/chunks/approved/<revision_
 python scripts/convert_chunk_package.py --package app/chunks/approved/<revision_id>/<approval_id> --apply
 ```
 
-Preview is read-only. Choose one current-layout review pending, review ready or approval package explicitly. The converter validates legacy schemas, identity and available hashes, preserves source/transcription/chunk bytes as content, references, exclusions, warning decisions and evidence notes, and writes the new layout through staging. Source snapshots remain byte-identical. Pending packages copy a matching original source if no snapshot exists; a missing original leaves metadata-only incomplete output. It never invents missing metadata or publishes content-only legacy packages without the new eligibility checks.
+Preview does not modify package content (reads may create `.tmp/` lock files). Choose one current-layout review pending, review ready or approval package explicitly. The converter validates legacy schemas, identity and available hashes, preserves source/transcription/chunk bytes as content, references, exclusions, warning decisions and evidence notes, and writes the new layout through staging. Source snapshots remain byte-identical. Pending packages copy a matching original source if no snapshot exists; a missing original leaves metadata-only incomplete output. It never invents missing metadata or publishes content-only legacy packages without the new eligibility checks.
 
 Conversion is not guaranteed for every package accepted by the legacy schema. The converter additionally applies v2 extraction/chunk validation, including required location fields and rejection of undefined fields. For example, a legacy XLSX location without `sheet`, or a location with an extra legacy field, is rejected with `segment_location_fields` during preview and apply; no target is finalized. The converter never guesses a sheet name or drops unsupported location information. If a package cannot be converted, author a v2 package separately using verified source facts and the intended document/revision identity; leave the legacy input intact. A converted content-only approval can remain inspectable but ineligible for publication until its new-layout metadata satisfies the normal include/active/applicability/access requirements.
 
@@ -159,3 +159,33 @@ After explicit conversion, complete any missing extraction or metadata, validate
 The package, converter and batch tests use synthetic documents. Multi-format fixtures exercise schema/provenance contracts and byte preservation, not actual PDF/XLSX parsing or the quality of agent transcription. Publication unit tests isolate model/database boundaries; PostgreSQL integration tests use deterministic synthetic embeddings to exercise revision rules, dry-run dependencies and rollback after writes. A passing unit run does not establish those database guarantees or validate a real embedding model.
 
 Integration tests require a dedicated disposable PostgreSQL database and can upgrade/downgrade schemas, write application tables and delete application-table rows during cleanup. URL guards run before migration; the publication/migration empty-table check runs after migration. Follow the [full test setup](../README.md#testing), and report skipped or unexecuted checks explicitly. The standalone historical PowerShell rename tests are outside pytest and are not part of chunk ingestion.
+
+## Layout migration and deployment
+
+Packages use `app/chunks/<document_id>/`; `revision_id` remains in metadata. The scanner rejects nested v2 revision layouts with `legacy_layout_convert_explicitly`, and duplicate case-insensitive source paths with `duplicate_source_package`. Two different source paths remain separate documents even when their bytes match. Historical review/approved inputs are excluded from normal scans and still require the explicit legacy converter above.
+
+For nested v2 packages, preview the selected document before applying:
+
+```powershell
+python scripts/migrate_chunk_layout.py --document app/chunks/<document_id> --json
+python scripts/migrate_chunk_layout.py --document app/chunks/<document_id> --revision-id <revision-to-keep> --apply --json
+```
+
+A document with multiple revisions requires `--revision-id`; there is no latest-by-time selection. A single revision may omit this flag. Migration preserves the selected package bytes and all IDs, and moves the complete old document directory into ignored `.tmp/package-backups/`. It verifies the selected bytes after replacement and does not infer relations from discarded candidates. Preview changes no package content. Source assets, historical indexing directories and unrelated hidden directories are untouched. The legacy review/approved converter likewise writes to the stable document directory, preserves its inputs and rejects conflicting destinations.
+
+Replacement uses staging plus an OS lock per document; initialization/revision commands also serialize workspace identity changes. Normal replacement failures restore the old package. A process interruption leaves a transaction marker that blocks reads (`package_recovery_required`). After the interrupted command has stopped, roll back that transaction explicitly:
+
+```powershell
+python -m app.cli.prepare_documents recover --package app/chunks/<document_id> --json
+```
+
+Recovery restores the previous directory when one was displaced and archives remaining transaction files under `.tmp/package-backups/`; it does not discard either version. `package_busy` means another command holds the lock: retry after it completes. OS locks are released on process exit. An unresolved replacement blocks workspace scans and initialization as well, even if its current directory is temporarily absent. Recovery of an interrupted layout migration restores the old layout; run the migration again afterward. Do not edit package files manually while commands run. Backups are local recovery material, not a replacement for Git history, and are not automatically pruned.
+
+Development-to-environment workflow:
+
+1. Initialize or explicitly revise a source, author the current extraction/chunks and factual metadata, then validate and run technical preflight with the intended local model.
+2. Review the four package artifacts and commit them together with related source changes. Package snapshots and extracted text become repository history; the repository must be authorized to hold that content. Only named current-package artifacts are allowed by `.gitignore`; old layouts, staging and auxiliary files stay ignored.
+3. Checkout the same commit at the destination. `.gitattributes` disables text/filter/ident/encoding transformations for packages to preserve fingerprints. Configure that environment's database and supply the local model; models and vectors are not distributed with packages.
+4. Run preflight, publication dry-run, then explicit publication. A fresh database can accept the latest revision without importing missing supersedes ancestors. Other relation dependencies still need to be present. A database currently on A can upgrade directly to C only when C explicitly declares A as superseded. Checking out an older Git commit does not authorize replacing a newer database revision.
+
+No automatic deployment, Git LFS setup, database schema changes or automatic retirement of removed documents are part of this workflow.

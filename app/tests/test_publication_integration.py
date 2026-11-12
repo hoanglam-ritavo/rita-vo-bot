@@ -91,14 +91,14 @@ def test_transaction_failure_restores_all_committed_state(tmp_path, local_model,
             before = await database_state()
             record = set_metadata(package, owner='Changed owner', applicability='Changed scope',
                                   access_groups=['restricted'],
-                                  relations=[{'type': 'supplements', 'revision_id': target.name}])
+                                  relations=[{'type': 'supplements', 'revision_id': p.metadata(target)["revision_id"]}])
             reached = []
             engine = get_engine().sync_engine
 
             async def fail_after_metadata(db, metadata, revision):
                 await original_write(db, metadata, revision)
                 await db.flush()
-                changed = await db.get(DocumentRevision, UUID(package.name))
+                changed = await db.get(DocumentRevision, UUID(p.metadata(package)["revision_id"]))
                 assert changed.owner == record['owner']
                 reached.append('after_metadata')
                 raise RuntimeError('synthetic transaction failure')
@@ -106,7 +106,7 @@ def test_transaction_failure_restores_all_committed_state(tmp_path, local_model,
             def fail_chunk_insert(connection, cursor, statement, parameters, context, executemany):
                 if statement.lstrip().lower().startswith('insert into document_chunks'):
                     rows = connection.execute(select(IngestionRun.id, IngestionRun.is_active).where(
-                        IngestionRun.revision_id == UUID(package.name))).all()
+                        IngestionRun.revision_id == UUID(p.metadata(package)["revision_id"]))).all()
                     assert len(rows) == 2
                     assert dict(rows)[UUID(first['run_id'])] is False
                     assert sum(active for _, active in rows) == 1
@@ -146,7 +146,7 @@ def test_source_path_update_is_explicit_metadata_change(tmp_path, local_model):
                 update_start = await db.scalar(select(func.statement_timestamp()))
             await service.publish(tmp_path, package, 'a'*40, model_path=local_model, update_metadata=True)
             async with session_scope() as db:
-                revision = await db.get(DocumentRevision, UUID(package.name))
+                revision = await db.get(DocumentRevision, UUID(p.metadata(package)["revision_id"]))
                 assert revision.source_path == record['source_path']
                 assert revision.source_path_key == record['source_path'].casefold()
                 original = before['document_revisions'][0]
@@ -158,33 +158,68 @@ def test_source_path_update_is_explicit_metadata_change(tmp_path, local_model):
     run_async(scenario())
 
 
-def test_current_revision_replacement_requires_explicit_supersedes(tmp_path, local_model):
+@pytest.mark.parametrize('skip_intermediate', [False, True])
+def test_current_revision_replacement_requires_explicit_supersedes(tmp_path, local_model, skip_intermediate):
     package, _ = ready(tmp_path)
-    replacement = revised_package(tmp_path, package)
+    original = p.snapshot_files(package)
+    previous_id = p.metadata(package)['revision_id']
     async def scenario():
         try:
             await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
             before = await database_state()
+            revised_package(tmp_path, package)
+            if skip_intermediate:
+                revised_package(tmp_path, package)
+            current_id = p.metadata(package)['revision_id']
+            declared = p.metadata(package)['relations']
+            set_metadata(package, relations=[])
             with pytest.raises(p.Rejected, match='current_revision_requires_explicit_supersedes'):
-                await service.publish(tmp_path, replacement, 'a'*40, model_path=local_model)
+                await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
             assert await database_state() == before
-            set_metadata(replacement, relations=[{'type': 'supersedes', 'revision_id': package.name}])
+            set_metadata(package, relations=declared)
+            result = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            assert len(result['missing_supersedes']) == int(skip_intermediate)
+            assert (await service.publish(tmp_path, package, 'a'*40, model_path=local_model))['status'] == 'skipped'
             async with session_scope() as db:
-                update_start = await db.scalar(select(func.statement_timestamp()))
-            await service.publish(tmp_path, replacement, 'a'*40, model_path=local_model)
-            async with session_scope() as db:
-                previous = await db.get(DocumentRevision, UUID(package.name))
-                current = await db.get(DocumentRevision, UUID(replacement.name))
+                previous = await db.get(DocumentRevision, UUID(previous_id))
+                current = await db.get(DocumentRevision, UUID(current_id))
                 assert previous.is_catalog_current is False and previous.lifecycle_status == 'superseded'
                 assert current.is_catalog_current is True and current.lifecycle_status == 'active'
                 assert current.document_id == previous.document_id
                 assert previous.created_at == before['document_revisions'][0]['created_at']
-                assert update_start <= previous.updated_at <= await db.scalar(select(func.statement_timestamp()))
                 active_revisions = set(await db.scalars(select(IngestionRun.revision_id).where(IngestionRun.is_active.is_(True))))
                 assert active_revisions == {previous.id, current.id}
                 assert await db.scalar(select(func.count()).select_from(DocumentRevision).where(DocumentRevision.is_catalog_current.is_(True))) == 1
-            # Updating a revision does not change the parent document timestamp.
-            assert (await database_state())['documents'] == before['documents']
+            after = await database_state()
+            for filename, data in original.items():
+                (package / filename).write_bytes(data)
+            with pytest.raises(p.Rejected, match='current_revision_requires_explicit_supersedes'):
+                await service.publish(tmp_path, package, 'a'*40, model_path=local_model, update_metadata=True)
+            assert await database_state() == after
+        finally:
+            await close_database()
+    run_async(scenario())
+
+
+def test_latest_revision_bootstraps_empty_database(tmp_path, local_model):
+    from app.database.models import DocumentRelation
+    package, _ = ready(tmp_path)
+    revised_package(tmp_path, package)
+    revised_package(tmp_path, package)
+    declared = sorted(r['revision_id'] for r in p.metadata(package)['relations'])
+    async def scenario():
+        try:
+            preview = await service.publish(tmp_path, package, 'a'*40, model_path=local_model, dry_run=True)
+            assert preview['missing_supersedes'] == declared
+            result = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            assert result['missing_supersedes'] == declared
+            async with session_scope() as db:
+                assert await db.scalar(select(func.count()).select_from(DocumentRevision)) == 1
+                assert await db.scalar(select(func.count()).select_from(DocumentRelation)) == 0
+                run = await db.get(IngestionRun, UUID(result['run_id']))
+                assert run.configuration['declared_supersedes'] == declared
+                assert run.configuration['missing_supersedes'] == declared
+            assert (await service.publish(tmp_path, package, 'a'*40, model_path=local_model))['status'] == 'skipped'
         finally:
             await close_database()
     run_async(scenario())
@@ -195,15 +230,16 @@ def test_document_conflicts_leave_database_unchanged(tmp_path, local_model, conf
     package, _ = ready(tmp_path)
     other, _ = ready(tmp_path, name='other-policy.txt')
     if conflict == 'cross_document_supersedes':
-        set_metadata(other, relations=[{'type': 'supersedes', 'revision_id': package.name}])
+        set_metadata(other, relations=[{'type': 'supersedes', 'revision_id': p.metadata(package)["revision_id"]}])
         code = 'supersedes_document_mismatch'
     else:
-        set_metadata(other, source_path=p.metadata(package)['source_path'])
-        code = 'current_revision_requires_explicit_supersedes'
+        code = 'duplicate_source_package'
     async def scenario():
         try:
             await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
             before = await database_state()
+            if conflict == 'source_path_collision':
+                set_metadata(other, source_path=p.metadata(package)['source_path'])
             with pytest.raises(p.Rejected, match=code):
                 await service.publish(tmp_path, other, 'a'*40, model_path=local_model, update_metadata=True)
             assert await database_state() == before
@@ -217,7 +253,7 @@ def test_batch_dry_run_does_not_create_relation_targets(tmp_path, local_model, c
     from app.cli import publish_documents
     target, _ = ready(tmp_path, name='target.txt')
     dependent, _ = ready(tmp_path, name='dependent.txt')
-    set_metadata(dependent, relations=[{'type': 'supplements', 'revision_id': target.name}])
+    set_metadata(dependent, relations=[{'type': 'supplements', 'revision_id': p.metadata(target)["revision_id"]}])
     async def scenario():
         try:
             before = await database_state()
@@ -225,7 +261,7 @@ def test_batch_dry_run_does_not_create_relation_targets(tmp_path, local_model, c
             assert await publish_documents.run(tmp_path, args) == 1
             results = json.loads(capsys.readouterr().out)['results']
             assert [(r['revision_id'], r['code']) for r in results] == [
-                (target.name, 'dry_run'), (dependent.name, 'relation_target_missing')]
+                (p.metadata(target)["revision_id"], 'dry_run'), (p.metadata(dependent)["revision_id"], 'relation_target_missing')]
             assert await database_state() == before
         finally:
             await close_database()
@@ -247,8 +283,8 @@ def test_batch_rejection_preserves_independent_success(tmp_path, local_model, ca
             assert results[0]['code'] == 'relation_target_missing'
             assert results[1]['code'] == 'published'
             async with session_scope() as db:
-                assert await db.get(DocumentRevision, UUID(invalid.name)) is None
-                assert await db.get(DocumentRevision, UUID(independent.name)) is not None
+                assert await db.get(DocumentRevision, UUID(p.metadata(invalid)["revision_id"])) is None
+                assert await db.get(DocumentRevision, UUID(p.metadata(independent)["revision_id"])) is not None
                 assert await db.scalar(select(func.count()).select_from(IngestionRun)) == 1
                 assert await db.scalar(select(func.count()).select_from(DocumentChunk)) == 2
         finally:

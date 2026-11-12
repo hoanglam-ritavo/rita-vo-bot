@@ -85,6 +85,8 @@ async def run(root, args):
                 results.append({'status': 'failed', 'code': 'publication_failed', 'revision_id': revision})
         if not paths:
             results.append({'status': 'rejected', 'code': 'no_packages'})
+    except packages.Rejected as exc:
+        results.append({'status': 'rejected', 'code': str(exc)})
     except Exception:
         results.append({'status': 'failed', 'code': 'batch_failed'})
     finally:

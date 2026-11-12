@@ -76,10 +76,10 @@ def test_missing_file(tmp_path, file):
 
 def test_identity_snapshot_and_json_safety(tmp_path):
     path, _ = ready(tmp_path)
-    edit(path, lambda d: d.update(revision_id=str(uuid4())), 'metadata.json')
+    edit(path, lambda d: d.update(document_id=str(uuid4())), 'metadata.json')
     with pytest.raises(p.Rejected, match='identity_changed'):
         p.load_package(tmp_path, path)
-    edit(path, lambda d: d.update(revision_id=path.name), 'metadata.json')
+    edit(path, lambda d: d.update(document_id=path.name), 'metadata.json')
     (path / 'source.txt').write_bytes(b'wrong snapshot')
     with pytest.raises(p.Rejected, match='snapshot_mismatch'):
         p.load_package(tmp_path, path)
@@ -108,19 +108,21 @@ def test_invalid_metadata(tmp_path, field, value):
 def test_initialize_revise_and_cli(tmp_path, monkeypatch, capsys):
     path, source = ready(tmp_path)
     assert p.initialize(tmp_path, 'policy.txt') == []
+    previous_revision = p.metadata(path)['revision_id']
     source.write_bytes(b'New source version')
     with pytest.raises(p.Rejected, match='source_changed'):
         p.initialize(tmp_path)
     monkeypatch.setattr(cli, 'REPOSITORY_ROOT', tmp_path)
-    assert cli.main(['revise', '--package', str(path), '--source', 'policy.txt', '--json']) == 0
+    assert cli.main(['revise', '--package', str(path), '--source', 'policy.txt', '--supersedes-current', '--json']) == 0
     result = json.loads(capsys.readouterr().out)['results'][0]
     new = tmp_path / result['package']
-    assert new.parent == path.parent and new != path
+    assert new == path
     record = p.metadata(new)
-    assert record['relations'] == [] and record['indexing_decision'] == 'hold'
+    assert record['relations'] == [{'type': 'supersedes', 'revision_id': previous_revision}]
+    assert record['indexing_decision'] == 'hold' and record['revision_id'] != previous_revision
     assert cli.main(['validate', '--package', str(new), '--json']) == 1
     assert 'incomplete_package' in capsys.readouterr().out
-    assert cli.main(['validate', '--package', str(path), '--json']) == 0
+    assert cli.main(['validate', '--package', str(path), '--json']) == 1
 
 
 @pytest.mark.parametrize('args', [['approve', '--review', 'absent', '--reviewer', 'x'],

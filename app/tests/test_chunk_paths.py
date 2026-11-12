@@ -57,7 +57,7 @@ def test_batch_preserves_historical_and_legacy_packages(tmp_path, monkeypatch, c
     with pytest.raises(p.Rejected, match='package_outside_workspace'):
         p.load_package(tmp_path, old / path.relative_to(paths.workspace(tmp_path)))
     # Remove only this synthetic package, retaining legacy data in the workspace.
-    shutil.rmtree(path.parent)
+    shutil.rmtree(path)
     publish.reset_mock()
     assert run_async(publish_documents.run(tmp_path, args)) == 1
     assert 'no_packages' in capsys.readouterr().out
@@ -90,7 +90,7 @@ def test_batch_orders_relation_target_before_dependent(tmp_path, batch_publisher
     from package_fixtures import batch_arguments, set_metadata
     target, _ = ready(tmp_path, name='target.txt')
     dependent, _ = ready(tmp_path, name='dependent.txt')
-    set_metadata(dependent, relations=[{'type': 'supplements', 'revision_id': target.name}])
+    set_metadata(dependent, relations=[{'type': 'supplements', 'revision_id': p.metadata(target)["revision_id"]}])
     args = batch_arguments([dependent, target], dry_run=True)
     assert run_async(publish_documents.run(tmp_path, args)) == 0
     assert [call.args[1] for call in batch_publisher.await_args_list] == [target, dependent]
@@ -102,8 +102,8 @@ def test_batch_cycle_rejected_but_independent_package_still_runs(tmp_path, batch
     first, _ = ready(tmp_path, name='first.txt')
     second, _ = ready(tmp_path, name='second.txt')
     independent, _ = ready(tmp_path, name='independent.txt')
-    set_metadata(first, relations=[{'type': 'supplements', 'revision_id': second.name}])
-    set_metadata(second, relations=[{'type': 'supplements', 'revision_id': first.name}])
+    set_metadata(first, relations=[{'type': 'supplements', 'revision_id': p.metadata(second)["revision_id"]}])
+    set_metadata(second, relations=[{'type': 'supplements', 'revision_id': p.metadata(first)["revision_id"]}])
     assert run_async(publish_documents.run(tmp_path, batch_arguments([first, second, independent]))) == 1
     assert 'cyclic_batch_relations' in capsys.readouterr().out
     batch_publisher.assert_awaited_once()
