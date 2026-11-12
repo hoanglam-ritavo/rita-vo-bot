@@ -1,39 +1,7 @@
-"""Synchronize the local catalog into explicitly migrated PostgreSQL storage."""
-import argparse
-from pathlib import Path
-from app.paths import REPOSITORY_ROOT
-import sys
-
-from app.catalog.importer import ImportRejected, prepare_catalog, synchronize
-from app.database import close_database
-from app.database.runtime import run_async
-
-
-async def run(root: Path, *, dry_run=False):
-    try:
-        catalog, warnings = prepare_catalog(root)
-        result = await synchronize(catalog, dry_run=dry_run, warnings=warnings)
-        label = 'Dry run' if dry_run else 'Imported'
-        print(f'{label}: documents_added={result.documents_added}, revisions_added={result.revisions_added}, '
-              f'revisions_updated={result.revisions_updated}, revisions_retired={result.revisions_retired}, '
-              f'warnings={result.warnings}')
-        return 0
-    except ImportRejected as exc:
-        print(str(exc), file=sys.stderr)
-        return 1
-    except Exception:
-        print('Catalog import failed; check source access, database configuration and explicit migrations.', file=sys.stderr)
-        return 2
-    finally:
-        await close_database()
-
-
+"""Retired entrypoint; retained only to explain the replacement workflow."""
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dry-run', action='store_true')
-    args = parser.parse_args(argv)
-    return run_async(run(REPOSITORY_ROOT, dry_run=args.dry_run))
-
+    print('This workflow is retired. Use python -m app.cli.prepare_documents init --all, then extract, validate, approve and app.cli.publish_documents.')
+    return 2
 
 if __name__ == '__main__':
     raise SystemExit(main())

@@ -9,8 +9,8 @@ from uuid import UUID, uuid4
 
 from app.catalog.inventory import reject_links, file_fingerprint, inventory
 from app.catalog.inventory import safe_relative
-from app.catalog.storage import load_catalog, atomic_write, json_text
-from app.catalog.validation import validate_schema, compare
+from app.catalog.storage import json_text
+from app.catalog.validation import validate_schema
 from app.paths import assets, workspace
 
 SUPPORTED = {'.pdf', '.xlsx', '.csv', '.md', '.txt'}
@@ -67,17 +67,37 @@ def uuid(value):
         raise Rejected('invalid_uuid') from None
 
 
-def catalog(root):
-    value = load_catalog(workspace(root) / 'catalog/documents.json')
-    require(not validate_schema(value), 'catalog_invalid')
-    differences = compare(value, inventory(assets(root)))
-    require(not any(differences[k] for k in ('added', 'missing', 'changed')), 'catalog_source_drift')
-    return value['documents']
+IDENTITY_FIELDS = ('document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes', 'extension')
 
 
-def selected(root, revision_id, *, eligible=False):
-    record = next((r for r in catalog(root) if r['revision_id'] == str(revision_id)), None)
-    require(record is not None, 'revision_missing')
+def validate_metadata(record):
+    # Cross-revision relations are checked against the database at publication.
+    candidate = dict(record)
+    relations = candidate.get('relations')
+    require(isinstance(relations, list), 'metadata_relations')
+    candidate['relations'] = []
+    require(not validate_schema({'schema_version': 1, 'documents': [candidate]}), 'metadata_invalid')
+    from app.catalog.validation import RELATIONS
+    for relation in relations:
+        require(isinstance(relation, dict) and set(relation) == {'type', 'revision_id'}
+                and relation['type'] in RELATIONS, 'metadata_relation')
+        uuid(relation['revision_id'])
+        require(relation['revision_id'] != record['revision_id'], 'self_relation')
+        if relation['type'] != 'duplicate_of':
+            require(record['review_status'] == 'reviewed' and bool(record['review_notes']), 'relation_review_required')
+    return record
+
+
+def metadata(directory):
+    manifest = decode(read_file(directory, 'manifest.json'))
+    require(manifest.get('schema_version') == 2 and manifest.get('kind') == 'review', 'not_review_package')
+    record = validate_metadata(decode(read_file(directory, 'metadata.json')))
+    require({k: record[k] for k in IDENTITY_FIELDS} == manifest.get('identity'), 'metadata_identity_changed')
+    return record
+
+
+def source_for(root, record, *, eligible=False):
+    validate_metadata(record)
     require(record['extension'] in SUPPORTED, 'unsupported_format')
     require(record['indexing_decision'] != 'exclude' and record['lifecycle_status'] in ('unknown', 'active'), 'source_ineligible')
     if eligible:
@@ -86,8 +106,58 @@ def selected(root, revision_id, *, eligible=False):
     source = assets(root) / record['source_path']
     reject_links(source)
     require(source.resolve().is_relative_to(assets(root).resolve()), 'source_outside_assets')
-    require(file_fingerprint(source)['sha256'] == record['sha256'], 'source_changed')
-    return record, source
+    require(file_fingerprint(source) == {k: record[k] for k in ('sha256', 'size_bytes', 'extension')}, 'source_changed')
+    return source
+
+
+def review_paths(root):
+    base = workspace(root) / 'review'
+    reject_links(base)
+    result = []
+    if base.exists():
+        for revision in sorted(base.iterdir()):
+            reject_links(revision)
+            if revision.name.startswith('.'):
+                continue
+            require(revision.is_dir(), 'unexpected_review_entry')
+            for path in sorted(revision.iterdir()):
+                reject_links(path)
+                if path.name.startswith('.'):
+                    continue
+                require(path.is_dir(), 'unexpected_review_entry')
+                record = metadata(path)
+                require(revision.name == record['revision_id'], 'review_location')
+                result.append(path)
+    return result
+
+
+def pending(root, record, *, package_id=None, extra=None):
+    validate_metadata(record)
+    manifest = {'schema_version': 2, 'kind': 'review', 'state': 'pending',
+                'identity': {k: record[k] for k in IDENTITY_FIELDS}}
+    files = {'metadata.json': encoded(record), 'manifest.json': encoded(manifest)}
+    if extra:
+        files.update(extra)
+    return write_package(workspace(root) / 'review' / record['revision_id'], package_id or str(uuid4()), files)
+
+
+def initialize(root):
+    from app.catalog.validation import new_record
+    known = {}
+    for path in review_paths(root):
+        record = metadata(path)
+        known.setdefault(record['source_path'].casefold(), []).append(record)
+    incoming = inventory(assets(root))
+    for name, fingerprint in incoming.items():
+        candidates = known.get(name.casefold(), [])
+        require(len({r['document_id'] for r in candidates}) <= 1, 'source_identity_conflict')
+        require(not candidates or any(all(r[k] == v for k, v in fingerprint.items()) for r in candidates),
+                'source_changed_explicit_revision_required')
+    for kind in ('review', 'approved'):
+        target = workspace(root) / kind
+        reject_links(target)
+        target.mkdir(parents=True, exist_ok=True)
+    return [pending(root, new_record(name, fp)) for name, fp in incoming.items() if name.casefold() not in known]
 
 
 def identity(record, extraction_id):
@@ -217,8 +287,10 @@ def load_review(directory):
     require(not directory.name.startswith('.'), 'incomplete_package')
     manifest = decode(read_file(directory, 'manifest.json'))
     require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
-            and manifest.get('schema_version') == 1 and manifest.get('kind') == 'review', 'not_review_package')
+            and manifest.get('schema_version') == 2 and manifest.get('kind') == 'review', 'not_review_package')
     require(isinstance(manifest.get('source_file'), str) and isinstance(manifest.get('files'), dict), 'review_manifest_fields')
+    require(manifest.get('state') == 'ready', 'incomplete_review')
+    record = metadata(directory)
     expected = {'extraction.json', 'draft.initial.json', manifest.get('source_file')}
     require(set(manifest.get('files', {})) == expected, 'review_manifest_files')
     files = {}
@@ -227,6 +299,8 @@ def load_review(directory):
         require(sha(files[name]) == fingerprint, 'review_hash_mismatch')
     extraction = decode(files['extraction.json'])
     validate_extraction(extraction)
+    require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'metadata_identity_changed')
+    require(len(files[manifest['source_file']]) == record['size_bytes'], 'snapshot_size')
     require(extraction.get('schema_version') == 1 and extraction.get('status') == 'complete', 'incomplete_extraction')
     require(manifest['source_file'] == 'source' + extraction['identity']['extension'], 'source_filename')
     require(sha(files[manifest['source_file']]) == extraction['identity']['sha256'], 'snapshot_mismatch')
@@ -236,20 +310,22 @@ def load_review(directory):
     require(decode(files['draft.initial.json'])['identity'] == extraction['identity'], 'initial_identity_mismatch')
     files['draft.json'] = draft_bytes
     files['manifest.json'] = encoded(manifest)
+    files['metadata.json'] = encoded(record)
     return extraction, draft, chunks, files
 
 
 def approve(root, directory, reviewer):
     require(isinstance(reviewer, str) and reviewer.strip(), 'reviewer_required')
     extraction, draft, chunks, files = load_review(directory)
-    record, _ = selected(root, extraction['identity']['revision_id'], eligible=True)
-    require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'catalog_identity_mismatch')
+    record = metadata(directory)
+    source_for(root, record, eligible=True)
+    require(identity(record, extraction['identity']['extraction_id']) == extraction['identity'], 'metadata_identity_mismatch')
     approval_id = str(uuid4())
     files['review-manifest.json'] = files.pop('manifest.json')
     payload = {'schema_version': 1, 'identity': extraction['identity'], 'chunks': chunks,
                'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
     files['payload.json'] = encoded(payload)
-    manifest = {'schema_version': 1, 'kind': 'approval', 'approval_id': approval_id,
+    manifest = {'schema_version': 2, 'kind': 'approval', 'approval_id': approval_id,
                 'reviewer': reviewer, 'approved_at': datetime.now(timezone.utc).isoformat(),
                 'content_hash': canonical_hash(payload), 'files': {k: sha(v) for k, v in files.items()}}
     files['manifest.json'] = encoded(manifest)
@@ -263,7 +339,7 @@ def load_approval(root, directory):
     require(not directory.name.startswith('.'), 'incomplete_package')
     manifest = decode(read_file(directory, 'manifest.json'))
     require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
-            and manifest.get('schema_version') == 1 and manifest.get('kind') == 'approval', 'not_approved')
+            and manifest.get('schema_version') == 2 and manifest.get('kind') == 'approval', 'not_approved')
     uuid(manifest.get('approval_id'))
     require(isinstance(manifest.get('reviewer'), str) and bool(manifest['reviewer'].strip()), 'reviewer_required')
     try:
@@ -284,27 +360,39 @@ def load_approval(root, directory):
             and payload.get('schema_version') == 1 and extraction.get('schema_version') == 1
             and extraction.get('status') == 'complete', 'package_version')
     source_file = 'source' + extraction['identity']['extension']
-    require(set(files) == {'payload.json', 'extraction.json', 'draft.initial.json', 'draft.json', 'review-manifest.json', source_file}, 'approval_files')
+    require(set(files) == {'payload.json', 'extraction.json', 'draft.initial.json', 'draft.json', 'review-manifest.json', 'metadata.json', source_file}, 'approval_files')
     review_manifest = decode(files['review-manifest.json'])
-    require(review_manifest.get('kind') == 'review' and review_manifest.get('schema_version') == 1
+    require(review_manifest.get('kind') == 'review' and review_manifest.get('schema_version') == 2
             and set(review_manifest.get('files', {})) == {'extraction.json', 'draft.initial.json', source_file}, 'review_manifest_files')
     require(all(sha(files[k]) == v for k, v in review_manifest['files'].items()), 'review_hash_mismatch')
     expected = {'schema_version': 1, 'identity': extraction['identity'], 'chunks': validate_draft(extraction, draft),
                 'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
     require(payload == expected and canonical_hash(payload) == manifest.get('content_hash'), 'payload_mismatch')
     require(sha(files[source_file]) == payload['identity']['sha256'], 'snapshot_mismatch')
-    record, _ = selected(root, payload['identity']['revision_id'], eligible=True)
-    require(identity(record, payload['identity']['extraction_id']) == payload['identity'], 'catalog_identity_mismatch')
+    record = validate_metadata(decode(files['metadata.json']))
+    require({k: record[k] for k in IDENTITY_FIELDS} == review_manifest.get('identity'), 'metadata_identity_changed')
+    require(record['indexing_decision'] == 'include', 'source_not_approved')
+    require(len(files[source_file]) == record['size_bytes'], 'snapshot_size')
+    require(identity(record, payload['identity']['extraction_id']) == payload['identity'], 'metadata_identity_mismatch')
     require(directory.name == manifest['approval_id'] and directory.parent.name == record['revision_id'], 'approval_location')
     files['manifest.json'] = encoded(manifest)
     return record, payload, manifest, files
 
 
-def report(root, operation, results):
-    run_id = str(uuid4())
-    path = workspace(root) / 'reports' / f'{operation}-{run_id}.json'
-    atomic_write(path, json_text({'operation': operation, 'results': results}), create_only=True)
+def report(root, operation, results, *, as_json=False):
     counts = {s: sum(r['status'] == s for r in results) for s in ('processed', 'skipped', 'rejected', 'failed')}
-    print(' '.join(f'{key}={value}' for key, value in counts.items()))
-    print(f'Report: {path}')
+    if as_json:
+        print(json.dumps({'operation': operation, 'results': results}, ensure_ascii=True))
+    else:
+        print(' '.join(f'{key}={value}' for key, value in counts.items()))
+        for result in results:
+            print(json.dumps(result, ensure_ascii=True))
     return 2 if counts['failed'] else 1 if counts['rejected'] else 0
+
+
+def inspect_legacy_approval(directory):
+    sidecar = decode(read_file(directory, 'migration.json'))
+    require(sidecar.get('requires_reapproval') is True, 'not_legacy_approval')
+    for name, digest in sidecar['original_files'].items():
+        require(sha(read_file(directory, name)) == digest, 'legacy_hash_mismatch')
+    return {'requires_reapproval': True, 'metadata': validate_metadata(sidecar['metadata'])}

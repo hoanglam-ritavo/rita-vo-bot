@@ -8,7 +8,7 @@ def main(argv=None):
     if args and args[0] == 'ingest':
         from app.cli.ingest import main as ingest
         return ingest(args[1:])
-    parser = argparse.ArgumentParser(description='Database checks and local PDF ingestion.')
+    parser = argparse.ArgumentParser(description='Database checks; use app.cli.prepare_documents and app.cli.publish_documents for ingestion.')
     parser.add_argument('command', nargs='?', choices=['check-db', 'ingest'], default='check-db')
     parser.parse_args(args)
     from app.cli.check_db import main as check

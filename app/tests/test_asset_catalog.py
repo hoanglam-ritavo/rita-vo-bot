@@ -12,7 +12,6 @@ from uuid import uuid4
 import pytest
 
 from app.catalog import inventory, validation, storage, reports
-from app.cli.asset_catalog import run
 
 
 @pytest.fixture
@@ -23,51 +22,14 @@ def workspace(tmp_path):
     return tmp_path
 
 
-def read_catalog(root):
-    return storage.load_catalog(root / 'indexing_workspace/catalog/documents.json')
 
 
-def save_catalog(root, value):
-    storage.atomic_write(root / 'indexing_workspace/catalog/documents.json', storage.json_text(value))
 
 
-def latest_reports(root):
-    return [json.loads(p.read_text(encoding='utf-8'))
-            for p in (root / 'indexing_workspace/reports').glob('asset-catalog-*.json')]
 
 
-def test_init_scan_validate_preserve_ids_and_manual_metadata(workspace):
-    assert run('init', workspace) == 0
-    value = read_catalog(workspace)
-    value['documents'][0]['review_notes'] = ['Manual note preserved.']
-    save_catalog(workspace, value)
-    path = workspace / 'indexing_workspace/catalog/documents.json'
-    before = path.read_bytes()
-    assert run('scan', workspace) == 0
-    assert run('validate', workspace) == 0
-    assert run('init', workspace) == 2
-    assert path.read_bytes() == before
-    report = latest_reports(workspace)[0]
-    assert report['hold_count'] == 1
-    assert report['include_count'] == 0
 
 
-def test_diff_duplicates_and_moves(workspace):
-    assets = workspace / 'app/assets'
-    (assets / 'copy.pdf').write_bytes(b'synthetic policy')
-    (assets / 'changing.doc').write_bytes(b'old')
-    assert run('init', workspace) == 1
-    value = read_catalog(workspace)
-    (assets / 'policy.pdf').rename(assets / 'moved.pdf')
-    (assets / 'changing.doc').write_bytes(b'new')
-    (assets / 'new.xlsx').write_bytes(b'table')
-    report = reports.build_report('scan', value, inventory.inventory(assets))
-    assert report['added'] == ['moved.pdf', 'new.xlsx']
-    assert report['missing'] == ['policy.pdf']
-    assert report['changed'] == ['changing.doc']
-    assert report['possible_moves'] == [{'old': 'policy.pdf', 'new': 'moved.pdf'}]
-    assert report['duplicates'] == [['copy.pdf', 'moved.pdf']]
-    assert report['exit_code'] == 1
 
 
 @pytest.mark.parametrize('value', ['../outside.pdf', '/absolute.pdf', 'C:/a.pdf',
@@ -191,47 +153,12 @@ def test_atomic_failures_and_no_clobber(tmp_path, monkeypatch):
     assert list(tmp_path.iterdir()) == [path]
 
 
-def test_read_failure_preserves_catalog_and_no_success_report(workspace, monkeypatch, capsys):
-    assert run('init', workspace) == 0
-    path = workspace / 'indexing_workspace/catalog/documents.json'
-    before = path.read_bytes()
-    reports_before = len(latest_reports(workspace))
-    def fail(path):
-        raise PermissionError('private details must not appear')
-    monkeypatch.setattr(inventory, 'file_fingerprint', fail)
-    assert run('scan', workspace) == 2
-    assert path.read_bytes() == before
-    assert len(latest_reports(workspace)) == reports_before
-    assert 'private details' not in capsys.readouterr().err
 
 
-def test_invalid_json_is_operational_failure(workspace):
-    assert run('init', workspace) == 0
-    path = workspace / 'indexing_workspace/catalog/documents.json'
-    path.write_text('{invalid', encoding='utf-8')
-    assert run('validate', workspace) == 2
-    assert path.read_text() == '{invalid'
 
 
-def test_report_write_failure_preserves_existing_catalog(workspace, monkeypatch):
-    from app.cli import asset_catalog as cli
-    assert run('init', workspace) == 0
-    path = workspace / 'indexing_workspace/catalog/documents.json'
-    before = path.read_bytes()
-    def fail(*args):
-        raise OSError('synthetic report failure')
-    monkeypatch.setattr(cli, 'write_report', fail)
-    assert run('validate', workspace) == 2
-    assert path.read_bytes() == before
 
 
-def test_initial_publish_failure_leaves_no_partial_catalog(workspace, monkeypatch):
-    def fail(*args):
-        raise OSError('synthetic publish failure')
-    monkeypatch.setattr(os, 'link', fail)
-    assert run('init', workspace) == 2
-    assert not (workspace / 'indexing_workspace/catalog/documents.json').exists()
-    assert list((workspace / 'indexing_workspace/catalog').iterdir()) == []
 
 
 def test_cli_import_does_not_import_database():

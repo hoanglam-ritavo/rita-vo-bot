@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Scope and project status
 
-- The implemented system provides a Python database foundation, local catalog metadata import, multi-format reviewed-JSON ingestion and legacy single-PDF review/publication, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
+- The implemented system provides a Python database foundation, package-owned document metadata, multi-format reviewed-JSON ingestion with package-owned metadata, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
 - Follow the requested task scope. Do not implement later phases or add dependencies merely because the architecture mentions them.
 - Keep documentation in English and synchronize it with changes to setup, supported behavior, and architectural decisions.
 
@@ -12,7 +12,8 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 - Keep command entrypoints in `app/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
 - Put automated tests in `app/tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
-- Keep generated extraction results, caches, and reports under `indexing_workspace/` following [indexing_workspace/README.md](indexing_workspace/README.md). Do not commit these outputs or create unused feature directories ahead of implementation.
+- Keep review and approved chunk packages under `app/chunks/review/` and `app/chunks/approved/` following [docs/offline-indexing.md](docs/offline-indexing.md). Do not commit these outputs or create unused feature directories ahead of implementation. Leave historical `indexing_chunks/` data untouched; it is not scanned or merged into the new workspace.
+- Use agent-authored extraction and semantic chunk review as the primary preparation workflow; existing loader/chunker commands remain optional. Preserve snapshots, transcription, source spans and review evidence using the existing package schema. Validation checks structural consistency, not transcription accuracy or business approval. Follow the guide before producing packages.
 
 ## Database conventions
 

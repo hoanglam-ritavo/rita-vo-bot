@@ -27,8 +27,8 @@ def setup_document(root, name='policy.txt', content='Original policy.\n\nSecond 
         record.update(indexing_decision='include', review_status='reviewed', lifecycle_status='active',
                       owner='Synthetic owner', applicability='Synthetic scope', access_groups=['staff'],
                       review_notes=['Synthetic approval'])
-    atomic_write(workspace(root) / 'catalog/documents.json', json_text(catalog))
-    return next(r for r in catalog['documents'] if r['source_path'] == name), source
+    record = next(r for r in catalog['documents'] if r['source_path'] == name)
+    return p.pending(root, record), source
 
 
 def edit(directory, change):
@@ -40,7 +40,7 @@ def edit(directory, change):
 
 def approved(root):
     record, source = setup_document(root)
-    review = prepare(root, record['revision_id'])
+    review = prepare(root, record)
     edit(review, lambda d: d['chunks'][0].update(content='Human corrected policy.'))
     approval = p.approve(root, review, 'Synthetic reviewer')
     return record, source, review, approval
@@ -64,7 +64,7 @@ def test_corrected_content_and_immutable_snapshot(tmp_path):
 ])
 def test_invalid_edits_rejected(tmp_path, change, code):
     record, _ = setup_document(tmp_path)
-    directory = prepare(tmp_path, record['revision_id'])
+    directory = prepare(tmp_path, record)
     def mutate(draft):
         if change == 'duplicate': draft['chunks'].append(copy.deepcopy(draft['chunks'][0]))
         if change == 'missing': draft['chunks'].pop()
@@ -79,7 +79,7 @@ def test_invalid_edits_rejected(tmp_path, change, code):
 
 def test_split_merge_and_exclude(tmp_path):
     record, _ = setup_document(tmp_path)
-    directory = prepare(tmp_path, record['revision_id'])
+    directory = prepare(tmp_path, record)
     def mutate(draft):
         first, second = draft['chunks']
         ref = first['source_refs'][0]
@@ -114,17 +114,16 @@ def test_source_drift_and_unsealed_package(tmp_path):
     with pytest.raises(p.Rejected):
         p.load_approval(tmp_path, review)
     source.write_text('Changed source')
-    with pytest.raises(p.Rejected, match='drift'):
-        p.load_approval(tmp_path, approval)
+    assert p.load_approval(tmp_path, approval)[1]['chunks']
 
 
 def test_pending_extract_allowed_approval_requires_metadata(tmp_path):
     record, _ = setup_document(tmp_path)
-    catalog_path = workspace(tmp_path) / 'catalog/documents.json'
-    catalog = p.decode(catalog_path.read_bytes())
-    catalog['documents'][0].update(indexing_decision='hold', review_status='pending')
-    catalog_path.write_bytes(p.encoded(catalog))
-    directory = prepare(tmp_path, record['revision_id'])
+    metadata_path = record / 'metadata.json'
+    metadata = p.decode(metadata_path.read_bytes())
+    metadata.update(indexing_decision='hold', review_status='pending')
+    metadata_path.write_bytes(p.encoded(metadata))
+    directory = prepare(tmp_path, record)
     with pytest.raises(p.Rejected, match='not_approved'):
         p.approve(tmp_path, directory, 'Reviewer')
 
@@ -145,7 +144,7 @@ def test_markdown_headings_fences_and_unicode(tmp_path):
 def test_csv_duplicate_headers_multiline_zeroes_and_long_row(tmp_path):
     raw = 'Name,Name,\n"A\nB",001,' + 'x' * 1200 + '\n'
     record, _ = setup_document(tmp_path, 'table.csv', raw)
-    directory = prepare(tmp_path, record['revision_id'])
+    directory = prepare(tmp_path, record)
     extraction, _, chunks, _ = p.load_review(directory)
     row = extraction['segments'][1]
     assert row['details']['cells'][1] == '001'
@@ -156,7 +155,7 @@ def test_csv_duplicate_headers_multiline_zeroes_and_long_row(tmp_path):
 
 def test_csv_override_and_warning_decision(tmp_path):
     record, _ = setup_document(tmp_path, 'table.csv', 'Code;Value\n001;Vietnam;extra\n')
-    directory = prepare(tmp_path, record['revision_id'], {'delimiter': ';'})
+    directory = prepare(tmp_path, record, {'delimiter': ';'})
     with pytest.raises(p.Rejected, match='unresolved_warnings'):
         p.load_review(directory)
     edit(directory, lambda d: d['warning_decisions'].update({k: 'Checked extra column' for k in d['warning_decisions']}))
@@ -171,7 +170,7 @@ def test_pdf_native_and_blank_page_review(tmp_path, monkeypatch):
                           {'page': 2, 'raw': '', 'extraction_method': 'ocr'}])
         manifest.update(language_files={}, pages=[])
     monkeypatch.setattr(pdf, 'load_pdf', load)
-    directory = prepare(tmp_path, record['revision_id'])
+    directory = prepare(tmp_path, record)
     extraction = p.decode((directory / 'extraction.json').read_bytes())
     assert extraction['segments'][0]['raw'] == 'Original\ttext'
     assert extraction['segments'][0]['text'] == 'Original text'
@@ -237,9 +236,9 @@ def test_repeated_extract_never_overwrites_and_other_cwd(tmp_path, monkeypatch):
     elsewhere = tmp_path / 'elsewhere'
     elsewhere.mkdir()
     monkeypatch.chdir(elsewhere)
-    first = prepare(tmp_path, record['revision_id'])
+    first = prepare(tmp_path, record)
     original = (first / 'draft.json').read_bytes()
-    second = prepare(tmp_path, record['revision_id'])
+    second = prepare(tmp_path, record)
     assert first != second and (first / 'draft.json').read_bytes() == original
     assert not (elsewhere / 'indexing_workspace').exists()
 
@@ -249,21 +248,22 @@ def test_ocr_failure_never_creates_complete_review(tmp_path, monkeypatch):
     record, _ = setup_document(tmp_path, 'sample.pdf', b'synthetic')
     monkeypatch.setattr(pdf, 'load_pdf', Mock(side_effect=RuntimeError('OCR failed')))
     with pytest.raises(RuntimeError):
-        prepare(tmp_path, record['revision_id'])
-    directories = list((workspace(tmp_path) / 'review' / record['revision_id']).iterdir())
-    assert all(d.name.startswith('.extracting-') for d in directories)
+        prepare(tmp_path, record)
+    directories = list((workspace(tmp_path) / 'review' / p.metadata(record)['revision_id']).iterdir())
+    directories = [d for d in directories if d.name.startswith('.extracting-')]
+    assert directories
     with pytest.raises(p.Rejected, match='incomplete'):
         p.load_review(directories[0])
 
 
 def test_package_long_paths_and_manifest_path_escape(tmp_path):
     record, _ = setup_document(tmp_path)
-    review = prepare(tmp_path, record['revision_id'])
+    review = prepare(tmp_path, record)
     files = {f.name: f.read_bytes() for f in review.iterdir()}
     parent = workspace(tmp_path) / 'review' / ('long-segment-' * 12) / ('nested-' * 10)
     long_review = p.write_package(parent, str(uuid4()), files)
     assert len(str(long_review)) > 260
-    assert p.load_review(long_review)[0]['identity']['revision_id'] == record['revision_id']
+    assert p.load_review(long_review)[0]['identity']['revision_id'] == p.metadata(record)['revision_id']
     manifest_path = p.io_path(long_review / 'manifest.json')
     manifest = p.decode(manifest_path.read_bytes())
     manifest['source_file'] = '../source.txt'
@@ -273,7 +273,7 @@ def test_package_long_paths_and_manifest_path_escape(tmp_path):
         p.load_review(long_review)
 
 
-def test_batch_failure_continues_and_validates_known_extensions(tmp_path, monkeypatch):
+def test_batch_failure_continues_and_validates_known_extensions(tmp_path, monkeypatch, capsys):
     from app.cli import prepare_documents as cli
     from app.ingestion import document_preparation
     from app.catalog.validation import KNOWN_EXTENSIONS
@@ -282,14 +282,13 @@ def test_batch_failure_continues_and_validates_known_extensions(tmp_path, monkey
     monkeypatch.setattr(cli, 'REPOSITORY_ROOT', tmp_path)
     original = document_preparation.prepare
     def failing(root, revision, settings):
-        if revision == first['revision_id']:
+        if revision == first:
             raise RuntimeError('private content must not enter reports')
         return original(root, revision, settings)
     # setup_document regenerates catalog IDs; use the current first record.
-    first = p.catalog(tmp_path)[0]
     monkeypatch.setattr(document_preparation, 'prepare', failing)
-    assert cli.main(['extract', '--all']) == 2
-    report = p.decode(next((workspace(tmp_path) / 'reports').glob('prepare-extract-*.json')).read_bytes())
+    assert cli.main(['extract', '--all', '--json']) == 2
+    report = json.loads(capsys.readouterr().out)
     assert {r['status'] for r in report['results']} == {'failed', 'processed'}
     assert 'private content' not in str(report)
     assert {'.csv', '.txt', '.md'} <= KNOWN_EXTENSIONS
@@ -303,7 +302,7 @@ def test_native_pdf_real_geometry_package(tmp_path):
         page.insert_text((72, 72), 'Synthetic native policy')
         document.save(source)
     record, _ = setup_document(tmp_path, 'native.pdf', source.read_bytes())
-    review = prepare(tmp_path, record['revision_id'])
+    review = prepare(tmp_path, record)
     extraction, _, chunks, _ = p.load_review(review)
     assert extraction['segments'][0]['extraction_method'] == 'native'
     assert chunks[0]['source_location']['spans'][0]['location']['page_start'] == 1
@@ -311,7 +310,7 @@ def test_native_pdf_real_geometry_package(tmp_path):
 
 def test_review_json_duplicate_keys_and_type_rejected(tmp_path):
     record, _ = setup_document(tmp_path)
-    review = prepare(tmp_path, record['revision_id'])
+    review = prepare(tmp_path, record)
     (review / 'draft.json').write_bytes(b'{"schema_version":1,"schema_version":1}')
     with pytest.raises(p.Rejected, match='duplicate_json_key'):
         p.load_review(review)
@@ -326,7 +325,7 @@ def test_xlsx_pipeline_approval_after_warning_review(tmp_path):
     book.save(source)
     book.close()
     record, _ = setup_document(tmp_path, 'table.xlsx', source.read_bytes())
-    review = prepare(tmp_path, record['revision_id'])
+    review = prepare(tmp_path, record)
     edit(review, lambda d: d['warning_decisions'].update({k: 'Formula remains explicitly unavailable' for k in d['warning_decisions']}))
     approval = p.approve(tmp_path, review, 'Reviewer')
     payload = p.load_approval(tmp_path, approval)[1]

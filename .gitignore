@@ -39,5 +39,6 @@ pytest-cache-files-*/
 /app/assets/**/*.3[gG][pP]
 
 # Indexing workspace: private working artifacts, not database storage.
-/indexing_workspace/*
-!/indexing_workspace/README.md
+/indexing_workspace/
+/indexing_chunks/
+/app/chunks/

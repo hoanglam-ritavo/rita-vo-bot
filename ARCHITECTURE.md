@@ -1,101 +1,20 @@
 # Rita Bot Architecture
 
-## Status and direction
+## Implemented storage and ingestion
 
-This document distinguishes the implemented database and catalog storage from the planned chatbot. Target component names and routing outcomes describe responsibilities, not existing Python interfaces or endpoints. See [README.md](README.md) for runnable commands and [AGENTS.md](AGENTS.md) for contributor instructions.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide six Type A storage tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. There is no chatbot/API or retrieval implementation.
 
-The current implementation uses Python 3.14, async SQLAlchemy and psycopg, PostgreSQL/pgvector, Alembic, and database tests. A separate standard-library asset catalog CLI inventories sources and validates local metadata without database access. `python -m app.cli.check_db` checks connectivity and the vector extension. `main.py` dispatches database checks and explicit ingestion commands; importing either entrypoint does not initiate a database check. The initial migration enables the extension without creating business tables. There is no chatbot/API framework or routing implementation. The local PDF ingestion pipeline provides database-free review and transactional publication of one approved catalog revision. See [ingestion](docs/ingestion.md).
+Source documents stay in `app/assets/`. `app.paths` anchors `app/chunks/` to the repository. Its only children are `review/` and `approved/`. Historical `indexing_chunks/` packages remain untouched and are not scanned or merged automatically. Self-contained versioned packages replace the local catalog; metadata-only pending packages retain unsupported or unprocessed document identities. Ready packages contain source snapshots, extraction and editable drafts. Approval seals content, metadata and provenance.
 
-The target is Python orchestration with locally operated models. No paid cloud inference service or RAGFlow dependency is required. Self-hosting pretrained models is distinct from training a language model from scratch; initial development should focus on retrieval and evaluation. Local operation still requires hardware, maintenance, and compliance with model licenses. All model-dependent stages, including OCR, embeddings, reranking, and generation, must be considered when keeping data local.
+Package assembly, validation and approval are database-free. The primary preparation workflow is agent-authored transcription and semantic chunking, with existing loaders/chunkers retained as optional tools. Agent processing is not guaranteed offline and requires an appropriate model environment and authorization for internal data. Scanned text is marked `ocr`, with the actual agent method recorded in parser metadata; no engine identity is inferred. Structural validation does not establish visual fidelity, completeness of transcription or business approval.
 
-Command entrypoints live in `app/cli/`; database infrastructure remains in `app/database/`, including per-table ORM modules in `models/` and Alembic revisions in `migrations/`. The `app/catalog/` package separates inventory, validation, storage, reports and database import. The `app/ingestion/` package separates PDF extraction, chunking, embeddings, artifacts, review and publication. Source documents stay in `app/assets/`, while generated extraction results, caches, and reports belong under `indexing_workspace/` according to [its conventions](indexing_workspace/README.md). Review and publish create generated-data subdirectories as needed.
+Publication embeds approved bytes using an explicitly installed local model, synchronizes metadata per revision and activates chunks atomically. It never performs full-catalog retirement or regenerates chunks. Model/OCR resources for the optional tools are supplied externally, without automatic download or managed caches. Reports go to stdout. Approved snapshots and database run configuration replace published artifact copies. Pre-transaction failures have no persisted run record. See the [package contract](docs/offline-indexing.md).
 
-The shared `app.paths` module anchors the indexing workspace and `app/assets/`
-to the repository root without filesystem writes at import. Review output and
-publication artifacts use separate locations. Historical artifacts are archived
-without rewriting provenance. Two additional CLI entrypoints implement local
-PDF/XLSX/CSV/Markdown/TXT preparation, editable review JSON, explicit approval and
-publication of approved content. Review source/extraction snapshots remain intact;
-approval hashes bind the reviewed payload and provenance. The new publisher reads
-a verified snapshot, checks token limits, and uses shared atomic activation without
-reparsing or rechunking. Existing JSONB columns carry detailed source locations and
-processing identity; no schema migration is required. Table structure is retained
-for review, but exact table-query/computation services are not implemented.
-See the [offline indexing contract](docs/offline-indexing.md). The legacy PDF
-publisher remains separate and still processes the source PDF.
+Local catalog and direct PDF publication commands are retired. The verified migration utility preserves required metadata and review evidence before deleting the old workspace, without backups. There are no schema changes for this refactor.
 
-## Data sources and retrieval strategy
+## Planned retrieval
 
-### Implemented source catalog
-
-`python -m app.cli.asset_catalog` provides `init`, `scan` and `validate`. The curated
-catalog lives in ignored local storage, with one document/revision identity per
-current source file, SHA-256 fingerprints, review/access/applicability metadata and
-explicit revision relations. It preserves duplicate source copies and flags changes
-without overwriting manual metadata. Reports distinguish held records from reviewed
-records; schema validation cannot confirm business truth or enforce runtime access.
-Backups retain prior catalog revisions; the v1 inventory is not a revision-history
-database. See the [catalog guide](docs/asset-catalog.md) for the contract and workflow.
-
-The separate database importer now synchronizes the full catalog snapshot into six
-tables: documents, revisions, revision access rules, revision relations, ingestion
-runs and chunks. Migration 0002 creates these after the extension-only migration.
-Runs and chunks remain empty during import. UUIDs and historical revisions are
-preserved; absent revisions become non-current without deleting their evidence.
-An advisory lock serializes imports, and one transaction covers each snapshot.
-Dry-run uses a read-only database snapshot. See the [database guide](docs/catalog-database.md).
-
-Published extraction outputs are organized by document, revision and run identity,
-with source and processing provenance. The chunk column is Vector(384), matching
-the experimental multilingual-e5-small model; no vector index or retrieval is
-implemented. Equal dimensions do not permit mixing embedding models. Runtime
-authorization and policy eligibility checks remain required before retrieval.
-
-| Category | Information | Intended retrieval |
-| --- | --- | --- |
-| Type A | Relatively stable policies, procedures, guides, forms, and reference data | Document retrieval with citations; exact lookup/computation for structured values |
-| Type B | Current personnel, reporting relationships, project membership, and similar operational state | Defined read-only queries to authoritative systems |
-
-Classification depends on meaning and freshness requirements, not file extension or storage location. An Excel policy table may need an exact row lookup. A CSV aggregate requires computation over the applicable records rather than counting retrieved chunks. An exported personnel file is not automatically authoritative for current assignments.
-
-`app/assets/` is the source collection; the legacy ingestion command supports one approved PDF revision per invocation; the new document CLIs support individual and batch reviewed-JSON ingestion. The current collection contains 40 files: 31 PDF, 7 Excel (`.xlsx`) and 2 Word (`.doc`); no DOCX files remain. The Bravo ZIP package has been removed, and no archives remain in the current collection. Video files have been removed from the current source tree and remain available in Git history; video formats under `app/assets/` are ignored by Git. The new preparation CLI supports PDF, XLSX, CSV, Markdown and TXT. Generic JSON source ingestion and other structured objects remain future work; real extraction quality still requires evaluation. Video transcription and archive processing are not assumed MVP capabilities. The catalog recognizes PDF, DOC, DOCX, XLSX, CSV, Markdown and TXT independently of which formats are currently present; inventory recognition does not establish extraction support. The current source groups are `noi-quy-qui-dinh`, `huong-dan-su-dung` and `phone-list`; see the [source synchronization record](docs/asset-catalog.md#source-synchronization-after-manual-changes) for path changes and removed records. That local update did not synchronize the database.
-
-## Target components and data flow
-
-| Component | Responsibility |
-| --- | --- |
-| Ingestion | Parse approved formats, apply OCR when necessary, preserve structure, and prepare searchable content outside the interactive answer path |
-| Document storage and metadata | Retain provenance, versions, effective dates, applicability, and access metadata alongside searchable representations |
-| Retrieval | Combine semantic and keyword evidence where useful, apply access/applicability filters, and use exact structured-data operations when needed |
-| Conversation context | Resolve follow-up references and topic continuity without treating prior model answers as authoritative evidence |
-| Routing | Identify required evidence and propose document retrieval, business tools, both, clarification, direct replies, or unsupported handling |
-| Business-data tools | Validate parameters and authorization, then call defined read-only operations through a future service adapter |
-| Answer generation | Compose a natural response from evidence, attribute sources, and disclose missing or conflicting information |
-
-### Target architecture — not implemented
-
-```mermaid
-flowchart TD
-    Files["Type A source documents"] --> Ingest["Parse, OCR where needed, preserve provenance"]
-    Ingest --> Store["Document content, metadata, searchable representations"]
-    Question["User question and conversation context"] --> Route["Interpret evidence needs and validate route"]
-    Route -->|Type A| Retrieve["Authorized document retrieval or exact lookup"]
-    Store --> Retrieve
-    Route -->|Type B| Tools["Validate identity, permissions, and tool parameters"]
-    Tools --> Adapter["Future read-only service adapter: gRPC intended"]
-    Adapter --> Source["Authoritative operational system"]
-    Source --> Evidence["Retrieved evidence and query results"]
-    Retrieve --> Evidence
-    Retrieve -->|Combined: rule determines query| Tools
-    Evidence --> Answer["Local model: grounded answer and source attribution"]
-    Route -->|Ambiguous, conversational, or unsupported| Other["Clarify, reply directly, or explain limitation"]
-```
-
-### Type A: document evidence
-
-Parse documents and use OCR for image-only content where required. Preserve headings, table relationships, page/section references, and applicability conditions rather than splitting away their meaning. Prepare searchable representations using the existing PostgreSQL/pgvector foundation where appropriate; exact storage and indexing details remain deferred.
-
-Retrieve evidence relevant to the question and conversation context, then generate a cited answer. References should resolve to the source document and page/section or structured record as applicable. Updating or retiring a document must update its searchable representations so obsolete material is not silently used as current policy.
+Type A documents provide policy evidence; Type B tools provide authoritative current operational facts. Preserve applicability, access restrictions, source citations and explicit unavailable/conflicting-source handling. Exact lookup/computation is needed for structured questions; the stored chunks and vectors alone are not a table query engine. Models are locally operated; internal data must not be uploaded as an implicit implementation choice.
 
 ### Type B: current operational evidence
 
@@ -133,7 +52,7 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
-| 0 — implemented | Database foundation, explicit migrations, local source catalog, Type A metadata import/storage, reviewed-JSON batch ingestion and legacy single-PDF ingestion | Database behavior; source identity, consistency, history and metadata validation |
+| 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, reviewed-JSON batch ingestion and atomic approved-package publication | Database behavior; source identity, consistency, history and metadata validation |
 | 1 — planned | Type A MVP using an agreed document subset, retrieval, citations, and follow-up handling | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
