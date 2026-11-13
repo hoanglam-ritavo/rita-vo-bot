@@ -7,6 +7,8 @@ import logging
 
 from src.ingestion import embeddings
 from src.ingestion.document_packages import Rejected
+from src.intent import IntentObserver, IntentSettings
+from src.intent.runtime import identity as intent_identity
 from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, profile_threshold, filter_candidates
 
 logger = logging.getLogger(__name__)
@@ -30,8 +32,18 @@ def validate_request(question, top_k):
     return question
 
 
+def query_input(model, question):
+    """Shared token preflight for online retrieval and offline intent preparation."""
+    content = 'query: ' + question
+    limit = min(model.max_seq_length, model.tokenizer.model_max_length)
+    if type(limit) is not int or limit <= 0:
+        raise RetrievalError('invalid_model_token_limit')
+    count = len(model.tokenizer(content, add_special_tokens=True, truncation=False)['input_ids'])
+    return content, count, limit
+
+
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None, rerank=None):
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
         self.device = device
@@ -42,6 +54,7 @@ class RetrievalService:
         self._lock = asyncio.Lock()
         self.rerank_settings = rerank or RerankSettings()
         self._reranker = None
+        self._intent = IntentObserver(intent or IntentSettings())
 
     @property
     def started(self):
@@ -88,6 +101,9 @@ class RetrievalService:
                         self._reranker = None
                         self._model = self._fingerprint = None
                         raise
+                if self._intent.settings.mode == 'observe':
+                    await self._worker(self._intent.start, intent_identity(
+                        self.model_revision, self._fingerprint, self.rerank_settings.enabled))
             except RetrievalError:
                 raise
             except Rejected as exc:
@@ -97,12 +113,8 @@ class RetrievalService:
 
     def _encode(self, question):
         model = self._model
-        content = 'query: ' + question
-        limit = min(model.max_seq_length, model.tokenizer.model_max_length)
-        if type(limit) is not int or limit <= 0:
-            raise RetrievalError('invalid_model_token_limit')
-        tokens = model.tokenizer(content, add_special_tokens=True, truncation=False)['input_ids']
-        if len(tokens) > limit:
+        content, count, limit = query_input(model, question)
+        if count > limit:
             raise RetrievalError('question_exceeds_model_limit')
         vectors = model.encode([content], normalize_embeddings=True, convert_to_numpy=True,
                                show_progress_bar=False)
@@ -135,6 +147,9 @@ class RetrievalService:
                 raise
             except Exception:
                 raise RetrievalError('query_embedding_failed', 2) from None
+            if self._intent.settings.mode == 'observe':
+                # Observation only: reuse the original vector; never change candidates or response.
+                await self._worker(self._intent.observe, vector)
             from .storage import search
             try:
                 count = 30 if self._reranker else top_k
@@ -183,6 +198,7 @@ class RetrievalService:
 
     async def close(self):
         async with self._lock:
+            self._intent.close()
             if self._reranker:
                 self._reranker.close()
                 self._reranker = None

@@ -14,12 +14,16 @@
   "effective_from": null,
   "effective_to": null,
   "version_label": "1.0; cập nhật 30.09.2023",
-  "lifecycle_status": "unknown",
-  "access_groups": [],
+  "lifecycle_status": "active",
+  "access_groups": [
+    "public"
+  ],
   "evidence_notes": [
     "All 13 physical pages visually reviewed on 2026-11-13; manually authored functional transcription and chunks; original snapshot unchanged.",
-    "No public access or effective date inferred. Screenshots are illustrative, not current operational data."
+    "No public access or effective date inferred. Screenshots are illustrative, not current operational data.",
+    "On 2026-11-13 the user explicitly confirmed all twelve software manuals remain applicable and authorized their sanitized content for the existing public retrieval flow. No operational permissions, current personnel facts, exact effective date or precedence over another system is inferred.",
+    "2026-11-13 clear-content-only publication review supersedes prior package-wide hold notes for the retained subset only. Uncertain/conflicting portions are excluded rather than resolved by inference; extraction and unchanged source preserve limitations. Previously source-reviewed functional instructions retained without adding sample operational values."
   ],
-  "indexing_decision": "hold",
+  "indexing_decision": "include",
   "relations": []
 }

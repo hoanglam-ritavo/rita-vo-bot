@@ -10,7 +10,7 @@
   "category": "noi-quy-qui-dinh",
   "document_type": "Quy trình",
   "owner": null,
-  "applicability": null,
+  "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
   "effective_from": null,
   "effective_to": null,
   "version_label": "01/23",
@@ -21,8 +21,9 @@
   "evidence_notes": [
     "All six physical pages visually inspected; page 6 is blank. Page 5 forms were enlarged at scale 3. Handwritten workflow number is uncertain and is not normalized into metadata. Printed sample rows are examples, not live inventory or approved price schedules. Current validity/access unverified.",
     "On 2026-11-13 the user explicitly confirmed that all documents remain effective and authorized all documents for the current unauthenticated public retrieval flow. This confirmation updates earlier unknown validity/access metadata; it does not verify transcription, resolve source ambiguities, establish cross-document precedence, or make historical registers current operational data.",
-    "Existing transcription explicitly retains hold for unresolved sample identifiers and handwritten process number."
+    "Existing transcription explicitly retains hold for unresolved sample identifiers and handwritten process number.",
+    "2026-11-13 clear-content-only publication review supersedes prior package-wide hold notes for the retained subset only. Uncertain/conflicting portions are excluded rather than resolved by inference; extraction and unchanged source preserve limitations. Removed uncertain process identifier and sample-row discussion from searchable content; applicability copied from source section II."
   ],
-  "indexing_decision": "hold",
+  "indexing_decision": "include",
   "relations": []
 }

@@ -132,11 +132,21 @@
       ]
     },
     {
-      "content": "Workit — cập nhật hồ sơ dự án: chọn dự án > Hồ sơ dự án > Thêm tài liệu > nhập thông tin tài liệu, tệp và quyền truy cập > Lưu/F8. Trang 12 có điểm chưa khớp: lời hướng dẫn ghi Báo cáo, ảnh chỉ Danh mục > Hồ sơ dự án; cần đối chiếu menu đang dùng. Ảnh có quyền Xem/Tải/Chia sẻ, không mặc định mọi người đều xem được.",
+      "content": "Workit — thao tác trong màn hình Hồ sơ dự án: chọn dự án cần cập nhật, nhấn Thêm tài liệu, nhập thông tin tài liệu, tệp và quyền truy cập rồi Lưu/F8. Các quyền trên màn hình gồm Xem/Tải/Chia sẻ, không mặc định mọi người đều xem được. Đoạn này chỉ mô tả thao tác tại màn hình, không xác lập đường dẫn menu để mở màn hình đó.",
       "source_refs": [
         {
           "segment_id": "project-file",
           "start": 0,
+          "end": 54
+        },
+        {
+          "segment_id": "project-file",
+          "start": 97,
+          "end": 181
+        },
+        {
+          "segment_id": "project-file",
+          "start": 226,
           "end": 289
         }
       ]
@@ -202,11 +212,16 @@
       ]
     },
     {
-      "content": "Workit — lập đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Trang 27 bước 7 có câu sao chép nhắc đề xuất cung ứng/đề nghị mua sắm; ảnh đang là form Đơn hàng mua hàng. Không dùng câu này để bỏ qua điều kiện đề nghị mua sắm có PO đã duyệt.",
+      "content": "Workit — khai báo đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Đoạn này không xác lập cơ chế tự động lấy dòng hàng vì bước mô tả cơ chế đó trong nguồn bị lẫn tên chứng từ.",
       "source_refs": [
         {
           "segment_id": "po-create",
           "start": 0,
+          "end": 268
+        },
+        {
+          "segment_id": "po-create",
+          "start": 364,
           "end": 554
         }
       ]
@@ -277,11 +292,36 @@
       ]
     }
   ],
-  "excluded": [],
+  "excluded": [
+    {
+      "source_ref": {
+        "segment_id": "project-file",
+        "start": 54,
+        "end": 97
+      },
+      "reason": "Conflicting Bao cao versus Danh muc navigation excluded; no menu route inferred."
+    },
+    {
+      "source_ref": {
+        "segment_id": "project-file",
+        "start": 181,
+        "end": 226
+      },
+      "reason": "Conflicting screenshot/prose navigation excluded; readable form controls retained."
+    },
+    {
+      "source_ref": {
+        "segment_id": "po-create",
+        "start": 268,
+        "end": 364
+      },
+      "reason": "Copied supply/purchase text inconsistent with PO heading excluded; no automatic data-transfer behavior inferred."
+    }
+  ],
   "warning_decisions": {
     "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged.",
-    "project-menu": "Prose says Bao cao; screenshot says Danh muc > Ho so du an. Both preserved with explicit uncertainty; no single current menu asserted.",
-    "po-copy": "PO step 7 repeats supply-to-purchase wording. Preserve literal text but chunk uses explicit steps 1-6 and 8 and states the mismatch; do not infer an alternative PO source.",
+    "project-menu": "Conflicting prose/screenshot menu paths are excluded from searchable chunks and source references. Only legible actions within Ho so du an are retained; no route selected by inference.",
+    "po-copy": "Copied step 7 is excluded from searchable chunks and source references. Explicit PO selection and save actions retained; no automatic prefill behavior inferred.",
     "advance-images": "Advance slides include payment-screen examples. Chunk follows explicit advance headings/steps, not screenshot instance titles or amounts."
   }
 }

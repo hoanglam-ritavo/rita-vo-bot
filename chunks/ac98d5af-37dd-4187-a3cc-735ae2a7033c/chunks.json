@@ -157,7 +157,7 @@
       ]
     },
     {
-      "content": "Workit — hồ sơ xin nghỉ thai sản: đăng nhập https://office.ritavo.com > Quy trình số > Nghỉ phép > Thêm (F2). Chọn Loại nghỉ phép: Nghỉ thai sản (S1, Maternity). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Hướng dẫn yêu cầu lập Biên bản bàn giao “làm như mẫu nghỉ việc ở trên”, nhưng không giải thích việc thay Phiếu xét nghỉ việc trong các tệp đính kèm bằng chứng từ thai sản nào. Cần làm rõ với HCNS trước khi suy diễn phần chứng từ đó. Nguồn này hướng dẫn hồ sơ, không nêu mức trợ cấp hay số ngày hưởng chế độ thai sản.",
+      "content": "Workit — khai báo phiếu nghỉ thai sản: đăng nhập https://office.ritavo.com > Quy trình số > Nghỉ phép > Thêm (F2). Chọn Loại nghỉ phép: Nghỉ thai sản (S1, Maternity). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Đoạn này chỉ mô tả khai báo phiếu, không phải toàn bộ hồ sơ hoặc quy trình bàn giao thai sản; không nêu mức trợ cấp hay số ngày hưởng chế độ.",
       "source_refs": [
         {
           "segment_id": "maternity-start",
@@ -167,7 +167,7 @@
         {
           "segment_id": "maternity-finish",
           "start": 0,
-          "end": 191
+          "end": 140
         }
       ]
     }
@@ -180,10 +180,18 @@
         "end": 207
       },
       "reason": "Other dropdown labels are incidental UI context, not evidence of eligibility or procedure for those leave types."
+    },
+    {
+      "source_ref": {
+        "segment_id": "maternity-finish",
+        "start": 140,
+        "end": 191
+      },
+      "reason": "Maternity handover references the resignation workflow without specifying replacement for signed resignation paperwork; excluded as incomplete."
     }
   ],
   "warning_decisions": {
-    "maternity-handover-reference": "Unresolved: page 13 references resignation handover without specifying replacement for the mandatory signed resignation form. Preserve qualification in maternity chunk; package remains hold.",
+    "maternity-handover-reference": "Unresolved maternity handover cross-reference is excluded from searchable chunks and source references. The maternity chunk covers request declaration only, not a complete handover procedure. Original source retained.",
     "partial-form": "Only page 1/3 of the embedded form is visible. Transcribe visible rules only, label chunks as partial form; do not invent remaining pages.",
     "screenshot-examples": "Personal names, sample dates, IDs, avatars and signatures in UI examples are not operational contacts or required input values. They are not transcribed into searchable text; unchanged source snapshot retained. Procedural annotations and required field labels were reviewed."
   }

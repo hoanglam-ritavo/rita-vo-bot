@@ -240,6 +240,36 @@ def test_unavailable_assessment_never_exposes_candidates(monkeypatch, enabled, c
     run_async(scenario())
 
 
+@pytest.mark.parametrize('status,reason', [('no_eligible_documents', 'no_eligible_documents'),
+                                         ('no_matches', 'no_candidates'),
+                                         ('matches_found', 'below_relevance_threshold')])
+def test_public_pipeline_distinguishes_empty_outcomes_without_leaking_candidates(monkeypatch, status, reason):
+    import json
+    search = install_doubles(monkeypatch)
+    if status != 'matches_found':
+        search.return_value.update(status=status, matches=[])
+    else:
+        for match in search.return_value['matches']:
+            match['content'] = 'WITHHELD FICTIONAL PASSAGE'
+    monkeypatch.setattr(OnnxReranker, 'score', lambda *a: ([-3., -2., -1.], 3))
+
+    async def scenario():
+        service = RetrievalService(model_path='unused', model_revision='a' * 40,
+                                   rerank=RerankSettings(enabled=True))
+        await service.start()
+        try:
+            service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus',
+                                            threshold=0., holdout_passed=True)
+            result = await service.retrieve('Fictional policy?', 5)
+            assert result['status'] == ('no_eligible_documents' if status == 'no_eligible_documents' else 'no_matches')
+            assert result['fallback_reason'] == reason and result['matches'] == []
+            assert 'candidate_order' not in result
+            assert 'WITHHELD FICTIONAL PASSAGE' not in json.dumps(result)
+        finally:
+            await service.close()
+    run_async(scenario())
+
+
 def test_benchmark_rejects_small_or_leaking_datasets():
     from scripts.benchmark_online_retrieval import validate_cases
     cases = [(dict(id=str(i), question=str(i), intent_group=str(i), split='calibration', relevant=True), 'rev', 'run') for i in range(2)]

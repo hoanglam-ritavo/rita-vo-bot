@@ -315,7 +315,7 @@
   "excluded": [],
   "warning_decisions": {
     "examples": "Reviewed screenshots for functional labels and navigation. Sample personal profiles, salary/attendance rows, names, IDs, avatars, signatures, app-store counters and unrelated feed text are not operational evidence and were not transcribed. Source snapshot remains unchanged.",
-    "signature-secret": "HSM field values and example credentials were intentionally not transcribed or repeated in chunks. Only field names and actions retained. Source contains sensitive example values; package remains hold pending controlled source handling.",
+    "signature-secret": "HSM field values and example credentials remain omitted from extraction/chunks; only functional labels/actions retained. Original source snapshot remains controlled repository material and is not published as an asset by this task. User explicitly authorized sanitized text for the existing retrieval flow.",
     "attendance-entry": "Pages 27-29 show the Quen cham cong form, required inputs and workflow, but not its originating menu navigation. Chunks do not invent that missing entry path."
   }
 }

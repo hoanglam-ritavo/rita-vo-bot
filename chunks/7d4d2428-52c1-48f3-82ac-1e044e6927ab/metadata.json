@@ -14,14 +14,18 @@
   "effective_from": null,
   "effective_to": null,
   "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
-  "lifecycle_status": "unknown",
-  "access_groups": [],
+  "lifecycle_status": "active",
+  "access_groups": [
+    "public"
+  ],
   "evidence_notes": [
     "All 14 physical pages visually inspected on 2026-11-13; printed page numbers are offset by the cover. No live form or account accessed.",
     "The user says Workit and e-Leave are both in use; prefer Workit for overlapping issues. This is user context, not PDF precedence evidence; no supersedes relation inferred.",
     "The document identifies itself as internal. Public access authorization and operational effective dates are not inferred from the update date.",
-    "Three leave types are mentioned without a complete named list. Cancellation after approval is not documented. Reminder timing has two formulations (24 hours and daily 09:00), preserved explicitly."
+    "Three leave types are mentioned without a complete named list. Cancellation after approval is not documented. Reminder timing has two formulations (24 hours and daily 09:00), preserved explicitly.",
+    "On 2026-11-13 the user explicitly confirmed all twelve software manuals remain applicable and authorized their sanitized content for the existing public retrieval flow. No operational permissions, current personnel facts, exact effective date or precedence over another system is inferred.",
+    "2026-11-13 clear-content-only publication review supersedes prior package-wide hold notes for the retained subset only. Uncertain/conflicting portions are excluded rather than resolved by inference; extraction and unchanged source preserve limitations. Conflicting exact reminder schedules excluded; clear approval action retained. No missing leave-type names invented."
   ],
-  "indexing_decision": "hold",
+  "indexing_decision": "include",
   "relations": []
 }

@@ -37,11 +37,11 @@ Validate → preflight with `--check-embeddings` → publication dry-run → pub
 
 ## Online behavior and limits
 
-`POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It performs pure vector retrieval, including all eligible chunk roles. There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
+`POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It searches vector candidates across all eligible chunk roles, optionally reranks them on CPU, and returns only passages accepted by a matching relevance profile. Missing assessment withholds candidates; see [filtering and fallback](online-reranking.md#retrieval-and-response-semantics). There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
 
 The structured storage helpers remain available internally and covered by storage tests; they are not exposed as API operations. Stored `operations`, `comparison` and `ambiguous` fields describe source-backed semantics for possible future consumers. They do not cause the retrieval endpoint to count, compare or evaluate conditions. Top-K matches cannot establish a complete inventory or individual entitlement.
 
-`scripts/try_retrieval.py` displays all vector matches and source locations, without starting the API or writing the database. Use separate case files under `.tmp/` for evaluation rather than changing its user-owned `QUESTION`. See [retrieval evaluation](retrieval-evaluation.md).
+`scripts/try_retrieval.py` uses the public filtered contract and renders accepted matches with source locations, without starting the API or writing the database. Its default vector-only configuration cannot accept candidates and returns `relevance_unavailable` when candidates exist. Its compact display currently uses a generic no-match message rather than displaying the fallback reason; use the retrieval CLI JSON or HTTP response to inspect that reason. Use separate case files under `.tmp/` for evaluation rather than changing its user-owned `QUESTION`. See [retrieval evaluation](retrieval-evaluation.md).
 
 ## Verification
 

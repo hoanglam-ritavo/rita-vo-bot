@@ -15,7 +15,7 @@ This checklist evaluates source retrieval, separately from synthetic tests. The 
 3. On a stable database, compare the HTTP response with `python -m src.cli.retrieve_documents` using identical text, top-K and model bytes/revision. Match IDs, order, content, source spans and metadata must agree; distances may differ only within floating-point tolerance when device/runtime differs.
 4. Exercise repeated HTTP requests. Confirm one E5 initialization per API lifecycle, record startup duration and retrieval/total times, and measure process RAM. Keep timings for failed attempts separately. These observations do not establish a latency SLA.
 5. Verify 422 for invalid input, 429 for overlapping retrieval, 503 for dependency failures/model mismatch and 504 for timeout. Cancellation drains embedding work, so 504 can occur after the nominal 120-second deadline. Health endpoints must remain responsive while embedding runs.
-6. Report empty valid results distinctly from errors. Without a relevance threshold, unrelated questions may still produce candidates; this is not evidence that the question can be answered.
+6. Report empty valid results distinctly from errors. With candidates but no matching relevance profile, public retrieval returns no matches with `relevance_unavailable`. Below-threshold results, absent candidates and absent eligible documents have separate fallback reasons; none proves that no policy exists.
 
 ## Dataset acceptance
 
@@ -25,9 +25,15 @@ Synthetic tests validate contracts, lifecycle and provenance handling, not real-
 
 ## Online reranking evaluation
 
-Use the same model/pipeline settings for API, CLI and evaluator. `--rerank` enables pinned local ONNX scoring; `--rerank-candidates`, `--rerank-batch-size`, `--rerank-model-path` and `--rerank-profile` mirror API configuration. The evaluator additionally records candidate order/recall, final logits, relevance and rerank time. See [the online gate](online-reranking.md#evaluation-and-rollout) for a 40-case calibration/holdout/regression split and 100-request CPU benchmark. Keep original cases and baseline reports; never tune on holdout outcomes.
+Use the same model/pipeline settings for API, CLI and evaluator. `--rerank` enables pinned local ONNX scoring; `--rerank-candidates`, `--rerank-batch-size`, `--rerank-model-path` and `--rerank-profile` mirror API configuration. The evaluator records filtered match ranks, final logits, relevance and rerank time. See [the online gate](online-reranking.md#evaluation-and-rollout) for the minimum 100-question source-reviewed dataset, independent calibration/holdout/regression intent groups, labels for every retrieved candidate and at least 100 warmed CPU requests. Historical 40-case top-1 experiments do not meet that gate. Keep original cases and baseline reports; never tune on holdout outcomes.
 
 
 ## Filtered retrieval evaluation
 
 Public retrieval now withholds unassessed candidates. This evaluator measures the filtered result and will report missing evidence without a matching schema-v2 profile. For offline candidate collection and per-passage labeling use the separate [online benchmark](online-reranking.md#evaluation-and-rollout); no public API/CLI parameter disables filtering. Historical unfiltered results do not establish current quality.
+
+## Known evaluator reporting gap
+
+`scripts.evaluate_retrieval` calls the public filtered service, which removes `candidate_order` before returning. Consequently, its legacy `before_rerank` field is empty and `candidate_grade` grades the filtered matches again. Neither field establishes candidate-pool recall or before/after reranking improvement. Use the separate offline benchmark for those measurements. The evaluator also omits `fallback_reason` from case reports: a report alone cannot distinguish every empty outcome. Inspect the public HTTP/CLI result for the explicit reason; do not infer one from a zero recall score.
+
+Correcting those report fields and adding reason preservation is separate evaluator implementation work. Current tests exercise filtered evidence grading, input/storage drift and cleanup without certifying the legacy candidate metrics. No public filtering bypass is authorized by this limitation. See [current verification](../README.md#current-verification-status).

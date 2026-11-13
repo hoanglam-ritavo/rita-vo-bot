@@ -66,6 +66,15 @@ Readiness checks model initialization and database availability, not semantic qu
 
 ## Planned operational retrieval and extended answering
 
+An offline-only stage-one experiment now lives in `scripts.evaluate_answers`,
+with contract/gate helpers in `scripts.answer_evaluation_contract` and owned
+local runtime handling in `scripts.answer_evaluation_runtime`. It reuses the
+public filtered retrieval service and read-only publication validation; it does
+not add application routes or change retrieval semantics. Private comparison
+artifacts remain under `.tmp`. See [answer evaluation](docs/answer-evaluation.md)
+for the source-review and value/cost gates that must precede bot/backend/portal
+integration. Synthetic verifier tests are not real model acceptance evidence.
+
 Type A documents provide policy evidence; Type B tools provide authoritative current operational facts. Preserve applicability, access restrictions, source citations and explicit unavailable/conflicting-source handling. Exact lookup/computation is needed for structured questions; the stored chunks and vectors alone are not a table query engine. Models are locally operated; internal data must not be uploaded as an implicit implementation choice.
 
 ### Type B: current operational evidence
@@ -105,15 +114,19 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
 | 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and local health-only gRPC transport | Database behavior; source identity, consistency, history and metadata validation; local gRPC health and lifecycle |
-| 1 — partial | Public retrieval function/CLI/HTTP implemented; generated answers, real-model quality evaluation and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
+| 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; corpus-matched calibration acceptance, integrated generated answers and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
 
 Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous requests, and unanswerable questions. Measure retrieval quality and answer grounding separately, alongside latency and resource use. Phase 1 must not claim live personnel/project knowledge before Phase 2 exists.
 
-Production model selection, hardware sizing, API framework, additional schemas, chunking parameters, ranking configuration, authentication integration, gRPC contracts, and quantitative acceptance targets remain decisions for implementation planning. The current six-table schema and 384-dimensional embedding column establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
+FastAPI, local E5/ONNX runtimes, ranking configuration and quantitative offline gates are implemented; their existence does not establish production acceptance. Production sizing, authenticated integration, business gRPC contracts and extended answering remain future work. The current nine-table application schema, including run-owned structured evidence, and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
 
 ## Verification boundaries
+
+See [current verification](README.md#current-verification-status) for the latest checked working tree and test limits. The public filtered evaluator has a [known reporting gap](docs/retrieval-evaluation.md#known-evaluator-reporting-gap); its legacy candidate fields do not establish candidate recall.
+
+The [2026-11-13 offline corpus preparation](docs/chunk-coverage-verification.md) adds source-authored policy and software-procedure evidence without changing runtime composition. Its in-memory CPU diagnostic includes held packages and is deliberately separate from eligible-publication retrieval and passage-relevance calibration. It does not establish live API quality or current personnel facts.
 
 Unit tests cover synthetic package contracts, converter compatibility, CLI batch ordering and publication boundaries; gRPC tests exercise local health RPCs. They cannot establish transcription accuracy or real embedding-model behavior. PostgreSQL integration tests use guarded disposable databases and synthetic embeddings to exercise publication, revision relations, transaction rollback and migration preservation. They perform schema changes and application-table writes/cleanup, including downgrade/upgrade; see [test setup and safety](README.md#testing). Missing configuration means skipped verification, not a successful database check. Historical rename-utility tests remain compatibility checks outside the v2 ingestion workflow.
 
@@ -121,6 +134,14 @@ Unit tests cover synthetic package contracts, converter compatibility, CLI batch
 
 `src.retrieval` owns the pinned mMARCO MiniLM ONNX lifecycle and shared function/CLI/HTTP pipeline. Enabled requests normalize NFC/whitespace, retrieve original plus an optional allowlisted typo correction in one read-only snapshot, fuse candidates with RRF, and rerank overlapping token windows on CPU. Content and provenance are preserved; candidate selection/order, per-passage filtering and explicit empty fallback are shared across public entrypoints. The model is loaded locally with pinned artifact hashes; no ingestion, schema or vector writes occur. Runtime failure does not silently fall back. The service lock spans retrieval and reranking so close/cancellation drains work before releasing models. See [online reranking](docs/online-reranking.md) for configuration, limits, profile calibration and rollout gates.
 
+
+## Optional intent observation
+
+`src.intent` owns a local JSON linear classifier over the already-created original E5 query vector. One multiclass head predicts A/B/mixed/conversation/out-of-scope/missing-context; five binary heads identify Type A evidence needs. `RetrievalService` owns its lifecycle under the existing worker/lock boundary. HTTP settings and the retrieval CLI opt in explicitly; the default is off. The observer logs only labels/status/artifact identity/timing and never enters result serialization, alters query processing, filters candidates, changes ranking, bypasses relevance assessment, or calls a tool. Invalid or unaccepted artifacts make the observer unavailable without suppressing retrieval errors. No additional encoder, model server, schema or response field is introduced.
+
+`src.cli.prepare_intents` provides JSON-configured validate/preflight/run batches. Shared dataset validation and offline orchestration live in `src.intent.dataset` and `src.intent.preparation`; `src.intent.training` owns regularization selection on grouped training folds, separate threshold calibration and frozen holdout evaluation. The historical `scripts.train_intent` and `scripts.intent_contract` entrypoints delegate to those modules. Import/help/validation do not load ML runtimes. Preflight uses the same query token helper as retrieval without encoding; run reuses one local E5 instance, never connects to PostgreSQL, and writes atomic files in a new private run directory. Manifest completion distinguishes a valid diagnostic run, a quality-passed candidate and an incomplete/failed run; it never authorizes runtime usage.
+
+`scripts.benchmark_intent` remains separate and uses the public filtered retrieval path for paired off/observe checks, emitting an accepted artifact only after quality, export parity, retrieval invariance and latency gates pass. Runtime identity binds E5 files/revision and preprocessing; classifier evaluation does not replace corpus-matched passage calibration. Entity extraction, conversation state and Type B execution remain planned. See [intent observation and verification](docs/intent-classifier.md).
 
 ## Relevance filtering and empty fallback
 

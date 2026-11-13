@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from src.paths import REPOSITORY_ROOT
 from src.retrieval.reranking import RerankSettings
 from src.retrieval.config import from_environment
+from src.intent import IntentSettings
+from src.intent.config import from_environment as intent_from_environment
 
 
 @dataclass(frozen=True)
@@ -18,6 +20,7 @@ class Settings:
     port: int = 8000
     top_k: int = 5
     rerank: RerankSettings = RerankSettings()
+    intent: IntentSettings = IntentSettings()
 
     def __post_init__(self):
         if self.host != '127.0.0.1' or type(self.port) is not int or not 1 <= self.port <= 65535:
@@ -36,4 +39,5 @@ def load_settings():
         path = REPOSITORY_ROOT / path
     return Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),
                     int(os.environ.get('API_PORT', '8000')),
-                    int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ))
+                    int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
+                    intent_from_environment(os.environ))

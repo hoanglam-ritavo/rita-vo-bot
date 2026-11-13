@@ -1,0 +1,3 @@
+# Offline training only; runtime uses NumPy supplied by the local E5 environment.
+-r requirements-example.txt
+scikit-learn==1.9.1

@@ -162,22 +162,12 @@
       ]
     },
     {
-      "content": "E-Leave — email nhắc duyệt: mục 3 mô tả nhắc đơn chưa duyệt vào hôm sau (24 tiếng); phần hỏi đáp nói nhắc lúc 9h sáng mỗi ngày cho đến khi hoàn thành. Người duyệt dùng Outlook hoặc Power Automate để hoàn tất duyệt/từ chối. Hai mô tả lịch được giữ nguyên, không suy ra một lịch chính xác theo từng phút.",
+      "content": "E-Leave — xử lý email nhắc duyệt: người duyệt sử dụng Outlook hoặc ứng dụng Power Automate để duyệt hoặc từ chối đơn nghỉ phép. Đoạn này không xác lập thời điểm hoặc tần suất gửi email nhắc.",
       "source_refs": [
         {
-          "segment_id": "reminder",
-          "start": 0,
-          "end": 140
-        },
-        {
           "segment_id": "faq-many-emails",
-          "start": 0,
+          "start": 144,
           "end": 238
-        },
-        {
-          "segment_id": "faq-approver-status",
-          "start": 0,
-          "end": 466
         }
       ]
     },
@@ -238,11 +228,35 @@
         "end": 278
       },
       "reason": "Glossary of platform/department abbreviations; retained in extraction, not a separate policy/procedure chunk."
+    },
+    {
+      "source_ref": {
+        "segment_id": "reminder",
+        "start": 0,
+        "end": 140
+      },
+      "reason": "Conflicting 24-hour versus daily-09:00 reminder schedules excluded; exact timing is not established."
+    },
+    {
+      "source_ref": {
+        "segment_id": "faq-many-emails",
+        "start": 0,
+        "end": 238
+      },
+      "reason": "Conflicting 24-hour versus daily-09:00 reminder schedules excluded; exact timing is not established."
+    },
+    {
+      "source_ref": {
+        "segment_id": "faq-approver-status",
+        "start": 0,
+        "end": 466
+      },
+      "reason": "Conflicting 24-hour versus daily-09:00 reminder schedules excluded; exact timing is not established."
     }
   ],
   "warning_decisions": {
     "examples": "Names, IDs, email recipient examples, dates of leave and unrelated app-store account data are illustrative, not current personnel facts. Functional annotations retained; snapshot unchanged. Blank administration rows and repeated footer/address/logo omitted.",
     "missing-types": "Do not invent the three leave-type names. Chunk expressly records that the complete list is not supplied.",
-    "reminder-time": "Preserve both 24-hour and daily 09:00 statements. No exact scheduler behavior is inferred; clarification remains needed for a precise timing question."
+    "reminder-time": "Both conflicting exact reminder schedules are retained in extraction but excluded from searchable chunks/source references. Only the clear instruction to approve/reject using Outlook or Power Automate is published."
   }
 }

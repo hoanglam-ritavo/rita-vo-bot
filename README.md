@@ -18,6 +18,28 @@ Migration `0003_agent_packages` removes revision review state and renames review
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
+Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, including twelve software manuals and the labor rules. See [package coverage and verification](docs/chunk-coverage-verification.md) for authoring changes, local-model evidence, held metadata and publication limits. Prepared packages are not automatically available through the API; database publication and corpus-matched relevance calibration remain separate operations.
+
+Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
+
+## Current verification status
+
+Documentation/test reconciliation of the 2026-11-13 working tree based on `e656991`, including existing uncommitted runtime, intent, answer-evaluation and corpus changes. This section supersedes earlier test counts for current status; historical verification entries below remain snapshots of their own tasks.
+
+Static inspection at the start of this task found 28 packages / 524 chunks, all with `include/active` metadata (27 schema v2, one v3). This differs from the earlier preparation/publication snapshots. No database publication, source fidelity, metadata authorization or calibration compatibility is established by these counts. The 600-case intent draft remains `reviewed: false`. See [corpus history and current boundary](docs/chunk-coverage-verification.md#current-working-tree-boundary).
+
+Post-edit validation: **569 passed, 1 skipped, 34 deselected**, with the existing Starlette/AnyIO deprecation warning, using the full non-integration suite. The four focused suites passed **73 tests before test edits**, then **102 tests** after evaluator/answer/intent additions; three further public empty-outcome cases were included in the final full run. The task adds 32 parametrized regression cases without removing or skipping existing assertions.
+
+Initial sandbox attempts could not create/access pytest temporary fixtures (WinError 5); they are environment failures, not passing validation. Successful runs used fresh extended-length `.tmp/docs-test-reconciliation` directories outside the sandbox, with separate pytest cache directories. No permissions were changed and no existing temporary trees were deleted. Final command (use a new unused temporary path when repeating):
+
+```powershell
+.\env\Scripts\python.exe -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\docs-test-reconciliation\full-01' -o cache_dir=.tmp/docs-test-reconciliation/full-01-cache
+```
+
+Static checks covered local links/heading anchors in 14 Markdown files, documented local command module paths, intent example configuration fields and changed-file whitespace. The new synthetic tests exercise filtered evaluator grading/drift/cleanup, the full answer batch with mocked model/storage boundaries, intent promotion rejection on corpus drift or cleanup failure, and distinct public empty outcomes without candidate disclosure. They do not validate real model/runtime compatibility or semantic source accuracy.
+
+No integration database tests, publication, migrations, live API/model checks, intent training, real-model benchmark or application rollout ran in this task. Existing working-tree runtime/data changes were preserved. Known evaluator report limitations remain separate implementation work, documented in [retrieval evaluation](docs/retrieval-evaluation.md#known-evaluator-reporting-gap).
+
 ## Setup (PowerShell)
 
 Run from the project root with Python 3.14 installed. Create the virtual environment if absent:
@@ -32,6 +54,10 @@ if (-not (Test-Path -LiteralPath .env)) {
     Copy-Item .env.example .env
 }
 ```
+
+The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments; process environment variables override `.env`, and running services need a restart to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts.
+
+Configuration presentation verification (2026-11-13, existing working tree): parsed `.env` values were identical before and after the comment/layout update; `.env.example` only removed the active sample profile assignment by commenting it out. Parser checks found no malformed entries or duplicate active keys. No API, database, model benchmark or application test suite was run for this documentation-only change.
 
 Fill in `DATABASE_URL` in `.env` before running:
 
@@ -50,7 +76,7 @@ Install `requirements-example.txt` for the local embedding runtime. Call the ret
 python -m src.cli.retrieve_documents --question "What benefits are available?" --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --top-k 5 --json
 ```
 
-Replace the model placeholders before execution. The command returns source chunks, not an LLM answer. `--top-k` defaults to 5 (range 1–20). Questions must be nonempty strings with at most 8,000 characters after trimming and fit the model token limit including `query: ` and special tokens; no truncation is performed. The local model is loaded without downloads or remote code. Match output includes content, source spans, document/revision/run IDs, title, relative source path, applicability, effective dates and cosine distance. By default smaller distances rank first; distances are not confidence scores. Opt-in CPU reranking changes ordering; see [online reranking](docs/online-reranking.md). Results require a matching per-passage calibration profile. Without one, candidates are withheld with `fallback_reason: relevance_unavailable`; top-K is only an upper bound.
+Replace the model placeholders before execution. The command returns source chunks, not an LLM answer. `--top-k` defaults to 5 (range 1–20). Questions must be nonempty strings with at most 8,000 characters after trimming and fit the model token limit including `query: ` and special tokens; no truncation is performed. The local model is loaded without downloads or remote code. Match output includes content, source spans, document/revision/run IDs, title, relative source path, applicability, effective dates and cosine distance. Smaller distances order internal vector candidates; distances are not confidence scores. Opt-in CPU reranking changes ordering; see [online reranking](docs/online-reranking.md). Results require a matching per-passage calibration profile. Without one, candidates are withheld with `fallback_reason: relevance_unavailable`; top-K is only an upper bound.
 
 Only current, include/active, effective public revisions with active successful runs are searched. Runtime model name, revision, file fingerprint, normalization, dimension and passage prefix must match the indexed run. Private documents cannot be enabled through a CLI argument. Exact cosine search needs no new vector index. Database transactions are read-only; no package or vector data is modified. Statuses distinguish `matches_found`, `no_eligible_documents`, `model_mismatch` and `no_matches`; operational failures are errors, never empty evidence. Exit codes are 0 for valid results including empty results, 1 for invalid input/model incompatibility and 2 for operational errors. There is no automatic file logging of questions or retrieved text.
 
@@ -60,7 +86,7 @@ To avoid passing Vietnamese text through shell arguments, open `scripts/try_retr
 .\env\Scripts\python.exe -m scripts.try_retrieval
 ```
 
-The script uses the same filtered retrieval contract and displays accepted chunks (up to `TOP_K`); its default vector-only mode returns `relevance_unavailable`, preserving content and source locations. `QUESTION` stays user-owned; do not edit it for batch evaluation. It does not start the API or write the database. No separate model server is required. Accepted excerpts are not synthesized answers or a complete inventory.
+The script uses the same filtered retrieval contract and displays accepted chunks (up to `TOP_K`); its default vector-only mode withholds candidates with `relevance_unavailable`. Accepted matches preserve content and source locations; the compact script currently shows a generic no-match message, so inspect CLI JSON for the fallback reason. `QUESTION` stays user-owned; do not edit it for batch evaluation. It does not start the API or write the database. No separate model server is required. Accepted excerpts are not synthesized answers or a complete inventory.
 
 The script ends with two timings: model initialization (including fingerprinting and loading inside `service.start()`) and retrieval after the model is ready (query embedding, PostgreSQL search and result construction inside `service.retrieve()`). Measurements use `time.perf_counter()` and exclude input validation, service construction, shutdown, formatting and terminal output. CLI JSON includes unrounded seconds in `timings.model_initialization_seconds` and `timings.retrieval_seconds`; the script displays seconds to three decimal places. A failed or unstarted step has `null`, displayed as an unavailable completed measurement, not zero. Completed measurements survive later retrieval/shutdown errors. Each script invocation loads the model again, and the first retrieval may include database connection setup and first-execution overhead. These are observations of that invocation, not a stable benchmark of production latency; no warm-up or extra query is performed.
 
@@ -100,7 +126,7 @@ Open http://127.0.0.1:8000/docs and call `POST /api/v1/retrieve`:
 
 `text` must be a nonempty string after trimming, at most 8,000 characters and within E5's token limit including the query prefix; input is not truncated. Optional `top_k` must be an integer from 1 to 20; omitting it uses `RETRIEVAL_TOP_K`. Null, boolean, string and out-of-range values are rejected, as are extra fields.
 
-The response contains `status` (`matches_found`, `no_eligible_documents`, `no_matches`), `matches`, `relevance` and `timings` (`retrieval_seconds`, `total_seconds`, `rerank_seconds`). Each match retains content, chunk/index/run/document/revision IDs, title, relative source path, version label, applicability, effective dates, source spans, author ID/role and cosine distance. No vectors, generated answer, confidence or evidence-completeness assessment are returned. Additive relevance metadata and optional raw reranker scores are described in [online reranking](docs/online-reranking.md). Smaller distances rank first in vector-only mode; enabled reranking sorts by raw reranker scores instead. Neither score is confidence. Only passages passing a matching calibrated threshold are returned; missing assessment produces an explicit empty fallback. The API cannot count benefits, resolve personal eligibility or determine whether top-K covers an exhaustive request.
+The response contains `status` (`matches_found`, `no_eligible_documents`, `no_matches`), `matches`, required nullable `fallback_reason`, `relevance` and `timings` (`retrieval_seconds`, `total_seconds`, `rerank_seconds`). Each match retains content, chunk/index/run/document/revision IDs, title, relative source path, version label, applicability, effective dates, source spans, author ID/role and cosine distance. No vectors, generated answer, confidence or evidence-completeness assessment are returned. Additive relevance metadata and optional raw reranker scores are described in [online reranking](docs/online-reranking.md). Internal vector candidates sort by smaller distances; enabled reranking sorts them by raw reranker scores before relevance filtering. Neither score is confidence. Only passages passing a matching calibrated threshold are returned; missing assessment produces an explicit empty fallback. The API cannot count benefits, resolve personal eligibility or determine whether top-K covers an exhaustive request.
 
 This is a breaking replacement: `POST /api/v1/ask` no longer exists and returns 404. Clients must use the new route and response. Old `ANSWER_TOP_K` and `OLLAMA_*` settings are unused; configure `RETRIEVAL_TOP_K` instead. Removing the project dependency does not uninstall software or delete model weights on the machine.
 
@@ -113,6 +139,37 @@ Invalid input returns 422, busy 429, unavailable dependencies/model mismatch 503
 ## Optional online CPU reranking
 
 See [online reranking](docs/online-reranking.md) for the pinned local ONNX model, tokenizer provisioning, configuration, response changes, read-only evaluation and rollout gates. This is disabled by default and requires no rechunking, embedding or database migration.
+
+## Optional intent observation
+
+The lightweight [intent classifier](docs/intent-classifier.md) reuses the E5 query vector with small logistic heads for source intent and Type A evidence needs. `INTENT_MODE=off` is the default; `observe` requires an explicitly provisioned, accepted local JSON artifact through `INTENT_ARTIFACT_PATH`. It only emits safe technical logs and does not change HTTP/CLI responses, passage filtering, or route requests to Type B. There is no additional transformer or embedding call. Missing or incompatible classifier artifacts leave retrieval available.
+
+Install `requirements-intent.txt` only for offline training. `python -m scripts.train_intent --help` describes training/calibration; `python -m scripts.benchmark_intent --help` describes the paired read-only benchmark required before promotion. Follow the guide for reviewed private datasets, model identity, quality/latency gates and rollback. No command automatically changes `.env`, downloads models, migrates storage or publishes documents.
+
+For Stage 2 batch operation, use `python -m src.cli.prepare_intents validate --config .tmp/intent-v1/config.json --json`, followed by `preflight` and then `run` with the same config. See [configuration and batch outputs](docs/intent-classifier.md#unified-offline-preparation-cli) and the [example](docs/examples/intent-preparation.json). Validation aggregates structural errors without loading ML; preflight tokenizes without encoding; run requires reviewed labels and writes a new manifest/report/candidate directory. No database is required. The old trainer uses the same shared implementation and remains supported; benchmark/promotion are separate.
+
+### Stage 2 batch CLI verification — 2026-11-13
+
+Working tree based on `e656991`, after adding the shared offline preparation CLI: **537 passed, 1 skipped, 34 deselected** in the full non-integration suite, with the existing Starlette/AnyIO deprecation warning. After the final run-directory ownership/cleanup adjustment, all **20 batch CLI tests passed** again. Tests used the isolated extended-length `.tmp/intent-test-runs` workspace outside the sandbox. Coverage includes no-ML imports/help, aggregated validation, review-before-model gating, token-only preflight, legacy/new artifact parity, unique run directories, atomic manifests, interruptions, changed inputs and failure reporting. `pip check`, legacy/new CLI help and scoped diff checks passed.
+
+Actual CLI validation accepted the structure of the 600-case draft while reporting `review_required: true` and `training_allowed: false`. Real local CPU E5 preflight checked all 600 questions without encoding; none exceeded the token limit. The report is under `.tmp/intent-v1/preflight-cli-report.json`. An actual `run` invocation correctly stopped before model loading with `human_review_required`, leaving a diagnostic manifest and no candidate. No reviewed training, semantic quality evaluation, database benchmark, accepted artifact or observation enablement was performed. Existing dataset/chunk changes and `.env` were preserved.
+
+### Intent verification — 2026-11-13
+
+Implementation working tree based on `e656991`, preserving existing documentation, corpus and answer-evaluation changes. Full non-integration verification after implementation: **516 passed, 1 skipped, 34 deselected**, with one existing Starlette/AnyIO deprecation warning. After final dataset-validation/diagnostic hardening and one additional test, the focused intent suites passed **35 tests**. Tests used a separate extended-length `.tmp/intent-test-runs` directory outside the sandbox; the first sandbox attempt failed at pre-existing temporary-directory permissions. No permissions or existing temporary trees were changed. Synthetic tests cover NumPy/sklearn parity, training/holdout separation, acceptance gates, off/observe retrieval invariance, HTTP/CLI wiring, encode counts, cancellation and cleanup. CLI help and `pip check` passed.
+
+The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally checked, **unreviewed** cases; training rejects it before loading E5. Human label/split review, real-model intent training, the quality gate and paired retrieval latency benchmark have **not run**. No accepted intent artifact has been produced, and observation has not been enabled. Database integration tests were deselected; no migration, publication, source-package edit, backend or portal change is part of this implementation. See the guide for the draft's template/diversity limitations and the independent retrieval calibration prerequisite.
+
+## Offline answer evaluation (endpoint not implemented)
+
+The stage-one [answer evaluation tool](docs/answer-evaluation.md) compares accepted
+retrieval excerpts with a locally generated draft and a separately checked draft.
+It requires a valid retrieval calibration profile, frozen source-reviewed cases,
+explicit local model/runtime artifacts, and manual review before any integration
+decision. Public retrieval remains excerpt-only; there is no answer endpoint.
+See the guide for commands, private artifact handling, gates and the current
+2026-11-13 verification/blocked status. The historical local 40-case answer files
+are not sufficient for this new experiment.
 
 ### Fallback verification - 2026-11-13
 
