@@ -1,0 +1,687 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {
+    "language": "vi",
+    "page_count": 8,
+    "text_normalization": "Agent transcription; normalized line wrapping; table rows retain explicit headers and merged-cell context."
+  },
+  "parser_metadata": {
+    "method": "agent-visual-transcription-of-local-pymupdf-renders",
+    "renderer": "PyMuPDF",
+    "render_scale": 1.8,
+    "external_ocr_service": false,
+    "inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "segments": [
+    {
+      "segment_id": "cover",
+      "raw": "RITAVÕ\nWE WIN WITH THE INTEGRITY & QUALITY\nQUY ĐỊNH VỀ CHẾ ĐỘ CÔNG TÁC PHÍ, CHI PHÍ TIẾP KHÁCH\nMã số: 02/QĐ-01-BM01\nHiệu lực: 01/01/2020\nSoát xét: 01\nTrang: 1/8\nLưu hành nội bộ",
+      "text": "RITAVÕ\nWE WIN WITH THE INTEGRITY & QUALITY\nQUY ĐỊNH VỀ CHẾ ĐỘ CÔNG TÁC PHÍ, CHI PHÍ TIẾP KHÁCH\nMã số: 02/QĐ-01-BM01\nHiệu lực: 01/01/2020\nSoát xét: 01\nTrang: 1/8\nLưu hành nội bộ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signers",
+      "raw": "Trách nhiệm | Họ & Tên | Chức vụ | Chữ ký\nBiên soạn | NGUYỄN XUÂN HÙNG | Giám đốc HCNS\nXem xét | PHAN HÒA DZIỄM TUYỀN | Trưởng Ban KSNB\nXem xét | THÁI TRUNG | Kế toán Trưởng\nPhê duyệt | VÕ MẬU QUỐC DUY | Tổng giám đốc",
+      "text": "Trách nhiệm | Họ & Tên | Chức vụ | Chữ ký\nBiên soạn | NGUYỄN XUÂN HÙNG | Giám đốc HCNS\nXem xét | PHAN HÒA DZIỄM TUYỀN | Trưởng Ban KSNB\nXem xét | THÁI TRUNG | Kế toán Trưởng\nPhê duyệt | VÕ MẬU QUỐC DUY | Tổng giám đốc",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "changes",
+      "raw": "BẢNG KIỂM SOÁT QUÁ TRÌNH THAY ĐỔI\nSoát xét: 01; Ngày hiệu lực: [ô trống]\nNội dung thay đổi:\n- Chi phí lưu trú, chi phí tiếp khách và phụ cấp công tác phí.\n- Chi phí nhà trọ.\n- Phân chia lại nhóm.\n- Sử dụng phương tiện công cộng.",
+      "text": "BẢNG KIỂM SOÁT QUÁ TRÌNH THAY ĐỔI\nSoát xét: 01; Ngày hiệu lực: [ô trống]\nNội dung thay đổi:\n- Chi phí lưu trú, chi phí tiếp khách và phụ cấp công tác phí.\n- Chi phí nhà trọ.\n- Phân chia lại nhóm.\n- Sử dụng phương tiện công cộng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "toc",
+      "raw": "MỤC LỤC\nCHƯƠNG I: QUY ĐỊNH CHUNG — 3\nĐiều 1. Mục đích — 3\nĐiều 2. Phạm vi điều chỉnh và đối tượng áp dụng — 3\nĐiều 3. Định nghĩa và giải thích từ ngữ — 3\nĐiều 4. Biểu mẫu và tài liệu viện dẫn — 4\nĐiều 5. Nguyên tắc chung — 4\nCHƯƠNG II: CHẾ ĐỘ CÔNG TÁC PHÍ — 5\nĐiều 6. Chế độ công tác phí — 5\nĐiều 7. Thủ tục đi công tác — 6\nĐiều 8. Thủ tục thanh toán công tác phí — 7\nĐiều 9. Chế độ hóa đơn chứng từ — 7\nĐiều 10. Thẩm quyền phê duyệt đi công tác — 7\nCHƯƠNG III: TỔ CHỨC THỰC HIỆN VÀ HIỆU LỰC THI HÀNH — 8\nĐiều 11. Tổ chức thực hiện — 8\nĐiều 12. Hiệu lực thực hiện và thẩm quyền sửa đổi, bổ sung, thay thế hoặc hủy bỏ — 8",
+      "text": "MỤC LỤC\nCHƯƠNG I: QUY ĐỊNH CHUNG — 3\nĐiều 1. Mục đích — 3\nĐiều 2. Phạm vi điều chỉnh và đối tượng áp dụng — 3\nĐiều 3. Định nghĩa và giải thích từ ngữ — 3\nĐiều 4. Biểu mẫu và tài liệu viện dẫn — 4\nĐiều 5. Nguyên tắc chung — 4\nCHƯƠNG II: CHẾ ĐỘ CÔNG TÁC PHÍ — 5\nĐiều 6. Chế độ công tác phí — 5\nĐiều 7. Thủ tục đi công tác — 6\nĐiều 8. Thủ tục thanh toán công tác phí — 7\nĐiều 9. Chế độ hóa đơn chứng từ — 7\nĐiều 10. Thẩm quyền phê duyệt đi công tác — 7\nCHƯƠNG III: TỔ CHỨC THỰC HIỆN VÀ HIỆU LỰC THI HÀNH — 8\nĐiều 11. Tổ chức thực hiện — 8\nĐiều 12. Hiệu lực thực hiện và thẩm quyền sửa đổi, bổ sung, thay thế hoặc hủy bỏ — 8",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a1",
+      "raw": "CHƯƠNG I: QUY ĐỊNH CHUNG\nĐiều 1. Mục đích\n- Quy định này quy định về định mức công tác phí cho các Đơn vị, cá nhân tại Công ty TNHH RI TA VÕ.\n- Nhằm kiểm soát, nâng cao hiệu quả sử dụng, tiết kiệm chi phí, tài sản của Công ty.\n- Nhằm trang bị các loại chi phí, để phục vụ tốt nhất các yêu cầu công việc của Công ty.\n- Giúp người lao động hiểu rõ trách nhiệm và quyền lợi của mình, sử dụng đúng mục đích và hiệu quả các khoản hỗ trợ, tránh tình trạng lãng phí để hoàn thành tốt công việc được giao.",
+      "text": "CHƯƠNG I: QUY ĐỊNH CHUNG\nĐiều 1. Mục đích\n- Quy định này quy định về định mức công tác phí cho các Đơn vị, cá nhân tại Công ty TNHH RI TA VÕ.\n- Nhằm kiểm soát, nâng cao hiệu quả sử dụng, tiết kiệm chi phí, tài sản của Công ty.\n- Nhằm trang bị các loại chi phí, để phục vụ tốt nhất các yêu cầu công việc của Công ty.\n- Giúp người lao động hiểu rõ trách nhiệm và quyền lợi của mình, sử dụng đúng mục đích và hiệu quả các khoản hỗ trợ, tránh tình trạng lãng phí để hoàn thành tốt công việc được giao.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "scope",
+      "raw": "Điều 2. Phạm vi điều chỉnh và đối tượng áp dụng\n- Quy trình này áp dụng cho toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty từ cấp Phó TGĐ trở xuống.\n- Quy trình này có thể thay đổi cho phù hợp với tình hình hoạt động thực tế, cơ cấu tổ chức của Công ty theo thời gian và được sự chấp thuận bởi CT-HĐTV/ Tổng Giám đốc Công ty.",
+      "text": "Điều 2. Phạm vi điều chỉnh và đối tượng áp dụng\n- Quy trình này áp dụng cho toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty từ cấp Phó TGĐ trở xuống.\n- Quy trình này có thể thay đổi cho phù hợp với tình hình hoạt động thực tế, cơ cấu tổ chức của Công ty theo thời gian và được sự chấp thuận bởi CT-HĐTV/ Tổng Giám đốc Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "defs",
+      "raw": "Điều 3. Định nghĩa và giải thích từ ngữ\n- Công ty/ RI TA VÕ: Công ty TNHH RI TA VÕ.\n- CT-HĐTV: Chủ tịch Hội đồng thành viên\n- TGĐ: Tổng giám đốc\n- CBNV: Cán bộ, nhân viên\n- Phòng HCNS: Phòng Hành chính Nhân sự.\n- Phòng KT-TC: Phòng Kế toán Tài chính.\n- Đơn vị: Các Phòng/Ban, các Chi nhánh, các Văn phòng đại diện trực thuộc Công ty.",
+      "text": "Điều 3. Định nghĩa và giải thích từ ngữ\n- Công ty/ RI TA VÕ: Công ty TNHH RI TA VÕ.\n- CT-HĐTV: Chủ tịch Hội đồng thành viên\n- TGĐ: Tổng giám đốc\n- CBNV: Cán bộ, nhân viên\n- Phòng HCNS: Phòng Hành chính Nhân sự.\n- Phòng KT-TC: Phòng Kế toán Tài chính.\n- Đơn vị: Các Phòng/Ban, các Chi nhánh, các Văn phòng đại diện trực thuộc Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "groups",
+      "raw": "Điều 3. Phân nhóm\n- Nhóm 1: Gồm các phó Tổng giám đốc.\n- Nhóm 2: Gồm Ban Giám đốc, Trưởng/ Phó các Phòng/Ban nghiệp vụ, Trợ lý/ Thư ký CT-HĐTV.\n- Nhóm 3: Gồm Trưởng/ Phó Phòng Kinh doanh, Trưởng bộ phận, Tổ trưởng, Nhóm trưởng, trợ lý/ thư ký Tổng giám đốc.\n- Nhóm 4: Gồm các chức danh còn lại.",
+      "text": "Điều 3. Phân nhóm\n- Nhóm 1: Gồm các phó Tổng giám đốc.\n- Nhóm 2: Gồm Ban Giám đốc, Trưởng/ Phó các Phòng/Ban nghiệp vụ, Trợ lý/ Thư ký CT-HĐTV.\n- Nhóm 3: Gồm Trưởng/ Phó Phòng Kinh doanh, Trưởng bộ phận, Tổ trưởng, Nhóm trưởng, trợ lý/ thư ký Tổng giám đốc.\n- Nhóm 4: Gồm các chức danh còn lại.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-regions",
+      "raw": "Điều 3. Phân định khu vực trong nước:\nKhu vực 1: Gồm các thành phố trực thuộc Trung ương (Hà Nội, Hồ Chí Minh, Đà Nẵng, Hải Phòng, Cần Thơ)\nKhu vực 2: Các khu vực còn lại",
+      "text": "Điều 3. Phân định khu vực trong nước:\nKhu vực 1: Gồm các thành phố trực thuộc Trung ương (Hà Nội, Hồ Chí Minh, Đà Nẵng, Hải Phòng, Cần Thơ)\nKhu vực 2: Các khu vực còn lại",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "foreign-regions",
+      "raw": "Điều 3. Phân định khu vực nước ngoài:\nKhu vực 1: Tất cả các nước, trừ các nước khu vực 2.\nKhu vực 2: Khu vực Đông Nam Á, Ấn Độ và Trung Quốc",
+      "text": "Điều 3. Phân định khu vực nước ngoài:\nKhu vực 1: Tất cả các nước, trừ các nước khu vực 2.\nKhu vực 2: Khu vực Đông Nam Á, Ấn Độ và Trung Quốc",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "expense-definition",
+      "raw": "Điều 3. Công tác phí: là khoản chi phí để trả cho người đi công tác bao gồm: chi phí đi lại, chi phí lưu trú, chi phí ăn uống, chi phí tiếp khách (nếu có), chi phí khác (nếu có).\nChi phí đi lại: là tiền mua vé máy bay, tàu, xe, tiền thuê phương tiện đi lại và các chi phí di chuyển hợp lý, hợp lệ khác phục vụ cho nhu cầu công tác.",
+      "text": "Điều 3. Công tác phí: là khoản chi phí để trả cho người đi công tác bao gồm: chi phí đi lại, chi phí lưu trú, chi phí ăn uống, chi phí tiếp khách (nếu có), chi phí khác (nếu có).\nChi phí đi lại: là tiền mua vé máy bay, tàu, xe, tiền thuê phương tiện đi lại và các chi phí di chuyển hợp lý, hợp lệ khác phục vụ cho nhu cầu công tác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "lodging-definition",
+      "raw": "Điều 3. Chi phí lưu trú: là chi trả tiền phòng ngủ (không bao gồm các dịch vụ khác của khách sạn cung cấp) đối với những trường hợp đi công tác từ một (01) ngày trở lên, không kể thời gian nghỉ qua đêm trên máy bay, tàu lửa, các phương tiện đi lại khác trong thời gian công tác. Định mức chi phí lưu trú tuân theo quy định của Công ty.",
+      "text": "Điều 3. Chi phí lưu trú: là chi trả tiền phòng ngủ (không bao gồm các dịch vụ khác của khách sạn cung cấp) đối với những trường hợp đi công tác từ một (01) ngày trở lên, không kể thời gian nghỉ qua đêm trên máy bay, tàu lửa, các phương tiện đi lại khác trong thời gian công tác. Định mức chi phí lưu trú tuân theo quy định của Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "meal-definition",
+      "raw": "Điều 3 (tiếp). Chi phí ăn uống: là khoản tiền mà Công ty chi trả cho cán bộ nhân viên để đảm bảo nước ăn uống bình thường trong thời gian công tác. Chi phí ăn uống sẽ được khoán cho cán bộ từ quản lý cấp trung trở xuống.",
+      "text": "Điều 3 (tiếp). Chi phí ăn uống: là khoản tiền mà Công ty chi trả cho cán bộ nhân viên để đảm bảo nước ăn uống bình thường trong thời gian công tác. Chi phí ăn uống sẽ được khoán cho cán bộ từ quản lý cấp trung trở xuống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "guest-definition",
+      "raw": "Điều 3 (tiếp). Chi phí tiếp khách: là khoản tiền tiếp khách hợp lý trong thời gian đi công tác. Định mức chi phí tiếp khách tuân theo quy định hoặc theo cấp thẩm quyền của Công ty phê duyệt.",
+      "text": "Điều 3 (tiếp). Chi phí tiếp khách: là khoản tiền tiếp khách hợp lý trong thời gian đi công tác. Định mức chi phí tiếp khách tuân theo quy định hoặc theo cấp thẩm quyền của Công ty phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "time-definition",
+      "raw": "Điều 3 (tiếp). Thời gian công tác: là khoảng thời gian tính từ ngày đi đến ngày về. Trong các trường hợp thời gian công tác ngắn hơn hoặc dài hơn thời gian đã được phê duyệt phải có xác nhận của cấp có thẩm quyền.",
+      "text": "Điều 3 (tiếp). Thời gian công tác: là khoảng thời gian tính từ ngày đi đến ngày về. Trong các trường hợp thời gian công tác ngắn hơn hoặc dài hơn thời gian đã được phê duyệt phải có xác nhận của cấp có thẩm quyền.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "forms",
+      "raw": "Điều 4. Biểu mẫu và tài liệu viện dẫn\n01 | Phiếu đề xuất công tác | Ritavo-Đề xuất đi công tác.docx | Phòng HCNS\n02 | Phiếu đề nghị tạm ứng công tác | Ritavo- DE NGHI TAM UNG.xlsx | Phòng KT-TC\n03 | Phiếu đề nghị thanh toán công tác phí | Ritavo- DE NGHI THANH TOAN.xlsx | Phòng KT-TC",
+      "text": "Điều 4. Biểu mẫu và tài liệu viện dẫn\n01 | Phiếu đề xuất công tác | Ritavo-Đề xuất đi công tác.docx | Phòng HCNS\n02 | Phiếu đề nghị tạm ứng công tác | Ritavo- DE NGHI TAM UNG.xlsx | Phòng KT-TC\n03 | Phiếu đề nghị thanh toán công tác phí | Ritavo- DE NGHI THANH TOAN.xlsx | Phòng KT-TC",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-1",
+      "raw": "Điều 5. Nguyên tắc chung\n1. Cấp có thẩm quyền phải xem xét, cân nhắc khi cử CBNV trực thuộc đi công tác (về số lượng cán bộ nhân viên và thời gian công tác) đảm bảo tiết kiệm, có hiệu quả trong phạm vi kế hoạch chi phí cho phép hàng năm. Trong trường hợp phát sinh yêu cầu công tác ngoài hoặc vượt kế hoạch chi phí cho phép hàng năm thì phải được cấp có thẩm quyền phê duyệt.",
+      "text": "Điều 5. Nguyên tắc chung\n1. Cấp có thẩm quyền phải xem xét, cân nhắc khi cử CBNV trực thuộc đi công tác (về số lượng cán bộ nhân viên và thời gian công tác) đảm bảo tiết kiệm, có hiệu quả trong phạm vi kế hoạch chi phí cho phép hàng năm. Trong trường hợp phát sinh yêu cầu công tác ngoài hoặc vượt kế hoạch chi phí cho phép hàng năm thì phải được cấp có thẩm quyền phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-2",
+      "raw": "Điều 5.2. CBNV sử dụng công tác phí phải thực hiện chính sách tiết kiệm, tuyệt đối không được xem công tác phí là khoản thu nhập của bản thân hoặc để kết hợp giải quyết những nhu cầu cá nhân không có liên quan đến công việc của Công ty.",
+      "text": "Điều 5.2. CBNV sử dụng công tác phí phải thực hiện chính sách tiết kiệm, tuyệt đối không được xem công tác phí là khoản thu nhập của bản thân hoặc để kết hợp giải quyết những nhu cầu cá nhân không có liên quan đến công việc của Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-3",
+      "raw": "Điều 5.3. Tùy theo vị trí chức vụ của từng CBNV Công ty và căn cứ theo thời gian, tính chất cùng khoảng cách từ nơi làm việc đến nơi công tác, mỗi CBNV đi công tác sẽ được tạm ứng một khoản công tác phí tương ứng để đủ điều kiện hoàn thành nhiệm vụ được giao.",
+      "text": "Điều 5.3. Tùy theo vị trí chức vụ của từng CBNV Công ty và căn cứ theo thời gian, tính chất cùng khoảng cách từ nơi làm việc đến nơi công tác, mỗi CBNV đi công tác sẽ được tạm ứng một khoản công tác phí tương ứng để đủ điều kiện hoàn thành nhiệm vụ được giao.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-4",
+      "raw": "Điều 5.4. Các định mức chi phí nêu tại Quy định này bao gồm cả phần thuế giá trị gia tăng và các khoản thuế khác (nếu có) và được hiểu là hạn mức tối đa được chi theo thực tế phát sinh. Trừ phụ cấp công tác phí được khoán theo định mức, tất cả các chi phí khác khi thanh toán (chi phí đi lại, lưu trú, tiếp khách,...) phải có hóa đơn chứng từ hợp pháp, hợp lệ, các trường hợp khác phải được cấp có thẩm quyền phê duyệt.",
+      "text": "Điều 5.4. Các định mức chi phí nêu tại Quy định này bao gồm cả phần thuế giá trị gia tăng và các khoản thuế khác (nếu có) và được hiểu là hạn mức tối đa được chi theo thực tế phát sinh. Trừ phụ cấp công tác phí được khoán theo định mức, tất cả các chi phí khác khi thanh toán (chi phí đi lại, lưu trú, tiếp khách,...) phải có hóa đơn chứng từ hợp pháp, hợp lệ, các trường hợp khác phải được cấp có thẩm quyền phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-5",
+      "raw": "Điều 5.5. Trong trường hợp đi công tác không sử dụng phương tiện đi lại của Công ty hoặc phương tiện do Công ty điều động thì cán bộ nhân viên sẽ được thanh toán chi phí đi lại theo thực tế phát sinh, có hóa đơn chứng từ hợp pháp, hợp lý.",
+      "text": "Điều 5.5. Trong trường hợp đi công tác không sử dụng phương tiện đi lại của Công ty hoặc phương tiện do Công ty điều động thì cán bộ nhân viên sẽ được thanh toán chi phí đi lại theo thực tế phát sinh, có hóa đơn chứng từ hợp pháp, hợp lý.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-6",
+      "raw": "Điều 5.6. Đối với các khoản chi phí đã có quy định hạn mức thì mức chi tối đa được thanh toán phải nằm trong phạm vi quy định (các trường hợp khác phải được CT-HĐTV/TGĐ phê duyệt).",
+      "text": "Điều 5.6. Đối với các khoản chi phí đã có quy định hạn mức thì mức chi tối đa được thanh toán phải nằm trong phạm vi quy định (các trường hợp khác phải được CT-HĐTV/TGĐ phê duyệt).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-7",
+      "raw": "Điều 5.7. Trong trường hợp CBNV kiêm nhiệm nhiều chức vụ, chế độ công tác phí được áp dụng theo chức vụ cao nhất.",
+      "text": "Điều 5.7. Trong trường hợp CBNV kiêm nhiệm nhiều chức vụ, chế độ công tác phí được áp dụng theo chức vụ cao nhất.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-8",
+      "raw": "Điều 5.8. Trường hợp CBNV Kỹ thuật đi công tác bằng phương tiện xe máy với khoảng cách địa lý từ 60 km trở lên tính từ nơi làm việc và thường xuyên, để tư vấn, kiểm tra, bảo hành, bảo trì... cho khách hàng. Công ty sẽ phụ cấp tiền xăng 35 km/01 lít.",
+      "text": "Điều 5.8. Trường hợp CBNV Kỹ thuật đi công tác bằng phương tiện xe máy với khoảng cách địa lý từ 60 km trở lên tính từ nơi làm việc và thường xuyên, để tư vấn, kiểm tra, bảo hành, bảo trì... cho khách hàng. Công ty sẽ phụ cấp tiền xăng 35 km/01 lít.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-9",
+      "raw": "Điều 5.9. Nếu CBNV Kỹ thuật đi công tác ban đêm với thời gian di chuyển từ 6 tiếng trở lên thì được phụ cấp 150,000đ/ ngày/ người.",
+      "text": "Điều 5.9. Nếu CBNV Kỹ thuật đi công tác ban đêm với thời gian di chuyển từ 6 tiếng trở lên thì được phụ cấp 150,000đ/ ngày/ người.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-10",
+      "raw": "Điều 5.10. CBNV đi công tác từ 15 ngày trở lên, được xem là công tác theo chế độ biệt phái. Công ty sẽ sắp xếp chỗ ở hoặc khoán chi phí thuê nhà trọ từ 4,000,000 đ/ tháng/khu vực 1 và 3,000,000 đ/tháng/khu vực 2.",
+      "text": "Điều 5.10. CBNV đi công tác từ 15 ngày trở lên, được xem là công tác theo chế độ biệt phái. Công ty sẽ sắp xếp chỗ ở hoặc khoán chi phí thuê nhà trọ từ 4,000,000 đ/ tháng/khu vực 1 và 3,000,000 đ/tháng/khu vực 2.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-11",
+      "raw": "Điều 5.11. Các đoàn đi công tác từ 02 người trở lên, ưu tiên sử dụng phòng đôi, phòng 3 (trừ trường hợp khác giới tính). Nếu CBNV tự ở phòng riêng, Công ty sẽ không thanh toán khoản tiền chênh lệch này.",
+      "text": "Điều 5.11. Các đoàn đi công tác từ 02 người trở lên, ưu tiên sử dụng phòng đôi, phòng 3 (trừ trường hợp khác giới tính). Nếu CBNV tự ở phòng riêng, Công ty sẽ không thanh toán khoản tiền chênh lệch này.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-12",
+      "raw": "Điều 5.12. Nếu sử dụng phương tiện công cộng sẽ phân loại như sau:\nĐối tượng | Xe | Tàu | Ghi chú\nNhóm 1&2 | Limousine | Giường nằm mềm điều hòa | Giá theo thực tế.\nNhóm 3&4 | Xe thường | Ghế ngồi mềm điều hòa | Giá theo thực tế.",
+      "text": "Điều 5.12. Nếu sử dụng phương tiện công cộng sẽ phân loại như sau:\nĐối tượng | Xe | Tàu | Ghi chú\nNhóm 1&2 | Limousine | Giường nằm mềm điều hòa | Giá theo thực tế.\nNhóm 3&4 | Xe thường | Ghế ngồi mềm điều hòa | Giá theo thực tế.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-13",
+      "raw": "Điều 5.13. Trường hợp CBNV nghỉ qua đêm không có hóa đơn, chứng từ theo quy định. Công ty chỉ thanh toán 50% chi phí.",
+      "text": "Điều 5.13. Trường hợp CBNV nghỉ qua đêm không có hóa đơn, chứng từ theo quy định. Công ty chỉ thanh toán 50% chi phí.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-14",
+      "raw": "Điều 5.14. Trường hợp CBNV hủy chuyến đi thì phải chịu trách nhiệm thanh toán 100% chi phí mua hoặc đổi trả vé máy bay, vé tàu, xe... mà Công ty đã thanh toán ngoại trừ trường hợp bất khả kháng như ốm đau, tai nạn, nhà có tang...",
+      "text": "Điều 5.14. Trường hợp CBNV hủy chuyến đi thì phải chịu trách nhiệm thanh toán 100% chi phí mua hoặc đổi trả vé máy bay, vé tàu, xe... mà Công ty đã thanh toán ngoại trừ trường hợp bất khả kháng như ốm đau, tai nạn, nhà có tang...",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a5-15",
+      "raw": "Điều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+      "text": "Điều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-travel",
+      "raw": "CHƯƠNG II: CHẾ ĐỘ CÔNG TÁC PHÍ\nĐiều 6. Chế độ công tác phí\n1. Công tác phí trong nước\n1 Chi phí đi lại — áp dụng Nhóm 1, Nhóm 2, Nhóm 3, Nhóm 4:\nVé máy bay: Vé hạng thường.\nVé tàu hỏa: Theo thực tế, có hóa đơn chứng từ hợp lệ.\nVé xe; Chi phí đi lại tại khu vực công tác: Xe Công ty hoặc theo thực tế, có hóa đơn chứng từ hợp lệ.",
+      "text": "CHƯƠNG II: CHẾ ĐỘ CÔNG TÁC PHÍ\nĐiều 6. Chế độ công tác phí\n1. Công tác phí trong nước\n1 Chi phí đi lại — áp dụng Nhóm 1, Nhóm 2, Nhóm 3, Nhóm 4:\nVé máy bay: Vé hạng thường.\nVé tàu hỏa: Theo thực tế, có hóa đơn chứng từ hợp lệ.\nVé xe; Chi phí đi lại tại khu vực công tác: Xe Công ty hoặc theo thực tế, có hóa đơn chứng từ hợp lệ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-lodging1",
+      "raw": "Điều 6.1 — 2 Chi phí lưu trú trong nước, Khu vực 1:\nNhóm 1: 1.000.000đ/người/ngày; Nhóm 2: 800.000đ/người/ngày; Nhóm 3: 600.000đ/người/ngày; Nhóm 4: 500.000đ/người/ngày.",
+      "text": "Điều 6.1 — 2 Chi phí lưu trú trong nước, Khu vực 1:\nNhóm 1: 1.000.000đ/người/ngày; Nhóm 2: 800.000đ/người/ngày; Nhóm 3: 600.000đ/người/ngày; Nhóm 4: 500.000đ/người/ngày.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-lodging2",
+      "raw": "Điều 6.1 — 2 Chi phí lưu trú trong nước, Khu vực 2:\nNhóm 1: 800.000đ/người/ngày; Nhóm 2: 600.000đ/người/ngày; Nhóm 3: 500.000đ/người/ngày; Nhóm 4: 400.000đ/người/ngày.",
+      "text": "Điều 6.1 — 2 Chi phí lưu trú trong nước, Khu vực 2:\nNhóm 1: 800.000đ/người/ngày; Nhóm 2: 600.000đ/người/ngày; Nhóm 3: 500.000đ/người/ngày; Nhóm 4: 400.000đ/người/ngày.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-allowance1",
+      "raw": "Điều 6.1 — 3 Phụ cấp công tác phí trong nước:\nCự ly từ 60 km trở lên, khác tỉnh và thời gian di chuyển từ 6 tiếng trở lên (nếu đi xe): Nhóm 1 và Nhóm 2: 200.000đ/người/ngày; Nhóm 3 và Nhóm 4: 150,000 đ/người/ngày.",
+      "text": "Điều 6.1 — 3 Phụ cấp công tác phí trong nước:\nCự ly từ 60 km trở lên, khác tỉnh và thời gian di chuyển từ 6 tiếng trở lên (nếu đi xe): Nhóm 1 và Nhóm 2: 200.000đ/người/ngày; Nhóm 3 và Nhóm 4: 150,000 đ/người/ngày.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-allowance2",
+      "raw": "Điều 6.1 — 3 Phụ cấp công tác phí trong nước:\nCự ly từ 45km - dưới 60 km, khác tỉnh và đi trong ngày về: Nhóm 1 và Nhóm 2: 100.000đ/người/ngày; Nhóm 3 và Nhóm 4: 50,000 đ/người/ngày.",
+      "text": "Điều 6.1 — 3 Phụ cấp công tác phí trong nước:\nCự ly từ 45km - dưới 60 km, khác tỉnh và đi trong ngày về: Nhóm 1 và Nhóm 2: 100.000đ/người/ngày; Nhóm 3 và Nhóm 4: 50,000 đ/người/ngày.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "domestic-guests",
+      "raw": "Điều 6.1 — 4 Chi phí tiếp khách trong nước:\nNhóm 1: 7,000,000 đ/tháng; Nhóm 2: 5,000,000 đ/tháng; Nhóm 3: 3,000,000 đ/tháng; Nhóm 4: 0 đ/tháng.",
+      "text": "Điều 6.1 — 4 Chi phí tiếp khách trong nước:\nNhóm 1: 7,000,000 đ/tháng; Nhóm 2: 5,000,000 đ/tháng; Nhóm 3: 3,000,000 đ/tháng; Nhóm 4: 0 đ/tháng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "foreign-travel",
+      "raw": "Điều 6.2. Công tác phí nước ngoài — 1 Chi phí đi lại, áp dụng Nhóm 1, Nhóm 2, Nhóm 3, Nhóm 4:\nVé máy bay: Vé hạng thường.\nChi phí đi lại tại khu vực công tác: Theo thực tế hợp lý, có hóa đơn chứng từ hợp lệ.",
+      "text": "Điều 6.2. Công tác phí nước ngoài — 1 Chi phí đi lại, áp dụng Nhóm 1, Nhóm 2, Nhóm 3, Nhóm 4:\nVé máy bay: Vé hạng thường.\nChi phí đi lại tại khu vực công tác: Theo thực tế hợp lý, có hóa đơn chứng từ hợp lệ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "foreign-lodging",
+      "raw": "Điều 6.2 — 2 Chi phí lưu trú nước ngoài, Khu vực 1&2:\nNhóm 1: Theo thực tế, 1 người/1 phòng Superior.\nNhóm 2: Theo thực tế, 1 người/1 phòng Standard.\nNhóm 3 và Nhóm 4: Theo thực tế, 2 người/1 phòng Standard.",
+      "text": "Điều 6.2 — 2 Chi phí lưu trú nước ngoài, Khu vực 1&2:\nNhóm 1: Theo thực tế, 1 người/1 phòng Superior.\nNhóm 2: Theo thực tế, 1 người/1 phòng Standard.\nNhóm 3 và Nhóm 4: Theo thực tế, 2 người/1 phòng Standard.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "foreign-allowance",
+      "raw": "Điều 6.2 — 3 Phụ cấp công tác phí nước ngoài:\nKhu vực 1: Nhóm 1: 100USD/ngày; Nhóm 2: 80USD/ngày; Nhóm 3 và Nhóm 4: 50USD/ngày.\nKhu vực 2: Nhóm 1: 70USD/ngày; Nhóm 2: 50USD/ngày; Nhóm 3 và Nhóm 4: 30 USD/ngày.",
+      "text": "Điều 6.2 — 3 Phụ cấp công tác phí nước ngoài:\nKhu vực 1: Nhóm 1: 100USD/ngày; Nhóm 2: 80USD/ngày; Nhóm 3 và Nhóm 4: 50USD/ngày.\nKhu vực 2: Nhóm 1: 70USD/ngày; Nhóm 2: 50USD/ngày; Nhóm 3 và Nhóm 4: 30 USD/ngày.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "foreign-guests",
+      "raw": "Điều 6.2 — 4 Chi phí tiếp khách nước ngoài: Trong trường hợp phát sinh chi phí tiếp khách phải được cấp có thẩm quyền phê duyệt.",
+      "text": "Điều 6.2 — 4 Chi phí tiếp khách nước ngoài: Trong trường hợp phát sinh chi phí tiếp khách phải được cấp có thẩm quyền phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a7-1",
+      "raw": "Điều 7. Thủ tục đi công tác\n1. Khi CBNV phát sinh nhu cầu đi công tác hoặc được cử đi công tác, căn cứ vào thời gian, địa điểm, nội dung công tác, CBNV có trách nhiệm gửi phiếu đề xuất đi công tác (theo mẫu Công ty) hoặc mail và/ hoặc phiếu đề nghị tạm ứng công tác phí (nếu có) trình Trưởng Đơn vị, cấp có thẩm quyền phê duyệt.",
+      "text": "Điều 7. Thủ tục đi công tác\n1. Khi CBNV phát sinh nhu cầu đi công tác hoặc được cử đi công tác, căn cứ vào thời gian, địa điểm, nội dung công tác, CBNV có trách nhiệm gửi phiếu đề xuất đi công tác (theo mẫu Công ty) hoặc mail và/ hoặc phiếu đề nghị tạm ứng công tác phí (nếu có) trình Trưởng Đơn vị, cấp có thẩm quyền phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a7-2",
+      "raw": "Điều 7.2. Sau khi được Cấp có thẩm quyền phê duyệt, CBNV chuyển phiếu đề xuất công tác hoặc mail cho Phòng HCNS thực hiện việc đặt phương tiện di chuyển/thực hiện thủ tục thanh toán chi phí vé máy bay. Nếu CBNV có tạm ứng công tác phí, thì CBNV làm thủ tục tạm ứng và thanh toán tạm ứng theo quy định Công ty.",
+      "text": "Điều 7.2. Sau khi được Cấp có thẩm quyền phê duyệt, CBNV chuyển phiếu đề xuất công tác hoặc mail cho Phòng HCNS thực hiện việc đặt phương tiện di chuyển/thực hiện thủ tục thanh toán chi phí vé máy bay. Nếu CBNV có tạm ứng công tác phí, thì CBNV làm thủ tục tạm ứng và thanh toán tạm ứng theo quy định Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a7-3",
+      "raw": "Điều 7.3. Phiếu đề xuất đi công tác và tạm ứng công tác phí sau khi có đầy đủ chữ ký xác nhận theo quy định, Phòng KT-TC sẽ lưu giữ bản chính nếu CBNV có nhu cầu tạm ứng tiền cho chuyến công tác, CBNV sẽ lưu giữ bản sao để làm thủ tục thanh toán sau khi hoàn thành chuyến công tác.",
+      "text": "Điều 7.3. Phiếu đề xuất đi công tác và tạm ứng công tác phí sau khi có đầy đủ chữ ký xác nhận theo quy định, Phòng KT-TC sẽ lưu giữ bản chính nếu CBNV có nhu cầu tạm ứng tiền cho chuyến công tác, CBNV sẽ lưu giữ bản sao để làm thủ tục thanh toán sau khi hoàn thành chuyến công tác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a8-1",
+      "raw": "Điều 8. Thủ tục thanh toán công tác phí\n1. CBNV phải làm thủ tục thanh toán công tác phí trong thời hạn 7 (bảy) ngày làm việc kể từ ngày kết thúc thời gian công tác.",
+      "text": "Điều 8. Thủ tục thanh toán công tác phí\n1. CBNV phải làm thủ tục thanh toán công tác phí trong thời hạn 7 (bảy) ngày làm việc kể từ ngày kết thúc thời gian công tác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a8-2",
+      "raw": "Điều 8.2. CBNV phải giữ thẻ lên máy bay (Boarding pass) và gửi cho Phòng HCNS trong vòng 7 (bảy) ngày làm việc, nếu quá thời hạn trên thì CBNV phải chịu trách nhiệm thanh toán chi phí vé máy bay đã sử dụng.",
+      "text": "Điều 8.2. CBNV phải giữ thẻ lên máy bay (Boarding pass) và gửi cho Phòng HCNS trong vòng 7 (bảy) ngày làm việc, nếu quá thời hạn trên thì CBNV phải chịu trách nhiệm thanh toán chi phí vé máy bay đã sử dụng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a8-3",
+      "raw": "Điều 8.3. CBNV lập Phiếu đề nghị thanh toán công tác phí và chuyển hồ sơ thanh toán cho Phòng KT-TC kiểm tra sự phù hợp của các khoản đề nghị thanh toán so với định mức phân hạng công tác phí của Công ty. Thủ tục đề nghị thanh toán công tác phí phải có đầy đủ chứng từ sau:\na. Phiếu đề xuất đi công tác hoặc mail cử đi công tác;\nb. Giấy đề nghị tạm ứng công tác phí (nếu có);\nc. Phiếu đề nghị thanh toán công tác phí,\nd. Hóa đơn, chứng từ có liên quan theo đúng quy định pháp luật.\ne. Trường hợp đặc biệt công tác tại những nơi không thể lấy hóa đơn theo đúng quy định của pháp luật thì chi phí của chuyến công tác đó phải được cấp có thẩm quyền phê duyệt.",
+      "text": "Điều 8.3. CBNV lập Phiếu đề nghị thanh toán công tác phí và chuyển hồ sơ thanh toán cho Phòng KT-TC kiểm tra sự phù hợp của các khoản đề nghị thanh toán so với định mức phân hạng công tác phí của Công ty. Thủ tục đề nghị thanh toán công tác phí phải có đầy đủ chứng từ sau:\na. Phiếu đề xuất đi công tác hoặc mail cử đi công tác;\nb. Giấy đề nghị tạm ứng công tác phí (nếu có);\nc. Phiếu đề nghị thanh toán công tác phí,\nd. Hóa đơn, chứng từ có liên quan theo đúng quy định pháp luật.\ne. Trường hợp đặc biệt công tác tại những nơi không thể lấy hóa đơn theo đúng quy định của pháp luật thì chi phí của chuyến công tác đó phải được cấp có thẩm quyền phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a8-45",
+      "raw": "Điều 8.4. Trường hợp CBNV thanh toán chi phí công tác vượt định mức phân hạng công tác phí theo Quy định này thì chỉ được thanh toán theo định mức quy định.\nĐiều 8.5. Trong trường hợp được cấp có thẩm quyền duyệt thanh toán đối với khoản chi phí vượt định mức, thì Phòng KT-TC thực hiện thanh toán theo nội dung phê duyệt này.",
+      "text": "Điều 8.4. Trường hợp CBNV thanh toán chi phí công tác vượt định mức phân hạng công tác phí theo Quy định này thì chỉ được thanh toán theo định mức quy định.\nĐiều 8.5. Trong trường hợp được cấp có thẩm quyền duyệt thanh toán đối với khoản chi phí vượt định mức, thì Phòng KT-TC thực hiện thanh toán theo nội dung phê duyệt này.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a9",
+      "raw": "Điều 9. Chế độ hóa đơn chứng từ\n- Chế độ hóa đơn chứng từ: Các khoản công tác phí sau đây chỉ được duyệt thanh toán khi đảm bảo đầy đủ hóa đơn, chứng từ hợp lệ (chứng từ gốc): Chi phí đi lại, chi phí lưu trú, chi phí tiếp khách, chi phí ăn uống, chi phí khác (nếu có) trừ các khoản chi phí được khoán theo định mức.\n- Phòng KT-TC có trách nhiệm hướng dẫn về chế độ hóa đơn, chứng từ cụ thể đối với các khoản công tác phí phát sinh sao cho phù hợp với quy định của pháp luật hiện hành.",
+      "text": "Điều 9. Chế độ hóa đơn chứng từ\n- Chế độ hóa đơn chứng từ: Các khoản công tác phí sau đây chỉ được duyệt thanh toán khi đảm bảo đầy đủ hóa đơn, chứng từ hợp lệ (chứng từ gốc): Chi phí đi lại, chi phí lưu trú, chi phí tiếp khách, chi phí ăn uống, chi phí khác (nếu có) trừ các khoản chi phí được khoán theo định mức.\n- Phòng KT-TC có trách nhiệm hướng dẫn về chế độ hóa đơn, chứng từ cụ thể đối với các khoản công tác phí phát sinh sao cho phù hợp với quy định của pháp luật hiện hành.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a10",
+      "raw": "Điều 10. Thẩm quyền phê duyệt đi công tác\nĐối tượng | Cấp phê duyệt\nNhóm 1 | TGĐ\nNhóm 2 | TGĐ\nNhóm 3 | Nhóm 1\nNhóm 4 | Nhóm 2\nGhi chú: Nhiều cấp đi chung một đoàn thì thẩm quyền phê duyệt cho đoàn công tác căn cứ theo người cấp cao nhất trong đoàn.",
+      "text": "Điều 10. Thẩm quyền phê duyệt đi công tác\nĐối tượng | Cấp phê duyệt\nNhóm 1 | TGĐ\nNhóm 2 | TGĐ\nNhóm 3 | Nhóm 1\nNhóm 4 | Nhóm 2\nGhi chú: Nhiều cấp đi chung một đoàn thì thẩm quyền phê duyệt cho đoàn công tác căn cứ theo người cấp cao nhất trong đoàn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a11",
+      "raw": "CHƯƠNG III: TỔ CHỨC THỰC HIỆN VÀ HIỆU LỰC THI HÀNH\nĐiều 11. Tổ chức thực hiện\n- Phòng HCNS có trách nhiệm phối hợp với các Phòng/ Ban có liên quan tổ chức thực hiện Quy định này.",
+      "text": "CHƯƠNG III: TỔ CHỨC THỰC HIỆN VÀ HIỆU LỰC THI HÀNH\nĐiều 11. Tổ chức thực hiện\n- Phòng HCNS có trách nhiệm phối hợp với các Phòng/ Ban có liên quan tổ chức thực hiện Quy định này.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "a12",
+      "raw": "Điều 12. Hiệu lực thực hiện và thẩm quyền sửa đổi, bổ sung, thay thế hoặc hủy bỏ.\n- Quy định này có hiệu lực kể từ ngày … /…/2019\n- Việc sửa đổi, bổ sung, thay thế hoặc hủy bỏ Quy định này do Tổng giám đốc Công ty quyết định.",
+      "text": "Điều 12. Hiệu lực thực hiện và thẩm quyền sửa đổi, bổ sung, thay thế hoặc hủy bỏ.\n- Quy định này có hiệu lực kể từ ngày … /…/2019\n- Việc sửa đổi, bổ sung, thay thế hoặc hủy bỏ Quy định này do Tổng giám đốc Công ty quyết định.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "dates",
+      "code": "conflicting_source_dates",
+      "location": {
+        "pages": [
+          1,
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "warning_id": "graphics",
+      "code": "nonpolicy_graphics",
+      "location": {
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "warning_id": "wording",
+      "code": "source_wording_preserved",
+      "location": {
+        "page": 4
+      }
+    }
+  ]
+}

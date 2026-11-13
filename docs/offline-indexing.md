@@ -63,7 +63,7 @@ Workflow: author package, run preflight, establish publication eligibility from 
 
 ## Strict schema v2
 
-All three JSON files have integer `schema_version: 2`. Old schemas and undefined fields are rejected; arbitrary dictionaries are permitted only for configuration, parser metadata, segment details and warning locations. Use `src.ingestion.document_packages` and `src.catalog.validation` as schema authorities.
+For v2, all three JSON files have integer `schema_version: 2`. V3 is dispatched separately and described in [structured evidence](structured-evidence.md); mixed versions are rejected. Old schemas and undefined fields are rejected; arbitrary dictionaries are permitted only for configuration, parser metadata, segment details and warning locations. Use `src.ingestion.document_packages` and `src.catalog.validation` as schema authorities.
 
 ### Metadata
 
@@ -236,11 +236,11 @@ Manual checks for this example: a travel question has an amount, unit and eligib
 - **Structural validation:** run the existing package validator to check schema, identity/snapshot consistency, valid reference ranges, character coverage through references/exclusions and warning decisions. It does not verify transcription accuracy, semantic completeness, count correctness or business approval.
 - **Handoff:** retain factual metadata, exclusions and evidence notes in the existing fields; leave unresolved publication blockers explicit. Hand the four artifacts to Scope 2 for real-model preflight and eligibility/publication checks. No approval step or extra package report is introduced.
 
-### Future extensions — not implemented
+### V2 boundaries and v3 extensions
 
 Schema v2 accepts only `content`, `source_refs` and optional `notes` on each chunk. `notes` can explain authoring intent to a reader; it is not embedded, persisted as a chunk field or used for routing by the current pipeline. Labels and hierarchy written in `content` are text, not machine-enforced relationships. `chunk_index` is array position, not a stable semantic item identifier.
 
-Future work may introduce explicit chunk types, stable source-item identifiers, parent/child relationships and machine-readable coverage information. This requires a separate schema/runtime compatibility design; no field names, new schema version, migration or database representation are defined here. Do not add `chunk_type`, `parent_id` or custom item/link fields to v2 JSON, or repurpose document-level `metadata.relations` as chunk links.
+Schema v3 now provides stable author IDs, evidence roles, explicit scopes/items/values and run-owned persistence; see [the v3 contract](structured-evidence.md). V2 remains supported without inferring structure. Do not add v3 fields to v2 JSON or repurpose document-level relations as chunk links.
 
 Better source preparation alone does not establish accurate retrieval, exhaustive counting or production-ready RAG. Online retrieval still needs evidence selection and coverage checks, and real-model evaluation remains separate from authoring and structural validation.
 
@@ -287,7 +287,7 @@ The runtime checks vector count, sequential chunk indices, 384 dimensions and fi
 | Optional chunk `notes` | Remain in package JSON; not embedded or stored as a chunk field, but changes affect the package fingerprint |
 | Raw extraction, source snapshot, exclusions and warning decisions | Remain package evidence; the database does not store the complete package in every chunk. Exclusions/warning decisions also contribute to the content fingerprint |
 
-Inventory/detail/group labels authored in Scope 1 remain plain content. Neither the database mapping nor embedding turns them into runtime types, stable source-item IDs or parent/child links. See [database metadata](catalog-database.md) for revision state and [future extensions](#future-extensions--not-implemented) for the current schema boundary.
+For v2, inventory/detail/group labels authored in Scope 1 remain plain content. Neither the database mapping nor embedding turns them into runtime types, stable source-item IDs or parent/child links. See [database metadata](catalog-database.md) for revision state and [v2 boundaries and v3 extensions](#v2-boundaries-and-v3-extensions) for the current schema boundary.
 
 ### Publication outcomes and recovery decisions
 
@@ -312,7 +312,7 @@ When publication is performed as a separately authorized operation, verify its r
 
 Evaluate retrieval separately with specific questions, inventories, counts, multi-part questions and unsupported requests. Use the [package-pinned evaluator](../README.md#local-question-retrieval) with explicit `--package` and `--cases`. It checks the selected active run against package/model fingerprints and stored content, provenance and vectors before scoring. Expected evidence uses groups of exact package chunk indices; segment overlap alone is insufficient because an inventory may reference every detail without stating its amounts. Agent review still checks semantic sufficiency and unsupported cases. Reports distinguish detail/condition targets from aggregate coverage; neither a nonempty top-K response nor successful publication establishes answer correctness. The evaluator reports model-load and overall per-question times, not separate query embedding/database latency. Keep real-document cases and reports under `.tmp/`, preserve baseline results, and re-pin cases after package edits rather than evaluating stale runs.
 
-Potential future Scope 2 changes include a separate embedding-text representation, persistence of explicit chunk types/source-item identities and parent/child or coverage data. These require their own schema, provenance and compatibility design. They are not implemented by this guidance, and no migration, new model, Redis layer or automatic rechunking is introduced. Successful publication and improved authoring do not establish exhaustive answers, fallback behavior or production-ready RAG.
+V3 adds explicit run-owned roles, source-item identities, hierarchy and authored coverage. A separate embedding-text representation, Redis layer and automatic rechunking remain outside scope. Successful publication and improved authoring do not establish exhaustive answers, fallback behavior or production-ready RAG.
 
 ## Publication and consistency
 

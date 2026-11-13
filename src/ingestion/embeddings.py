@@ -8,9 +8,10 @@ from src.ingestion import document_packages as packages
 MODEL_NAME = 'intfloat/multilingual-e5-small'
 
 
-def load_model(model_path):
+def load_model(model_path, *, device=None):
     from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer(str(model_path), local_files_only=True, trust_remote_code=False)
+    options = {} if device is None else {'device': device}
+    model = SentenceTransformer(str(model_path), local_files_only=True, trust_remote_code=False, **options)
     packages.require(model.get_sentence_embedding_dimension() == 384, 'model_dimensions')
     return model
 

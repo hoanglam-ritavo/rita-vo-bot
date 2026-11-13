@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {
+    "language": "vi",
+    "page_count": 1,
+    "text_normalization": "Agent transcription; normalized line wrapping; table rows retain explicit headers and merged-cell context."
+  },
+  "parser_metadata": {
+    "method": "agent-visual-transcription-of-local-pymupdf-renders",
+    "renderer": "PyMuPDF",
+    "render_scale": 1.8,
+    "external_ocr_service": false,
+    "inspected_pages": [
+      1
+    ]
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RITAVÕ\nWE WIN WITH THE INTEGRITY & QUALITY\nPHỤ LỤC\nĐiều chỉnh, bổ sung Quy định chế độ công tác phí, chi phí tiếp khách 2020\nMã số: 03/PL/BM-01\nNgày hiệu lực: 17/03/2020\nSoát xét: 00\nSố trang: 01",
+      "text": "RITAVÕ\nWE WIN WITH THE INTEGRITY & QUALITY\nPHỤ LỤC\nĐiều chỉnh, bổ sung Quy định chế độ công tác phí, chi phí tiếp khách 2020\nMã số: 03/PL/BM-01\nNgày hiệu lực: 17/03/2020\nSoát xét: 00\nSố trang: 01",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "basis",
+      "raw": "Căn cứ vào Quy định về chế độ công tác phí, chi phí tiếp khách ban hành vào ngày 1/1/2020\nCăn cứ vào kiến nghị của các phòng ban\nBan Giám Đốc công ty TNHH Ri Ta Võ bổ sung nội dung Quy định về chế độ công tác phí, chi phí tiếp khách ban hành vào ngày 1/1/2020 như sau:",
+      "text": "Căn cứ vào Quy định về chế độ công tác phí, chi phí tiếp khách ban hành vào ngày 1/1/2020\nCăn cứ vào kiến nghị của các phòng ban\nBan Giám Đốc công ty TNHH Ri Ta Võ bổ sung nội dung Quy định về chế độ công tác phí, chi phí tiếp khách ban hành vào ngày 1/1/2020 như sau:",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "clause1",
+      "raw": "1. Tại khoản 11 điều 5 có quy định: “Các đoàn đi công tác từ 02 người trở lên, ưu tiên sử dụng phòng đôi, phòng ba (trừ trường hợp khác giới tính). Nếu CBNV tự ý ở phòng riêng, Công ty sẽ không thanh toán khoản tiền chênh lệch này”.\nNay bổ sung thêm quy định về chi phí lưu trú đối với phòng đôi, phòng ba như sau:\n1.1 Giá tiền phòng đôi: cao hơn từ 0 – 10% giá tiền phòng đơn lớn\n1.2 Giá tiền phòng ba: cao hơn từ 40 – 50% giá tiền phòng đơn lớn",
+      "text": "1. Tại khoản 11 điều 5 có quy định: “Các đoàn đi công tác từ 02 người trở lên, ưu tiên sử dụng phòng đôi, phòng ba (trừ trường hợp khác giới tính). Nếu CBNV tự ý ở phòng riêng, Công ty sẽ không thanh toán khoản tiền chênh lệch này”.\nNay bổ sung thêm quy định về chi phí lưu trú đối với phòng đôi, phòng ba như sau:\n1.1 Giá tiền phòng đôi: cao hơn từ 0 – 10% giá tiền phòng đơn lớn\n1.2 Giá tiền phòng ba: cao hơn từ 40 – 50% giá tiền phòng đơn lớn",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "clause2",
+      "raw": "2. Các nội dung khác không thay đổi.",
+      "text": "2. Các nội dung khác không thay đổi.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "clause3",
+      "raw": "3. Thời điểm áp dụng: Từ ngày 17/03/2020.",
+      "text": "3. Thời điểm áp dụng: Từ ngày 17/03/2020.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "distribution",
+      "raw": "Nơi nhận:\n- Các Phòng/Ban, Bộ phận thực hiện;\n- Lưu HCNS.\nTỔNG GIÁM ĐỐC\nVÕ MẬU QUỐC DUY\n02NS/TTr- BM14\n1",
+      "text": "Nơi nhận:\n- Các Phòng/Ban, Bộ phận thực hiện;\n- Lưu HCNS.\nTỔNG GIÁM ĐỐC\nVÕ MẬU QUỐC DUY\n02NS/TTr- BM14\n1",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "wording",
+      "code": "source_wording_preserved",
+      "location": {
+        "page": 1
+      }
+    }
+  ]
+}

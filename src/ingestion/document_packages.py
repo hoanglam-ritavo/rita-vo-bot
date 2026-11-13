@@ -105,7 +105,7 @@ def report(root, operation, results, *, as_json=False):
 def validate_extraction(extraction):
     require(isinstance(extraction, dict) and set(extraction) == {
         'schema_version', 'status', 'configuration', 'parser_metadata', 'segments', 'warnings'}, 'extraction_fields')
-    require(type(extraction['schema_version']) is int and extraction['schema_version'] == 2
+    require(type(extraction['schema_version']) is int and extraction['schema_version'] in (2, 3)
             and extraction['status'] == 'complete', 'incomplete_extraction')
     require(isinstance(extraction['configuration'], dict) and isinstance(extraction['parser_metadata'], dict), 'extraction_configuration')
     require(isinstance(extraction['segments'], list) and bool(extraction['segments']), 'extraction_segments')
@@ -140,6 +140,21 @@ def validate_extraction(extraction):
 
 def validate_chunks(extraction, draft, *, allow_unresolved=False):
     validate_extraction(extraction)
+    if isinstance(draft, dict) and draft.get('schema_version') == 3:
+        require(set(draft) == {'schema_version', 'chunks', 'excluded', 'warning_decisions', 'scopes', 'items', 'values'}, 'draft_fields')
+        require(extraction['schema_version'] == 3, 'mixed_schema_versions')
+        require(isinstance(draft['chunks'], list) and bool(draft['chunks']), 'empty_chunks')
+        for c in draft['chunks']:
+            require(isinstance(c, dict) and {'id', 'role', 'content', 'source_refs'} <= set(c)
+                    and set(c) <= {'id', 'role', 'content', 'source_refs', 'notes'}, 'chunk_fields')
+        legacy = {k: v for k, v in draft.items() if k not in ('scopes', 'items', 'values')}
+        legacy.update(schema_version=2, chunks=[{k: v for k, v in c.items() if k not in ('id', 'role')} for c in draft['chunks']])
+        result = validate_chunks(dict(extraction, schema_version=2), legacy, allow_unresolved=allow_unresolved)
+        from .structured import validate
+        validate(extraction, draft)
+        for row, chunk in zip(result, draft['chunks']):
+            row.update(author_id=chunk['id'], role=chunk['role'])
+        return result
     require(isinstance(draft, dict) and set(draft) == {
         'schema_version', 'chunks', 'excluded', 'warning_decisions'}, 'draft_fields')
     require(type(draft['schema_version']) is int and draft['schema_version'] == 2, 'draft_version')
@@ -295,11 +310,15 @@ def load_package(root, directory, *, eligible=False, allow_unresolved=False):
     require({'extraction.json', 'chunks.json'} <= files.keys(), 'incomplete_package')
     require(set(files) == {'metadata.json', 'extraction.json', 'chunks.json', source_file}, 'package_files')
     extraction, draft = decode(files['extraction.json']), decode(files['chunks.json'])
+    require(type(draft.get('schema_version')) is int and draft['schema_version'] in (2, 3), 'draft_version')
+    require(record['schema_version'] == extraction.get('schema_version') == draft.get('schema_version'), 'mixed_schema_versions')
     chunks = validate_chunks(extraction, draft, allow_unresolved=allow_unresolved)
     require(all(s['location']['kind'] == {'.pdf': 'pdf', '.xlsx': 'xlsx', '.csv': 'csv', '.txt': 'text', '.md': 'text'}[record['extension']]
                 for s in extraction['segments']), 'source_location_kind')
     payload = {'identity': {k: record[k] for k in IDENTITY_FIELDS}, 'chunks': chunks,
                'excluded': draft['excluded'], 'warning_decisions': draft['warning_decisions']}
+    if record['schema_version'] == 3:
+        payload['structured'] = {k: draft[k] for k in ('scopes', 'items', 'values')}
     return record, payload, files
 
 

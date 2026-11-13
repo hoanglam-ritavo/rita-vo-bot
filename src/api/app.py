@@ -6,18 +6,18 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from src.answering.config import load_settings
-from src.answering.contracts import Answer, AnswerError, AskRequest
-from src.answering.service import AnswerService
+from .config import load_settings
+from .contracts import RetrievalResponse, ApiError, RetrieveRequest
+from .service import ApiService
 
 logger = logging.getLogger(__name__)
 
 
-def create_app(settings=None, *, service_factory=AnswerService):
+def create_app(settings=None, *, service_factory=ApiService):
     @asynccontextmanager
     async def lifespan(app):
         service = service_factory(settings or load_settings())
-        app.state.answer_service = service
+        app.state.retrieval_service = service
         try:
             await service.start()
             yield
@@ -29,33 +29,35 @@ def create_app(settings=None, *, service_factory=AnswerService):
             except Exception:
                 raise RuntimeError('API shutdown failed.') from None
 
-    app = FastAPI(title='Rita local document answers', lifespan=lifespan)
+    app = FastAPI(title='Rita local document retrieval', lifespan=lifespan)
 
-    @app.exception_handler(AnswerError)
-    async def answer_error(request, exc):
-        logger.warning('answer_error code=%s', exc.code)
+    @app.exception_handler(ApiError)
+    async def retrieval_error(request, exc):
+        logger.warning('retrieval_error code=%s', exc.code)
+        message = {
+            422: 'Câu hỏi vượt giới hạn xử lý. Vui lòng rút gọn và gửi lại đủ ngữ cảnh.',
+            429: 'Dịch vụ đang xử lý yêu cầu khác. Vui lòng thử lại sau.',
+            503: 'Dịch vụ hoặc nguồn dữ liệu tạm thời không khả dụng. Vui lòng thử lại sau.',
+            504: 'Yêu cầu vượt thời gian xử lý. Vui lòng thử lại hoặc chia nhỏ câu hỏi.',
+        }.get(exc.status_code, 'Không thể xử lý yêu cầu lúc này. Vui lòng thử lại sau.')
         return JSONResponse(status_code=exc.status_code,
-                            content={'error': {'code': exc.code, 'message': 'Không thể xử lý yêu cầu. Kiểm tra mã lỗi và cấu hình dịch vụ.'}})
+                            content={'error': {'code': exc.code, 'message': message}})
 
     @app.exception_handler(RequestValidationError)
     async def input_error(request, exc):
         # Do not echo the submitted text in validation errors.
-        return JSONResponse(status_code=422, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự.'}})
+        return JSONResponse(status_code=422, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20.'}})
 
-    @app.post('/api/v1/ask', response_model=Answer, responses={
-        422: {'description': 'Invalid text or model/context input limit exceeded.'},
-        429: {'description': 'Another answer is in progress.'},
-        502: {'description': 'Invalid LLM output or citations.'},
+    @app.post('/api/v1/retrieve', response_model=RetrievalResponse, responses={
+        422: {'description': 'Invalid text, top-K or model token limit exceeded.'},
+        429: {'description': 'Another retrieval is in progress.'},
         503: {'description': 'Dependency unavailable or incompatible model.'},
-        504: {'description': 'Answer or dependency timed out.'},
+        504: {'description': 'Retrieval or dependency timed out.'},
     })
-    async def ask(body: AskRequest, request: Request):
-        try:
-            return await request.app.state.answer_service.ask(body.text)
-        except AnswerError:
-            raise
-        except Exception:
-            raise AnswerError('answer_failed', 503) from None
+    async def retrieve(body: RetrieveRequest, request: Request):
+        service = request.app.state.retrieval_service
+        top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
+        return await service.retrieve(body.text, top_k)
 
     @app.get('/health/live')
     async def live():
@@ -63,7 +65,7 @@ def create_app(settings=None, *, service_factory=AnswerService):
 
     @app.get('/health/ready')
     async def ready(request: Request):
-        await request.app.state.answer_service.ready()
-        return {'status': 'ready', 'notice': 'Availability only; answer quality is not verified.'}
+        await request.app.state.retrieval_service.ready()
+        return {'status': 'ready', 'notice': 'Availability only; retrieval quality and dataset completeness are not verified.'}
 
     return app

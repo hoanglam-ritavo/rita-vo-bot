@@ -1,5 +1,6 @@
-"""Publish validated v2 packages using local models and atomic per-revision metadata."""
+"""Publish validated v2/v3 packages with atomic metadata, vectors and evidence."""
 import copy
+from decimal import Decimal
 import re
 from uuid import UUID, uuid4
 from datetime import datetime, timezone
@@ -15,6 +16,8 @@ def configuration(payload, model_revision):
     content = copy.deepcopy(payload['chunks'])
     evidence = {'chunks': content, 'excluded': payload['excluded'],
                 'warning_decisions': payload['warning_decisions']}
+    if 'structured' in payload:
+        evidence['structured'] = payload['structured']
     return {'pipeline': 'agent-json-v2', 'source_sha256': payload['identity']['sha256'],
             'content_hash': packages.canonical_hash(evidence), 'model_name': MODEL_NAME,
             'model_revision': model_revision, 'embedding_dimensions': 384,
@@ -138,5 +141,14 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
             model_name=MODEL_NAME, model_revision=model_revision, embedding_dimensions=384, chunk_count=len(chunks)))
         await db.flush()
         db.add_all(DocumentChunk(run_id=run_id, chunk_index=c['chunk_index'], content=c['content'], source_location=c['source_location'],
-            extraction_method=c['extraction_method'], embedding=c['embedding']) for c in chunks)
+            extraction_method=c['extraction_method'], embedding=c['embedding'],
+            author_id=c.get('author_id'), role=c.get('role')) for c in chunks)
+        if 'structured' in payload:
+            from src.database.models import EvidenceScope, EvidenceItem, EvidenceValue
+            data = payload['structured']
+            db.add_all(EvidenceScope(run_id=run_id, author_id=r['id'], data=r) for r in data['scopes'])
+            db.add_all(EvidenceItem(run_id=run_id, author_id=r['id'], data=r) for r in data['items'])
+            await db.flush()
+            db.add_all(EvidenceValue(run_id=run_id, author_id=r['id'], item_id=r['item_id'],
+                numeric_value=Decimal(r['value']) if r['type'] == 'decimal' else None, data=r) for r in data['values'])
     return {'status': 'processed', 'code': 'published', 'run_id': str(run_id), 'revision_id': record['revision_id'], 'missing_supersedes': missing}

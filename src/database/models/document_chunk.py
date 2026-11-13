@@ -12,11 +12,14 @@ class DocumentChunk(Base):
     run_id: Mapped[UUID] = mapped_column(ForeignKey('ingestion_runs.id'), index=True)
     chunk_index: Mapped[int] = mapped_column(Integer)
     content: Mapped[str] = mapped_column(Text)
+    author_id: Mapped[str | None] = mapped_column(Text)
+    role: Mapped[str | None] = mapped_column(Text)
     source_location: Mapped[dict] = mapped_column(JSONB)
     extraction_method: Mapped[str] = mapped_column(Text)
     embedding: Mapped[list[float] | None] = mapped_column(Vector(384))
     __table_args__ = (
         UniqueConstraint('run_id', 'chunk_index'),
+        UniqueConstraint('run_id', 'author_id', name='uq_chunk_run_author'),
         CheckConstraint('chunk_index >= 0', name='chunk_index'),
         CheckConstraint("length(trim(content)) > 0", name='content_nonempty'),
         CheckConstraint("jsonb_typeof(source_location) = 'object'", name='location_object'),

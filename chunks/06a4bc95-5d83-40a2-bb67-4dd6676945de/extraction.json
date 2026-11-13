@@ -1,0 +1,113 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {
+    "language": "vi",
+    "page_count": 1,
+    "text_normalization": "Agent transcription; normalized line wrapping; table rows retain explicit headers and merged-cell context."
+  },
+  "parser_metadata": {
+    "method": "agent-visual-transcription-of-local-pymupdf-renders",
+    "renderer": "PyMuPDF",
+    "render_scale": 1.8,
+    "external_ocr_service": false,
+    "inspected_pages": [
+      1
+    ]
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RITAVÕ — WE WIN WITH THE INTEGRITY & QUALITY\nTỜ TRÌNH\nMã số: 02NS/TTr-BM13\nNgày hiệu lực: 01/11/2022\nSoát xét: 07/12/2022\nSố trang: 01\nSố: 03/2022/TTr-HCNS\nTp. Hồ Chí Minh, ngày 8 tháng 12 năm 2022\nTỜ TRÌNH (V/v tính thời gian tăng ca)\nKính gửi: TỔNG GIÁM ĐỐC",
+      "text": "RITAVÕ — WE WIN WITH THE INTEGRITY & QUALITY\nTỜ TRÌNH\nMã số: 02NS/TTr-BM13\nNgày hiệu lực: 01/11/2022\nSoát xét: 07/12/2022\nSố trang: 01\nSố: 03/2022/TTr-HCNS\nTp. Hồ Chí Minh, ngày 8 tháng 12 năm 2022\nTỜ TRÌNH (V/v tính thời gian tăng ca)\nKính gửi: TỔNG GIÁM ĐỐC",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "basis",
+      "raw": "- Căn cứ điều 109 của Bộ Luật Lao Động 2019 quy định thời giờ nghỉ ngơi\n- Căn cứ điều 58, điều 63 và điều 64 của nghị định số 145/2020/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Bộ Luật Lao Động về điều kiện lao động và quan hệ lao động\n- Căn cứ điều 4 và điều 5 chương 1 của Nội Quy Lao Động Công ty được ban hành ngày 24/01/2015 quy định về việc thời giờ làm việc và nghỉ ngơi\nP.HCNS trình Ban Giám Đốc xem xét về quy định thời gian tính tăng ca theo nội dung sau:",
+      "text": "- Căn cứ điều 109 của Bộ Luật Lao Động 2019 quy định thời giờ nghỉ ngơi\n- Căn cứ điều 58, điều 63 và điều 64 của nghị định số 145/2020/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Bộ Luật Lao Động về điều kiện lao động và quan hệ lao động\n- Căn cứ điều 4 và điều 5 chương 1 của Nội Quy Lao Động Công ty được ban hành ngày 24/01/2015 quy định về việc thời giờ làm việc và nghỉ ngơi\nP.HCNS trình Ban Giám Đốc xem xét về quy định thời gian tính tăng ca theo nội dung sau:",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "start",
+      "raw": "STT | Nội dung | Thời gian bắt đầu tính tăng ca\n1 | Tăng ca cả ngày nghỉ tuần và ngày lễ | Thời gian bắt đầu làm việc đến khi kết thúc\n2 | Tăng ca ngày thứ bảy (đối với trường hợp được nghỉ nửa ngày thứ bảy) | Từ 13 giờ\n3 | Tăng ca ngày làm việc bình thường | Thời gian bắt đầu khi kết thúc thời gian làm việc bình thường",
+      "text": "STT | Nội dung | Thời gian bắt đầu tính tăng ca\n1 | Tăng ca cả ngày nghỉ tuần và ngày lễ | Thời gian bắt đầu làm việc đến khi kết thúc\n2 | Tăng ca ngày thứ bảy (đối với trường hợp được nghỉ nửa ngày thứ bảy) | Từ 13 giờ\n3 | Tăng ca ngày làm việc bình thường | Thời gian bắt đầu khi kết thúc thời gian làm việc bình thường",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "rest",
+      "raw": "Quy định thời gian nghỉ ngơi (chung cho mục 1, 2, 3): Tăng ca vào ngày T7, chủ nhật, Lễ & sau giờ làm việc được quy định như sau:\n- TH1: Tăng ca từ 8:00 đến 17:00 trừ 1 giờ nghỉ giữa ca (12:00 - 13:00)\n- TH2: Tăng ca từ sau 17:00 đến trước 22:00: trừ 30 phút nghỉ giữa ca (17:00 - 17:30)\n- TH3: Tăng ca từ sau 17:00 đến sau 22:00 trừ 1 giờ nghỉ giữa ca (17:00 - 18:00)\nGhi chú: Thời giờ nghỉ ngơi sẽ không được tính vào thời giờ làm việc được hưởng lương",
+      "text": "Quy định thời gian nghỉ ngơi (chung cho mục 1, 2, 3): Tăng ca vào ngày T7, chủ nhật, Lễ & sau giờ làm việc được quy định như sau:\n- TH1: Tăng ca từ 8:00 đến 17:00 trừ 1 giờ nghỉ giữa ca (12:00 - 13:00)\n- TH2: Tăng ca từ sau 17:00 đến trước 22:00: trừ 30 phút nghỉ giữa ca (17:00 - 17:30)\n- TH3: Tăng ca từ sau 17:00 đến sau 22:00 trừ 1 giờ nghỉ giữa ca (17:00 - 18:00)\nGhi chú: Thời giờ nghỉ ngơi sẽ không được tính vào thời giờ làm việc được hưởng lương",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "driver",
+      "raw": "4. Riêng đối với vị trí lái xe, lái xe và giao nhận (không bao gồm các vị trí lái xe khoán việc - lái xe cấp Lãnh đạo của Công ty).\nNhững trường hợp sau sẽ được tính tăng ca toàn thời gian:\n- Lái xe xuyên suốt các thời gian được nêu ở mục 1,2&3\n- Thời gian tăng ca theo yêu cầu công việc của TBP/người sử dụng xe.\nGhi chú: những trường hợp lái xe xuyên suốt phải có chữ ký xác nhận của người sử dụng xe và TBP",
+      "text": "4. Riêng đối với vị trí lái xe, lái xe và giao nhận (không bao gồm các vị trí lái xe khoán việc - lái xe cấp Lãnh đạo của Công ty).\nNhững trường hợp sau sẽ được tính tăng ca toàn thời gian:\n- Lái xe xuyên suốt các thời gian được nêu ở mục 1,2&3\n- Thời gian tăng ca theo yêu cầu công việc của TBP/người sử dụng xe.\nGhi chú: những trường hợp lái xe xuyên suốt phải có chữ ký xác nhận của người sử dụng xe và TBP",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "note",
+      "raw": "Note:\n- Những sự việc phát sinh ngoài chính sách Công ty quy định sẽ áp dụng theo quy định của BLLĐ\n- Hiệu lực: 01/11/2022\nKính mong Tổng Giám Đốc xem xét và phê duyệt.",
+      "text": "Note:\n- Những sự việc phát sinh ngoài chính sách Công ty quy định sẽ áp dụng theo quy định của BLLĐ\n- Hiệu lực: 01/11/2022\nKính mong Tổng Giám Đốc xem xét và phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signers",
+      "raw": "Nơi nhận:\n- Các Phòng/Ban, Bộ phận thực hiện;\n- Lưu HCNS.\nP. HCNS — Đề xuất — TRƯỞNG PHÒNG.HCNS — Hoàng Vân\nTổng Giám Đốc — Duyệt — TỔNG GIÁM ĐỐC — Võ Mậu Quốc Duy\n02NS/TTr-BM13\n1",
+      "text": "Nơi nhận:\n- Các Phòng/Ban, Bộ phận thực hiện;\n- Lưu HCNS.\nP. HCNS — Đề xuất — TRƯỞNG PHÒNG.HCNS — Hoàng Vân\nTổng Giám Đốc — Duyệt — TỔNG GIÁM ĐỐC — Võ Mậu Quốc Duy\n02NS/TTr-BM13\n1",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "boundary",
+      "code": "source_boundary_unspecified",
+      "location": {
+        "page": 1
+      }
+    }
+  ]
+}

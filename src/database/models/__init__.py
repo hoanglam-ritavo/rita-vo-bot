@@ -6,5 +6,7 @@ from .document_relation import DocumentRelation
 from .ingestion_run import IngestionRun
 from .document_chunk import DocumentChunk
 from .mixins import Timestamps
+from .evidence import EvidenceScope, EvidenceItem, EvidenceValue
 
-__all__ = ['Document', 'DocumentRevision', 'DocumentAccessRule', 'DocumentRelation', 'IngestionRun', 'DocumentChunk', 'Timestamps']
+__all__ = ['Document', 'DocumentRevision', 'DocumentAccessRule', 'DocumentRelation', 'IngestionRun', 'DocumentChunk', 'Timestamps',
+           'EvidenceScope', 'EvidenceItem', 'EvidenceValue']

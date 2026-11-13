@@ -73,8 +73,8 @@ def validate_schema(catalog: object) -> list[str]:
         if not isinstance(record, dict) or set(record) != FIELDS:
             errors.append(f'{prefix}: incorrect fields.')
             continue
-        if type(record['schema_version']) is not int or record['schema_version'] != 2:
-            errors.append(f'{prefix}: expected metadata schema_version=2.')
+        if type(record['schema_version']) is not int or record['schema_version'] not in (2, 3):
+            errors.append(f'{prefix}: expected metadata schema_version=2 or 3.')
         for key in ('document_id', 'revision_id'):
             value = record[key]
             if not valid_uuid(value):

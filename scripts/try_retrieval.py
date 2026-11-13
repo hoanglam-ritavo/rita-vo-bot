@@ -11,7 +11,7 @@ if __package__ in (None, ''):
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 # Edit these values in your IDE. Keep this file saved as UTF-8.
-QUESTION = "công ty có bao nhiêu phúc lợi cho nhân viên?"
+QUESTION = "Nhân viên lấy vợ được công ty cho bao nhiêu tiền?"
 MODEL_REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
 MODEL_PATH = REPOSITORY_ROOT / ".tmp/models/multilingual-e5-small" / MODEL_REVISION
 TOP_K = 5
@@ -98,11 +98,11 @@ def format_result(question, result):
     if not matches:
         return heading + messages['no_matches']
     sections = [heading + 'Các đoạn tài liệu tìm được\nĐây là kết quả tìm kiếm, chưa phải câu trả lời tổng hợp.']
-    for index, match in enumerate(matches[:3], 1):
+    for index, match in enumerate(matches, 1):
         title = match.get('title') or PurePosixPath(match.get('source_path') or '').name or 'Tài liệu chưa có tên'
         source = source_label(match.get('source_spans') or [])
         sections.append(f'{index}. {title}\n   Nguồn: {source}\n\n' + match['content'])
-    sections.append(f'Hiển thị {min(3, len(matches))}/{len(matches)} kết quả tìm được.')
+    sections.append(f'Hiển thị {len(matches)}/{len(matches)} kết quả tìm được.')
     return '\n\n'.join(sections)
 
 

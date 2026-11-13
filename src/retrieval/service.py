@@ -26,14 +26,19 @@ def validate_request(question, top_k):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision):
+    def __init__(self, *, model_path, model_revision, device=None):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
+        self.device = device
         self.model_path = model_path
         self.model_revision = model_revision.lower()
         self._model = None
         self._fingerprint = None
         self._lock = asyncio.Lock()
+
+    @property
+    def started(self):
+        return self._model is not None
 
     async def _worker(self, function, *args):
         # Keep the lock until the worker exits even if the caller cancels.
@@ -41,15 +46,22 @@ class RetrievalService:
         try:
             return await asyncio.shield(task)
         except asyncio.CancelledError:
-            try:
-                await task
-            except Exception:
-                pass
+            # Repeated cancellation must not cancel the worker wrapper either.
+            while not task.done():
+                try:
+                    await asyncio.shield(task)
+                except asyncio.CancelledError:
+                    continue
+                except Exception:
+                    break
+            if not task.cancelled():
+                task.exception()  # Retrieve a worker error without replacing cancellation.
             raise
 
     def _load(self):
         fingerprint = embeddings.model_fingerprint(self.model_path)
-        model = embeddings.load_model(self.model_path)
+        model = (embeddings.load_model(self.model_path) if self.device is None
+                 else embeddings.load_model(self.model_path, device=self.device))
         if embeddings.model_fingerprint(self.model_path) != fingerprint:
             raise RetrievalError('model_changed')
         return model, fingerprint

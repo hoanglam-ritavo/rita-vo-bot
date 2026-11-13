@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Scope and project status
 
-- The implemented system provides a Python database foundation, package-owned document metadata, multi-format agent-authored JSON ingestion with package-owned metadata, not a functioning chatbot. Keep implemented behavior distinct from planned RAG, routing, and service integration.
+- The implemented system provides a Python database foundation, package-owned v2/v3 document ingestion/publication, native E5-small source retrieval through function/CLI/HTTP, and health-only gRPC. It does not generate answers or compute aggregates through an LLM. Keep implemented behavior distinct from planned chatbot generation, routing and service integration.
 - Follow the requested task scope. Do not implement later phases or add dependencies merely because the architecture mentions them.
 - Keep documentation in English and synchronize it with changes to setup, supported behavior, and architectural decisions.
 

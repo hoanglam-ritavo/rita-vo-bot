@@ -1,8 +1,10 @@
 # Document metadata in PostgreSQL
 
-The local catalog and direct PDF ingestion workflows are retired. Metadata belongs to schema-v2 packages at `chunks/<document_id>/`; PostgreSQL receives it transactionally during publication. See the [chunk package workflow](offline-indexing.md) for initialization, agent-authored extraction/chunking, validation, publication and non-destructive legacy conversion. No approval or reviewer identity is required.
+The local catalog and direct PDF ingestion workflows are retired. Metadata belongs to schema-v2/v3 packages at `chunks/<document_id>/`; PostgreSQL receives it transactionally during publication. See the [chunk package workflow](offline-indexing.md) for initialization, agent-authored extraction/chunking, validation, publication and non-destructive legacy conversion. No approval or reviewer identity is required.
 
 Migration `0003_agent_packages` removes database review status and renames review notes to evidence notes. Run it explicitly before new publication code. Existing chunks, vectors and run history remain intact; local conversion does not change the database.
+
+Migration `0005_structured_evidence` additionally stores nullable chunk author IDs/roles and run-owned scopes, items and typed values. Structure and vectors share the publication transaction and fingerprint. Read [the v3 contract](structured-evidence.md) before publishing or querying structured evidence. V2 text conventions alone still do not infer hierarchy.
 
 Historical `indexing_chunks/` is not scanned or moved. Historical source-renaming utilities are not part of this workflow and must not be applied to the current source tree.
 

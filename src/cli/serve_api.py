@@ -2,12 +2,10 @@
 import logging
 import sys
 
-from src.database.runtime import run_async
-
 
 async def main():
     import uvicorn
-    from src.answering.config import load_settings
+    from src.api.config import load_settings
     from src.api.app import create_app
     try:
         settings = load_settings()
@@ -21,6 +19,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    from src.database.runtime import run_async
+
     logging.basicConfig(level=logging.INFO)
     try:
         raise SystemExit(run_async(main()))

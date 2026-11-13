@@ -8,7 +8,30 @@ from src.database.models import IngestionRun as Run, DocumentAccessRule as Acces
 from src.ingestion.embeddings import MODEL_NAME
 
 
-async def search(vector, model_revision, fingerprint, top_k):
+def eligibility(model_revision, fingerprint):
+    today = date.today()
+    public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
+    return (Run.status == 'succeeded', Run.is_active.is_(True), Revision.is_catalog_current.is_(True),
+            Revision.indexing_decision == 'include', Revision.lifecycle_status == 'active', public,
+            or_(Revision.effective_from.is_(None), Revision.effective_from <= today),
+            or_(Revision.effective_to.is_(None), Revision.effective_to >= today),
+            Run.model_name == MODEL_NAME, Run.model_revision == model_revision, Run.embedding_dimensions == 384,
+            Run.configuration['model_files_sha256'].as_string() == fingerprint,
+            Run.configuration['normalize_embeddings'].as_boolean().is_(True),
+            Run.configuration['prefix'].as_string() == 'passage: ')
+
+
+def match_record(chunk, revision):
+    return {'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
+            'document_id': str(revision.document_id), 'revision_id': str(revision.id),
+            'content': chunk.content, 'title': revision.title or '', 'source_path': revision.source_path,
+            'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,
+            'effective_to': revision.effective_to.isoformat() if revision.effective_to else None,
+            'applicability': revision.applicability, 'source_spans': chunk.source_location['spans'],
+            'author_id': chunk.author_id, 'role': chunk.role}
+
+
+async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False):
     today = date.today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
     eligible = (Run.status == 'succeeded', Run.is_active.is_(True),
@@ -36,6 +59,8 @@ async def search(vector, model_revision, fingerprint, top_k):
                  .join(Revision, Run.revision_id == Revision.id)
                  .where(*eligible, *compatible, Chunk.embedding.is_not(None))
                  .order_by(distance, Chunk.id).limit(top_k))
+        if detail_only:
+            query = query.where(or_(Chunk.role.is_(None), Chunk.role.not_in(['inventory', 'table'])))
         for chunk, revision, score in (await db.execute(query)).all():
             if score is None or not math.isfinite(float(score)):
                 raise ValueError('invalid_stored_vector_distance')
@@ -43,6 +68,7 @@ async def search(vector, model_revision, fingerprint, top_k):
                 'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
                 'document_id': str(revision.document_id), 'revision_id': str(revision.id),
                 'content': chunk.content, 'cosine_distance': float(score), 'title': revision.title,
+                'author_id': chunk.author_id, 'role': chunk.role,
                 'source_path': revision.source_path, 'version_label': revision.version_label,
                 'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,
                 'effective_to': revision.effective_to.isoformat() if revision.effective_to else None,

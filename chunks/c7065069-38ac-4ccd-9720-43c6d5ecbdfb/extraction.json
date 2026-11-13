@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {
+    "language": "vi",
+    "page_count": 6,
+    "text_normalization": "Agent transcription; normalized line wrapping; table rows retain explicit headers and merged-cell context."
+  },
+  "parser_metadata": {
+    "method": "agent-visual-transcription-of-local-pymupdf-renders",
+    "renderer": "PyMuPDF",
+    "render_scale": 1.8,
+    "external_ocr_service": false,
+    "inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RITAVÕ — WE WIN WITH THE INTEGRITY & QUALITY\nQUY TRÌNH THANH LÝ TÀI SẢN – CCDC – PHẾ LIỆU\nMã Số QT: [số viết tay chưa xác định chắc chắn]/QTr-RTV/23\nLần Ban Hành: 01/23\nNgày ban hành: 05/06/2023\nSố trang: 1/5",
+      "text": "RITAVÕ — WE WIN WITH THE INTEGRITY & QUALITY\nQUY TRÌNH THANH LÝ TÀI SẢN – CCDC – PHẾ LIỆU\nMã Số QT: [số viết tay chưa xác định chắc chắn]/QTr-RTV/23\nLần Ban Hành: 01/23\nNgày ban hành: 05/06/2023\nSố trang: 1/5",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signers",
+      "raw": "Trách Nhiệm | Biên Soạn | Thẩm Định | Phê Duyệt\nHọ và tên | Nguyễn Huy Tâm | Trần Thị Tuyết Mai | Võ Mậu Quốc Duy\nChức vụ | TBP. KSNB | PGĐ. TC & KSNB | Tổng Giám Đốc",
+      "text": "Trách Nhiệm | Biên Soạn | Thẩm Định | Phê Duyệt\nHọ và tên | Nguyễn Huy Tâm | Trần Thị Tuyết Mai | Võ Mậu Quốc Duy\nChức vụ | TBP. KSNB | PGĐ. TC & KSNB | Tổng Giám Đốc",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "scope",
+      "raw": "I. MỤC ĐÍCH:\n- Xử lý TS – CCDC, vật dụng, phế phẩm không còn sử dụng.\nII. PHẠM VI VÀ ĐỐI TƯỢNG ÁP DỤNG:\n- Toàn bộ các phòng ban khi cần xử lý các Tài sản/ CCDC/ Hàng hóa … không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ.",
+      "text": "I. MỤC ĐÍCH:\n- Xử lý TS – CCDC, vật dụng, phế phẩm không còn sử dụng.\nII. PHẠM VI VÀ ĐỐI TƯỢNG ÁP DỤNG:\n- Toàn bộ các phòng ban khi cần xử lý các Tài sản/ CCDC/ Hàng hóa … không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "definition",
+      "raw": "III. ĐỊNH NGHĨA & NHỮNG TỪ VIẾT TẮT:\n3.1. Định nghĩa:\n- Các trường hợp thanh lý, hủy bỏ - Tài sản - công cụ dụng cụ, phế liệu:\n* Khi có Tài sản - công cụ dụng cụ hết hạn sử dụng\n* Tài sản - công cụ dụng cụ chưa hết hạn sử dụng nhưng hư hỏng, không thể sửa chữa hoặc sửa chữa không hiệu quả (tốn chi phí so với giá trị thực)\n* Phế liệu (thùng carton, can nhựa, túi nylon…): vật dụng có giá trị thu mua cần thanh lý.\n3.2. Phương thức thực hiện:\n* Bán/ thanh lý Tài sản - công cụ dụng cụ, phế liệu\n* Phá dỡ, hủy bỏ, đổ bỏ Tài sản - công cụ dụng cụ…",
+      "text": "III. ĐỊNH NGHĨA & NHỮNG TỪ VIẾT TẮT:\n3.1. Định nghĩa:\n- Các trường hợp thanh lý, hủy bỏ - Tài sản - công cụ dụng cụ, phế liệu:\n* Khi có Tài sản - công cụ dụng cụ hết hạn sử dụng\n* Tài sản - công cụ dụng cụ chưa hết hạn sử dụng nhưng hư hỏng, không thể sửa chữa hoặc sửa chữa không hiệu quả (tốn chi phí so với giá trị thực)\n* Phế liệu (thùng carton, can nhựa, túi nylon…): vật dụng có giá trị thu mua cần thanh lý.\n3.2. Phương thức thực hiện:\n* Bán/ thanh lý Tài sản - công cụ dụng cụ, phế liệu\n* Phá dỡ, hủy bỏ, đổ bỏ Tài sản - công cụ dụng cụ…",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "abbreviations",
+      "raw": "3.3. Những từ viết tắt:\nBOD: Ban Giám Đốc\nKSNB: Kiểm soát nội bộ\nHCNS: Hành chính nhân sự\nBAN: Ban an ninh\nBVDV: Bảo vệ dịch vụ\nTS-CCDC/PL: Tài sản - Công cụ dụng cụ/ Phế Liệu\nXLVP: Xử lý vi phạm\nKV: Kho Vận\nSR: Showroom\nTK: Thủ kho",
+      "text": "3.3. Những từ viết tắt:\nBOD: Ban Giám Đốc\nKSNB: Kiểm soát nội bộ\nHCNS: Hành chính nhân sự\nBAN: Ban an ninh\nBVDV: Bảo vệ dịch vụ\nTS-CCDC/PL: Tài sản - Công cụ dụng cụ/ Phế Liệu\nXLVP: Xử lý vi phạm\nKV: Kho Vận\nSR: Showroom\nTK: Thủ kho",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "effect",
+      "raw": "IV. HIỆU LỰC ÁP DỤNG:\n- Quy định này có hiệu lực kể từ ngày ký và thay thế các quy định, hướng dẫn trước đây có liên quan đến những nội dung quy định tại văn bản này.\n- Tùy tình hình thực tế mà BOD có quyền sửa đổi, bổ sung các điều khoản tại quy định này bất cứ thời điểm nào.",
+      "text": "IV. HIỆU LỰC ÁP DỤNG:\n- Quy định này có hiệu lực kể từ ngày ký và thay thế các quy định, hướng dẫn trước đây có liên quan đến những nội dung quy định tại văn bản này.\n- Tùy tình hình thực tế mà BOD có quyền sửa đổi, bổ sung các điều khoản tại quy định này bất cứ thời điểm nào.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "general",
+      "raw": "V. NỘI DUNG QUY TRÌNH:\n5.1. Quy định chung:\n- Khi có TS-CCDC/PL cần xử lý (thanh lý, thay thế, hủy bỏ…), các phòng ban phải thực hiện theo quy trình này. Các trường hợp tự ý điều chuyển, di dời, thanh lý…không theo quy định này sẽ xử lý theo nội quy Công ty\n- Tất cả việc nhập/xuất các TS-CCDC/PL này phải có các chứng từ khi điều chuyển ra khỏi Công ty, nếu không có đầy đủ các chứng từ hoặc biên bản phê duyệt từ BOD của công ty, BVDV đình chỉ và ngăn chặn không cho xuất/nhập và thông tin đến BAN và phòng HCNS.\n- Toàn bộ quá trình xuất phải được thực hiện dưới khu vực camera.",
+      "text": "V. NỘI DUNG QUY TRÌNH:\n5.1. Quy định chung:\n- Khi có TS-CCDC/PL cần xử lý (thanh lý, thay thế, hủy bỏ…), các phòng ban phải thực hiện theo quy trình này. Các trường hợp tự ý điều chuyển, di dời, thanh lý…không theo quy định này sẽ xử lý theo nội quy Công ty\n- Tất cả việc nhập/xuất các TS-CCDC/PL này phải có các chứng từ khi điều chuyển ra khỏi Công ty, nếu không có đầy đủ các chứng từ hoặc biên bản phê duyệt từ BOD của công ty, BVDV đình chỉ và ngăn chặn không cho xuất/nhập và thông tin đến BAN và phòng HCNS.\n- Toàn bộ quá trình xuất phải được thực hiện dưới khu vực camera.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "flow1",
+      "raw": "5.2. Quy trình thanh lý TS-CCDC/PL — 5.2.1. Lưu Đồ:\nBước 1: Đề xuất thanh lý / hủy bỏ TS-CCDC/PL. Trách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB. Thời gian: Tùy theo điều kiện phát sinh, Ngày T.\nBước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ). Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T + 1.\nBước 3: Tìm kiếm nhà thầu xử lý. Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T+3.",
+      "text": "5.2. Quy trình thanh lý TS-CCDC/PL — 5.2.1. Lưu Đồ:\nBước 1: Đề xuất thanh lý / hủy bỏ TS-CCDC/PL. Trách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB. Thời gian: Tùy theo điều kiện phát sinh, Ngày T.\nBước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ). Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T + 1.\nBước 3: Tìm kiếm nhà thầu xử lý. Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T+3.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "flow2",
+      "raw": "5.2.1. Lưu Đồ (tiếp):\nBước 4: Trình phê duyệt BOD. Trách nhiệm: HCNS; KSNB; BOD. Thời gian: T+4. Nhánh Không Duyệt quay lại bước 2; nhánh Duyệt đi đến bước 5.\nBước 5: Giám sát/ xử lý sau phê duyệt; Biên bản xử lý TS-CCDC kiêm Phiếu xuất kho. Trách nhiệm: HCNS; KSNB; Phòng ban có nhu cầu thanh lý; Kế toán thu tiền; BVDV. Thời gian: T+5.\nBước 6: Xử lý đối chiếu hệ thống chứng từ. Trách nhiệm: HCNS; KSNB; Kế toán. Thời gian: T+6.\nBước 7: Kết thúc.",
+      "text": "5.2.1. Lưu Đồ (tiếp):\nBước 4: Trình phê duyệt BOD. Trách nhiệm: HCNS; KSNB; BOD. Thời gian: T+4. Nhánh Không Duyệt quay lại bước 2; nhánh Duyệt đi đến bước 5.\nBước 5: Giám sát/ xử lý sau phê duyệt; Biên bản xử lý TS-CCDC kiêm Phiếu xuất kho. Trách nhiệm: HCNS; KSNB; Phòng ban có nhu cầu thanh lý; Kế toán thu tiền; BVDV. Thời gian: T+5.\nBước 6: Xử lý đối chiếu hệ thống chứng từ. Trách nhiệm: HCNS; KSNB; Kế toán. Thời gian: T+6.\nBước 7: Kết thúc.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step1",
+      "raw": "5.2.2. Diễn Giải — Bước 1: Đề xuất thanh lý/ hủy bỏ/ TS-CCDC/PL\n- Khi có nhu cầu đề xuất thanh lý/ hủy bỏ các TS - CCDC/PL, các phòng ban gửi email thông tin đến KSNB, HCNS (kèm ít nhất 3 hình ảnh thể hiện toàn cảnh và chi tiết mã TS-CCDC/PL nếu có)\n- Đối với các SR/ KV/ chi nhánh ngoài HN/HCM, HCNS hướng dẫn tập trung các TS-CCDC/PL này tại 1 khu vực nhất định, và xử lý đánh giá định kỳ 3 tháng - 6 tháng/ lần\nTrách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB.",
+      "text": "5.2.2. Diễn Giải — Bước 1: Đề xuất thanh lý/ hủy bỏ/ TS-CCDC/PL\n- Khi có nhu cầu đề xuất thanh lý/ hủy bỏ các TS - CCDC/PL, các phòng ban gửi email thông tin đến KSNB, HCNS (kèm ít nhất 3 hình ảnh thể hiện toàn cảnh và chi tiết mã TS-CCDC/PL nếu có)\n- Đối với các SR/ KV/ chi nhánh ngoài HN/HCM, HCNS hướng dẫn tập trung các TS-CCDC/PL này tại 1 khu vực nhất định, và xử lý đánh giá định kỳ 3 tháng - 6 tháng/ lần\nTrách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step2",
+      "raw": "5.2.2 — Bước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ)\n+ Phòng HCNS lập đội đánh giá tình trạng TS-CCDC/PL gồm HCNS, KSNB, bộ phận chuyên môn, tiến hành đến tại địa điểm có TS-CCDC/PL cần thanh lý để xem xét (theo mẫu Biên bản thống kê TS-CCDC/PL):\n- Đề xuất phòng ban có phù hợp hay không?\n- Đưa phương án đề xuất sửa chữa/ thay thế/ thanh lý/ hủy bỏ\n+ Sau đó, KSNB gửi thông tin biên bản này qua email, đầy đủ các nội dung về danh sách TS-CCDC/PL (Mã hàng (nếu có) - tên hàng - số lượng/ định lượng...)\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.",
+      "text": "5.2.2 — Bước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ)\n+ Phòng HCNS lập đội đánh giá tình trạng TS-CCDC/PL gồm HCNS, KSNB, bộ phận chuyên môn, tiến hành đến tại địa điểm có TS-CCDC/PL cần thanh lý để xem xét (theo mẫu Biên bản thống kê TS-CCDC/PL):\n- Đề xuất phòng ban có phù hợp hay không?\n- Đưa phương án đề xuất sửa chữa/ thay thế/ thanh lý/ hủy bỏ\n+ Sau đó, KSNB gửi thông tin biên bản này qua email, đầy đủ các nội dung về danh sách TS-CCDC/PL (Mã hàng (nếu có) - tên hàng - số lượng/ định lượng...)\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step3",
+      "raw": "5.2.2 — Bước 3: Tìm kiếm nhà thầu xử lý\nTrường hợp đội đánh giá tình trạng đồng ý phương án Thanh lý/ hủy bỏ TS - CCDC/ PL, phòng HCNS lên phương án tìm kiếm nhà thầu tương ứng chuyển KSNB xem xét.\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.",
+      "text": "5.2.2 — Bước 3: Tìm kiếm nhà thầu xử lý\nTrường hợp đội đánh giá tình trạng đồng ý phương án Thanh lý/ hủy bỏ TS - CCDC/ PL, phòng HCNS lên phương án tìm kiếm nhà thầu tương ứng chuyển KSNB xem xét.\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step4",
+      "raw": "5.2.2 — Bước 4: Trình phê duyệt BOD\n- Sau khi tìm kiếm nhà thầu xử lý, KSNB trình BOD phê duyệt.\n- Nếu BOD không đồng ý, trả về phòng HCNS, thực hiện theo chỉ đạo\nTrách nhiệm: HCNS; KSNB; BOD.",
+      "text": "5.2.2 — Bước 4: Trình phê duyệt BOD\n- Sau khi tìm kiếm nhà thầu xử lý, KSNB trình BOD phê duyệt.\n- Nếu BOD không đồng ý, trả về phòng HCNS, thực hiện theo chỉ đạo\nTrách nhiệm: HCNS; KSNB; BOD.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step5",
+      "raw": "5.2.2 — Bước 5: Giám sát/ xử lý sau phê duyệt; Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho\n* Trường hợp thanh lý:\n- Căn cứ theo phê duyệt BOD, HCNS kết hợp KSNB, phòng ban có nhu cầu thanh lý, kế toán thu tiền, BVDV giám sát quá trình xử lý.\n- Ghi nhận thông tin số lượng, khối lượng và mã TS-CCDC (nếu có) hoặc thông tin phế liệu thanh lý, giá trị tiền thu hồi về sau thanh lý (theo mẫu Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho).\n- Kế toán thu tiền trực tiếp, sau quá trình thanh lý và nộp về tài khoản công ty.\n* Trường hợp hủy, đổ bỏ: Thực hiện các bước tương tự như trường hợp thanh lý\n- Các biên bản ký nhận (Họ và tên) đầy đủ thông tin như form mẫu là căn cứ để BVDV kiểm soát khi xuất kho.\nTrách nhiệm: HCNS; KSNB; Phòng ban có nhu cầu thanh lý; Kế toán thu tiền; BVDV.",
+      "text": "5.2.2 — Bước 5: Giám sát/ xử lý sau phê duyệt; Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho\n* Trường hợp thanh lý:\n- Căn cứ theo phê duyệt BOD, HCNS kết hợp KSNB, phòng ban có nhu cầu thanh lý, kế toán thu tiền, BVDV giám sát quá trình xử lý.\n- Ghi nhận thông tin số lượng, khối lượng và mã TS-CCDC (nếu có) hoặc thông tin phế liệu thanh lý, giá trị tiền thu hồi về sau thanh lý (theo mẫu Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho).\n- Kế toán thu tiền trực tiếp, sau quá trình thanh lý và nộp về tài khoản công ty.\n* Trường hợp hủy, đổ bỏ: Thực hiện các bước tương tự như trường hợp thanh lý\n- Các biên bản ký nhận (Họ và tên) đầy đủ thông tin như form mẫu là căn cứ để BVDV kiểm soát khi xuất kho.\nTrách nhiệm: HCNS; KSNB; Phòng ban có nhu cầu thanh lý; Kế toán thu tiền; BVDV.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "step6",
+      "raw": "5.2.2 — Bước 6: Xử lý đối chiếu hệ thống chứng từ\n- KSNB thông tin kết quả xử lý đến các phòng ban\n* Thanh lý/ hủy bỏ: Căn cứ theo giá trị ghi nhận trên Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho, kế toán xử lý trên hệ thống (nếu có)\nTrách nhiệm: HCNS; KSNB; Kế toán.",
+      "text": "5.2.2 — Bước 6: Xử lý đối chiếu hệ thống chứng từ\n- KSNB thông tin kết quả xử lý đến các phòng ban\n* Thanh lý/ hủy bỏ: Căn cứ theo giá trị ghi nhận trên Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho, kế toán xử lý trên hệ thống (nếu có)\nTrách nhiệm: HCNS; KSNB; Kế toán.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "form1",
+      "raw": "VI. Biểu Mẫu:\n6.1. Mẫu “Biên bản thống kê tài sản cần thanh lý/ hủy bỏ”:\nBIÊN BẢN THỐNG KÊ TÀI SẢN CẦN THANH LÝ/ HỦY BỎ\nBộ phận: KHO VẬN (Q9)\nĐịa chỉ: 456 Hoàng Hữu Nam, Khu phố Giãn Dân, P.Long Thạnh Mỹ, TP. Thủ Đức, HCM.\nTP. HCM, ngày 29 tháng 05 năm 2023\nSố Biên bản: …\nCăn cứ theo nhu cầu đề xuất từ phòng ban về việc xử lý các TS-CCDC không còn sử dụng tại kho Q9.\nI. Thành phần tham gia gồm: Ông/Bà; Đại diện (các dòng trống).\nII. Các bên tham gia cùng đánh giá thanh lý tài sản tại kho Q9\nBảng thống kê danh sách tài sản, phế liệu cần xử lý:\nSTT | Tên TS/ký hiệu | Số hiệu TS (Quy ước) | ĐVT | SL ước tính (Cái) | Số ký ước lượng (kg) | Hình ảnh | Tình trạng | ĐỀ XUẤT\nTổng mẫu: 48 cái; 1,960 kg.\n1 | Kệ gạch sắt | 01 | Cái | 40 | 1,400 | [ảnh kệ] | Rỉ sét | [trống]\n2 | Kệ gạch sắt | 02 | Cái | 8 | 560 | [ảnh kệ] | Rỉ sét | [trống]\nQuản lý bộ phận; Bộ phận chuyên môn; Đại diện KSNB; P.HCNS (Ký, ghi rõ họ tên).",
+      "text": "VI. Biểu Mẫu:\n6.1. Mẫu “Biên bản thống kê tài sản cần thanh lý/ hủy bỏ”:\nBIÊN BẢN THỐNG KÊ TÀI SẢN CẦN THANH LÝ/ HỦY BỎ\nBộ phận: KHO VẬN (Q9)\nĐịa chỉ: 456 Hoàng Hữu Nam, Khu phố Giãn Dân, P.Long Thạnh Mỹ, TP. Thủ Đức, HCM.\nTP. HCM, ngày 29 tháng 05 năm 2023\nSố Biên bản: …\nCăn cứ theo nhu cầu đề xuất từ phòng ban về việc xử lý các TS-CCDC không còn sử dụng tại kho Q9.\nI. Thành phần tham gia gồm: Ông/Bà; Đại diện (các dòng trống).\nII. Các bên tham gia cùng đánh giá thanh lý tài sản tại kho Q9\nBảng thống kê danh sách tài sản, phế liệu cần xử lý:\nSTT | Tên TS/ký hiệu | Số hiệu TS (Quy ước) | ĐVT | SL ước tính (Cái) | Số ký ước lượng (kg) | Hình ảnh | Tình trạng | ĐỀ XUẤT\nTổng mẫu: 48 cái; 1,960 kg.\n1 | Kệ gạch sắt | 01 | Cái | 40 | 1,400 | [ảnh kệ] | Rỉ sét | [trống]\n2 | Kệ gạch sắt | 02 | Cái | 8 | 560 | [ảnh kệ] | Rỉ sét | [trống]\nQuản lý bộ phận; Bộ phận chuyên môn; Đại diện KSNB; P.HCNS (Ký, ghi rõ họ tên).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "form2",
+      "raw": "6.2. Mẫu “Biên bản xử lý TS-CCDC kiêm Phiếu xuất kho”:\nBIÊN BẢN XỬ LÝ TÀI SẢN - CÔNG CỤ DỤNG CỤ (Kiêm phiếu xuất kho phế liệu)\nSố BB: …; Ngày Thực hiện: …\nĐịa điểm: Kho Q.9: 456 Hoàng Hữu Nam, Khu phố Giãn Dân, P Long [phần tiếp không hiển thị trong mẫu]\nCăn cứ Biên bản thống kê TS-CCDC/PL số … đã được phê duyệt, các phòng ban liên quan tiến hành xử lý các TS-CCDC/PL chi tiết như sau:\nThành phần tham gia: Đại diện Rita Võ; Đại diện Bên thanh lý/ hủy bỏ; Ông/bà; Chức vụ (các dòng trống).\nCùng xác nhận thanh lý/ hủy bỏ các TS-CCDC/PL chi tiết như sau:\nTên Kho | Mã Kho | Mã hàng | Tên hàng hóa/CCDC | Số lượng | Khối lượng | Giá trị thanh lý hủy bỏ Kg/VNĐ | Thành Tiền | Ghi chú\nCác dòng mẫu tại Kho Quận 9; mã kho W.S07. Mã hàng và tên hàng nhỏ/mờ: chưa xác định chắc chắn toàn bộ.\nDòng mẫu 1: số lượng 1; khối lượng 5; giá 13,000; thành tiền 65,000.\nDòng mẫu 2: số lượng 1; khối lượng 6; giá 12,000; thành tiền 72,000.\nDòng mẫu 3: số lượng 1; khối lượng 7; giá 10,000; thành tiền 70,000.\nTỔNG CỘNG in trên mẫu: số lượng 3; khối lượng 15; thành tiền 207,000.\nBên nhận thanh lý/hủy bỏ; Kế toán thu tiền; KSNB; HCNS; Quản lý bộ phận; BVDV (Ký, ghi rõ họ tên).",
+      "text": "6.2. Mẫu “Biên bản xử lý TS-CCDC kiêm Phiếu xuất kho”:\nBIÊN BẢN XỬ LÝ TÀI SẢN - CÔNG CỤ DỤNG CỤ (Kiêm phiếu xuất kho phế liệu)\nSố BB: …; Ngày Thực hiện: …\nĐịa điểm: Kho Q.9: 456 Hoàng Hữu Nam, Khu phố Giãn Dân, P Long [phần tiếp không hiển thị trong mẫu]\nCăn cứ Biên bản thống kê TS-CCDC/PL số … đã được phê duyệt, các phòng ban liên quan tiến hành xử lý các TS-CCDC/PL chi tiết như sau:\nThành phần tham gia: Đại diện Rita Võ; Đại diện Bên thanh lý/ hủy bỏ; Ông/bà; Chức vụ (các dòng trống).\nCùng xác nhận thanh lý/ hủy bỏ các TS-CCDC/PL chi tiết như sau:\nTên Kho | Mã Kho | Mã hàng | Tên hàng hóa/CCDC | Số lượng | Khối lượng | Giá trị thanh lý hủy bỏ Kg/VNĐ | Thành Tiền | Ghi chú\nCác dòng mẫu tại Kho Quận 9; mã kho W.S07. Mã hàng và tên hàng nhỏ/mờ: chưa xác định chắc chắn toàn bộ.\nDòng mẫu 1: số lượng 1; khối lượng 5; giá 13,000; thành tiền 65,000.\nDòng mẫu 2: số lượng 1; khối lượng 6; giá 12,000; thành tiền 72,000.\nDòng mẫu 3: số lượng 1; khối lượng 7; giá 10,000; thành tiền 70,000.\nTỔNG CỘNG in trên mẫu: số lượng 3; khối lượng 15; thành tiền 207,000.\nBên nhận thanh lý/hủy bỏ; Kế toán thu tiền; KSNB; HCNS; Quản lý bộ phận; BVDV (Ký, ghi rõ họ tên).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "blank6",
+      "code": "blank_page",
+      "location": {
+        "page": 6
+      }
+    },
+    {
+      "warning_id": "number",
+      "code": "uncertain_handwritten_identifier",
+      "location": {
+        "page": 1
+      }
+    },
+    {
+      "warning_id": "form-samples",
+      "code": "uncertain_example_identifiers",
+      "location": {
+        "page": 5
+      }
+    }
+  ]
+}

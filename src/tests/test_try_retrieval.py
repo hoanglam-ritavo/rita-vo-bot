@@ -48,13 +48,13 @@ def test_compact_view_preserves_content_order_and_input():
     before = copy.deepcopy(result)
     output = demo.format_result('Question', result)
     assert result == before
-    assert 'Hiển thị 3/5' in output
+    assert 'Hiển thị 5/5' in output
     assert output.index('Policy 0') < output.index('Policy 1') < output.index('Policy 2')
-    for match in matches[:3]:
+    for match in matches:
         assert match['content'] in output
-    for unwanted in ['Policy 3', 'Policy 4', 'hidden-uuid', '0.12345', 'hidden-fingerprint', 'cosine_distance']:
+    for unwanted in ['hidden-uuid', '0.12345', 'hidden-fingerprint', 'cosine_distance']:
         assert unwanted not in output
-    assert output.count('Nguồn: trang 1, 3–5') == 3
+    assert output.count('Nguồn: trang 1, 3–5') == 5
 
 
 @pytest.mark.parametrize('kind', ['text', 'csv'])

@@ -1,0 +1,1290 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {
+    "language": "vi",
+    "page_count": 12,
+    "text_normalization": "Agent transcription; normalized line wrapping; table rows retain explicit headers and merged-cell context."
+  },
+  "parser_metadata": {
+    "method": "agent-visual-transcription-of-local-pymupdf-renders",
+    "renderer": "PyMuPDF",
+    "render_scale": 1.8,
+    "external_ocr_service": false,
+    "inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "segments": [
+    {
+      "segment_id": "ethics-header",
+      "raw": "RITAVÕ\nTIÊU CHUẨN & QUY TRÌNH — ĐẠO ĐỨC NGHỀ NGHIỆP\nNGÀY BAN PHÁT HÀNH: 27/9/2017\nNGƯỜI THỰC HIỆN: TẤT CẢ NHÂN VIÊN\nPHIÊN BẢN TÀI LIỆU: Version 1.0\nNGÀY CẬP NHẬT CUỐI: 27/09/2017\nSOẠN THẢO BỞI: PHÒNG HCNS\nXÁC NHẬN BỞI: [tên viết tay chưa đọc chắc chắn], PHÒNG HCNS\nPHÊ DUYỆT: VÕ MẬU QUỐC DUY, TỔNG GIÁM ĐỐC",
+      "text": "RITAVÕ\nTIÊU CHUẨN & QUY TRÌNH — ĐẠO ĐỨC NGHỀ NGHIỆP\nNGÀY BAN PHÁT HÀNH: 27/9/2017\nNGƯỜI THỰC HIỆN: TẤT CẢ NHÂN VIÊN\nPHIÊN BẢN TÀI LIỆU: Version 1.0\nNGÀY CẬP NHẬT CUỐI: 27/09/2017\nSOẠN THẢO BỞI: PHÒNG HCNS\nXÁC NHẬN BỞI: [tên viết tay chưa đọc chắc chắn], PHÒNG HCNS\nPHÊ DUYỆT: VÕ MẬU QUỐC DUY, TỔNG GIÁM ĐỐC",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ethics-scope",
+      "raw": "QUY ĐỊNH CHUNG\n- “Tiêu chuẩn Đạo đức Nghề nghiệp” của Công ty TNHH RITAVÕ (công ty) được áp dụng cho tất cả nhân viên đang làm tại Công ty, kể cả các cấp quản lý (gọi tắt: là Nhân Viên);\n- Tiêu chuẩn này bao gồm nhưng không giới hạn những quy định tiêu chuẩn đạo đức được liệt kê bên dưới, và yêu cầu Nhân viên thực hiện trong suốt quá trình làm việc tại Công ty và sau này;\n- Tiêu chuẩn này được bao gồm trong Nội quy lao động của Công ty và là cơ sở để xử lý nếu có vi phạm.",
+      "text": "QUY ĐỊNH CHUNG\n- “Tiêu chuẩn Đạo đức Nghề nghiệp” của Công ty TNHH RITAVÕ (công ty) được áp dụng cho tất cả nhân viên đang làm tại Công ty, kể cả các cấp quản lý (gọi tắt: là Nhân Viên);\n- Tiêu chuẩn này bao gồm nhưng không giới hạn những quy định tiêu chuẩn đạo đức được liệt kê bên dưới, và yêu cầu Nhân viên thực hiện trong suốt quá trình làm việc tại Công ty và sau này;\n- Tiêu chuẩn này được bao gồm trong Nội quy lao động của Công ty và là cơ sở để xử lý nếu có vi phạm.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ethics-internal",
+      "raw": "QUY ĐỊNH TIÊU CHUẨN ĐẠO ĐỨC\nI/ Trong nội bộ Công ty\n- Luôn thể hiện hành vi văn hóa trong môi trường Công ty; sẵn sàng giúp đỡ, hỗ trợ đồng nghiệp, cấp dưới, cấp trên một cách nhiệt tình trong quá trình làm việc;\n- Luôn trung thực trong mọi lời nói và hành động; công bằng trong mọi quan hệ với đồng nghiệp, cấp dưới, và cấp trên.\nNGHIÊM CẤM\n- Những hành vi/ hành động tư thù cá nhân, gây thiệt hại tài sản, ảnh hưởng uy tín Công ty và gây mất đoàn kết trong nội bộ Công ty;\n- Những hành vi/ hành động khiêu khích, nói xấu đồng nghiệp/cấp trên/ cấp dưới, lan truyền những thông tin thiếu chính xác, không có tính xây dựng, gây hoang mang trong nội bộ Công ty;",
+      "text": "QUY ĐỊNH TIÊU CHUẨN ĐẠO ĐỨC\nI/ Trong nội bộ Công ty\n- Luôn thể hiện hành vi văn hóa trong môi trường Công ty; sẵn sàng giúp đỡ, hỗ trợ đồng nghiệp, cấp dưới, cấp trên một cách nhiệt tình trong quá trình làm việc;\n- Luôn trung thực trong mọi lời nói và hành động; công bằng trong mọi quan hệ với đồng nghiệp, cấp dưới, và cấp trên.\nNGHIÊM CẤM\n- Những hành vi/ hành động tư thù cá nhân, gây thiệt hại tài sản, ảnh hưởng uy tín Công ty và gây mất đoàn kết trong nội bộ Công ty;\n- Những hành vi/ hành động khiêu khích, nói xấu đồng nghiệp/cấp trên/ cấp dưới, lan truyền những thông tin thiếu chính xác, không có tính xây dựng, gây hoang mang trong nội bộ Công ty;",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ethics-secret",
+      "raw": "Tiêu chuẩn đạo đức — I/ Trong nội bộ Công ty — NGHIÊM CẤM (tiếp):\n- Tiết lộ, bàn bạc những thông tin về lương và các phúc lợi với đồng nghiệp và những người không có trách nhiệm;\n- Tiết lộ các thông tin liên quan đến hoạt động kinh doanh và hoạt động quản lý của Công ty với những người không có liên quan trong Công ty và bên ngoài;\n- Sao chép tài liệu Công ty cho mục đích cá nhân hoặc cung cấp cho người không có trách nhiệm mà không có sự phê duyệt của cấp có thẩm quyền.",
+      "text": "Tiêu chuẩn đạo đức — I/ Trong nội bộ Công ty — NGHIÊM CẤM (tiếp):\n- Tiết lộ, bàn bạc những thông tin về lương và các phúc lợi với đồng nghiệp và những người không có trách nhiệm;\n- Tiết lộ các thông tin liên quan đến hoạt động kinh doanh và hoạt động quản lý của Công ty với những người không có liên quan trong Công ty và bên ngoài;\n- Sao chép tài liệu Công ty cho mục đích cá nhân hoặc cung cấp cho người không có trách nhiệm mà không có sự phê duyệt của cấp có thẩm quyền.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ethics-partners",
+      "raw": "II/ Khi làm việc với các đối tác:\n- Luôn công bằng và trung thực khi đại diện Công ty tiếp xúc và làm việc với các đối tác, bao gồm: khách hàng, nhà cung cấp, .v.v...;\n- Tạo điều kiện thuận lợi và hỗ trợ nhiệt tình để đối tác có thể hợp tác với Công ty, qua đó tạo được ấn tượng tốt với đối tác về phong cách làm việc và phục vụ chuyên nghiệp của Công ty.\nNGHIÊM CẤM\n- Các hành động/ hành vi gây cản trở, khó khăn cho đối tác trong quá trình hợp tác với Công ty;\n- Các hành động/ hành vi ăn cắp, hối lộ, nhận hối lộ, gợi ý đối tác để hưởng lợi riêng;\n- Cung cấp thông tin sai lệch, thiếu trung thực hoặc tự điều chỉnh/ sửa đổi thông tin trao đổi của đối tác hoặc của Công ty để hưởng lợi riêng;\n- Giả mạo hồ sơ giấy tờ/chứng từ của đối tác hoặc của Công ty;\n- Thông đồng với đối tác hoặc đồng nghiệp trong Công ty để có những hành vi gây thiệt hại cho đối tác hoặc cho Công ty;",
+      "text": "II/ Khi làm việc với các đối tác:\n- Luôn công bằng và trung thực khi đại diện Công ty tiếp xúc và làm việc với các đối tác, bao gồm: khách hàng, nhà cung cấp, .v.v...;\n- Tạo điều kiện thuận lợi và hỗ trợ nhiệt tình để đối tác có thể hợp tác với Công ty, qua đó tạo được ấn tượng tốt với đối tác về phong cách làm việc và phục vụ chuyên nghiệp của Công ty.\nNGHIÊM CẤM\n- Các hành động/ hành vi gây cản trở, khó khăn cho đối tác trong quá trình hợp tác với Công ty;\n- Các hành động/ hành vi ăn cắp, hối lộ, nhận hối lộ, gợi ý đối tác để hưởng lợi riêng;\n- Cung cấp thông tin sai lệch, thiếu trung thực hoặc tự điều chỉnh/ sửa đổi thông tin trao đổi của đối tác hoặc của Công ty để hưởng lợi riêng;\n- Giả mạo hồ sơ giấy tờ/chứng từ của đối tác hoặc của Công ty;\n- Thông đồng với đối tác hoặc đồng nghiệp trong Công ty để có những hành vi gây thiệt hại cho đối tác hoặc cho Công ty;",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ethics-end",
+      "raw": "Tiêu chuẩn đạo đức — II/ Khi làm việc với các đối tác — NGHIÊM CẤM (tiếp):\n- Tiết lộ các thông tin liên quan đến hoạt động kinh doanh và quản lý của Công ty cho đối tác; hoặc tiết lộ các thông tin liên quan đến hoạt động kinh doanh của đối tác cho những người không có liên quan, gây ảnh hưởng đến hoạt động kinh doanh của họ.\nNhân viên thực hiện nghiêm chỉnh Quy định về Đạo đức Nghề nghiệp của Công ty RITAVÕ và luôn luôn hiểu rằng mọi hành vi vi phạm về Đạo đức Nghề nghiệp sẽ là căn cứ cho mọi trách nhiệm xử lý trước Công ty và Pháp luật.",
+      "text": "Tiêu chuẩn đạo đức — II/ Khi làm việc với các đối tác — NGHIÊM CẤM (tiếp):\n- Tiết lộ các thông tin liên quan đến hoạt động kinh doanh và quản lý của Công ty cho đối tác; hoặc tiết lộ các thông tin liên quan đến hoạt động kinh doanh của đối tác cho những người không có liên quan, gây ảnh hưởng đến hoạt động kinh doanh của họ.\nNhân viên thực hiện nghiêm chỉnh Quy định về Đạo đức Nghề nghiệp của Công ty RITAVÕ và luôn luôn hiểu rằng mọi hành vi vi phạm về Đạo đức Nghề nghiệp sẽ là căn cứ cho mọi trách nhiệm xử lý trước Công ty và Pháp luật.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "process-header",
+      "raw": "RITAVÕ — QUY TRÌNH XỬ LÝ VI PHẠM NHÂN VIÊN\nNGÀY BAN PHÁT HÀNH: 27/9/2017\nNGƯỜI THỰC HIỆN: TẤT CẢ NHÂN VIÊN\nPHIÊN BẢN TÀI LIỆU: Version 1.0\nNGÀY CẬP NHẬT CUỐI: 27/09/2017\nSOẠN THẢO BỞI: PHÒNG HCNS\nXÁC NHẬN BỞI: [tên viết tay chưa đọc chắc chắn], PHÒNG HCNS\nPHÊ DUYỆT: VÕ MẬU QUỐC DUY, TỔNG GIÁM ĐỐC\nTIÊU CHUẨN:\n- Phân định rõ tiến trình thực hiện hình thức xử lý khi nhân viên vi phạm Nội quy của Công Ty.\n- Việc xử lý vi phạm nhân viên được tiến hành trên tinh thần xây dựng, khách quan và tôn trọng nhân viên, mục đích duy nhất là nhằm giúp nhân viên hiểu rõ và điều chỉnh những hành vi không đúng mực, nhằm có thể hoàn thiện thái độ và tác phong làm việc, chứ không nhằm mục đích trừng phạt.\n- Hình thức xử lý vi phạm được xem xét một cách linh hoạt, không chỉ dựa vào hành vi vi phạm được mô tả trong quy định về mức xử lý vi phạm đối với CBNV, mà còn dựa vào tính khách quan và bản chất của sự việc.",
+      "text": "RITAVÕ — QUY TRÌNH XỬ LÝ VI PHẠM NHÂN VIÊN\nNGÀY BAN PHÁT HÀNH: 27/9/2017\nNGƯỜI THỰC HIỆN: TẤT CẢ NHÂN VIÊN\nPHIÊN BẢN TÀI LIỆU: Version 1.0\nNGÀY CẬP NHẬT CUỐI: 27/09/2017\nSOẠN THẢO BỞI: PHÒNG HCNS\nXÁC NHẬN BỞI: [tên viết tay chưa đọc chắc chắn], PHÒNG HCNS\nPHÊ DUYỆT: VÕ MẬU QUỐC DUY, TỔNG GIÁM ĐỐC\nTIÊU CHUẨN:\n- Phân định rõ tiến trình thực hiện hình thức xử lý khi nhân viên vi phạm Nội quy của Công Ty.\n- Việc xử lý vi phạm nhân viên được tiến hành trên tinh thần xây dựng, khách quan và tôn trọng nhân viên, mục đích duy nhất là nhằm giúp nhân viên hiểu rõ và điều chỉnh những hành vi không đúng mực, nhằm có thể hoàn thiện thái độ và tác phong làm việc, chứ không nhằm mục đích trừng phạt.\n- Hình thức xử lý vi phạm được xem xét một cách linh hoạt, không chỉ dựa vào hành vi vi phạm được mô tả trong quy định về mức xử lý vi phạm đối với CBNV, mà còn dựa vào tính khách quan và bản chất của sự việc.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "process-types",
+      "raw": "Quy trình xử lý vi phạm — TIÊU CHUẨN (tiếp):\nÁp dụng 4 hình thức xử lý vi phạm theo quy định về mức xử lý vi phạm đối với CBNV:\n- Khiển trách miệng: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Khiển trách bằng văn bản: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Thuyên chuyển công tác: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Sa thải: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV",
+      "text": "Quy trình xử lý vi phạm — TIÊU CHUẨN (tiếp):\nÁp dụng 4 hình thức xử lý vi phạm theo quy định về mức xử lý vi phạm đối với CBNV:\n- Khiển trách miệng: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Khiển trách bằng văn bản: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Thuyên chuyển công tác: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV\n- Sa thải: với các hành vi được liệt kê trong quy định về mức xử lý vi phạm đối với CBNV",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "process-conditions",
+      "raw": "Quy trình xử lý vi phạm — YÊU CẦU:\n- Tùy theo mức độ vi phạm và ý thức sửa sai của nhân viên, mỗi hình thức xử lý có có thể áp dụng 1 lần hoặc 2 lần\n- Hình thức khiển trách bằng văn bản có nhiều mức độ khác nhau tùy theo tính chất sự việc, bao gồm khiển trách bằng văn bản lần 1, lần 2 (nếu sự việc không gây hậu quả nghiêm trọng), hoặc khiển trách bằng văn bản một lần (nếu sự việc gây hậu quả nghiêm trọng)\n- Trường hợp nhân viên vi phạm từ chối không ký vào biên bản, ít nhất một người làm chứng sẽ được mời tham gia ký vào biên bản xử lý để xác nhận tình huống sự việc.",
+      "text": "Quy trình xử lý vi phạm — YÊU CẦU:\n- Tùy theo mức độ vi phạm và ý thức sửa sai của nhân viên, mỗi hình thức xử lý có có thể áp dụng 1 lần hoặc 2 lần\n- Hình thức khiển trách bằng văn bản có nhiều mức độ khác nhau tùy theo tính chất sự việc, bao gồm khiển trách bằng văn bản lần 1, lần 2 (nếu sự việc không gây hậu quả nghiêm trọng), hoặc khiển trách bằng văn bản một lần (nếu sự việc gây hậu quả nghiêm trọng)\n- Trường hợp nhân viên vi phạm từ chối không ký vào biên bản, ít nhất một người làm chứng sẽ được mời tham gia ký vào biên bản xử lý để xác nhận tình huống sự việc.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "oral",
+      "raw": "Quy trình xử lý vi phạm — TIẾN TRÌNH\n1. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức ‘Khiển Trách Miệng’:\n- Cấp trên sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình, đề ra cho nhân viên hướng phấn đấu để nhân viên hoàn thiện bản thân\n- Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Cấp trên thể hiện rõ hình thức khiển trách được đề xuất trong Biên bản, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Cấp trên sẽ chuyển biên bản để báo cáo sự việc với Bộ Phận Hành Chánh Nhân Sự (trong trường hợp cần thiết)\n- Toàn bộ hồ sơ sẽ được lưu vào hồ sơ nhân viên, một bản sao biên bản làm việc với sự xác nhận của các cấp có liên quan sẽ được chuyển trả cho nhân viên vi phạm để tự lưu.",
+      "text": "Quy trình xử lý vi phạm — TIẾN TRÌNH\n1. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức ‘Khiển Trách Miệng’:\n- Cấp trên sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình, đề ra cho nhân viên hướng phấn đấu để nhân viên hoàn thiện bản thân\n- Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Cấp trên thể hiện rõ hình thức khiển trách được đề xuất trong Biên bản, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Cấp trên sẽ chuyển biên bản để báo cáo sự việc với Bộ Phận Hành Chánh Nhân Sự (trong trường hợp cần thiết)\n- Toàn bộ hồ sơ sẽ được lưu vào hồ sơ nhân viên, một bản sao biên bản làm việc với sự xác nhận của các cấp có liên quan sẽ được chuyển trả cho nhân viên vi phạm để tự lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "written1",
+      "raw": "Quy trình xử lý vi phạm — TIẾN TRÌNH 2. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức ‘Khiển Trách Bằng Văn Bản’\n- Cấp trên báo cáo cho Bộ Phận Hành Chánh Nhân Sự (trong trường hợp cần thiết)\n- Cấp trên và Bộ Phận Hành Chánh Nhân Sự sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình, đề ra cho nhân viên hướng phấn đấu để nhân viên hoàn thiện bản thân\n- Bộ Phận Hành Chánh Nhân Sự và Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Biên bản cần xác định rõ hình thức xử lý vi phạm được đề xuất, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Bộ Phận Hành Chánh Nhân Sự sẽ báo cáo lại với Tổng Giám Đốc/ Chủ tịch về nội dung buổi họp tiến hành xử lý vi phạm đối với nhân viên.",
+      "text": "Quy trình xử lý vi phạm — TIẾN TRÌNH 2. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức ‘Khiển Trách Bằng Văn Bản’\n- Cấp trên báo cáo cho Bộ Phận Hành Chánh Nhân Sự (trong trường hợp cần thiết)\n- Cấp trên và Bộ Phận Hành Chánh Nhân Sự sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình, đề ra cho nhân viên hướng phấn đấu để nhân viên hoàn thiện bản thân\n- Bộ Phận Hành Chánh Nhân Sự và Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Biên bản cần xác định rõ hình thức xử lý vi phạm được đề xuất, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Bộ Phận Hành Chánh Nhân Sự sẽ báo cáo lại với Tổng Giám Đốc/ Chủ tịch về nội dung buổi họp tiến hành xử lý vi phạm đối với nhân viên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "written2",
+      "raw": "Quy trình xử lý vi phạm — TIẾN TRÌNH 2 (tiếp):\n- Nếu Tổng Giám Đốc/ Chủ tịch không ý kiến gì khác trên hình thức xử lý vi phạm, Biên bản xử lý sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ và chuyển trả cho nhân viên vi phạm một bản sao để tự lưu.\n- Nếu Tổng Giám Đốc/ Chủ tịch đề nghị một hình thức xử lý vi phạm khác với hình thức đã được đề xuất, chi tiết này sẽ được thể hiện trong biên bản và được xem là quyết định cuối cùng cho việc xử lý vi phạm. Theo đó, Biên bản sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ, và chuyển trả nhân viên vi phạm một bản sao để tự lưu.",
+      "text": "Quy trình xử lý vi phạm — TIẾN TRÌNH 2 (tiếp):\n- Nếu Tổng Giám Đốc/ Chủ tịch không ý kiến gì khác trên hình thức xử lý vi phạm, Biên bản xử lý sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ và chuyển trả cho nhân viên vi phạm một bản sao để tự lưu.\n- Nếu Tổng Giám Đốc/ Chủ tịch đề nghị một hình thức xử lý vi phạm khác với hình thức đã được đề xuất, chi tiết này sẽ được thể hiện trong biên bản và được xem là quyết định cuối cùng cho việc xử lý vi phạm. Theo đó, Biên bản sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ, và chuyển trả nhân viên vi phạm một bản sao để tự lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "severe1",
+      "raw": "Quy trình xử lý vi phạm — TIẾN TRÌNH 3. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức kỷ luật ‘Chuyển Công tác khác’ hoặc ‘Sa thải’\n- Cấp trên báo cáo cho Bộ Phận Hành Chánh Nhân Sự.\n- Cấp trên và Bộ Phận Hành Chánh Nhân Sự sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình.\n- Bộ Phận Hành Chánh Nhân Sự và Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Biên bản cần xác định rõ hình thức xử lý vi phạm được đề xuất, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Bộ Phận Hành Chánh Nhân Sự sẽ báo cáo lại với Tổng Giám Đốc/ Chủ tịch về nội dung buổi họp tiến hành xử lý vi phạm đối với nhân viên.",
+      "text": "Quy trình xử lý vi phạm — TIẾN TRÌNH 3. Khi nhân viên vi phạm thuộc các hành vi áp dụng hình thức kỷ luật ‘Chuyển Công tác khác’ hoặc ‘Sa thải’\n- Cấp trên báo cáo cho Bộ Phận Hành Chánh Nhân Sự.\n- Cấp trên và Bộ Phận Hành Chánh Nhân Sự sẽ gặp trực tiếp nhân viên để làm rõ hành vi vi phạm của nhân viên, tìm hiểu nguyên nhân khách quan và chủ quan, nhận định và phân tích những điểm đúng sai để nhân viên nhận thức được lỗi vi phạm của mình.\n- Bộ Phận Hành Chánh Nhân Sự và Cấp trên sẽ lập “Biên bản xử lý vi phạm”, trong đó thể hiện toàn bộ nội dung buổi làm việc với nhân viên với đầy đủ các chi tiết như được đề cập ở trên.\n- Biên bản cần xác định rõ hình thức xử lý vi phạm được đề xuất, và để cho nhân viên vi phạm được có ý kiến trên nội dung sự việc và hình thức khiển trách được áp dụng.\n- Bộ Phận Hành Chánh Nhân Sự sẽ báo cáo lại với Tổng Giám Đốc/ Chủ tịch về nội dung buổi họp tiến hành xử lý vi phạm đối với nhân viên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "severe2",
+      "raw": "Quy trình xử lý vi phạm — TIẾN TRÌNH 3 (tiếp):\n- Nếu Tổng Giám Đốc/ Chủ tịch đề nghị một hình thức xử lý vi phạm khác với hình thức đã được đề xuất, chi tiết này sẽ được thể hiện trong biên bản và được xem là quyết định cuối cùng cho việc xử lý vi phạm. Theo đó, Biên bản sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ, và chuyển trả nhân viên vi phạm một bản sao để tự lưu.\n- Nếu Tổng Giám Đốc/ Chủ tịch không ý kiến gì khác trên hình thức xử lý vi phạm, Bộ Phận Hành Chánh Nhân Sự sẽ làm “Quyết Định kỷ luật”, trong đó nêu rõ hành vi vi phạm của nhân viên, hình thức kỷ luật, .v.v...\n- Biên bản xử lý vi phạm và Quyết định kỷ luật sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ và chuyển trả cho nhân viên vi phạm một bản sao để tự lưu.\n- Quyết Định kỷ luật sẽ được lập thành 02 bản, giao cho nhân viên 01 bản và lưu hồ sơ nhân viên 01 bản.",
+      "text": "Quy trình xử lý vi phạm — TIẾN TRÌNH 3 (tiếp):\n- Nếu Tổng Giám Đốc/ Chủ tịch đề nghị một hình thức xử lý vi phạm khác với hình thức đã được đề xuất, chi tiết này sẽ được thể hiện trong biên bản và được xem là quyết định cuối cùng cho việc xử lý vi phạm. Theo đó, Biên bản sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ, và chuyển trả nhân viên vi phạm một bản sao để tự lưu.\n- Nếu Tổng Giám Đốc/ Chủ tịch không ý kiến gì khác trên hình thức xử lý vi phạm, Bộ Phận Hành Chánh Nhân Sự sẽ làm “Quyết Định kỷ luật”, trong đó nêu rõ hành vi vi phạm của nhân viên, hình thức kỷ luật, .v.v...\n- Biên bản xử lý vi phạm và Quyết định kỷ luật sẽ được hoàn thiện với phần xác nhận của các cấp liên quan, lưu hồ sơ và chuyển trả cho nhân viên vi phạm một bản sao để tự lưu.\n- Quyết Định kỷ luật sẽ được lập thành 02 bản, giao cho nhân viên 01 bản và lưu hồ sơ nhân viên 01 bản.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "table-header",
+      "raw": "RITAVÕ\nQUY ĐỊNH VỀ MỨC XỬ LÝ VI PHẠM ĐỐI VỚI CBNV CÔNG TY TNHH RITAVÕ (CÔNG TY)\n(Phần không thể tách rời với Nội quy Lao động)\nNgày 27 tháng 09 năm 2017\nNhằm xác định rõ phạm vi, trách nhiệm, quyền hạn của các cá nhân trong công tác tổ chức và thực hiện các tiêu chí phù hợp với mục tiêu, chiến lược mà Công ty đã đề ra để đảm bảo việc phục vụ được hiệu quả và mang tính chuyên nghiệp cao, dựa trên Nội qui Công ty, Ban Quản lý RITAVÕ ban hành Quy định về mức xử lý vi phạm đối với CBNV theo danh mục bên dưới và có hiệu lực từ ngày ký đến khi có thay đổi khác.\nCột: STT; Các lỗi kỷ luật; Phân loại lỗi; Hình thức kỷ luật",
+      "text": "RITAVÕ\nQUY ĐỊNH VỀ MỨC XỬ LÝ VI PHẠM ĐỐI VỚI CBNV CÔNG TY TNHH RITAVÕ (CÔNG TY)\n(Phần không thể tách rời với Nội quy Lao động)\nNgày 27 tháng 09 năm 2017\nNhằm xác định rõ phạm vi, trách nhiệm, quyền hạn của các cá nhân trong công tác tổ chức và thực hiện các tiêu chí phù hợp với mục tiêu, chiến lược mà Công ty đã đề ra để đảm bảo việc phục vụ được hiệu quả và mang tính chuyên nghiệp cao, dựa trên Nội qui Công ty, Ban Quản lý RITAVÕ ban hành Quy định về mức xử lý vi phạm đối với CBNV theo danh mục bên dưới và có hiệu lực từ ngày ký đến khi có thay đổi khác.\nCột: STT; Các lỗi kỷ luật; Phân loại lỗi; Hình thức kỷ luật",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-1",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 1. Các lỗi kỷ luật: Để xe không đúng quy định định hoặc vi phạm các yêu cầu khác tại bãi bãi xe.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 1. Các lỗi kỷ luật: Để xe không đúng quy định định hoặc vi phạm các yêu cầu khác tại bãi bãi xe.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-2",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 2. Các lỗi kỷ luật: Ra/vào Công ty tại các lối ra vào mà không được Ban Quản Lý cho phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 2. Các lỗi kỷ luật: Ra/vào Công ty tại các lối ra vào mà không được Ban Quản Lý cho phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-3",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 3. Các lỗi kỷ luật: Ra khỏi Công ty trong giờ làm việc mà không được sự cho phép của Cấp trên.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 3. Các lỗi kỷ luật: Ra khỏi Công ty trong giờ làm việc mà không được sự cho phép của Cấp trên.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-4",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 4. Các lỗi kỷ luật: Sử dụng các tiện nghi và dịch vụ khi không được phép, tivi, internet, điện thoại, v.v...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 4. Các lỗi kỷ luật: Sử dụng các tiện nghi và dịch vụ khi không được phép, tivi, internet, điện thoại, v.v...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-6",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 6. Các lỗi kỷ luật: Ăn uống trong thời gian làm việc; làm bừa bãi gây mất mỹ quan, mất vệ sinh tại khu vực làm việc, khu vực công cộng.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 6. Các lỗi kỷ luật: Ăn uống trong thời gian làm việc; làm bừa bãi gây mất mỹ quan, mất vệ sinh tại khu vực làm việc, khu vực công cộng.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-7",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 7. Các lỗi kỷ luật: Ăn uống các đồ thừa hoặc sử dụng các đồ dùng khi không được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 7. Các lỗi kỷ luật: Ăn uống các đồ thừa hoặc sử dụng các đồ dùng khi không được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-8",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 8. Các lỗi kỷ luật: Hành vi không thích hợp trong khi làm việc như nói chuyện riêng, nói lớn tiếng, cười lớn, nhai kẹo cao su, chạy, la hét, ngồi xổm hay bệt trên sàn tại các khu vực công cộng...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 8. Các lỗi kỷ luật: Hành vi không thích hợp trong khi làm việc như nói chuyện riêng, nói lớn tiếng, cười lớn, nhai kẹo cao su, chạy, la hét, ngồi xổm hay bệt trên sàn tại các khu vực công cộng...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-9",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 9. Các lỗi kỷ luật: Nói chuyện với nhau, bàn tán về cử chỉ, thói quen và các đặc điểm khác của người khác; đùa cợt về những lời phàn nàn của người khác tại bất cứ khu vực nào trong Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 9. Các lỗi kỷ luật: Nói chuyện với nhau, bàn tán về cử chỉ, thói quen và các đặc điểm khác của người khác; đùa cợt về những lời phàn nàn của người khác tại bất cứ khu vực nào trong Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-10",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 10. Các lỗi kỷ luật: Sử dụng điện thoại di động trong lúc làm việc (đối với NV trực tiếp SX, phục vụ) mà không được phép\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 10. Các lỗi kỷ luật: Sử dụng điện thoại di động trong lúc làm việc (đối với NV trực tiếp SX, phục vụ) mà không được phép\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-11",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 11. Các lỗi kỷ luật: Không tuân thủ theo các tiêu chuẩn diện mạo cá nhân như: không mặc đồng phục nghiêm chỉnh lúc làm việc, đầu tóc xộc xệch, đeo quá nhiều đồ trang sức...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 11. Các lỗi kỷ luật: Không tuân thủ theo các tiêu chuẩn diện mạo cá nhân như: không mặc đồng phục nghiêm chỉnh lúc làm việc, đầu tóc xộc xệch, đeo quá nhiều đồ trang sức...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-12",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 12. Các lỗi kỷ luật: Làm những việc không liên quan tới công việc trong giờ làm việc như đọc sách báo, nghe đài/nhạc, xem tivi, chơi game, chat, nhắn tin...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 12. Các lỗi kỷ luật: Làm những việc không liên quan tới công việc trong giờ làm việc như đọc sách báo, nghe đài/nhạc, xem tivi, chơi game, chat, nhắn tin...\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-13",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 13. Các lỗi kỷ luật: Sử dụng điện thoại của công ty để nói chuyện riêng (với các Nhân viên khác hoặc bên ngoài Công ty) mà không phục vụ cho công việc hoặc không được sự cho phép của Ban quản lý.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 13. Các lỗi kỷ luật: Sử dụng điện thoại của công ty để nói chuyện riêng (với các Nhân viên khác hoặc bên ngoài Công ty) mà không phục vụ cho công việc hoặc không được sự cho phép của Ban quản lý.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-14",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 14. Các lỗi kỷ luật: Hút thuốc nơi không được cho phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 14. Các lỗi kỷ luật: Hút thuốc nơi không được cho phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-15",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 15. Các lỗi kỷ luật: Khạc nhổ, xả rác và các hành động khác gây mất vệ sinh trong Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 15. Các lỗi kỷ luật: Khạc nhổ, xả rác và các hành động khác gây mất vệ sinh trong Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-16",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 16. Các lỗi kỷ luật: Không thông báo cho Phòng Hành Chính Nhân Sự trong vòng ba ngày sau khi thất lạc đồng phục.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 16. Các lỗi kỷ luật: Không thông báo cho Phòng Hành Chính Nhân Sự trong vòng ba ngày sau khi thất lạc đồng phục.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-17",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 17. Các lỗi kỷ luật: Tự ý đổi tủ đựng đồ cá nhân với nhân viên khác mà không thông báo và không được Phòng Hành Chính Nhân Sự đồng ý.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 17. Các lỗi kỷ luật: Tự ý đổi tủ đựng đồ cá nhân với nhân viên khác mà không thông báo và không được Phòng Hành Chính Nhân Sự đồng ý.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-18",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 18. Các lỗi kỷ luật: Không thông báo kịp thời và đầy đủ cho Phòng Hành Chính Nhân Sự về bất kỳ sự thay đổi nào trong hồ sơ cá nhân (như địa chỉ hộ khẩu, nơi ở hiện tại, điện thoại liên hệ, số chứng minh nhân dân,...).\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 18. Các lỗi kỷ luật: Không thông báo kịp thời và đầy đủ cho Phòng Hành Chính Nhân Sự về bất kỳ sự thay đổi nào trong hồ sơ cá nhân (như địa chỉ hộ khẩu, nơi ở hiện tại, điện thoại liên hệ, số chứng minh nhân dân,...).\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-19",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 19. Các lỗi kỷ luật: Lang thang sang khu vực không thuộc khu vực làm việc của mình trong giờ làm việc mà không được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 19. Các lỗi kỷ luật: Lang thang sang khu vực không thuộc khu vực làm việc của mình trong giờ làm việc mà không được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-20",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 20. Các lỗi kỷ luật: Bỏ vị trí làm việc khi chưa có ca sau hay người đến thay hoặc làm việc sai ca, làm việc sai vị trí được phân công.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 20. Các lỗi kỷ luật: Bỏ vị trí làm việc khi chưa có ca sau hay người đến thay hoặc làm việc sai ca, làm việc sai vị trí được phân công.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-21",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 21. Các lỗi kỷ luật: Bất cẩn gây ra sự hoang phí, mất mát, rò rỉ nguyên vật liệu, hỏng hóc máy móc thiết bị của Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 21. Các lỗi kỷ luật: Bất cẩn gây ra sự hoang phí, mất mát, rò rỉ nguyên vật liệu, hỏng hóc máy móc thiết bị của Công ty.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-22",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 22. Các lỗi kỷ luật: Sự không chú ý, bất cẩn hoặc sao lãng dẫn tới báo cáo hay thông tin sai sót, gây khó khăn, trở ngại cho công việc của nhân viên khác hoặc bộ phận khác.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 22. Các lỗi kỷ luật: Sự không chú ý, bất cẩn hoặc sao lãng dẫn tới báo cáo hay thông tin sai sót, gây khó khăn, trở ngại cho công việc của nhân viên khác hoặc bộ phận khác.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-23",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 23. Các lỗi kỷ luật: Nghỉ họp giao ban, nghỉ các cuộc họp nói chung mà không xin phép trước và không sắp xếp người thay thế.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 23. Các lỗi kỷ luật: Nghỉ họp giao ban, nghỉ các cuộc họp nói chung mà không xin phép trước và không sắp xếp người thay thế.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-24",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 24. Các lỗi kỷ luật: Không tham dự các buổi/khóa đào tạo bắt buộc mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 24. Các lỗi kỷ luật: Không tham dự các buổi/khóa đào tạo bắt buộc mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-25",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 25. Các lỗi kỷ luật: Đi làm trễ hoặc ra làm sớm mà không được phép của Trưởng Bộ Phận; nghỉ giữa ca lâu hơn được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 25. Các lỗi kỷ luật: Đi làm trễ hoặc ra làm sớm mà không được phép của Trưởng Bộ Phận; nghỉ giữa ca lâu hơn được phép.\nPhân loại lỗi: Cấp 1. Hình thức kỷ luật: Nhắc nhở bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-26",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 26. Các lỗi kỷ luật: Liên tục tái phạm lỗi thuộc cấp 1 ba (3) lần trong vòng ba (3) tháng; phạm ba (3) lỗi khác nhau thuộc cấp 1 trong vòng ba (3) tháng hay năm (5) lỗi cấp 1 trong một năm.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 26. Các lỗi kỷ luật: Liên tục tái phạm lỗi thuộc cấp 1 ba (3) lần trong vòng ba (3) tháng; phạm ba (3) lỗi khác nhau thuộc cấp 1 trong vòng ba (3) tháng hay năm (5) lỗi cấp 1 trong một năm.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-27",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 27. Các lỗi kỷ luật: Vào phòng, khu vực cấm/ khu chứa hàng mà không có nhiệm vụ và không được chỉ thị của Ban Quản Lý\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 27. Các lỗi kỷ luật: Vào phòng, khu vực cấm/ khu chứa hàng mà không có nhiệm vụ và không được chỉ thị của Ban Quản Lý\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-28",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 28. Các lỗi kỷ luật: Sử dụng chìa khóa của Công ty mà không được phép của Ban Quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 28. Các lỗi kỷ luật: Sử dụng chìa khóa của Công ty mà không được phép của Ban Quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-29",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 29. Các lỗi kỷ luật: Mang tài sản của Công ty, mang đồ bỏ quên của người khác (bao gồm nhưng không giới hạn dụng cụ, nguyên liệu, vật liệu, tài liệu, giấy tờ, v.v.) ra ngoài mà không được phép của cấp có thẩm quyền.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 29. Các lỗi kỷ luật: Mang tài sản của Công ty, mang đồ bỏ quên của người khác (bao gồm nhưng không giới hạn dụng cụ, nguyên liệu, vật liệu, tài liệu, giấy tờ, v.v.) ra ngoài mà không được phép của cấp có thẩm quyền.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-30",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 30. Các lỗi kỷ luật: Sử dụng phương tiện, nguyên vật liệu, trang thiết bị của Công ty cho mục đích cá nhân khi không được phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 30. Các lỗi kỷ luật: Sử dụng phương tiện, nguyên vật liệu, trang thiết bị của Công ty cho mục đích cá nhân khi không được phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-31",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 31. Các lỗi kỷ luật: Tự ý cất giấu hoặc sử dụng tài sản của Công ty để phục vụ cá nhân hoặc nhân viên khác hoặc vì bất kỳ lý do gì khi không có sự cho phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 31. Các lỗi kỷ luật: Tự ý cất giấu hoặc sử dụng tài sản của Công ty để phục vụ cá nhân hoặc nhân viên khác hoặc vì bất kỳ lý do gì khi không có sự cho phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-32",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 32. Các lỗi kỷ luật: Hành vi thô lỗ, mất lịch sự với khách hàng, cấp trên hay đồng nghiệp\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 32. Các lỗi kỷ luật: Hành vi thô lỗ, mất lịch sự với khách hàng, cấp trên hay đồng nghiệp\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-33",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 33. Các lỗi kỷ luật: Ngủ trong giờ làm việc tại bất cứ khu vực nào trong phạm vi Công ty mà không được phép của Ban quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 33. Các lỗi kỷ luật: Ngủ trong giờ làm việc tại bất cứ khu vực nào trong phạm vi Công ty mà không được phép của Ban quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-34",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 34. Các lỗi kỷ luật: Sửa chữa lịch làm việc hoặc bảng chấm công khi không được trao quyền hay cho phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 34. Các lỗi kỷ luật: Sửa chữa lịch làm việc hoặc bảng chấm công khi không được trao quyền hay cho phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-35",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 35. Các lỗi kỷ luật: Cấp trên Không xử lý hoặc không xử lý đúng mức quy định khi phát hiện ra lỗi sai của nhân viên cấp dưới.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 35. Các lỗi kỷ luật: Cấp trên Không xử lý hoặc không xử lý đúng mức quy định khi phát hiện ra lỗi sai của nhân viên cấp dưới.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-36",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 36. Các lỗi kỷ luật: Cấp trên cố ý thiên vị và thiên vị không hợp lý một nhân viên cấp dưới trong việc khen thưởng hay kỷ luật.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 36. Các lỗi kỷ luật: Cấp trên cố ý thiên vị và thiên vị không hợp lý một nhân viên cấp dưới trong việc khen thưởng hay kỷ luật.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-37",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 37. Các lỗi kỷ luật: Không hợp tác với các nhân viên khác trong công việc, làm ảnh hưởng đến tiến độ công việc được giao.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 37. Các lỗi kỷ luật: Không hợp tác với các nhân viên khác trong công việc, làm ảnh hưởng đến tiến độ công việc được giao.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-38",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 38. Các lỗi kỷ luật: Ngăn cản hoặc cố tình không giúp đỡ người khác thực hiện nhiệm vụ khi việc giúp đỡ nằm trong nhiệm vụ, khả năng của nhân viên đó.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 38. Các lỗi kỷ luật: Ngăn cản hoặc cố tình không giúp đỡ người khác thực hiện nhiệm vụ khi việc giúp đỡ nằm trong nhiệm vụ, khả năng của nhân viên đó.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-39",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 39. Các lỗi kỷ luật: Không hoàn thành nhiệm vụ được giao đúng hạn và/hoặc không báo cáo kịp thời nguyên nhân trì hoãn hoặc không thực hiện được.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 39. Các lỗi kỷ luật: Không hoàn thành nhiệm vụ được giao đúng hạn và/hoặc không báo cáo kịp thời nguyên nhân trì hoãn hoặc không thực hiện được.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-40",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 40. Các lỗi kỷ luật: Không thực hiện yêu cầu của cấp trên, từ chối thực hiện công việc mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 40. Các lỗi kỷ luật: Không thực hiện yêu cầu của cấp trên, từ chối thực hiện công việc mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-41",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 41. Các lỗi kỷ luật: Trễ nải, sao lãng nhiệm vụ dẫn tới mất hoặc hư hỏng tài sản của Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 41. Các lỗi kỷ luật: Trễ nải, sao lãng nhiệm vụ dẫn tới mất hoặc hư hỏng tài sản của Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-42",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 42. Các lỗi kỷ luật: Cố tình vi phạm hoặc không tuân thủ các tiêu chuẩn quy trình nghiệp vụ của Công ty (có quy định rõ tại bộ phận hoặc đã được đào tạo, hướng dẫn).\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 42. Các lỗi kỷ luật: Cố tình vi phạm hoặc không tuân thủ các tiêu chuẩn quy trình nghiệp vụ của Công ty (có quy định rõ tại bộ phận hoặc đã được đào tạo, hướng dẫn).\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-43",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 43. Các lỗi kỷ luật: Không tuân thủ các quy định mới đã được thông báo bởi Ban quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 43. Các lỗi kỷ luật: Không tuân thủ các quy định mới đã được thông báo bởi Ban quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-44",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 44. Các lỗi kỷ luật: Không báo cáo các trường hợp mắc bệnh truyền nhiễm của mình hoặc của nhân viên khác (nếu biết), có thể ảnh hưởng nghiêm trọng đến khách hoặc các nhân viên khác. Như cúm, robela, các bệnh theo cảnh báo của nhà nước.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 44. Các lỗi kỷ luật: Không báo cáo các trường hợp mắc bệnh truyền nhiễm của mình hoặc của nhân viên khác (nếu biết), có thể ảnh hưởng nghiêm trọng đến khách hoặc các nhân viên khác. Như cúm, robela, các bệnh theo cảnh báo của nhà nước.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-45",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 45. Các lỗi kỷ luật: Cố tình cung cấp thông tin sai lệch, giả mạo giấy tờ hồ sơ công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 45. Các lỗi kỷ luật: Cố tình cung cấp thông tin sai lệch, giả mạo giấy tờ hồ sơ công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-46",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 46. Các lỗi kỷ luật: Treo dán, di dời, thay đổi thông tin trên các Bảng Thông Báo mà không được Ban Quản Lý cho phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 46. Các lỗi kỷ luật: Treo dán, di dời, thay đổi thông tin trên các Bảng Thông Báo mà không được Ban Quản Lý cho phép.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-47",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 47. Các lỗi kỷ luật: Đưa những lời khai sai sự thật, gây nhầm lẫn trong các cuộc điều tra, thẩm tra.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 47. Các lỗi kỷ luật: Đưa những lời khai sai sự thật, gây nhầm lẫn trong các cuộc điều tra, thẩm tra.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-48",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 48. Các lỗi kỷ luật: Tiết lộ mức thu nhập của bản thân hoặc/và bàn tán về lương của CBNV trong Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 48. Các lỗi kỷ luật: Tiết lộ mức thu nhập của bản thân hoặc/và bàn tán về lương của CBNV trong Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-49",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 49. Các lỗi kỷ luật: Tự ý rời khu vực làm việc trong giờ làm việc để giải quyết việc riêng mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 49. Các lỗi kỷ luật: Tự ý rời khu vực làm việc trong giờ làm việc để giải quyết việc riêng mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-50",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 50. Các lỗi kỷ luật: Bán hàng, giao dịch, quảng cáo, kinh doanh cá nhân trong khu vực Công ty mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 50. Các lỗi kỷ luật: Bán hàng, giao dịch, quảng cáo, kinh doanh cá nhân trong khu vực Công ty mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-51",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 51. Các lỗi kỷ luật: Sử dụng tên Công ty, tên các thương hiệu của Công ty hoặc các ấn phẩm mang tên, logo của Công ty như phong bì, giấy tiêu đề ... trong các việc giao dịch và kinh doanh cá nhân.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 51. Các lỗi kỷ luật: Sử dụng tên Công ty, tên các thương hiệu của Công ty hoặc các ấn phẩm mang tên, logo của Công ty như phong bì, giấy tiêu đề ... trong các việc giao dịch và kinh doanh cá nhân.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-52",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 52. Các lỗi kỷ luật: Cố tình không trung thực trong báo cáo công việc.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 52. Các lỗi kỷ luật: Cố tình không trung thực trong báo cáo công việc.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-53",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 53. Các lỗi kỷ luật: Không báo cáo kịp thời và đầy đủ khi có các tai nạn, trường hợp khẩn cấp hay vấn đề bất thường xảy ra để cấp trên hoặc Ban quản lý được biết và giải quyết.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 53. Các lỗi kỷ luật: Không báo cáo kịp thời và đầy đủ khi có các tai nạn, trường hợp khẩn cấp hay vấn đề bất thường xảy ra để cấp trên hoặc Ban quản lý được biết và giải quyết.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-54",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 54. Các lỗi kỷ luật: Không báo cáo cho Trưởng Bộ Phận và/hoặc Ban Quản lý các vật dụng, tài sản nhặt được trong phạm vi Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 54. Các lỗi kỷ luật: Không báo cáo cho Trưởng Bộ Phận và/hoặc Ban Quản lý các vật dụng, tài sản nhặt được trong phạm vi Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-55",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 55. Các lỗi kỷ luật: Chứng kiến Nhân viên khác vi phạm nội quy nhưng cố tình không báo cáo cho cấp trên hay Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 55. Các lỗi kỷ luật: Chứng kiến Nhân viên khác vi phạm nội quy nhưng cố tình không báo cáo cho cấp trên hay Ban Quản Lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-56",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 56. Các lỗi kỷ luật: Vắng mặt không tới làm, nghỉ phép, nghỉ vì việc riêng mà không báo trước, không được cấp trên hay Ban Quản lý chấp thuận.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 56. Các lỗi kỷ luật: Vắng mặt không tới làm, nghỉ phép, nghỉ vì việc riêng mà không báo trước, không được cấp trên hay Ban Quản lý chấp thuận.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-57",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 57. Các lỗi kỷ luật: Đi làm trễ hoặc về sớm ba lần trong tháng mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 57. Các lỗi kỷ luật: Đi làm trễ hoặc về sớm ba lần trong tháng mà không có lý do chính đáng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-58",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 58. Các lỗi kỷ luật: Không ghi nhận giờ vào ra bằng các phương tiện quy định (dấu vân tay, ghi chú chấm công).\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 58. Các lỗi kỷ luật: Không ghi nhận giờ vào ra bằng các phương tiện quy định (dấu vân tay, ghi chú chấm công).\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-59",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 59. Các lỗi kỷ luật: Tự ý sử dụng phương tiện chấm công khác với qui định mà không có sự cho phép trước của Ban Quản Lý hoặc không có sự xác nhận của Cấp trên trong trường hợp bất khả kháng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 59. Các lỗi kỷ luật: Tự ý sử dụng phương tiện chấm công khác với qui định mà không có sự cho phép trước của Ban Quản Lý hoặc không có sự xác nhận của Cấp trên trong trường hợp bất khả kháng.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-60",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 60. Các lỗi kỷ luật: Tự ý thay đổi giờ làm việc hoặc thay đổi ngày nghỉ ca khi chưa được phép của Trưởng Bộ phận; tự ý làm thêm giờ để hưởng lương giờ làm thêm khi chưa được sự phê duyệt trước của Ban Quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 60. Các lỗi kỷ luật: Tự ý thay đổi giờ làm việc hoặc thay đổi ngày nghỉ ca khi chưa được phép của Trưởng Bộ phận; tự ý làm thêm giờ để hưởng lương giờ làm thêm khi chưa được sự phê duyệt trước của Ban Quản lý.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-61",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 61. Các lỗi kỷ luật: Ghi nhận giờ vào/ra dùm nhân viên khác, mặc đồng phục của nhân viên khác.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 61. Các lỗi kỷ luật: Ghi nhận giờ vào/ra dùm nhân viên khác, mặc đồng phục của nhân viên khác.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-62",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 62. Các lỗi kỷ luật: Cho vay nặng lãi hay dính líu đến cho vay nặng lãi trong phạm vi của Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 62. Các lỗi kỷ luật: Cho vay nặng lãi hay dính líu đến cho vay nặng lãi trong phạm vi của Công ty.\nPhân loại lỗi: Cấp 2. Hình thức kỷ luật: Khiển trách bằng văn bản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-63",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 63. Các lỗi kỷ luật: Liên tục tái phạm lỗi cấp 2 hai (2) lần trong vòng ba (3) tháng.\nPhân loại lỗi: Cấp 3. Hình thức kỷ luật: Kéo dài thời hạn nâng lương 12 tháng hoặc chuyển công việc khác có mức lương thấp hơn.",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 63. Các lỗi kỷ luật: Liên tục tái phạm lỗi cấp 2 hai (2) lần trong vòng ba (3) tháng.\nPhân loại lỗi: Cấp 3. Hình thức kỷ luật: Kéo dài thời hạn nâng lương 12 tháng hoặc chuyển công việc khác có mức lương thấp hơn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-64",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 64. Các lỗi kỷ luật: Vượt quyền/trách nhiệm cho phép trong việc quyết định những công việc quan trọng, gây thiệt hại nghiêm trọng tới tài sản, lợi ích hoặc hình ảnh/uy tín của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 64. Các lỗi kỷ luật: Vượt quyền/trách nhiệm cho phép trong việc quyết định những công việc quan trọng, gây thiệt hại nghiêm trọng tới tài sản, lợi ích hoặc hình ảnh/uy tín của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-65",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 65. Các lỗi kỷ luật: Đánh nhau, thách thức, xúi giục, đe dọa, gây gổ, nhờ, thuê, mướn người đánh nhau với nhân viên khác trong Công ty, gây ảnh hưởng nghiêm trọng đến tinh thần/thân thể của nhân viên và/hoặc hoạt động của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 65. Các lỗi kỷ luật: Đánh nhau, thách thức, xúi giục, đe dọa, gây gổ, nhờ, thuê, mướn người đánh nhau với nhân viên khác trong Công ty, gây ảnh hưởng nghiêm trọng đến tinh thần/thân thể của nhân viên và/hoặc hoạt động của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-66",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 66. Các lỗi kỷ luật: Ép buộc, dọa nạt, thuê mướn, xúi giục nhân viên khác không tuân theo những nội quy, quy định của Công ty và mệnh lệnh của cấp trên.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 66. Các lỗi kỷ luật: Ép buộc, dọa nạt, thuê mướn, xúi giục nhân viên khác không tuân theo những nội quy, quy định của Công ty và mệnh lệnh của cấp trên.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-67",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 67. Các lỗi kỷ luật: Cờ bạc, tổ chức cờ bạc hay dính líu đến cờ bạc trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 67. Các lỗi kỷ luật: Cờ bạc, tổ chức cờ bạc hay dính líu đến cờ bạc trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-68",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 68. Các lỗi kỷ luật: Quấy rối tình dục dưới bất cứ hình thức nào với nhân viên khác làm cùng Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 68. Các lỗi kỷ luật: Quấy rối tình dục dưới bất cứ hình thức nào với nhân viên khác làm cùng Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-69",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 69. Các lỗi kỷ luật: Mời chào, mua bán, truyền bá văn hóa phẩm đồi trụy, có hành vi mời chào, mua bán dâm đối với nhân viên khác trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 69. Các lỗi kỷ luật: Mời chào, mua bán, truyền bá văn hóa phẩm đồi trụy, có hành vi mời chào, mua bán dâm đối với nhân viên khác trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-70",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 70. Các lỗi kỷ luật: Sỉ nhục, tung tin đồn, nói xấu, gây tổn hại đến uy tín/tinh thần của nhân viên khác hoặc của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 70. Các lỗi kỷ luật: Sỉ nhục, tung tin đồn, nói xấu, gây tổn hại đến uy tín/tinh thần của nhân viên khác hoặc của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-71",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 71. Các lỗi kỷ luật: Không hoàn thành các nhiệm vụ đặc biệt quan trọng do Ban Quản Lý giao và không báo cáo nguyên nhân, gây thiệt hại nghiêm trọng đến lợi ích của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 71. Các lỗi kỷ luật: Không hoàn thành các nhiệm vụ đặc biệt quan trọng do Ban Quản Lý giao và không báo cáo nguyên nhân, gây thiệt hại nghiêm trọng đến lợi ích của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-72",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 72. Các lỗi kỷ luật: Mang các loại vũ trang, chất nổ, chất dễ cháy hay các loại vũ khí vào phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 72. Các lỗi kỷ luật: Mang các loại vũ trang, chất nổ, chất dễ cháy hay các loại vũ khí vào phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-73",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 73. Các lỗi kỷ luật: Vi phạm hoặc không tuân thủ các quy định của Nhà nước và Công ty về an ninh, an toàn cháy lao động, tình trạng khẩn cấp, gây nguy hiểm cho người khác hoặc gây thiệt hại cho tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 73. Các lỗi kỷ luật: Vi phạm hoặc không tuân thủ các quy định của Nhà nước và Công ty về an ninh, an toàn cháy lao động, tình trạng khẩn cấp, gây nguy hiểm cho người khác hoặc gây thiệt hại cho tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-74",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 74. Các lỗi kỷ luật: Sử dụng, mua bán, tàng trữ các loại dược phẩm, hóa học cấm, các chất ma túy trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 74. Các lỗi kỷ luật: Sử dụng, mua bán, tàng trữ các loại dược phẩm, hóa học cấm, các chất ma túy trong phạm vi Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-75",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 75. Các lỗi kỷ luật: Không tuân thủ quy định về quy trình khiếu kiện, khiếu nại dẫn tới hậu quả gây rối nghiêm trọng.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 75. Các lỗi kỷ luật: Không tuân thủ quy định về quy trình khiếu kiện, khiếu nại dẫn tới hậu quả gây rối nghiêm trọng.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-76",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 76. Các lỗi kỷ luật: Cung cấp thông tin mật cho các cá nhân/tổ chức bên ngoài, tiết lộ thông tin cá nhân của CBNV cho các cá nhân/tổ chức bên ngoài; tham gia vào các cuộc thảo luận trên các phương tiện thông tin đại chúng về Công ty mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 76. Các lỗi kỷ luật: Cung cấp thông tin mật cho các cá nhân/tổ chức bên ngoài, tiết lộ thông tin cá nhân của CBNV cho các cá nhân/tổ chức bên ngoài; tham gia vào các cuộc thảo luận trên các phương tiện thông tin đại chúng về Công ty mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-77",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 77. Các lỗi kỷ luật: Tham gia quảng cáo, chào bán, giới thiệu các sản phẩm/dịch vụ của Công ty trên internet mà không được sự cho phép của Ban quản lý gây thiệt hại nghiêm trọng về lợi ích, uy tín, thương hiệu hoặc tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 77. Các lỗi kỷ luật: Tham gia quảng cáo, chào bán, giới thiệu các sản phẩm/dịch vụ của Công ty trên internet mà không được sự cho phép của Ban quản lý gây thiệt hại nghiêm trọng về lợi ích, uy tín, thương hiệu hoặc tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-78",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 78. Các lỗi kỷ luật: Cố tình hoang phí nguyên vật liệu của Công ty hay cố tình phá hoại tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 78. Các lỗi kỷ luật: Cố tình hoang phí nguyên vật liệu của Công ty hay cố tình phá hoại tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-79",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 79. Các lỗi kỷ luật: Bất kỳ hình thức trộm cắp hay, sao chép chỉnh sửa các tài liệu gốc, phiếu thu, hóa đơn, tỷ giá hối đoái, các phúc lợi của CBNV, hay thông tin tài chính khác để trục lợi cá nhân.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 79. Các lỗi kỷ luật: Bất kỳ hình thức trộm cắp hay, sao chép chỉnh sửa các tài liệu gốc, phiếu thu, hóa đơn, tỷ giá hối đoái, các phúc lợi của CBNV, hay thông tin tài chính khác để trục lợi cá nhân.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-80",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 80. Các lỗi kỷ luật: Bất kỳ hành vi lợi dụng các quy định về chính sách, phúc lợi dành cho nhân viên Công ty để trục lợi cá nhân, gây thiệt hại nghiêm trọng về lợi ích, uy tín, thương hiệu hoặc tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 80. Các lỗi kỷ luật: Bất kỳ hành vi lợi dụng các quy định về chính sách, phúc lợi dành cho nhân viên Công ty để trục lợi cá nhân, gây thiệt hại nghiêm trọng về lợi ích, uy tín, thương hiệu hoặc tài sản của Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-82a",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 82. Các lỗi kỷ luật: Dính líu trực tiếp hoặc gián tiếp gợi ý xin tiền phục vụ hay quà từ đối tác.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 82. Các lỗi kỷ luật: Dính líu trực tiếp hoặc gián tiếp gợi ý xin tiền phục vụ hay quà từ đối tác.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-82b",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 82. Các lỗi kỷ luật: Tham gia hay gợi ý các giao dịch làm ăn riêng với đối tác.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 82. Các lỗi kỷ luật: Tham gia hay gợi ý các giao dịch làm ăn riêng với đối tác.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-83",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 83. Các lỗi kỷ luật: Lạm dụng chức vụ tại Công ty để thu lợi cá nhân, nhận hối lộ mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 83. Các lỗi kỷ luật: Lạm dụng chức vụ tại Công ty để thu lợi cá nhân, nhận hối lộ mà không được phép của Ban Quản Lý.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-84",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 84. Các lỗi kỷ luật: Cất giấu nơi không ai biết, trộm cắp tài sản, tiền bạc của Công ty, của khách viếng, của Nhân viên khác trong Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 84. Các lỗi kỷ luật: Cất giấu nơi không ai biết, trộm cắp tài sản, tiền bạc của Công ty, của khách viếng, của Nhân viên khác trong Công ty.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-85",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 85. Các lỗi kỷ luật: Nghỉ việc 5 ngày hoặc hơn trong một tháng, hay từ 20 ngày trong năm mà không báo cáo và không có lý do chính đáng.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 85. Các lỗi kỷ luật: Nghỉ việc 5 ngày hoặc hơn trong một tháng, hay từ 20 ngày trong năm mà không báo cáo và không có lý do chính đáng.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "row-86",
+      "raw": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 86. Các lỗi kỷ luật: Liên tục tái phạm lỗi cấp 2 ba (3) lần trong vòng ba (3) tháng; phạm ba (3) lỗi khác nhau thuộc cấp 2 trong vòng ba (3) tháng hay năm (5) lỗi cấp 2 trong một năm.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "text": "Bảng mức xử lý vi phạm CBNV năm 2017 — STT 86. Các lỗi kỷ luật: Liên tục tái phạm lỗi cấp 2 ba (3) lần trong vòng ba (3) tháng; phạm ba (3) lỗi khác nhau thuộc cấp 2 trong vòng ba (3) tháng hay năm (5) lỗi cấp 2 trong một năm.\nPhân loại lỗi: Nghiêm trọng. Hình thức kỷ luật: Chấm dứt HĐLĐ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "table-notes",
+      "raw": "Cấp nhân viên bao gồm các vị trí Giám Sát, trưởng nhóm trở xuống; cấp Quản lý bao gồm các vị trí từ cấp Trợ Lý, Phó phòng, Trưởng bộ phận trở lên.\nDanh sách các lỗi vi phạm này không bao gồm tất cả các trường hợp có thể xảy ra. Ban Quản Lý vì vậy sẽ xem xét tất cả các trường hợp tương tự hoặc có liên quan đến các điều đã được liệt kê cũng như những trường hợp chưa được liệt kê nhưng gây hậu quả nghiêm trọng. Ban Quản Lý sẽ tham khảo Bộ Luật Lao Động trước khi quyết định kỷ luật CBNV.\nTrong trường hợp sự việc xảy ra ngoài thẩm quyền điều tra của Công ty hoặc sự việc có dấu hiệu của hành vi vi phạm pháp luật, Ban Quản lý sẽ chuyển sang các cơ quan có thẩm quyền để xử lý theo quy định của pháp luật.\nPhòng. HCNS — [tên viết tay chưa đọc chắc chắn]\nVÕ MẬU QUỐC DUY — Tổng Giám đốc",
+      "text": "Cấp nhân viên bao gồm các vị trí Giám Sát, trưởng nhóm trở xuống; cấp Quản lý bao gồm các vị trí từ cấp Trợ Lý, Phó phòng, Trưởng bộ phận trở lên.\nDanh sách các lỗi vi phạm này không bao gồm tất cả các trường hợp có thể xảy ra. Ban Quản Lý vì vậy sẽ xem xét tất cả các trường hợp tương tự hoặc có liên quan đến các điều đã được liệt kê cũng như những trường hợp chưa được liệt kê nhưng gây hậu quả nghiêm trọng. Ban Quản Lý sẽ tham khảo Bộ Luật Lao Động trước khi quyết định kỷ luật CBNV.\nTrong trường hợp sự việc xảy ra ngoài thẩm quyền điều tra của Công ty hoặc sự việc có dấu hiệu của hành vi vi phạm pháp luật, Ban Quản lý sẽ chuyển sang các cơ quan có thẩm quyền để xử lý theo quy định của pháp luật.\nPhòng. HCNS — [tên viết tay chưa đọc chắc chắn]\nVÕ MẬU QUỐC DUY — Tổng Giám đốc",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "form",
+      "raw": "BIÊN BẢN HOÀN THÀNH CHƯƠNG TRÌNH ĐỊNH HƯỚNG NHÂN VIÊN\n1. Tên tên: … Sinh ngày: … Tại: …\n2. Chức danh: … Thuộc Phòng …\nTôi đã được Phòng HCNS, Công ty TNHH RITAVÕ, phổ biến chương trình định hướng nhân viên gồm:\nÔ chọn: Nội quy Công ty; Quy định Công ty; Hướng dẫn hội nhập; Xử lý Vi phạm Đối với CBNV; Bảng mô tả công việc; Các Tiêu chuẩn & Quy trình.\nĐã đã hiểu rõ nội dung nêu trên và cam kết thực hiện nghiêm túc đúng yêu cầu Công ty đề ra.\nTôi xin chịu trách nhiệm trước Pháp luật và Quý Công ty nếu vi phạm một trong những yêu cầu trên.\nNgười viết cam kết (Ký, ghi rõ họ tên)\nNgày …/…/2017",
+      "text": "BIÊN BẢN HOÀN THÀNH CHƯƠNG TRÌNH ĐỊNH HƯỚNG NHÂN VIÊN\n1. Tên tên: … Sinh ngày: … Tại: …\n2. Chức danh: … Thuộc Phòng …\nTôi đã được Phòng HCNS, Công ty TNHH RITAVÕ, phổ biến chương trình định hướng nhân viên gồm:\nÔ chọn: Nội quy Công ty; Quy định Công ty; Hướng dẫn hội nhập; Xử lý Vi phạm Đối với CBNV; Bảng mô tả công việc; Các Tiêu chuẩn & Quy trình.\nĐã đã hiểu rõ nội dung nêu trên và cam kết thực hiện nghiêm túc đúng yêu cầu Công ty đề ra.\nTôi xin chịu trách nhiệm trước Pháp luật và Quý Công ty nếu vi phạm một trong những yêu cầu trên.\nNgười viết cam kết (Ký, ghi rõ họ tên)\nNgày …/…/2017",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "footer",
+      "raw": "Head Office: 327 Ha Noi Highway, An Phu Ward, Dist.2, HCMC\nTel: (+84-8) 3744 2266 - Fax: (+84-8) 3744 2288",
+      "text": "Head Office: 327 Ha Noi Highway, An Phu Ward, Dist.2, HCMC\nTel: (+84-8) 3744 2266 - Fax: (+84-8) 3744 2288",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "numbering",
+      "code": "source_numbering",
+      "location": {
+        "page": 11
+      }
+    },
+    {
+      "warning_id": "handwriting",
+      "code": "uncertain_handwriting",
+      "location": {
+        "page": 1
+      }
+    },
+    {
+      "warning_id": "historical",
+      "code": "unresolved_applicability",
+      "location": {
+        "page": 7
+      }
+    }
+  ]
+}

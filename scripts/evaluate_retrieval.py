@@ -12,6 +12,7 @@ from uuid import UUID
 from sqlalchemy import select, text
 from src.database import session_scope, close_database
 from src.database.models import IngestionRun, DocumentChunk, DocumentRevision, DocumentAccessRule
+from src.database.models import EvidenceScope, EvidenceItem, EvidenceValue
 from src.database.runtime import run_async
 from src.ingestion import document_packages as packages
 from src.ingestion.approved_publication import configuration
@@ -112,7 +113,14 @@ async def database_state(record, payload, expected):
         if len(stored) != len(payload['chunks']):
             raise ValueError('stored_count_mismatch')
         norms = []
+        if 'structured' in payload:
+            for key, model in [('scopes', EvidenceScope), ('items', EvidenceItem), ('values', EvidenceValue)]:
+                rows = list(await db.scalars(select(model).where(model.run_id == run.id)))
+                if {r.author_id: r.data for r in rows} != {r['id']: r for r in payload['structured'][key]}:
+                    raise ValueError('stored_structure_mismatch')
         for actual, wanted in zip(stored, payload['chunks']):
+            if actual.author_id != wanted.get('author_id') or actual.role != wanted.get('role'):
+                raise ValueError('stored_identity_mismatch')
             if any(getattr(actual, k) != wanted[k] for k in
                    ('chunk_index', 'content', 'source_location', 'extraction_method')):
                 raise ValueError('stored_content_mismatch')
