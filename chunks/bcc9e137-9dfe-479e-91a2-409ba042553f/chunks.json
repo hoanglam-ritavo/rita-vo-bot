@@ -1,0 +1,321 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit — HDSD phân hệ Nhân sự, HDSD-29/3/25-V1, IT-HCNS. Mở Apps > Nhân sự để xem: Sơ đồ tổ chức, Thông tin nhân sự, Sơ yếu lý lịch, Hợp đồng lao động, Quá trình công tác, Bằng cấp, Gia đình, Khen thưởng cá nhân, Kỷ luật, Trang thiết bị, Quá trình tham gia BHXH. Đây là danh mục chức năng trong tài liệu, không phải danh mục quyền lợi nhân viên.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 81
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — tải ứng dụng: Android dùng https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi; iOS dùng https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Khi đăng nhập trên điện thoại, dùng nút Đổi địa chỉ để đặt https://office.ritavo.com, rồi nhập Username và Password của người dùng. Các tài khoản trong ảnh chỉ là ví dụ.",
+      "source_refs": [
+        {
+          "segment_id": "android",
+          "start": 0,
+          "end": 118
+        },
+        {
+          "segment_id": "ios",
+          "start": 0,
+          "end": 96
+        },
+        {
+          "segment_id": "mobile-login",
+          "start": 0,
+          "end": 156
+        }
+      ]
+    },
+    {
+      "content": "Workit — đăng nhập bằng trình duyệt tại https://office.ritavo.com. Theo hướng dẫn, User ID và Password được gửi tới mail từng người dùng. Sau lần đăng nhập đầu tiên, chọn ảnh tài khoản > Đổi mật khẩu, nhập mật khẩu cũ, mật khẩu mới và nhập lại mật khẩu mới, bấm Đổi mật khẩu.",
+      "source_refs": [
+        {
+          "segment_id": "web-login",
+          "start": 0,
+          "end": 120
+        },
+        {
+          "segment_id": "password",
+          "start": 0,
+          "end": 224
+        }
+      ]
+    },
+    {
+      "content": "Workit — màn hình chính sau đăng nhập hiển thị lịch làm việc, bàn làm việc, thông báo tin tức. Menu Apps có Công việc, Dự án, Văn phòng số, Quy trình số, Mua hàng, Nhân sự, Chấm công, Tiền lương, Hệ thống. Các ảnh số liệu trên màn hình chỉ minh họa giao diện, không cung cấp số liệu nhân sự hiện tại.",
+      "source_refs": [
+        {
+          "segment_id": "home",
+          "start": 0,
+          "end": 133
+        },
+        {
+          "segment_id": "apps",
+          "start": 0,
+          "end": 129
+        }
+      ]
+    },
+    {
+      "content": "Workit — nút thao tác dữ liệu: Thêm (F2) tạo mới; biểu tượng sửa/xóa tác động dữ liệu đang chọn; Xuất Excel mẫu, Import Excel mẫu và Xuất Excel dữ liệu là các thao tác khác nhau. Nhân bản sao chép nhanh dữ liệu. Lưu (F8) lưu phần vừa cập nhật; Hủy hủy phần vừa cập nhật.",
+      "source_refs": [
+        {
+          "segment_id": "buttons",
+          "start": 0,
+          "end": 306
+        }
+      ]
+    },
+    {
+      "content": "Workit — nút phê duyệt: Duyệt xác nhận đề nghị; Bỏ duyệt hủy thao tác đã duyệt; Trả lại quay về bước cần duyệt lại trước đó; Từ chối không chấp nhận đề nghị và hủy các bước sau; Bỏ từ chối hủy thao tác từ chối trước đó. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem file đính kèm, quy trình xem các bước phê duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "approval-buttons",
+          "start": 0,
+          "end": 406
+        }
+      ]
+    },
+    {
+      "content": "Workit — cấu hình chữ ký số: vào Apps > Hệ thống > Cấu hình chữ ký số. Hướng dẫn dùng chữ ký cho phiếu cung ứng, mua sắm, đề nghị thanh toán, hồ sơ nghỉ việc và HĐLĐ; nguồn ghi riêng HĐLĐ cần đăng ký chữ ký số với đơn vị được cấp phép. Chọn Choose File, kiểu Hình bên trên, thông tin bên dưới rồi Save. Ảnh có tỷ lệ 582x300, định dạng .png, chữ ký mực xanh, đã xóa nền. Giá trị HSM ID/HSM Key trong ảnh không phải thông tin để sao chép sử dụng.",
+      "source_refs": [
+        {
+          "segment_id": "signature-location",
+          "start": 0,
+          "end": 314
+        },
+        {
+          "segment_id": "signature-config",
+          "start": 0,
+          "end": 324
+        },
+        {
+          "segment_id": "signature-image",
+          "start": 0,
+          "end": 296
+        }
+      ]
+    },
+    {
+      "content": "Workit — chuẩn bị ảnh chữ ký theo hướng dẫn: chữ ký mực xanh, xóa phông nền, file .png. Tài liệu minh họa https://www.remove.bg/vi/upload: tải lên hoặc kéo thả ảnh, chọn Nền > Màu sắc > không màu nền, đóng và Tải xuống.",
+      "source_refs": [
+        {
+          "segment_id": "signature-image",
+          "start": 0,
+          "end": 296
+        }
+      ]
+    },
+    {
+      "content": "Workit — thay avatar: chọn ảnh tài khoản > Thông tin tài khoản > Thay đổi hình đại diện. Trong tab thay đổi hình, nút số 1 chọn ảnh chèn vào, nút số 2 lưu ảnh đã chọn để hoàn tất.",
+      "source_refs": [
+        {
+          "segment_id": "avatar",
+          "start": 0,
+          "end": 230
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem cơ cấu tổ chức: Apps > Nhân sự > Sơ đồ tổ chức. Màn hình minh họa cây công ty, phòng ban, đội và số nhân sự; ảnh trong hướng dẫn không xác nhận cơ cấu hoặc số nhân viên hiện tại.",
+      "source_refs": [
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        },
+        {
+          "segment_id": "organization",
+          "start": 0,
+          "end": 116
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem hồ sơ cá nhân: Apps > Nhân sự > Xem thông tin nhân sự hoặc Sơ yếu lý lịch. Theo hướng dẫn, mỗi nhân sự chỉ xem thông tin cá nhân và sơ yếu lý lịch của bản thân mình.",
+      "source_refs": [
+        {
+          "segment_id": "personal-profile",
+          "start": 0,
+          "end": 183
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem thông tin hợp đồng: Apps > Nhân sự > Hợp đồng lao động. Chức năng quản lý hợp đồng thử việc, chính thức, không xác định thời hạn. Trang này không hướng dẫn thủ tục xin nghỉ việc hay chấm dứt hợp đồng.",
+      "source_refs": [
+        {
+          "segment_id": "contracts",
+          "start": 0,
+          "end": 133
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — Quá trình công tác trong phân hệ Nhân sự quản lý lịch sử trong thời gian làm việc tại công ty. Mỗi cá nhân chỉ xem quá trình của mình. Màn hình có thời gian từ/đến ngày, loại điều chuyển, đơn vị, khối, phòng ban, bộ phận, nhóm, tổ, chức vụ/chức danh và loại nhân viên.",
+      "source_refs": [
+        {
+          "segment_id": "employment-history",
+          "start": 0,
+          "end": 304
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — chức năng Gia đình trong Nhân sự quản lý người thân khi nhân viên đã khai báo và danh sách người phụ thuộc. Màn hình có họ tên người thân, quan hệ, giới tính, ngày/nơi sinh, nghề nghiệp và thời gian phụ thuộc từ/đến ngày. Đây là hướng dẫn giao diện, không xác nhận điều kiện giảm trừ thuế của từng người.",
+      "source_refs": [
+        {
+          "segment_id": "family",
+          "start": 0,
+          "end": 265
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — Nhân sự > Khen thưởng cá nhân hoặc Kỷ luật dùng quản lý thông tin khen thưởng và kỷ luật của nhân viên. Dữ liệu vi phạm trong ảnh là minh họa; tài liệu này không thiết lập mức xử lý kỷ luật hoặc chính sách tiền thưởng.",
+      "source_refs": [
+        {
+          "segment_id": "discipline",
+          "start": 0,
+          "end": 148
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — Nhân sự > Trang thiết bị quản lý thiết bị nhân sự đang dùng và lịch sử cấp phát, đổi máy, sửa chữa. Các trường minh họa: Ngày cấp, Thiết bị, Số lượng, Mục đích sử dụng, Ghi chú.",
+      "source_refs": [
+        {
+          "segment_id": "equipment",
+          "start": 0,
+          "end": 192
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — Nhân sự > Quá trình tham gia BHXH hiển thị lịch sử với số/ngày quyết định, phương án, từ/đến tháng, chức vụ, chức danh và ô Tham gia BHXH. Ảnh mẫu không phải dữ liệu đóng BHXH hiện tại của người hỏi và không xác nhận quyền hưởng thai sản.",
+      "source_refs": [
+        {
+          "segment_id": "insurance-history",
+          "start": 0,
+          "end": 168
+        },
+        {
+          "segment_id": "hr-menu",
+          "start": 0,
+          "end": 226
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem phiếu lương của bản thân theo tháng: Apps > Tiền lương > Phiếu lương; B1 chọn tháng lương, B2 tìm tên nhân sự, B3 nhấn Tìm. Đây là thao tác tra cứu; hướng dẫn không cung cấp mức lương thực tế hiện tại của người dùng.",
+      "source_refs": [
+        {
+          "segment_id": "salary-location",
+          "start": 0,
+          "end": 115
+        },
+        {
+          "segment_id": "salary-filter",
+          "start": 0,
+          "end": 61
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem công cá nhân: Apps > Chấm công > Xem công cá nhân; chọn kỳ/bảng lương cần xem theo màn hình tháng và nhấn Tập hợp. Nguồn dùng nhãn “Chọn bảng lương cần xem” tại trang hướng dẫn công cá nhân. Bảng chấm công trong ảnh là ví dụ.",
+      "source_refs": [
+        {
+          "segment_id": "attendance-location",
+          "start": 0,
+          "end": 75
+        },
+        {
+          "segment_id": "attendance-filter",
+          "start": 0,
+          "end": 128
+        }
+      ]
+    },
+    {
+      "content": "Workit — bổ sung công do quên chấm công: nhập các trường bắt buộc Người quên chấm công, Loại, Ngày/giờ công. Loại gồm Do cá nhân quên hoặc Do máy chấm công lỗi. Dùng + thêm dòng, chọn ngày và thời gian; có nút copy/xóa dòng; bấm Lưu (F8). Sau tạo phiếu xuất hiện ở Đang xử lý, đợi quản lý phê duyệt. Sau phê duyệt thông tin gửi về nhân sự ghi nhận, cập nhật đúng công.",
+      "source_refs": [
+        {
+          "segment_id": "attendance-create",
+          "start": 0,
+          "end": 254
+        },
+        {
+          "segment_id": "attendance-track",
+          "start": 0,
+          "end": 341
+        },
+        {
+          "segment_id": "attendance-approval",
+          "start": 0,
+          "end": 230
+        }
+      ]
+    },
+    {
+      "content": "Workit — theo dõi phiếu bổ sung công: tab Đang xử lý chờ quản lý phê duyệt; phiếu đỏ chưa hoàn thành, xanh đã hoàn thành. Biểu tượng quy trình xem các bước Đăng ký Quên chấm công > Duyệt Quên chấm công > Thông báo nhân sự. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem đính kèm; có nút sửa/xóa dữ liệu đang chọn. Nhân sự cập nhật công sau khi quản lý phê duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "attendance-track",
+          "start": 0,
+          "end": 341
+        },
+        {
+          "segment_id": "attendance-approval",
+          "start": 0,
+          "end": 230
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Reviewed screenshots for functional labels and navigation. Sample personal profiles, salary/attendance rows, names, IDs, avatars, signatures, app-store counters and unrelated feed text are not operational evidence and were not transcribed. Source snapshot remains unchanged.",
+    "signature-secret": "HSM field values and example credentials were intentionally not transcribed or repeated in chunks. Only field names and actions retained. Source contains sensitive example values; package remains hold pending controlled source handling.",
+    "attendance-entry": "Pages 27-29 show the Quen cham cong form, required inputs and workflow, but not its originating menu navigation. Chunks do not invent that missing entry path."
+  }
+}

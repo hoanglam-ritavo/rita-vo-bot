@@ -1,0 +1,399 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of all 29 rendered pages; body text and functional UI labels retained; sensitive screenshot values and unrelated example rows omitted"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ NHÂN SỰ\nHDSD-29/3/25-V1\nIT-HCNS",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ NHÂN SỰ\nHDSD-29/3/25-V1\nIT-HCNS",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "android",
+      "raw": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI ANDROID\nTải về: https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi\nWorkit",
+      "text": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI ANDROID\nTải về: https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi\nWorkit",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ios",
+      "raw": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI IOS\nTải về: https://apps.apple.com/vn/app/workit/id1506323124?l=vi",
+      "text": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI IOS\nTải về: https://apps.apple.com/vn/app/workit/id1506323124?l=vi",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "mobile-login",
+      "raw": "SỬ DỤNG: HƯỚNG DẪN ĐĂNG NHẬP TRÊN ĐIỆN THOẠI\nĐịa chỉ: https://office.ritavo.com\nĐổi địa chỉ\nMã đăng nhập / Username; Mật khẩu / Password; Đăng nhập / Login.",
+      "text": "SỬ DỤNG: HƯỚNG DẪN ĐĂNG NHẬP TRÊN ĐIỆN THOẠI\nĐịa chỉ: https://office.ritavo.com\nĐổi địa chỉ\nMã đăng nhập / Username; Mật khẩu / Password; Đăng nhập / Login.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "buttons",
+      "raw": "CHỨC NĂNG: ICON BỘ NÚT CƠ BẢN CỦA HỆ THỐNG\nBộ nút thao tác thông tin cơ bản:\nThêm (F2): Thêm mới dữ liệu.\nSửa dữ liệu đang chọn.\nXóa dữ liệu đang chọn.\nXuất Excel mẫu.\nImport Excel mẫu.\nXuất Excel dữ liệu.\nNhân bản: Sao chép nhanh dữ liệu.\nLưu (F8): Lưu dữ liệu vừa cập nhật.\nHủy: Hủy dữ liệu vừa cập nhật.",
+      "text": "CHỨC NĂNG: ICON BỘ NÚT CƠ BẢN CỦA HỆ THỐNG\nBộ nút thao tác thông tin cơ bản:\nThêm (F2): Thêm mới dữ liệu.\nSửa dữ liệu đang chọn.\nXóa dữ liệu đang chọn.\nXuất Excel mẫu.\nImport Excel mẫu.\nXuất Excel dữ liệu.\nNhân bản: Sao chép nhanh dữ liệu.\nLưu (F8): Lưu dữ liệu vừa cập nhật.\nHủy: Hủy dữ liệu vừa cập nhật.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approval-buttons",
+      "raw": "Bộ nút trang quy trình phê duyệt:\nDuyệt: Xác nhận duyệt đề nghị.\nBỏ duyệt: Hủy thao tác đã duyệt.\nTrả lại: Quay về bước cần duyệt lại trước đó.\nTừ chối: Không chấp nhận đề nghị và hủy luôn các bước sau đó.\nBỏ từ chối: Hủy thao tác từ chối trước đó.\nBiểu tượng hội thoại: Thông tin trao đổi liên quan dữ liệu đang xem.\nBiểu tượng kẹp giấy: Xem tập tin đính kèm.\nBiểu tượng quy trình: Xem các bước phê duyệt.",
+      "text": "Bộ nút trang quy trình phê duyệt:\nDuyệt: Xác nhận duyệt đề nghị.\nBỏ duyệt: Hủy thao tác đã duyệt.\nTrả lại: Quay về bước cần duyệt lại trước đó.\nTừ chối: Không chấp nhận đề nghị và hủy luôn các bước sau đó.\nBỏ từ chối: Hủy thao tác từ chối trước đó.\nBiểu tượng hội thoại: Thông tin trao đổi liên quan dữ liệu đang xem.\nBiểu tượng kẹp giấy: Xem tập tin đính kèm.\nBiểu tượng quy trình: Xem các bước phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "web-login",
+      "raw": "SỬ DỤNG: TRÌNH DUYỆT WEB\nĐịa chỉ: https://office.ritavo.com\nUser ID – Password sẽ được gửi tới Mail cho từng người dùng.",
+      "text": "SỬ DỤNG: TRÌNH DUYỆT WEB\nĐịa chỉ: https://office.ritavo.com\nUser ID – Password sẽ được gửi tới Mail cho từng người dùng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "home",
+      "raw": "CHỨC NĂNG: MÀN HÌNH CHÍNH\nGiao diện màn hình chính khi đăng nhập vào Workit. Hiển thị lịch làm việc, bàn làm việc, thông báo tin tức…",
+      "text": "CHỨC NĂNG: MÀN HÌNH CHÍNH\nGiao diện màn hình chính khi đăng nhập vào Workit. Hiển thị lịch làm việc, bàn làm việc, thông báo tin tức…",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "password",
+      "raw": "CHỨC NĂNG: ĐỔI MẬT KHẨU\nSau khi đăng nhập lần đầu tiên, tiến hành đổi mật khẩu để đảm bảo độ bảo mật.\nẢnh hướng dẫn: chọn ảnh tài khoản > Đổi mật khẩu. Nhập Mật khẩu cũ, Mật khẩu mới, Nhập lại mật khẩu mới; bấm Đổi mật khẩu.",
+      "text": "CHỨC NĂNG: ĐỔI MẬT KHẨU\nSau khi đăng nhập lần đầu tiên, tiến hành đổi mật khẩu để đảm bảo độ bảo mật.\nẢnh hướng dẫn: chọn ảnh tài khoản > Đổi mật khẩu. Nhập Mật khẩu cũ, Mật khẩu mới, Nhập lại mật khẩu mới; bấm Đổi mật khẩu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signature-location",
+      "raw": "CHỨC NĂNG: CHÈN CHỮ KÍ SỐ\nChữ kí số trên phần mềm dùng để kí số các phiếu cung ứng, mua sắm, đề nghị thanh toán, hồ sơ nghỉ việc, HĐLĐ (riêng HĐLĐ phải đăng kí chữ kí số với các đơn vị uy tín và được cấp phép bởi nhà nước, chính phủ thì mới có giá trị pháp lý).\nẢnh hướng dẫn: Apps > Hệ thống > Cấu hình chữ ký số.",
+      "text": "CHỨC NĂNG: CHÈN CHỮ KÍ SỐ\nChữ kí số trên phần mềm dùng để kí số các phiếu cung ứng, mua sắm, đề nghị thanh toán, hồ sơ nghỉ việc, HĐLĐ (riêng HĐLĐ phải đăng kí chữ kí số với các đơn vị uy tín và được cấp phép bởi nhà nước, chính phủ thì mới có giá trị pháp lý).\nẢnh hướng dẫn: Apps > Hệ thống > Cấu hình chữ ký số.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signature-config",
+      "raw": "CHỨC NĂNG: CHÈN CHỮ KÍ SỐ\nẢnh hướng dẫn: Choose File; chọn kiểu chữ ký Hình bên trên, thông tin bên dưới; Save.\nKích thước file hình theo tỷ lệ 582x300.\nCác nhãn cấu hình: HSM ID; HSM Key; Kiểu chữ ký; Nhà cung cấp. Các kiểu: Chỉ thông tin; Chỉ hình ảnh; Hình bên trái, thông tin bên phải; Hình bên trên, thông tin bên dưới.",
+      "text": "CHỨC NĂNG: CHÈN CHỮ KÍ SỐ\nẢnh hướng dẫn: Choose File; chọn kiểu chữ ký Hình bên trên, thông tin bên dưới; Save.\nKích thước file hình theo tỷ lệ 582x300.\nCác nhãn cấu hình: HSM ID; HSM Key; Kiểu chữ ký; Nhà cung cấp. Các kiểu: Chỉ thông tin; Chỉ hình ảnh; Hình bên trái, thông tin bên phải; Hình bên trên, thông tin bên dưới.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "signature-image",
+      "raw": "Lưu ý: Hình ảnh chèn vào chữ kí số phải được xóa phông nền, chữ kí mực xanh và định dạng file .png\nHướng dẫn xóa phông nền\nTruy cập Website: https://www.remove.bg/vi/upload. Sau đó kéo thả hoặc chọn hình ảnh chữ kí.\nẢnh hướng dẫn: Tải lên hình ảnh; Nền > Màu sắc > không màu nền; đóng; Tải xuống.",
+      "text": "Lưu ý: Hình ảnh chèn vào chữ kí số phải được xóa phông nền, chữ kí mực xanh và định dạng file .png\nHướng dẫn xóa phông nền\nTruy cập Website: https://www.remove.bg/vi/upload. Sau đó kéo thả hoặc chọn hình ảnh chữ kí.\nẢnh hướng dẫn: Tải lên hình ảnh; Nền > Màu sắc > không màu nền; đóng; Tải xuống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "avatar",
+      "raw": "CHỨC NĂNG: CẬP NHẬT AVATAR TÀI KHOẢN\nẢnh hướng dẫn: chọn ảnh tài khoản > Thông tin tài khoản > Thay đổi hình đại diện.\nTừ tab thay đổi hình đại diện:\nChọn 1: Để chọn hình chèn vào\nChọn 2: Để lưu hình ảnh đã chọn. Hoàn tất thay đổi",
+      "text": "CHỨC NĂNG: CẬP NHẬT AVATAR TÀI KHOẢN\nẢnh hướng dẫn: chọn ảnh tài khoản > Thông tin tài khoản > Thay đổi hình đại diện.\nTừ tab thay đổi hình đại diện:\nChọn 1: Để chọn hình chèn vào\nChọn 2: Để lưu hình ảnh đã chọn. Hoàn tất thay đổi",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "apps",
+      "raw": "CHỨC NĂNG: MENU CHỨC NĂNG\nApps: Công việc; Dự án; Văn phòng số; Quy trình số; Mua hàng; Nhân sự; Chấm công; Tiền lương; Hệ thống.",
+      "text": "CHỨC NĂNG: MENU CHỨC NĂNG\nApps: Công việc; Dự án; Văn phòng số; Quy trình số; Mua hàng; Nhân sự; Chấm công; Tiền lương; Hệ thống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "hr-menu",
+      "raw": "CHỨC NĂNG: PHÂN HỆ NHÂN SỰ\nApps > Nhân sự.\nSơ đồ tổ chức; Xem thông tin nhân sự; Sơ yếu lý lịch; Hợp đồng lao động; Quá trình công tác; Bằng cấp; Gia đình; Khen thưởng cá nhân; Kỷ luật; Trang thiết bị; Quá trình tham gia BHXH.",
+      "text": "CHỨC NĂNG: PHÂN HỆ NHÂN SỰ\nApps > Nhân sự.\nSơ đồ tổ chức; Xem thông tin nhân sự; Sơ yếu lý lịch; Hợp đồng lao động; Quá trình công tác; Bằng cấp; Gia đình; Khen thưởng cá nhân; Kỷ luật; Trang thiết bị; Quá trình tham gia BHXH.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "organization",
+      "raw": "CHỨC NĂNG: XEM CƠ CẤU TỔ CHỨC\nNhân sự > Sơ đồ tổ chức. Ảnh minh họa sơ đồ các công ty, phòng ban, đội và số nhân sự.",
+      "text": "CHỨC NĂNG: XEM CƠ CẤU TỔ CHỨC\nNhân sự > Sơ đồ tổ chức. Ảnh minh họa sơ đồ các công ty, phòng ban, đội và số nhân sự.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 15,
+        "page_end": 15
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "personal-profile",
+      "raw": "CHỨC NĂNG: XEM THÔNG TIN NHÂN SỰ VÀ SƠ YẾU LÝ LỊCH\nMỗi nhân sự chỉ xem được thông tin cá nhân và sơ yếu lý lịch của bản thân mình.\nNhân sự > Xem thông tin nhân sự hoặc Sơ yếu lý lịch.",
+      "text": "CHỨC NĂNG: XEM THÔNG TIN NHÂN SỰ VÀ SƠ YẾU LÝ LỊCH\nMỗi nhân sự chỉ xem được thông tin cá nhân và sơ yếu lý lịch của bản thân mình.\nNhân sự > Xem thông tin nhân sự hoặc Sơ yếu lý lịch.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 16,
+        "page_end": 16
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "contracts",
+      "raw": "CHỨC NĂNG: HỢP ĐỒNG LAO ĐỘNG\nQuản lý thông tin hợp đồng thử việc / chính thức / không xác định thời hạn.\nNhân sự > Hợp đồng lao động.",
+      "text": "CHỨC NĂNG: HỢP ĐỒNG LAO ĐỘNG\nQuản lý thông tin hợp đồng thử việc / chính thức / không xác định thời hạn.\nNhân sự > Hợp đồng lao động.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 17,
+        "page_end": 17
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "employment-history",
+      "raw": "CHỨC NĂNG: QUÁ TRÌNH CÔNG TÁC\nQuản lý quá trình công tác của nhân sự trong thời gian làm việc tại công ty. Mỗi cá nhân chỉ xem được quá trình của mình.\nTrang Quá trình công tác; các nhãn: Từ ngày, Đến ngày, Loại điều chuyển, Đơn vị, Khối, Phòng ban, Bộ phận, Nhóm, Tổ, Chức vụ, Chức danh, Loại nhân viên.",
+      "text": "CHỨC NĂNG: QUÁ TRÌNH CÔNG TÁC\nQuản lý quá trình công tác của nhân sự trong thời gian làm việc tại công ty. Mỗi cá nhân chỉ xem được quá trình của mình.\nTrang Quá trình công tác; các nhãn: Từ ngày, Đến ngày, Loại điều chuyển, Đơn vị, Khối, Phòng ban, Bộ phận, Nhóm, Tổ, Chức vụ, Chức danh, Loại nhân viên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 18,
+        "page_end": 18
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "family",
+      "raw": "CHỨC NĂNG: GIA ĐÌNH\nQuản lý danh sách người thân gia đình khi nhân viên có khai báo.\nQuản lý danh sách người phụ thuộc.\nCác nhãn: Người phụ thuộc; Họ và tên người thân; Phụ thuộc từ ngày; Phụ thuộc đến ngày; Giới tính; Mối quan hệ; Ngày sinh; Nơi sinh; Nghề nghiệp.",
+      "text": "CHỨC NĂNG: GIA ĐÌNH\nQuản lý danh sách người thân gia đình khi nhân viên có khai báo.\nQuản lý danh sách người phụ thuộc.\nCác nhãn: Người phụ thuộc; Họ và tên người thân; Phụ thuộc từ ngày; Phụ thuộc đến ngày; Giới tính; Mối quan hệ; Ngày sinh; Nơi sinh; Nghề nghiệp.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 19,
+        "page_end": 19
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "discipline",
+      "raw": "CHỨC NĂNG: KHEN THƯỞNG – KỶ LUẬT\nQuản lý thông tin khen thưởng của nhân viên.\nQuản lý thông tin kỷ luật.\nNhân sự > Khen thưởng cá nhân hoặc Kỷ luật.",
+      "text": "CHỨC NĂNG: KHEN THƯỞNG – KỶ LUẬT\nQuản lý thông tin khen thưởng của nhân viên.\nQuản lý thông tin kỷ luật.\nNhân sự > Khen thưởng cá nhân hoặc Kỷ luật.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 20,
+        "page_end": 20
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "equipment",
+      "raw": "CHỨC NĂNG: TRANG THIẾT BỊ\nQuản lý danh sách trang thiết bị của nhân sự đang sử dụng, lịch sử cấp phát, đổi máy, máy sửa chữa…\nCác nhãn: Ngày cấp; Thiết bị; Số lượng; Mục đích sử dụng; Ghi chú.",
+      "text": "CHỨC NĂNG: TRANG THIẾT BỊ\nQuản lý danh sách trang thiết bị của nhân sự đang sử dụng, lịch sử cấp phát, đổi máy, máy sửa chữa…\nCác nhãn: Ngày cấp; Thiết bị; Số lượng; Mục đích sử dụng; Ghi chú.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 21,
+        "page_end": 21
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "insurance-history",
+      "raw": "CHỨC NĂNG: QUÁ TRÌNH THAM GIA BHXH\nCập nhật quá trình BHXH. Các nhãn: Số quyết định; Ngày quyết định; Phương án; Từ tháng; Đến tháng; Chức vụ; Chức danh; Tham gia BHXH.",
+      "text": "CHỨC NĂNG: QUÁ TRÌNH THAM GIA BHXH\nCập nhật quá trình BHXH. Các nhãn: Số quyết định; Ngày quyết định; Phương án; Từ tháng; Đến tháng; Chức vụ; Chức danh; Tham gia BHXH.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 22,
+        "page_end": 22
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "salary-location",
+      "raw": "CHỨC NĂNG: TIỀN LƯƠNG\nXem phiếu lương của bản thân theo từng tháng.\nẢnh hướng dẫn: Apps > Tiền lương > Phiếu lương.",
+      "text": "CHỨC NĂNG: TIỀN LƯƠNG\nXem phiếu lương của bản thân theo từng tháng.\nẢnh hướng dẫn: Apps > Tiền lương > Phiếu lương.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 23,
+        "page_end": 23
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "salary-filter",
+      "raw": "B1: Chọn tháng lương cần xem\nB2: Tìm tên nhân sự\nB3: Nhấn tìm",
+      "text": "B1: Chọn tháng lương cần xem\nB2: Tìm tên nhân sự\nB3: Nhấn tìm",
+      "location": {
+        "kind": "pdf",
+        "page_start": 24,
+        "page_end": 24
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "attendance-location",
+      "raw": "CHỨC NĂNG: CÔNG CÁ NHÂN\nẢnh hướng dẫn: Apps > Chấm công > Xem công cá nhân.",
+      "text": "CHỨC NĂNG: CÔNG CÁ NHÂN\nẢnh hướng dẫn: Apps > Chấm công > Xem công cá nhân.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 25,
+        "page_end": 25
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "attendance-filter",
+      "raw": "B1: Chọn bảng lương cần xem\nB2: Nhấn tập hợp\nẢnh minh họa Xem công cá nhân với tháng, ngày bắt đầu/ngày kết thúc và nút Tập hợp.",
+      "text": "B1: Chọn bảng lương cần xem\nB2: Nhấn tập hợp\nẢnh minh họa Xem công cá nhân với tháng, ngày bắt đầu/ngày kết thúc và nút Tập hợp.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 26,
+        "page_end": 26
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "attendance-create",
+      "raw": "CHỨC NĂNG: BỔ SUNG CÔNG\nTiến hành nhập các trường bắt buộc (có dấu sao đỏ): Người quên chấm công, Loại, Ngày/giờ công.\nẢnh hướng dẫn: Loại: Do cá nhân quên hoặc Do máy chấm công lỗi. Nút + thêm dòng; chọn ngày và thời gian; copy dòng; xóa dòng; Lưu (F8).",
+      "text": "CHỨC NĂNG: BỔ SUNG CÔNG\nTiến hành nhập các trường bắt buộc (có dấu sao đỏ): Người quên chấm công, Loại, Ngày/giờ công.\nẢnh hướng dẫn: Loại: Do cá nhân quên hoặc Do máy chấm công lỗi. Nút + thêm dòng; chọn ngày và thời gian; copy dòng; xóa dòng; Lưu (F8).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 27,
+        "page_end": 27
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "attendance-track",
+      "raw": "CHỨC NĂNG: BỔ SUNG CÔNG\nSau khi tạo phiếu hoàn tất, phiếu sẽ xuất hiện ở tab Đang xử lý và đợi phê duyệt từ quản lý.\nPhiếu màu đỏ: Phiếu chưa hoàn thành; Phiếu màu xanh: Phiếu đã hoàn thành.\nBiểu tượng: Thông tin trao đổi liên quan dữ liệu đang xem; Xem tập tin đính kèm; Xem các bước phê duyệt; Sửa dữ liệu đang chọn; Xóa dữ liệu đang chọn.",
+      "text": "CHỨC NĂNG: BỔ SUNG CÔNG\nSau khi tạo phiếu hoàn tất, phiếu sẽ xuất hiện ở tab Đang xử lý và đợi phê duyệt từ quản lý.\nPhiếu màu đỏ: Phiếu chưa hoàn thành; Phiếu màu xanh: Phiếu đã hoàn thành.\nBiểu tượng: Thông tin trao đổi liên quan dữ liệu đang xem; Xem tập tin đính kèm; Xem các bước phê duyệt; Sửa dữ liệu đang chọn; Xóa dữ liệu đang chọn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 28,
+        "page_end": 28
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "attendance-approval",
+      "raw": "Nhấn vào biểu tượng quy trình: Xem các bước phê duyệt.\nSau khi quản lý phê duyệt sẽ gửi thông tin về cho nhân sự ghi nhận và cập nhật lại đúng công.\nẢnh quy trình: Đăng ký Quên chấm công > Duyệt Quên chấm công > Thông báo nhân sự.",
+      "text": "Nhấn vào biểu tượng quy trình: Xem các bước phê duyệt.\nSau khi quản lý phê duyệt sẽ gửi thông tin về cho nhân sự ghi nhận và cập nhật lại đúng công.\nẢnh quy trình: Đăng ký Quên chấm công > Duyệt Quên chấm công > Thông báo nhân sự.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 29,
+        "page_end": 29
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "screenshot_example_data",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 29
+      }
+    },
+    {
+      "warning_id": "signature-secret",
+      "code": "sensitive_screenshot_values_omitted",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      }
+    },
+    {
+      "warning_id": "attendance-entry",
+      "code": "procedure_entry_not_shown",
+      "location": {
+        "kind": "pdf",
+        "page_start": 27,
+        "page_end": 29
+      }
+    }
+  ]
+}

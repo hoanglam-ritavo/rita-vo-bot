@@ -1,0 +1,248 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "E-Leave (Office 365), phiên bản 1.0, cập nhật 08.09.2023 — nhân viên xin nghỉ phép online qua https://forms.office.com/r/chBGKrWhb2 hoặc quét QR bằng điện thoại. Điền công ty, khu vực Miền Bắc/Miền Nam, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, từ/đến ngày (dd/MM/yyyy), buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ phép. Chức vụ và ủy quyền gửi đơn không bắt buộc; có thể thêm Email CC. Người gửi nhận email đã gửi đơn, rồi email kết quả khi cấp trên duyệt/từ chối.",
+      "source_refs": [
+        {
+          "segment_id": "cover",
+          "start": 0,
+          "end": 126
+        },
+        {
+          "segment_id": "request-link",
+          "start": 0,
+          "end": 333
+        },
+        {
+          "segment_id": "request-fields",
+          "start": 0,
+          "end": 881
+        },
+        {
+          "segment_id": "delegation",
+          "start": 0,
+          "end": 460
+        },
+        {
+          "segment_id": "faq-submitter-status",
+          "start": 0,
+          "end": 262
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — các trường bắt buộc của đơn nghỉ phép: Công ty; Khu vực (Miền Bắc/Miền Nam); Mã nhân viên do HCNS cung cấp; Họ tên người nghỉ; Email nhận kết quả; Số điện thoại; Từ ngày và Đến ngày theo dd/MM/yyyy; Nghỉ theo buổi (Cả ngày/Buổi sáng/Buổi chiều); Lý do; Email quản lý có quyền duyệt/từ chối; Loại nghỉ phép. Chức vụ không bắt buộc. Nguồn nói có 3 loại nghỉ phép nhưng không liệt kê đầy đủ tên của cả 3 loại.",
+      "source_refs": [
+        {
+          "segment_id": "request-fields",
+          "start": 0,
+          "end": 881
+        },
+        {
+          "segment_id": "delegation",
+          "start": 0,
+          "end": 460
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "delegation",
+          "start": 0,
+          "end": 460
+        },
+        {
+          "segment_id": "faq-personal-email",
+          "start": 0,
+          "end": 250
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — nghỉ theo buổi: nếu muốn nghỉ chiều thứ 6 và sáng thứ 7, hướng dẫn yêu cầu làm 2 đơn. Nếu là nhân viên hành chính muốn nghỉ sáng thứ 2 và sáng thứ 3, có thể làm 1 đơn và chọn Buổi sáng. Trường buổi nghỉ có lựa chọn Cả ngày, Buổi sáng hoặc Buổi chiều.",
+      "source_refs": [
+        {
+          "segment_id": "faq-sessions",
+          "start": 0,
+          "end": 272
+        },
+        {
+          "segment_id": "request-fields",
+          "start": 0,
+          "end": 881
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+      "source_refs": [
+        {
+          "segment_id": "first-approval",
+          "start": 0,
+          "end": 482
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+      "source_refs": [
+        {
+          "segment_id": "outlook",
+          "start": 0,
+          "end": 370
+        },
+        {
+          "segment_id": "first-approval",
+          "start": 0,
+          "end": 482
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+      "source_refs": [
+        {
+          "segment_id": "teams",
+          "start": 0,
+          "end": 270
+        },
+        {
+          "segment_id": "teams-history",
+          "start": 0,
+          "end": 67
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+      "source_refs": [
+        {
+          "segment_id": "powerautomate-install",
+          "start": 0,
+          "end": 159
+        },
+        {
+          "segment_id": "powerautomate-use",
+          "start": 0,
+          "end": 242
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — muốn thay đổi/hủy kế hoạch nghỉ: hướng dẫn giai đoạn 1 chỉ cho nhân viên vào MS Form tạo đơn, không cho tự hủy. Nếu đơn chưa duyệt, liên hệ cấp trên yêu cầu hủy đơn online. Nguồn này không hướng dẫn cách hủy đơn đã duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "faq-cancel",
+          "start": 0,
+          "end": 267
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — không nhận được email đơn nghỉ phép: có thể do gửi mail/mạng chậm, đợi 10–20 phút. Nếu sau 9h sáng hôm sau vẫn không có email phản hồi, liên hệ KSNB IT System qua ksnb_it.system@ritavo.com theo tài liệu. Khi không quét được QR, kiểm tra chức năng camera, dùng ứng dụng quét QR/Zalo hoặc dùng đường link https://forms.office.com/r/chBGKrWhb2.",
+      "source_refs": [
+        {
+          "segment_id": "faq-email-delay",
+          "start": 0,
+          "end": 314
+        },
+        {
+          "segment_id": "faq-qr",
+          "start": 0,
+          "end": 264
+        },
+        {
+          "segment_id": "request-link",
+          "start": 0,
+          "end": 333
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — email nhắc duyệt: mục 3 mô tả nhắc đơn chưa duyệt vào hôm sau (24 tiếng); phần hỏi đáp nói nhắc lúc 9h sáng mỗi ngày cho đến khi hoàn thành. Người duyệt dùng Outlook hoặc Power Automate để hoàn tất duyệt/từ chối. Hai mô tả lịch được giữ nguyên, không suy ra một lịch chính xác theo từng phút.",
+      "source_refs": [
+        {
+          "segment_id": "reminder",
+          "start": 0,
+          "end": 140
+        },
+        {
+          "segment_id": "faq-many-emails",
+          "start": 0,
+          "end": 238
+        },
+        {
+          "segment_id": "faq-approver-status",
+          "start": 0,
+          "end": 466
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+      "source_refs": [
+        {
+          "segment_id": "faq-submitter-status",
+          "start": 0,
+          "end": 262
+        },
+        {
+          "segment_id": "faq-approver-status",
+          "start": 0,
+          "end": 466
+        },
+        {
+          "segment_id": "faq-management",
+          "start": 0,
+          "end": 292
+        }
+      ]
+    },
+    {
+      "content": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+      "source_refs": [
+        {
+          "segment_id": "introduction",
+          "start": 0,
+          "end": 303
+        },
+        {
+          "segment_id": "workflow",
+          "start": 0,
+          "end": 283
+        },
+        {
+          "segment_id": "contents",
+          "start": 0,
+          "end": 417
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source_ref": {
+        "segment_id": "identity",
+        "start": 0,
+        "end": 167
+      },
+      "reason": "Document administration: preserve attribution/version in extraction/metadata; creator name is not a current support contact."
+    },
+    {
+      "source_ref": {
+        "segment_id": "terms",
+        "start": 0,
+        "end": 278
+      },
+      "reason": "Glossary of platform/department abbreviations; retained in extraction, not a separate policy/procedure chunk."
+    }
+  ],
+  "warning_decisions": {
+    "examples": "Names, IDs, email recipient examples, dates of leave and unrelated app-store account data are illustrative, not current personnel facts. Functional annotations retained; snapshot unchanged. Blank administration rows and repeated footer/address/logo omitted.",
+    "missing-types": "Do not invent the three leave-type names. Chunk expressly records that the complete list is not supplied.",
+    "reminder-time": "Preserve both 24-hour and daily 09:00 statements. No exact scheduler behavior is inferred; clarification remains needed for a precise timing question."
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit — thủ tục xin thôi việc: Người nghỉ việc lập Phiếu xét nghỉ việc tại office.ritavo.com > Quy trình số, lưu rồi bấm Duyệt và chọn quản lý để trình ký. Khi phiếu đã ký duyệt xong, tải file đã ký; vào Quy trình tác nghiệp (Ticket), tạo [HCNS] Hoàn tất BBBG – MN hoặc MB đúng khu vực. Đính kèm file Phiếu xét nghỉ việc đã ký và biên bản bàn giao mẫu công ty dạng PDF; Lưu & đóng. Sau khi HCNS xác nhận, chuyển người nhận bàn giao ký xác nhận, thực hiện ký số nếu quy trình yêu cầu và đợi kết quả. Đây là quy trình hồ sơ trong hướng dẫn, không quy định thời hạn báo trước.",
+      "source_refs": [
+        {
+          "segment_id": "resign-start",
+          "start": 0,
+          "end": 227
+        },
+        {
+          "segment_id": "resign-submit",
+          "start": 0,
+          "end": 486
+        },
+        {
+          "segment_id": "handover-start",
+          "start": 0,
+          "end": 273
+        },
+        {
+          "segment_id": "handover-files",
+          "start": 0,
+          "end": 363
+        },
+        {
+          "segment_id": "handover-route",
+          "start": 0,
+          "end": 263
+        },
+        {
+          "segment_id": "handover-sign",
+          "start": 0,
+          "end": 231
+        },
+        {
+          "segment_id": "handover-finish",
+          "start": 0,
+          "end": 90
+        }
+      ]
+    },
+    {
+      "content": "Workit — I.1.a, người xin nghỉ việc tạo phiếu: Đăng nhập https://office.ritavo.com > Quy trình số > Phiếu xét nghỉ việc > Thêm (F2). Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên, Lý do nghỉ việc (các trường bắt buộc). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Lưu mới hoàn tất khai báo; cần chọn phiếu, bấm Duyệt và chọn người quản lý để trình ký.",
+      "source_refs": [
+        {
+          "segment_id": "resign-start",
+          "start": 0,
+          "end": 227
+        },
+        {
+          "segment_id": "resign-create",
+          "start": 0,
+          "end": 321
+        },
+        {
+          "segment_id": "resign-submit",
+          "start": 0,
+          "end": 486
+        }
+      ]
+    },
+    {
+      "content": "Workit — I.1.b, gửi và theo dõi Phiếu xét nghỉ việc: Sau khi lưu có thể dùng nút sửa/xóa dữ liệu phiếu. Chọn phiếu > Duyệt, chọn đúng người quản lý/người thực hiện bước tiếp theo, ghi ý kiến nếu có, hoàn tất Duyệt. Để hủy thao tác vừa duyệt dùng Bỏ duyệt. Đợi thông báo hoàn tất; biểu tượng quy trình cho xem tiến độ, biểu tượng kẹp giấy cho xem mẫu phiếu đã ký. Tải mẫu in đã ký để đính kèm Biên bản bàn giao.",
+      "source_refs": [
+        {
+          "segment_id": "resign-submit",
+          "start": 0,
+          "end": 486
+        },
+        {
+          "segment_id": "resign-track",
+          "start": 0,
+          "end": 221
+        }
+      ]
+    },
+    {
+      "content": "Workit — II.2, lập Biên bản bàn giao khi nghỉ việc, sau khi Phiếu xét nghỉ việc đã ký duyệt xong: tải phiếu đã ký qua biểu tượng kẹp giấy. Vào Quy trình tác nghiệp (Ticket), thêm mới, nhập BBBG để chọn đúng [HCNS] Hoàn tất BBBG – MN hoặc [HCNS] Hoàn tất BBBG – MB. Bắt buộc tải 2 file: Phiếu xét nghỉ việc đã ký và Biên bản bàn giao theo mẫu công ty dạng PDF. Bấm Lưu & đóng (F8).",
+      "source_refs": [
+        {
+          "segment_id": "handover-start",
+          "start": 0,
+          "end": 273
+        },
+        {
+          "segment_id": "handover-files",
+          "start": 0,
+          "end": 363
+        },
+        {
+          "segment_id": "handover-route",
+          "start": 0,
+          "end": 263
+        }
+      ]
+    },
+    {
+      "content": "Workit — II.2, chuyển ký Biên bản bàn giao nghỉ việc: sau Lưu & đóng, chuyên viên HCNS xác nhận phiếu. Khi nhận thông báo xác nhận từ hệ thống/HCNS, người tạo phiếu chuyển cho người nhận bàn giao ký xác nhận. Người nhận mở Bàn làm việc > Quy trình số > Ticket, chọn phiếu và Duyệt. Nếu có nút Ký số, phải ký file đính kèm theo quy trình đã khai báo: chọn đúng file, kéo chữ ký đến đúng khu vực ký. Người tạo phiếu đợi trả kết quả.",
+      "source_refs": [
+        {
+          "segment_id": "handover-route",
+          "start": 0,
+          "end": 263
+        },
+        {
+          "segment_id": "handover-sign",
+          "start": 0,
+          "end": 231
+        },
+        {
+          "segment_id": "handover-finish",
+          "start": 0,
+          "end": 90
+        }
+      ]
+    },
+    {
+      "content": "Workit — mẫu Biên bản quyết toán và bàn giao công việc, trang 1/3 hiển thị trong hướng dẫn: dùng khi thôi việc khỏi công ty hoặc bàn giao để nhận công việc mới/điều chuyển chi nhánh, bộ phận. Người nhận bàn giao lưu bản scan. HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt HĐLĐ, chuyển bản photo quyết định và BBBG cho kế toán tính thanh toán hoa hồng, lương và phúc lợi nếu có. HCNS làm thủ tục thôi việc khi đủ chữ ký xác nhận các nội dung. Sau hoàn tất thủ tục và trách nhiệm tài chính nếu có, công ty quyết toán quyền lợi/nghĩa vụ tài chính cùng kỳ lương. Nguồn chỉ hiển thị trang 1/3 của mẫu.",
+      "source_refs": [
+        {
+          "segment_id": "form-instructions",
+          "start": 0,
+          "end": 1023
+        }
+      ]
+    },
+    {
+      "content": "Workit — các mục bàn giao trong trang 1/3 mẫu Biên bản quyết toán và bàn giao công việc được minh họa: tài sản/công cụ dụng cụ ghi tên/mã số, đơn vị tính, số lượng, tình trạng, thông tin biên bản bàn giao ban đầu (số/ngày), người nhận ký. Công việc ghi nội dung, tình hình thực hiện, cá nhân/phòng ban/bộ phận liên quan nếu có và người nhận ký. Hướng dẫn không hiển thị hai trang còn lại của mẫu; đây không phải danh sách đầy đủ mọi trường trong toàn mẫu.",
+      "source_refs": [
+        {
+          "segment_id": "form-fields",
+          "start": 0,
+          "end": 329
+        },
+        {
+          "segment_id": "form-instructions",
+          "start": 0,
+          "end": 1023
+        }
+      ]
+    },
+    {
+      "content": "Workit — III, người phê duyệt Phiếu xét nghỉ việc: nhận thông báo hoặc mở Trang chủ > Bàn làm việc > Phiếu xét nghỉ việc; chọn phiếu, bấm Duyệt để xác nhận bước của mình. Nhập ý kiến nếu có, lọc và chọn người thực hiện bước tiếp theo, hoàn tất Duyệt. Hướng dẫn mô tả ô Chuyển đến cấp cao hơn để chuyển tới bước được chọn khi cần bỏ qua bước kế tiếp; đây là thao tác giao diện, không tự xác lập quyền bỏ qua phê duyệt trong mọi trường hợp.",
+      "source_refs": [
+        {
+          "segment_id": "approver",
+          "start": 0,
+          "end": 509
+        },
+        {
+          "segment_id": "approver-skip",
+          "start": 0,
+          "end": 258
+        }
+      ]
+    },
+    {
+      "content": "Workit — hồ sơ xin nghỉ thai sản: đăng nhập https://office.ritavo.com > Quy trình số > Nghỉ phép > Thêm (F2). Chọn Loại nghỉ phép: Nghỉ thai sản (S1, Maternity). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Hướng dẫn yêu cầu lập Biên bản bàn giao “làm như mẫu nghỉ việc ở trên”, nhưng không giải thích việc thay Phiếu xét nghỉ việc trong các tệp đính kèm bằng chứng từ thai sản nào. Cần làm rõ với HCNS trước khi suy diễn phần chứng từ đó. Nguồn này hướng dẫn hồ sơ, không nêu mức trợ cấp hay số ngày hưởng chế độ thai sản.",
+      "source_refs": [
+        {
+          "segment_id": "maternity-start",
+          "start": 0,
+          "end": 264
+        },
+        {
+          "segment_id": "maternity-finish",
+          "start": 0,
+          "end": 191
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "source_ref": {
+        "segment_id": "other-leave-options",
+        "start": 0,
+        "end": 207
+      },
+      "reason": "Other dropdown labels are incidental UI context, not evidence of eligibility or procedure for those leave types."
+    }
+  ],
+  "warning_decisions": {
+    "maternity-handover-reference": "Unresolved: page 13 references resignation handover without specifying replacement for the mandatory signed resignation form. Preserve qualification in maternity chunk; package remains hold.",
+    "partial-form": "Only page 1/3 of the embedded form is visible. Transcribe visible rules only, label chunks as partial form; do not invent remaining pages.",
+    "screenshot-examples": "Personal names, sample dates, IDs, avatars and signatures in UI examples are not operational contacts or required input values. They are not transcribed into searchable text; unchanged source snapshot retained. Procedural annotations and required field labels were reviewed."
+  }
+}

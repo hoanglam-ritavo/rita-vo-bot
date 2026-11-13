@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 109
+        },
+        {
+          "segment_id": "home",
+          "start": 0,
+          "end": 326
+        },
+        {
+          "segment_id": "queue",
+          "start": 0,
+          "end": 275
+        }
+      ]
+    },
+    {
+      "content": "Workit — quản lý kiểm tra phiếu trước khi duyệt: click dòng phiếu để xem nhanh nội dung ở lưới phía dưới. Các icon bên cạnh cho Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và xem quy trình. Biểu tượng quy trình hiển thị những bước phê duyệt đã qua và bước hiện tại; trong ảnh minh họa bước tô đỏ là bước chờ người dùng kiểm tra, duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "quick-view",
+          "start": 0,
+          "end": 106
+        },
+        {
+          "segment_id": "details",
+          "start": 0,
+          "end": 155
+        },
+        {
+          "segment_id": "workflow",
+          "start": 0,
+          "end": 211
+        }
+      ]
+    },
+    {
+      "content": "Workit — phê duyệt phiếu trên giao diện quản lý: sau khi kiểm tra và thấy đúng nhu cầu, chọn phiếu > Duyệt. Trong trang phê duyệt, nhập ý kiến nếu có, chọn phòng ban/người thực hiện bước tiếp theo rồi hoàn tất Duyệt. Chọn người theo quy trình thực tế; tên người trong ảnh chỉ minh họa.",
+      "source_refs": [
+        {
+          "segment_id": "approve",
+          "start": 0,
+          "end": 223
+        }
+      ]
+    },
+    {
+      "content": "Workit — phiếu chưa đúng hoặc cần bổ sung: quản lý dùng Trả lại hoặc Từ chối tùy phân quyền hệ thống. Khi Trả lại, nhập ý kiến, chọn một trong các bước đã duyệt để trả về và bấm Trả lại. Từ chối là thao tác riêng; quyền hiển thị/sử dụng phụ thuộc phân quyền.",
+      "source_refs": [
+        {
+          "segment_id": "return-reject",
+          "start": 0,
+          "end": 259
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Example counts, staff names, dates, amounts, account values and attachment filenames are not operational facts. Retain workflow behavior and role labels without those instance values; original snapshot unchanged. No exact current approver is inferred."
+  }
+}

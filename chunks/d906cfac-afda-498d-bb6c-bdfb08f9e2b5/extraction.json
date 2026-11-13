@@ -1,0 +1,354 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription; all 27 pages inspected; sample personal and transaction values omitted"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ QUY TRÌNH SỐ\nHDSD-29/3/25-V1; IT-HCNS",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ QUY TRÌNH SỐ\nHDSD-29/3/25-V1; IT-HCNS",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "menu",
+      "raw": "MENU CHỨC NĂNG: Apps > Quy trình số.",
+      "text": "MENU CHỨC NĂNG: Apps > Quy trình số.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "inventory",
+      "raw": "PHÂN HỆ: QUY TRÌNH SỐ\nBao gồm các chức năng: Ticket, Văn phòng phẩm, ĐNTT, ĐNTƯ, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp, Đề nghị thay đổi ca làm việc…",
+      "text": "PHÂN HỆ: QUY TRÌNH SỐ\nBao gồm các chức năng: Ticket, Văn phòng phẩm, ĐNTT, ĐNTƯ, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp, Đề nghị thay đổi ca làm việc…",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "stationery-list",
+      "raw": "CHỨC NĂNG: VĂN PHÒNG PHẨM\nKhi có nhu cầu sử dụng văn phòng phẩm. Admin (quản lý) các phòng ban tổng hợp danh sách văn phòng phẩm, tạo phiếu và gửi về cho HCNS tiến hành đặt hàng.\nLọc phiếu theo thời gian, theo tình trạng; lọc theo nội dung, khách hàng, số chứng từ. Các chức năng từ trái sang phải: Thêm mới; In phiếu đã click chọn; Export danh sách đã chọn; File mẫu import; Import file.",
+      "text": "CHỨC NĂNG: VĂN PHÒNG PHẨM\nKhi có nhu cầu sử dụng văn phòng phẩm. Admin (quản lý) các phòng ban tổng hợp danh sách văn phòng phẩm, tạo phiếu và gửi về cho HCNS tiến hành đặt hàng.\nLọc phiếu theo thời gian, theo tình trạng; lọc theo nội dung, khách hàng, số chứng từ. Các chức năng từ trái sang phải: Thêm mới; In phiếu đã click chọn; Export danh sách đã chọn; File mẫu import; Import file.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "stationery-approval",
+      "raw": "Quy trình duyệt văn phòng phẩm: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu.\nCác bước trong ảnh: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt.",
+      "text": "Quy trình duyệt văn phòng phẩm: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu.\nCác bước trong ảnh: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "stationery-create",
+      "raw": "Tạo phiếu yêu cầu văn phòng phẩm: 1 Nội dung; trường có dấu sao bắt buộc nhập. 2 Nút + (F4). 3 Mã hàng: gõ tên hàng hóa. 4 Số lượng đề nghị bắt buộc nhập theo từng mã hàng; số lượng duyệt nhảy tự động theo số lượng đề nghị, người duyệt sẽ điều chỉnh lại số lượng. Có nút xóa dòng hàng hóa và tạo bản sao mới. 5 Lưu (F8). Có Tải lên và Thêm Link trong tập tin đính kèm.",
+      "text": "Tạo phiếu yêu cầu văn phòng phẩm: 1 Nội dung; trường có dấu sao bắt buộc nhập. 2 Nút + (F4). 3 Mã hàng: gõ tên hàng hóa. 4 Số lượng đề nghị bắt buộc nhập theo từng mã hàng; số lượng duyệt nhảy tự động theo số lượng đề nghị, người duyệt sẽ điều chỉnh lại số lượng. Có nút xóa dòng hàng hóa và tạo bản sao mới. 5 Lưu (F8). Có Tải lên và Thêm Link trong tập tin đính kèm.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "stationery-status",
+      "raw": "Sau khi tạo phiếu thành công, sẽ xuất hiện 1 phiếu màu đỏ tại màn hình Văn phòng phẩm. Có nút Xem, sửa phiếu; Xóa phiếu; Xem quy trình duyệt của phiếu. Phiếu chuyển thành màu xanh khi quy trình phê duyệt hoàn tất.",
+      "text": "Sau khi tạo phiếu thành công, sẽ xuất hiện 1 phiếu màu đỏ tại màn hình Văn phòng phẩm. Có nút Xem, sửa phiếu; Xóa phiếu; Xem quy trình duyệt của phiếu. Phiếu chuyển thành màu xanh khi quy trình phê duyệt hoàn tất.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "leave-list",
+      "raw": "CHỨC NĂNG: NGHỈ PHÉP\nPhiếu nghỉ phép phát sinh khi nhân sự có nhu cầu nghỉ, quản lý số lượng ngày phép trong năm. Màn hình Nghỉ phép có Thêm (F2); Chờ duyệt; Đang xử lý; Đã hoàn tất; Đã từ chối/Đã hủy; Đăng ký của bạn; Tất cả. Cột số ngày đăng ký nghỉ, số phép còn lại tại thời điểm đăng ký.",
+      "text": "CHỨC NĂNG: NGHỈ PHÉP\nPhiếu nghỉ phép phát sinh khi nhân sự có nhu cầu nghỉ, quản lý số lượng ngày phép trong năm. Màn hình Nghỉ phép có Thêm (F2); Chờ duyệt; Đang xử lý; Đã hoàn tất; Đã từ chối/Đã hủy; Đăng ký của bạn; Tất cả. Cột số ngày đăng ký nghỉ, số phép còn lại tại thời điểm đăng ký.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "leave-approval",
+      "raw": "Quy trình duyệt đơn nghỉ phép: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu. Các bước trong ảnh: Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban.",
+      "text": "Quy trình duyệt đơn nghỉ phép: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu. Các bước trong ảnh: Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "leave-create",
+      "raw": "CHỨC NĂNG: NGHỈ PHÉP — Hướng dẫn các bước tạo phiếu: 1 Loại nghỉ phép; 2 Lý do nghỉ phép; 3 Nút + thêm dòng; 4 Từ ngày; 5 Đến ngày; 6 Hình thức nghỉ phép: S Sáng, C Chiều, N Nguyên ngày; 7 Lưu (F8). Các ô Người nghỉ phép, Người thay thế, Diễn giải, Tập tin đính kèm/Tải lên; hiển thị Tổng số phép còn lại và Số phép được sử dụng.\nDanh sách loại nghỉ: CD Nghỉ chế độ (làm cha, cưới hỏi, tang chế); K Nghỉ không hưởng lương (Unpaid); KL Nghỉ không xin phép; O1 Nghỉ ốm dài ngày không lương; P Nghỉ phép (Annual); S1 Nghỉ thai sản (Maternity).",
+      "text": "CHỨC NĂNG: NGHỈ PHÉP — Hướng dẫn các bước tạo phiếu: 1 Loại nghỉ phép; 2 Lý do nghỉ phép; 3 Nút + thêm dòng; 4 Từ ngày; 5 Đến ngày; 6 Hình thức nghỉ phép: S Sáng, C Chiều, N Nguyên ngày; 7 Lưu (F8). Các ô Người nghỉ phép, Người thay thế, Diễn giải, Tập tin đính kèm/Tải lên; hiển thị Tổng số phép còn lại và Số phép được sử dụng.\nDanh sách loại nghỉ: CD Nghỉ chế độ (làm cha, cưới hỏi, tang chế); K Nghỉ không hưởng lương (Unpaid); KL Nghỉ không xin phép; O1 Nghỉ ốm dài ngày không lương; P Nghỉ phép (Annual); S1 Nghỉ thai sản (Maternity).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "late-list",
+      "raw": "CHỨC NĂNG: ĐI TRỄ VỀ SỚM\nMàn hình Đi trễ/Về sớm: Thêm (F2), các tab Chờ duyệt, Đang xử lý, Đã hoàn tất, Đã từ chối/Đã hủy, Đăng ký của bạn, Tất cả; tìm nhân viên, lý do.",
+      "text": "CHỨC NĂNG: ĐI TRỄ VỀ SỚM\nMàn hình Đi trễ/Về sớm: Thêm (F2), các tab Chờ duyệt, Đang xử lý, Đã hoàn tất, Đã từ chối/Đã hủy, Đăng ký của bạn, Tất cả; tìm nhân viên, lý do.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "late-approval",
+      "raw": "Quy trình duyệt phiếu đi trễ về sớm: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu. Các bước: Đăng ký Đi trễ/Về sớm > Duyệt Đi trễ/Về sớm > Thông báo nhân sự.",
+      "text": "Quy trình duyệt phiếu đi trễ về sớm: Hệ thống sẽ tự động lấy quản lý trực tiếp của người lập phiếu. Các bước: Đăng ký Đi trễ/Về sớm > Duyệt Đi trễ/Về sớm > Thông báo nhân sự.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "late-create",
+      "raw": "CHỨC NĂNG: ĐI TRỄ VỀ SỚM — Hướng dẫn các bước tạo phiếu: 1 Loại: CANHAN Lý do cá nhân, CONGVIEC Lý do công việc; 2 Lý do; 3 Nút +; 4 Ngày; 5 Nếu đến trễ thì nhập vào ô giờ đến trễ. Nếu về sớm thì nhập vào ô giờ về sớm; Diễn giải; 6 Lưu (F8). Có Tải lên và Thêm Link.",
+      "text": "CHỨC NĂNG: ĐI TRỄ VỀ SỚM — Hướng dẫn các bước tạo phiếu: 1 Loại: CANHAN Lý do cá nhân, CONGVIEC Lý do công việc; 2 Lý do; 3 Nút +; 4 Ngày; 5 Nếu đến trễ thì nhập vào ô giờ đến trễ. Nếu về sớm thì nhập vào ô giờ về sớm; Diễn giải; 6 Lưu (F8). Có Tải lên và Thêm Link.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "trip-list",
+      "raw": "CHỨC NĂNG: ĐI CÔNG TÁC\nMàn hình Đi công tác có Thêm (F2), Chờ duyệt, Đang xử lý, Đã hoàn tất, Đã từ chối/Đã hủy, Đăng ký của tôi, Tất cả. Lọc thời gian, tìm người công tác/lý do; xem lưới chi tiết người công tác, từ ngày, đến ngày, thời gian, số ngày, nơi đi, nơi đến, nội dung công việc, người thực hiện, diễn giải.",
+      "text": "CHỨC NĂNG: ĐI CÔNG TÁC\nMàn hình Đi công tác có Thêm (F2), Chờ duyệt, Đang xử lý, Đã hoàn tất, Đã từ chối/Đã hủy, Đăng ký của tôi, Tất cả. Lọc thời gian, tìm người công tác/lý do; xem lưới chi tiết người công tác, từ ngày, đến ngày, thời gian, số ngày, nơi đi, nơi đến, nội dung công việc, người thực hiện, diễn giải.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "trip-create",
+      "raw": "CHỨC NĂNG: ĐI CÔNG TÁC — Hướng dẫn các bước tạo phiếu: 1 Loại công tác; 2 Lý do đi công tác; Phương tiện di chuyển. 3 Nút + trong Thông tin chi tiết; 4 Người công tác; 5 Từ ngày; 6 Đến ngày; 7 Thời gian; 8 Nơi đi; 9 Nơi đến. 10 Nút + trong Thông tin chi phí; 11 Chi phí; 12 Diễn giải (không bắt buộc); 13 Tiền; 14 Lưu (F8). Có Tập tin đính kèm/Tải lên.",
+      "text": "CHỨC NĂNG: ĐI CÔNG TÁC — Hướng dẫn các bước tạo phiếu: 1 Loại công tác; 2 Lý do đi công tác; Phương tiện di chuyển. 3 Nút + trong Thông tin chi tiết; 4 Người công tác; 5 Từ ngày; 6 Đến ngày; 7 Thời gian; 8 Nơi đi; 9 Nơi đến. 10 Nút + trong Thông tin chi phí; 11 Chi phí; 12 Diễn giải (không bắt buộc); 13 Tiền; 14 Lưu (F8). Có Tập tin đính kèm/Tải lên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 15,
+        "page_end": 15
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "car-list",
+      "raw": "CHỨC NĂNG: XE CÔNG TÁC\nPhát sinh phiếu khi các cá nhân/phòng ban có nhu cầu đặt xe chi nhánh/Showroom/kho vận. Xem danh sách phiếu đặt xe công tác theo dạng lưới hoặc dạng ngày. Nút THÊM.",
+      "text": "CHỨC NĂNG: XE CÔNG TÁC\nPhát sinh phiếu khi các cá nhân/phòng ban có nhu cầu đặt xe chi nhánh/Showroom/kho vận. Xem danh sách phiếu đặt xe công tác theo dạng lưới hoặc dạng ngày. Nút THÊM.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 16,
+        "page_end": 16
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "car-approval",
+      "raw": "Quy trình duyệt phiếu xe công tác: Hành chính quản lý xe Văn phòng, Bộ phận kinh doanh quản lý xe Kinh doanh. Các bước trong ảnh: Đăng ký > Hành chính sắp xếp.",
+      "text": "Quy trình duyệt phiếu xe công tác: Hành chính quản lý xe Văn phòng, Bộ phận kinh doanh quản lý xe Kinh doanh. Các bước trong ảnh: Đăng ký > Hành chính sắp xếp.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 17,
+        "page_end": 17
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "car-create",
+      "raw": "Hướng dẫn các bước tạo phiếu Đăng ký xe: 1 Xe; Tài xế; 2 Từ ngày/giờ; 3 Đến ngày/giờ; Tổng số người đi, Nơi đi; 4 Nơi đến; Ghi chú, tập tin đính kèm. 5 Danh sách người đi: tích chọn chức năng đi cùng hoặc để biết; Người đi chính. Lọc dữ liệu, tìm kiếm danh sách nhân viên bằng ô tìm kiếm hoặc bộ lọc cột. 6 Lưu.",
+      "text": "Hướng dẫn các bước tạo phiếu Đăng ký xe: 1 Xe; Tài xế; 2 Từ ngày/giờ; 3 Đến ngày/giờ; Tổng số người đi, Nơi đi; 4 Nơi đến; Ghi chú, tập tin đính kèm. 5 Danh sách người đi: tích chọn chức năng đi cùng hoặc để biết; Người đi chính. Lọc dữ liệu, tìm kiếm danh sách nhân viên bằng ô tìm kiếm hoặc bộ lọc cột. 6 Lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 18,
+        "page_end": 18
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "room-list",
+      "raw": "CHỨC NĂNG: PHÒNG HỌP\nPhát sinh phiếu khi các cá nhân/phòng ban có nhu cầu đặt phòng họp nội bộ, họp đối tác, NCC.\nXem danh sách phiếu đặt xe công tác theo dạng lưới hoặc dạng ngày, dạng tuần.\nẢnh giao diện Phòng họp có nút THÊM, Ngày, Tuần, Lưới; Lịch họp hôm nay.",
+      "text": "CHỨC NĂNG: PHÒNG HỌP\nPhát sinh phiếu khi các cá nhân/phòng ban có nhu cầu đặt phòng họp nội bộ, họp đối tác, NCC.\nXem danh sách phiếu đặt xe công tác theo dạng lưới hoặc dạng ngày, dạng tuần.\nẢnh giao diện Phòng họp có nút THÊM, Ngày, Tuần, Lưới; Lịch họp hôm nay.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 19,
+        "page_end": 19
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "room-approval",
+      "raw": "Quy trình duyệt phòng họp: Hành chính quản lý phòng và sắp xếp. Các bước: Đăng ký > Hành chính sắp xếp.",
+      "text": "Quy trình duyệt phòng họp: Hành chính quản lý phòng và sắp xếp. Các bước: Đăng ký > Hành chính sắp xếp.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 20,
+        "page_end": 20
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "room-create",
+      "raw": "Hướng dẫn các bước tạo phiếu Đăng ký phòng họp: 1 Chọn phòng cần đặt; 2 Chọn thời gian họp: Ngày, Từ giờ, Đến giờ; 3 Tổng số người họp; 4 Nội dung; 5 Chuẩn bị tiện ích, có thể chọn nhiều nội dung; 6 Tìm và tích chọn người tham gia cùng các chức năng tương ứng: Chủ trì, Tham gia, Để biết; 7 Lưu. Có ô Ghi chú, Tải lên/Thêm Link, Giới hạn chỉ người họp mới xem được nội dung.",
+      "text": "Hướng dẫn các bước tạo phiếu Đăng ký phòng họp: 1 Chọn phòng cần đặt; 2 Chọn thời gian họp: Ngày, Từ giờ, Đến giờ; 3 Tổng số người họp; 4 Nội dung; 5 Chuẩn bị tiện ích, có thể chọn nhiều nội dung; 6 Tìm và tích chọn người tham gia cùng các chức năng tương ứng: Chủ trì, Tham gia, Để biết; 7 Lưu. Có ô Ghi chú, Tải lên/Thêm Link, Giới hạn chỉ người họp mới xem được nội dung.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 21,
+        "page_end": 21
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-list",
+      "raw": "CHỨC NĂNG: PHIẾU NGHỈ VIỆC\nPhiếu được lập khi các cá nhân muốn nghỉ việc, cần trình kí thủ tục bàn giao qua các phòng ban. Màn hình Phiếu xét nghỉ việc > Thêm (F2).",
+      "text": "CHỨC NĂNG: PHIẾU NGHỈ VIỆC\nPhiếu được lập khi các cá nhân muốn nghỉ việc, cần trình kí thủ tục bàn giao qua các phòng ban. Màn hình Phiếu xét nghỉ việc > Thêm (F2).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 22,
+        "page_end": 22
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-approval",
+      "raw": "Quy trình duyệt phiếu nghỉ việc: Hệ thống sẽ tự động lấy quản lý trực tiếp, trưởng phòng của người lập phiếu.\nCác bước trong ảnh: 1 Lập phiếu; 2 Chuyển quản lý xác nhận; 3 Quản lý ký xác nhận; 4 Trưởng phòng ban ký xác nhận; 5 HCNS xác nhận; 6 PP.HCNS ký xác nhận; 7 TP.HCNS ký xác nhận; 8 HCNS xét thu hồi; 8.1 Thu hồi thẻ nhân viên; 8.2 Thu hồi đồng phục; 8.3 Thu hồi Trang thiết bị; 8.4 Xác nhận hoàn thành biên bản bàn giao công việc; 9 Kế Toán ký xác nhận; 10 Chuyên viên PKT-TC xác nhận; 11 KSNB ký xác nhận; 12 Chuyên viên KSNB xác nhận; 13 Lưu hồ sơ.",
+      "text": "Quy trình duyệt phiếu nghỉ việc: Hệ thống sẽ tự động lấy quản lý trực tiếp, trưởng phòng của người lập phiếu.\nCác bước trong ảnh: 1 Lập phiếu; 2 Chuyển quản lý xác nhận; 3 Quản lý ký xác nhận; 4 Trưởng phòng ban ký xác nhận; 5 HCNS xác nhận; 6 PP.HCNS ký xác nhận; 7 TP.HCNS ký xác nhận; 8 HCNS xét thu hồi; 8.1 Thu hồi thẻ nhân viên; 8.2 Thu hồi đồng phục; 8.3 Thu hồi Trang thiết bị; 8.4 Xác nhận hoàn thành biên bản bàn giao công việc; 9 Kế Toán ký xác nhận; 10 Chuyên viên PKT-TC xác nhận; 11 KSNB ký xác nhận; 12 Chuyên viên KSNB xác nhận; 13 Lưu hồ sơ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 23,
+        "page_end": 23
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-create",
+      "raw": "Hướng dẫn các bước tạo phiếu nghỉ việc: 1 Ngày nghỉ việc; 2 Loại nghỉ việc; 3 Nhân viên; 4 Lý do nghỉ việc; 5 Lưu (F8). Có ô Ghi chú và Tập tin đính kèm/Tải lên.",
+      "text": "Hướng dẫn các bước tạo phiếu nghỉ việc: 1 Ngày nghỉ việc; 2 Loại nghỉ việc; 3 Nhân viên; 4 Lý do nghỉ việc; 5 Lưu (F8). Có ô Ghi chú và Tập tin đính kèm/Tải lên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 24,
+        "page_end": 24
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "meal-list",
+      "raw": "CHỨC NĂNG: SUẤT ĂN\nPhiếu suất ăn dành cho nhân viên có nhu cầu ăn trưa tại bếp ăn Văn phòng Q2 – HCM. Màn hình Suất ăn có Thêm (F2).",
+      "text": "CHỨC NĂNG: SUẤT ĂN\nPhiếu suất ăn dành cho nhân viên có nhu cầu ăn trưa tại bếp ăn Văn phòng Q2 – HCM. Màn hình Suất ăn có Thêm (F2).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 25,
+        "page_end": 25
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "meal-approval",
+      "raw": "Quy trình đăng kí Suất ăn: Sau khi tạo phiếu thành công, hệ thống sẽ tự động đẩy phiếu đến cho Phòng HCNS kiểm tra, đăng kí và cấn trừ vào lương. Các bước trong ảnh: Đăng ký suất ăn (Tự động duyệt) > Thông báo cho hành chính.",
+      "text": "Quy trình đăng kí Suất ăn: Sau khi tạo phiếu thành công, hệ thống sẽ tự động đẩy phiếu đến cho Phòng HCNS kiểm tra, đăng kí và cấn trừ vào lương. Các bước trong ảnh: Đăng ký suất ăn (Tự động duyệt) > Thông báo cho hành chính.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 26,
+        "page_end": 26
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "meal-create",
+      "raw": "Hướng dẫn các bước tạo phiếu Suất ăn: 1 Ngày đăng ký; 2 Nội dung; 3 Nút +; 4 Người ăn; 5 Từ ngày, Đến ngày; Diễn giải; 6 Lưu (F8). Có Tải lên và Thêm Link.",
+      "text": "Hướng dẫn các bước tạo phiếu Suất ăn: 1 Ngày đăng ký; 2 Nội dung; 3 Nút +; 4 Người ăn; 5 Từ ngày, Đến ngày; Diễn giải; 6 Lưu (F8). Có Tải lên và Thêm Link.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 27,
+        "page_end": 27
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 27
+      }
+    },
+    {
+      "warning_id": "room-wording",
+      "code": "source_copy_wording",
+      "location": {
+        "kind": "pdf",
+        "page_start": 19,
+        "page_end": 19
+      }
+    }
+  ]
+}

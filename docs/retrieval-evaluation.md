@@ -11,7 +11,7 @@ This checklist evaluates source retrieval, separately from synthetic tests. The 
 ## Read-only checks
 
 1. Before inspecting rankings, read the selected sources and author cases with expected source groups. Include Vietnamese paraphrases, conditions, exceptions, ambiguous questions, counts/exhaustive requests and unrelated questions. Store real-data cases and reports under ignored `.tmp/`.
-2. Submit `POST /api/v1/retrieve` with `text` and optional `top_k`. Confirm full chunk content, order and provenance. The retired `/api/v1/ask` must return 404. Verify results contain neither generated prose nor confidence/evidence assessment.
+2. Submit `POST /api/v1/retrieve` with `text` and optional `top_k`. Confirm full chunk content, order and provenance. The retired `/api/v1/ask` must return 404. Verify results contain neither generated prose nor confidence/evidence-completeness assessment. Additive relevance metadata is separate from completeness; see [online reranking](online-reranking.md).
 3. On a stable database, compare the HTTP response with `python -m src.cli.retrieve_documents` using identical text, top-K and model bytes/revision. Match IDs, order, content, source spans and metadata must agree; distances may differ only within floating-point tolerance when device/runtime differs.
 4. Exercise repeated HTTP requests. Confirm one E5 initialization per API lifecycle, record startup duration and retrieval/total times, and measure process RAM. Keep timings for failed attempts separately. These observations do not establish a latency SLA.
 5. Verify 422 for invalid input, 429 for overlapping retrieval, 503 for dependency failures/model mismatch and 504 for timeout. Cancellation drains embedding work, so 504 can occur after the nominal 120-second deadline. Health endpoints must remain responsive while embedding runs.
@@ -22,3 +22,12 @@ This checklist evaluates source retrieval, separately from synthetic tests. The 
 Use `python -m scripts.evaluate_retrieval` with pinned package/cases/model and an output path under `.tmp/`; see [README](../README.md#retrieval-evaluation) for the full command and case schema. Preserve the existing target: at least 90% complete evidence on detail/condition cases and all supported critical cases passing. Aggregate cases are reported separately; unsupported-only sets cannot satisfy the target. The API does not compute aggregate answers even when relevant chunks are returned.
 
 Synthetic tests validate contracts, lifecycle and provenance handling, not real-model semantic quality. PostgreSQL integration tests require a separate disposable `TEST_DATABASE_URL` and are distinct from these read-only application-database checks. Missing prerequisites or skipped checks are not successful validation.
+
+## Online reranking evaluation
+
+Use the same model/pipeline settings for API, CLI and evaluator. `--rerank` enables pinned local ONNX scoring; `--rerank-candidates`, `--rerank-batch-size`, `--rerank-model-path` and `--rerank-profile` mirror API configuration. The evaluator additionally records candidate order/recall, final logits, relevance and rerank time. See [the online gate](online-reranking.md#evaluation-and-rollout) for a 40-case calibration/holdout/regression split and 100-request CPU benchmark. Keep original cases and baseline reports; never tune on holdout outcomes.
+
+
+## Filtered retrieval evaluation
+
+Public retrieval now withholds unassessed candidates. This evaluator measures the filtered result and will report missing evidence without a matching schema-v2 profile. For offline candidate collection and per-passage labeling use the separate [online benchmark](online-reranking.md#evaluation-and-rollout); no public API/CLI parameter disables filtering. Historical unfiltered results do not establish current quality.

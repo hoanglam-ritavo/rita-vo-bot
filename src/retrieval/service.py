@@ -2,9 +2,14 @@
 import asyncio
 import math
 import re
+import time
+import logging
 
 from src.ingestion import embeddings
 from src.ingestion.document_packages import Rejected
+from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, profile_threshold, filter_candidates
+
+logger = logging.getLogger(__name__)
 
 
 class RetrievalError(ValueError):
@@ -26,7 +31,7 @@ def validate_request(question, top_k):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None):
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
         self.device = device
@@ -35,6 +40,8 @@ class RetrievalService:
         self._model = None
         self._fingerprint = None
         self._lock = asyncio.Lock()
+        self.rerank_settings = rerank or RerankSettings()
+        self._reranker = None
 
     @property
     def started(self):
@@ -72,6 +79,15 @@ class RetrievalService:
                 return
             try:
                 self._model, self._fingerprint = await self._worker(self._load)
+                if self.rerank_settings.enabled:
+                    self._reranker = OnnxReranker(self.rerank_settings)
+                    try:
+                        await self._worker(self._reranker.start)
+                    except BaseException:
+                        self._reranker.close()
+                        self._reranker = None
+                        self._model = self._fingerprint = None
+                        raise
             except RetrievalError:
                 raise
             except Rejected as exc:
@@ -103,24 +119,72 @@ class RetrievalService:
         return [value / norm for value in vector]
 
     async def retrieve(self, question, top_k=5):
+        return await self._retrieve(question, top_k, assessment=True)
+
+    async def _retrieve(self, question, top_k=5, *, assessment):
+        # Offline evaluators alone may inspect unfiltered candidates. No HTTP/CLI flag.
         question = validate_request(question, top_k)
         async with self._lock:
             if self._model is None:
                 raise RetrievalError('service_not_started', 2)
             try:
-                vector = await self._worker(self._encode, question)
+                variants = query_variants(question) if self._reranker else [question]
+                vector = await self._worker(self._encode, variants[0])
+                extra = [await self._worker(self._encode, variant) for variant in variants[1:]]
             except RetrievalError:
                 raise
             except Exception:
                 raise RetrievalError('query_embedding_failed', 2) from None
-            fingerprint = self._fingerprint
-        from .storage import search
-        try:
-            return await search(vector, self.model_revision, fingerprint, top_k)
-        except Exception:
-            raise RetrievalError('database_search_failed', 2) from None
+            from .storage import search
+            try:
+                count = 30 if self._reranker else top_k
+                kwargs = {'extra_vectors': extra} if extra else {}
+                result = await search(vector, self.model_revision, self._fingerprint, count, **kwargs)
+            except Exception:
+                raise RetrievalError('database_search_failed', 2) from None
+            result['top_k'] = top_k
+            result['rerank_seconds'] = 0.0
+            candidates = result['matches']
+            for match in candidates:
+                match.setdefault('rerank_score', None)
+            # IDs and ranks only; evaluator can inspect recall without retaining text.
+            result['candidate_order'] = [{'chunk_id': m['chunk_id'], 'chunk_index': m['chunk_index'],
+                'revision_id': m['revision_id'], 'run_id': m['run_id']} for m in candidates]
+            if self._reranker and candidates:
+                started = time.perf_counter()
+                try:
+                    scores, windows = await self._worker(self._reranker.score, variants[-1], candidates)
+                except ValueError as exc:
+                    if str(exc) == 'reranker_question_exceeds_model_limit':
+                        raise RetrievalError('question_exceeds_model_limit') from None
+                    raise RetrievalError('reranking_failed', 2) from None
+                except Exception:
+                    raise RetrievalError('reranking_failed', 2) from None
+                for match, score in zip(candidates, scores):
+                    match['rerank_score'] = score
+                candidates.sort(key=lambda m: (-m['rerank_score'], m['cosine_distance'], m['chunk_id']))
+                result['rerank_seconds'] = time.perf_counter() - started
+                logger.info('reranking_finished candidates=%d windows=%d seconds=%.3f',
+                            len(candidates), windows, result['rerank_seconds'])
+            result['reranker_fingerprint'] = self._reranker.fingerprint if self._reranker else None
+            if assessment:
+                threshold = (profile_threshold(self._reranker.profile, self._reranker.fingerprint,
+                             result.get('corpus_fingerprint')) if self._reranker else None)
+                filter_candidates(result, threshold, top_k)
+                # Runtime/CLI must not expose rejected candidate identities either.
+                result.pop('candidate_order', None)
+                logger.info('retrieval_assessed status=%s reason=%s candidates=%d retained=%d',
+                            result['status'], result['fallback_reason'], len(candidates), len(result['matches']))
+            else:
+                result['matches'] = candidates
+                result['relevance'] = relevance(candidates)
+            result['notice'] = 'Relevance-filtered excerpts only; not a generated answer or completeness guarantee.'
+            return result
 
     async def close(self):
         async with self._lock:
+            if self._reranker:
+                self._reranker.close()
+                self._reranker = None
             self._model = None
             self._fingerprint = None

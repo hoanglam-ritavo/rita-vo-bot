@@ -1,0 +1,265 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit — phân hệ Quy trình số (HDSD-29/3/25-V1): mở biểu tượng Apps > Quy trình số. Menu gồm Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/Về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp và Đề nghị thay đổi ca làm việc. Danh sách menu không đồng nghĩa tài liệu này hướng dẫn chi tiết mọi chức năng.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 87
+        },
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "inventory",
+          "start": 0,
+          "end": 288
+        }
+      ]
+    },
+    {
+      "content": "Workit — đề nghị văn phòng phẩm: admin/quản lý phòng ban tổng hợp nhu cầu, vào Quy trình số > Văn phòng phẩm > Thêm mới. Nhập Nội dung (các trường dấu sao bắt buộc), thêm dòng bằng +/F4, gõ tên để chọn mã hàng, nhập số lượng đề nghị từng hàng rồi Lưu/F8. Số lượng duyệt ban đầu bằng số đề nghị và người duyệt có thể điều chỉnh. Có xóa dòng, sao chép dòng và đính kèm. Hệ thống lấy quản lý trực tiếp: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt để HCNS đặt hàng.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "stationery-list",
+          "start": 0,
+          "end": 388
+        },
+        {
+          "segment_id": "stationery-create",
+          "start": 0,
+          "end": 368
+        },
+        {
+          "segment_id": "stationery-approval",
+          "start": 0,
+          "end": 167
+        }
+      ]
+    },
+    {
+      "content": "Workit — theo dõi văn phòng phẩm: lọc thời gian, tình trạng, nội dung/khách hàng/số chứng từ; có in phiếu chọn, xuất danh sách, tải mẫu import và import file. Phiếu mới màu đỏ; xem/sửa, xóa hoặc xem quy trình bằng icon cạnh phiếu. Màu xanh biểu thị quy trình phê duyệt hoàn tất.",
+      "source_refs": [
+        {
+          "segment_id": "stationery-list",
+          "start": 0,
+          "end": 388
+        },
+        {
+          "segment_id": "stationery-status",
+          "start": 0,
+          "end": 213
+        }
+      ]
+    },
+    {
+      "content": "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "leave-list",
+          "start": 0,
+          "end": 291
+        },
+        {
+          "segment_id": "leave-create",
+          "start": 0,
+          "end": 540
+        },
+        {
+          "segment_id": "leave-approval",
+          "start": 0,
+          "end": 183
+        }
+      ]
+    },
+    {
+      "content": "Workit — loại nghỉ trên phiếu Nghỉ phép: P Nghỉ phép (Annual); CD Nghỉ chế độ (làm cha, cưới hỏi, tang chế); K Nghỉ không hưởng lương; KL Nghỉ không xin phép; O1 Nghỉ ốm dài ngày không lương; S1 Nghỉ thai sản. Khi đăng ký nghỉ thai sản, chọn S1 và khai lý do, từ ngày/đến ngày, hình thức Sáng/Chiều/Nguyên ngày rồi lưu. Danh mục phần mềm không tự xác lập điều kiện hưởng chế độ. Màn hình hiển thị tổng số phép còn lại, số phép được sử dụng; số trong ảnh chỉ là minh họa.",
+      "source_refs": [
+        {
+          "segment_id": "leave-create",
+          "start": 0,
+          "end": 540
+        },
+        {
+          "segment_id": "leave-list",
+          "start": 0,
+          "end": 291
+        }
+      ]
+    },
+    {
+      "content": "Workit — đăng ký đi trễ/về sớm: Quy trình số > Đi trễ/Về sớm > Thêm/F2. Chọn loại Lý do cá nhân hoặc Lý do công việc, nhập lý do, thêm dòng, chọn ngày. Đến trễ nhập ô Giờ đến trễ; về sớm nhập ô Giờ về sớm; nhập diễn giải và Lưu/F8. Có đính kèm. Hệ thống lấy quản lý trực tiếp của người lập phiếu: Đăng ký > Duyệt Đi trễ/Về sớm > Thông báo nhân sự; theo dõi trạng thái ở các tab.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "late-list",
+          "start": 0,
+          "end": 169
+        },
+        {
+          "segment_id": "late-create",
+          "start": 0,
+          "end": 266
+        },
+        {
+          "segment_id": "late-approval",
+          "start": 0,
+          "end": 174
+        }
+      ]
+    },
+    {
+      "content": "Workit — lập phiếu đi công tác: Quy trình số > Đi công tác > Thêm/F2; chọn loại công tác, phương tiện và lý do. Thêm dòng chi tiết gồm người công tác, từ ngày, đến ngày, thời gian, nơi đi, nơi đến; có thể khai nhiều người. Thêm dòng chi phí, chọn chi phí, nhập tiền; diễn giải chi phí không bắt buộc. Tải tệp nếu cần và Lưu/F8. Theo dõi tab trạng thái hoặc tìm theo người/lý do, thời gian. Số tiền trong ảnh là ví dụ, không phải định mức công tác phí.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "trip-list",
+          "start": 0,
+          "end": 316
+        },
+        {
+          "segment_id": "trip-create",
+          "start": 0,
+          "end": 352
+        }
+      ]
+    },
+    {
+      "content": "Workit — đặt xe công tác cho cá nhân/phòng ban tại chi nhánh, showroom, kho vận: Quy trình số > Xe công tác > Thêm. Chọn xe, tài xế, thời gian từ ngày/giờ đến ngày/giờ, nơi đi/nơi đến, tổng người đi; chọn danh sách người đi chính, đi cùng hoặc để biết rồi Lưu. Tìm/lọc danh sách nhân viên khi chọn. Có ghi chú và đính kèm. Hành chính quản lý xe văn phòng; bộ phận kinh doanh quản lý xe kinh doanh. Danh sách xem dạng lưới hoặc ngày.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "car-list",
+          "start": 0,
+          "end": 187
+        },
+        {
+          "segment_id": "car-approval",
+          "start": 0,
+          "end": 159
+        },
+        {
+          "segment_id": "car-create",
+          "start": 0,
+          "end": 311
+        }
+      ]
+    },
+    {
+      "content": "Workit — đặt phòng họp nội bộ, đối tác hoặc nhà cung cấp: Quy trình số > Phòng họp > Thêm. Chọn phòng, ngày và giờ bắt đầu/kết thúc, tổng số người, nội dung; chọn các tiện ích cần chuẩn bị (chọn nhiều được), chọn người chủ trì/tham gia/để biết rồi Lưu. Có ghi chú, đính kèm và tùy chọn chỉ người họp xem nội dung. Hành chính quản lý phòng và sắp xếp. Theo dõi Ngày, Tuần, Lưới hoặc Lịch họp hôm nay.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "room-list",
+          "start": 0,
+          "end": 264
+        },
+        {
+          "segment_id": "room-approval",
+          "start": 0,
+          "end": 103
+        },
+        {
+          "segment_id": "room-create",
+          "start": 0,
+          "end": 374
+        }
+      ]
+    },
+    {
+      "content": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "resign-list",
+          "start": 0,
+          "end": 164
+        },
+        {
+          "segment_id": "resign-create",
+          "start": 0,
+          "end": 161
+        },
+        {
+          "segment_id": "resign-approval",
+          "start": 0,
+          "end": 558
+        }
+      ]
+    },
+    {
+      "content": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+      "source_refs": [
+        {
+          "segment_id": "resign-approval",
+          "start": 0,
+          "end": 558
+        }
+      ]
+    },
+    {
+      "content": "Workit — đăng ký suất ăn trưa tại bếp Văn phòng Q2–HCM: Quy trình số > Suất ăn > Thêm/F2. Nhập ngày đăng ký, nội dung, thêm dòng, chọn người ăn và khoảng từ ngày/đến ngày, diễn giải rồi Lưu/F8; có đính kèm. Hệ thống tự chuyển phiếu đến Phòng HCNS kiểm tra, đăng ký và cấn trừ vào lương. Đây là phạm vi bếp ăn trong tài liệu, không khẳng định áp dụng mọi địa điểm.",
+      "source_refs": [
+        {
+          "segment_id": "menu",
+          "start": 0,
+          "end": 36
+        },
+        {
+          "segment_id": "meal-list",
+          "start": 0,
+          "end": 132
+        },
+        {
+          "segment_id": "meal-create",
+          "start": 0,
+          "end": 155
+        },
+        {
+          "segment_id": "meal-approval",
+          "start": 0,
+          "end": 225
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Retain functional labels and steps. Omit example people, dates, balances, amounts, contact values and unrelated feed from searchable transcription. No live employee data inferred.",
+    "room-wording": "Page 19 says xe cong tac in its list-view sentence under Phong hop. Retain literal transcription; chunk describes the Phong hop heading and visibly labelled Ngay/Tuan/Luoi controls without treating it as a car-booking instruction."
+  }
+}

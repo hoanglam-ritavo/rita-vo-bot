@@ -1,0 +1,231 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of all 13 rendered PDF pages; page 9 form additionally inspected at 3x; screenshot personal example rows and decorative navigation omitted, procedural labels retained"
+  },
+  "segments": [
+    {
+      "segment_id": "resign-start",
+      "raw": "HƯỚNG DẪN THỰC HIỆN HỒ SƠ XIN THÔI VIỆC\nI. THAO TÁC NGƯỜI NGHỈ VIỆC:\n1/ LẬP PHIẾU XÉT NGHỈ VIỆC:\na) Tạo phiếu mới\nB1: Đăng nhập hệ thống https://office.ritavo.com\nB2: Vào Menu Quy trình số\nB3: Chọn chức năng Phiếu xét nghỉ việc",
+      "text": "HƯỚNG DẪN THỰC HIỆN HỒ SƠ XIN THÔI VIỆC\nI. THAO TÁC NGƯỜI NGHỈ VIỆC:\n1/ LẬP PHIẾU XÉT NGHỈ VIỆC:\na) Tạo phiếu mới\nB1: Đăng nhập hệ thống https://office.ritavo.com\nB2: Vào Menu Quy trình số\nB3: Chọn chức năng Phiếu xét nghỉ việc",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-create",
+      "raw": "B4: Màn hình chức năng và bấm nút tạo mới Thêm (F2)\nB5: Nhập các thông tin theo quy định phiếu xin nghỉ trên màn hình THÊM mới\nTrường bắt buộc trên hình: Ngày nghỉ việc; Loại nghỉ việc; Nhóm quy trình; Nhân viên; Lý do nghỉ việc.\nB6: Bấm LƯU để hoàn tất khai báo phiếu nghỉ việc, HỦY để bỏ thao tác khai báo vừa thực hiện",
+      "text": "B4: Màn hình chức năng và bấm nút tạo mới Thêm (F2)\nB5: Nhập các thông tin theo quy định phiếu xin nghỉ trên màn hình THÊM mới\nTrường bắt buộc trên hình: Ngày nghỉ việc; Loại nghỉ việc; Nhóm quy trình; Nhân viên; Lý do nghỉ việc.\nB6: Bấm LƯU để hoàn tất khai báo phiếu nghỉ việc, HỦY để bỏ thao tác khai báo vừa thực hiện",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-submit",
+      "raw": "B7: Sau khi LƯU\n+ Chỉnh lại dữ liệu phiếu thì bấm nút sửa\n+ Xóa phiếu thì bấm nút xóa\nb) Thực hiện quy trình để hoàn tất Mẫu in phiếu nghỉ việc:\nB1: Chọn phiếu và bấm nút Duyệt để gửi phiếu nghỉ việc trình ký trên quy trình số\nChú ý: cần thực hiện bước này và chọn người quản lý để ký phiếu xin nghỉ việc.\nChọn đúng quản lý/người thực hiện bước tiếp theo để được ký phiếu xét nghỉ việc. Có ý kiến/ghi chú thì khai báo ở đây.\nB2: Sau khi duyệt, để hủy thao tác vừa Duyệt bấm nút Bỏ duyệt",
+      "text": "B7: Sau khi LƯU\n+ Chỉnh lại dữ liệu phiếu thì bấm nút sửa\n+ Xóa phiếu thì bấm nút xóa\nb) Thực hiện quy trình để hoàn tất Mẫu in phiếu nghỉ việc:\nB1: Chọn phiếu và bấm nút Duyệt để gửi phiếu nghỉ việc trình ký trên quy trình số\nChú ý: cần thực hiện bước này và chọn người quản lý để ký phiếu xin nghỉ việc.\nChọn đúng quản lý/người thực hiện bước tiếp theo để được ký phiếu xét nghỉ việc. Có ý kiến/ghi chú thì khai báo ở đây.\nB2: Sau khi duyệt, để hủy thao tác vừa Duyệt bấm nút Bỏ duyệt",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "resign-track",
+      "raw": "Đợi thông báo hoàn tất quy trình.\n+ Bấm vào hình quy trình trên phiếu để xem quy trình xong chưa.\n+ Bấm vào hình kẹp giấy trên phiếu để xem mẫu phiếu xin nghỉ đã ký xong chưa.\nTải mẫu in để đính kèm bên Biên bản bàn giao.",
+      "text": "Đợi thông báo hoàn tất quy trình.\n+ Bấm vào hình quy trình trên phiếu để xem quy trình xong chưa.\n+ Bấm vào hình kẹp giấy trên phiếu để xem mẫu phiếu xin nghỉ đã ký xong chưa.\nTải mẫu in để đính kèm bên Biên bản bàn giao.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "handover-start",
+      "raw": "II. THAO TÁC NGƯỜI NGHỈ VIỆC (SAU KHI KÝ DUYỆT XONG PHIẾU XÉT NGHỈ VIỆC):\n2/ LẬP BIÊN BẢN BÀN GIAO:\nTạo phiếu mới:\nB1: Tải mẫu ký hoàn tất Phiếu xét nghỉ việc, ở chức năng Phiếu xét nghỉ việc, bấm vào hình kẹp giấy để tải về.\nB2: Vào chức năng Quy trình tác nghiệp (Ticket)",
+      "text": "II. THAO TÁC NGƯỜI NGHỈ VIỆC (SAU KHI KÝ DUYỆT XONG PHIẾU XÉT NGHỈ VIỆC):\n2/ LẬP BIÊN BẢN BÀN GIAO:\nTạo phiếu mới:\nB1: Tải mẫu ký hoàn tất Phiếu xét nghỉ việc, ở chức năng Phiếu xét nghỉ việc, bấm vào hình kẹp giấy để tải về.\nB2: Vào chức năng Quy trình tác nghiệp (Ticket)",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "handover-files",
+      "raw": "B3: Tạo mới yêu cầu Loại: [HCNS] Hoàn tất BBBG – MN hay [HCNS] Hoàn tất BBBG – MB\nB4: Màn hình chọn Loại quy trình tác nghiệp, Nhập “BBBG” để lọc và chọn đúng BBBG của MN hay MB\nB5: Ở màn hình nhập dữ liệu phiếu yêu cầu, cần tải 2 file như sau (yêu cầu bắt buộc*):\n1. File đã ký “Phiếu xét nghỉ việc”\n2. File biên bản bàn giao (file mẫu quy định công ty dạng PDF)",
+      "text": "B3: Tạo mới yêu cầu Loại: [HCNS] Hoàn tất BBBG – MN hay [HCNS] Hoàn tất BBBG – MB\nB4: Màn hình chọn Loại quy trình tác nghiệp, Nhập “BBBG” để lọc và chọn đúng BBBG của MN hay MB\nB5: Ở màn hình nhập dữ liệu phiếu yêu cầu, cần tải 2 file như sau (yêu cầu bắt buộc*):\n1. File đã ký “Phiếu xét nghỉ việc”\n2. File biên bản bàn giao (file mẫu quy định công ty dạng PDF)",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "handover-route",
+      "raw": "B6: Bấm Lưu & đóng (F8) để hoàn tất nhập phiếu\nB7: Chuyên viên HCNS xác nhận phiếu vừa tạo.\nB8: Khi nhận thông báo đã được xác nhận từ hệ thống / HCNS, người tạo phiếu phải chuyển phiếu cho người nhận bàn giao ký xác nhận\nB9: Người nhận bàn giao ký xác nhận phiếu",
+      "text": "B6: Bấm Lưu & đóng (F8) để hoàn tất nhập phiếu\nB7: Chuyên viên HCNS xác nhận phiếu vừa tạo.\nB8: Khi nhận thông báo đã được xác nhận từ hệ thống / HCNS, người tạo phiếu phải chuyển phiếu cho người nhận bàn giao ký xác nhận\nB9: Người nhận bàn giao ký xác nhận phiếu",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "handover-sign",
+      "raw": "Bàn làm việc > Quy trình số > Ticket. Chọn phiếu, bấm Duyệt.\nChú ý: Nếu có nút ký số thì file đính kèm cần được thực hiện ký số theo quy trình số đã khai báo.\nThực hiện ký số, chọn đúng file cần ký và kéo chữ ký đến đúng khu vực ký",
+      "text": "Bàn làm việc > Quy trình số > Ticket. Chọn phiếu, bấm Duyệt.\nChú ý: Nếu có nút ký số thì file đính kèm cần được thực hiện ký số theo quy trình số đã khai báo.\nThực hiện ký số, chọn đúng file cần ký và kéo chữ ký đến đúng khu vực ký",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "handover-finish",
+      "raw": "Chọn file cần ký số. Kéo chữ ký đến nơi quy định ký.\nB10: Người tạo phiếu đợi trả kết quả.",
+      "text": "Chọn file cần ký số. Kéo chữ ký đến nơi quy định ký.\nB10: Người tạo phiếu đợi trả kết quả.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "form-instructions",
+      "raw": "BIÊN BẢN QUYẾT TOÁN VÀ BÀN GIAO CÔNG VIỆC\nMã số: 02NS/BBBG-BM012; Ngày hiệu lực: 29/08/2019; Soát xét: 01; Số trang: 1/3\nI. HƯỚNG DẪN BÀN GIAO\n1. Biên bản quyết toán và bàn giao công việc được sử dụng cho các trường hợp nghỉ việc bao gồm cả thôi việc khỏi Công ty, bàn giao để nhận công việc mới hoặc cùng công việc nhưng điều chuyển chi nhánh, bộ phận trong Công ty.\n2. Sau khi hoàn thành BBBG thì mỗi bộ phận liên quan trong biên bản này lưu trữ như sau:\n- Người nhận bàn giao lưu bản scan để thực hiện công việc được bàn giao.\n- Phòng HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt hợp đồng lao động, photo 1 bản quyết định và BBBG này chuyển cho kế toán tính thanh toán hoa hồng, lương và các phúc lợi (nếu có) cho người thôi việc.\n3. Phòng HCNS sẽ tiến hành làm thủ tục thôi việc cho Người lao động (NLĐ) khi có đủ chữ ký xác nhận các nội dung.\n4. Sau khi hoàn tất thủ tục nghỉ việc và trách nhiệm tài chính (nếu có), Công ty sẽ quyết toán quyền lợi và nghĩa vụ tài chính cho NLĐ cùng kỳ lương của Công ty.",
+      "text": "BIÊN BẢN QUYẾT TOÁN VÀ BÀN GIAO CÔNG VIỆC\nMã số: 02NS/BBBG-BM012; Ngày hiệu lực: 29/08/2019; Soát xét: 01; Số trang: 1/3\nI. HƯỚNG DẪN BÀN GIAO\n1. Biên bản quyết toán và bàn giao công việc được sử dụng cho các trường hợp nghỉ việc bao gồm cả thôi việc khỏi Công ty, bàn giao để nhận công việc mới hoặc cùng công việc nhưng điều chuyển chi nhánh, bộ phận trong Công ty.\n2. Sau khi hoàn thành BBBG thì mỗi bộ phận liên quan trong biên bản này lưu trữ như sau:\n- Người nhận bàn giao lưu bản scan để thực hiện công việc được bàn giao.\n- Phòng HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt hợp đồng lao động, photo 1 bản quyết định và BBBG này chuyển cho kế toán tính thanh toán hoa hồng, lương và các phúc lợi (nếu có) cho người thôi việc.\n3. Phòng HCNS sẽ tiến hành làm thủ tục thôi việc cho Người lao động (NLĐ) khi có đủ chữ ký xác nhận các nội dung.\n4. Sau khi hoàn tất thủ tục nghỉ việc và trách nhiệm tài chính (nếu có), Công ty sẽ quyết toán quyền lợi và nghĩa vụ tài chính cho NLĐ cùng kỳ lương của Công ty.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "form-fields",
+      "raw": "II. NỘI DUNG BÀN GIAO\n1. Tài sản công cụ - dụng cụ (TS/CCDC):\nTên tài sản (mã số), công cụ dụng cụ | Đơn vị tính | Số lượng | Tình trạng TS/CCDC | Thông tin biên bản bàn giao ban đầu (số, ngày) | Người nhận ký\n2. Công việc:\nNội dung công việc | Tình hình thực hiện | Cá nhân, Phòng/Ban, Bộ phận liên quan (nếu có) | Người nhận ký",
+      "text": "II. NỘI DUNG BÀN GIAO\n1. Tài sản công cụ - dụng cụ (TS/CCDC):\nTên tài sản (mã số), công cụ dụng cụ | Đơn vị tính | Số lượng | Tình trạng TS/CCDC | Thông tin biên bản bàn giao ban đầu (số, ngày) | Người nhận ký\n2. Công việc:\nNội dung công việc | Tình hình thực hiện | Cá nhân, Phòng/Ban, Bộ phận liên quan (nếu có) | Người nhận ký",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approver",
+      "raw": "III. THAO TÁC NGƯỜI PHÊ DUYỆT:\nNhận thông báo / đăng nhập vào màn hình trang chủ khung Bàn làm việc => nhấn vào Phiếu xét đề nghị việc để thực hiện.\nB1: Bấm vào tiêu đề ở Trang chủ / Khung Bàn làm việc / Phiếu xét nghỉ việc\nB2: Thực hiện chọn phiếu và bấm nút Duyệt để xác nhận hoàn tất bước của mình\nChú ý: chọn người thực hiện ở bước tiếp theo để duyệt tiếp quy trình thực hiện.\nNhập ý kiến/phản hồi nếu có. Lọc tên người thực hiện bước tiếp theo. Chọn người thực hiện ở bước tiếp theo. Hoàn tất bước DUYỆT.",
+      "text": "III. THAO TÁC NGƯỜI PHÊ DUYỆT:\nNhận thông báo / đăng nhập vào màn hình trang chủ khung Bàn làm việc => nhấn vào Phiếu xét đề nghị việc để thực hiện.\nB1: Bấm vào tiêu đề ở Trang chủ / Khung Bàn làm việc / Phiếu xét nghỉ việc\nB2: Thực hiện chọn phiếu và bấm nút Duyệt để xác nhận hoàn tất bước của mình\nChú ý: chọn người thực hiện ở bước tiếp theo để duyệt tiếp quy trình thực hiện.\nNhập ý kiến/phản hồi nếu có. Lọc tên người thực hiện bước tiếp theo. Chọn người thực hiện ở bước tiếp theo. Hoàn tất bước DUYỆT.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approver-skip",
+      "raw": "Chú ý: trường hợp cần bỏ qua bước kế tiếp, ta chọn ô “Chuyển đến cấp cao hơn” => khi đó hệ thống sẽ chuyển phiếu đến bước mà bạn chọn.\nVí dụ: Bước 2, Bước 3, Bước 4, Bước 5 => đang ở bước 3 thao tác bỏ qua và chọn bước 5 => hệ thống gọi bước 5 lên thực hiện.",
+      "text": "Chú ý: trường hợp cần bỏ qua bước kế tiếp, ta chọn ô “Chuyển đến cấp cao hơn” => khi đó hệ thống sẽ chuyển phiếu đến bước mà bạn chọn.\nVí dụ: Bước 2, Bước 3, Bước 4, Bước 5 => đang ở bước 3 thao tác bỏ qua và chọn bước 5 => hệ thống gọi bước 5 lên thực hiện.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "maternity-start",
+      "raw": "HƯỚNG DẪN THỰC HIỆN HỒ SƠ XIN NGHỈ THAI SẢN\n1. LÀM PHIẾU NGHỈ PHÉP:\nB1: Đăng nhập hệ thống https://office.ritavo.com\nB2: Vào Menu Quy trình số\nB3: Chọn chức năng Nghỉ phép\nB4: Màn hình chức năng và bấm nút tạo mới Thêm (F2)\nB5: Chọn “loại nghỉ phép”: Nghỉ thai sản",
+      "text": "HƯỚNG DẪN THỰC HIỆN HỒ SƠ XIN NGHỈ THAI SẢN\n1. LÀM PHIẾU NGHỈ PHÉP:\nB1: Đăng nhập hệ thống https://office.ritavo.com\nB2: Vào Menu Quy trình số\nB3: Chọn chức năng Nghỉ phép\nB4: Màn hình chức năng và bấm nút tạo mới Thêm (F2)\nB5: Chọn “loại nghỉ phép”: Nghỉ thai sản",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "maternity-finish",
+      "raw": "Loại nghỉ phép: S1 — Nghỉ thai sản (Maternity).\nB6: Bấm LƯU để hoàn tất khai báo phiếu nghỉ phép, HỦY để bỏ thao tác khai báo vừa thực hiện\n2. BIÊN BẢN BÀN GIAO (LÀM NHƯ MẪU NGHỈ VIỆC Ở TRÊN)",
+      "text": "Loại nghỉ phép: S1 — Nghỉ thai sản (Maternity).\nB6: Bấm LƯU để hoàn tất khai báo phiếu nghỉ phép, HỦY để bỏ thao tác khai báo vừa thực hiện\n2. BIÊN BẢN BÀN GIAO (LÀM NHƯ MẪU NGHỈ VIỆC Ở TRÊN)",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "other-leave-options",
+      "raw": "Các lựa chọn khác hiển thị trong ảnh Loại nghỉ phép:\nK — Nghỉ không hưởng lương (Unpaid)\nKL — Nghỉ không xin phép\nO1 — Nghỉ ốm dài ngày không lương\nP — Nghỉ phép (Annual)\nDC — Nghỉ phép điều chỉnh (chỉ HCNS)",
+      "text": "Các lựa chọn khác hiển thị trong ảnh Loại nghỉ phép:\nK — Nghỉ không hưởng lương (Unpaid)\nKL — Nghỉ không xin phép\nO1 — Nghỉ ốm dài ngày không lương\nP — Nghỉ phép (Annual)\nDC — Nghỉ phép điều chỉnh (chỉ HCNS)",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "maternity-handover-reference",
+      "code": "ambiguous_cross_reference",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      }
+    },
+    {
+      "warning_id": "partial-form",
+      "code": "partial_embedded_form",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      }
+    },
+    {
+      "warning_id": "screenshot-examples",
+      "code": "non_operational_example_data",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 13
+      }
+    }
+  ]
+}

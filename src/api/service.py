@@ -15,7 +15,7 @@ class ApiService:
         from src.database import check_database, close_database
         self.settings = settings
         self.retrieval = retrieval if retrieval is not None else RetrievalService(
-            model_path=settings.model_path, model_revision=settings.model_revision, device='cpu')
+            model_path=settings.model_path, model_revision=settings.model_revision, device='cpu', rerank=settings.rerank)
         self.database_check = database_check or check_database
         self.database_close = database_close or close_database
         self.started = False
@@ -69,7 +69,10 @@ class ApiService:
                 if result['status'] == 'model_mismatch':
                     raise ApiError('model_mismatch')
                 response = RetrievalResponse(status=result['status'], matches=result['matches'],
+                    fallback_reason=result['fallback_reason'],
+                    relevance=result.get('relevance', {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}),
                     timings=Timings(retrieval_seconds=retrieval_seconds,
+                                    rerank_seconds=result.get('rerank_seconds', 0.0),
                                     total_seconds=time.perf_counter() - started))
                 outcome = response.status
                 return response

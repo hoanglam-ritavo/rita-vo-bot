@@ -1,6 +1,8 @@
 """Exact cosine search of eligible public documents in a read-only snapshot."""
 from datetime import date
 import math
+import hashlib
+import json
 from sqlalchemy import select, exists, or_, text
 from src.database import session_scope
 from src.database.models import DocumentChunk as Chunk, DocumentRevision as Revision
@@ -31,7 +33,7 @@ def match_record(chunk, revision):
             'author_id': chunk.author_id, 'role': chunk.role}
 
 
-async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False):
+async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=()):
     today = date.today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
     eligible = (Run.status == 'succeeded', Run.is_active.is_(True),
@@ -54,6 +56,14 @@ async def search(vector, model_revision, fingerprint, top_k, *, detail_only=Fals
         if await db.scalar(base.where(*compatible).limit(1)) is None:
             result['status'] = 'model_mismatch'
             return result
+        # Active publications are immutable; IDs plus publication configuration bind
+        # calibration to exactly the searchable corpus in this read snapshot.
+        corpus = (await db.execute(select(Run.id, Run.revision_id, Run.configuration)
+                  .join(Revision, Run.revision_id == Revision.id)
+                  .where(*eligible, *compatible).order_by(Run.id))).all()
+        result['corpus_fingerprint'] = hashlib.sha256(json.dumps(
+            [(str(row[0]), str(row[1]), row[2]) for row in corpus],
+            sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         distance = Chunk.embedding.cosine_distance(vector).label('distance')
         query = (select(Chunk, Revision, distance).join(Run, Chunk.run_id == Run.id)
                  .join(Revision, Run.revision_id == Revision.id)
@@ -61,17 +71,36 @@ async def search(vector, model_revision, fingerprint, top_k, *, detail_only=Fals
                  .order_by(distance, Chunk.id).limit(top_k))
         if detail_only:
             query = query.where(or_(Chunk.role.is_(None), Chunk.role.not_in(['inventory', 'table'])))
-        for chunk, revision, score in (await db.execute(query)).all():
-            if score is None or not math.isfinite(float(score)):
-                raise ValueError('invalid_stored_vector_distance')
-            result['matches'].append({
-                'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
-                'document_id': str(revision.document_id), 'revision_id': str(revision.id),
-                'content': chunk.content, 'cosine_distance': float(score), 'title': revision.title,
-                'author_id': chunk.author_id, 'role': chunk.role,
-                'source_path': revision.source_path, 'version_label': revision.version_label,
-                'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,
-                'effective_to': revision.effective_to.isoformat() if revision.effective_to else None,
-                'applicability': revision.applicability, 'source_spans': chunk.source_location.get('spans', [])})
+        rows = (await db.execute(query)).all()
+        result_lists = [rows]
+        for extra in extra_vectors:
+            # Select the original-query distance while ranking by the variant.
+            alternate = query.order_by(None).order_by(Chunk.embedding.cosine_distance(extra), Chunk.id)
+            result_lists.append((await db.execute(alternate)).all())
+        lists = []
+        for candidates in result_lists:
+            lists.append(_records(candidates))
+        if extra_vectors:
+            from .reranking import fuse_candidates
+            result['matches'] = fuse_candidates(lists, top_k)
+        else:
+            result['matches'] = lists[0]
     result['status'] = 'matches_found' if result['matches'] else 'no_matches'
     return result
+
+
+def _records(rows):
+    matches = []
+    for chunk, revision, score in rows:
+        if score is None or not math.isfinite(float(score)):
+            raise ValueError('invalid_stored_vector_distance')
+        matches.append({
+            'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
+            'document_id': str(revision.document_id), 'revision_id': str(revision.id),
+            'content': chunk.content, 'cosine_distance': float(score), 'title': revision.title,
+            'author_id': chunk.author_id, 'role': chunk.role,
+            'source_path': revision.source_path, 'version_label': revision.version_label,
+            'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,
+            'effective_to': revision.effective_to.isoformat() if revision.effective_to else None,
+            'applicability': revision.applicability, 'source_spans': chunk.source_location.get('spans', [])})
+    return matches

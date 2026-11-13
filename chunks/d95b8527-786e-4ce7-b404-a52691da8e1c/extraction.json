@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 16 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RTV/O365/E-Postal — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG QUẢN LÝ THƯ ĐẾN (E-POSTAL). VERSION 1.0; 07.11.2023. Phòng KSNB, Đội ngũ IT System. Tài liệu nội bộ. Bảng thông tin trang 2 ghi Phân hệ E-Postal (Đơn nghỉ phép Online). ITSYS là nhóm IT System thuộc KSNB; IT thuộc HCNS; O365 Microsoft Office 365; SharePoint và MS Power Automate là ứng dụng Microsoft. Nội dung: giới thiệu, sơ đồ, nhân viên gửi/nhận tại lễ tân/phòng bảo vệ, nhân viên Hành chính, xác nhận qua Outlook/Teams/Power Automate, nhắc nhở và tình huống.",
+      "text": "RTV/O365/E-Postal — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG QUẢN LÝ THƯ ĐẾN (E-POSTAL). VERSION 1.0; 07.11.2023. Phòng KSNB, Đội ngũ IT System. Tài liệu nội bộ. Bảng thông tin trang 2 ghi Phân hệ E-Postal (Đơn nghỉ phép Online). ITSYS là nhóm IT System thuộc KSNB; IT thuộc HCNS; O365 Microsoft Office 365; SharePoint và MS Power Automate là ứng dụng Microsoft. Nội dung: giới thiệu, sơ đồ, nhân viên gửi/nhận tại lễ tân/phòng bảo vệ, nhân viên Hành chính, xác nhận qua Outlook/Teams/Power Automate, nhắc nhở và tình huống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "flow",
+      "raw": "E-Postal là quản lý thư đến/thư đi online của nhóm IT System thuộc KSNB trên Office 365, dành cho HCNS Rita Võ. Hệ thống có 4 cách nhập liệu: Form SharePoint, Phone List (P. HC), QR E-Portal Receiving và QR E-Portal Sending. Power Automate > SharePoint List > Email thông báo > Người nhận thư > cập nhật trạng thái nhận thư; Hành chính Export to Excel. Hành chính phát thông báo thư/bưu phẩm đến qua SharePoint Form hoặc Phone List. Người dùng chủ động nhận thư hoặc cần gửi có 2 QR tương ứng: xác nhận Đã nhận/Từ chối nhận thư đến; xác nhận Đã gửi thư đi.",
+      "text": "E-Postal là quản lý thư đến/thư đi online của nhóm IT System thuộc KSNB trên Office 365, dành cho HCNS Rita Võ. Hệ thống có 4 cách nhập liệu: Form SharePoint, Phone List (P. HC), QR E-Portal Receiving và QR E-Portal Sending. Power Automate > SharePoint List > Email thông báo > Người nhận thư > cập nhật trạng thái nhận thư; Hành chính Export to Excel. Hành chính phát thông báo thư/bưu phẩm đến qua SharePoint Form hoặc Phone List. Người dùng chủ động nhận thư hoặc cần gửi có 2 QR tương ứng: xác nhận Đã nhận/Từ chối nhận thư đến; xác nhận Đã gửi thư đi.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "receive-form",
+      "raw": "III.1 Nhân viên gửi/nhận thư bưu phẩm tại quầy lễ tân/Phòng bảo vệ: truy cập đường link/QR bằng máy tính hoặc điện thoại cá nhân. QR Nhận thư/bưu phẩm E-Postal (Receiving) khác QR Gửi thư/bưu phẩm E-Postal (Sending). Nhận thư: 1 Công ty đang làm việc tại Rita Võ; 2 Mã nhân viên P. HCNS cấp; 3 Họ tên đầy đủ người nhận; 4 Email P. HCNS IT cấp; 5 Phòng ban; 6 Tiêu đề thư đến; 7 Nội dung chi tiết (không bắt buộc); 8 Nhận hộ chọn Đúng nếu nhận hộ người khác; 9 Ghi chú (không bắt buộc); 10 Trạng thái chọn Đã nhận hoặc Từ chối nhận để hệ thống gửi email.",
+      "text": "III.1 Nhân viên gửi/nhận thư bưu phẩm tại quầy lễ tân/Phòng bảo vệ: truy cập đường link/QR bằng máy tính hoặc điện thoại cá nhân. QR Nhận thư/bưu phẩm E-Postal (Receiving) khác QR Gửi thư/bưu phẩm E-Postal (Sending). Nhận thư: 1 Công ty đang làm việc tại Rita Võ; 2 Mã nhân viên P. HCNS cấp; 3 Họ tên đầy đủ người nhận; 4 Email P. HCNS IT cấp; 5 Phòng ban; 6 Tiêu đề thư đến; 7 Nội dung chi tiết (không bắt buộc); 8 Nhận hộ chọn Đúng nếu nhận hộ người khác; 9 Ghi chú (không bắt buộc); 10 Trạng thái chọn Đã nhận hoặc Từ chối nhận để hệ thống gửi email.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "send-form",
+      "raw": "Gửi thư/bưu phẩm: 1 Công ty đang làm việc tại Rita Võ; 2 Mã nhân viên P. HCNS cấp; 3 Họ tên đầy đủ (nguồn ghi người nhận); 4 Email P. HCNS IT cấp; 5 Phòng ban; 6 Phân loại cước phí theo bảng mô tả từ nhà vận chuyển; 7 Số vận đơn do nhà vận chuyển cấp; 8 Ghi chú (không bắt buộc). Ví dụ email trạng thái: Thông báo thư đến (Đã nhận/Từ chối nhận); Thông báo thư đi (Đã gửi).",
+      "text": "Gửi thư/bưu phẩm: 1 Công ty đang làm việc tại Rita Võ; 2 Mã nhân viên P. HCNS cấp; 3 Họ tên đầy đủ (nguồn ghi người nhận); 4 Email P. HCNS IT cấp; 5 Phòng ban; 6 Phân loại cước phí theo bảng mô tả từ nhà vận chuyển; 7 Số vận đơn do nhà vận chuyển cấp; 8 Ghi chú (không bắt buộc). Ví dụ email trạng thái: Thông báo thư đến (Đã nhận/Từ chối nhận); Thông báo thư đi (Đã gửi).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "admin",
+      "raw": "III.2 Nhân viên Hành Chính có 2 phương thức: Cách 1 nhập trực tiếp từ Sharepoint, hiệu quả cho thông báo nhân viên thư đến và thư đi. Cách 2 SharePoint PhoneList chỉ áp dụng thông báo thư đến, không áp dụng gửi thư/bưu phẩm. Khi Hành chính gửi từ 1 trong các cách trên, người nhận nhận email hệ thống qua Outlook.",
+      "text": "III.2 Nhân viên Hành Chính có 2 phương thức: Cách 1 nhập trực tiếp từ Sharepoint, hiệu quả cho thông báo nhân viên thư đến và thư đi. Cách 2 SharePoint PhoneList chỉ áp dụng thông báo thư đến, không áp dụng gửi thư/bưu phẩm. Khi Hành chính gửi từ 1 trong các cách trên, người nhận nhận email hệ thống qua Outlook.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "first-use",
+      "raw": "III.3 Nhân viên nhận thông báo xác nhận thư/bưu phẩm đến cần xác nhận Đã nhận hoặc Từ chối nhận trên Outlook hoặc Power Automate (nhân viên có O365). Lần đầu, Microsoft điều hướng Power Automate khi click Đã nhận/Từ chối nhận; làm theo chỉ dẫn xác thực email Rita Võ. Người duyệt không có O365 có thể duyệt qua Power Automate trên trình duyệt; liên hệ HCNS IT nếu chưa rõ. Hệ thống cung cấp 3 cách xác nhận.",
+      "text": "III.3 Nhân viên nhận thông báo xác nhận thư/bưu phẩm đến cần xác nhận Đã nhận hoặc Từ chối nhận trên Outlook hoặc Power Automate (nhân viên có O365). Lần đầu, Microsoft điều hướng Power Automate khi click Đã nhận/Từ chối nhận; làm theo chỉ dẫn xác thực email Rita Võ. Người duyệt không có O365 có thể duyệt qua Power Automate trên trình duyệt; liên hệ HCNS IT nếu chưa rõ. Hệ thống cung cấp 3 cách xác nhận.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "outlook",
+      "raw": "3.1 Xác nhận từ Outlook (máy tính, điện thoại, tablet): hệ thống gửi email khi Hành chính nhập chính xác qua Phone List hoặc SharePoint. Click Đã nhận hoặc Từ chối nhận. Ghi Comments lý do từ chối để theo dõi. Mẫu email yêu cầu đến nhận trong 2–3 ngày làm việc từ khi nhận email để tránh thất lạc; khi đến nhận thư mang điện thoại để nhấn Đã nhận trước khi nhận thư.",
+      "text": "3.1 Xác nhận từ Outlook (máy tính, điện thoại, tablet): hệ thống gửi email khi Hành chính nhập chính xác qua Phone List hoặc SharePoint. Click Đã nhận hoặc Từ chối nhận. Ghi Comments lý do từ chối để theo dõi. Mẫu email yêu cầu đến nhận trong 2–3 ngày làm việc từ khi nhận email để tránh thất lạc; khi đến nhận thư mang điện thoại để nhấn Đã nhận trước khi nhận thư.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "teams",
+      "raw": "3.2 Xác nhận từ MS team (tài khoản O365): MS Team popup khi có E-PostalMail. Click Đã nhận hoặc Từ chối nhận; Comment nếu có được gửi đến bộ phận HC.",
+      "text": "3.2 Xác nhận từ MS team (tài khoản O365): MS Team popup khi có E-PostalMail. Click Đã nhận hoặc Từ chối nhận; Comment nếu có được gửi đến bộ phận HC.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "mobile",
+      "raw": "3.3 Xác nhận qua Microsoft Power Automate (điện thoại): tải ứng dụng Microsoft từ Google Play/Apple Store cho nhân viên có O365. Đăng nhập O365, theo dõi E-PostalMail tại Approvals; chọn thông báo để xem chi tiết, Đã nhận/Từ chối nhận và comment. Ứng dụng hỗ trợ nhiều mục đích tự động hóa quy trình qua Outlook/Power Automate.",
+      "text": "3.3 Xác nhận qua Microsoft Power Automate (điện thoại): tải ứng dụng Microsoft từ Google Play/Apple Store cho nhân viên có O365. Đăng nhập O365, theo dõi E-PostalMail tại Approvals; chọn thông báo để xem chi tiết, Đã nhận/Từ chối nhận và comment. Ứng dụng hỗ trợ nhiều mục đích tự động hóa quy trình qua Outlook/Power Automate.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "reminder",
+      "raw": "4. Chức năng nhắc nhở: tự động nhắc người nhận thư chưa có hành động xác nhận vào ngày hôm sau (24 tiếng), cho đến khi xác nhận hoàn tất Đã nhận hoặc Từ chối nhận.",
+      "text": "4. Chức năng nhắc nhở: tự động nhắc người nhận thư chưa có hành động xác nhận vào ngày hôm sau (24 tiếng), cho đến khi xác nhận hoàn tất Đã nhận hoặc Từ chối nhận.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 15,
+        "page_end": 15
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq",
+      "raw": "5. Tình huống: Email cá nhân dùng được không? Phải dùng email P. HCNS IT cung cấp. Không có email công ty? Nhờ cấp trên/đồng nghiệp nhận hộ; hệ thống cần email công ty gửi trạng thái. Không nhận email gửi/nhận thư? Đợi 10–20 phút do email/mạng chậm; sau 24h không có phản hồi liên hệ KSNB IT System ksnb_it.system@ritavo.com. Quét QR nhận thông tin gì? Email từ itsystems@ritavo.com báo Đã nhận/Từ chối nhận/Đã gửi. Hành chính dùng SharePoint/Phone List thì nhận gì? Email Microsoft Automate để xác nhận Đã nhận/Từ chối nhận thư/bưu phẩm tại lễ tân/phòng bảo vệ; sau khi xác nhận, email khác từ itsystems@ritavo.com gửi bạn và CC Hành chính kết quả.",
+      "text": "5. Tình huống: Email cá nhân dùng được không? Phải dùng email P. HCNS IT cung cấp. Không có email công ty? Nhờ cấp trên/đồng nghiệp nhận hộ; hệ thống cần email công ty gửi trạng thái. Không nhận email gửi/nhận thư? Đợi 10–20 phút do email/mạng chậm; sau 24h không có phản hồi liên hệ KSNB IT System ksnb_it.system@ritavo.com. Quét QR nhận thông tin gì? Email từ itsystems@ritavo.com báo Đã nhận/Từ chối nhận/Đã gửi. Hành chính dùng SharePoint/Phone List thì nhận gì? Email Microsoft Automate để xác nhận Đã nhận/Từ chối nhận thư/bưu phẩm tại lễ tân/phòng bảo vệ; sau khi xác nhận, email khác từ itsystems@ritavo.com gửi bạn và CC Hành chính kết quả.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 16,
+        "page_end": 16
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 16
+      }
+    },
+    {
+      "warning_id": "identity-copy",
+      "code": "source_copy_wording",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      }
+    },
+    {
+      "warning_id": "qr-only",
+      "code": "qr_navigation",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      }
+    },
+    {
+      "warning_id": "send-name",
+      "code": "source_field_wording",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      }
+    }
+  ]
+}

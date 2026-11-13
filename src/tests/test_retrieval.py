@@ -130,7 +130,7 @@ def test_cli_json_status_and_no_vectors(model, capsys, status, code):
     storage.search.return_value = {'status': status, 'matches': [], 'notice': 'Candidates only'}
     assert cli.main(['--question', 'policy?', '--model-path', 'unused', '--model-revision', 'a'*40, '--json']) == code
     report = json.loads(capsys.readouterr().out)
-    assert report['status'] == status
+    assert report['status'] == ('no_matches' if status == 'matches_found' else status)
     assert 'embedding' not in report
 
 

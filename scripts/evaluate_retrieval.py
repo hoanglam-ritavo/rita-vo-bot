@@ -20,6 +20,7 @@ from src.ingestion.embeddings import model_fingerprint
 from src.paths import REPOSITORY_ROOT
 from src.retrieval import RetrievalService
 from src.retrieval.service import validate_request
+from src.retrieval.config import add_arguments, from_arguments
 from src.cli.publish_documents import model_commit
 
 
@@ -148,7 +149,8 @@ async def evaluate(args):
     expected = configuration(payload, args.model_revision)
     expected.update(package_sha256=packages.files_hash(files), model_files_sha256=fingerprint,
                     metadata_sha256=packages.sha(files['metadata.json']))
-    service = RetrievalService(model_path=args.model_path, model_revision=args.model_revision)
+    service = RetrievalService(model_path=args.model_path, model_revision=args.model_revision,
+                               rerank=from_arguments(args))
     try:
         before = await database_state(record, payload, expected)
         start = time.perf_counter()
@@ -161,8 +163,14 @@ async def evaluate(args):
             result = await service.retrieve(case['question'], top_k=args.top_k)
             row = grade(case, result['matches'], record['revision_id'], before['run_id'])
             row.update(status=result['status'], seconds=time.perf_counter() - start,
+                       candidate_grade=grade(case, result.get('candidate_order', result['matches']), record['revision_id'], before['run_id']),
+                       before_rerank=result.get('candidate_order', []),
+                       relevance=result.get('relevance'), rerank_seconds=result.get('rerank_seconds', 0.0),
+                       reranker_fingerprint=result.get('reranker_fingerprint'),
                        matches=[{k: m[k] for k in ('chunk_index', 'revision_id', 'run_id', 'cosine_distance')}
                                 for m in result['matches']])
+            for entry, match in zip(row['matches'], result['matches']):
+                entry['rerank_score'] = match.get('rerank_score')
             report['cases'].append(row)
         after = await database_state(record, payload, expected)
         if (before != after or packages.snapshot_files(args.package) != files
@@ -188,11 +196,16 @@ def main(argv=None):
     parser.add_argument('--model-revision', required=True, type=model_commit)
     parser.add_argument('--top-k', type=int, choices=range(1, 21), default=5)
     parser.add_argument('--output', type=Path)
+    add_arguments(parser)
     args = parser.parse_args(argv)
     if args.output:
         try:
             args.output = output_path(args.output)
-            if args.output == args.cases.resolve() or args.output.is_relative_to(args.package.resolve()) or args.output.is_relative_to(args.model_path.resolve()):
+            rerank = from_arguments(args)
+            if (args.output == args.cases.resolve() or args.output.is_relative_to(args.package.resolve())
+                    or args.output.is_relative_to(args.model_path.resolve())
+                    or (rerank.enabled and (args.output.is_relative_to(rerank.model_path.resolve())
+                        or (rerank.profile_path and args.output == rerank.profile_path.resolve())))):
                 raise ValueError('output_overwrites_input')
         except ValueError as exc:
             parser.error(str(exc))

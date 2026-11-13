@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 84
+        },
+        {
+          "segment_id": "android",
+          "start": 0,
+          "end": 136
+        },
+        {
+          "segment_id": "ios",
+          "start": 0,
+          "end": 96
+        },
+        {
+          "segment_id": "login",
+          "start": 0,
+          "end": 225
+        },
+        {
+          "segment_id": "password",
+          "start": 0,
+          "end": 238
+        }
+      ]
+    },
+    {
+      "content": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+      "source_refs": [
+        {
+          "segment_id": "features",
+          "start": 0,
+          "end": 728
+        }
+      ]
+    },
+    {
+      "content": "Workit Mobile — menu Quy trình số có Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe, Phòng họp, Đề nghị tuyển dụng, Đề nghị khen thưởng, Quên chấm công và Suất ăn. Nhấn chức năng để mở chi tiết; số đỏ trên chức năng thể hiện số phiếu cần phê duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "features",
+          "start": 0,
+          "end": 728
+        },
+        {
+          "segment_id": "pending",
+          "start": 0,
+          "end": 206
+        },
+        {
+          "segment_id": "pending-example",
+          "start": 0,
+          "end": 196
+        }
+      ]
+    },
+    {
+      "content": "Workit Mobile — vì sao số ở menu ít hơn số phiếu bên trong: số ngoài chức năng là số phiếu chờ bạn duyệt. Bên trong còn có phiếu Đang xử lý chờ bộ phận khác. Ví dụ tài liệu: menu Đề nghị thanh toán có 2, bên trong 5 gồm 2 chờ duyệt và 3 đang xử lý. Đây là minh họa cách đếm, không phải số phiếu hiện tại của người dùng.",
+      "source_refs": [
+        {
+          "segment_id": "counts-icons",
+          "start": 0,
+          "end": 468
+        }
+      ]
+    },
+    {
+      "content": "Workit Mobile — kiểm tra phiếu: vào chức năng > Chờ duyệt; menu ba chấm > Xem/Sửa để xem nội dung, hoặc Xem chi tiết. Các biểu tượng ở phiếu lần lượt là bình luận/tin nhắn, tệp đính kèm, quy trình phê duyệt. Hướng dẫn giải thích màu đen không có file/tin nhắn, xanh đã hoàn thành, đỏ chưa hoàn thành.",
+      "source_refs": [
+        {
+          "segment_id": "view",
+          "start": 0,
+          "end": 148
+        },
+        {
+          "segment_id": "counts-icons",
+          "start": 0,
+          "end": 468
+        }
+      ]
+    },
+    {
+      "content": "Workit Mobile — duyệt phiếu: chọn Duyệt trên phiếu hoặc menu ba chấm, nhập ý kiến nếu có, mở file đính kèm để xem, bấm dấu tích xác nhận góc trên. Sau khi duyệt thành công, phiếu chuyển từ Chờ duyệt sang Đang xử lý để bộ phận khác xử lý tiếp; không có nghĩa toàn quy trình đã hoàn tất. Nhấn biểu tượng quy trình để xem tên bước, trạng thái, người thực hiện, ngày và ý kiến; có tab Lịch sử.",
+      "source_refs": [
+        {
+          "segment_id": "approve",
+          "start": 0,
+          "end": 319
+        },
+        {
+          "segment_id": "history",
+          "start": 0,
+          "end": 186
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Example counts, staff names, dates, amounts, account values and attachment filenames are not operational facts. Retain workflow behavior and role labels without those instance values; original snapshot unchanged. No exact current approver is inferred."
+  }
+}

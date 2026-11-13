@@ -1,0 +1,116 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Bravo 8 — hướng dẫn kết nối VPN phiên bản 1.0, cập nhật 11.11.2023, dành cho nhân viên được phân công sử dụng ERP Bravo 8. Nhân viên làm việc trong mạng công ty tại kho/văn phòng/showroom/trụ sở khác với nhân viên ở nhà hoặc mạng công cộng. HCNS IT cài Bravo Desktop cho nhân viên mới có vai trò sử dụng; HCNS IT cần cài VPN cho máy sử dụng từ ngoài công ty.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 277
+        },
+        {
+          "segment_id": "scope",
+          "start": 0,
+          "end": 732
+        }
+      ]
+    },
+    {
+      "content": "Bravo 8 — kiểm tra VPN đã cài: mở icon mạng ở desktop > VPN và tìm RitaVO; hoặc Start/Search > gõ VPN Settings > Network & internet > VPN, kiểm tra kết nối RitaVO sẵn sàng. Việc cài VPN thuộc HCNS IT. Chỉ kết nối VPN khi dùng mạng ngoài công ty, như ở nhà hoặc nơi công cộng.",
+      "source_refs": [
+        {
+          "segment_id": "vpn-open",
+          "start": 0,
+          "end": 315
+        },
+        {
+          "segment_id": "vpn-connect",
+          "start": 0,
+          "end": 332
+        },
+        {
+          "segment_id": "scope",
+          "start": 0,
+          "end": 732
+        }
+      ]
+    },
+    {
+      "content": "Bravo 8 — kết nối VPN ngoài công ty: mở VPN RitaVO đã được HCNS IT cài, nhấn Connect; Connected nghĩa là kết nối thành công, có thể xem lưu lượng đã dùng. Tài liệu chỉ cho phép kết nối VPN khi đang dùng mạng ngoài công ty. Nếu không sử dụng được Bravo theo hướng dẫn, liên hệ P. KSNB IT System để hỗ trợ.",
+      "source_refs": [
+        {
+          "segment_id": "vpn-connect",
+          "start": 0,
+          "end": 332
+        },
+        {
+          "segment_id": "vpn-open",
+          "start": 0,
+          "end": 315
+        },
+        {
+          "segment_id": "scope",
+          "start": 0,
+          "end": 732
+        }
+      ]
+    },
+    {
+      "content": "Bravo 8 — cài/cập nhật phần mềm: dùng phiên bản mới nhất theo email P. KSNB IT System. Tài liệu cung cấp link ổ mạng Public hoặc thư mục Office 365 SharePoint để tải và giải nén; cũng có thể nhờ KSNB IT System hoặc HCNS IT cài đặt. Sau giải nén chạy Bravo8.exe với phân quyền do KSNB IT System cấp. Hướng dẫn không cấp thêm quyền truy cập chỉ bằng việc cài phần mềm.",
+      "source_refs": [
+        {
+          "segment_id": "install",
+          "start": 0,
+          "end": 580
+        },
+        {
+          "segment_id": "run",
+          "start": 0,
+          "end": 291
+        }
+      ]
+    },
+    {
+      "content": "Bravo 8 — hỗ trợ cài đặt/kết nối: ITSYS là nhóm IT System thuộc KSNB, email ksnb_it.system@ritavo.com; IT thuộc HCNS, email it@ritavo.com. Tài liệu 1.0 ngày 11.11.2023 nêu liên hệ một trong hai để cài phiên bản Bravo mới nhất; lỗi sử dụng theo sơ đồ liên hệ KSNB IT System. VPN nghĩa là mạng riêng ảo.",
+      "source_refs": [
+        {
+          "segment_id": "terms",
+          "start": 0,
+          "end": 322
+        },
+        {
+          "segment_id": "install",
+          "start": 0,
+          "end": 580
+        },
+        {
+          "segment_id": "scope",
+          "start": 0,
+          "end": 732
+        }
+      ]
+    },
+    {
+      "content": "Bravo 8 — trường hợp cảnh báo Windows khi chạy file cài từ ổ chia sẻ: trang 9 của hướng dẫn 1.0 mô tả More Info > Run Anyway với Bravo8.exe lấy từ nguồn cài đặt được tài liệu chỉ định. Nội dung này giới hạn ở tình huống trong nguồn, không áp dụng cho file không rõ nguồn gốc.",
+      "source_refs": [
+        {
+          "segment_id": "run",
+          "start": 0,
+          "end": 291
+        },
+        {
+          "segment_id": "install",
+          "start": 0,
+          "end": 580
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged.",
+    "blank": "Physical page 10 contains only the repeated header/footer; no procedural content.",
+    "links": "Display text identifies two embedded links but no URL is transcribed into searchable content. Use the unchanged original PDF or the documented IT support channels to obtain the controlled installation source; do not invent download URLs."
+  }
+}

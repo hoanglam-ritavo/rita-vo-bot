@@ -1,0 +1,287 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit phần 3-2, HDSD-12/4/25-V1: hướng dẫn Công việc, Dự án, Đề xuất cung ứng, Đề nghị mua sắm, Đơn hàng mua hàng, Đề nghị thanh toán và Đề nghị tạm ứng. Các chức năng mua hàng truy cập Apps > Mua hàng; thanh toán/tạm ứng tại Quy trình số; công việc và dự án có menu riêng.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 124
+        },
+        {
+          "segment_id": "task-create",
+          "start": 0,
+          "end": 434
+        },
+        {
+          "segment_id": "project-create",
+          "start": 0,
+          "end": 364
+        },
+        {
+          "segment_id": "supply-create",
+          "start": 0,
+          "end": 325
+        },
+        {
+          "segment_id": "purchase-create",
+          "start": 0,
+          "end": 673
+        },
+        {
+          "segment_id": "po-create",
+          "start": 0,
+          "end": 554
+        },
+        {
+          "segment_id": "payment-create",
+          "start": 0,
+          "end": 617
+        },
+        {
+          "segment_id": "advance-start",
+          "start": 0,
+          "end": 227
+        }
+      ]
+    },
+    {
+      "content": "Workit — tạo công việc: vào menu Công việc > Tạo công việc/F2, nhập thông tin (dấu * đỏ bắt buộc), chọn người tham gia và Lưu. Người giao việc là người tạo phiếu; người chủ trì là người thực hiện. Form có tiêu đề, mô tả, kết quả, thời gian từ/đến, nhắc việc, định kỳ, Chủ trì/Phối hợp/Để biết và đính kèm. Xem công việc dạng Lịch hoặc Lưới; lọc tình trạng, vai trò tham gia và ưu tiên.",
+      "source_refs": [
+        {
+          "segment_id": "task-create",
+          "start": 0,
+          "end": 434
+        },
+        {
+          "segment_id": "task-view",
+          "start": 0,
+          "end": 152
+        }
+      ]
+    },
+    {
+      "content": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+      "source_refs": [
+        {
+          "segment_id": "task-complete",
+          "start": 0,
+          "end": 266
+        }
+      ]
+    },
+    {
+      "content": "Workit — chuyển người chủ trì hoặc thêm người tham gia: mở công việc, tại ô Chủ trì chọn người cần chuyển hoặc thêm người tham gia, rồi Lưu. Để tạo công việc con: mở công việc cha > Tạo việc con > nhập thông tin công việc con > Lưu/F8.",
+      "source_refs": [
+        {
+          "segment_id": "task-owner",
+          "start": 0,
+          "end": 210
+        },
+        {
+          "segment_id": "task-child",
+          "start": 0,
+          "end": 164
+        }
+      ]
+    },
+    {
+      "content": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+      "source_refs": [
+        {
+          "segment_id": "task-extension",
+          "start": 0,
+          "end": 243
+        },
+        {
+          "segment_id": "task-extension-approve",
+          "start": 0,
+          "end": 270
+        }
+      ]
+    },
+    {
+      "content": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+      "source_refs": [
+        {
+          "segment_id": "task-extension-approve",
+          "start": 0,
+          "end": 270
+        }
+      ]
+    },
+    {
+      "content": "Workit — tạo dự án: menu Dự án > Thêm/sửa (Dự án/hạng mục) > Thêm > nhập thông tin dự án và thành viên > Lưu/F8. Thêm hạng mục: cùng màn hình, chọn dòng dự án > dấu + > nhập thông tin hạng mục > Lưu/F8. Thêm công việc dự án: chọn dự án và hạng mục phát sinh công việc > + > nhập công việc > Lưu/F8.",
+      "source_refs": [
+        {
+          "segment_id": "project-create",
+          "start": 0,
+          "end": 364
+        },
+        {
+          "segment_id": "project-item",
+          "start": 0,
+          "end": 184
+        },
+        {
+          "segment_id": "project-task",
+          "start": 0,
+          "end": 173
+        }
+      ]
+    },
+    {
+      "content": "Workit — cập nhật hồ sơ dự án: chọn dự án > Hồ sơ dự án > Thêm tài liệu > nhập thông tin tài liệu, tệp và quyền truy cập > Lưu/F8. Trang 12 có điểm chưa khớp: lời hướng dẫn ghi Báo cáo, ảnh chỉ Danh mục > Hồ sơ dự án; cần đối chiếu menu đang dùng. Ảnh có quyền Xem/Tải/Chia sẻ, không mặc định mọi người đều xem được.",
+      "source_refs": [
+        {
+          "segment_id": "project-file",
+          "start": 0,
+          "end": 289
+        }
+      ]
+    },
+    {
+      "content": "Workit — sửa/xóa dự án hoặc hạng mục: vào Dự án > Thêm/sửa (Dự án/hạng mục), dùng icon sửa hoặc thùng rác tại dòng tương ứng. Điều kiện xóa dự án: phải hết hạng mục liên quan.",
+      "source_refs": [
+        {
+          "segment_id": "project-edit",
+          "start": 0,
+          "end": 158
+        }
+      ]
+    },
+    {
+      "content": "Workit — lập đề xuất cung ứng: Apps > Mua hàng > Đề xuất cung ứng > Thêm > chọn loại chứng từ theo đơn vị > Thêm. Chọn loại đề xuất theo nhu cầu, nhập thông tin phiếu và hàng hóa/dịch vụ, đính kèm file/hình ảnh/email nếu có rồi Lưu.",
+      "source_refs": [
+        {
+          "segment_id": "supply-create",
+          "start": 0,
+          "end": 325
+        }
+      ]
+    },
+    {
+      "content": "Workit — phê duyệt đề xuất cung ứng: Chờ bạn duyệt > chọn dòng đề nghị > Duyệt > nhập ý kiến > Duyệt. Xem các bước và trạng thái bằng icon quy trình ở dòng phiếu. Sửa phiếu: icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa hoặc xóa đề xuất chưa qua bước phê duyệt nào.",
+      "source_refs": [
+        {
+          "segment_id": "supply-approve",
+          "start": 0,
+          "end": 272
+        },
+        {
+          "segment_id": "supply-edit",
+          "start": 0,
+          "end": 292
+        }
+      ]
+    },
+    {
+      "content": "Workit — lập đề nghị mua sắm: Apps > Mua hàng > Đề nghị mua sắm > Thêm > chọn loại chứng từ có/không tạo PO theo đơn vị > Thêm. Chọn đề xuất cung ứng đã được duyệt, tích chọn và xác nhận; hệ thống lấy các dòng hàng đã duyệt. Chọn loại đề nghị mua hàng, nhập thông tin phòng mua hàng, đính kèm file so sánh giá, chọn số lượng mua toàn bộ hoặc một phần phiếu cung ứng rồi Lưu.",
+      "source_refs": [
+        {
+          "segment_id": "purchase-create",
+          "start": 0,
+          "end": 673
+        }
+      ]
+    },
+    {
+      "content": "Workit — duyệt đề nghị mua sắm: Chờ bạn duyệt > chọn dòng > Duyệt > chọn người đề xuất để xác nhận thông số mua hàng, nhập ý kiến nếu có > Duyệt. Icon quy trình cho xem tiến độ. Sửa bằng icon sửa rồi Lưu, xóa bằng thùng rác; chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+      "source_refs": [
+        {
+          "segment_id": "purchase-approve",
+          "start": 0,
+          "end": 270
+        },
+        {
+          "segment_id": "purchase-edit",
+          "start": 0,
+          "end": 277
+        }
+      ]
+    },
+    {
+      "content": "Workit — lập đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Trang 27 bước 7 có câu sao chép nhắc đề xuất cung ứng/đề nghị mua sắm; ảnh đang là form Đơn hàng mua hàng. Không dùng câu này để bỏ qua điều kiện đề nghị mua sắm có PO đã duyệt.",
+      "source_refs": [
+        {
+          "segment_id": "po-create",
+          "start": 0,
+          "end": 554
+        }
+      ]
+    },
+    {
+      "content": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+      "source_refs": [
+        {
+          "segment_id": "payment-create",
+          "start": 0,
+          "end": 617
+        }
+      ]
+    },
+    {
+      "content": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+      "source_refs": [
+        {
+          "segment_id": "payment-workflow",
+          "start": 0,
+          "end": 231
+        },
+        {
+          "segment_id": "payment-edit",
+          "start": 0,
+          "end": 259
+        }
+      ]
+    },
+    {
+      "content": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+      "source_refs": [
+        {
+          "segment_id": "advance-start",
+          "start": 0,
+          "end": 227
+        },
+        {
+          "segment_id": "advance-supplier",
+          "start": 0,
+          "end": 411
+        }
+      ]
+    },
+    {
+      "content": "Workit — tạm ứng nội bộ Rita Võ: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại tạm ứng nội bộ > Thêm. Nhập thông tin thanh toán; dùng +/F4 thêm dòng chi tiết, thùng rác xóa dòng, icon bản sao sao chép dòng, rồi Lưu. Đây là hướng dẫn lập phiếu, không xác lập hạn mức tiền được ứng.",
+      "source_refs": [
+        {
+          "segment_id": "advance-start",
+          "start": 0,
+          "end": 227
+        },
+        {
+          "segment_id": "advance-internal",
+          "start": 0,
+          "end": 263
+        }
+      ]
+    },
+    {
+      "content": "Workit — sửa/xóa đề nghị tạm ứng: chọn phiếu, nhấn icon sửa, cập nhật thông tin và Lưu; muốn xóa chọn phiếu rồi nhấn thùng rác. Chỉ sửa hoặc xóa phiếu chưa qua bước phê duyệt nào.",
+      "source_refs": [
+        {
+          "segment_id": "advance-edit",
+          "start": 0,
+          "end": 256
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged.",
+    "project-menu": "Prose says Bao cao; screenshot says Danh muc > Ho so du an. Both preserved with explicit uncertainty; no single current menu asserted.",
+    "po-copy": "PO step 7 repeats supply-to-purchase wording. Preserve literal text but chunk uses explicit steps 1-6 and 8 and states the mismatch; do not infer an alternative PO source.",
+    "advance-images": "Advance slides include payment-screen examples. Chunk follows explicit advance headings/steps, not screenshot instance titles or amounts."
+  }
+}

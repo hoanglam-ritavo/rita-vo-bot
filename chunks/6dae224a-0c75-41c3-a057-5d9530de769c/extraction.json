@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 13 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RTV/O365/E-Booking — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐẶT PHÒNG HỌP ONLINE (E-BOOKING). VERSION 1.0; 30.09.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV-O365. Tài liệu nội bộ. KSNB: Phòng kiểm soát nội bộ; ITSYS thuộc KSNB; IT thuộc HCNS; O365 Microsoft Office 365; Outlook ứng dụng mail Microsoft. Nội dung: giới thiệu, thêm danh sách phòng vào Calendar, người đặt phòng, HC Admin và tình huống.",
+      "text": "RTV/O365/E-Booking — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐẶT PHÒNG HỌP ONLINE (E-BOOKING). VERSION 1.0; 30.09.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV-O365. Tài liệu nội bộ. KSNB: Phòng kiểm soát nội bộ; ITSYS thuộc KSNB; IT thuộc HCNS; O365 Microsoft Office 365; Outlook ứng dụng mail Microsoft. Nội dung: giới thiệu, thêm danh sách phòng vào Calendar, người đặt phòng, HC Admin và tình huống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "calendar",
+      "raw": "I. Giới thiệu: Microsoft Office có chức năng đặt phòng họp trên Outlook, quản lý, tạo và theo dõi lịch họp trên máy tính hoặc điện thoại. II. Thêm danh sách phòng họp vào Calendar trên Outlook: Bước 1 click icon Calendar bên góc trái dưới cùng; Bước 2 Open Calendar > From Room List…; chọn phòng họp theo khu vực/văn phòng làm việc và OK.",
+      "text": "I. Giới thiệu: Microsoft Office có chức năng đặt phòng họp trên Outlook, quản lý, tạo và theo dõi lịch họp trên máy tính hoặc điện thoại. II. Thêm danh sách phòng họp vào Calendar trên Outlook: Bước 1 click icon Calendar bên góc trái dưới cùng; Bước 2 Open Calendar > From Room List…; chọn phòng họp theo khu vực/văn phòng làm việc và OK.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "meeting",
+      "raw": "III.1 Tạo meeting: Outlook > Home > New Items > Meeting. III.2 Điền thông tin cuộc họp và sử dụng Scheduling Assistant: điền Title; danh sách người tham gia; thời gian bắt đầu/kết thúc; chọn Scheduling Assistant để tìm phòng họp.",
+      "text": "III.1 Tạo meeting: Outlook > Home > New Items > Meeting. III.2 Điền thông tin cuộc họp và sử dụng Scheduling Assistant: điền Title; danh sách người tham gia; thời gian bắt đầu/kết thúc; chọn Scheduling Assistant để tìm phòng họp.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "room",
+      "raw": "III.3 Chọn phòng họp với Scheduling Assistant: Add Rooms; chọn phòng theo Vị trí/Location, Số người đáp ứng/Capacity; OK để xác nhận chọn phòng.",
+      "text": "III.3 Chọn phòng họp với Scheduling Assistant: Add Rooms; chọn phòng theo Vị trí/Location, Số người đáp ứng/Capacity; OK để xác nhận chọn phòng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "equipment",
+      "raw": "III.4 Tùy chọn thiết bị/đặt nước cho khách tham dự họp: Add Room > All equipments từ Address Book; chọn thiết bị hoặc yêu cầu đặt nước uống Water Conference theo khu vực; OK sau khi chọn. Đối với đặt nước, liên hệ trực tiếp bộ phận lễ tân để đặt số lượng nước cần dùng.",
+      "text": "III.4 Tùy chọn thiết bị/đặt nước cho khách tham dự họp: Add Room > All equipments từ Address Book; chọn thiết bị hoặc yêu cầu đặt nước uống Water Conference theo khu vực; OK sau khi chọn. Đối với đặt nước, liên hệ trực tiếp bộ phận lễ tân để đặt số lượng nước cần dùng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "availability",
+      "raw": "III.5 Kiểm tra lịch họp thành viên với Scheduling Assistant: kiểm tra nhanh thời gian trống của thành viên RTV; chọn Send gửi thông tin họp đến các thành viên.",
+      "text": "III.5 Kiểm tra lịch họp thành viên với Scheduling Assistant: kiểm tra nhanh thời gian trống của thành viên RTV; chọn Send gửi thông tin họp đến các thành viên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "admin",
+      "raw": "IV. Đối với HC Admin: có thể theo dõi và chủ động thay đổi lịch họp từ Outlook. Từ Calendar, HC Admin có thể xóa lịch và thông báo đến người đặt phòng đổi sang phòng khác: Bước 1 Calendar; Bước 2 kiểm tra thông tin đặt phòng; Bước 3 chuột phải lịch họp > Delete; Bước 4 Yes để soạn email thông báo người tổ chức; Bước 5 mặc định Edit the response before sending; Bước 6 soạn nội dung và gửi lại người tổ chức.",
+      "text": "IV. Đối với HC Admin: có thể theo dõi và chủ động thay đổi lịch họp từ Outlook. Từ Calendar, HC Admin có thể xóa lịch và thông báo đến người đặt phòng đổi sang phòng khác: Bước 1 Calendar; Bước 2 kiểm tra thông tin đặt phòng; Bước 3 chuột phải lịch họp > Delete; Bước 4 Yes để soạn email thông báo người tổ chức; Bước 5 mặc định Edit the response before sending; Bước 6 soạn nội dung và gửi lại người tổ chức.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq",
+      "raw": "V. Các tình huống và hướng dẫn xử trí. Không thể xóa lịch đặt phòng trên Calendar: chỉ xóa lịch trên Calendar của bạn và do bạn tạo; không thể xóa lịch cá nhân khác trên Calendar các phòng họp. Lịch họp bị xóa: liên hệ HC Admin kiểm tra. Đặt 10 chai nước: chọn Equipment là Water và báo HC Admin số lượng cụ thể trước. Ai có thể xóa lịch họp: HC Admin và IT có quyền, sẽ thông báo nhân viên tạo lịch mới. Outlook khác hướng dẫn: liên hệ IT kiểm tra và update đúng phiên bản đang ban hành.",
+      "text": "V. Các tình huống và hướng dẫn xử trí. Không thể xóa lịch đặt phòng trên Calendar: chỉ xóa lịch trên Calendar của bạn và do bạn tạo; không thể xóa lịch cá nhân khác trên Calendar các phòng họp. Lịch họp bị xóa: liên hệ HC Admin kiểm tra. Đặt 10 chai nước: chọn Equipment là Water và báo HC Admin số lượng cụ thể trước. Ai có thể xóa lịch họp: HC Admin và IT có quyền, sẽ thông báo nhân viên tạo lịch mới. Outlook khác hướng dẫn: liên hệ IT kiểm tra và update đúng phiên bản đang ban hành.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 13
+      }
+    }
+  ]
+}

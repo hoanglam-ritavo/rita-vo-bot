@@ -1,0 +1,165 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of all 12 rendered PDF pages; procedural text and UI actions retained; example personal rows, screenshots of unrelated news and decorative elements omitted"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\n[MOBILE APP] HDSD DUYỆT PHIẾU THEO QUY TRÌNH V1",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\n[MOBILE APP] HDSD DUYỆT PHIẾU THEO QUY TRÌNH V1",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "android",
+      "raw": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI ANDROID\nTải về: https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi\nHDSD-29/3/25-V1; IT-HCNS",
+      "text": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI ANDROID\nTải về: https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi\nHDSD-29/3/25-V1; IT-HCNS",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "ios",
+      "raw": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI IOS\nTải về: https://apps.apple.com/vn/app/workit/id1506323124?l=vi",
+      "text": "SỬ DỤNG: TẢI APP - ĐIỆN THOẠI IOS\nTải về: https://apps.apple.com/vn/app/workit/id1506323124?l=vi",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "login",
+      "raw": "SỬ DỤNG: HƯỚNG DẪN ĐĂNG NHẬP TRÊN ĐIỆN THOẠI\nĐịa chỉ: https://office.ritavo.com\nĐổi địa chỉ lần đầu đăng nhập. Nhập tên miền: https://office.ritavo.com; Change.\nMã đăng nhập / Username; Mật khẩu / Password; Đăng nhập / Login.",
+      "text": "SỬ DỤNG: HƯỚNG DẪN ĐĂNG NHẬP TRÊN ĐIỆN THOẠI\nĐịa chỉ: https://office.ritavo.com\nĐổi địa chỉ lần đầu đăng nhập. Nhập tên miền: https://office.ritavo.com; Change.\nMã đăng nhập / Username; Mật khẩu / Password; Đăng nhập / Login.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "password",
+      "raw": "GIỚI THIỆU GIAO DIỆN MÀN HÌNH CHÍNH\nSau khi đăng nhập vào phần mềm, trang màn hình chính sẽ xuất hiện như hình bên dưới. Tiến hành đổi mật khẩu ở lần đăng nhập đầu tiên.\nẢnh hướng dẫn: nút cài đặt > Setting > Đổi mật khẩu/Change Password.",
+      "text": "GIỚI THIỆU GIAO DIỆN MÀN HÌNH CHÍNH\nSau khi đăng nhập vào phần mềm, trang màn hình chính sẽ xuất hiện như hình bên dưới. Tiến hành đổi mật khẩu ở lần đăng nhập đầu tiên.\nẢnh hướng dẫn: nút cài đặt > Setting > Đổi mật khẩu/Change Password.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "features",
+      "raw": "Các chức năng có trên giao diện app: Công việc, dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, chấm công, tiền lương.\nTrong văn phòng số: Lịch cơ quan, văn bản đi, văn bản đến, tài liệu, danh bạ CBNV (trên giao diện app không có giấy ủy quyền).\nTrong quy trình số: Ticket, văn phòng phẩm, ĐNTT, ĐNTƯ, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Book xe, Book phòng họp, Đề nghị tuyển dụng, đề nghị khen thưởng, Quên chấm công, Đăng kí suất ăn.\nTrong mua hàng: Đề nghị mua sắm và Đơn hàng mua hàng (trên giao diện app không có đề xuất cung ứng).\nTrong nhân sự: Xem thông tin nhân sự của phòng ban mình (chỉ dành cho cấp quản lý) và phiếu xét nghỉ việc.\nNgoài ra còn phần công việc, dự án, chấm công và lương.",
+      "text": "Các chức năng có trên giao diện app: Công việc, dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, chấm công, tiền lương.\nTrong văn phòng số: Lịch cơ quan, văn bản đi, văn bản đến, tài liệu, danh bạ CBNV (trên giao diện app không có giấy ủy quyền).\nTrong quy trình số: Ticket, văn phòng phẩm, ĐNTT, ĐNTƯ, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Book xe, Book phòng họp, Đề nghị tuyển dụng, đề nghị khen thưởng, Quên chấm công, Đăng kí suất ăn.\nTrong mua hàng: Đề nghị mua sắm và Đơn hàng mua hàng (trên giao diện app không có đề xuất cung ứng).\nTrong nhân sự: Xem thông tin nhân sự của phòng ban mình (chỉ dành cho cấp quản lý) và phiếu xét nghỉ việc.\nNgoài ra còn phần công việc, dự án, chấm công và lương.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "pending",
+      "raw": "PHÊ DUYỆT\nNgười dùng nhìn vào các chức năng, chức năng nào có hiển thị số màu đỏ, tức là anh/chị đang có số lượng phiếu cần phê duyệt tương ứng với số trên hình.\nClick vào ô chức năng để vào chi tiết phiếu.",
+      "text": "PHÊ DUYỆT\nNgười dùng nhìn vào các chức năng, chức năng nào có hiển thị số màu đỏ, tức là anh/chị đang có số lượng phiếu cần phê duyệt tương ứng với số trên hình.\nClick vào ô chức năng để vào chi tiết phiếu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "pending-example",
+      "raw": "Khi người dùng click vào “Quy trình số” SL: 13 trên Menu chức năng sẽ đưa đến giao diện như hình.\nTương ứng với 13 phiếu lần lượt là: 4 Văn phòng phẩm, 2 đề nghị thanh toán và 7 phiếu đi công tác.",
+      "text": "Khi người dùng click vào “Quy trình số” SL: 13 trên Menu chức năng sẽ đưa đến giao diện như hình.\nTương ứng với 13 phiếu lần lượt là: 4 Văn phòng phẩm, 2 đề nghị thanh toán và 7 phiếu đi công tác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "counts-icons",
+      "raw": "KIỂM TRA VÀ DUYỆT PHIẾU\nNhấn vào Đề nghị thanh toán – Số lượng: 2.\nLưu ý: Số hiển thị bên ngoài đầu phiếu là hiển thị số phiếu chờ duyệt, vì vậy bên ngoài Đề nghị thanh toán hiển thị số 2 mà mở vào bên trong lại tới 5 phiếu (2 phiếu chờ duyệt, 3 phiếu đang xử lý, chờ bộ phận khác duyệt).\nChức năng lần lượt từ trái qua phải: Bình luận, tin nhắn; Tệp đính kèm; Quy trình phê duyệt.\nMàu đen: Không có file hay tin nhắn. Màu xanh: Đã hoàn thành. Màu đỏ: Chưa hoàn thành.",
+      "text": "KIỂM TRA VÀ DUYỆT PHIẾU\nNhấn vào Đề nghị thanh toán – Số lượng: 2.\nLưu ý: Số hiển thị bên ngoài đầu phiếu là hiển thị số phiếu chờ duyệt, vì vậy bên ngoài Đề nghị thanh toán hiển thị số 2 mà mở vào bên trong lại tới 5 phiếu (2 phiếu chờ duyệt, 3 phiếu đang xử lý, chờ bộ phận khác duyệt).\nChức năng lần lượt từ trái qua phải: Bình luận, tin nhắn; Tệp đính kèm; Quy trình phê duyệt.\nMàu đen: Không có file hay tin nhắn. Màu xanh: Đã hoàn thành. Màu đỏ: Chưa hoàn thành.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "view",
+      "raw": "Khi nhấn nút xem phiếu: menu ba chấm > Xem/Sửa > chi tiết phiếu Đề nghị thanh toán.\nMenu còn có: Duyệt; Trả lại; Từ chối; Xem chi tiết; Xóa; Cancel.",
+      "text": "Khi nhấn nút xem phiếu: menu ba chấm > Xem/Sửa > chi tiết phiếu Đề nghị thanh toán.\nMenu còn có: Duyệt; Trả lại; Từ chối; Xem chi tiết; Xóa; Cancel.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approve",
+      "raw": "KIỂM TRA VÀ DUYỆT PHIẾU\nKhi nhấn nút duyệt phiếu: Sau khi duyệt thành công, quy trình chạy tiếp cho bộ phận khác thực hiện, phiếu chuyển từ nhóm Chờ duyệt sang nhóm Đang xử lý (chờ các bộ phận khác duyệt).\nẢnh hướng dẫn: chọn Duyệt; nhập ý kiến nếu có; click file để xem file đính kèm; bấm dấu tích xác nhận ở góc trên.",
+      "text": "KIỂM TRA VÀ DUYỆT PHIẾU\nKhi nhấn nút duyệt phiếu: Sau khi duyệt thành công, quy trình chạy tiếp cho bộ phận khác thực hiện, phiếu chuyển từ nhóm Chờ duyệt sang nhóm Đang xử lý (chờ các bộ phận khác duyệt).\nẢnh hướng dẫn: chọn Duyệt; nhập ý kiến nếu có; click file để xem file đính kèm; bấm dấu tích xác nhận ở góc trên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "history",
+      "raw": "Xem lại quy trình phê duyệt: nhấn biểu tượng quy trình trên phiếu. Màn hình Quy trình phê duyệt hiển thị tên bước, trạng thái, người thực hiện, ngày, ý kiến; có tab Quy trình và Lịch sử.",
+      "text": "Xem lại quy trình phê duyệt: nhấn biểu tượng quy trình trên phiếu. Màn hình Quy trình phê duyệt hiển thị tên bước, trạng thái, người thực hiện, ngày, ý kiến; có tab Quy trình và Lịch sử.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 12
+      }
+    }
+  ]
+}

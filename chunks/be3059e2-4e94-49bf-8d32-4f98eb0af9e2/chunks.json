@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "E-Workdate 1.0, cập nhật 18.11.2023 — đơn xác nhận đi trễ/về sớm online trên Office 365 của Rita Võ. Người dùng gửi MS Form/QR, hệ thống lưu SharePoint và gửi email cho cấp trên duyệt, cập nhật trạng thái; HR xuất Excel. Đây là thủ tục xác nhận đi trễ/về sớm, không phải đơn nghỉ phép năm.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 577
+        },
+        {
+          "segment_id": "flow",
+          "start": 0,
+          "end": 386
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — gửi đơn đi trễ/về sớm bằng máy tính hoặc điện thoại: truy cập https://forms.office.com/r/pmRgRY4gHw hoặc QR trong tài liệu. Điền công ty, khu vực Bắc/Nam, mã nhân viên HCNS cấp, họ tên đầy đủ, email công ty HCNS IT cấp, số điện thoại, từ ngày/đến ngày, loại đi trễ hoặc về sớm và lý do. Chức vụ không bắt buộc. Nhập chính xác email quản lý có thẩm quyền; nhiều email CC ngăn cách bằng dấu chấm phẩy (;); tick Ủy quyền Có nếu ủy quyền cho người khác.",
+      "source_refs": [
+        {
+          "segment_id": "submit",
+          "start": 0,
+          "end": 744
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — tài khoản email: hướng dẫn yêu cầu email do HCNS IT cấp, không dùng email cá nhân. Người chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhập hộ; hệ thống vẫn cần email công ty gửi trạng thái. Email quản lý cần đúng người có thẩm quyền, không lấy tên người trong ảnh làm người duyệt mặc định.",
+      "source_refs": [
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 668
+        },
+        {
+          "segment_id": "submit",
+          "start": 0,
+          "end": 744
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — người có quyền duyệt có ba cách: Outlook; MS Teams dùng O365; Power Automate điện thoại dùng O365. Lần đầu làm theo chỉ dẫn Power Automate trên trình duyệt để xác thực email Rita Võ. Nguồn nói người duyệt không có O365 có thể dùng Power Automate trên trình duyệt; nếu chưa rõ tài khoản liên hệ HCNS IT.",
+      "source_refs": [
+        {
+          "segment_id": "approver",
+          "start": 0,
+          "end": 455
+        },
+        {
+          "segment_id": "outlook",
+          "start": 0,
+          "end": 233
+        },
+        {
+          "segment_id": "teams",
+          "start": 0,
+          "end": 164
+        },
+        {
+          "segment_id": "mobile",
+          "start": 0,
+          "end": 477
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — duyệt từ Outlook trên máy tính/điện thoại/tablet: mở email hệ thống gửi đến email quản lý người lập đã khai, chọn Duyệt hoặc Từ chối, ghi lý do từ chối trong Comments để theo dõi. MS Teams dùng O365 hiển thị popup đơn; cũng chọn Duyệt/Từ chối và ghi Comment nếu có.",
+      "source_refs": [
+        {
+          "segment_id": "outlook",
+          "start": 0,
+          "end": 233
+        },
+        {
+          "segment_id": "teams",
+          "start": 0,
+          "end": 164
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — duyệt bằng điện thoại: tải Power Automate của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365, vào Approvals > chọn đơn xác nhận đi trễ/về sớm > đọc chi tiết và Duyệt/Từ chối; có ô comments. Danh sách có thể chứa nhiều loại E-Office, cần chọn đúng đơn.",
+      "source_refs": [
+        {
+          "segment_id": "mobile",
+          "start": 0,
+          "end": 477
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+      "source_refs": [
+        {
+          "segment_id": "reminder",
+          "start": 0,
+          "end": 211
+        },
+        {
+          "segment_id": "result",
+          "start": 0,
+          "end": 313
+        }
+      ]
+    },
+    {
+      "content": "E-Workdate — không nhận email phản hồi: theo FAQ, chờ 10–20 phút do email/mạng có thể chậm; sau 24 giờ vẫn không có phản hồi, liên hệ KSNB IT System tại ksnb_it.system@ritavo.com. FAQ nêu email trạng thái duyệt/từ chối từ itsystems@ritavo.com. Cần khai đúng email công ty và email quản lý khi lập đơn.",
+      "source_refs": [
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 668
+        },
+        {
+          "segment_id": "submit",
+          "start": 0,
+          "end": 744
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged.",
+    "approval-example": "Reminder screenshot contains a specific approval URL and tenant/request identifiers. Do not transcribe or reuse those instance values; open the recipients own approval notification.",
+    "qr-wording": "FAQ describes receiving a decision email when scanning QR. Chunk does not claim scanning alone submits or approves a request: form entry and supervisor decision remain required."
+  }
+}

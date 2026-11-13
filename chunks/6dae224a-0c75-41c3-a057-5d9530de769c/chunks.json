@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "E-Booking 1.0 ngày 30.09.2023 — đặt và theo dõi phòng họp bằng Outlook. Thêm lịch phòng: mở Calendar > Open Calendar > From Room List… > chọn phòng theo khu vực/văn phòng > OK. Danh sách cho theo dõi tình trạng phòng; không xác lập phòng nào còn trống hiện tại.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 394
+        },
+        {
+          "segment_id": "calendar",
+          "start": 0,
+          "end": 338
+        }
+      ]
+    },
+    {
+      "content": "E-Booking — đặt cuộc họp trên Outlook: Home > New Items > Meeting; nhập Title, danh sách người tham gia, giờ bắt đầu/kết thúc. Mở Scheduling Assistant > Add Rooms, chọn phòng theo Location và Capacity > OK. Kiểm tra thời gian trống của các thành viên trong Scheduling Assistant rồi Send gửi lời mời.",
+      "source_refs": [
+        {
+          "segment_id": "meeting",
+          "start": 0,
+          "end": 229
+        },
+        {
+          "segment_id": "room",
+          "start": 0,
+          "end": 144
+        },
+        {
+          "segment_id": "availability",
+          "start": 0,
+          "end": 159
+        }
+      ]
+    },
+    {
+      "content": "E-Booking — đăng ký thiết bị/nước họp: Add Room > Address Book > All equipments; chọn thiết bị hoặc Water Conference theo khu vực > OK. Đặt nước còn phải liên hệ lễ tân/HC Admin báo số lượng cụ thể trước; chọn Water trên Outlook chưa thay thế bước báo số lượng.",
+      "source_refs": [
+        {
+          "segment_id": "equipment",
+          "start": 0,
+          "end": 269
+        },
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 488
+        }
+      ]
+    },
+    {
+      "content": "E-Booking — HC Admin thay đổi/xóa đặt phòng: Calendar > kiểm tra lịch đặt > chuột phải lịch > Delete > Yes > Edit the response before sending > soạn và gửi email người tổ chức, thông báo đổi phòng/tạo lịch mới. Quyền quản lý này dành HC Admin; FAQ cũng nêu IT có quyền xóa và phải thông báo nhân viên.",
+      "source_refs": [
+        {
+          "segment_id": "admin",
+          "start": 0,
+          "end": 409
+        },
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 488
+        }
+      ]
+    },
+    {
+      "content": "E-Booking — không xóa được lịch phòng: người dùng chỉ xóa lịch trên Calendar của mình và do mình tạo, không xóa lịch người khác trên Calendar phòng họp. Nếu lịch của bạn bị xóa, liên hệ HC Admin kiểm tra; HC Admin/IT có quyền xóa và thông báo tạo lịch mới. Outlook khác ảnh hướng dẫn thì liên hệ IT kiểm tra/cập nhật phiên bản đang ban hành.",
+      "source_refs": [
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 488
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged."
+  }
+}

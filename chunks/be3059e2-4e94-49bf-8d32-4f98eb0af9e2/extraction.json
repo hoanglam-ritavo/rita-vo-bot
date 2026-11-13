@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 14 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RTV/O365/E-Workdate — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐƠN XÁC NHẬN ĐI TRỄ VỀ SỚM (E-WORKDATE). VERSION 1.0; 18.11.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV/O365/E-Office. Tài liệu nội bộ. KSNB: Phòng kiểm soát nội bộ; ITSYS: Nhóm IT System trực thuộc phòng KSNB; IT: Nhóm IT trực thuộc phòng HCNS; O365: Microsoft Office 365; SharePoint: ứng dụng SharePoint của Microsoft; MS Power Automate: ứng dụng Quản lý Workflow của Microsoft. Nội dung: giới thiệu, sơ đồ, nhân viên gửi đơn, người có quyền xác nhận, Outlook, MS team, Power Automate điện thoại, nhắc nhở và tình huống.",
+      "text": "RTV/O365/E-Workdate — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐƠN XÁC NHẬN ĐI TRỄ VỀ SỚM (E-WORKDATE). VERSION 1.0; 18.11.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV/O365/E-Office. Tài liệu nội bộ. KSNB: Phòng kiểm soát nội bộ; ITSYS: Nhóm IT System trực thuộc phòng KSNB; IT: Nhóm IT trực thuộc phòng HCNS; O365: Microsoft Office 365; SharePoint: ứng dụng SharePoint của Microsoft; MS Power Automate: ứng dụng Quản lý Workflow của Microsoft. Nội dung: giới thiệu, sơ đồ, nhân viên gửi đơn, người có quyền xác nhận, Outlook, MS team, Power Automate điện thoại, nhắc nhở và tình huống.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "flow",
+      "raw": "I. Giới thiệu: E-Workdate là đơn xác nhận đi trễ về sớm online của nhóm IT System thuộc KSNB, trên nền tảng Office 365 Microsoft cho nhân viên Tập Đoàn Rita Võ. II. Sơ đồ: Người dùng MS Form QR Code scan hoặc SharePoint Link (Chưa áp dụng cho nhân viên không có O365) > Power Automate > Sharepoint List > Email thông báo > Cấp trên duyệt > cập nhật trạng thái duyệt; HR Export to Excel.",
+      "text": "I. Giới thiệu: E-Workdate là đơn xác nhận đi trễ về sớm online của nhóm IT System thuộc KSNB, trên nền tảng Office 365 Microsoft cho nhân viên Tập Đoàn Rita Võ. II. Sơ đồ: Người dùng MS Form QR Code scan hoặc SharePoint Link (Chưa áp dụng cho nhân viên không có O365) > Power Automate > Sharepoint List > Email thông báo > Cấp trên duyệt > cập nhật trạng thái duyệt; HR Export to Excel.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "submit",
+      "raw": "III.1 Đối với nhân viên gửi đơn xác nhận đi trễ về sớm. Bước 1: Truy cập link từ máy tính hoặc điện thoại cá nhân: https://forms.office.com/r/pmRgRY4gHw. Bước 2: Điền tất cả thông tin để xác nhận online: 1 Công ty đang làm việc tại Rita Võ; 2 Khu vực Miền Bắc hoặc Miền Nam; 3 Mã nhân viên do P. HCNS cung cấp; 4 Tên nhân viên đầy đủ của người nhận; 5 Email do P. HCNS IT cung cấp để hệ thống gửi email; 6 Chức vụ công việc (không bắt buộc); 7 Số điện thoại người nộp đơn; 8 Từ ngày; 9 Đến ngày; 10 Loại đi trễ hoặc về sớm; 11 Lý do để người duyệt xem xét xác nhận; 12 Email quản lý có thẩm quyền duyệt đơn, nhập chính xác; 13 Email CC người cần nhận thông tin, ngăn cách dấu ; nếu nhiều email; 14 Ủy quyền, tick Có nếu ủy quyền cho người khác.",
+      "text": "III.1 Đối với nhân viên gửi đơn xác nhận đi trễ về sớm. Bước 1: Truy cập link từ máy tính hoặc điện thoại cá nhân: https://forms.office.com/r/pmRgRY4gHw. Bước 2: Điền tất cả thông tin để xác nhận online: 1 Công ty đang làm việc tại Rita Võ; 2 Khu vực Miền Bắc hoặc Miền Nam; 3 Mã nhân viên do P. HCNS cung cấp; 4 Tên nhân viên đầy đủ của người nhận; 5 Email do P. HCNS IT cung cấp để hệ thống gửi email; 6 Chức vụ công việc (không bắt buộc); 7 Số điện thoại người nộp đơn; 8 Từ ngày; 9 Đến ngày; 10 Loại đi trễ hoặc về sớm; 11 Lý do để người duyệt xem xét xác nhận; 12 Email quản lý có thẩm quyền duyệt đơn, nhập chính xác; 13 Email CC người cần nhận thông tin, ngăn cách dấu ; nếu nhiều email; 14 Ủy quyền, tick Có nếu ủy quyền cho người khác.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "result",
+      "raw": "Mô tả các loại email nhận được sau khi được duyệt: tiêu đề Đơn xác nhận đi trễ về sớm (... Đã duyệt), nội dung có lý do, loại, thời gian, người duyệt, nội dung duyệt. Nội dung email từ chối từ cấp trên: tiêu đề (... Bị từ chối), nội dung có người duyệt và nội dung từ chối. Đây là email tự động, IT System – KSNB.",
+      "text": "Mô tả các loại email nhận được sau khi được duyệt: tiêu đề Đơn xác nhận đi trễ về sớm (... Đã duyệt), nội dung có lý do, loại, thời gian, người duyệt, nội dung duyệt. Nội dung email từ chối từ cấp trên: tiêu đề (... Bị từ chối), nội dung có người duyệt và nội dung từ chối. Đây là email tự động, IT System – KSNB.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approver",
+      "raw": "III.2 Đối với Trưởng phòng – nhân viên có quyền xác nhận đơn đi trễ về sớm. Hệ thống cung cấp 3 phương thức duyệt/từ chối. Lần đầu sử dụng, Microsoft điều hướng đến trang Power Automate khi click Đã nhận/Từ chối nhận. Làm theo chỉ dẫn trên trình duyệt để Microsoft xác thực email Rita Võ trước khi sử dụng. Người duyệt không có tài khoản O365 có thể duyệt qua Microsoft Power Automate trên trình duyệt. Liên hệ HCNS IT kiểm tra tài khoản O365 nếu chưa rõ.",
+      "text": "III.2 Đối với Trưởng phòng – nhân viên có quyền xác nhận đơn đi trễ về sớm. Hệ thống cung cấp 3 phương thức duyệt/từ chối. Lần đầu sử dụng, Microsoft điều hướng đến trang Power Automate khi click Đã nhận/Từ chối nhận. Làm theo chỉ dẫn trên trình duyệt để Microsoft xác thực email Rita Võ trước khi sử dụng. Người duyệt không có tài khoản O365 có thể duyệt qua Microsoft Power Automate trên trình duyệt. Liên hệ HCNS IT kiểm tra tài khoản O365 nếu chưa rõ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "outlook",
+      "raw": "2.1 Duyệt từ Outlook (máy tính, điện thoại và tablet). Hệ thống gửi email đến nhân viên có quyền duyệt qua email nhập bởi nhân viên tạo đơn. Người nhận click Duyệt để xác nhận hoặc Từ chối. Ghi Comments cho lý do từ chối để theo dõi.",
+      "text": "2.1 Duyệt từ Outlook (máy tính, điện thoại và tablet). Hệ thống gửi email đến nhân viên có quyền duyệt qua email nhập bởi nhân viên tạo đơn. Người nhận click Duyệt để xác nhận hoặc Từ chối. Ghi Comments cho lý do từ chối để theo dõi.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "teams",
+      "raw": "2.2 Xác nhận từ MS team (Sử dụng tài khoản O365). MS Team popup thông tin ngay khi có E-Workdate gửi đến. Click Duyệt hoặc Từ chối; mục Comment để chú thích nếu có.",
+      "text": "2.2 Xác nhận từ MS team (Sử dụng tài khoản O365). MS Team popup thông tin ngay khi có E-Workdate gửi đến. Click Duyệt hoặc Từ chối; mục Comment để chú thích nếu có.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "mobile",
+      "raw": "2.3 Xác nhận thư từ Microsoft Power Automate (điện thoại). Google Play/Apple Store tải ứng dụng Power Automate của Microsoft (đối với nhân viên có O365). Đăng nhập tài khoản O365, theo dõi thông báo E-Office apps, cụ thể E-Workdate tại màn hình Approvals; chọn đơn để xem chi tiết, Duyệt/Từ chối và thêm comments. Ứng dụng Microsoft Automate được thiết kế cho nhiều mục đích tự động hóa quy trình qua Outlook hoặc Power Automate app đối với nhân viên sử dụng hệ sinh thái O365.",
+      "text": "2.3 Xác nhận thư từ Microsoft Power Automate (điện thoại). Google Play/Apple Store tải ứng dụng Power Automate của Microsoft (đối với nhân viên có O365). Đăng nhập tài khoản O365, theo dõi thông báo E-Office apps, cụ thể E-Workdate tại màn hình Approvals; chọn đơn để xem chi tiết, Duyệt/Từ chối và thêm comments. Ứng dụng Microsoft Automate được thiết kế cho nhiều mục đích tự động hóa quy trình qua Outlook hoặc Power Automate app đối với nhân viên sử dụng hệ sinh thái O365.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "reminder",
+      "raw": "3. Chức năng nhắc nhở dành cho người nhận: Hệ thống tự động nhắc người nhận đơn xác nhận đi trễ về sớm chưa có hành động xác nhận vào ngày hôm sau (24 tiếng) cho đến khi người nhận xác nhận (Duyệt hoặc Từ chối).",
+      "text": "3. Chức năng nhắc nhở dành cho người nhận: Hệ thống tự động nhắc người nhận đơn xác nhận đi trễ về sớm chưa có hành động xác nhận vào ngày hôm sau (24 tiếng) cho đến khi người nhận xác nhận (Duyệt hoặc Từ chối).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq",
+      "raw": "4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề. Tôi có thể sử dụng email cá nhân? Bạn phải dùng email do P. HCNS IT cung cấp để sử dụng các chức năng này. Tôi không có email do công ty cung cấp? Có thể nhờ cấp trên hoặc đồng nghiệp nhập hộ, hệ thống cần email công ty để gửi thông báo tình trạng duyệt/từ chối. Tôi không nhận được email thông báo đơn? Hệ thống gửi email và mạng internet có thể chậm, đợi 10–20 phút. Nếu sau 24h vẫn không nhận được email phản hồi, liên hệ KSNB IT System ksnb_it.system@ritavo.com. Tôi nhận được gì khi quét QR Code? Nhận được 1 email thông báo từ itsystems@ritavo.com về tình trạng Đã duyệt/Từ chối duyệt từ cấp trên.",
+      "text": "4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề. Tôi có thể sử dụng email cá nhân? Bạn phải dùng email do P. HCNS IT cung cấp để sử dụng các chức năng này. Tôi không có email do công ty cung cấp? Có thể nhờ cấp trên hoặc đồng nghiệp nhập hộ, hệ thống cần email công ty để gửi thông báo tình trạng duyệt/từ chối. Tôi không nhận được email thông báo đơn? Hệ thống gửi email và mạng internet có thể chậm, đợi 10–20 phút. Nếu sau 24h vẫn không nhận được email phản hồi, liên hệ KSNB IT System ksnb_it.system@ritavo.com. Tôi nhận được gì khi quét QR Code? Nhận được 1 email thông báo từ itsystems@ritavo.com về tình trạng Đã duyệt/Từ chối duyệt từ cấp trên.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 14
+      }
+    },
+    {
+      "warning_id": "approval-example",
+      "code": "instance_specific_link",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      }
+    },
+    {
+      "warning_id": "qr-wording",
+      "code": "source_shorthand",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      }
+    }
+  ]
+}

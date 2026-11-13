@@ -68,6 +68,11 @@ def test_public_search(empty_catalog_db, tmp_path, monkeypatch, change, expected
             fingerprint = publication.model_fingerprint(model)
             found = await search(query, 'a'*40, fingerprint, 5)
             assert found['status'] == expected
+            expanded = await search(query, 'a'*40, fingerprint, 5,
+                                    extra_vectors=[[0., 1.] + [0.]*382])
+            assert expanded['status'] == expected
+            assert {m['chunk_id']: m['cosine_distance'] for m in expanded['matches']} == pytest.approx(
+                {m['chunk_id']: m['cosine_distance'] for m in found['matches']})
             if expected == 'matches_found':
                 assert [m['chunk_index'] for m in found['matches']] == [0, 1]
                 assert found['matches'][0]['cosine_distance'] == pytest.approx(0)
@@ -76,6 +81,12 @@ def test_public_search(empty_catalog_db, tmp_path, monkeypatch, change, expected
                 assert 'embedding' not in found['matches'][0]
                 top = await search(query, 'a'*40, fingerprint, 1)
                 assert len(top['matches']) == 1
+                assert top['corpus_fingerprint'] == found['corpus_fingerprint']
+                async with session_scope() as db:
+                    active = await db.get(IngestionRun, UUID(found['matches'][0]['run_id']))
+                    active.configuration = {**active.configuration, 'synthetic_calibration_revision': 2}
+                changed = await search(query, 'a'*40, fingerprint, 5)
+                assert changed['corpus_fingerprint'] != found['corpus_fingerprint']
                 # Equal distances use IDs for a deterministic tie break.
                 async with session_scope() as db:
                     for chunk in await db.scalars(select(DocumentChunk)):

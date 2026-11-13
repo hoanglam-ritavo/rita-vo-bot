@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 12 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity-menu",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT — HDSD PHÂN HỆ VĂN PHÒNG SỐ. HDSD-29/3/25-V1; IT-HCNS. Apps > Văn phòng số. Bao gồm các chức năng: Văn bản đi, văn bản đến, giấy ủy quyền, tài liệu chia sẻ, thông báo – tin tức, thư viện chia sẻ, Danh bạ CBNV…",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT — HDSD PHÂN HỆ VĂN PHÒNG SỐ. HDSD-29/3/25-V1; IT-HCNS. Apps > Văn phòng số. Bao gồm các chức năng: Văn bản đi, văn bản đến, giấy ủy quyền, tài liệu chia sẻ, thông báo – tin tức, thư viện chia sẻ, Danh bạ CBNV…",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "outgoing",
+      "raw": "CHỨC NĂNG: VĂN BẢN ĐI\nQuản lý các văn bản đi, gửi đến các cơ quan ban ngành, đối tác. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các văn bản cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Khi được bộ phận hành chính chia sẻ dữ liệu thì dữ liệu sẽ được hiển thị cho người dùng nhìn thấy. Hành chính sẽ phân quyền chia sẻ theo 3 chức năng: Xem, Tải, Chia sẻ. Dữ liệu sẽ được thông báo trên bàn làm việc tại màn hình chính hoặc người dùng vô trực tiếp chức năng Văn bản đi để xem.",
+      "text": "CHỨC NĂNG: VĂN BẢN ĐI\nQuản lý các văn bản đi, gửi đến các cơ quan ban ngành, đối tác. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các văn bản cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Khi được bộ phận hành chính chia sẻ dữ liệu thì dữ liệu sẽ được hiển thị cho người dùng nhìn thấy. Hành chính sẽ phân quyền chia sẻ theo 3 chức năng: Xem, Tải, Chia sẻ. Dữ liệu sẽ được thông báo trên bàn làm việc tại màn hình chính hoặc người dùng vô trực tiếp chức năng Văn bản đi để xem.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "view-download",
+      "raw": "Chức năng được xem: B1 Nhấn biểu tượng tệp tin đính kèm (1); B2 Nhấn biểu tượng file để mở file (2). Chức năng được tải: nút tải xuống từng file hoặc Tải xuống tất cả.",
+      "text": "Chức năng được xem: B1 Nhấn biểu tượng tệp tin đính kèm (1); B2 Nhấn biểu tượng file để mở file (2). Chức năng được tải: nút tải xuống từng file hoặc Tải xuống tất cả.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "sharing",
+      "raw": "Chức năng chia sẻ: Người dùng sẽ có quyền chia sẻ, cấp quyền cho 1 hay nhiều nhân sự khác văn bản này. Ảnh: Chia sẻ > Tìm kiếm > chọn quyền Xem/Tải/Chia sẻ tại từng nhân sự > OK; có ô Gửi email.",
+      "text": "Chức năng chia sẻ: Người dùng sẽ có quyền chia sẻ, cấp quyền cho 1 hay nhiều nhân sự khác văn bản này. Ảnh: Chia sẻ > Tìm kiếm > chọn quyền Xem/Tải/Chia sẻ tại từng nhân sự > OK; có ô Gửi email.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "incoming",
+      "raw": "CHỨC NĂNG: VĂN BẢN ĐẾN\nQuản lý các văn bản đến, được gửi đến từ cơ quan ban ngành, đối tác. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các văn bản cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Toàn bộ chức năng, thao tác, phân quyền xem, tải, chia sẻ dữ liệu đều tương tự văn bản đi.",
+      "text": "CHỨC NĂNG: VĂN BẢN ĐẾN\nQuản lý các văn bản đến, được gửi đến từ cơ quan ban ngành, đối tác. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các văn bản cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Toàn bộ chức năng, thao tác, phân quyền xem, tải, chia sẻ dữ liệu đều tương tự văn bản đi.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "authorization",
+      "raw": "CHỨC NĂNG: GIẤY ỦY QUYỀN\nQuản lý các giấy ủy quyền của công ty ban hành. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các Giấy ủy quyền cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Toàn bộ chức năng, thao tác, phân quyền xem, tải, chia sẻ dữ liệu đều tương tự văn bản đến, văn bản đi.",
+      "text": "CHỨC NĂNG: GIẤY ỦY QUYỀN\nQuản lý các giấy ủy quyền của công ty ban hành. Bộ phận Hành Chính sẽ quản lý chính và nhập liệu. Cấp quyền xem các Giấy ủy quyền cho các người dùng có yêu cầu. Mặc định người dùng sẽ không có dữ liệu gì ở chức năng này nếu không được chia sẻ văn bản. Toàn bộ chức năng, thao tác, phân quyền xem, tải, chia sẻ dữ liệu đều tương tự văn bản đến, văn bản đi.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "news",
+      "raw": "CHỨC NĂNG: THÔNG BÁO – TIN TỨC\nThông báo sự kiện, quyết định, công bố của doanh nghiệp đến toàn thể cán bộ nhân viên. Đăng tải các hình ảnh liên quan đến sự kiện hàng tháng, hàng năm của doanh nghiệp. Cách xem thông báo – tin tức nhanh nhất: C1 Tại màn hình trang chủ, trang tin tức có Tab thông báo & tin tức. Click vào từng tin mà bạn muốn đọc. C2 Tại Bàn làm việc xuất hiện Thông báo, tin tức chưa xem kèm theo số lượng tin tức. C3 Vào phân hệ Văn phòng số. Chức năng Thông báo – Tin tức.",
+      "text": "CHỨC NĂNG: THÔNG BÁO – TIN TỨC\nThông báo sự kiện, quyết định, công bố của doanh nghiệp đến toàn thể cán bộ nhân viên. Đăng tải các hình ảnh liên quan đến sự kiện hàng tháng, hàng năm của doanh nghiệp. Cách xem thông báo – tin tức nhanh nhất: C1 Tại màn hình trang chủ, trang tin tức có Tab thông báo & tin tức. Click vào từng tin mà bạn muốn đọc. C2 Tại Bàn làm việc xuất hiện Thông báo, tin tức chưa xem kèm theo số lượng tin tức. C3 Vào phân hệ Văn phòng số. Chức năng Thông báo – Tin tức.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "directory",
+      "raw": "CHỨC NĂNG: DANH BẠ CBNV\nChứa thông tin liên hệ, danh bạ của cán bộ nhân viên tập đoàn, bao gồm: Họ tên, chức danh, Khối, Đơn vị, Email, Số điện thoại, Ngày tháng sinh, Avatar. Tìm kiếm nhân viên bằng cách filter theo đơn vị, phòng ban, khối, ô tìm kiếm.",
+      "text": "CHỨC NĂNG: DANH BẠ CBNV\nChứa thông tin liên hệ, danh bạ của cán bộ nhân viên tập đoàn, bao gồm: Họ tên, chức danh, Khối, Đơn vị, Email, Số điện thoại, Ngày tháng sinh, Avatar. Tìm kiếm nhân viên bằng cách filter theo đơn vị, phòng ban, khối, ô tìm kiếm.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 12
+      }
+    }
+  ]
+}

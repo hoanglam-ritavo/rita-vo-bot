@@ -48,7 +48,9 @@ def create_app(settings=None, *, service_factory=ApiService):
         # Do not echo the submitted text in validation errors.
         return JSONResponse(status_code=422, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20.'}})
 
-    @app.post('/api/v1/retrieve', response_model=RetrievalResponse, responses={
+    @app.post('/api/v1/retrieve', response_model=RetrievalResponse,
+        description='Retrieve at most top_k relevance-filtered excerpts. Missing calibration returns an explicit empty fallback; '
+                    'scores and relevance metadata do not certify confidence or complete evidence.', responses={
         422: {'description': 'Invalid text, top-K or model token limit exceeded.'},
         429: {'description': 'Another retrieval is in progress.'},
         503: {'description': 'Dependency unavailable or incompatible model.'},

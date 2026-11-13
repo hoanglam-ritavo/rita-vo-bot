@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "E-Postal 1.0 ngày 07.11.2023 — quản lý thư/bưu phẩm đến và đi qua Office 365. Có 4 cách nhập: Hành chính dùng SharePoint Form hoặc Phone List; nhân viên dùng QR Receiving để nhận/từ chối nhận, QR Sending để xác nhận gửi. Dữ liệu qua Power Automate/SharePoint, gửi email, cập nhật trạng thái và Hành chính xuất Excel. Đây là quản lý bưu phẩm, không phải nghỉ phép.",
+      "source_refs": [
+        {
+          "segment_id": "identity",
+          "start": 0,
+          "end": 510
+        },
+        {
+          "segment_id": "flow",
+          "start": 0,
+          "end": 556
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — nhận thư tại lễ tân/phòng bảo vệ: mở QR Receiving trong tài liệu bằng máy tính/điện thoại. Khai công ty, mã nhân viên, họ tên, email công ty HCNS IT cấp, phòng ban, tiêu đề thư; nội dung chi tiết và ghi chú không bắt buộc. Chọn Nhận hộ Đúng nếu nhận thay; chọn trạng thái Đã nhận hoặc Từ chối nhận để hệ thống gửi email. QR Sending dành cho gửi thư, không dùng nhầm.",
+      "source_refs": [
+        {
+          "segment_id": "receive-form",
+          "start": 0,
+          "end": 553
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — gửi thư/bưu phẩm: dùng QR Sending; khai công ty, mã nhân viên HCNS cấp, họ tên, email công ty HCNS IT cấp, phòng ban, phân loại cước theo nhà vận chuyển và số vận đơn được cấp; ghi chú tùy chọn. Hệ thống có email Thông báo thư đi với trạng thái Đã gửi. Tài liệu không cung cấp bảng giá cước để tính tiền.",
+      "source_refs": [
+        {
+          "segment_id": "receive-form",
+          "start": 0,
+          "end": 553
+        },
+        {
+          "segment_id": "send-form",
+          "start": 0,
+          "end": 372
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — nhân viên Hành chính ghi nhận thư: SharePoint nhập trực tiếp hỗ trợ thông báo cả thư đến và thư đi; SharePoint PhoneList chỉ dùng thông báo thư đến, không dùng gửi thư/bưu phẩm. Người nhận được email Outlook từ hệ thống.",
+      "source_refs": [
+        {
+          "segment_id": "admin",
+          "start": 0,
+          "end": 313
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — xác nhận nhận thư qua Outlook: mở thông báo, chọn Đã nhận hoặc Từ chối nhận; ghi Comments lý do từ chối. Mẫu email hướng dẫn nhận trong 2–3 ngày làm việc, mang điện thoại và nhấn Đã nhận khi đến nhận. Lần đầu làm theo Power Automate để xác thực email Rita Võ; người không có O365 có thể dùng trình duyệt theo hướng dẫn, liên hệ HCNS IT nếu chưa rõ.",
+      "source_refs": [
+        {
+          "segment_id": "outlook",
+          "start": 0,
+          "end": 366
+        },
+        {
+          "segment_id": "first-use",
+          "start": 0,
+          "end": 407
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — xác nhận bằng MS Teams hoặc điện thoại: Teams với O365 hiện popup, chọn Đã nhận/Từ chối nhận, Comment được gửi HC nếu có. Trên điện thoại cài Power Automate của Microsoft, đăng nhập O365 > Approvals > đúng thông báo thư > xem chi tiết và xác nhận. Không nhầm với các loại yêu cầu khác cùng danh sách.",
+      "source_refs": [
+        {
+          "segment_id": "teams",
+          "start": 0,
+          "end": 149
+        },
+        {
+          "segment_id": "mobile",
+          "start": 0,
+          "end": 327
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — email và nhắc nhận thư: chưa xác nhận thì được nhắc ngày hôm sau (24 giờ) đến khi Đã nhận hoặc Từ chối nhận. Khi Hành chính thông báo qua SharePoint/PhoneList, bạn nhận yêu cầu xác nhận từ Microsoft Automate; sau xác nhận có email kết quả từ itsystems@ritavo.com gửi bạn và CC Hành chính. Với QR, hệ thống gửi trạng thái Đã nhận/Từ chối nhận/Đã gửi.",
+      "source_refs": [
+        {
+          "segment_id": "reminder",
+          "start": 0,
+          "end": 163
+        },
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 649
+        }
+      ]
+    },
+    {
+      "content": "E-Postal — lỗi email: phải dùng email HCNS IT cấp, không dùng email cá nhân. Chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhận hộ. Không thấy email thì đợi 10–20 phút; sau 24 giờ vẫn không có phản hồi, liên hệ KSNB IT System ksnb_it.system@ritavo.com.",
+      "source_refs": [
+        {
+          "segment_id": "faq",
+          "start": 0,
+          "end": 649
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged.",
+    "identity-copy": "Metadata table calls E-Postal Don nghi phep Online, inconsistent with cover and all functional sections. Preserve transcription, use the evidenced mail-management title, not leave retrieval semantics.",
+    "qr-only": "Two source QR images provide Receiving/Sending entry points; no guessed URL transcribed. Use original PDF QR or Hanh chinh assistance.",
+    "send-name": "Sending table calls full name nguoi nhan. Chunk retains generic ho ten without silently converting the ambiguous label to an asserted sender or recipient identity."
+  }
+}

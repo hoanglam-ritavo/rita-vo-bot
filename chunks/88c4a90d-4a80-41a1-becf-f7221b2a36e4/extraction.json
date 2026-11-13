@@ -1,0 +1,372 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 37 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ QUY TRÌNH SỐ\nHDSD-12/4/25-V1; IT-HCNS. Menu chức năng Apps > Quy trình số.",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD PHÂN HỆ QUY TRÌNH SỐ\nHDSD-12/4/25-V1; IT-HCNS. Menu chức năng Apps > Quy trình số.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-create",
+      "raw": "CHỨC NĂNG: CÔNG VIỆC — Cập nhật, tạo công việc\nBước 1: Vào menu Công việc. Bước 2: Nhấn Tạo công việc (F2). Bước 3: Nhập các thông tin công việc (Các trường có dấu * đỏ bắt buộc nhập). Người giao việc: Là người tạo phiếu. Người chủ trì: Là người thực hiện công việc. Bước 4: Nhấn Lưu. Ảnh có Tiêu đề, Mô tả, Kết quả, Đơn vị, Liên hệ, Từ ngày/giờ, Đến ngày/giờ, Nhắc việc, Thiết lập định kỳ, Chủ trì/Phối hợp/Để biết, Tập tin đính kèm.",
+      "text": "CHỨC NĂNG: CÔNG VIỆC — Cập nhật, tạo công việc\nBước 1: Vào menu Công việc. Bước 2: Nhấn Tạo công việc (F2). Bước 3: Nhập các thông tin công việc (Các trường có dấu * đỏ bắt buộc nhập). Người giao việc: Là người tạo phiếu. Người chủ trì: Là người thực hiện công việc. Bước 4: Nhấn Lưu. Ảnh có Tiêu đề, Mô tả, Kết quả, Đơn vị, Liên hệ, Từ ngày/giờ, Đến ngày/giờ, Nhắc việc, Thiết lập định kỳ, Chủ trì/Phối hợp/Để biết, Tập tin đính kèm.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-complete",
+      "raw": "Hoàn tất / Hủy hoàn tất công việc. Bước 1: Chọn công việc cần xác nhận hoàn tất / bỏ hoàn tất. Bước 2: Nhấn Hoàn tất / Bỏ hoàn tất. Bước 3: Nhập ý kiến hoàn tất/bỏ hoàn tất. Bước 4: Nhấn Hoàn tất / Bỏ hoàn tất. Có thể trao đổi thông tin tại màn hình này (Bình luận).",
+      "text": "Hoàn tất / Hủy hoàn tất công việc. Bước 1: Chọn công việc cần xác nhận hoàn tất / bỏ hoàn tất. Bước 2: Nhấn Hoàn tất / Bỏ hoàn tất. Bước 3: Nhập ý kiến hoàn tất/bỏ hoàn tất. Bước 4: Nhấn Hoàn tất / Bỏ hoàn tất. Có thể trao đổi thông tin tại màn hình này (Bình luận).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-owner",
+      "raw": "Chuyển chủ trì công việc, thêm người tham gia công việc. Bước 1: Chọn công việc cần chuyển chủ trì. Bước 2: Tại ô chủ trì, chọn người cần chuyển chủ trì hoặc thêm người tham gia vào công việc. Bước 3: Nhấn Lưu.",
+      "text": "Chuyển chủ trì công việc, thêm người tham gia công việc. Bước 1: Chọn công việc cần chuyển chủ trì. Bước 2: Tại ô chủ trì, chọn người cần chuyển chủ trì hoặc thêm người tham gia vào công việc. Bước 3: Nhấn Lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-extension",
+      "raw": "Lập đề nghị gia hạn công việc. Bước 1: Người chủ trì công việc chọn công việc cần xin gia hạn deadline thực hiện. Bước 2: Nhấn Đề nghị gia hạn. Bước 3: Nhập lý do xin gia hạn và ngày gia hạn mới. Bước 4: Nhấn Đề nghị gia hạn. Bước 5: Nhấn Lưu.",
+      "text": "Lập đề nghị gia hạn công việc. Bước 1: Người chủ trì công việc chọn công việc cần xin gia hạn deadline thực hiện. Bước 2: Nhấn Đề nghị gia hạn. Bước 3: Nhập lý do xin gia hạn và ngày gia hạn mới. Bước 4: Nhấn Đề nghị gia hạn. Bước 5: Nhấn Lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-extension-approve",
+      "raw": "Duyệt / Từ chối đề nghị gia hạn công việc. Bước 1: Tại mục Gia hạn, chọn công việc đang chờ phê duyệt gia hạn. Ảnh Bàn làm việc > Công việc > Xin gia hạn. Bước 2: Nhấn Duyệt gia hạn / Từ chối gia hạn. Bước 3: Nhập ý kiến phê duyệt gia hạn. Bước 4: Nhấn Đồng ý / Từ chối.",
+      "text": "Duyệt / Từ chối đề nghị gia hạn công việc. Bước 1: Tại mục Gia hạn, chọn công việc đang chờ phê duyệt gia hạn. Ảnh Bàn làm việc > Công việc > Xin gia hạn. Bước 2: Nhấn Duyệt gia hạn / Từ chối gia hạn. Bước 3: Nhập ý kiến phê duyệt gia hạn. Bước 4: Nhấn Đồng ý / Từ chối.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-child",
+      "raw": "Tạo công việc con. Bước 1: Chọn công việc phát sinh công việc con. Bước 2: Nhấn Tạo việc con. Bước 3: Nhập thông tin công việc con phát sinh. Bước 4: Nhấn Lưu (F8).",
+      "text": "Tạo công việc con. Bước 1: Chọn công việc phát sinh công việc con. Bước 2: Nhấn Tạo việc con. Bước 3: Nhập thông tin công việc con phát sinh. Bước 4: Nhấn Lưu (F8).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "task-view",
+      "raw": "Xem công việc: Dạng 1: Dạng lịch. Dạng 2: Dạng lưới. Ảnh có bộ lọc Tình trạng, Tham gia xử lý (Chủ trì/Phối hợp/Để biết), Ưu tiên (Quan trọng/Khẩn cấp).",
+      "text": "Xem công việc: Dạng 1: Dạng lịch. Dạng 2: Dạng lưới. Ảnh có bộ lọc Tình trạng, Tham gia xử lý (Chủ trì/Phối hợp/Để biết), Ưu tiên (Quan trọng/Khẩn cấp).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "project-create",
+      "raw": "CHỨC NĂNG: DỰ ÁN — Tạo thông tin dự án mới. Bước 1: Vào menu Dự án. Bước 2: Nhấn Thêm/sửa (Dự án/hạng mục). Bước 3: Nhấn THÊM. Bước 4: Nhập thông tin dự án. Bước 5: Nhấn Lưu (F8). Ảnh có Tên dự án, Mã dự án, Loại dự án, Đơn vị/Khách hàng, Đơn vị chủ trì, Khối chủ trì, Người phụ trách, Tình trạng dự án, Ngày bắt đầu/kết thúc (kế hoạch), Thành viên tham gia dự án.",
+      "text": "CHỨC NĂNG: DỰ ÁN — Tạo thông tin dự án mới. Bước 1: Vào menu Dự án. Bước 2: Nhấn Thêm/sửa (Dự án/hạng mục). Bước 3: Nhấn THÊM. Bước 4: Nhập thông tin dự án. Bước 5: Nhấn Lưu (F8). Ảnh có Tên dự án, Mã dự án, Loại dự án, Đơn vị/Khách hàng, Đơn vị chủ trì, Khối chủ trì, Người phụ trách, Tình trạng dự án, Ngày bắt đầu/kết thúc (kế hoạch), Thành viên tham gia dự án.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "project-item",
+      "raw": "Cập nhật hạng mục dự án. Bước 1: Vào menu Dự án. Bước 2: Nhấn Thêm/sửa (Dự án/hạng mục). Bước 3: Chọn dòng dự án cụ thể, nhấn +. Bước 4: Nhập thông tin hạng mục. Bước 5: Nhấn Lưu (F8).",
+      "text": "Cập nhật hạng mục dự án. Bước 1: Vào menu Dự án. Bước 2: Nhấn Thêm/sửa (Dự án/hạng mục). Bước 3: Chọn dòng dự án cụ thể, nhấn +. Bước 4: Nhập thông tin hạng mục. Bước 5: Nhấn Lưu (F8).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "project-file",
+      "raw": "Cập nhật hồ sơ dự án. Bước 1: Chọn dòng dự án cụ thể. Bước 2: Vào mục Báo cáo, chọn Hồ sơ dự án. Bước 3: Nhấn Thêm tài liệu. Bước 4: Nhập thông tin tài liệu. Bước 5: Nhấn Lưu (F8). Ảnh mũi tên chỉ menu Danh mục > Hồ sơ dự án; màn hình có Tập tin đính kèm và Quyền truy cập Xem/Tải/Chia sẻ.",
+      "text": "Cập nhật hồ sơ dự án. Bước 1: Chọn dòng dự án cụ thể. Bước 2: Vào mục Báo cáo, chọn Hồ sơ dự án. Bước 3: Nhấn Thêm tài liệu. Bước 4: Nhập thông tin tài liệu. Bước 5: Nhấn Lưu (F8). Ảnh mũi tên chỉ menu Danh mục > Hồ sơ dự án; màn hình có Tập tin đính kèm và Quyền truy cập Xem/Tải/Chia sẻ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "project-task",
+      "raw": "Cập nhật công việc dự án. Bước 1: Chọn dòng dự án cụ thể. Bước 2: Chọn hạng mục phát sinh công việc. Bước 3: Nhấn +. Bước 4: Nhập thông tin công việc. Bước 5: Nhấn Lưu (F8).",
+      "text": "Cập nhật công việc dự án. Bước 1: Chọn dòng dự án cụ thể. Bước 2: Chọn hạng mục phát sinh công việc. Bước 3: Nhấn +. Bước 4: Nhập thông tin công việc. Bước 5: Nhấn Lưu (F8).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "project-edit",
+      "raw": "Sửa dự án, hạng mục: Thêm/sửa (Dự án/hạng mục) > nút sửa ở dòng. Xóa dự án, hạng mục: nút thùng rác ở dòng. Lưu ý: Muốn xóa dự án phải hết hạng mục liên quan.",
+      "text": "Sửa dự án, hạng mục: Thêm/sửa (Dự án/hạng mục) > nút sửa ở dòng. Xóa dự án, hạng mục: nút thùng rác ở dòng. Lưu ý: Muốn xóa dự án phải hết hạng mục liên quan.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "supply-create",
+      "raw": "CHỨC NĂNG: ĐỀ XUẤT CUNG ỨNG — Lập đề xuất cung ứng. Bước 1: Vào menu Đề xuất cung ứng (ảnh Apps > Mua hàng). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ theo đơn vị. Bước 4: Nhấn THÊM. Bước 5: Chọn loại đề xuất theo nhu cầu. Bước 6: Nhập các thông tin phiếu đề xuất, đính kèm file, hình ảnh, Email nếu có. Bước 7: Nhấn Lưu.",
+      "text": "CHỨC NĂNG: ĐỀ XUẤT CUNG ỨNG — Lập đề xuất cung ứng. Bước 1: Vào menu Đề xuất cung ứng (ảnh Apps > Mua hàng). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ theo đơn vị. Bước 4: Nhấn THÊM. Bước 5: Chọn loại đề xuất theo nhu cầu. Bước 6: Nhập các thông tin phiếu đề xuất, đính kèm file, hình ảnh, Email nếu có. Bước 7: Nhấn Lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 15,
+        "page_end": 16
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "supply-approve",
+      "raw": "Phê duyệt đề xuất cung ứng. Bước 1: Vào mục Chờ bạn duyệt. Bước 2: Chọn dòng đề nghị cần phê duyệt. Bước 3: Nhấn Duyệt. Bước 4: Nhập ý kiến và nhấn Duyệt. Xem quy trình duyệt: nhấn biểu tượng quy trình ở dòng phiếu, cửa sổ hiện bước/trạng thái/người thực hiện/ngày/ý kiến.",
+      "text": "Phê duyệt đề xuất cung ứng. Bước 1: Vào mục Chờ bạn duyệt. Bước 2: Chọn dòng đề nghị cần phê duyệt. Bước 3: Nhấn Duyệt. Bước 4: Nhập ý kiến và nhấn Duyệt. Xem quy trình duyệt: nhấn biểu tượng quy trình ở dòng phiếu, cửa sổ hiện bước/trạng thái/người thực hiện/ngày/ý kiến.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 17,
+        "page_end": 18
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "supply-edit",
+      "raw": "Đề xuất cung ứng — Sửa/Xóa. Sửa: Chọn phiếu đăng ký cần sửa; nhấn biểu tượng sửa; nhập thông tin cần sửa; nhấn Lưu. Lưu ý: chỉ sửa những phiếu đề xuất chưa qua bước phê duyệt nào. Xóa: Chọn phiếu đề xuất cần xóa; nhấn thùng rác. Lưu ý: chỉ xóa những phiếu đề xuất chưa qua bước phê duyệt nào.",
+      "text": "Đề xuất cung ứng — Sửa/Xóa. Sửa: Chọn phiếu đăng ký cần sửa; nhấn biểu tượng sửa; nhập thông tin cần sửa; nhấn Lưu. Lưu ý: chỉ sửa những phiếu đề xuất chưa qua bước phê duyệt nào. Xóa: Chọn phiếu đề xuất cần xóa; nhấn thùng rác. Lưu ý: chỉ xóa những phiếu đề xuất chưa qua bước phê duyệt nào.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 19,
+        "page_end": 19
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "purchase-create",
+      "raw": "CHỨC NĂNG: ĐỀ NGHỊ MUA SẮM — Lập đề nghị mua sắm. Bước 1: Vào menu Đề nghị mua sắm (Apps > Mua hàng). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ (có tạo PO/không tạo PO theo đơn vị). Bước 4: Nhấn THÊM. Bước 5: Chọn Đề xuất cung ứng đã được duyệt. Bước 6: Tick chọn Đề xuất và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt trong đề xuất cung ứng sang đề nghị mua sắm. Bước 8: Chọn loại đề nghị mua hàng (EC Mua hàng E&C; MHND Mua hàng nội địa; PTOTND Mua phụ tùng ô tô nội địa). Bước 9: Nhập các thông tin cần thiết của phòng mua hàng, đính kèm file so sánh giá. SL mua có thể chọn mua toàn phiếu hoặc mua 1 phần của phiếu cung ứng. Bước 10: Nhấn Lưu.",
+      "text": "CHỨC NĂNG: ĐỀ NGHỊ MUA SẮM — Lập đề nghị mua sắm. Bước 1: Vào menu Đề nghị mua sắm (Apps > Mua hàng). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ (có tạo PO/không tạo PO theo đơn vị). Bước 4: Nhấn THÊM. Bước 5: Chọn Đề xuất cung ứng đã được duyệt. Bước 6: Tick chọn Đề xuất và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt trong đề xuất cung ứng sang đề nghị mua sắm. Bước 8: Chọn loại đề nghị mua hàng (EC Mua hàng E&C; MHND Mua hàng nội địa; PTOTND Mua phụ tùng ô tô nội địa). Bước 9: Nhập các thông tin cần thiết của phòng mua hàng, đính kèm file so sánh giá. SL mua có thể chọn mua toàn phiếu hoặc mua 1 phần của phiếu cung ứng. Bước 10: Nhấn Lưu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 20,
+        "page_end": 22
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "purchase-approve",
+      "raw": "Phê duyệt đề nghị mua sắm. Bước 1: Vào mục Chờ bạn duyệt. Bước 2: Chọn dòng đề nghị cần phê duyệt. Bước 3: Nhấn Duyệt. Bước 4: Chọn người đề xuất để xác nhận thông số mua hàng, nhập ý kiến nếu có và nhấn Duyệt. Xem quy trình duyệt bằng biểu tượng quy trình ở dòng phiếu.",
+      "text": "Phê duyệt đề nghị mua sắm. Bước 1: Vào mục Chờ bạn duyệt. Bước 2: Chọn dòng đề nghị cần phê duyệt. Bước 3: Nhấn Duyệt. Bước 4: Chọn người đề xuất để xác nhận thông số mua hàng, nhập ý kiến nếu có và nhấn Duyệt. Xem quy trình duyệt bằng biểu tượng quy trình ở dòng phiếu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 23,
+        "page_end": 24
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "purchase-edit",
+      "raw": "Đề nghị mua sắm — Sửa/Xóa. Sửa: Chọn phiếu đăng ký cần sửa, nhấn biểu tượng sửa, nhập thông tin cần sửa, nhấn Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Xóa: Chọn phiếu đề nghị cần xóa, nhấn thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "text": "Đề nghị mua sắm — Sửa/Xóa. Sửa: Chọn phiếu đăng ký cần sửa, nhấn biểu tượng sửa, nhập thông tin cần sửa, nhấn Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Xóa: Chọn phiếu đề nghị cần xóa, nhấn thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 25,
+        "page_end": 25
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "po-create",
+      "raw": "CHỨC NĂNG: ĐƠN HÀNG MUA HÀNG — Lập đơn hàng mua hàng. Bước 1: Vào menu Mua hàng chọn Đơn hàng mua hàng. Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ. Bước 4: Nhấn THÊM. Bước 5: Chọn Đề nghị mua sắm có lập PO đã được duyệt. Bước 6: Tick chọn Đề xuất và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt trong đề xuất cung ứng sang đề nghị mua sắm. Bước 8: Nhập các thông tin cần thiết và nhấn Lưu. Ảnh màn hình Đơn hàng mua hàng có nhà cung cấp, thông tin hợp đồng, thanh toán, giao hàng, phạt vi phạm hợp đồng, chi tiết hàng hóa/dịch vụ.",
+      "text": "CHỨC NĂNG: ĐƠN HÀNG MUA HÀNG — Lập đơn hàng mua hàng. Bước 1: Vào menu Mua hàng chọn Đơn hàng mua hàng. Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ. Bước 4: Nhấn THÊM. Bước 5: Chọn Đề nghị mua sắm có lập PO đã được duyệt. Bước 6: Tick chọn Đề xuất và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt trong đề xuất cung ứng sang đề nghị mua sắm. Bước 8: Nhập các thông tin cần thiết và nhấn Lưu. Ảnh màn hình Đơn hàng mua hàng có nhà cung cấp, thông tin hợp đồng, thanh toán, giao hàng, phạt vi phạm hợp đồng, chi tiết hàng hóa/dịch vụ.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 26,
+        "page_end": 27
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "payment-create",
+      "raw": "CHỨC NĂNG: ĐỀ NGHỊ THANH TOÁN — Lập đề nghị thanh toán. Bước 1: Vào menu Đề nghị thanh toán (Quy trình số). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ. Bước 4: Nhấn THÊM. Bước 5: Chọn các loại chứng từ: ĐXCU, ĐNMS, PO, ĐNTT. Bước 6: Tick chọn chứng từ và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt sang phiếu đề nghị thanh toán. Bước 8: Nhập các thông tin cần thiết để thanh toán. Ảnh có đơn vị, hình thức thanh toán CK Chuyển khoản/TM Tiền mặt, số tài khoản/tên ngân hàng, nội dung, ngày hóa đơn/số hóa đơn. Bước 9: Chọn chứng từ áp ứng/hoàn ứng nếu có. Bước 10: Nhấn Lưu để hoàn tất phiếu.",
+      "text": "CHỨC NĂNG: ĐỀ NGHỊ THANH TOÁN — Lập đề nghị thanh toán. Bước 1: Vào menu Đề nghị thanh toán (Quy trình số). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ. Bước 4: Nhấn THÊM. Bước 5: Chọn các loại chứng từ: ĐXCU, ĐNMS, PO, ĐNTT. Bước 6: Tick chọn chứng từ và nhấn dấu tích. Bước 7: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt sang phiếu đề nghị thanh toán. Bước 8: Nhập các thông tin cần thiết để thanh toán. Ảnh có đơn vị, hình thức thanh toán CK Chuyển khoản/TM Tiền mặt, số tài khoản/tên ngân hàng, nội dung, ngày hóa đơn/số hóa đơn. Bước 9: Chọn chứng từ áp ứng/hoàn ứng nếu có. Bước 10: Nhấn Lưu để hoàn tất phiếu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 28,
+        "page_end": 30
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "payment-workflow",
+      "raw": "Đề nghị thanh toán — Xem quy trình duyệt: nhấn biểu tượng quy trình tại dòng phiếu. Ảnh có các bước Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc; thể hiện trạng thái, người thực hiện, ngày, ý kiến.",
+      "text": "Đề nghị thanh toán — Xem quy trình duyệt: nhấn biểu tượng quy trình tại dòng phiếu. Ảnh có các bước Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc; thể hiện trạng thái, người thực hiện, ngày, ý kiến.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 31,
+        "page_end": 31
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "payment-edit",
+      "raw": "Đề nghị thanh toán — Sửa/Xóa. Chọn phiếu đề nghị cần sửa > biểu tượng sửa > nhập thông tin cần sửa > Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Chọn phiếu đề nghị cần xóa > thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "text": "Đề nghị thanh toán — Sửa/Xóa. Chọn phiếu đề nghị cần sửa > biểu tượng sửa > nhập thông tin cần sửa > Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Chọn phiếu đề nghị cần xóa > thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 32,
+        "page_end": 32
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "advance-start",
+      "raw": "CHỨC NĂNG: ĐỀ NGHỊ TẠM ỨNG — Lập đề nghị tạm ứng. Bước 1: Vào menu Đề nghị tạm ứng (Quy trình số). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ: Có 2 loại chính là tạm ứng cho Nhà cung cấp và tạm ứng nội bộ. Bước 4: Nhấn THÊM.",
+      "text": "CHỨC NĂNG: ĐỀ NGHỊ TẠM ỨNG — Lập đề nghị tạm ứng. Bước 1: Vào menu Đề nghị tạm ứng (Quy trình số). Bước 2: Nhấn THÊM. Bước 3: Chọn loại chứng từ: Có 2 loại chính là tạm ứng cho Nhà cung cấp và tạm ứng nội bộ. Bước 4: Nhấn THÊM.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 33,
+        "page_end": 33
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "advance-supplier",
+      "raw": "Lập đề nghị tạm ứng cho Nhà cung cấp. Bước 1: Chọn các loại chứng từ: ĐXCU, ĐNMS, PO, ĐNTT. Bước 2: Tick chọn chứng từ và nhấn dấu tích. Bước 3: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt sang phiếu đề nghị tạm ứng. Bước 4: Nhập các thông tin cần thiết để thanh toán. Bước 5: Nhấn Lưu để hoàn tất phiếu. Ảnh có đơn vị, hình thức thanh toán, tài khoản/ngân hàng, nội dung, chi tiết thanh toán, Tải lên/Thêm Link.",
+      "text": "Lập đề nghị tạm ứng cho Nhà cung cấp. Bước 1: Chọn các loại chứng từ: ĐXCU, ĐNMS, PO, ĐNTT. Bước 2: Tick chọn chứng từ và nhấn dấu tích. Bước 3: Phần mềm sẽ lấy các dòng hàng hóa đã duyệt sang phiếu đề nghị tạm ứng. Bước 4: Nhập các thông tin cần thiết để thanh toán. Bước 5: Nhấn Lưu để hoàn tất phiếu. Ảnh có đơn vị, hình thức thanh toán, tài khoản/ngân hàng, nội dung, chi tiết thanh toán, Tải lên/Thêm Link.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 34,
+        "page_end": 35
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "advance-internal",
+      "raw": "Lập đề nghị tạm ứng nội bộ Rita Võ. Bước 1: Nhập các thông tin cần thiết để thanh toán. Bước 2: Nhấn + (F4) để thêm chi tiết thanh toán. Nhấn thùng rác để xóa dòng chi tiết; nhấn biểu tượng bản sao để tạo ra 1 bản sao của dòng. Bước 3: Nhấn Lưu để hoàn tất phiếu.",
+      "text": "Lập đề nghị tạm ứng nội bộ Rita Võ. Bước 1: Nhập các thông tin cần thiết để thanh toán. Bước 2: Nhấn + (F4) để thêm chi tiết thanh toán. Nhấn thùng rác để xóa dòng chi tiết; nhấn biểu tượng bản sao để tạo ra 1 bản sao của dòng. Bước 3: Nhấn Lưu để hoàn tất phiếu.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 36,
+        "page_end": 36
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "advance-edit",
+      "raw": "Đề nghị tạm ứng — Sửa/Xóa. Chọn phiếu đề nghị cần sửa > biểu tượng sửa > nhập thông tin cần sửa > Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Chọn phiếu đề nghị cần xóa > thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "text": "Đề nghị tạm ứng — Sửa/Xóa. Chọn phiếu đề nghị cần sửa > biểu tượng sửa > nhập thông tin cần sửa > Lưu. Chỉ sửa những phiếu đề nghị chưa qua bước phê duyệt nào. Chọn phiếu đề nghị cần xóa > thùng rác. Chỉ xóa những phiếu đề nghị chưa qua bước phê duyệt nào.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 37,
+        "page_end": 37
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 37
+      }
+    },
+    {
+      "warning_id": "project-menu",
+      "code": "source_menu_mismatch",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      }
+    },
+    {
+      "warning_id": "po-copy",
+      "code": "source_copy_wording",
+      "location": {
+        "kind": "pdf",
+        "page_start": 27,
+        "page_end": 27
+      }
+    },
+    {
+      "warning_id": "advance-images",
+      "code": "source_screenshot_mismatch",
+      "location": {
+        "kind": "pdf",
+        "page_start": 33,
+        "page_end": 34
+      }
+    }
+  ]
+}

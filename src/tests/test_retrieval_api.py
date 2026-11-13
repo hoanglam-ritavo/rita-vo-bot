@@ -35,7 +35,7 @@ def match():
 def service(**changes):
     retrieval = AsyncMock()
     retrieval.started = True
-    retrieval.retrieve.return_value = {'status': 'matches_found', 'matches': [match()]}
+    retrieval.retrieve.return_value = {'status': 'matches_found', 'matches': [match()], 'fallback_reason': None}
     return ApiService(settings(**changes), retrieval=retrieval,
                       database_check=AsyncMock(), database_close=AsyncMock())
 
@@ -47,12 +47,15 @@ def test_http_contract_lifecycle_defaults_and_removed_route():
         assert client.post('/api/v1/ask', json={'text': 'Question'}).status_code == 404
         schema = client.get('/openapi.json').json()
         assert '/api/v1/ask' not in schema['paths']
+        assert 'rerank_score' in schema['components']['schemas']['Match']['properties']
+        assert 'relevance' in schema['components']['schemas']['RetrievalResponse']['properties']
         result = client.post('/api/v1/retrieve', json={'text': '  Question  '})
         assert result.status_code == 200
         data = result.json()
-        assert set(data) == {'status', 'matches', 'timings'}
-        assert data['matches'] == [match()]
-        assert set(data['timings']) == {'retrieval_seconds', 'total_seconds'}
+        assert set(data) == {'status', 'matches', 'timings', 'relevance', 'fallback_reason'}
+        assert data['matches'] == [match() | {'rerank_score': None}]
+        assert data['relevance'] == {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}
+        assert set(data['timings']) == {'retrieval_seconds', 'total_seconds', 'rerank_seconds'}
         svc.retrieval.retrieve.assert_awaited_with('Question', 7)
         assert client.post('/api/v1/retrieve', json={'text': 'Second', 'top_k': 20}).status_code == 200
         svc.retrieval.retrieve.assert_awaited_with('Second', 20)
@@ -77,7 +80,7 @@ def test_invalid_requests(body, caplog):
 @pytest.mark.parametrize('status', ['no_eligible_documents', 'no_matches', 'model_mismatch'])
 def test_empty_and_mismatch(status):
     svc = service()
-    svc.retrieval.retrieve.return_value = {'status': status, 'matches': []}
+    svc.retrieval.retrieve.return_value = {'status': status, 'matches': [], 'fallback_reason': 'no_candidates' if status == 'no_matches' else 'no_eligible_documents'}
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
         response = client.post('/api/v1/retrieve', json={'text': 'Question'})
     assert response.status_code == (503 if status == 'model_mismatch' else 200)
@@ -212,3 +215,42 @@ assert not any(m in sys.modules for m in ('src.database', 'sentence_transformers
 '''
     result = subprocess.run([sys.executable, '-B', '-c', script], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_accepted_relevance_preserves_provenance_and_reports_raw_score():
+    svc = service()
+    source = match() | {'rerank_score': -4.5}
+    svc.retrieval.retrieve.return_value = dict(status='matches_found', matches=[source], fallback_reason=None,
+        relevance={'status': 'relevant_candidates', 'warnings': ['evidence_completeness_not_assessed']},
+        rerank_seconds=.25)
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+        response = client.post('/api/v1/retrieve', json={'text': 'A synthetic unrelated question'})
+        assert response.status_code == 200
+        body = response.json()
+        assert body['matches'] == [source]
+        assert body['relevance']['status'] == 'relevant_candidates'
+        assert body['timings']['rerank_seconds'] == .25
+        svc.retrieval.retrieve.side_effect = RetrievalError('reranking_failed', 2)
+        failure = client.post('/api/v1/retrieve', json={'text': 'Another synthetic question'})
+        assert failure.status_code == 503
+        assert failure.json()['error']['code'] == 'reranking_failed'
+
+
+@pytest.mark.parametrize('reason', ['below_relevance_threshold', 'relevance_unavailable', 'no_candidates'])
+def test_fallback_http_contract(reason):
+    svc = service()
+    svc.retrieval.retrieve.return_value = dict(status='no_matches', matches=[], fallback_reason=reason)
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+        schema = client.get('/openapi.json').json()['components']['schemas']['RetrievalResponse']
+        assert 'fallback_reason' in schema['required']
+        response = client.post('/api/v1/retrieve', json={'text': 'Question', 'top_k': 5})
+        assert response.status_code == 200
+        assert response.json()['matches'] == []
+        assert response.json()['fallback_reason'] == reason
+
+
+def test_inconsistent_service_response_is_not_empty_evidence():
+    svc = service()
+    svc.retrieval.retrieve.return_value['fallback_reason'] = 'relevance_unavailable'
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 503

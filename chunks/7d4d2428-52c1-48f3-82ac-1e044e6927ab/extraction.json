@@ -1,0 +1,339 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of all 14 PDF pages, diagram and functional UI labels; unrelated screenshot example personal values omitted"
+  },
+  "segments": [
+    {
+      "segment_id": "cover",
+      "raw": "RTV/O365/E-Leave\nTÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐƠN NGHỈ PHÉP ONLINE (E-LEAVE)\nVERSION 1.0\n08.09.2023\nPhòng KSNB\nĐội ngũ IT System",
+      "text": "RTV/O365/E-Leave\nTÀI LIỆU HƯỚNG DẪN SỬ DỤNG ĐƠN NGHỈ PHÉP ONLINE (E-LEAVE)\nVERSION 1.0\n08.09.2023\nPhòng KSNB\nĐội ngũ IT System",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "identity",
+      "raw": "Thông tin tài liệu\nMã dự án: RTV/O365/E-leave\nPhân hệ: E-leave (Đơn nghỉ phép Online)\nNgười tạo: Võ Thanh Nghị\nPhiên bản: 1.0\nNgày cập nhật: 08.09.2023\nTài liệu nội bộ",
+      "text": "Thông tin tài liệu\nMã dự án: RTV/O365/E-leave\nPhân hệ: E-leave (Đơn nghỉ phép Online)\nNgười tạo: Võ Thanh Nghị\nPhiên bản: 1.0\nNgày cập nhật: 08.09.2023\nTài liệu nội bộ",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "terms",
+      "raw": "Thuật ngữ\nRTV: Rita Võ\nKSNB: Phòng kiểm soát nội bộ\nHCNS: Phòng HCNS\nITSYS: Nhóm IT System trực thuộc phòng KSNB, tổng công ty Rita Võ\nIT: Nhóm IT trực thuộc phòng HCNS\nO365: Microsoft Office 365\nSharePoint: Ứng dụng SharePoint của Microsoft\nMS Form: Ứng dụng Form của Microsoft",
+      "text": "Thuật ngữ\nRTV: Rita Võ\nKSNB: Phòng kiểm soát nội bộ\nHCNS: Phòng HCNS\nITSYS: Nhóm IT System trực thuộc phòng KSNB, tổng công ty Rita Võ\nIT: Nhóm IT trực thuộc phòng HCNS\nO365: Microsoft Office 365\nSharePoint: Ứng dụng SharePoint của Microsoft\nMS Form: Ứng dụng Form của Microsoft",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "contents",
+      "raw": "Nội dung\nI. Giới thiệu\nII. Sơ đồ hoạt động của hệ thống\nIII. Hướng dẫn sử dụng\n1. Đối với nhân viên xin nghỉ phép online\n2. Đối với người duyệt đơn nghỉ phép online\n2.1 Duyệt từ Outlook (dành cho máy tính, điện thoại và tablet)\n2.2 Duyệt bằng MS team\n2.3 Duyệt từ phần mềm Microsoft Power Automate (điện thoại)\n3. Chức năng nhắc nhở dành cho người duyệt\n4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề",
+      "text": "Nội dung\nI. Giới thiệu\nII. Sơ đồ hoạt động của hệ thống\nIII. Hướng dẫn sử dụng\n1. Đối với nhân viên xin nghỉ phép online\n2. Đối với người duyệt đơn nghỉ phép online\n2.1 Duyệt từ Outlook (dành cho máy tính, điện thoại và tablet)\n2.2 Duyệt bằng MS team\n2.3 Duyệt từ phần mềm Microsoft Power Automate (điện thoại)\n3. Chức năng nhắc nhở dành cho người duyệt\n4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "introduction",
+      "raw": "I. Giới thiệu\nĐơn nghỉ phép online, gọi tắt là “E-Leave” là sản phẩm CNTT của nhóm IT System thuộc phòng KSNB đưa ra để nâng cao trải nghiệm và tiết kiệm thời gian, chi phí cho công tác nghỉ phép và phê duyệt của các công ty phòng ban trực thuộc Tập Đoàn Rita Võ, trên nền tảng Office 365 của Microsoft.",
+      "text": "I. Giới thiệu\nĐơn nghỉ phép online, gọi tắt là “E-Leave” là sản phẩm CNTT của nhóm IT System thuộc phòng KSNB đưa ra để nâng cao trải nghiệm và tiết kiệm thời gian, chi phí cho công tác nghỉ phép và phê duyệt của các công ty phòng ban trực thuộc Tập Đoàn Rita Võ, trên nền tảng Office 365 của Microsoft.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "workflow",
+      "raw": "II. Sơ đồ hoạt động của hệ thống\nNgười dùng: MS Form QR Code scan hoặc SharePoint Link.\nHệ thống: Power Automate > Sharepoint List > Email thông báo.\nNgười duyệt: Cấp trên duyệt > Cập nhật trạng thái duyệt về Sharepoint List.\nHR: Export to Excel; HR cập nhật trạng thái đã update HR.",
+      "text": "II. Sơ đồ hoạt động của hệ thống\nNgười dùng: MS Form QR Code scan hoặc SharePoint Link.\nHệ thống: Power Automate > Sharepoint List > Email thông báo.\nNgười duyệt: Cấp trên duyệt > Cập nhật trạng thái duyệt về Sharepoint List.\nHR: Export to Excel; HR cập nhật trạng thái đã update HR.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "request-link",
+      "raw": "III. Hướng dẫn sử dụng\n1. Đối với nhân viên xin nghỉ phép online\nBước 1) Truy cập đường link hoặc dùng camera điện thoại quét mã QR code như sau từ thiết bị (hỗ trợ cả máy tính hoặc điện thoại cá nhân)\nLink truy cập: https://forms.office.com/r/chBGKrWhb2\nBước 2) Điền tất cả thông tin như đề cập bên dưới để gửi đơn nghỉ phép online:",
+      "text": "III. Hướng dẫn sử dụng\n1. Đối với nhân viên xin nghỉ phép online\nBước 1) Truy cập đường link hoặc dùng camera điện thoại quét mã QR code như sau từ thiết bị (hỗ trợ cả máy tính hoặc điện thoại cá nhân)\nLink truy cập: https://forms.office.com/r/chBGKrWhb2\nBước 2) Điền tất cả thông tin như đề cập bên dưới để gửi đơn nghỉ phép online:",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "request-fields",
+      "raw": "1. Chọn công ty (bắt buộc): chọn công ty của bạn theo danh sách liệt kê.\n2. Khu vực (bắt buộc): chọn khu vực theo chỉ định bao gồm “Miền Bắc” hoặc “Miền Nam”.\n3. Mã nhân viên (bắt buộc): mã nhân viên được phòng HCNS cung cấp khi vào làm việc.\n4. Tên nhân viên (bắt buộc): Họ và tên của nhân viên nghỉ phép.\n5. Email (bắt buộc): email sẽ nhận kết quả duyệt/từ chối từ cấp trên.\n6. Chức vụ (không bắt buộc): chức vụ của nhân viên.\n7. Số điện thoại (bắt buộc): số điện thoại cần liên hệ.\n8. Từ ngày (bắt buộc): từ thời gian bắt đầu nghỉ phép (dd/MM/yyyy)\n9. Đến ngày (bắt buộc): đến thời gian kết thúc nghỉ phép (dd/MM/yyyy)\n10. Nghỉ theo buổi (bắt buộc): chọn buổi cần nghỉ, bao gồm “Cả ngày”, “Buổi sáng” hoặc “Buổi chiều”.\n11. Lý do nghỉ phép (bắt buộc): lý do nghỉ phép của bạn.\n12. Email quản lý duyệt đơn (bắt buộc): email của người quản lý có quyền duyệt/từ chối đơn nghỉ phép.",
+      "text": "1. Chọn công ty (bắt buộc): chọn công ty của bạn theo danh sách liệt kê.\n2. Khu vực (bắt buộc): chọn khu vực theo chỉ định bao gồm “Miền Bắc” hoặc “Miền Nam”.\n3. Mã nhân viên (bắt buộc): mã nhân viên được phòng HCNS cung cấp khi vào làm việc.\n4. Tên nhân viên (bắt buộc): Họ và tên của nhân viên nghỉ phép.\n5. Email (bắt buộc): email sẽ nhận kết quả duyệt/từ chối từ cấp trên.\n6. Chức vụ (không bắt buộc): chức vụ của nhân viên.\n7. Số điện thoại (bắt buộc): số điện thoại cần liên hệ.\n8. Từ ngày (bắt buộc): từ thời gian bắt đầu nghỉ phép (dd/MM/yyyy)\n9. Đến ngày (bắt buộc): đến thời gian kết thúc nghỉ phép (dd/MM/yyyy)\n10. Nghỉ theo buổi (bắt buộc): chọn buổi cần nghỉ, bao gồm “Cả ngày”, “Buổi sáng” hoặc “Buổi chiều”.\n11. Lý do nghỉ phép (bắt buộc): lý do nghỉ phép của bạn.\n12. Email quản lý duyệt đơn (bắt buộc): email của người quản lý có quyền duyệt/từ chối đơn nghỉ phép.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "delegation",
+      "raw": "13. Email CC: nhập email người cần thông báo trong CC, sử dụng dấu “;” nếu nhập hơn 1 email.\n14. Loại nghỉ phép (bắt buộc): loại nghỉ phép, bao gồm 3 loại nghỉ phép được quy định.\n15. Ủy quyền gửi đơn nghỉ phép (không bắt buộc): chọn điều kiện này để làm đơn thay cho nhân viên không có email nhận thông báo. Người đại diện cần nhập thông tin Mã nhân viên và Tên nhân viên chính xác cho người cần làm đơn để HCNS có thông tin chính xác của người cần nghỉ phép.",
+      "text": "13. Email CC: nhập email người cần thông báo trong CC, sử dụng dấu “;” nếu nhập hơn 1 email.\n14. Loại nghỉ phép (bắt buộc): loại nghỉ phép, bao gồm 3 loại nghỉ phép được quy định.\n15. Ủy quyền gửi đơn nghỉ phép (không bắt buộc): chọn điều kiện này để làm đơn thay cho nhân viên không có email nhận thông báo. Người đại diện cần nhập thông tin Mã nhân viên và Tên nhân viên chính xác cho người cần làm đơn để HCNS có thông tin chính xác của người cần nghỉ phép.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "first-approval",
+      "raw": "2. Đối với người duyệt đơn nghỉ phép online\nĐối với lần đầu bạn duyệt 1 đơn nghỉ phép online, Microsoft sẽ điều hướng bạn đến trang web của Power Automate khi bạn click vào nút Approve/Reject. Bạn làm theo chỉ dẫn trên trình duyệt để cho phép Microsoft xác thực thông tin email Rita Võ trước khi sử dụng.\nLưu ý: Người duyệt không có tài khoản O365 có thể duyệt thông qua ứng dụng Microsoft Power Automate trên trình duyệt. Bạn nên liên hệ HCNS IT để kiểm tra tài khoản O365 của bạn.",
+      "text": "2. Đối với người duyệt đơn nghỉ phép online\nĐối với lần đầu bạn duyệt 1 đơn nghỉ phép online, Microsoft sẽ điều hướng bạn đến trang web của Power Automate khi bạn click vào nút Approve/Reject. Bạn làm theo chỉ dẫn trên trình duyệt để cho phép Microsoft xác thực thông tin email Rita Võ trước khi sử dụng.\nLưu ý: Người duyệt không có tài khoản O365 có thể duyệt thông qua ứng dụng Microsoft Power Automate trên trình duyệt. Bạn nên liên hệ HCNS IT để kiểm tra tài khoản O365 của bạn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "outlook",
+      "raw": "Hệ thống cung cấp 3 cách để duyệt/từ chối e-leave của nhân viên như sau:\n2.1 Duyệt từ Outlook (dành cho máy tính, điện thoại và tablet)\nHệ thống sẽ gửi email đến người duyệt ngay khi các thông tin nhập liệu chính xác hoàn tất thông tin.\nNgười duyệt click “Duyệt” để duyệt hoặc “Từ chối” để từ chối đơn nghỉ phép.\nVui lòng ghi vào “Comments” để ghi chú cho lý do từ chối.",
+      "text": "Hệ thống cung cấp 3 cách để duyệt/từ chối e-leave của nhân viên như sau:\n2.1 Duyệt từ Outlook (dành cho máy tính, điện thoại và tablet)\nHệ thống sẽ gửi email đến người duyệt ngay khi các thông tin nhập liệu chính xác hoàn tất thông tin.\nNgười duyệt click “Duyệt” để duyệt hoặc “Từ chối” để từ chối đơn nghỉ phép.\nVui lòng ghi vào “Comments” để ghi chú cho lý do từ chối.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "teams",
+      "raw": "2.2 Duyệt bằng MS team\nBước 1) MS Team sẽ popup thông tin cần duyệt trên MS Team ngay khi có E-leave được gửi đến bạn.\nBước 2) Người duyệt click “Duyệt” để duyệt hoặc “Từ chối” để từ chối đơn nghỉ phép. Phần ghi chú trong mục “Comment” sẽ gửi đến người đề nghị (nếu có).",
+      "text": "2.2 Duyệt bằng MS team\nBước 1) MS Team sẽ popup thông tin cần duyệt trên MS Team ngay khi có E-leave được gửi đến bạn.\nBước 2) Người duyệt click “Duyệt” để duyệt hoặc “Từ chối” để từ chối đơn nghỉ phép. Phần ghi chú trong mục “Comment” sẽ gửi đến người đề nghị (nếu có).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "teams-history",
+      "raw": "Bạn có thể xem lại thông tin đã duyệt/từ chối trong mục “Activity”.",
+      "text": "Bạn có thể xem lại thông tin đã duyệt/từ chối trong mục “Activity”.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "powerautomate-install",
+      "raw": "2.3 Duyệt từ phần mềm Microsoft Power Automate (điện thoại)\nNgười duyệt vào Google Play/Apple Store để tải ứng dụng “Power Automate” từ nhà cung cấp Microsoft.",
+      "text": "2.3 Duyệt từ phần mềm Microsoft Power Automate (điện thoại)\nNgười duyệt vào Google Play/Apple Store để tải ứng dụng “Power Automate” từ nhà cung cấp Microsoft.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "powerautomate-use",
+      "raw": "Sau khi tải, bạn đăng nhập tài khoản O365 trên ứng dụng để có thể theo dõi E-leave và các trạng thái chờ duyệt/duyệt/từ chối gửi đến bạn.\nThông báo từ màn hình điện thoại > Truy cập và xem danh sách chờ duyệt > Duyệt hoặc từ chối đơn đề nghị.",
+      "text": "Sau khi tải, bạn đăng nhập tài khoản O365 trên ứng dụng để có thể theo dõi E-leave và các trạng thái chờ duyệt/duyệt/từ chối gửi đến bạn.\nThông báo từ màn hình điện thoại > Truy cập và xem danh sách chờ duyệt > Duyệt hoặc từ chối đơn đề nghị.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 12,
+        "page_end": 12
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "reminder",
+      "raw": "3. Chức năng nhắc nhở dành cho người duyệt\nHệ thống sẽ tự động nhắc người duyệt về đơn nghỉ phép chưa duyệt lại vào ngày hôm sau (24 tiếng).",
+      "text": "3. Chức năng nhắc nhở dành cho người duyệt\nHệ thống sẽ tự động nhắc người duyệt về đơn nghỉ phép chưa duyệt lại vào ngày hôm sau (24 tiếng).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 13
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-personal-email",
+      "raw": "4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề\nTôi có thể sử dụng email cá nhân để xin nghỉ phép không?\nTrả lời: Bạn có thể sử dụng email cá nhân để làm đơn nghỉ phép nhưng phải nhập chính xác email của người có thẩm quyền duyệt đơn.",
+      "text": "4. Các tình huống và hướng dẫn xử trí tình huống khi gặp vấn đề\nTôi có thể sử dụng email cá nhân để xin nghỉ phép không?\nTrả lời: Bạn có thể sử dụng email cá nhân để làm đơn nghỉ phép nhưng phải nhập chính xác email của người có thẩm quyền duyệt đơn.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-sessions",
+      "raw": "Tôi muốn xin nghỉ phép chiều thứ 6 và sáng thứ 7, tôi phải làm sao?\nTrả lời: Bạn cần làm 2 đơn nghỉ phép.\nTôi là nhân viên hành chính, tôi muốn nghỉ phép sáng thứ 2 và sáng thứ 3, tôi phải làm sao.\nTrả lời: Bạn có thể làm 1 đơn nghỉ phép và chọn nghỉ theo buổi: buổi sáng.",
+      "text": "Tôi muốn xin nghỉ phép chiều thứ 6 và sáng thứ 7, tôi phải làm sao?\nTrả lời: Bạn cần làm 2 đơn nghỉ phép.\nTôi là nhân viên hành chính, tôi muốn nghỉ phép sáng thứ 2 và sáng thứ 3, tôi phải làm sao.\nTrả lời: Bạn có thể làm 1 đơn nghỉ phép và chọn nghỉ theo buổi: buổi sáng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-qr",
+      "raw": "Tôi không thể quét mã QR để làm đơn nghỉ phép?\nTrả lời: Bạn cần kiểm tra lại thiết bị điện thoại/tablet có chức năng quét mã QR từ camera hay không? Bạn có thể cài thêm phần mềm hỗ trợ quét mã QR, Zalo hoặc lưu lại đường link của E-leave cho lần sử dụng tiếp theo.",
+      "text": "Tôi không thể quét mã QR để làm đơn nghỉ phép?\nTrả lời: Bạn cần kiểm tra lại thiết bị điện thoại/tablet có chức năng quét mã QR từ camera hay không? Bạn có thể cài thêm phần mềm hỗ trợ quét mã QR, Zalo hoặc lưu lại đường link của E-leave cho lần sử dụng tiếp theo.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-email-delay",
+      "raw": "Tôi không nhận được email thông báo cho đơn nghỉ phép từ nhân viên.\nTrả lời: hệ thống gửi email và mạng internet có thể chậm, vui lòng đợi trong 10-20 phút. Nếu sau 9h sáng hôm sau bạn vẫn không nhận được email phản hồi, vui lòng liên hệ phòng KSNB IT System qua email (KSNB IT SYSTEM <ksnb_it.system@ritavo.com>).",
+      "text": "Tôi không nhận được email thông báo cho đơn nghỉ phép từ nhân viên.\nTrả lời: hệ thống gửi email và mạng internet có thể chậm, vui lòng đợi trong 10-20 phút. Nếu sau 9h sáng hôm sau bạn vẫn không nhận được email phản hồi, vui lòng liên hệ phòng KSNB IT System qua email (KSNB IT SYSTEM <ksnb_it.system@ritavo.com>).",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-cancel",
+      "raw": "Tôi muốn thay đổi kế hoạch nghỉ phép.\nTrả lời: Ứng dụng E-leave giai đoạn 1 chỉ cho phép nhân viên truy cập link MS Form cho việc làm phép online, do đó bạn không thể tự hủy kế hoạch nghỉ phép. Bạn phải liên hệ cấp trên yêu cầu hủy đơn phép online nếu đơn chưa duyệt.",
+      "text": "Tôi muốn thay đổi kế hoạch nghỉ phép.\nTrả lời: Ứng dụng E-leave giai đoạn 1 chỉ cho phép nhân viên truy cập link MS Form cho việc làm phép online, do đó bạn không thể tự hủy kế hoạch nghỉ phép. Bạn phải liên hệ cấp trên yêu cầu hủy đơn phép online nếu đơn chưa duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-many-emails",
+      "raw": "Tôi nhận quá nhiều email cho 1 đơn nghỉ phép của nhân viên\nTrả lời: Hệ thống sẽ tự động nhắc đơn nghỉ phép bạn chưa duyệt vào 9h sáng mỗi ngày. Vui lòng sử dụng outlook hoặc ứng dụng Power Automate để hoàn tất duyệt/từ chối đơn nghỉ phép.",
+      "text": "Tôi nhận quá nhiều email cho 1 đơn nghỉ phép của nhân viên\nTrả lời: Hệ thống sẽ tự động nhắc đơn nghỉ phép bạn chưa duyệt vào 9h sáng mỗi ngày. Vui lòng sử dụng outlook hoặc ứng dụng Power Automate để hoàn tất duyệt/từ chối đơn nghỉ phép.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-submitter-status",
+      "raw": "Tôi sẽ nhận được thông tin gì khi tạo đơn nghỉ phép cho cấp trên\nTrả lời: Hệ thống sẽ gửi 1 email thông báo đến bạn rằng đơn nghỉ phép đã được gửi đến người duyệt. Sau khi cấp trên duyệt/từ chối, bạn sẽ nhận được email thứ 2 để xác nhận trạng thái đơn nghỉ phép.",
+      "text": "Tôi sẽ nhận được thông tin gì khi tạo đơn nghỉ phép cho cấp trên\nTrả lời: Hệ thống sẽ gửi 1 email thông báo đến bạn rằng đơn nghỉ phép đã được gửi đến người duyệt. Sau khi cấp trên duyệt/từ chối, bạn sẽ nhận được email thứ 2 để xác nhận trạng thái đơn nghỉ phép.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-approver-status",
+      "raw": "Tôi sẽ nhận được thông tin gì khi nhân viên gửi đơn nghỉ phép online\nTrả lời: Bạn sẽ nhận được 1 email thông báo từ Power Automate cho hành động duyệt/từ chối đơn nghỉ phép. Sau khi bạn hoàn tất duyệt/từ chối, 1 email gửi từ itsystems@ritavo.com sẽ gửi cho cả người gửi đơn, người duyệt, người CC. Nếu bạn chưa xác nhận tình trạng đơn nghỉ phép của nhân viên, hằng ngày hệ thống sẽ gửi email Reminder vào hôm sau (24 tiếng) cho đến khi đơn nghỉ phép được hoàn thành.",
+      "text": "Tôi sẽ nhận được thông tin gì khi nhân viên gửi đơn nghỉ phép online\nTrả lời: Bạn sẽ nhận được 1 email thông báo từ Power Automate cho hành động duyệt/từ chối đơn nghỉ phép. Sau khi bạn hoàn tất duyệt/từ chối, 1 email gửi từ itsystems@ritavo.com sẽ gửi cho cả người gửi đơn, người duyệt, người CC. Nếu bạn chưa xác nhận tình trạng đơn nghỉ phép của nhân viên, hằng ngày hệ thống sẽ gửi email Reminder vào hôm sau (24 tiếng) cho đến khi đơn nghỉ phép được hoàn thành.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "faq-management",
+      "raw": "Làm sao để tôi quản lý thông tin nghỉ phép được hiệu quả\nTrả lời: Đối với người tạo đơn nghỉ phép, bạn cần di chuyển tất cả các email được gửi đến vào mục quản lý thông tin gửi email từ hệ thống. Đối với người duyệt, bạn nên sử dụng ứng dụng Power Automate để quản lý thông tin đơn nghỉ phép.",
+      "text": "Làm sao để tôi quản lý thông tin nghỉ phép được hiệu quả\nTrả lời: Đối với người tạo đơn nghỉ phép, bạn cần di chuyển tất cả các email được gửi đến vào mục quản lý thông tin gửi email từ hệ thống. Đối với người duyệt, bạn nên sử dụng ứng dụng Power Automate để quản lý thông tin đơn nghỉ phép.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 14,
+        "page_end": 14
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_personal_data_omitted",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 14
+      }
+    },
+    {
+      "warning_id": "missing-types",
+      "code": "unnamed_options",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      }
+    },
+    {
+      "warning_id": "reminder-time",
+      "code": "ambiguous_schedule",
+      "location": {
+        "kind": "pdf",
+        "page_start": 13,
+        "page_end": 14
+      }
+    }
+  ]
+}

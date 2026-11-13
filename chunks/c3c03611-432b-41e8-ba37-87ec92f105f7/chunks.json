@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "chunks": [
+    {
+      "content": "Workit — mở Apps > Văn phòng số. Menu có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV. Hướng dẫn HDSD-29/3/25-V1 không trình bày chi tiết tạo tài liệu/thư viện chia sẻ.",
+      "source_refs": [
+        {
+          "segment_id": "identity-menu",
+          "start": 0,
+          "end": 246
+        }
+      ]
+    },
+    {
+      "content": "Workit — vì sao không thấy Văn bản đi: Hành chính quản lý, nhập liệu và cấp quyền cho người có yêu cầu; mặc định không có dữ liệu nếu chưa được chia sẻ. Khi được cấp quyền, xem thông báo tại Bàn làm việc hoặc vào Văn phòng số > Văn bản đi. Ba quyền riêng là Xem, Tải, Chia sẻ; quyền xem không tự động là quyền tải hoặc chia sẻ.",
+      "source_refs": [
+        {
+          "segment_id": "outgoing",
+          "start": 0,
+          "end": 573
+        }
+      ]
+    },
+    {
+      "content": "Workit — xem/tải văn bản khi được phân quyền: mở Văn bản đi, nhấn icon tệp đính kèm rồi icon file để mở. Nếu có quyền Tải, dùng nút tải cạnh file hoặc Tải xuống tất cả. Văn bản đến và Giấy ủy quyền sử dụng thao tác/phân quyền tương tự.",
+      "source_refs": [
+        {
+          "segment_id": "view-download",
+          "start": 0,
+          "end": 167
+        },
+        {
+          "segment_id": "incoming",
+          "start": 0,
+          "end": 380
+        },
+        {
+          "segment_id": "authorization",
+          "start": 0,
+          "end": 380
+        }
+      ]
+    },
+    {
+      "content": "Workit — chia sẻ văn bản khi có quyền Chia sẻ: chọn Chia sẻ, tìm nhân sự, cấp quyền Xem/Tải/Chia sẻ cho một hoặc nhiều người, chọn Gửi email nếu cần rồi OK. Quyền chia sẻ do Hành chính phân quyền; không mặc định mọi người đều có.",
+      "source_refs": [
+        {
+          "segment_id": "sharing",
+          "start": 0,
+          "end": 194
+        },
+        {
+          "segment_id": "outgoing",
+          "start": 0,
+          "end": 573
+        }
+      ]
+    },
+    {
+      "content": "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi.",
+      "source_refs": [
+        {
+          "segment_id": "incoming",
+          "start": 0,
+          "end": 380
+        },
+        {
+          "segment_id": "authorization",
+          "start": 0,
+          "end": 380
+        }
+      ]
+    },
+    {
+      "content": "Workit — đọc Thông báo – Tin tức: chọn tin ở tab Thông báo & Tin tức trên trang chủ; hoặc Bàn làm việc > Thông báo, tin tức chưa xem; hoặc Apps > Văn phòng số > Thông báo – Tin tức. Chức năng đăng sự kiện, quyết định, công bố và hình ảnh hoạt động doanh nghiệp.",
+      "source_refs": [
+        {
+          "segment_id": "news",
+          "start": 0,
+          "end": 491
+        },
+        {
+          "segment_id": "identity-menu",
+          "start": 0,
+          "end": 246
+        }
+      ]
+    },
+    {
+      "content": "Workit — tìm liên hệ đồng nghiệp: Apps > Văn phòng số > Danh bạ CBNV; lọc đơn vị, phòng ban, khối hoặc dùng ô tìm kiếm. Danh bạ có họ tên, chức danh, khối, đơn vị, email, điện thoại, ngày tháng sinh và avatar. Tài liệu chỉ hướng dẫn tra cứu; thông tin cá nhân trong ảnh không xác lập liên hệ hiện tại.",
+      "source_refs": [
+        {
+          "segment_id": "identity-menu",
+          "start": 0,
+          "end": 246
+        },
+        {
+          "segment_id": "directory",
+          "start": 0,
+          "end": 253
+        }
+      ]
+    }
+  ],
+  "excluded": [],
+  "warning_decisions": {
+    "examples": "Sample people, contact/account values, amounts, dates, filenames, counts and unrelated screen content omitted from searchable transcription; functional labels retained. Source snapshot unchanged."
+  }
+}

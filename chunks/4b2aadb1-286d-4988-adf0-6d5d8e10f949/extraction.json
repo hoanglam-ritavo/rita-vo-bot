@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of all 8 rendered PDF pages; procedural text and UI actions retained; example personal rows, screenshots of unrelated news and decorative elements omitted"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD DUYỆT PHIẾU THEO QUY TRÌNH DÀNH CHO QUẢN LÝ\nHDSD-29/3/25-V1\nIT-HCNS",
+      "text": "PHẦN MỀM QUẢN LÝ DOANH NGHIỆP WORKIT\nHDSD DUYỆT PHIẾU THEO QUY TRÌNH DÀNH CHO QUẢN LÝ\nHDSD-29/3/25-V1\nIT-HCNS",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 1
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "home",
+      "raw": "GIAO DIỆN\nSau khi đăng nhập vào phần mềm, trang màn hình chính sẽ xuất hiện như hình bên dưới.\nNgười dùng nhìn vào Layout “Bàn làm việc” sẽ thấy được tất cả các công việc, các phiếu đang chờ mình xử lý, phê duyệt. Còn màu đỏ tức là chưa hoàn thành.\nClick vào từng dòng thông tin sẽ đưa người dùng đến chi tiết phiếu tương ứng.",
+      "text": "GIAO DIỆN\nSau khi đăng nhập vào phần mềm, trang màn hình chính sẽ xuất hiện như hình bên dưới.\nNgười dùng nhìn vào Layout “Bàn làm việc” sẽ thấy được tất cả các công việc, các phiếu đang chờ mình xử lý, phê duyệt. Còn màu đỏ tức là chưa hoàn thành.\nClick vào từng dòng thông tin sẽ đưa người dùng đến chi tiết phiếu tương ứng.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 2,
+        "page_end": 2
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "queue",
+      "raw": "Khi người dùng click vào “đề xuất cung ứng” SL: 7 trên Layout Bàn làm việc sẽ đưa đến giao diện như hình. Và đang có 7 phiếu đang chờ bạn duyệt.\nTheo chức năng từng ô sẽ có các phiếu tương ứng.\nCác tab: Tất cả; Chờ bạn duyệt; Đang xử lý; Đang xử lý (đã quá hạn); Đã hoàn tất.",
+      "text": "Khi người dùng click vào “đề xuất cung ứng” SL: 7 trên Layout Bàn làm việc sẽ đưa đến giao diện như hình. Và đang có 7 phiếu đang chờ bạn duyệt.\nTheo chức năng từng ô sẽ có các phiếu tương ứng.\nCác tab: Tất cả; Chờ bạn duyệt; Đang xử lý; Đang xử lý (đã quá hạn); Đã hoàn tất.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "quick-view",
+      "raw": "KIỂM TRA VÀ DUYỆT PHIẾU\nKiểm tra phiếu nhanh bằng cách click vào phiếu sẽ hiện nội dung ở lưới phiếu dưới.",
+      "text": "KIỂM TRA VÀ DUYỆT PHIẾU\nKiểm tra phiếu nhanh bằng cách click vào phiếu sẽ hiện nội dung ở lưới phiếu dưới.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 4,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "details",
+      "raw": "Chi tiết bằng cách click vào các icon bên cạnh phiếu: Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và quy trình.\nMàn hình sau khi click vào nút xem, sửa.",
+      "text": "Chi tiết bằng cách click vào các icon bên cạnh phiếu: Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và quy trình.\nMàn hình sau khi click vào nút xem, sửa.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "workflow",
+      "raw": "Click vào biểu tượng tô đỏ để xem quy trình hiện tại bao gồm những bước phê duyệt nào.\nTheo quy trình bên dưới thì đã trải qua 2 bước trong quá trình. Và quy trình tô đỏ bên dưới là đến mình kiểm tra, phê duyệt.",
+      "text": "Click vào biểu tượng tô đỏ để xem quy trình hiện tại bao gồm những bước phê duyệt nào.\nTheo quy trình bên dưới thì đã trải qua 2 bước trong quá trình. Và quy trình tô đỏ bên dưới là đến mình kiểm tra, phê duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "approve",
+      "raw": "KIỂM TRA VÀ DUYỆT PHIẾU\nSau khi kiểm tra phiếu, nếu phiếu đúng nhu cầu. Quản lý sẽ tiến hành chọn phiếu và nhấn nút Duyệt.\nTrang phê duyệt hiển thị: Nhập ý kiến nếu có; Chọn phòng ban, người thực hiện bước tiếp theo; Duyệt.",
+      "text": "KIỂM TRA VÀ DUYỆT PHIẾU\nSau khi kiểm tra phiếu, nếu phiếu đúng nhu cầu. Quản lý sẽ tiến hành chọn phiếu và nhấn nút Duyệt.\nTrang phê duyệt hiển thị: Nhập ý kiến nếu có; Chọn phòng ban, người thực hiện bước tiếp theo; Duyệt.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "return-reject",
+      "raw": "Nếu phiếu chưa đúng hoặc cần bổ sung. Quản lý có quyền Trả lại hoặc Từ chối luôn phiếu (phụ thuộc phân quyền hệ thống cho phép từ chối, trả lại).\nẢnh Trả lại: Nhập ý kiến; Chọn trả về 1 trong các bước đã duyệt; Trả lại.\nẢnh Từ chối: chọn phiếu và nút Từ chối.",
+      "text": "Nếu phiếu chưa đúng hoặc cần bổ sung. Quản lý có quyền Trả lại hoặc Từ chối luôn phiếu (phụ thuộc phân quyền hệ thống cho phép từ chối, trả lại).\nẢnh Trả lại: Nhập ý kiến; Chọn trả về 1 trong các bước đã duyệt; Trả lại.\nẢnh Từ chối: chọn phiếu và nút Từ chối.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "configuration": {},
+  "parser_metadata": {
+    "method": "agent visual transcription of 10 rendered pages; selected source text and functional UI labels, excluding instance values"
+  },
+  "segments": [
+    {
+      "segment_id": "identity",
+      "raw": "RTV/ERP/Bravo-VPN — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG CÀI ĐẶT BRAVO 8. VERSION 1.0; 11.11.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV-ERP; Phân hệ Bravo 8. Tài liệu nội bộ. Nội dung: I Giới thiệu; II Sơ đồ hoạt động; III Thiết lập VPN – Mạng riêng ảo; IV Cài đặt phần mềm Bravo.",
+      "text": "RTV/ERP/Bravo-VPN — TÀI LIỆU HƯỚNG DẪN SỬ DỤNG CÀI ĐẶT BRAVO 8. VERSION 1.0; 11.11.2023. Phòng KSNB, Đội ngũ IT System. Mã dự án RTV-ERP; Phân hệ Bravo 8. Tài liệu nội bộ. Nội dung: I Giới thiệu; II Sơ đồ hoạt động; III Thiết lập VPN – Mạng riêng ảo; IV Cài đặt phần mềm Bravo.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 4
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "terms",
+      "raw": "RTV: Rita Võ. KSNB: Phòng kiểm soát nội bộ. HCNS: Phòng HCNS. ITSYS: Nhóm IT System trực thuộc phòng KSNB, tổng công ty Rita Võ (email: ksnb_it.system@ritavo.com). IT: Nhóm IT trực thuộc phòng HCNS (email: it@ritavo.com). Bravo: Phần mềm ERP được phát triển bởi công ty Bravo. VPN: Virtual Private network – Mạng riêng ảo.",
+      "text": "RTV: Rita Võ. KSNB: Phòng kiểm soát nội bộ. HCNS: Phòng HCNS. ITSYS: Nhóm IT System trực thuộc phòng KSNB, tổng công ty Rita Võ (email: ksnb_it.system@ritavo.com). IT: Nhóm IT trực thuộc phòng HCNS (email: it@ritavo.com). Bravo: Phần mềm ERP được phát triển bởi công ty Bravo. VPN: Virtual Private network – Mạng riêng ảo.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 3,
+        "page_end": 3
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "scope",
+      "raw": "I. Giới thiệu: P. KSNB IT System và P. HCNS IT phối hợp với công ty Bravo xây dựng kết nối mới cho phần mềm Bravo. Người dùng cần thiết lập thông tin theo hướng dẫn để sử dụng Bravo 8 tại Tập Đoàn Công ty Rita Võ.\nII. Sơ đồ hoạt động: Nhân viên ngoài mạng công ty bao gồm nhân viên làm việc tại nhà, địa điểm công cộng, được phân công sử dụng ERP Bravo 8. Nhân viên trong mạng công ty làm việc tại kho, văn phòng, showroom, trụ sở chính, được phân công sử dụng ERP Bravo 8. Bravo Desktop được P. HCNS IT cài cho nhân viên mới. Không sử dụng được Bravo 8 theo sơ đồ thì xem FAQ hoặc liên hệ P. KSNB IT System để hỗ trợ cài phiên bản mới nhất.\nIII. Máy tính cần được P. HCNS IT cài VPN để dùng Bravo tại địa điểm công cộng hoặc ở nhà.",
+      "text": "I. Giới thiệu: P. KSNB IT System và P. HCNS IT phối hợp với công ty Bravo xây dựng kết nối mới cho phần mềm Bravo. Người dùng cần thiết lập thông tin theo hướng dẫn để sử dụng Bravo 8 tại Tập Đoàn Công ty Rita Võ.\nII. Sơ đồ hoạt động: Nhân viên ngoài mạng công ty bao gồm nhân viên làm việc tại nhà, địa điểm công cộng, được phân công sử dụng ERP Bravo 8. Nhân viên trong mạng công ty làm việc tại kho, văn phòng, showroom, trụ sở chính, được phân công sử dụng ERP Bravo 8. Bravo Desktop được P. HCNS IT cài cho nhân viên mới. Không sử dụng được Bravo 8 theo sơ đồ thì xem FAQ hoặc liên hệ P. KSNB IT System để hỗ trợ cài phiên bản mới nhất.\nIII. Máy tính cần được P. HCNS IT cài VPN để dùng Bravo tại địa điểm công cộng hoặc ở nhà.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 5,
+        "page_end": 5
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "vpn-open",
+      "raw": "Cách 1: Tại màn hình desktop, click chuột trái biểu tượng mạng, chọn VPN. Kiểm tra HCNS IT đã cài kết nối RitaVO cho VPN chưa.\nCách 2: Start Menu hoặc Search dưới taskbar, gõ VPN Settings. Tại màn hình VPN Settings, đảm bảo thấy thiết lập VPN đã được cài và sẵn sàng kết nối. Ảnh: Network & internet > VPN > RitaVO.",
+      "text": "Cách 1: Tại màn hình desktop, click chuột trái biểu tượng mạng, chọn VPN. Kiểm tra HCNS IT đã cài kết nối RitaVO cho VPN chưa.\nCách 2: Start Menu hoặc Search dưới taskbar, gõ VPN Settings. Tại màn hình VPN Settings, đảm bảo thấy thiết lập VPN đã được cài và sẵn sàng kết nối. Ảnh: Network & internet > VPN > RitaVO.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 6,
+        "page_end": 7
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "vpn-connect",
+      "raw": "Bước 3: Nhấn Connect để kết nối VPN đến mạng văn phòng của Tập Đoàn Rita Võ. Lưu ý, bạn chỉ được phép kết nối VPN nếu như bạn đang sử dụng mạng ngoài công ty: ở nhà, địa điểm công cộng ngoài mạng công ty,… Bước 4: Kết nối thành công khi Connected hiển thị; có thể theo dõi lưu lượng Data đã sử dụng thông qua kết nối VPN thành công.",
+      "text": "Bước 3: Nhấn Connect để kết nối VPN đến mạng văn phòng của Tập Đoàn Rita Võ. Lưu ý, bạn chỉ được phép kết nối VPN nếu như bạn đang sử dụng mạng ngoài công ty: ở nhà, địa điểm công cộng ngoài mạng công ty,… Bước 4: Kết nối thành công khi Connected hiển thị; có thể theo dõi lưu lượng Data đã sử dụng thông qua kết nối VPN thành công.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "install",
+      "raw": "IV. Cài đặt phần mềm Bravo: Đảm bảo đang sử dụng phiên bản ERP Bravo 8 mới nhất. Chú ý email thông báo từ P. KSNB IT System về phiên bản cập nhật. P. HCNS IT cài Bravo 8 khi bạn gia nhập Tập Đoàn nếu có vai trò sử dụng ERP Bravo 8. Cài kết nối mới bằng 1 trong các cách: Cách 1 truy cập ổ đĩa mạng Public theo đường dẫn (link), download phiên bản mới nhất và giải nén. Cách 2 truy cập thư mục Office 365 Sharepoint theo đường dẫn (link), download và giải nén. Cách 3 liên hệ P. KSNB IT System ksnb_it.system@ritavo.com hoặc P. HCNS IT it@ritavo.com để được cài phiên bản mới nhất.",
+      "text": "IV. Cài đặt phần mềm Bravo: Đảm bảo đang sử dụng phiên bản ERP Bravo 8 mới nhất. Chú ý email thông báo từ P. KSNB IT System về phiên bản cập nhật. P. HCNS IT cài Bravo 8 khi bạn gia nhập Tập Đoàn nếu có vai trò sử dụng ERP Bravo 8. Cài kết nối mới bằng 1 trong các cách: Cách 1 truy cập ổ đĩa mạng Public theo đường dẫn (link), download phiên bản mới nhất và giải nén. Cách 2 truy cập thư mục Office 365 Sharepoint theo đường dẫn (link), download và giải nén. Cách 3 liên hệ P. KSNB IT System ksnb_it.system@ritavo.com hoặc P. HCNS IT it@ritavo.com để được cài phiên bản mới nhất.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    },
+    {
+      "segment_id": "run",
+      "raw": "Sau khi giải nén về ổ đĩa trên máy tính, bạn có thể sử dụng phần mềm với sự phân quyền hệ thống từ P. KSNB IT System như bình thường. Ảnh chỉ Bravo8.exe. Trường hợp máy tính báo lỗi về bảo mật do file cài đặt được chép về từ ổ đĩa chia sẻ chung như hình, click More Info và click Run Anyway.",
+      "text": "Sau khi giải nén về ổ đĩa trên máy tính, bạn có thể sử dụng phần mềm với sự phân quyền hệ thống từ P. KSNB IT System như bình thường. Ảnh chỉ Bravo8.exe. Trường hợp máy tính báo lỗi về bảo mật do file cài đặt được chép về từ ổ đĩa chia sẻ chung như hình, click More Info và click Run Anyway.",
+      "location": {
+        "kind": "pdf",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "extraction_method": "ocr",
+      "details": {}
+    }
+  ],
+  "warnings": [
+    {
+      "warning_id": "examples",
+      "code": "illustrative_examples",
+      "location": {
+        "kind": "pdf",
+        "page_start": 1,
+        "page_end": 10
+      }
+    },
+    {
+      "warning_id": "blank",
+      "code": "blank_page",
+      "location": {
+        "kind": "pdf",
+        "page_start": 10,
+        "page_end": 10
+      }
+    },
+    {
+      "warning_id": "links",
+      "code": "embedded_download_links",
+      "location": {
+        "kind": "pdf",
+        "page_start": 8,
+        "page_end": 8
+      }
+    }
+  ]
+}
