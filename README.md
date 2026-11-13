@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and a local gRPC server with health checking only. Planned: answer generation, chatbot business RPCs, authenticated Type B service tools and routing. There is no answer-generating chatbot yet.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI, a local gRPC server with health checking only, and a local FastAPI single-turn answering API using Ollama. Real-model answer quality requires separate evaluation. Chatbot business RPCs, authenticated Type B tools and conversation history remain planned.
 
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
@@ -80,9 +80,33 @@ async def retrieve_example(model_path, model_revision):
         await close_database()  # Application owner closes the shared database at shutdown.
 ```
 
-The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. There is no HTTP/RPC chat endpoint, conversation history, personnel lookup or answer generation.
+The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. The retrieval CLI returns chunks only; the separate HTTP answering API below adds local LLM generation. Conversation history, personnel lookup and chat RPCs remain unimplemented.
 
-The existing `scripts/evaluate_retrieval.py` is a fixed evaluation for the benefits package, but its hard-coded package path and revision comparison still assume the retired nested revision layout. It needs a separate code update before it is usable with current `chunks/<document_id>/` packages; do not move packages back to the old layout. Its evaluation covers 12 questions across six topics plus two unsupported questions at top-5, recording expected-source hits, distances, model-load/overall question timings and before/after database counts. It does not establish complete inventory/count answers, fallback correctness or separate embedding/database latency. The real-model evaluation is separate from synthetic unit/integration tests, and publication success alone does not prove retrieval quality.
+## Local answering API and Swagger
+
+Install `requirements-dev.txt` and `requirements-example.txt` in the repository virtual environment. Install and start Ollama separately on this machine, disable its cloud features (`OLLAMA_NO_CLOUD=1` in the Ollama service environment), and explicitly obtain `qwen3:4b` with `ollama pull qwen3:4b`. This downloads weights; the API never downloads models or falls back to hosted inference. Model suitability and latency depend on RAM/GPU and must be measured. Keep the model unchanged during a run.
+
+Use the API settings from `.env.example` in your local environment. Existing environment variables take precedence over repository `.env`. E5 defaults to the pinned model path under `.tmp/models`; it must match the active indexed run. PostgreSQL, its already-migrated schema and already-published public documents are prerequisites. Startup does not migrate or publish anything. Start:
+
+```powershell
+.\env\Scripts\python.exe -m src.cli.serve_api
+```
+
+Open http://127.0.0.1:8000/docs and call `POST /api/v1/ask` with `{"text":"What eligibility conditions apply?"}`. Only `text` is accepted: a nonempty string, at most 8,000 characters and within the E5 token limit. Retrieval count defaults to 5 via `ANSWER_TOP_K` (1–20). Response includes `answer`, `status`, `confidence`, cited `sources` and retrieval/generation/total timings in seconds. Source IDs such as `[S1]` are resolved to backend-owned chunk/document/revision IDs, titles and spans. No question history is retained.
+
+The server binds only to `127.0.0.1` (default port 8000), without authentication. Use the supplied entrypoint: it keeps the psycopg-compatible Windows loop, one worker and no reload. Startup loads E5 once, checks the database and warms Ollama before serving. The Ollama URL must be explicit loopback HTTP (default `http://127.0.0.1:11434`). Remote models are rejected. Ollama uses context 8192, output limit 1024, temperature 0, no thinking/streaming and `keep_alive=-1`. This requests residency, not immunity to restarts or memory pressure. Startup warm-up timeout is 300 seconds; answering timeout is 120 seconds. Cancellation of an in-progress E5 worker waits for that worker to finish safely, so teardown may exceed the nominal deadline. One answer runs at a time; additional requests receive 429.
+
+`/health/live` reports HTTP availability. `/health/ready` checks initialized E5 state, database connectivity and availability of the unchanged local Ollama model; it does not evaluate semantics, publication completeness or guarantee LLM residency. Shutdown closes E5, HTTP connections and the database, but leaves the independently managed Ollama process/model running. Imports create no runtime connections.
+
+Statuses are `answered`, `insufficient_evidence`, `needs_clarification` and `unsupported`. Confidence levels (`high`, `medium`, `low`, `insufficient`) are backend mappings of the LLM's evidence assessment, always `calibrated=false`; neither valid citations nor high confidence prove correctness. No cosine-distance confidence or relevance threshold is introduced. Context uses a conservative UTF-8 byte budget, drops whole chunks in retrieval order and never truncates conditions within a chunk. Exhaustive inventory/count answers require explicit completeness evidence. Type B personnel/project facts remain disconnected; semantic detection, clarification and evidence sufficiency rely on the prompt/model and require real evaluation.
+
+Invalid requests return 422, busy returns 429, unavailable dependencies/model mismatch return 503, timeout returns 504, and malformed/truncated model output or invalid citations return 502. Operational failures never become empty evidence. Logs contain status/timing/error codes, not question or document content. Read [the manual evaluation checklist](docs/answering-evaluation.md) before claiming answer quality. gRPC remains an independent health-only process.
+
+Use `python -m scripts.evaluate_retrieval --package chunks/<document_id> --cases .tmp/evaluation/cases.json --model-path <local-model-directory> --model-revision <40-hex-commit> --top-k 5 --output .tmp/evaluation/report.json` for read-only evaluation of a published package. Package and cases paths are required; top-K defaults to 5 (1–20). Reports may only be written under `.tmp/`, outside the package/model and without overwriting the case file. The evaluator reads revision identity from metadata and rejects stale package/model fingerprints, ineligible revisions, changed inputs or stored content/spans/vectors that differ from the selected package. It records ranks, distances, model-load/overall question timings and storage verification, without copying retrieved content or vectors into reports. These timings do not separate query embedding from database latency.
+
+Author cases before examining retrieval rankings. A case file contains `revision_id`, `chunks_sha256` (the `canonical_hash` of the validated payload's `chunks` returned by `src.ingestion.document_packages.load_package`) and a nonempty `cases` array. Each case has a unique string `id`, `question`, `category` (`detail`, `condition`, `aggregate`, or `unsupported`), optional boolean `critical`, and `required_groups`: a list of nonempty lists of zero-based package chunk indices. Every group must have at least one retrieved member from the pinned revision/run. For example, `[[1, 2], [3]]` requires chunk 1 or 2 plus chunk 3. Choose chunks containing the required answer evidence, not merely a shared source segment; an inventory can reference a detail's segment without containing its amount. Unsupported cases may have empty groups and are marked for manual review, never scored as answered or correctly refused. Keep real-document case files and reports under ignored `.tmp/`; committed tests use synthetic content.
+
+The target is at least 90% complete evidence among detail/condition cases with every marked supported critical case passing. Aggregate results are reported separately. Exit codes are 0 for meeting this target, 1 for missing it, and 2 for evaluation/input/storage failures (argument errors also use 2). An unsupported-only set cannot meet the target. This evaluates evidence retrieval, not generated answers or fallback behavior. Agent review must still assess ambiguous wording, missing operational facts and semantic sufficiency. Package changes require re-pinning cases and a matching publication; retain baseline reports and disclose any tuning on the evaluation questions.
 
 ## Local gRPC server
 
@@ -127,7 +151,7 @@ From the project root, use `python -m src.cli.check_db` (preferred) or `python m
 
 ## Using the database in an async handler
 
-This example demonstrates the existing database helper; no bot/API handler framework is implemented yet.
+This example demonstrates the database helper independently of the local FastAPI answering service.
 
 ```python
 from sqlalchemy import text

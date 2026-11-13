@@ -14,18 +14,20 @@
   "effective_from": "2023-03-08",
   "effective_to": null,
   "version_label": "01/2023/TB-HCNS",
-  "lifecycle_status": "unknown",
-  "access_groups": [],
+  "lifecycle_status": "active",
+  "access_groups": [
+    "public"
+  ],
   "evidence_notes": [
     "All six physical PDF pages visually rechecked in the user-authorized agent session. Pages 1, 3 and 5 contain substantive text; pages 2, 4 and 6 have no independent policy text. Local PyMuPDF renders and enlarged crops were used; no external OCR service was called.",
     "Existing document/revision identity and byte-identical source snapshot preserved. Source is unchanged; authoring edits do not create a source revision.",
     "Decision 01/2023/TB-HCNS is dated 08 March 2023; Article 5 explicitly states 08/03/2023. The source does not establish present validity, a verified access group or a specific superseded revision.",
-    "The current requested plan explicitly selects hold/unknown with empty access groups. Earlier include/active/public authoring metadata is superseded for this package handoff; no database update was performed.",
     "Article 4 contains 11 main benefit items. Items 1 and 2 contain two and three subitems respectively; benefit counts are not chunk counts. Inventory and detail chunks preserve those labels.",
     "The shared age condition for items 8 and 9 is preserved verbatim. Eligibility at exactly age 15 remains unresolved; both chunks disclose the ambiguity. The source does not specify tenure rounding for join dates after day 15.",
     "Printed anomalies QH134 and CNBV are preserved. Source references support transcription and authored summaries, not external legal verification.",
-    "Prior model checks applied to the earlier chunk bytes and do not validate this authoring revision. Token preflight, embeddings, database dry-run, publication and retrieval evaluation were not run for this package update."
+    "Scope 1 authoring originally completed without model or database work. Scope 2 on 2026-11-13 uses the supplied local model and configured PostgreSQL; fingerprint-bound verification and retrieval reports are maintained separately under ignored .tmp/benefits-publication. Earlier model checks do not validate subsequent package edits.",
+    "On 2026-11-13 the user explicitly confirmed current validity and permission for public access, and authorized publication to the configured local PostgreSQL database. These confirmations establish include/active/public metadata; they do not resolve source age-boundary ambiguity or supply unstated tenure-rounding rules. Prior hold instructions are superseded by this confirmation."
   ],
-  "indexing_decision": "hold",
+  "indexing_decision": "include",
   "relations": []
 }

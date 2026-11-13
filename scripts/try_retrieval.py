@@ -11,7 +11,7 @@ if __package__ in (None, ''):
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 # Edit these values in your IDE. Keep this file saved as UTF-8.
-QUESTION = "Chào buổi tối?"
+QUESTION = "công ty có bao nhiêu phúc lợi cho nhân viên?"
 MODEL_REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
 MODEL_PATH = REPOSITORY_ROOT / ".tmp/models/multilingual-e5-small" / MODEL_REVISION
 TOP_K = 5

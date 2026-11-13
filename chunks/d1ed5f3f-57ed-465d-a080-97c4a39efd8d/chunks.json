@@ -240,7 +240,7 @@
       "notes": "Detail preserves source eligibility and cross-page conditions. No current-validity inference; source typographical wording is retained."
     },
     {
-      "content": "Chính sách phúc lợi 2023 — Điều 4, khoản 1.\n2 Tang gia\n2.1 | CBNV mất | 5.000.000đ/trường hợp + 01 vòng hoa (1.000.000đ) | Có giấy báo tử\nÁp dụng cho CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.\n- Các khoản phúc lợi có thể thay đổi tùy theo điều kiện, tình hình kinh doanh và lợi nhuận Tập đoàn trong từng thời điểm",
+      "content": "Chính sách phúc lợi 2023 — Điều 4, khoản 1.\nMục 2 Tang gia, tiểu mục 2.1: Khi cán bộ nhân viên (CBNV) mất (qua đời), công ty hỗ trợ 5.000.000đ/trường hợp và 01 vòng hoa trị giá 1.000.000đ. Cần có giấy báo tử.\nÁp dụng cho CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.\n- Các khoản phúc lợi có thể thay đổi tùy theo điều kiện, tình hình kinh doanh và lợi nhuận Tập đoàn trong từng thời điểm",
       "source_refs": [
         {
           "segment_id": "p1-identity",
@@ -266,9 +266,14 @@
           "segment_id": "p5-variation",
           "start": 0,
           "end": 120
+        },
+        {
+          "segment_id": "p1-definitions",
+          "start": 266,
+          "end": 292
         }
       ],
-      "notes": "Detail preserves source eligibility and cross-page conditions. No current-validity inference; source typographical wording is retained."
+      "notes": "Detail preserves source eligibility and cross-page conditions. No current-validity inference; source typographical wording is retained. Agent refinement round 1: express item 2.1 as a self-contained sentence, expand CBNV using Article 3, and use the ordinary equivalent qua đời. No entitlement or condition changed."
     },
     {
       "content": "Chính sách phúc lợi 2023 — Điều 4, khoản 1.\n2 Tang gia\n2.2 | CNBV có tứ thân phụ mẫu, vợ, chồng hoặc con mất | 2.000.000đ/trường hợp + 01 vòng hoa (1.000.000đ) | Có giấy báo tử\nÁp dụng cho CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.\n- Các khoản phúc lợi có thể thay đổi tùy theo điều kiện, tình hình kinh doanh và lợi nhuận Tập đoàn trong từng thời điểm",
@@ -914,6 +919,6 @@
     "handwritten-dates": "Compared full pages and enlarged crops. Document number reads 01/2023/TB-HCNS; issue and signature dates read 08 March 2023; Article 5 explicitly reads 08/03/2023. Normalized effective_from to 2023-03-08; no current-validity inference.",
     "nontext-marks": "Visual inspection distinguishes seal impressions, signature strokes and faint reverse-side marks from policy text. Printed signature names are transcribed on page 5. Clipped seal fragments and nonlinguistic handwritten strokes are preserved only in the snapshot; no signer identity inferred from strokes.",
     "source-wording": "Preserve visually observed source wording, including the legal-reference suffix, CNBV in row 2.2, and the shared age condition wording in rows 8-9. Do not silently correct citations, expand the family category, or decide whether a child exactly 15 years old qualifies.",
-    "age-boundary": "Enlarged image confirms the shared cell literally reads dưới 15 tuổi trở xuống for both items 8 and 9. Transcription and merged-cell scope are verified; eligibility at exactly age 15 remains semantically unresolved. Preserve the wording and disclose uncertainty in both detail chunks. Keep package on hold pending authoritative clarification; no age threshold has been inferred."
+    "age-boundary": "Enlarged image confirms the shared cell literally reads dưới 15 tuổi trở xuống for both items 8 and 9. Transcription and merged-cell scope are verified; eligibility at exactly age 15 remains semantically unresolved. Preserve the wording and disclose uncertainty in both detail chunks. The user separately confirmed current validity and public access for publication on 2026-11-13. This does not resolve eligibility at exactly age 15; no age threshold has been inferred, and the explicit uncertainty remains in both detail chunks."
   }
 }
