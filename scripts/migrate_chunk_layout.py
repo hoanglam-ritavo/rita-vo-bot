@@ -7,8 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.ingestion import document_packages as p
-from app.ingestion.package_storage import lock, available, replace, workspace_available
+from src.ingestion import document_packages as p
+from src.ingestion.package_storage import lock, available, replace, workspace_available
 
 
 def inspect(document):

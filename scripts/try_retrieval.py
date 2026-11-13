@@ -11,7 +11,7 @@ if __package__ in (None, ''):
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 # Edit these values in your IDE. Keep this file saved as UTF-8.
-QUESTION = "Tôi muốn hiểu thêm về phúc lợi lễ vào trung thu?"
+QUESTION = "Chào buổi tối?"
 MODEL_REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
 MODEL_PATH = REPOSITORY_ROOT / ".tmp/models/multilingual-e5-small" / MODEL_REVISION
 TOP_K = 5
@@ -142,8 +142,8 @@ def main():
                            model_revision=MODEL_REVISION, top_k=TOP_K)
     try:
         with open(os.devnull, 'w') as sink, redirect_stdout(sink), redirect_stderr(sink):
-            from app.cli.retrieve_documents import run
-            from app.database.runtime import run_async
+            from src.cli.retrieve_documents import run
+            from src.database.runtime import run_async
             result, code = run_async(run(args))
     except Exception:
         result, code = {'status': 'error', 'code': 'retrieval_failed', 'matches': []}, 2

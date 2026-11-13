@@ -11,14 +11,14 @@ from contextlib import redirect_stdout, redirect_stderr
 import os
 
 from sqlalchemy import select, func, text
-from app.database import session_scope, close_database
-from app.database.models import IngestionRun, DocumentChunk
-from app.database.runtime import run_async
-from app.retrieval import RetrievalService
-from app.ingestion.document_packages import snapshot_files, files_hash
-from app.paths import REPOSITORY_ROOT
+from src.database import session_scope, close_database
+from src.database.models import IngestionRun, DocumentChunk
+from src.database.runtime import run_async
+from src.retrieval import RetrievalService
+from src.ingestion.document_packages import snapshot_files, files_hash
+from src.paths import REPOSITORY_ROOT
 
-PACKAGE = REPOSITORY_ROOT / 'app/chunks/d1ed5f3f-57ed-465d-a080-97c4a39efd8d/9ccea696-6089-48de-8367-315648f9668b'
+PACKAGE = REPOSITORY_ROOT / 'chunks/d1ed5f3f-57ed-465d-a080-97c4a39efd8d/9ccea696-6089-48de-8367-315648f9668b'
 CASES = [
     ('Nhân viên kết hôn được hỗ trợ bao nhiêu?', 'p3-marriage-employee'),
     ('Công ty có chế độ gì khi cán bộ nhân viên cưới?', 'p3-marriage-employee'),

@@ -7,10 +7,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.ingestion import document_packages as p
-from app.ingestion import legacy_packages as legacy
-from app.catalog.inventory import reject_links, CatalogError
-from app.paths import assets, workspace
+from src.ingestion import document_packages as p
+from src.ingestion import legacy_packages as legacy
+from src.catalog.inventory import reject_links, CatalogError
+from src.paths import assets, workspace
 
 
 def equivalent(left, right):
@@ -96,7 +96,7 @@ def convert(root, directory, *, apply=False):
         p.require(equivalent(p.snapshot_files(target), files), 'conversion_target_conflict')
         return {'status': 'skipped', 'code': 'already_converted', 'package': str(target.relative_to(root))}
     if apply:
-        from app.ingestion.package_storage import lock, available
+        from src.ingestion.package_storage import lock, available
         with lock(root, 'workspace'):
             unique_source()
             with lock(root, record['document_id']):

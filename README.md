@@ -2,15 +2,17 @@
 
 Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and a local gRPC server with health checking only. Planned: answer generation, chatbot business RPCs, authenticated Type B service tools and routing. There is no answer-generating chatbot yet.
 
-Source documents remain in `app/assets/`. Git-trackable current packages live at `app/chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
+Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
-Each source has at most one current package. Editing chunks keeps the source revision; changed source bytes require `python -m app.cli.prepare_documents revise --package app/chunks/<document_id> --source <relative-source-path> --supersedes-current`. Revision identity stays in metadata while the directory remains stable. Git preserves committed package history; `.gitattributes` preserves exact bytes across checkouts. Each environment still needs its own local model and explicit publication to its own database. See [layout migration and deployment](docs/offline-indexing.md#layout-migration-and-deployment) before using an older checkout's packages.
+Each source has at most one current package. Editing chunks keeps the source revision; changed source bytes require `python -m src.cli.prepare_documents revise --package chunks/<document_id> --source <relative-source-path> --supersedes-current`. Revision identity stays in metadata while the directory remains stable. Git preserves committed package history; `.gitattributes` preserves exact bytes across checkouts. Each environment still needs its own local model and explicit publication to its own database. See [layout migration and deployment](docs/offline-indexing.md#layout-migration-and-deployment) before using an older checkout's packages.
 
 See the [indexing guide](docs/offline-indexing.md) for schemas, commands, metadata requirements and explicit non-destructive conversion of existing review/approved packages. Historical `indexing_chunks/` is untouched and never scanned. Model environments and authorization to process internal content must be established before agent reading; no hosted processing is implied.
 
-Before publication, use `python -m app.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight).
+The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and authors a complete package, with manual source/coverage checks and structural validation; no embedding model or database is required. Scope 2 reads that package, checks the actual tokenizer/model through preflight, embeds and publishes to PostgreSQL. Follow the [Scope 1 authoring procedure](docs/offline-indexing.md#agent-authoring-procedure) for focused detail chunks, source-backed inventories and optional groups within schema v2. These are authoring conventions, not automatic routing or a guarantee of complete retrieval.
 
-Entrypoints are in `app/cli/`, package processing in `app/ingestion/`, metadata validation in `app/catalog/`, database code in `app/database/`, tests in `app/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. Source rename manifests, journals and `rename-history/` remain historical evidence.
+Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded; publication encodes again unless an identical active configuration is skipped.
+
+Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
 Migration `0003_agent_packages` removes revision review state and renames review notes to evidence notes, preserving chunks, vectors and successful run history. Stop ingestion and run migrations explicitly before using the new publication code; conversion of local packages is separate and never changes the database.
 
@@ -35,7 +37,7 @@ Fill in `DATABASE_URL` in `.env` before running:
 
 ```powershell
 python -m alembic upgrade head
-python -m app.cli.check_db
+python -m src.cli.check_db
 ```
 
 PostgreSQL must already have the target database and the pgvector extension installed on the server. Installing the Python `pgvector` package does not install the server extension. If the migration account cannot enable it, ask the DBA to run `CREATE EXTENSION IF NOT EXISTS vector;` in the target database before migration.
@@ -45,7 +47,7 @@ PostgreSQL must already have the target database and the pgvector extension inst
 Install `requirements-example.txt` for the local embedding runtime. Call the retrieval CLI with an existing local model directory and its declared full commit:
 
 ```powershell
-python -m app.cli.retrieve_documents --question "What benefits are available?" --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --top-k 5 --json
+python -m src.cli.retrieve_documents --question "What benefits are available?" --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --top-k 5 --json
 ```
 
 Replace the model placeholders before execution. The command returns source chunks, not an LLM answer. `--top-k` defaults to 5 (range 1–20). Questions must be nonempty strings with at most 8,000 characters after trimming and fit the model token limit including `query: ` and special tokens; no truncation is performed. The local model is loaded without downloads or remote code. Match output includes content, source spans, document/revision/run IDs, title, relative source path, applicability, effective dates and cosine distance. Smaller distances rank first; distances are not confidence scores. There is no relevance threshold, so even unrelated questions may return candidates.
@@ -58,15 +60,15 @@ To avoid passing Vietnamese text through shell arguments, open `scripts/try_retr
 .\env\Scripts\python.exe -m scripts.try_retrieval
 ```
 
-The script always prints a compact Vietnamese text view: the question, up to three candidates in retrieval order, each document title and deduplicated source locations, and the complete chunk content. The footer shows displayed/total matches; `TOP_K` still controls retrieval, independently of the fixed display limit. IDs, distances and other technical metadata are hidden. There is no DEBUG mode or additional environment setting. Use `app.cli.retrieve_documents --json` with its normal arguments for detailed JSON. UTF-8 output is configured where supported; incompatible IDE streams receive lossless character escapes in the same text format, rather than replacement question marks. The script cannot restore accents already lost in `QUESTION`. It reuses the CLI runner and shutdown/error handling, preserves exit codes and saves no questions/results to files. Empty results and errors have short Vietnamese messages. These are source candidates, not an LLM answer; presentation changes do not improve retrieval ranking.
+The script always prints a compact Vietnamese text view: the question, up to three candidates in retrieval order, each document title and deduplicated source locations, and the complete chunk content. The footer shows displayed/total matches; `TOP_K` still controls retrieval, independently of the fixed display limit. IDs, distances and other technical metadata are hidden. There is no DEBUG mode or additional environment setting. Use `src.cli.retrieve_documents --json` with its normal arguments for detailed JSON. UTF-8 output is configured where supported; incompatible IDE streams receive lossless character escapes in the same text format, rather than replacement question marks. The script cannot restore accents already lost in `QUESTION`. It reuses the CLI runner and shutdown/error handling, preserves exit codes and saves no questions/results to files. Empty results and errors have short Vietnamese messages. These are source candidates, not an LLM answer; presentation changes do not improve retrieval ranking.
 
 The script always ends with two timings: model initialization (including fingerprinting and loading inside `service.start()`) and retrieval after the model is ready (query embedding, PostgreSQL search and result construction inside `service.retrieve()`). Measurements use `time.perf_counter()` and exclude input validation, service construction, shutdown, formatting and terminal output. CLI JSON includes unrounded seconds in `timings.model_initialization_seconds` and `timings.retrieval_seconds`; the script displays seconds to three decimal places. A failed or unstarted step has `null`, displayed as an unavailable completed measurement, not zero. Completed measurements survive later retrieval/shutdown errors. Each script invocation loads the model again, and the first retrieval may include database connection setup and first-execution overhead. These are observations of that invocation, not a stable benchmark or LLM answer-generation latency; no warm-up or extra query is performed.
 
 For repeated calls, reuse a service instance on one event loop:
 
 ```python
-from app.retrieval import RetrievalService
-from app.database import close_database
+from src.retrieval import RetrievalService
+from src.database import close_database
 
 async def retrieve_example(model_path, model_revision):
     service = RetrievalService(model_path=model_path, model_revision=model_revision)
@@ -80,11 +82,11 @@ async def retrieve_example(model_path, model_revision):
 
 The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. There is no HTTP/RPC chat endpoint, conversation history, personnel lookup or answer generation.
 
-For the locally published benefits package, `python -m scripts.evaluate_retrieval --model-path <local-model-directory> --model-revision <40-hex-commit> --output .tmp/retrieval-evaluation.json` runs a fixed manual evaluation: 12 questions across six topics plus two unsupported questions, always at top-5. It records expected-source hits, distances, timings and before/after database counts without printing source content or changing packages. Exit 1 means the recall target was not met; it is not a database error. The real-model evaluation is separate from synthetic unit/integration tests, and an embedding/publication success alone does not prove retrieval quality.
+The existing `scripts/evaluate_retrieval.py` is a fixed evaluation for the benefits package, but its hard-coded package path and revision comparison still assume the retired nested revision layout. It needs a separate code update before it is usable with current `chunks/<document_id>/` packages; do not move packages back to the old layout. Its evaluation covers 12 questions across six topics plus two unsupported questions at top-5, recording expected-source hits, distances, model-load/overall question timings and before/after database counts. It does not establish complete inventory/count answers, fallback correctness or separate embedding/database latency. The real-model evaluation is separate from synthetic unit/integration tests, and publication success alone does not prove retrieval quality.
 
 ## Local gRPC server
 
-After installing the dependencies, run `python -m app.cli.serve_grpc` from the repository root. This command does not require database configuration, migrations or a model. The intended inbound direction is the monolithic backend calling this chatbot microservice; business RPC contracts are not implemented yet.
+After installing the dependencies, run `python -m src.cli.serve_grpc` from the repository root. This command does not require database configuration, migrations or a model. The intended inbound direction is the monolithic backend calling this chatbot microservice; business RPC contracts are not implemented yet.
 
 | Variable | Default | Accepted values |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ This development server uses plaintext loopback only, without authentication or 
 
 For example, the synthetic password `abc@123` must be written as `abc%40123` in a URL: `postgresql+psycopg://demo:abc%40123@localhost:5432/demo`. This changes only the URL representation, not the database password. Keep the separating `@` before the host; quoting the URL does not replace URL-encoding. The same rule applies to migration and test URLs. Configuration validation rejects detectable unencoded `@` in the connection authority with a credential-safe message; it does not automatically repair URLs or verify credentials/connectivity. Encode a literal `%` as `%25` to avoid unintended decoding.
 
-From the project root, use `python -m app.cli.check_db` (preferred) or `python main.py` (wrapper). Both exit with 0 when connectivity and the extension check succeed, or 1 for configuration, connection, or extension errors. Both always dispose the engine. Importing either entrypoint does not load database configuration or establish a connection. Connection failures use generic messages to avoid exposing credentials; consult server logs for detailed diagnostics.
+From the project root, use `python -m src.cli.check_db` (preferred) or `python main.py` (wrapper). Both exit with 0 when connectivity and the extension check succeed, or 1 for configuration, connection, or extension errors. Both always dispose the engine. Importing either entrypoint does not load database configuration or establish a connection. Connection failures use generic messages to avoid exposing credentials; consult server logs for detailed diagnostics.
 
 ## Using the database in an async handler
 
@@ -129,7 +131,7 @@ This example demonstrates the existing database helper; no bot/API handler frame
 
 ```python
 from sqlalchemy import text
-from app.database import session_scope, close_database
+from src.database import session_scope, close_database
 
 async def handle_event():
     async with session_scope() as session:
@@ -141,11 +143,11 @@ async def handle_event():
 
 Each task must call `session_scope()` separately. The context commits on success, rolls back on failure, and closes the session; do not commit manually inside it. The engine is created lazily and shared within one process/event loop. Dispose it before closing that loop or switching to another. SQL echo is disabled by default.
 
-On Windows, the entrypoint and Alembic use `SelectorEventLoop` through `app.database.runtime.run_async`. When integrating a framework, configure a psycopg-compatible loop at the framework-managed entrypoint. Do not call `run_async()` inside an already running event loop.
+On Windows, the entrypoint and Alembic use `SelectorEventLoop` through `src.database.runtime.run_async`. When integrating a framework, configure a psycopg-compatible loop at the framework-managed entrypoint. Do not call `run_async()` inside an already running event loop.
 
 ## Adding migrations
 
-Future models must inherit `app.database.Base`, live in `app/database/models/`, and be exported by its `__init__.py`. Alembic imports this package in `app/database/migrations/env.py` to register all tables before metadata is configured. Generate a revision:
+Future models must inherit `src.database.Base`, live in `src/database/models/`, and be exported by its `__init__.py`. Alembic imports this package in `src/database/migrations/env.py` to register all tables before metadata is configured. Generate a revision:
 
 ```powershell
 python -m alembic revision --autogenerate -m "description"
@@ -161,7 +163,7 @@ Run unit tests (shared database fixtures only execute when requested by integrat
 python -m pytest -m 'not integration'
 ```
 
-The non-integration suite includes real loopback gRPC calls on ephemeral ports, without an external backend or database. Synthetic multi-format package/converter tests check JSON contracts and byte preservation; they do not parse actual PDF/XLSX files or verify agent extraction accuracy. Publication tests are in `app/tests/test_publication.py` and `app/tests/test_publication_integration.py`; the production module retains its existing name.
+The non-integration suite includes real loopback gRPC calls on ephemeral ports, without an external backend or database. Synthetic multi-format package/converter tests check JSON contracts and byte preservation; they do not parse actual PDF/XLSX files or verify agent extraction accuracy. Publication tests are in `src/tests/test_publication.py` and `src/tests/test_publication_integration.py`; the production module retains its existing name.
 
 Pytest stores its cache in `.tmp/pytest-cache` and, by default, test temporary files in `.tmp/pytest-work`. The test configuration creates the temporary root when pytest starts and restores its environment override at shutdown; importing the fixtures does not create directories. Pytest manages numbered session directories and locks so concurrent runs use separate temporary directories. The retention policy keeps the latest three sessions after normal cleanup, including successful tests for debugging. Active, interrupted or permission-blocked sessions can remain longer; this is not a disk-space limit. The entire `.tmp/` workspace is Git-ignored.
 
@@ -186,5 +188,5 @@ To verify both extension states, run the suite against a fresh test database whe
 Historical source-utility compatibility tests are separate from v2 ingestion. The standalone PowerShell test is not collected by pytest and uses only synthetic temporary sources:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File app/tests/powershell/test-normalize-assets.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File src/tests/powershell/test-normalize-assets.ps1
 ```

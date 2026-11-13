@@ -17,45 +17,47 @@ pytest-cache-files-*/
 !/app/data/README.md
 
 # Legacy output locations stay ignored to protect residual private files.
+/app/assets/
+/app/chunks/
 /data/*
 !/data/README.md
 
 # Ignore Windows thumbnail caches in assets.
-/app/assets/**/[tT][hH][uU][mM][bB][sS].[dD][bB]
+/assets/**/[tT][hH][uU][mM][bB][sS].[dD][bB]
 
 # Keep video source files out of assets (including nested paths).
-/app/assets/**/*.[mM][pP]4
-/app/assets/**/*.[mM][kK][vV]
-/app/assets/**/*.[mM][oO][vV]
-/app/assets/**/*.[aA][vV][iI]
-/app/assets/**/*.[wW][mM][vV]
-/app/assets/**/*.[wW][eE][bB][mM]
-/app/assets/**/*.[mM]4[vV]
-/app/assets/**/*.[mM][pP][eE][gG]
-/app/assets/**/*.[mM][pP][gG]
-/app/assets/**/*.[fF][lL][vV]
-/app/assets/**/*.[tT][sS]
-/app/assets/**/*.[mM][tT][sS]
-/app/assets/**/*.[mM]2[tT][sS]
-/app/assets/**/*.3[gG][pP]
+/assets/**/*.[mM][pP]4
+/assets/**/*.[mM][kK][vV]
+/assets/**/*.[mM][oO][vV]
+/assets/**/*.[aA][vV][iI]
+/assets/**/*.[wW][mM][vV]
+/assets/**/*.[wW][eE][bB][mM]
+/assets/**/*.[mM]4[vV]
+/assets/**/*.[mM][pP][eE][gG]
+/assets/**/*.[mM][pP][gG]
+/assets/**/*.[fF][lL][vV]
+/assets/**/*.[tT][sS]
+/assets/**/*.[mM][tT][sS]
+/assets/**/*.[mM]2[tT][sS]
+/assets/**/*.3[gG][pP]
 
 # Historical indexing workspaces remain private.
 /indexing_workspace/
 /indexing_chunks/
 # Track only current package artifacts; exclude old layouts and temporary files.
-/app/chunks/*
-!/app/chunks/*/
-/app/chunks/*/*
-!/app/chunks/*/metadata.json
-!/app/chunks/*/extraction.json
-!/app/chunks/*/chunks.json
-!/app/chunks/*/source.pdf
-!/app/chunks/*/source.txt
-!/app/chunks/*/source.md
-!/app/chunks/*/source.csv
-!/app/chunks/*/source.xlsx
-!/app/chunks/*/source.doc
-!/app/chunks/*/source.docx
-/app/chunks/.*/
-/app/chunks/review/
-/app/chunks/approved/
+/chunks/*
+!/chunks/*/
+/chunks/*/*
+!/chunks/*/metadata.json
+!/chunks/*/extraction.json
+!/chunks/*/chunks.json
+!/chunks/*/source.pdf
+!/chunks/*/source.txt
+!/chunks/*/source.md
+!/chunks/*/source.csv
+!/chunks/*/source.xlsx
+!/chunks/*/source.doc
+!/chunks/*/source.docx
+/chunks/.*/
+/chunks/review/
+/chunks/approved/

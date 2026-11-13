@@ -10,12 +10,16 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Code and generated-data layout
 
-- Keep command entrypoints in `app/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `app.cli.check_db`. Entrypoint imports must not connect to the database.
-- Put automated tests in `app/tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
-- Keep v2 chunk packages under `app/chunks/<document_id>/` following [docs/offline-indexing.md](docs/offline-indexing.md). Track current package JSON and source snapshots in Git so environments can reuse the same bytes. Keep temporary files, locks and backups under ignored `.tmp/`; do not create unused feature directories ahead of implementation. Leave historical `indexing_chunks/` data untouched; it is not scanned or merged into the new workspace.
+- Keep command entrypoints in `src/cli/`. Keep `main.py` as a thin wrapper; database-check logic belongs in `src.cli.check_db`. Entrypoint imports must not connect to the database.
+- Put automated tests in `src/tests/` and task-specific manual utilities in `scripts/`. Do not add generic scratch test files at the repository root.
+- Keep v2 chunk packages under `chunks/<document_id>/` following [docs/offline-indexing.md](docs/offline-indexing.md). Track current package JSON and source snapshots in Git so environments can reuse the same bytes. Keep temporary files, locks and backups under ignored `.tmp/`; do not create unused feature directories ahead of implementation. Leave historical `indexing_chunks/` data untouched; it is not scanned or merged into the new workspace.
 - Use agent-authored extraction and semantic chunking as the primary preparation workflow; automatic Python loader/chunker commands are retired. Keep Python initialization, revision management, validation and publication; there is no approval step or reviewer identity. Preserve source snapshots, transcription, source spans, exclusions, warnings and evidence notes using the v2 schema. Convert selected old review/approved packages only with the explicit non-destructive converter; never infer a preferred legacy version. Validation checks structural consistency, not transcription accuracy or business approval. Follow the guide before producing packages.
 
+- For Scope 1 authoring, follow the [authoring procedure](docs/offline-indexing.md#agent-authoring-procedure): compare chunks with the source for semantic coverage, preserve item/subitem labels and necessary conditions, and avoid unrelated repetition. Use source-backed inventories and groups when appropriate; never equate chunk count with benefit count. These are manual authoring checks, not validator guarantees or a new approval step. Keep schema v2 fields unchanged; runtime chunk types and parent/child links remain future work.
+
 ## Database conventions
+
+- For Scope 2, follow the [package-to-publication guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication). Preserve validated content and provenance; do not infer runtime chunk types or links from Scope 1 conventions. Distinguish package validation, model preflight, database dry-run, publication and real retrieval evaluation in reports. Successful publication is not proof of semantic accuracy, complete answers or RAG readiness.
 
 - Use a separate `session_scope()` per concurrent task. Let the context own commit/rollback and session closure; do not commit manually inside it.
 - Preserve lazy engine creation and explicitly await `close_database()` at shutdown before closing or changing event loops.
@@ -25,7 +29,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Data and future chatbot behavior
 
-- Treat `app/assets/`, rename manifests, journals, and `rename-history/` as source material. Do not rename, rewrite, or regenerate them as incidental cleanup.
+- Treat `assets/`, rename manifests, journals, and `rename-history/` as source material. Do not rename, rewrite, or regenerate them as incidental cleanup.
 - Keep credentials and private document/personnel content out of committed examples and logs. Use synthetic examples and retain generic credential-safe database errors.
 - Preserve the Type A/Type B distinction: documents provide policy evidence; authoritative operational tools provide current personnel/project facts. Choose exact lookup/computation for structured questions when semantic retrieval is insufficient.
 - Validate tool parameters and access rights in the backend before execution or exposing data to a model. Resolve self-references from authenticated identity.
