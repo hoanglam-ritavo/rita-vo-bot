@@ -21,7 +21,7 @@ from src.paths import REPOSITORY_ROOT
 from src.retrieval import RetrievalService
 from src.retrieval.service import validate_request
 from src.retrieval.config import add_arguments, from_arguments
-from src.cli.publish_documents import model_commit
+from src.ingestion.model_identity import model_commit
 
 
 def output_path(path):

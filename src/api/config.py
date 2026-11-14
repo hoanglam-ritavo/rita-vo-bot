@@ -34,7 +34,7 @@ class Settings:
 def load_settings():
     load_dotenv(REPOSITORY_ROOT / '.env', override=False)
     revision = os.environ.get('E5_MODEL_REVISION', '614241f622f53c4eeff9890bdc4f31cfecc418b3')
-    path = Path(os.environ.get('E5_MODEL_PATH', str(REPOSITORY_ROOT / '.tmp/models/multilingual-e5-small' / revision)))
+    path = Path(os.environ.get('E5_MODEL_PATH', str(REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / revision)))
     if not path.is_absolute():
         path = REPOSITORY_ROOT / path
     return Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),

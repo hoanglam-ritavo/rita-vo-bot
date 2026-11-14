@@ -166,7 +166,7 @@ Install offline training dependencies explicitly:
 
 ```powershell
 python -m pip install -r requirements-intent.txt
-python -m scripts.train_intent --dataset .tmp/intent/reviewed-cases.json --model-path .tmp/models/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3 --model-revision 614241f622f53c4eeff9890bdc4f31cfecc418b3 --rerank-preprocessing --output-prefix .tmp/intent/run-01
+python -m scripts.train_intent --dataset .tmp/intent/reviewed-cases.json --model-path models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3 --model-revision 614241f622f53c4eeff9890bdc4f31cfecc418b3 --rerank-preprocessing --output-prefix .tmp/intent/run-01
 ```
 
 The command requires reviewed data, uses local CPU E5 with the existing token
@@ -203,7 +203,7 @@ migrations occur.
 ## Paired benchmark and promotion
 
 ```powershell
-python -m scripts.benchmark_intent --dataset .tmp/intent/reviewed-cases.json --candidate .tmp/intent/run-01-candidate.json --training-report .tmp/intent/run-01-report.json --model-path .tmp/models/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3 --model-revision 614241f622f53c4eeff9890bdc4f31cfecc418b3 --rerank --rerank-profile .tmp/evaluation/relevance-profile.json --requests 200 --output-prefix .tmp/intent/bench-01
+python -m scripts.benchmark_intent --dataset .tmp/intent/reviewed-cases.json --candidate .tmp/intent/run-01-candidate.json --training-report .tmp/intent/run-01-report.json --model-path models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3 --model-revision 614241f622f53c4eeff9890bdc4f31cfecc418b3 --rerank --rerank-profile artifacts/rerank/<version>/relevance-profile.json --requests 200 --output-prefix .tmp/intent/bench-01
 ```
 
 The read-only benchmark requires all quality/export gates, matching reviewed

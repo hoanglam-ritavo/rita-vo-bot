@@ -10,6 +10,7 @@ from src.retrieval import storage
 from src.ingestion import embeddings
 from src.database.runtime import run_async
 from src.cli import retrieve_documents as cli
+from src.retrieval import runner
 
 
 @pytest.fixture
@@ -167,12 +168,12 @@ assert not any(m in sys.modules for m in ('sentence_transformers', 'sqlalchemy',
 def test_runner_completed_timings_exclude_other_work(monkeypatch, stage, status):
     import src.database
     clock = [10.0]
-    monkeypatch.setattr(cli, 'time', SimpleNamespace(perf_counter=lambda: clock[0]))
-    original_validation = cli.validate_request
+    monkeypatch.setattr(runner, 'time', SimpleNamespace(perf_counter=lambda: clock[0]))
+    original_validation = runner.validate_request
     def validate(question, top_k):
         clock[0] += 100
         return original_validation(question, top_k)
-    monkeypatch.setattr(cli, 'validate_request', validate)
+    monkeypatch.setattr(runner, 'validate_request', validate)
     class FakeService:
         def __init__(self, **kwargs):
             clock[0] += 200
@@ -193,7 +194,7 @@ def test_runner_completed_timings_exclude_other_work(monkeypatch, stage, status)
         clock[0] += 400
         if stage == 'database_close':
             raise RuntimeError('safe test')
-    monkeypatch.setattr(cli, 'RetrievalService', FakeService)
+    monkeypatch.setattr(runner, 'RetrievalService', FakeService)
     monkeypatch.setattr(src.database, 'close_database', close_database)
     args = SimpleNamespace(question='' if stage == 'input' else 'question', top_k=5,
                            model_path='unused', model_revision='a'*40)
@@ -212,3 +213,12 @@ def test_runner_completed_timings_exclude_other_work(monkeypatch, stage, status)
         assert result['matches'] == [{'content': 'Synthetic content'}]
     if stage in ('close', 'database_close'):
         assert result['code'] == 'shutdown_failed'
+
+
+def test_cli_run_delegates_to_shared_runner(monkeypatch):
+    args = SimpleNamespace(question='Synthetic question')
+    expected = ({'status': 'no_matches', 'matches': []}, 0)
+    shared = AsyncMock(return_value=expected)
+    monkeypatch.setattr(runner, 'run', shared)
+    assert run_async(cli.run(args)) == expected
+    shared.assert_awaited_once_with(args)

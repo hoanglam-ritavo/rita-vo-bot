@@ -183,3 +183,22 @@ def test_metadata_dates_and_scope_are_separate(tmp_path, setup):
     assert 'applicability_required' in preflight.metadata_blockers(record)
     record.update(effective_from=None, effective_to='2000-01-01')
     assert 'effective_date_expired' in preflight.metadata_blockers(record)
+
+
+@pytest.mark.parametrize('revision', ['a' * 40, 'ABCDEF' * 6 + 'ABCD'])
+def test_shared_model_revision_normalizes_and_preserves_publication_adapter(revision):
+    from src.ingestion.model_identity import parse_model_revision
+    from src.cli.publish_documents import model_commit
+    assert parse_model_revision(revision) == revision.lower()
+    assert model_commit(revision) == revision.lower()
+
+
+@pytest.mark.parametrize('revision', ['', 'a' * 39, 'a' * 41, 'g' * 40, ' ' + 'a' * 40, None])
+def test_shared_model_revision_rejects_invalid_identity(revision):
+    import argparse
+    from src.ingestion.model_identity import parse_model_revision
+    from src.cli.publish_documents import model_commit
+    with pytest.raises(ValueError, match='Expected full 40-hex model commit'):
+        parse_model_revision(revision)
+    with pytest.raises(argparse.ArgumentTypeError, match='Expected full 40-hex model commit'):
+        model_commit(revision)

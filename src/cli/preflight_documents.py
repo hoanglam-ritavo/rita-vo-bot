@@ -4,7 +4,7 @@ from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 import os
 
-from src.cli.publish_documents import model_commit
+from src.ingestion.model_identity import model_commit
 from src.ingestion import document_packages as packages
 from src.ingestion.preflight import check
 from src.paths import REPOSITORY_ROOT

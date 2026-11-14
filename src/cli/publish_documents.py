@@ -2,17 +2,11 @@
 import argparse
 from collections import Counter
 from pathlib import Path
-import re
 
 from src.paths import REPOSITORY_ROOT
 from src.ingestion import document_packages as packages
 from src.catalog.inventory import CatalogError
-
-
-def model_commit(value):
-    if not re.fullmatch('[0-9a-fA-F]{40}', value):
-        raise argparse.ArgumentTypeError('Expected full 40-hex model commit.')
-    return value.lower()
+from src.ingestion.model_identity import model_commit
 
 
 def main(argv=None):

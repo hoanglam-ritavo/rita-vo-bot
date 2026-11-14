@@ -207,6 +207,33 @@ def test_configuration_precedence(monkeypatch):
     assert not hasattr(result, 'llm_model')
 
 
+def test_default_model_uses_durable_directory_from_any_working_directory(monkeypatch, tmp_path):
+    from src.paths import REPOSITORY_ROOT
+
+    monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: None)
+    monkeypatch.delenv('E5_MODEL_PATH', raising=False)
+    monkeypatch.setenv('E5_MODEL_REVISION', 'a' * 40)
+    monkeypatch.chdir(tmp_path)
+    result = load_settings()
+    assert result.model_path == REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / ('a' * 40)
+
+
+def test_environment_load_preserves_explicit_model_and_artifact_paths(monkeypatch, tmp_path):
+    from src.paths import REPOSITORY_ROOT
+
+    local_env = tmp_path / '.env'
+    local_env.write_text('E5_MODEL_PATH=unused/from-file\nINTENT_MODE=off\n', encoding='utf-8')
+    from dotenv import load_dotenv
+    monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: load_dotenv(local_env, **kw))
+    monkeypatch.setenv('E5_MODEL_PATH', str(tmp_path / 'provisioned-model'))
+    monkeypatch.setenv('RERANK_PROFILE_PATH', 'artifacts/rerank/release-1/relevance-profile.json')
+    monkeypatch.setenv('INTENT_MODE', 'off')
+    result = load_settings()
+    assert result.model_path == tmp_path / 'provisioned-model'
+    assert result.rerank.profile_path == REPOSITORY_ROOT / 'artifacts/rerank/release-1/relevance-profile.json'
+    assert result.intent.mode == 'off'
+
+
 def test_import_has_no_model_database_or_environment_side_effects():
     script = '''
 import sys

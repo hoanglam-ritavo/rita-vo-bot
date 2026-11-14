@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": ".tmp/intent-v1/draft-cases.json",
-  "model_path": ".tmp/models/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "model_path": "models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3",
   "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
   "preprocessing": "rerank_original",
   "output_root": ".tmp/intent/runs"

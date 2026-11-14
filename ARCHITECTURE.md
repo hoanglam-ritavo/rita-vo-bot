@@ -1,5 +1,9 @@
 # Rita Bot Architecture
 
+## Command ownership
+
+[Application entrypoints](src/cli/README.md) remain in `src/cli/`; [manual utilities, offline evaluations and experiments](scripts/README.md) remain in `scripts/`. Both inventories distinguish current commands, compatibility aliases, retired stubs and support modules. Existing command paths remain supported. One-shot retrieval lifecycle/timings live in `src.retrieval.runner`, used by the CLI compatibility wrapper and IDE utility; HTTP continues to own its long-lived service lifecycle. Pure model revision validation lives in `src.ingestion.model_identity`, shared by publication, preflight and evaluation without imports between those CLI implementations. Historical asset tools retain their old `app/` paths and are not current setup commands.
+
 ## Implemented storage and ingestion
 
 Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Local health-only gRPC, public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; generative answering and chatbot business RPCs remain planned. Real-model retrieval quality is not established by synthetic tests.
@@ -144,5 +148,7 @@ Unit tests cover synthetic package contracts, converter compatibility, CLI batch
 `scripts.benchmark_intent` remains separate and uses the public filtered retrieval path for paired off/observe checks, emitting an accepted artifact only after quality, export parity, retrieval invariance and latency gates pass. Runtime identity binds E5 files/revision and preprocessing; classifier evaluation does not replace corpus-matched passage calibration. Entity extraction, conversation state and Type B execution remain planned. See [intent observation and verification](docs/intent-classifier.md).
 
 ## Relevance filtering and empty fallback
+
+The later user-authorized [clear-content publication](docs/chunk-coverage-verification.md#clear-content-publication-follow-up--2026-11-13) expanded the local database to 28 current active publications / 524 active chunks, adding 200 chunks from fifteen formerly held packages. User-confirmed metadata and explicit source exclusions make the retained subset eligible; original snapshots and identities remain unchanged. This operation changes package data and publication state, not runtime code, schema or API contracts. Publication does not establish a matching relevance profile.
 
 As of 2026-11-13, public retrieval uses top-K as an upper bound after per-passage relevance filtering. The fixed 30-candidate reranking pool is independent of top-K. A schema-v2 profile binds model/pipeline identity and immutable compatible active publications, read in the retrieval snapshot. Missing, stale or legacy calibration withholds candidates with `no_matches/relevance_unavailable`; low-scoring candidates yield `below_relevance_threshold`. Eligibility and candidate absence retain distinct reasons. Operational errors remain errors. The offline benchmark alone can inspect unfiltered candidates for source labeling; HTTP and CLI expose no bypass. See [filtering and rollout](docs/online-reranking.md). No relevance score establishes full answer coverage.

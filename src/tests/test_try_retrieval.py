@@ -7,7 +7,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 from scripts import try_retrieval as demo
-from src.cli import retrieve_documents as cli
+from src.retrieval import runner as cli
 
 
 def test_timing_format():
@@ -104,7 +104,7 @@ def test_params_and_exit_code(monkeypatch, capsys, code):
     args = runner.call_args.args[0]
     assert args.question == 'Nhân viên kết hôn được hỗ trợ bao nhiêu?'
     assert args.top_k == 5
-    assert args.model_path == demo.REPOSITORY_ROOT / '.tmp/models/multilingual-e5-small' / args.model_revision
+    assert args.model_path == demo.REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / args.model_revision
     output = capsys.readouterr().out
     assert demo.QUESTION in output
     assert output.count(demo.QUESTION) == 2
@@ -160,7 +160,7 @@ else:
     async def run(args):
         assert args.model_path.is_absolute()
         return {'status': 'matches_found', 'matches': [{'content': args.question}]}, 0
-    sys.modules['src.cli.retrieve_documents'] = types.SimpleNamespace(run=run)
+    sys.modules['src.retrieval.runner'] = types.SimpleNamespace(run=run)
     sys.modules['src.database.runtime'] = types.SimpleNamespace(run_async=asyncio.run)
     try:
         if mode == 'direct': runpy.run_path(os.path.join(root, 'scripts', 'try_retrieval.py'), run_name='__main__')

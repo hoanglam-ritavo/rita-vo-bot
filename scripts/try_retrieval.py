@@ -13,7 +13,7 @@ if __package__ in (None, ''):
 # Edit these values in your IDE. Keep this file saved as UTF-8.
 QUESTION = "Nhân viên lấy vợ được công ty cho bao nhiêu tiền?"
 MODEL_REVISION = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
-MODEL_PATH = REPOSITORY_ROOT / ".tmp/models/multilingual-e5-small" / MODEL_REVISION
+MODEL_PATH = REPOSITORY_ROOT / "models/embeddings/multilingual-e5-small" / MODEL_REVISION
 TOP_K = 5
 
 
@@ -142,7 +142,7 @@ def main():
                            model_revision=MODEL_REVISION, top_k=TOP_K)
     try:
         with open(os.devnull, 'w') as sink, redirect_stdout(sink), redirect_stderr(sink):
-            from src.cli.retrieve_documents import run
+            from src.retrieval.runner import run
             from src.database.runtime import run_async
             result, code = run_async(run(args))
     except Exception:

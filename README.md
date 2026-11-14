@@ -12,7 +12,7 @@ The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and autho
 
 Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded; publication encodes again unless an identical active configuration is skipped.
 
-Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. Source rename manifests, journals and `rename-history/` remain historical evidence.
+Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
 Migration `0003_agent_packages` removes revision review state and renames review notes to evidence notes, preserving chunks, vectors and successful run history. Stop ingestion and run migrations explicitly before using the new publication code; conversion of local packages is separate and never changes the database.
 
@@ -24,7 +24,25 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
-Documentation/test reconciliation of the 2026-11-13 working tree based on `e656991`, including existing uncommitted runtime, intent, answer-evaluation and corpus changes. This section supersedes earlier test counts for current status; historical verification entries below remain snapshots of their own tasks.
+### Command documentation and shared runners - 2026-11-14
+
+Post-edit verification of the working tree based on `67cb66d`: **580 passed, 1 skipped, 34 deselected** in the full non-integration suite; **246 passed** in the focused retrieval/IDE/preflight/evaluator/package/intent suites. Both successful runs reported the existing Starlette/AnyIO deprecation warning. This task added nine regression cases for shared-runner delegation and model revision validation, while retaining the existing timing/error/cleanup and entrypoint assertions. Existing and concurrently appearing configuration/model-path/API test/document changes were preserved; full-suite results describe the combined working tree, not this refactor alone.
+
+The [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) cover every direct Python/PowerShell file in their folders, including support modules, historical tools and retired stubs. Static checks verified inventory coverage, local links/heading anchors, whitespace, and side-effect-free imports of both shared modules. `--help` passed for 14 argparse entrypoints without executing their operations. Shared retrieval and model revision handling preserve existing command paths, result shapes and argparse diagnostics.
+
+Two sandbox attempts failed while creating/accessing pytest temporary fixtures (WinError 3/5); those are environment failures, not passing checks. Successful runs used distinct new extended-length `.tmp/cli-docs-refactor` paths outside the sandbox, without changing permissions or deleting existing temporary trees. Full command (choose a new unused temporary path when repeating):
+
+```powershell
+.\env\Scripts\python.exe -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\cli-docs-refactor\full-01' -o cache_dir=.tmp/cli-docs-refactor/full-01-cache
+```
+
+No integration DB tests, migrations, publication, asset migration, model training, real-model benchmark, live API check or configuration rollout ran in this task. The checks establish synthetic regression compatibility and documentation structure, not live corpus quality or model acceptance.
+
+### Earlier verification snapshots
+
+The separately authorized clear-content publication on 2026-11-13 added **200 vectors from fifteen formerly held packages**. PostgreSQL read-back verified **28 current active publications / 524 active chunks** and preservation of all pre-existing bot-table rows. All fifteen repeated publications skipped as `identical_active_run`. Real local E5 preflight passed for the selected 200 chunks; focused package/publication/preflight suites passed **106 tests, 1 deselected**. No relevance profile or API restart was performed; public retrieval can still return `relevance_unavailable`. See [publication evidence, exclusions and limits](docs/chunk-coverage-verification.md#clear-content-publication-follow-up--2026-11-13). The documentation/test reconciliation below is separate verification with its own limits.
+
+Documentation/test reconciliation of the 2026-11-13 working tree based on `e656991`, including existing uncommitted runtime, intent, answer-evaluation and corpus changes. Those results superseded earlier test counts at that time; the command documentation/refactor entry above now provides the latest suite results. Historical verification entries remain snapshots of their own tasks.
 
 Static inspection at the start of this task found 28 packages / 524 chunks, all with `include/active` metadata (27 schema v2, one v3). This differs from the earlier preparation/publication snapshots. No database publication, source fidelity, metadata authorization or calibration compatibility is established by these counts. The 600-case intent draft remains `reviewed: false`. See [corpus history and current boundary](docs/chunk-coverage-verification.md#current-working-tree-boundary).
 
@@ -80,7 +98,7 @@ Replace the model placeholders before execution. The command returns source chun
 
 Only current, include/active, effective public revisions with active successful runs are searched. Runtime model name, revision, file fingerprint, normalization, dimension and passage prefix must match the indexed run. Private documents cannot be enabled through a CLI argument. Exact cosine search needs no new vector index. Database transactions are read-only; no package or vector data is modified. Statuses distinguish `matches_found`, `no_eligible_documents`, `model_mismatch` and `no_matches`; operational failures are errors, never empty evidence. Exit codes are 0 for valid results including empty results, 1 for invalid input/model incompatibility and 2 for operational errors. There is no automatic file logging of questions or retrieved text.
 
-To avoid passing Vietnamese text through shell arguments, open `scripts/try_retrieval.py`, save it as UTF-8, and edit `QUESTION`, `TOP_K`, `MODEL_PATH` and `MODEL_REVISION` at the top. Select this repository's `env/Scripts/python.exe` interpreter in your IDE, then run the file. Its default model path points to the locally prepared pinned model under `.tmp/models`; that model directory and PostgreSQL configured in `.env` must still be available. Direct file execution works from any working directory; imports and model paths are anchored to the repository, without changing the working directory. Alternatively, from the repository root run:
+To avoid passing Vietnamese text through shell arguments, open `scripts/try_retrieval.py`, save it as UTF-8, and edit `QUESTION`, `TOP_K`, `MODEL_PATH` and `MODEL_REVISION` at the top. Select this repository's `env/Scripts/python.exe` interpreter in your IDE, then run the file. Its default model path points to the locally prepared pinned model under `models/embeddings`; that model directory and PostgreSQL configured in `.env` must still be available. Direct file execution works from any working directory; imports and model paths are anchored to the repository, without changing the working directory. Alternatively, from the repository root run:
 
 ```powershell
 .\env\Scripts\python.exe -m scripts.try_retrieval
@@ -112,7 +130,7 @@ The application owns the loop; use the existing `run_async()` wrapper only at a 
 
 Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. E5-small is loaded directly in Python on CPU; no separate inference service or generative model is used. The application never downloads weights or falls back to hosted inference.
 
-Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). Existing environment variables override repository `.env`. Relative model paths resolve from the repository root. The default pinned E5 directory under `.tmp/models` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
+Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). Existing environment variables override repository `.env`. Relative model paths resolve from the repository root. The default pinned E5 directory under `models/embeddings` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
 
 ```powershell
 .\env\Scripts\python.exe -m src.cli.serve_api
