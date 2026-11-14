@@ -24,6 +24,14 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### Relevance calibration - 2026-11-14
+
+Real local-model calibration against **28 current active publications / 524 chunks** failed the [quality gates](docs/online-reranking.md#evaluation-and-rollout). The frozen dataset contains 111 source-reviewed cases: 20 supported and 20 unsupported cases each for calibration and holdout, plus 31 supported regressions, with 3,330 passage labels. Unfiltered top-5 retrieval covered 71/71 supported cases; filtering retained complete evidence for only 20/71, including 0/2 critical leave cases. Supported complete recall was **30% for calibration and 20% for holdout**, below the required 90%. The minimum threshold excluding all reviewed calibration negatives was 7.871049404144288; lowering it would admit irrelevant passages, while raising it cannot recover recall.
+
+The 100 warm latency requests passed the latency gate (p50 **2.008 s**, p95 **3.751 s**), but overall rollout readiness is false. Frozen labels, corpus/model fingerprints, database state and package files passed the run's consistency checks. Private evidence is retained under `.tmp/relevance-calibration/20261114-01/`, including `manifest.json`, `passage-label-audit.json`, `label-freeze.json`, `calibration.json` and `outcome.json`. Labels were reviewed against retained extraction/chunks; this is not a new full-PDF audit or business acceptance.
+
+**No relevance profile was generated or promoted, and this calibration task did not write `.env`.** Independent concurrent configuration/model-path/source edits were preserved; the relocated embedding model's bytes matched preflight. This task did not change runtime code, publish documents, migrate the database, restart the API or run unit/integration suites. The separate suite results below retain their own scope.
+
 ### Command documentation and shared runners - 2026-11-14
 
 Post-edit verification of the working tree based on `67cb66d`: **580 passed, 1 skipped, 34 deselected** in the full non-integration suite; **246 passed** in the focused retrieval/IDE/preflight/evaluator/package/intent suites. Both successful runs reported the existing Starlette/AnyIO deprecation warning. This task added nine regression cases for shared-runner delegation and model revision validation, while retaining the existing timing/error/cleanup and entrypoint assertions. Existing and concurrently appearing configuration/model-path/API test/document changes were preserved; full-suite results describe the combined working tree, not this refactor alone.
