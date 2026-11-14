@@ -281,3 +281,75 @@ def test_inconsistent_service_response_is_not_empty_evidence():
     svc.retrieval.retrieve.return_value['fallback_reason'] = 'relevance_unavailable'
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
         assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 503
+
+
+@pytest.mark.parametrize('raw,expected', [(None, True), ('true', True), ('TRUE', True),
+                                        ('false', False), ('FaLsE', False)])
+def test_relevance_filter_environment(monkeypatch, raw, expected):
+    monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: None)
+    monkeypatch.delenv('RELEVANCE_FILTER_ENABLED', raising=False)
+    if raw is not None:
+        monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', raw)
+    assert load_settings().relevance_filter_enabled is expected
+
+
+@pytest.mark.parametrize('raw', ['', 'yes', '0', ' true '])
+def test_relevance_filter_rejects_invalid_environment(monkeypatch, raw):
+    monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: None)
+    monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', raw)
+    with pytest.raises(ValueError, match='Invalid relevance filter configuration'):
+        load_settings()
+
+
+def test_relevance_filter_process_environment_overrides_file(monkeypatch, tmp_path):
+    from dotenv import load_dotenv
+    env_file = tmp_path / '.env'
+    env_file.write_text('RELEVANCE_FILTER_ENABLED=true\n', encoding='utf-8')
+    monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: load_dotenv(env_file, **kw))
+    monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', 'false')
+    assert load_settings().relevance_filter_enabled is False
+    monkeypatch.delenv('RELEVANCE_FILTER_ENABLED')
+    assert load_settings().relevance_filter_enabled is True
+
+
+@pytest.mark.parametrize('value', ['false', 0, None])
+def test_api_settings_require_boolean_filter_setting(value):
+    with pytest.raises(ValueError, match='Invalid relevance filter configuration'):
+        settings(relevance_filter_enabled=value)
+
+
+@pytest.mark.parametrize('filter_enabled', [True, False])
+@pytest.mark.parametrize('rerank_enabled', [True, False])
+def test_http_independent_filter_and_rerank_with_real_service(monkeypatch, filter_enabled, rerank_enabled):
+    from src.retrieval.reranking import OnnxReranker, RerankSettings
+    monkeypatch.setattr(embeddings, 'model_fingerprint', lambda *_: 'synthetic')
+    monkeypatch.setattr(embeddings, 'load_model', lambda *a, **kw: object())
+    monkeypatch.setattr(RetrievalService, '_encode', lambda *a: [1.] + [0.] * 383)
+    monkeypatch.setattr(OnnxReranker, 'start', lambda self: setattr(self, 'fingerprint', 'synthetic'))
+    monkeypatch.setattr(OnnxReranker, 'score', lambda *a: ([1., 9., 4.], 3))
+    def search(*a, **kw):
+        return dict(status='matches_found', corpus_fingerprint='corpus', matches=[
+            dict(match(), chunk_id=f'chunk-{i}', chunk_index=i, cosine_distance=i / 10) for i in range(3)])
+    monkeypatch.setattr(storage, 'search', AsyncMock(side_effect=search))
+    svc = ApiService(settings(relevance_filter_enabled=filter_enabled,
+        rerank=RerankSettings(enabled=rerank_enabled)), database_check=AsyncMock(), database_close=AsyncMock())
+    assert svc.retrieval.relevance_filter_enabled is filter_enabled
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+        if filter_enabled and rerank_enabled:
+            svc.retrieval._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus',
+                                                   threshold=8., holdout_passed=True)
+        response = client.post('/api/v1/retrieve', json=dict(text='Fictional policy?', top_k=2))
+        assert response.status_code == 200
+        result = response.json()
+        expected = (['chunk-1'] if rerank_enabled else []) if filter_enabled else (
+            ['chunk-1', 'chunk-2'] if rerank_enabled else ['chunk-0', 'chunk-1'])
+        assert [m['chunk_id'] for m in result['matches']] == expected
+        assert result['fallback_reason'] == (None if expected else 'relevance_unavailable')
+        assert result['status'] == ('matches_found' if expected else 'no_matches')
+        assert 'candidate_order' not in result and 'reranker_fingerprint' not in result
+        if not filter_enabled:
+            assert result['relevance'] == dict(status='unassessed', warnings=[
+                'evidence_completeness_not_assessed', 'relevance_filter_disabled'])
+        if not rerank_enabled:
+            assert result['timings']['rerank_seconds'] == 0.
+            assert all(m['rerank_score'] is None for m in result['matches'])

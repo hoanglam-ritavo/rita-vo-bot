@@ -49,7 +49,8 @@ def create_app(settings=None, *, service_factory=ApiService):
         return JSONResponse(status_code=422, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20.'}})
 
     @app.post('/api/v1/retrieve', response_model=RetrievalResponse,
-        description='Retrieve at most top_k relevance-filtered excerpts. Missing calibration returns an explicit empty fallback; '
+        description='Retrieve at most top_k source excerpts. With RELEVANCE_FILTER_ENABLED=true (default), '
+                    'missing calibration returns an explicit empty fallback. When false, candidates are unassessed; '
                     'scores and relevance metadata do not certify confidence or complete evidence.', responses={
         422: {'description': 'Invalid text, top-K or model token limit exceeded.'},
         429: {'description': 'Another retrieval is in progress.'},

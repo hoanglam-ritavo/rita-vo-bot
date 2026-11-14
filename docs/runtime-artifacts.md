@@ -52,6 +52,8 @@ Only after user review, run the same command without `--collect-only` and with a
 
 ## Promote and verify
 
+Profile promotion applies to the default `RELEVANCE_FILTER_ENABLED=true` mode. Explicitly setting it to `false` returns unassessed candidates and skips loading the profile; it does not create a profile or satisfy calibration gates. See [filter modes](online-reranking.md#local-model-and-configuration). Restore `true` and restart to restore the calibrated gate; without a matching profile it withholds candidates. The CLI and offline benchmarks retain their existing defaults.
+
 Copy an emitted schema-v2 profile into a new `artifacts/rerank/<version>/relevance-profile.json`. Preserve the evaluation report and a manifest recording file hashes, frozen dataset/manifest hashes, E5 revision/fingerprint, reranker fingerprint, corpus fingerprint and exact runtime configuration. Keep private cases/source excerpts in the private backup, not committed documentation.
 
 Verify hashes and compatibility before setting `RERANK_PROFILE_PATH` to that existing file. Restart the API at an agreed time and exercise supported and unsupported questions through HTTP. Distinguish `relevance_unavailable`, `below_relevance_threshold`, `no_candidates`, `no_eligible_documents` and operational failures. Inspect counts/reasons/timings without recording question/document content in operational logs.

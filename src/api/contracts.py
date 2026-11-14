@@ -11,7 +11,8 @@ class StrictModel(BaseModel):
 class RetrieveRequest(StrictModel):
     text: str = Field(min_length=1, max_length=8000)
     top_k: int = Field(default=5, ge=1, le=20,
-                       description='Maximum number of accepted excerpts, not a target count. Omit to use RETRIEVAL_TOP_K (default 5).')
+                       description='Maximum number of excerpts, not a target count. Relevance filtering is server-configured. '
+                       'Omit to use RETRIEVAL_TOP_K (default 5).')
 
     @field_validator('text', mode='before')
     @classmethod

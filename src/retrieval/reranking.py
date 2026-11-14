@@ -115,10 +115,12 @@ def profile_threshold(profile, fingerprint, corpus_fingerprint):
     return None
 
 
-def filter_candidates(result, threshold, top_k):
-    """Fail closed without confusing unavailable assessment with absent evidence."""
+def filter_candidates(result, threshold, top_k, *, enabled=True):
+    """Withhold unassessed candidates unless filtering is explicitly disabled."""
     candidates = result['matches']
-    result['relevance'] = relevance(candidates, threshold)
+    result['relevance'] = relevance(candidates, threshold if enabled else None)
+    if not enabled:
+        result['relevance']['warnings'].append('relevance_filter_disabled')
     if result['status'] == 'model_mismatch':
         result['fallback_reason'] = None
         return result
@@ -126,6 +128,9 @@ def filter_candidates(result, threshold, top_k):
         reason = 'no_eligible_documents'
     elif not candidates:
         reason = 'no_candidates'
+    elif not enabled:
+        result['matches'] = candidates[:top_k]
+        reason = None
     elif threshold is None:
         reason = 'relevance_unavailable'
     else:

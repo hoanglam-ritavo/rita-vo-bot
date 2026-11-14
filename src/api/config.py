@@ -21,8 +21,11 @@ class Settings:
     top_k: int = 5
     rerank: RerankSettings = RerankSettings()
     intent: IntentSettings = IntentSettings()
+    relevance_filter_enabled: bool = True
 
     def __post_init__(self):
+        if type(self.relevance_filter_enabled) is not bool:
+            raise ValueError('Invalid relevance filter configuration.')
         if self.host != '127.0.0.1' or type(self.port) is not int or not 1 <= self.port <= 65535:
             raise ValueError('API requires loopback and a valid port.')
         if not re.fullmatch('[a-fA-F0-9]{40}', self.model_revision):
@@ -33,6 +36,9 @@ class Settings:
 
 def load_settings():
     load_dotenv(REPOSITORY_ROOT / '.env', override=False)
+    relevance_filter = os.environ.get('RELEVANCE_FILTER_ENABLED', 'true').lower()
+    if relevance_filter not in ('true', 'false'):
+        raise ValueError('Invalid relevance filter configuration.')
     revision = os.environ.get('E5_MODEL_REVISION', '614241f622f53c4eeff9890bdc4f31cfecc418b3')
     path = Path(os.environ.get('E5_MODEL_PATH', str(REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / revision)))
     if not path.is_absolute():
@@ -40,4 +46,5 @@ def load_settings():
     return Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),
                     int(os.environ.get('API_PORT', '8000')),
                     int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
-                    intent_from_environment(os.environ))
+                    intent_from_environment(os.environ),
+                    relevance_filter_enabled=relevance_filter == 'true')

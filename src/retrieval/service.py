@@ -4,6 +4,7 @@ import math
 import re
 import time
 import logging
+from dataclasses import replace
 
 from src.ingestion import embeddings
 from src.ingestion.document_packages import Rejected
@@ -43,9 +44,13 @@ def query_input(model, question):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None):
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None,
+                 relevance_filter_enabled=True):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
+        if type(relevance_filter_enabled) is not bool:
+            raise ValueError('invalid_relevance_filter_configuration')
+        self.relevance_filter_enabled = relevance_filter_enabled
         self.device = device
         self.model_path = model_path
         self.model_revision = model_revision.lower()
@@ -93,7 +98,9 @@ class RetrievalService:
             try:
                 self._model, self._fingerprint = await self._worker(self._load)
                 if self.rerank_settings.enabled:
-                    self._reranker = OnnxReranker(self.rerank_settings)
+                    settings = (self.rerank_settings if self.relevance_filter_enabled
+                                else replace(self.rerank_settings, profile_path=None))
+                    self._reranker = OnnxReranker(settings)
                     try:
                         await self._worker(self._reranker.start)
                     except BaseException:
@@ -134,8 +141,9 @@ class RetrievalService:
         return await self._retrieve(question, top_k, assessment=True)
 
     async def _retrieve(self, question, top_k=5, *, assessment):
-        # Offline evaluators alone may inspect unfiltered candidates. No HTTP/CLI flag.
+        # Offline assessment=False exposes candidate diagnostics; public output always uses finalization.
         question = validate_request(question, top_k)
+        
         async with self._lock:
             if self._model is None:
                 raise RetrievalError('service_not_started', 2)
@@ -184,16 +192,21 @@ class RetrievalService:
             result['reranker_fingerprint'] = self._reranker.fingerprint if self._reranker else None
             if assessment:
                 threshold = (profile_threshold(self._reranker.profile, self._reranker.fingerprint,
-                             result.get('corpus_fingerprint')) if self._reranker else None)
-                filter_candidates(result, threshold, top_k)
-                # Runtime/CLI must not expose rejected candidate identities either.
+                             result.get('corpus_fingerprint'))
+                             if self._reranker and self.relevance_filter_enabled else None)
+                filter_candidates(result, threshold, top_k, enabled=self.relevance_filter_enabled)
+                # Public output must not expose candidate diagnostic identities.
                 result.pop('candidate_order', None)
-                logger.info('retrieval_assessed status=%s reason=%s candidates=%d retained=%d',
-                            result['status'], result['fallback_reason'], len(candidates), len(result['matches']))
+                logger.info('retrieval_assessed filter_enabled=%s status=%s reason=%s candidates=%d retained=%d',
+                            self.relevance_filter_enabled, result['status'], result['fallback_reason'],
+                            len(candidates), len(result['matches']))
             else:
                 result['matches'] = candidates
                 result['relevance'] = relevance(candidates)
-            result['notice'] = 'Relevance-filtered excerpts only; not a generated answer or completeness guarantee.'
+            result['notice'] = (
+                'Relevance-filtered excerpts only; not a generated answer or completeness guarantee.'
+                if assessment and self.relevance_filter_enabled else
+                'Unassessed source candidates; not a generated answer or completeness guarantee.')
             return result
 
     async def close(self):

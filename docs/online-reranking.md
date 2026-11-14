@@ -14,14 +14,26 @@ Install `requirements-example.txt`. ONNX Runtime uses `CPUExecutionProvider`, fo
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
+| `RELEVANCE_FILTER_ENABLED` | `true` | HTTP API relevance gate; `false` returns unassessed top-k candidates without loading a profile |
 | `RERANK_ENABLED` | `false` | Explicit opt-in; keep disabled until rollout gates pass |
 | `RERANK_MODEL_PATH` | `models` | Relative to the bot repository root |
 | `RERANK_MODEL_FILE` | `model_quint8_avx2.onnx` | Only the pinned artifact is supported |
 | `RERANK_CANDIDATE_COUNT` | `30` | Exactly 30; independent of requested top-K |
 | `RERANK_BATCH_SIZE` | `4` | 1–16 windows per inference batch |
-| `RERANK_PROFILE_PATH` | unset | Local schema-v2 per-passage calibration profile; missing/stale profile returns an empty fallback |
+| `RERANK_PROFILE_PATH` | unset | Local schema-v2 per-passage calibration profile; missing/stale profile returns an empty fallback when filtering is enabled |
 
-The API reads these settings with the existing explicit `.env` loader. CLI and evaluation use explicit arguments instead: `--rerank`, `--rerank-model-path`, `--rerank-candidates`, `--rerank-batch-size`, `--rerank-profile`. Use identical settings for API/CLI comparisons. Restart with `RERANK_ENABLED=false` for an explicit rollback.
+The API reads these settings with the existing explicit `.env` loader. CLI and evaluation use explicit arguments instead: `--rerank`, `--rerank-model-path`, `--rerank-candidates`, `--rerank-batch-size`, `--rerank-profile`. Use identical settings for API/CLI comparisons. Restart with `RERANK_ENABLED=false` to stop rerank inference. This does not disable relevance filtering: with the default filter setting, vector candidates are withheld as `relevance_unavailable`.
+
+`RELEVANCE_FILTER_ENABLED` accepts case-insensitive `true`/`false` only and defaults to `true`; other values fail configuration loading. It is read at HTTP startup, with process environment taking precedence over `.env`. Restart the API to apply changes. `RetrievalService(..., relevance_filter_enabled=False)` provides the same explicit behavior to direct callers; the CLI, benchmarks and evaluators do not read this setting and keep their existing defaults. There is no request parameter to override it.
+
+| Filter enabled | Rerank enabled | Public behavior with candidates |
+| --- | --- | --- |
+| true | true | Matching profile required; apply threshold then top-K |
+| true | false | Withhold candidates with `relevance_unavailable` |
+| false | true | Rerank up to 30 candidates and return at most top-K without a threshold |
+| false | false | Return at most top-K in vector-search order |
+
+When filtering is disabled, the profile file is not loaded or validated, even if configured and malformed. Reranker artifacts and inference still undergo normal validation. Access, publication, date and embedding-compatibility checks always apply; operational failures do not become successful matches or vector-only fallback. This mode is not calibration acceptance.
 
 ## Retrieval and response semantics
 
@@ -40,7 +52,9 @@ The additive HTTP fields are:
 - `relevance.warnings`: always includes `evidence_completeness_not_assessed`; low relevance also includes `low_relevance`.
 - `timings.rerank_seconds`: tokenizer and ONNX scoring time; included in existing retrieval/total timing, not an additional interval to sum.
 
-Existing top-level statuses remain unchanged. `top_k` is an upper bound, never a target to fill. After reranking, retain only passages with raw score **greater than or equal to** the calibrated threshold, then take at most top-K. The remaining passages retain their original content and provenance. A matching profile is required even for a very high raw score; there is no universal cutoff or vector-only fallback.
+With filtering explicitly disabled, returned candidates use `relevance.status: unassessed`; empty outcomes use `no_candidates`. Both include `relevance_filter_disabled` and `evidence_completeness_not_assessed` warnings. Nonempty output is `matches_found` with `fallback_reason: null`, not a claim that relevance was validated. `rerank_score` is null and `rerank_seconds` is zero if reranking is disabled. The HTTP schema is unchanged. The backend mapper currently accepts these responses but does not forward relevance metadata to the portal; enabling this mode does not add a portal warning.
+
+Existing top-level statuses remain unchanged. `top_k` is an upper bound, never a target to fill. With filtering enabled, after reranking retain only passages with raw score **greater than or equal to** the calibrated threshold, then take at most top-K. The remaining passages retain their original content and provenance. With filtering enabled (the default), a matching profile is required even for a very high raw score; there is no universal cutoff or automatic vector-only fallback.
 
 Every HTTP/CLI result includes required nullable `fallback_reason`:
 
@@ -50,7 +64,7 @@ Every HTTP/CLI result includes required nullable `fallback_reason`:
 | `no_matches` | empty | `below_relevance_threshold`, `relevance_unavailable`, or `no_candidates` |
 | `no_eligible_documents` | empty | `no_eligible_documents` |
 
-Eligibility/empty candidate outcomes take precedence over unavailable assessment. Disabled reranking, missing profiles, legacy profiles, failed holdout or mismatched fingerprints produce `relevance_unavailable`, not proof that no policy exists. Invalid configured profile JSON/fields fail model startup. Model/database/timeout failures remain operational errors. Relevance metadata describes the candidate assessment; it never certifies evidence completeness. Low-scoring and unassessed candidates are not exposed through HTTP or the retrieval CLI.
+Eligibility/empty candidate outcomes take precedence over unavailable assessment. With filtering enabled, disabled reranking, missing profiles, legacy profiles, failed holdout or mismatched fingerprints produce `relevance_unavailable`, not proof that no policy exists. Invalid configured profile JSON/fields fail model startup when both reranking and filtering are enabled. Model/database/timeout failures remain operational errors. Relevance metadata describes the candidate assessment; it never certifies evidence completeness. With filtering enabled, low-scoring and unassessed candidates are not exposed through HTTP or the retrieval CLI.
 
 Schema-v2 profiles contain `schema_version: 2`, `fingerprint`, `corpus_fingerprint`, finite raw-logit `threshold`, and `holdout_passed: true`. Model artifacts, revision, pipeline version, candidate count, batch size and ONNX Runtime version participate in the model fingerprint. The corpus fingerprint covers compatible eligible active run IDs, revision IDs and publication configurations, computed in the same read-only snapshot as retrieval. Publications must remain immutable; changed publications/eligibility require new calibration. Legacy top-1 profiles cannot authorize per-passage filtering.
 
@@ -58,7 +72,21 @@ One request runs at a time in the API; concurrent calls still receive 429. Cance
 
 ## Evaluation and rollout
 
-`scripts.evaluate_retrieval` evaluates the public filtered result. Without a valid profile it observes empty fallbacks. `scripts.benchmark_online_retrieval` has a separate offline-only candidate path; no HTTP parameter or public retrieval CLI option can bypass filtering.
+### Diagnose empty results before recalibration
+
+First distinguish unavailable assessment (`relevance_unavailable`) from scored rejection (`below_relevance_threshold`). Check the effective process configuration separately from `.env`: environment overrides and a previously started process can differ from the current file. Do not expose credentials or assume readiness establishes profile compatibility.
+
+Use the existing offline benchmark's `--collect-only` mode for known failed questions, keeping them and typo comparisons in regression with shared intent groups. Required groups are source-reviewed evidence proposals, not proof of complete answers. Keep unrelated published data, model configuration and runtime settings fixed. Collection also runs at least 100 latency requests, never emits a profile, and is not a successful calibration.
+
+`python -m scripts.diagnose_retrieval` then consumes that saved collection; see the [utility reference](../scripts/README.md#evaluation-and-experiments). Its diagnostic compares required evidence ranks before/after reranking and, optionally, scores against a compatible historical cutoff. That cutoff is never accepted as a runtime profile. Its separate private worksheet sorts candidates by package/index and includes retained extraction excerpts, unresolved review labels and no scores/ranks/distances. It does not change existing labels or infer user approval. Read-only package validation may create workspace lock files under `.tmp/`.
+
+The tool checks manifest identity, target-package case pins, candidate sets, complete existing labels when supplied, and input hashes. It does not query PostgreSQL or independently prove that current non-target source bytes match a historical publication. Collect against a verified immutable corpus and retain before/after package and database receipts; do not use the worksheet as an independent publication-integrity check.
+
+Review high-scoring negatives and rejected direct evidence against the source before changing any labels. Similar vocabulary in different forms/workflows does not establish relevance. A threshold above every calibration negative can reject many correct passages when scores overlap; lowering that threshold is not evidence that quality gates pass. Do not rerun the same failed configuration simply to obtain another report. Any development informed by old holdout results requires a new independent holdout before acceptance.
+
+Technical parity should compare native tokenizer pairs/windows and ONNX outputs with identical inference batching. Quantized batch-versus-singleton score differences alone do not prove an owner-mapping or tokenizer defect. Keep calibration/runtime batching aligned and record tolerances. Model-quality acceptance remains separate from implementation parity.
+
+`scripts.evaluate_retrieval` evaluates the public filtered result. Without a valid profile it observes empty fallbacks. `scripts.benchmark_online_retrieval` has a separate offline-only candidate path; no HTTP parameter or public retrieval CLI option can bypass filtering. Only the HTTP server configuration or an explicit direct-service option can disable the gate; benchmark calibration and acceptance remain unchanged.
 
 Prepare a `.tmp/` manifest with `datasets` containing `package` and `cases` paths. Retain the existing pinned revision/chunks hash and `required_groups` schema. Each case requires a globally unique ID/question, `split` (`calibration`, `holdout`, `regression`), `relevant` boolean, and `intent_group`. Related paraphrases must share one intent group and never cross splits. Known inspected questions belong in regression. All evidence and relevance labels require source review, not model-score inference.
 
@@ -74,4 +102,4 @@ Calibration picks the lowest finite threshold strictly above all calibration neg
 
 A schema-v2 profile is emitted only if every gate passes. Otherwise leave assessment unavailable; do not lower gates, widen candidate counts, substitute a model or introduce document-specific rules. The historical 40-question top-1 evaluation is not sufficient for this gate. Passing synthetic tests does not establish real retrieval quality.
 
-Deploy bot and backend together during maintenance, draining old processes first. The backend requires the new reason field; an old bot response is invalid, not empty evidence. Until a matching profile is provisioned, available documents yield `no_matches/relevance_unavailable`. `/health/ready` still measures dependencies, not calibration quality. Existing portal status handling remains compatible but does not yet display reason-specific messages. Logs include only counts, status/reason and timings.
+Deploy bot and backend together during maintenance, draining old processes first. The backend requires the new reason field; an old bot response is invalid, not empty evidence. With filtering enabled, until a matching profile is provisioned, available documents yield `no_matches/relevance_unavailable`. `/health/ready` still measures dependencies, not calibration quality. Existing portal status handling remains compatible but does not yet display reason-specific messages. Logs include only the filter-enabled setting, counts, status/reason and timings.

@@ -332,3 +332,119 @@ def test_benchmark_runs_filtered_latency_and_only_certifies_labeled_cases(tmp_pa
     assert report['corpus_fingerprint'] == 'corpus'
     assert instances[0].public_calls == 100 and instances[0].closed
     assert all('_case' not in row for row in report['cases'])
+
+
+@pytest.mark.parametrize('filter_enabled', [True, False])
+@pytest.mark.parametrize('rerank_enabled', [True, False])
+def test_independent_filter_and_rerank_switches(monkeypatch, filter_enabled, rerank_enabled):
+    search = install_doubles(monkeypatch)
+    monkeypatch.setattr(OnnxReranker, 'score', lambda *args: ([0., 9., 4.], 3))
+    async def scenario():
+        service = RetrievalService(model_path='unused', model_revision='a'*40,
+            rerank=RerankSettings(enabled=rerank_enabled), relevance_filter_enabled=filter_enabled)
+        await service.start()
+        try:
+            if rerank_enabled:
+                service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus',
+                                                threshold=8., holdout_passed=True)
+            result = await service.retrieve('question', 2)
+            expected = (['1'] if rerank_enabled else []) if filter_enabled else (
+                ['1', '2'] if rerank_enabled else ['0', '1'])
+            assert [m['chunk_id'] for m in result['matches']] == expected
+            assert result['status'] == ('matches_found' if expected else 'no_matches')
+            assert result['fallback_reason'] == (None if expected else 'relevance_unavailable')
+            assert search.call_args.args[3] == (30 if rerank_enabled else 2)
+            assert 'candidate_order' not in result
+            assert all(m['content'] == 'synthetic' for m in result['matches'])
+            if not filter_enabled:
+                assert result['relevance'] == dict(status='unassessed', warnings=[
+                    'evidence_completeness_not_assessed', 'relevance_filter_disabled'])
+                assert 'Unassessed' in result['notice']
+            if not rerank_enabled:
+                assert result['rerank_seconds'] == 0.0
+                assert all(m['rerank_score'] is None for m in result['matches'])
+            else:
+                assert result['rerank_seconds'] > 0
+                assert result['matches'][0]['rerank_score'] == 9.
+        finally:
+            await service.close()
+    run_async(scenario())
+
+
+@pytest.mark.parametrize('profile_kind', ['missing', 'malformed', 'mismatched'])
+@pytest.mark.parametrize('filter_enabled', [True, False])
+def test_profile_file_only_used_when_filtering(monkeypatch, tmp_path, profile_kind, filter_enabled):
+    import json
+    from src.retrieval.reranking import load_profile
+    install_doubles(monkeypatch)
+    profile = tmp_path / 'profile.json'
+    if profile_kind == 'malformed':
+        profile.write_text('{invalid', encoding='utf-8')
+    elif profile_kind == 'mismatched':
+        profile.write_text(json.dumps(dict(schema_version=2, fingerprint='old',
+            corpus_fingerprint='old', threshold=99., holdout_passed=True)), encoding='utf-8')
+    loaded_paths = []
+    def start(reranker):
+        reranker.fingerprint = 'synthetic'
+        loaded_paths.append(reranker.settings.profile_path)
+        reranker.profile = load_profile(reranker.settings.profile_path)
+    monkeypatch.setattr(OnnxReranker, 'start', start)
+    monkeypatch.setattr(OnnxReranker, 'score', lambda *args: ([0., 1., 2.], 3))
+    async def scenario():
+        service = RetrievalService(model_path='unused', model_revision='a'*40,
+            rerank=RerankSettings(enabled=True, profile_path=profile),
+            relevance_filter_enabled=filter_enabled)
+        try:
+            if filter_enabled and profile_kind == 'malformed':
+                with pytest.raises(RetrievalError, match='model_load_failed'):
+                    await service.start()
+            else:
+                await service.start()
+                result = await service.retrieve('question', 1)
+                assert result['status'] == ('no_matches' if filter_enabled else 'matches_found')
+                assert result['fallback_reason'] == ('relevance_unavailable' if filter_enabled else None)
+            assert loaded_paths == [profile if filter_enabled else None]
+        finally:
+            await service.close()
+    run_async(scenario())
+
+
+@pytest.mark.parametrize('status,reason', [('no_eligible_documents', 'no_eligible_documents'),
+                                        ('no_matches', 'no_candidates')])
+def test_filter_disabled_preserves_empty_outcomes(monkeypatch, status, reason):
+    search = install_doubles(monkeypatch)
+    search.return_value = dict(status=status, matches=[])
+    async def scenario():
+        service = RetrievalService(model_path='unused', model_revision='a'*40, relevance_filter_enabled=False)
+        await service.start()
+        try:
+            result = await service.retrieve('question')
+            assert result['status'] == status and result['fallback_reason'] == reason
+            assert result['matches'] == []
+            assert result['relevance'] == dict(status='no_candidates', warnings=[
+                'evidence_completeness_not_assessed', 'relevance_filter_disabled'])
+            assert 'candidate_order' not in result
+        finally:
+            await service.close()
+    run_async(scenario())
+
+
+def test_filter_disabled_does_not_hide_reranker_failure(monkeypatch):
+    install_doubles(monkeypatch)
+    monkeypatch.setattr(OnnxReranker, 'score', Mock(side_effect=RuntimeError('private')))
+    async def scenario():
+        service = RetrievalService(model_path='unused', model_revision='a'*40,
+            rerank=RerankSettings(enabled=True), relevance_filter_enabled=False)
+        await service.start()
+        try:
+            with pytest.raises(RetrievalError, match='reranking_failed'):
+                await service.retrieve('question')
+        finally:
+            await service.close()
+    run_async(scenario())
+
+
+@pytest.mark.parametrize('value', ['false', 0, None])
+def test_service_requires_boolean_filter_setting(value):
+    with pytest.raises(ValueError, match='invalid_relevance_filter_configuration'):
+        RetrievalService(model_path='unused', model_revision='a'*40, relevance_filter_enabled=value)

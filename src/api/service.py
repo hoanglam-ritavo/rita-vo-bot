@@ -16,7 +16,8 @@ class ApiService:
         self.settings = settings
         self.retrieval = retrieval if retrieval is not None else RetrievalService(
             model_path=settings.model_path, model_revision=settings.model_revision, device='cpu',
-            rerank=settings.rerank, intent=settings.intent)
+            rerank=settings.rerank, intent=settings.intent,
+            relevance_filter_enabled=settings.relevance_filter_enabled)
         self.database_check = database_check or check_database
         self.database_close = database_close or close_database
         self.started = False
