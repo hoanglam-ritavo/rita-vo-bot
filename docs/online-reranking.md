@@ -1,5 +1,7 @@
 # Online CPU reranking
 
+For durable model/profile paths, backup/restore, review handoff and profile promotion, see [runtime artifact operations](runtime-artifacts.md). Benchmark workspaces remain private under `.tmp/`; accepted runtime profiles belong outside that temporary workspace.
+
 This opt-in pipeline retrieves and filters candidates without modifying packages, publications, database schemas or stored embeddings. It does not generate answers, establish personal eligibility, or certify complete evidence. Missing policy content still requires a separately authorized offline update.
 
 ## Local model and configuration

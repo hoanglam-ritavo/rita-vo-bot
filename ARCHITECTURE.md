@@ -136,6 +136,8 @@ Unit tests cover synthetic package contracts, converter compatibility, CLI batch
 
 ## Optional online reranking
 
+Runtime E5 defaults to `models/embeddings/multilingual-e5-small/<revision>/`; the existing pinned ONNX/tokenizer layout stays directly under `models/`. Versioned accepted profiles and local verification receipts live under ignored `artifacts/`, separate from `.tmp/` evaluation workspaces. No model bytes, publication identity, response contract or health semantics change with this path migration. Backup/restore and calibration promotion are operational gates described in [runtime artifacts](docs/runtime-artifacts.md); private draft datasets are not accepted profiles.
+
 `src.retrieval` owns the pinned mMARCO MiniLM ONNX lifecycle and shared function/CLI/HTTP pipeline. Enabled requests normalize NFC/whitespace, retrieve original plus an optional allowlisted typo correction in one read-only snapshot, fuse candidates with RRF, and rerank overlapping token windows on CPU. Content and provenance are preserved; candidate selection/order, per-passage filtering and explicit empty fallback are shared across public entrypoints. The model is loaded locally with pinned artifact hashes; no ingestion, schema or vector writes occur. Runtime failure does not silently fall back. The service lock spans retrieval and reranking so close/cancellation drains work before releasing models. See [online reranking](docs/online-reranking.md) for configuration, limits, profile calibration and rollout gates.
 
 
