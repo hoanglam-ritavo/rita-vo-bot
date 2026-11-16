@@ -10,10 +10,12 @@ Run commands from the repository root with the repository virtual environment. B
 | --- | --- | --- |
 | `check_db.py` | Current | `python -m src.cli.check_db`: check PostgreSQL connectivity and pgvector version. |
 | `prepare_documents.py` | Current | `python -m src.cli.prepare_documents <init/validate/revise/recover> ...`: manage current agent-authored packages. |
+| `prepare_rerank.py` | Current, offline baseline preparation | `python -m src.cli.prepare_rerank <init/validate/freeze> --manifest <private-manifest> ... [--json]`: import draft cases, validate pins and freeze reviewed candidate labels. |
 | `preflight_documents.py` | Current | `python -m src.cli.preflight_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--check-embeddings] [--json]`: local technical checks. |
 | `publish_documents.py` | Current | `python -m src.cli.publish_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--dry-run] [--json]`: publish eligible packages. |
 | `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve accepted source excerpts. |
 | `prepare_intents.py` | Current, preferred batch interface | `python -m src.cli.prepare_intents <validate/preflight/run> --config .tmp/intent/config.json [--json]`. |
+| `prepare_semantics.py` | Current, offline authoring | `python -m src.cli.prepare_semantics <inventory/validate/export> ...`: snapshot all packages, validate declared coverage, export a reviewed lexicon. |
 | `serve_api.py` | Current | `python -m src.cli.serve_api`: serve local HTTP retrieval using environment configuration. |
 | `serve_grpc.py` | Current | `python -m src.cli.serve_grpc`: serve local health-only gRPC using environment configuration. |
 | `main.py` | Compatibility dispatcher | Root `python main.py [check-db]` calls the DB check; `python main.py ingest` returns retirement guidance. Importing `src.cli.main` does not execute it. |
@@ -21,6 +23,21 @@ Run commands from the repository root with the repository virtual environment. B
 | `__init__.py` | Package initializer | No standalone command. |
 
 ## Document workflow
+
+For baseline rerank calibration inputs, see the [preparation workflow](../../docs/online-reranking.md#prepare-baseline-calibration-inputs).
+`init` requires an existing manifest and a new `--output-dir`; it copies cases,
+checks package revision/canonical hashes and writes a draft receipt, review
+template and collection argument list. It does not author questions or repair
+stale pins. `validate --stage collection|calibration` checks the shared case
+contract; exact candidate-set matching requires `freeze`. `freeze` additionally
+requires `--collection`, `--review` and a new `--output-dir`. It accepts only
+candidate-label edits since collection and emits a frozen snapshot and benchmark
+arguments, never a profile. Paths resolve from the repository root; private
+inputs and outputs stay under `.tmp/`, with links and overwrites rejected.
+No command loads `.env`, a model, or a database. Package validation can create
+coordination locks under `.tmp/`. Exit codes: `0` requested step completed,
+`1` validation/review rejection, `2` IO/operational failure or argparse usage
+error. JSON errors identify files/case indices without question or source text.
 
 Use [offline indexing](../../docs/offline-indexing.md) for the authoritative package schema, workflow and publication boundaries.
 
@@ -35,7 +52,7 @@ Package commands emit summaries or `--json` reports: exit `0` for success/skips,
 
 ## Retrieval and services
 
-`retrieve_documents` needs PostgreSQL and a compatible published corpus/local model. It returns status, matches, nullable fallback reason and timings as JSON (pretty-printed unless `--json`). `--top-k` defaults to `5`, range `1-20`, and is an upper bound after relevance filtering. Reranking and intent observation flags are described by `--help` and the [reranking](../../docs/online-reranking.md) and [intent](../../docs/intent-classifier.md) guides. No accepted relevance profile means candidates may be withheld with `relevance_unavailable`.
+`retrieve_documents` needs PostgreSQL and a compatible published corpus/local model. It returns status, matches, nullable fallback reason and timings as JSON (pretty-printed unless `--json`). `--top-k` defaults to `5`, range `1-20`, and is an upper bound after relevance filtering. Reranking, semantics and intent flags are described by `--help` and the [reranking](../../docs/online-reranking.md), [semantics](../../docs/vietnamese-semantics.md) and [intent](../../docs/intent-classifier.md) guides. No accepted relevance profile means candidates may be withheld with `relevance_unavailable`.
 
 Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the service's existing `1`/`2` classification. Retrieval does not write publication data. The CLI keeps `run(args)` as a compatibility wrapper around `src.retrieval.runner`; [the IDE utility](../../scripts/README.md#manual-retrieval) uses that same runner. Both return excerpts, not generated answers.
 
@@ -50,5 +67,27 @@ Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the
 Use `prepare_intents` for repeatable config-driven batches. `validate` requires no ML runtime; `preflight` requires the local tokenizer/model and checks tokens without encoding; `run` requires reviewed data and offline training dependencies. Preflight/run create new private run artifacts under `.tmp/`; run produces a manifest, training report and candidate, not a runtime-accepted artifact. No PostgreSQL is used. Exit `0` indicates successful completion, `1` validation/preflight/quality rejection, `2` operational failure or unreviewed training data, `130` interruption. See [config, outputs and gates](../../docs/intent-classifier.md#unified-offline-preparation-cli).
 
 The historical `scripts.train_intent` shares the training implementation. `scripts.benchmark_intent` remains a separate acceptance step; neither interface automatically changes `.env` or enables a classifier.
+
+## Semantic preparation
+
+These commands use no model or database. Inputs/outputs for authored data must
+stay under `.tmp/`; choose a new output path rather than overwriting a review:
+
+```powershell
+python -m src.cli.prepare_semantics inventory --output .tmp/semantics/new-inventory.json --json
+python -m src.cli.prepare_semantics validate --manifest .tmp/semantics/authored-inventory.json --json
+python -m src.cli.prepare_semantics export --manifest .tmp/semantics/reviewed-inventory.json --output .tmp/semantics/reviewed-lexicon.json --json
+```
+
+`inventory` reads every package JSON and unchanged source snapshot and writes a
+pending draft with source excerpts. Agent authoring/review happens separately;
+the command does not infer aliases or certify meaning. `validate` checks byte
+identity, references, dispositions and declared coverage; a technically valid
+draft can still require review. `export` requires reviewed units and review notes
+and writes only runtime language concepts, without source/chunk IDs. It does not
+emit a relevance profile or enable runtime. `--chunks-root` explicitly overrides
+the package root for fixtures/controlled authoring. Exit `0` means the requested
+step completed, `1` invalid manifest, `2` review-blocked export, operational or
+usage failure. See [review and evaluation](../../docs/vietnamese-semantics.md).
 
 Retired catalog/ingestion commands are kept for compatibility. Follow the document workflow above; do not interpret their old names as available catalog imports, PDF extraction or approval commands.

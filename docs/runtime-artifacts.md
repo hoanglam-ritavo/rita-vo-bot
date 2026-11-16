@@ -9,10 +9,11 @@ Runtime dependencies must survive deletion of `.tmp/`. Keeping files outside Git
 | `models/embeddings/multilingual-e5-small/<revision>/` | Pinned E5 model files | Immutable while running; provision before startup |
 | `models/` | Existing pinned reranker ONNX and tokenizer files directly in this directory | Preserve the supported layout and artifact allowlist |
 | `artifacts/rerank/<version>/` | Accepted `relevance-profile.json`, report and provenance manifest | Immutable version; switch configuration explicitly |
+| `artifacts/semantics/<version>/` | Reviewed corpus-bound language lexicon and provenance | Provision only after review and matching pipeline evaluation |
 | `artifacts/storage-preparation-<date>/` | File inventory and migration/smoke receipts | Local operational evidence, not an independent backup |
 | `.tmp/` | Evaluation workspaces, private draft cases, candidates, caches and package staging | Not a runtime dependency; reviewed evaluation inputs still need backup |
 
-`models/`, `artifacts/` and `.tmp/` are ignored by Git. Do not commit real questions, excerpts, credentials or `.env`. Optional accepted intent artifacts may later live under `artifacts/intent/<version>/`; do not create that directory or enable observation before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this runtime migration.
+`models/`, `artifacts/` and `.tmp/` are ignored by Git. Do not commit real questions, excerpts, credentials or `.env`. Optional accepted intent artifacts may live under `artifacts/intent/<version>/`; do not create that directory or enable observation/assistance before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this runtime migration. A semantic lexicon's hash participates in the effective reranker fingerprint; keep each lexicon, classifier (if assistance is enabled) and relevance profile as a compatible versioned set. See [semantic preparation and release](vietnamese-semantics.md).
 
 The API defaults to the durable E5 path above. An explicit `E5_MODEL_PATH` still overrides it, including legacy paths; there is no silent fallback to the old directory. API environment paths resolve against the repository root, and process environment variables take precedence over `.env`. The retrieval CLI uses explicit model/rerank arguments. Restart existing services explicitly after changing their configuration.
 

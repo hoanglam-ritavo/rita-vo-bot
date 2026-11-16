@@ -11,6 +11,7 @@ from src.ingestion.document_packages import Rejected
 from src.intent import IntentObserver, IntentSettings
 from src.intent.runtime import identity as intent_identity
 from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, profile_threshold, filter_candidates
+from .semantics import SemanticSettings, SemanticExpander
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +45,7 @@ def query_input(model, question):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None,
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None, semantic=None,
                  relevance_filter_enabled=True):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
@@ -60,6 +61,11 @@ class RetrievalService:
         self.rerank_settings = rerank or RerankSettings()
         self._reranker = None
         self._intent = IntentObserver(intent or IntentSettings())
+        self._semantic = SemanticExpander(semantic or SemanticSettings())
+        if self._semantic.settings.mode == 'expand' and not self.rerank_settings.enabled:
+            raise ValueError('semantic_requires_reranker')
+        if self._intent.settings.mode == 'assist' and self._semantic.settings.mode != 'expand':
+            raise ValueError('intent_assistance_requires_semantics')
 
     @property
     def started(self):
@@ -96,6 +102,10 @@ class RetrievalService:
             if self._model is not None:
                 return
             try:
+                try:
+                    await self._worker(self._semantic.start)
+                except ValueError as exc:
+                    raise RetrievalError(str(exc), 2) from None
                 self._model, self._fingerprint = await self._worker(self._load)
                 if self.rerank_settings.enabled:
                     settings = (self.rerank_settings if self.relevance_filter_enabled
@@ -108,15 +118,26 @@ class RetrievalService:
                         self._reranker = None
                         self._model = self._fingerprint = None
                         raise
-                if self._intent.settings.mode == 'observe':
+                if self._intent.settings.mode in ('observe', 'assist'):
                     await self._worker(self._intent.start, intent_identity(
                         self.model_revision, self._fingerprint, self.rerank_settings.enabled))
+                if self._reranker and self._semantic.settings.mode == 'expand':
+                    intent_digest = ('assist:' + self._intent.version
+                                     if self._intent.settings.mode == 'assist' else None)
+                    self._reranker.fingerprint = self._semantic.effective_fingerprint(
+                        self._reranker.fingerprint, intent_digest=intent_digest)
             except RetrievalError:
+                self._clear_runtime()
                 raise
             except Rejected as exc:
+                self._clear_runtime()
                 raise RetrievalError(str(exc), 2 if str(exc) in {'local_model_missing', 'local_model_empty'} else 1) from None
             except Exception:
+                self._clear_runtime()
                 raise RetrievalError('model_load_failed', 2) from None
+            except BaseException:
+                self._clear_runtime()
+                raise
 
     def _encode(self, question):
         model = self._model
@@ -149,8 +170,26 @@ class RetrievalService:
                 raise RetrievalError('service_not_started', 2)
             try:
                 variants = query_variants(question) if self._reranker else [question]
+                rerank_question = variants[-1]
                 vector = await self._worker(self._encode, variants[0])
+                styles = ()
+                if self._intent.settings.mode == 'assist':
+                    prediction = await self._worker(self._intent.predict, vector)
+                    if prediction['status'] == 'classified':
+                        styles = prediction['styles']
+                skipped = 0
+                for variant in self._semantic.expansion(rerank_question, styles=styles):
+                    if variant in variants:
+                        continue
+                    # Do not truncate a rewrite or silently lose a condition to fit it.
+                    _, count, limit = query_input(self._model, variant)
+                    if count > limit:
+                        skipped += 1
+                        continue
+                    variants.append(variant)
                 extra = [await self._worker(self._encode, variant) for variant in variants[1:]]
+                if self._semantic.settings.mode == 'expand':
+                    logger.info('semantic_expansion variants=%d skipped=%d', len(variants), skipped)
             except RetrievalError:
                 raise
             except Exception:
@@ -176,7 +215,7 @@ class RetrievalService:
             if self._reranker and candidates:
                 started = time.perf_counter()
                 try:
-                    scores, windows = await self._worker(self._reranker.score, variants[-1], candidates)
+                    scores, windows = await self._worker(self._reranker.score, rerank_question, candidates)
                 except ValueError as exc:
                     if str(exc) == 'reranker_question_exceeds_model_limit':
                         raise RetrievalError('question_exceeds_model_limit') from None
@@ -209,11 +248,15 @@ class RetrievalService:
                 'Unassessed source candidates; not a generated answer or completeness guarantee.')
             return result
 
+    def _clear_runtime(self):
+        self._intent.close()
+        self._semantic.close()
+        if self._reranker:
+            self._reranker.close()
+            self._reranker = None
+        self._model = None
+        self._fingerprint = None
+
     async def close(self):
         async with self._lock:
-            self._intent.close()
-            if self._reranker:
-                self._reranker.close()
-                self._reranker = None
-            self._model = None
-            self._fingerprint = None
+            self._clear_runtime()

@@ -5,6 +5,7 @@ from src.retrieval import RetrievalService, RetrievalError
 from src.retrieval.service import validate_request
 from src.retrieval.config import from_arguments
 from src.intent.config import from_arguments as intent_from_arguments
+from src.retrieval.semantic_config import from_arguments as semantic_from_arguments
 
 
 async def run(args):
@@ -15,7 +16,8 @@ async def run(args):
     try:
         validate_request(args.question, args.top_k)
         service = RetrievalService(model_path=args.model_path, model_revision=args.model_revision,
-                                   rerank=from_arguments(args), intent=intent_from_arguments(args))
+                                   rerank=from_arguments(args), intent=intent_from_arguments(args),
+                                   semantic=semantic_from_arguments(args))
         started = time.perf_counter()
         await service.start()
         timings['model_initialization_seconds'] = time.perf_counter() - started

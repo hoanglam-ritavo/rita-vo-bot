@@ -296,6 +296,7 @@ def test_benchmark_runs_filtered_latency_and_only_certifies_labeled_cases(tmp_pa
         cases.append(dict(id=str(i), question=str(i), intent_group=str(i), split=split,
             relevant=supported, category='detail' if supported else 'unsupported',
             required_groups=[[0]] if supported else [], candidate_labels={'chunk': supported}))
+    case_path.write_text(json.dumps({'cases': cases}))
     files = {'metadata.json': b'{}'}
     monkeypatch.setattr(bench, 'model_fingerprint', lambda *_: 'embedding')
     monkeypatch.setattr(bench, 'load_cases', lambda *_: cases)
@@ -330,6 +331,8 @@ def test_benchmark_runs_filtered_latency_and_only_certifies_labeled_cases(tmp_pa
     report = run_async(bench.benchmark(args))
     assert report['rollout_ready'] is (not collect_only)
     assert report['corpus_fingerprint'] == 'corpus'
+    assert report['preparation_binding'][0]['case_identity']
+    assert report['reproduction_arguments'][-1] == '--rerank'
     assert instances[0].public_calls == 100 and instances[0].closed
     assert all('_case' not in row for row in report['cases'])
 

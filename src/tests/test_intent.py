@@ -98,8 +98,45 @@ def test_config_defaults_and_invalid_mode():
     assert from_environment({}) == IntentSettings()
     assert from_arguments(SimpleNamespace()) == IntentSettings()
     assert from_environment({'INTENT_MODE': 'observe'}).mode == 'observe'
+    assert from_environment({'INTENT_MODE': 'assist'}).mode == 'assist'
     with pytest.raises(ValueError):
         from_environment({'INTENT_MODE': 'route'})
+
+
+def test_assistance_predictions_abstain_and_do_not_invent_styles(tmp_path, caplog):
+    data = artifact()
+    path = tmp_path / 'accepted.json'
+    path.write_text(json.dumps(data), encoding='utf-8')
+    observer = IntentObserver(IntentSettings('assist', path))
+    observer.start(data['identity'])
+    vector = [1.] + [0.] * 383
+    assert observer.predict(vector) == {
+        'status': 'classified', 'source': 'type_a', 'styles': ['detail']}
+    observer.artifact['source_bias'] = [0.] * 6
+    assert observer.predict(vector) == {'status': 'uncertain', 'source': None, 'styles': []}
+    observer.artifact['source_bias'] = [0., 8., 0., 0., 0., 0.]
+    assert observer.predict(vector) == {'status': 'classified', 'source': 'type_b', 'styles': []}
+    assert observer.predict([float('nan')] * 384) == {
+        'status': 'unavailable', 'source': None, 'styles': []}
+    assert 'invalid_intent_vector' not in caplog.text
+    observer.close()
+    assert observer.predict(vector)['status'] == 'unavailable'
+    observer.start(data['identity'])
+    assert observer.artifact is not None
+    off = IntentObserver(IntentSettings('off', path))
+    off.artifact = data
+    assert off.predict(vector)['status'] == 'unavailable'
+
+
+def test_assistance_rejects_unaccepted_artifact_without_loading_second_model(tmp_path):
+    data = artifact()
+    data['acceptance']['reviewed'] = False
+    path = tmp_path / 'unreviewed.json'
+    path.write_text(json.dumps(data), encoding='utf-8')
+    observer = IntentObserver(IntentSettings('assist', path))
+    observer.start(data['identity'])
+    assert observer.artifact is None and observer.version == 'none'
+    assert observer.predict([1.] + [0.] * 383)['styles'] == []
 
 
 @pytest.mark.parametrize('rerank', [False, True])

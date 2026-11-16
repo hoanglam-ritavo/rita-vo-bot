@@ -1,4 +1,4 @@
-"""Small linear heads over the existing E5 query vector. Never controls retrieval."""
+"""Small linear heads over the original E5 vector; no source routing or tools."""
 from dataclasses import dataclass
 import hashlib
 import json
@@ -20,7 +20,7 @@ class IntentSettings:
     artifact_path: Path | None = None
 
     def __post_init__(self):
-        if self.mode not in ('off', 'observe'):
+        if self.mode not in ('off', 'observe', 'assist'):
             raise ValueError('invalid_intent_mode')
         if self.artifact_path is not None:
             path = Path(self.artifact_path)
@@ -111,16 +111,21 @@ class IntentObserver:
             self.close()
             logger.warning('intent_unavailable code=artifact_unavailable')
 
-    def observe(self, vector):
-        if self.settings.mode == 'off':
-            return
-        started = time.perf_counter()
+    def predict(self, vector):
+        """Safe internal hints. Unavailable/uncertain never authorize evidence."""
         result = {'status': 'unavailable', 'source': None, 'styles': []}
-        if self.artifact is not None:
+        if self.settings.mode != 'off' and self.artifact is not None:
             try:
                 result = classify(self.artifact, vector)
             except Exception:
                 logger.warning('intent_unavailable code=inference_failed')
+        return result
+
+    def observe(self, vector):
+        if self.settings.mode == 'off':
+            return
+        started = time.perf_counter()
+        result = self.predict(vector)
         logger.info('intent_observed status=%s source=%s styles=%s artifact=%s seconds=%.6f',
                     result['status'], result['source'], ','.join(result['styles']), self.version,
                     time.perf_counter() - started)

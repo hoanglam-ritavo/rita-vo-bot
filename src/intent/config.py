@@ -7,7 +7,7 @@ def from_environment(values):
 
 
 def add_arguments(parser):
-    parser.add_argument('--intent-mode', choices=('off', 'observe'), default='off')
+    parser.add_argument('--intent-mode', choices=('off', 'observe', 'assist'), default='off')
     parser.add_argument('--intent-artifact-path')
 
 

@@ -10,6 +10,8 @@ from src.retrieval.reranking import RerankSettings
 from src.retrieval.config import from_environment
 from src.intent import IntentSettings
 from src.intent.config import from_environment as intent_from_environment
+from src.retrieval.semantics import SemanticSettings
+from src.retrieval.semantic_config import from_environment as semantic_from_environment
 
 
 @dataclass(frozen=True)
@@ -22,6 +24,7 @@ class Settings:
     rerank: RerankSettings = RerankSettings()
     intent: IntentSettings = IntentSettings()
     relevance_filter_enabled: bool = True
+    semantic: SemanticSettings = SemanticSettings()
 
     def __post_init__(self):
         if type(self.relevance_filter_enabled) is not bool:
@@ -47,4 +50,5 @@ def load_settings():
                     int(os.environ.get('API_PORT', '8000')),
                     int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
                     intent_from_environment(os.environ),
-                    relevance_filter_enabled=relevance_filter == 'true')
+                    relevance_filter_enabled=relevance_filter == 'true',
+                    semantic=semantic_from_environment(os.environ))

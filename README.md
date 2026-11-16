@@ -24,6 +24,82 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### Baseline rerank input preparation - 2026-11-14
+
+Implemented on the working tree based on `b00cdbf`, preserving existing semantic,
+intent, API and documentation edits. `python -m src.cli.prepare_rerank` now
+imports draft manifests/cases, validates shared evaluator rules and freezes
+reviewed label sets against a new-format baseline collection. See
+[the preparation workflow](docs/online-reranking.md#prepare-baseline-calibration-inputs).
+No runtime API, `.env`, service, publication or calibration quality gate changed.
+
+Post-edit full non-integration validation passed **723 tests, 1 skipped,
+34 deselected** before the final missing-input exit-code refinement; the final
+focused preparation/evaluator/reranking/diagnostic run passed **93 tests**.
+Static checks passed for 88 local documentation file links and diff whitespace.
+The existing Starlette/AnyIO deprecation warning remains.
+The initial sandbox run hit WinError 5 in pytest temporary storage; successful
+runs used fresh repository-local extended-length temporary directories outside
+the sandbox. No old temporary trees were deleted or permissions changed.
+
+An actual model-free import copied **28 package-pinned datasets / 100 draft
+questions** from the existing storage-calibration manifest to ignored
+`.tmp/rerank/`, preserving source files. Collection-stage validation passes;
+calibration-stage validation correctly rejects incomplete candidate labels.
+All 141 recorded source input hashes remain unchanged. Review declarations
+remain false. Import and help checks do not establish
+source-label quality, split independence, database compatibility or acceptance.
+No real-model collection/calibration, database integration test, profile issuance,
+schema migration or API restart was performed by this task.
+
+### Corpus-wide Vietnamese semantics - 2026-11-14
+
+Implementation on the initially clean working tree based on `b00cdbf` adds
+model-free corpus inventory/review-gated lexicon export, opt-in bounded semantic
+query expansion, optional style-only intent assistance and a paired cross-document
+evaluation/calibration tool. Defaults remain off; no real lexicon, classifier or
+profile has been accepted or deployed by this task. The public HTTP request and
+response are unchanged. See [semantic workflow](docs/vietnamese-semantics.md).
+
+An actual inventory run read **28 packages / 524 chunks**, including source
+snapshots and source references, without modifying packages or database data.
+Inventory coverage does not certify that every business clause has been
+decomposed, that proposed aliases are equivalent, or that evidence is complete.
+Agent-authored material remains draft pending independent/source and human review.
+
+The local v3 draft under ignored `.tmp/semantics-v1/` contains **567 proposed
+units / 190 concepts**, including additional source-backed branches in labor,
+benefits and travel. Independent agent review identified unsafe equivalences;
+40 concept alias sets were quarantined as no-op proposals. Structural validation
+passes all 524 chunk references, explicitly reports
+`semantic_completeness_assessed: false`, and blocks lexicon export until human
+review. Source-specific question pairs and review findings are authoring aids,
+not an independent reviewed holdout or model-quality evidence.
+
+Final post-edit validation passed **698 tests, 1 skipped, 34 deselected** in the
+full non-integration suite after source-reference, strict JSON, profile-promotion
+and empty-reason review fixes. The earlier broad run passed 691 tests before
+those refinements. The existing Starlette/AnyIO deprecation warning remains. An
+initial focused sandbox run encountered WinError 5 in pytest temporary storage;
+successful runs used fresh repository-local extended-length paths outside the
+sandbox. No existing temporary trees were deleted or permissions changed.
+
+Static checks verified 94 local documentation file links and both new command
+help interfaces. These checks do not validate semantic equivalence, live API
+compatibility, database behavior or real-model quality.
+
+The local evaluation draft contains **1,139 proposed cases**, including the five
+known questions in regression. Collection-shape validation passes; full evaluation
+correctly rejects human-review status. Unsupported controls and exhaustive union
+candidate labels remain to be authored/reviewed, and corpus-derived wording is
+not an independent unseen holdout. See the local-only
+`.tmp/semantics-v1/HANDOFF.md` for review artifacts and remaining work; ignored
+artifacts require separate retention and are not shipped in a clean clone.
+
+No database integration tests, real-model semantic quality benchmark, classifier
+training, schema migration, publication, `.env` change or API restart was performed.
+Draft labels/fixtures are not live compatibility or quality acceptance evidence.
+
 ### Independent relevance filter switch - 2026-11-14
 
 Implemented on the working tree based on `cfb2e00`, preserving existing diagnostic/documentation changes, the user-owned service whitespace edit and concurrent IDE settings changes. HTTP configuration now supports `RELEVANCE_FILTER_ENABLED` (default `true`) independently of reranking. Disabling it returns unassessed top-K source candidates with an explicit warning and skips profile-file loading; CLI/evaluator/benchmark defaults and calibration gates remain unchanged. See [filter modes](docs/online-reranking.md#local-model-and-configuration).
@@ -198,6 +274,11 @@ See [online reranking](docs/online-reranking.md) for the pinned local ONNX model
 ## Optional intent observation
 
 The lightweight [intent classifier](docs/intent-classifier.md) reuses the E5 query vector with small logistic heads for source intent and Type A evidence needs. `INTENT_MODE=off` is the default; `observe` requires an explicitly provisioned, accepted local JSON artifact through `INTENT_ARTIFACT_PATH`. It only emits safe technical logs and does not change HTTP/CLI responses, passage filtering, or route requests to Type B. There is no additional transformer or embedding call. Missing or incompatible classifier artifacts leave retrieval available.
+
+Optional `assist` requires `SEMANTIC_MODE=expand` and uses accepted style hints
+only to prioritize valid phrase alternatives. It has its own pipeline/profile
+identity and release gate after semantic-only evaluation. Source routing and Type B
+execution remain unavailable. See [semantic workflow](docs/vietnamese-semantics.md).
 
 Install `requirements-intent.txt` only for offline training. `python -m scripts.train_intent --help` describes training/calibration; `python -m scripts.benchmark_intent --help` describes the paired read-only benchmark required before promotion. Follow the guide for reviewed private datasets, model identity, quality/latency gates and rollback. No command automatically changes `.env`, downloads models, migrates storage or publishes documents.
 

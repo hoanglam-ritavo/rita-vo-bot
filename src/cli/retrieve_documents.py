@@ -8,6 +8,7 @@ from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 from src.retrieval.config import add_arguments
 from src.intent.config import add_arguments as add_intent_arguments
+from src.retrieval.semantic_config import add_arguments as add_semantic_arguments
 
 
 async def run(args):
@@ -25,11 +26,12 @@ def main(argv=None):
     cli.add_argument('--json', action='store_true')
     add_arguments(cli)
     add_intent_arguments(cli)
+    add_semantic_arguments(cli)
     args = cli.parse_args(argv)
     from src.database.runtime import run_async
     # Bind only the safe observation logger to real stderr before silencing model output.
     intent_logger = logging.getLogger('src.intent.runtime')
-    handler = logging.StreamHandler(sys.stderr) if args.intent_mode == 'observe' else None
+    handler = logging.StreamHandler(sys.stderr) if args.intent_mode in ('observe', 'assist') else None
     previous_level, previous_propagation = intent_logger.level, intent_logger.propagate
     try:
         if handler is not None:

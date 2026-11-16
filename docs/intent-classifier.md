@@ -1,18 +1,26 @@
-# Observation-only intent classifier
+# Lightweight intent classifier
 
 The optional classifier reuses the original normalized 384-dimensional E5 query
 vector. A multiclass logistic head identifies the required source; five binary
 heads identify Type A evidence needs. It does not load another transformer,
-encode another query, change retrieval, or invoke business tools. mMiniLMv2 ONNX
+encode another query or invoke business tools. Observation does not change
+retrieval; optional assistance only prioritizes valid semantic alternatives.
+mMiniLMv2 ONNX
 still ranks passages and the existing relevance profile still authorizes their
 release. Intent scores are not evidence relevance or calibrated confidence.
 
 ## Runtime contract
 
-`INTENT_MODE=off` is the default. `observe` loads `INTENT_ARTIFACT_PATH` once at
-service startup. Relative paths resolve against the repository. CLI equivalents
-are `--intent-mode observe --intent-artifact-path <artifact>`. There is no routing
-mode, endpoint, response field, database migration, or automatic promotion.
+`INTENT_MODE=off` is the default. `observe` and `assist` load `INTENT_ARTIFACT_PATH`
+once at service startup. Relative paths resolve against the repository. CLI
+equivalents are `--intent-mode observe --intent-artifact-path <artifact>` (or
+`assist`). There is no routing endpoint, response field, database migration or
+automatic promotion. `assist` requires `SEMANTIC_MODE=expand`; it uses accepted
+style hints to order already-valid alternatives, never source labels to exclude
+documents. Unavailable/uncertain predictions use semantic-only alternatives.
+Assistance binds the classifier version (including unavailable state) into the
+effective pipeline identity and requires its own matching relevance profile.
+See [semantic evaluation and release](vietnamese-semantics.md).
 
 The artifact is JSON containing finite linear weights, intercepts, thresholds,
 label order and schema version 1. Its identity binds E5 revision/file fingerprint,
@@ -226,7 +234,9 @@ Exit codes are 0 accepted, 1 gates failed, 2 operational/prerequisite failure.
 
 Provision the accepted artifact explicitly, set observe mode, and restart. A
 relevance profile remains independently required for returned evidence. Rollback
-sets `INTENT_MODE=off` and restarts. There is no automatic routing activation.
+sets `INTENT_MODE=off` and restarts. Assistance must first pass the separate
+semantic paired evaluation; rolling it back also restores the semantic-only
+relevance profile. There is no automatic routing activation.
 Entity/time extraction, conversation state, ID resolution, authorization,
 Type B calls, and answer generation require separate implementation and review.
 

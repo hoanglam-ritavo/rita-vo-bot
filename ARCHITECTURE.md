@@ -48,6 +48,17 @@ Remote/container connectivity, business RPC contracts, TLS/mTLS and authenticati
 
 ## Implemented public-document retrieval
 
+Optional corpus-bound Vietnamese expansion is owned by `src.retrieval.semantics`
+and offline preparation by `src.semantics`. It defaults off, preserves source
+content and uses a separately reviewed language artifact rather than document-ID
+ranking rules. Semantic queries share eligibility filters and the existing
+30-candidate budget; the rerank query remains the normalized/typo-corrected
+original. Effective pipeline fingerprints bind the language artifact and any
+optional intent-assistance identity. Source and runtime acceptance remain
+separate. See [Vietnamese semantics](docs/vietnamese-semantics.md) for coverage,
+review, evaluation and rollout contracts. No package schema, stored vector,
+database migration or public retrieval wire change is involved.
+
 `src.retrieval.RetrievalService` accepts an independent question string and returns nearest-neighbor chunks with source provenance. Both the retrieval CLI and HTTP retrieval service reuse it; no chat RPC is implemented. The service loads and fingerprints a local embedding model once, embeds questions with `query: `, checks token limits without truncation and validates/normalizes the 384-dimensional query vector. Model work is serialized in worker threads; each database request owns a separate read-only repeatable-read session. The application closes the shared database at shutdown, independently of service close. Runtime model files are immutable for the service lifetime.
 
 Exact cosine retrieval filters current include/active revisions, inclusive effective dates using the same `date.today()` convention as publication, public access rules and active successful runs before ranking. Model name, revision, dimensions, file fingerprint, normalization and indexed passage prefix must match. Public access uses EXISTS to avoid duplicate matches; ties use chunk IDs. Results include source spans and document metadata, never vectors. Empty eligibility, model incompatibility, absent vectors and operational failures remain distinct. Cosine search supplies candidates internally; public results require a matching per-passage relevance profile by default and may be empty. HTTP configuration can explicitly disable this gate to return unassessed top-k candidates; access and eligibility filters still apply. Accepted excerpts do not establish sufficient evidence, truth or answerability. Private-document authentication and conversation resolution remain future work. The HTTP layer below exposes the same source retrieval without generation.
@@ -115,6 +126,16 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 
 ## Delivery phases and evaluation
 
+Baseline calibration preparation is owned by `src.cli.prepare_rerank`, with
+model-free workspace import/validation/freeze in `src.retrieval.rerank_preparation`
+and shared evaluator case rules in `src.retrieval.evaluation_cases`. Preparation
+uses existing package validation and canonical identities without database or
+model access. The separate baseline benchmark records authored-input/package
+bindings and reproduction settings; freeze permits candidate-label edits only
+and checks operator review declarations before snapshotting. It neither certifies
+semantic review nor changes calibration gates or runtime APIs. See
+[baseline preparation](docs/online-reranking.md#prepare-baseline-calibration-inputs).
+
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
 | 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and local health-only gRPC transport | Database behavior; source identity, consistency, history and metadata validation; local gRPC health and lifecycle |
@@ -143,7 +164,16 @@ Runtime E5 defaults to `models/embeddings/multilingual-e5-small/<revision>/`; th
 
 ## Optional intent observation
 
-`src.intent` owns a local JSON linear classifier over the already-created original E5 query vector. One multiclass head predicts A/B/mixed/conversation/out-of-scope/missing-context; five binary heads identify Type A evidence needs. `RetrievalService` owns its lifecycle under the existing worker/lock boundary. HTTP settings and the retrieval CLI opt in explicitly; the default is off. The observer logs only labels/status/artifact identity/timing and never enters result serialization, alters query processing, filters candidates, changes ranking, bypasses relevance assessment, or calls a tool. Invalid or unaccepted artifacts make the observer unavailable without suppressing retrieval errors. No additional encoder, model server, schema or response field is introduced.
+`src.intent` owns a local JSON linear classifier over the already-created original E5 query vector. One multiclass head predicts A/B/mixed/conversation/out-of-scope/missing-context; five binary heads identify Type A evidence needs. `RetrievalService` owns its lifecycle under the existing worker/lock boundary. HTTP settings and the retrieval CLI opt in explicitly; the default is off. In `observe` mode, the observer logs only labels/status/artifact identity/timing and never enters result serialization, alters query processing, filters candidates, changes ranking, bypasses relevance assessment, or calls a tool. Invalid or unaccepted artifacts make the observer unavailable without suppressing retrieval errors. No additional encoder, model server, schema or response field is introduced.
+
+The separate `assist` mode requires semantic expansion and uses accepted style
+hints to prioritize already-valid alternatives; source labels never exclude
+documents or invoke tools. Uncertain/unavailable inference retains unassisted
+alternatives, while the effective fingerprint still identifies the configured
+assistance pipeline and loaded classifier version. A missing classifier at
+startup therefore does not silently reuse a semantic-only profile. Assistance
+must pass the [semantic paired gates](docs/vietnamese-semantics.md) after the
+semantic-only stage; off/observe parity and classifier acceptance remain separate.
 
 `src.cli.prepare_intents` provides JSON-configured validate/preflight/run batches. Shared dataset validation and offline orchestration live in `src.intent.dataset` and `src.intent.preparation`; `src.intent.training` owns regularization selection on grouped training folds, separate threshold calibration and frozen holdout evaluation. The historical `scripts.train_intent` and `scripts.intent_contract` entrypoints delegate to those modules. Import/help/validation do not load ML runtimes. Preflight uses the same query token helper as retrieval without encoding; run reuses one local E5 instance, never connects to PostgreSQL, and writes atomic files in a new private run directory. Manifest completion distinguishes a valid diagnostic run, a quality-passed candidate and an incomplete/failed run; it never authorizes runtime usage.
 

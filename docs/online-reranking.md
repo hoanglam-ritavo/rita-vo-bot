@@ -88,7 +88,7 @@ Technical parity should compare native tokenizer pairs/windows and ONNX outputs 
 
 `scripts.evaluate_retrieval` evaluates the public filtered result. Without a valid profile it observes empty fallbacks. `scripts.benchmark_online_retrieval` has a separate offline-only candidate path; no HTTP parameter or public retrieval CLI option can bypass filtering. Only the HTTP server configuration or an explicit direct-service option can disable the gate; benchmark calibration and acceptance remain unchanged.
 
-Prepare a `.tmp/` manifest with `datasets` containing `package` and `cases` paths. Retain the existing pinned revision/chunks hash and `required_groups` schema. Each case requires a globally unique ID/question, `split` (`calibration`, `holdout`, `regression`), `relevant` boolean, and `intent_group`. Related paraphrases must share one intent group and never cross splits. Known inspected questions belong in regression. All evidence and relevance labels require source review, not model-score inference.
+Prepare a `.tmp/` manifest with `datasets` containing `package` and `cases` paths. Retain the existing pinned revision/chunks hash and `required_groups` schema. Each case requires a globally unique ID/question, `split` (`calibration`, `holdout`, `regression`), `relevant` boolean, and `intent_group`. Related paraphrases must share one intent group and never cross splits. Known inspected questions belong in regression. All evidence and relevance labels require source review, not model-score inference. Use the [baseline preparation CLI](#prepare-baseline-calibration-inputs) to import and validate a draft before collection.
 
 The gate requires at least 100 questions: at least 20 supported and 20 unsupported each in calibration and holdout, plus 20 regression questions. Use `--collect-only` first to obtain candidate identities for labeling; this permits smaller exploratory sets, emits no profile and never reports rollout readiness. Every case in a final evaluation needs `candidate_labels`, a dictionary mapping **every** retrieved top-30 chunk UUID to a boolean (directly supports the requested answer versus merely related/irrelevant). The exact UUID set must match the current retrieval. Source review may accept multiple chunks/documents; required evidence groups alone are not exhaustive relevance labels. Do not tune against holdout rankings. Reports retain IDs, ranks, scores and decisions, not question/excerpt text.
 
@@ -101,5 +101,97 @@ After source labeling and freezing the dataset, omit `--collect-only` and choose
 Calibration picks the lowest finite threshold strictly above all calibration negative-passage scores. Gates require no irrelevant returned passages (checked through top-K 20), no unsupported acceptances, and at least 90% supported complete evidence at top-K 5 on both calibration and holdout. All critical and required-top-1 cases must pass after filtering. Reports include false-empty counts, removed/retained counts, candidate-pool completeness and post-filter group ranks. At least 100 sequential warmed requests must have p95 at most five seconds. Latency uses the public filtering path with a provisional in-memory threshold; the profile is not written until all gates pass.
 
 A schema-v2 profile is emitted only if every gate passes. Otherwise leave assessment unavailable; do not lower gates, widen candidate counts, substitute a model or introduce document-specific rules. The historical 40-question top-1 evaluation is not sufficient for this gate. Passing synthetic tests does not establish real retrieval quality.
+
+### Prepare baseline calibration inputs
+
+`src.cli.prepare_rerank` prepares baseline E5/ONNX evaluation files; it does not
+generate reviewed questions, infer labels, access the database, load models or
+issue profiles. Semantic expansion and intent assistance need their separate
+paired workflow. The existing storage-calibration draft is an optional local
+starting point, not shipped with a clean clone and not accepted evidence.
+Do not import historical inspected holdout questions as a new independent holdout.
+
+Run from the repository root with the activated environment. Choose a new output
+directory; existing destinations are never overwritten:
+
+```powershell
+python -m src.cli.prepare_rerank init --manifest .tmp/storage-calibration-20261114/manifest.json --output-dir .tmp/rerank --json
+python -m src.cli.prepare_rerank validate --manifest .tmp/rerank/manifest.json --stage collection --json
+```
+
+`init` preserves source files, validates package eligibility and canonical pins,
+copies cases to `cases-000.json`, etc., and writes `manifest.json`, `receipt.json`
+and `review.json`. Proposed labels remain proposals. A stale revision/hash is
+rejected rather than silently replaced. Receipt hashes record provenance, not
+semantic accuracy. Initialization defaults to the pinned E5 directory/revision,
+`models` for ONNX and batch size 4; override `--model-path`, `--model-revision`,
+`--rerank-model-path` or `--rerank-batch-size` explicitly when needed. These paths
+are recorded, not loaded or verified at this step.
+
+Complete source review of questions/evidence and split independence before
+collection. Keep known inspected families in regression, add fresh independent
+families and preserve at least 20 supported/20 unsupported cases in each of
+calibration and holdout, plus 20 regression cases. Do not simply shuffle cases
+to meet counts. Validate the final authored files again.
+
+The receipt's `collection_arguments` is a JSON argument array, not shell-quoted
+text. To execute that exact command explicitly in PowerShell:
+
+```powershell
+$rerankReceipt = Get-Content .tmp/rerank/receipt.json -Raw | ConvertFrom-Json
+$rerankArgs = @($rerankReceipt.collection_arguments | Select-Object -Skip 1)
+& $rerankReceipt.collection_arguments[0] @rerankArgs
+```
+
+This separate step loads E5/ONNX and reads the application database; it needs
+installed runtime dependencies, compatible active publications and matching
+model files. It performs at least 100 latency requests even in collection mode.
+Collection exit `1` with a written report is expected and does not mean acceptance;
+exit `2` means operational/input failure. Output names must be fresh.
+
+Before editing candidate labels, create an unranked source worksheet:
+
+```powershell
+python -m scripts.diagnose_retrieval --manifest .tmp/rerank/manifest.json --collection .tmp/rerank/collection-01.json --output .tmp/rerank/review-01
+```
+
+Review every candidate against the source and populate `candidate_labels` in the
+copied case files with exact candidate UUID keys and boolean values. Null is
+unresolved, not false. Only `candidate_labels` may change after collection; edits
+to questions, evidence, split, case metadata or packages require a fresh collection.
+Do not edit the manifest. Complete the five boolean declarations and nonblank
+`review_notes` in `review.json` only after actual review. In particular, confirm
+source evidence, split independence, inspected families in regression and all
+candidate labels. The CLI cannot independently attest human review.
+
+```powershell
+python -m src.cli.prepare_rerank validate --manifest .tmp/rerank/manifest.json --stage calibration --json
+python -m src.cli.prepare_rerank freeze --manifest .tmp/rerank/manifest.json --collection .tmp/rerank/collection-01.json --review .tmp/rerank/review.json --output-dir .tmp/rerank-frozen-v1 --json
+```
+
+`freeze` requires a new-format baseline collection with input binding and
+reproduction arguments, unchanged manifest/packages/authored case fields, exact
+candidate labels, full split counts and completed review. Older collections
+remain valid diagnostic inputs but must be recollected for this freeze workflow.
+The new directory contains copied manifest/cases, review and a receipt with input
+and output hashes, collection identity and `benchmark_arguments`. Preserve it as
+a frozen private snapshot; hashes detect drift but do not make files immutable.
+Execute its `benchmark_arguments` array in the same way as above to run full
+calibration, with the collection's exact model/batch configuration and no
+`--collect-only`. Database/corpus/model drift is still checked by the benchmark;
+preparation does not establish live compatibility or successful quality gates.
+No existing profile is supplied to this benchmark.
+
+All preparation paths resolve against the repository root. Manifests, cases,
+review, collection and output stay under `.tmp/`; packages stay under `chunks/`.
+Errors use fixed codes and file/case-index locations without question/excerpt
+content. Package coordination locks may be written under `.tmp/`. Exit `0` means
+the preparation step completed, `1` a validation/review rejection, and `2` an
+operational/usage failure. No `.env`, service, publication or model bytes change.
+
+The fictional fixtures in `src/tests/test_prepare_rerank.py` demonstrate complete
+manifest/case/review/collection structures and failure cases. They are synthetic
+contracts, not a real calibration dataset. See [artifact promotion](runtime-artifacts.md#promote-and-verify)
+only after the independent benchmark emits a genuinely passing profile.
 
 Deploy bot and backend together during maintenance, draining old processes first. The backend requires the new reason field; an old bot response is invalid, not empty evidence. With filtering enabled, until a matching profile is provisioned, available documents yield `no_matches/relevance_unavailable`. `/health/ready` still measures dependencies, not calibration quality. Existing portal status handling remains compatible but does not yet display reason-specific messages. Logs include only the filter-enabled setting, counts, status/reason and timings.

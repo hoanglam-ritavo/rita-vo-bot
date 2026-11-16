@@ -21,6 +21,8 @@ from src.ingestion.approved_publication import configuration
 from src.ingestion.embeddings import model_fingerprint
 from src.paths import REPOSITORY_ROOT
 from src.retrieval import RetrievalService
+from src.retrieval.evaluation_cases import validate_cases, validate_online_case
+from src.retrieval.rerank_preparation import binding
 from src.retrieval.config import add_arguments, from_arguments
 from src.database import close_database
 from src.database.runtime import run_async
@@ -66,26 +68,6 @@ def calibrate(rows):
     return {'threshold': threshold, 'holdout_passed': passed, **measured}
 
 
-def validate_cases(entries, collect_only=False):
-    cases = [c for c, _, _ in entries]
-    if not cases or len({c['question'] for c in cases}) != len(cases) or len({c['id'] for c in cases}) != len(cases):
-        raise ValueError('duplicate_or_empty_cases')
-    groups = {}
-    for case in cases:
-        family = case.get('intent_group')
-        if not isinstance(family, str) or not family.strip():
-            raise ValueError('intent_group_required')
-        if family in groups and groups[family] != case['split']:
-            raise ValueError('intent_group_leaks_across_splits')
-        groups[family] = case['split']
-    if collect_only:
-        return
-    if (len(cases) < 100 or sum(c['split'] == 'regression' for c in cases) < 20
-            or any(sum(c['split'] == split and c['relevant'] is label for c in cases) < 20
-                   for split in ('calibration', 'holdout') for label in (True, False))):
-        raise ValueError('need_100_split_balanced_cases')
-
-
 def percentile(values, fraction):
     return sorted(values)[max(0, math.ceil(len(values) * fraction) - 1)]
 
@@ -122,16 +104,19 @@ async def benchmark(args):
         before = await database_state(record, payload, expected)
         snapshots.append((package, cases_path, cases_path.read_bytes(), record, payload, files, expected, before))
         for case in cases:
-            if case.get('split') not in ('calibration', 'holdout', 'regression') or type(case.get('relevant')) is not bool:
-                raise ValueError('invalid_online_case')
-            if case['relevant'] != bool(case['required_groups']):
-                raise ValueError('invalid_online_case_evidence')
+            validate_online_case(case)
             entries.append((case, record['revision_id'], before['run_id']))
     validate_cases(entries, args.collect_only)
     settings = from_arguments(args)
     if not settings.enabled or settings.profile_path is not None:
         raise ValueError('benchmark_requires_uncalibrated_reranker')
     service = RetrievalService(model_path=args.model_path, model_revision=args.model_revision, device='cpu', rerank=settings)
+    preparation_binding = binding([(package.resolve(), cases_path.resolve(),
+        json.loads(case_bytes), files) for package, cases_path, case_bytes, _, _, files, _, _ in snapshots])
+    reproduction_arguments = ['--model-path', str(args.model_path.resolve()),
+        '--model-revision', args.model_revision, '--rerank-model-path', str(settings.model_path.resolve()),
+        '--rerank-model-file', settings.model_file, '--rerank-candidates', str(settings.candidate_count),
+        '--rerank-batch-size', str(settings.batch_size), '--requests', str(args.requests), '--rerank']
     try:
         await service.start()
         await service._retrieve(entries[0][0]['question'], 5, assessment=False)
@@ -198,6 +183,7 @@ async def benchmark(args):
             for key in ('_case', '_revision', '_run'):
                 row.pop(key)
         return {'corpus_fingerprint': corpus_fingerprint, 'collect_only': args.collect_only,
+                'preparation_binding': preparation_binding, 'reproduction_arguments': reproduction_arguments,
                 'fingerprint': service._reranker.fingerprint, 'model_files_sha256': fingerprint,
                 'manifest_sha256': hashlib.sha256(manifest_bytes).hexdigest(), 'cases': rows,
                 'summary': summary, 'calibration': calibration, 'gates': gates,
