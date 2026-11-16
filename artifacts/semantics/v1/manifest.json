@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "artifact": {
+    "path": "artifacts/semantics/v1/lexicon.json",
+    "sha256": "1d9375d36fb20a2b23036b88752de4b1e3b0ffd3f2e19f7af8a8c3673340f236",
+    "size_bytes": 66905
+  },
+  "status": "source_reviewed_provisioned_evaluation_pending",
+  "source_reviewed": true,
+  "retrieval_evaluation_passed": false,
+  "runtime_release_accepted": false,
+  "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
+  "provenance": {
+    "approved_inventory_sha256": "16d5281b452c2aba2e5f12bbe36674fbfe846f7fb9ebc8ef5c456f76fb4f4f23",
+    "source_review_approval_sha256": "ec645c119558d49c73af9186a866d305b5fcc9b464f0c80fbb172404afc1e4a4",
+    "source_export_receipt_sha256": "738e65b997ddec230e834e2a239764608335666bc30cd428ad7cd7fc68636e63",
+    "source_review_scope": "All three source and lexical review groups explicitly approved by the user.",
+    "provisioning_authorization": "Explicit user request to place the reviewed lexicon at the configured artifacts path."
+  },
+  "models": {
+    "e5": {
+      "id": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "root": "models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "files_sha256": "1449139a13f3b50e2019e12eeaa6a850afe8b6a7b48b4c3af0be3c9b98856efb"
+    },
+    "reranker": {
+      "id": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "root": "models",
+      "files_sha256": "aa9749b85d5a593ad8cb6dfbea50d3d9b14914557dd7a930632c10d09ca2349e"
+    }
+  },
+  "evaluation": {
+    "report_sha256": null,
+    "dataset_sha256": null,
+    "pipeline_fingerprint": null,
+    "corpus_fingerprint": null,
+    "relevance_profile_path": null,
+    "status": "pending"
+  },
+  "runtime_configuration_changed": false
+}

@@ -140,16 +140,16 @@ async def reuse_source(db, active, record):
 async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
     loaded = packages.load_package(root, directory, eligible=True)
     # Validate model identity before allocating a durable execution attempt.
-    configuration(loaded[1], model_revision)
-    model_fingerprint(model_path)
+    config = configuration(loaded[1], model_revision)
+    config['model_files_sha256'] = model_fingerprint(model_path)
     if dry_run:
         return await _publish(root, directory, model_revision, model_path=model_path,
-                              dry_run=True, force=force, update_metadata=update_metadata, loaded=loaded)
+                              dry_run=True, force=force, update_metadata=update_metadata, loaded=loaded, config=config)
     attempt_id = await attempts.start(loaded[0]['revision_id'])
     state = {'commit_started': False, 'receipt': False}
     try:
         result = await _publish(root, directory, model_revision, model_path=model_path,
-                                force=force, update_metadata=update_metadata, loaded=loaded,
+                                force=force, update_metadata=update_metadata, loaded=loaded, config=config,
                                 attempt_id=attempt_id, state=state)
         if not state['receipt']:
             async with session_scope() as db:
@@ -177,11 +177,10 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
 
 
 async def _publish(root, directory, model_revision, *, model_path, dry_run=False, force=False,
-                   update_metadata=False, loaded, attempt_id=None, state=None):
+                   update_metadata=False, loaded, config, attempt_id=None, state=None):
     record, payload, files = loaded
-    config = configuration(payload, model_revision)
-    config.update(model_files_sha256=model_fingerprint(model_path),
-                  package_sha256=packages.files_hash(files),
+    config = dict(config)
+    config.update(package_sha256=packages.files_hash(files),
                   metadata_sha256=packages.sha(files['metadata.json']),
                   fingerprint_version=1, embedding_preprocessing=PREPROCESSING)
     async with session_scope() as db:

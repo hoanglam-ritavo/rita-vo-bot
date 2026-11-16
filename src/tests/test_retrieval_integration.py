@@ -57,7 +57,7 @@ def test_public_search(empty_catalog_db, tmp_path, monkeypatch, change, expected
                 elif change == 'model_name': run.model_name = 'different'
                 elif change == 'model_revision': run.model_revision = 'b'*40
                 elif change in {'fingerprint', 'normalization', 'prefix'}:
-                    key, value = {'fingerprint': ('model_files_sha256', 'different'),
+                    key, value = {'fingerprint': ('model_files_sha256', 'f'*64),
                                   'normalization': ('normalize_embeddings', False),
                                   'prefix': ('prefix', 'query: ')}[change]
                     run.configuration = {**run.configuration, key: value}

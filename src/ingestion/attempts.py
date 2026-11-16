@@ -1,8 +1,7 @@
 """Durable execution receipts; never retry an uncertain publication."""
 import asyncio
-from datetime import datetime, timezone
 from uuid import UUID, uuid4
-from sqlalchemy import select
+from sqlalchemy import select, func
 from src.database import session_scope
 from src.database.models import PublicationAttempt
 
@@ -49,7 +48,7 @@ async def finish(attempt_id, *, error_code=None, cancelled=False):
             attempt.error_code = error_code
         else:
             raise AttemptUncertain(attempt_id)
-        attempt.finished_at = datetime.now(timezone.utc)
+        attempt.finished_at = func.clock_timestamp()
         return attempt.status
 
 

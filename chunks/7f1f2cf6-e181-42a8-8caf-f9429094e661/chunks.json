@@ -272,12 +272,17 @@
       ]
     },
     {
-      "content": "Nội quy lao động — Điều 43.2–3, áp dụng theo chính sách phúc lợi: điều trị ngoại trú từ 5 ngày do ốm đau, tai nạn hỗ trợ 500.000đ; lao động nữ sinh con hỗ trợ 1.000.000đ. Điều kiện và hồ sơ chi tiết cần đối chiếu chính sách phúc lợi. Đoạn này không bao gồm chế độ nằm viện.",
+      "content": "Nội quy lao động — Điều 43.1–3, áp dụng theo chính sách phúc lợi: hỏi thăm người lao động nằm viện từ 03 ngày trở lên do ốm đau, tai nạn: 1.000.000đ; điều trị ngoại trú từ 05 ngày trở lên do ốm đau, tai nạn: 500.000đ; lao động nữ sinh con: 1.000.000đ. Điều kiện và hồ sơ chi tiết cần đối chiếu chính sách phúc lợi. Đây là nội dung Điều 43; không tự suy ra đủ điều kiện cá nhân hoặc quyền lợi BHXH.",
       "source_refs": [
         {
           "segment_id": "benefits-health",
           "start": 0,
           "end": 53
+        },
+        {
+          "segment_id": "benefits-health",
+          "start": 53,
+          "end": 144
         },
         {
           "segment_id": "benefits-health",
@@ -686,14 +691,6 @@
         "end": 626
       },
       "reason": "Unresolved unused-leave payment conflict with Article 9.10; entire conflicting sentence excluded."
-    },
-    {
-      "source_ref": {
-        "segment_id": "benefits-health",
-        "start": 53,
-        "end": 144
-      },
-      "reason": "Inpatient threshold conflicts with the separate benefits policy; inpatient entitlement excluded without inferring precedence."
     },
     {
       "source_ref": {

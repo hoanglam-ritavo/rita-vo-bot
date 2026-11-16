@@ -13,6 +13,7 @@ Run commands from the repository root with the repository virtual environment. B
 | `prepare_rerank.py` | Current, offline baseline preparation | `python -m src.cli.prepare_rerank <init/validate/freeze> --manifest <private-manifest> ... [--json]`: import draft cases, validate pins and freeze reviewed candidate labels. |
 | `preflight_documents.py` | Current | `python -m src.cli.preflight_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--check-embeddings] [--json]`: local technical checks. |
 | `publish_documents.py` | Current | `python -m src.cli.publish_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--dry-run] [--json]`: publish eligible packages. |
+| `publication_attempt.py` | Current | `python -m src.cli.publication_attempt --id <uuid> [--reconcile]`: inspect metadata-only execution state; explicit reconciliation finalizes an existing commit receipt without publication/retry. |
 | `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve accepted source excerpts. |
 | `prepare_intents.py` | Current, preferred batch interface | `python -m src.cli.prepare_intents <validate/preflight/run> --config .tmp/intent/config.json [--json]`. |
 | `prepare_semantics.py` | Current, offline authoring | `python -m src.cli.prepare_semantics <inventory/validate/export> ...`: snapshot all packages, validate declared coverage, export a reviewed lexicon. |
@@ -49,6 +50,12 @@ Use [offline indexing](../../docs/offline-indexing.md) for the authoritative pac
 - `publish_documents` requires PostgreSQL, provisioned migrations, an eligible package and supplied local model. Repeat `--package` to select a batch or use `--all` instead. Verified unchanged publication skips even after formatting/author-note changes. `--update-metadata` permits supported metadata-only updates without another run/chunk set. Changed publication creates a full new run, reusing compatible exact-text vectors from the active same-revision or current explicitly superseded same-document run. `--force` creates a run and re-encodes all chunks. Publication writes transactionally to PostgreSQL. `--dry-run` reads DB/model files and reports planned counts but does not tokenize, embed or publish. See [publication decisions, counts and compatibility](../../docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication).
 
 Package commands emit summaries or `--json` reports: exit `0` for success/skips, `1` for rejected input, `2` for operational failure/retired operations. Argparse usage errors also exit `2`. Package-changing operations may use locks/backups under `.tmp/`; reports go to stdout and technical preflight does not modify package data. Do not equate successful validation or preflight with business approval.
+
+## Publication attempt inspection
+
+`python -m src.cli.publication_attempt --id <uuid>` needs the configured database and current schema. Default inspection is read-only; output contains IDs, status, fixed error codes and timestamps, never source content. `--reconcile` explicitly writes completion state only when an outcome/run receipt exists. Confirm the old worker has stopped before reconciliation. Missing receipts remain unresolved; neither command retries publication or declares a running attempt failed by age. Exit codes: `0` inspected/reconciled, `1` missing attempt, `2` unavailable/unresolved or invalid arguments. See [execution and failure semantics](../../docs/database-design.md#failure-and-reconciliation).
+
+Publication on the current code requires a separately provisioned empty baseline database. Real executions return `attempt_id`, including safe failure results after attempt allocation. `--dry-run` creates no attempts/audits; it retains the existing result shape. A `publication_outcome_unknown` result requires inspection, not an automatic retry.
 
 ## Retrieval and services
 

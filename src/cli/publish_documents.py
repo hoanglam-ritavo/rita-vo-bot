@@ -77,8 +77,9 @@ async def run(root, args):
             except packages.Rejected as exc:
                 results.append({'status': 'rejected', 'code': str(exc), 'revision_id': revision,
                                 **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
-            except (PublishRejected, CatalogError):
-                results.append({'status': 'rejected', 'code': 'metadata_or_source_rejected', 'revision_id': revision})
+            except (PublishRejected, CatalogError) as exc:
+                results.append({'status': 'rejected', 'code': 'metadata_or_source_rejected', 'revision_id': revision,
+                                **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
             except Exception as exc:
                 from src.ingestion.attempts import AttemptUncertain
                 results.append({'status': 'failed', 'code': 'publication_outcome_unknown' if isinstance(exc, AttemptUncertain) else 'publication_failed',

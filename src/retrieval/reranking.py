@@ -8,6 +8,7 @@ import re
 import unicodedata
 
 from src.paths import REPOSITORY_ROOT
+from .scoring import apply_scoring, passage_features, validate_scoring
 
 MODEL_ID = 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'
 MODEL_REVISION = '1427fd652930e4ba29e8149678df786c240d8825'
@@ -33,6 +34,7 @@ class RerankSettings:
     candidate_count: int = 30
     batch_size: int = 4
     profile_path: Path | None = None
+    scoring_path: Path | None = None  # Explicit offline experiment input; no environment adapter.
 
     def __post_init__(self):
         if type(self.enabled) is not bool or self.model_file != MODEL_FILE:
@@ -41,7 +43,9 @@ class RerankSettings:
             raise ValueError('invalid_candidate_count')
         if type(self.batch_size) is not int or not 1 <= self.batch_size <= 16:
             raise ValueError('invalid_reranker_batch_size')
-        for name in ('model_path', 'profile_path'):
+        if self.profile_path is not None and self.scoring_path is not None:
+            raise ValueError('conflicting_relevance_scoring_inputs')
+        for name in ('model_path', 'profile_path', 'scoring_path'):
             value = getattr(self, name)
             if value is not None:
                 value = Path(value)
@@ -97,8 +101,12 @@ def load_profile(path):
         if type(version) is not int:
             raise ValueError()
         # Legacy top-1 profiles cannot certify individual passages.
-        if version != 2:
+        if version not in (2, 3):
             return None
+        if version == 3:
+            validate_scoring(profile.get('scoring'))
+        elif 'scoring' in profile:
+            raise ValueError()
         if not isinstance(profile.get('corpus_fingerprint'), str) or not profile['corpus_fingerprint']:
             raise ValueError()
         return profile
@@ -150,6 +158,7 @@ class OnnxReranker:
         self.session = self.tokenizer = None
         self.profile = None
         self.fingerprint = None
+        self.scoring = None
 
     def start(self):
         from numpy._core._multiarray_umath import __cpu_features__
@@ -177,14 +186,30 @@ class OnnxReranker:
             sess_options=options, providers=['CPUExecutionProvider'])
         self.score('test', [{'content': 'test'}])  # Validate graph IO before readiness.
         self.profile = load_profile(self.settings.profile_path)
+        self.scoring = self.profile.get('scoring') if self.profile else None
+        if self.settings.scoring_path is not None:
+            try:
+                self.scoring = validate_scoring(json.loads(self.settings.scoring_path.read_text(encoding='utf-8')))
+            except (ValueError, TypeError, OSError):
+                raise ValueError('invalid_relevance_scoring') from None
+        if self.scoring is not None:
+            self.fingerprint = hashlib.sha256(json.dumps({'base': self.fingerprint,
+                'scoring': self.scoring['digest']}, sort_keys=True).encode()).hexdigest()
 
     def score(self, question, matches):
+        return self._score(question, matches)
+
+    def score_features(self, question, matches, concepts=()):
+        return self._score(question, matches, features=True, concepts=concepts)
+
+    def _score(self, question, matches, *, features=False, concepts=()):
         import numpy as np
         query = self.tokenizer.encode(question, add_special_tokens=False)
         capacity = 512 - len(query) - self.tokenizer.num_special_tokens_to_add(pair=True)
         if capacity <= 64:
             raise ValueError('reranker_question_exceeds_model_limit')
         scores = [-math.inf] * len(matches)
+        window_scores = [[] for _ in matches] if features else None
         batch, owners = [], []
         windows = 0
 
@@ -199,6 +224,8 @@ class OnnxReranker:
                 raise ValueError('invalid_reranker_scores')
             for owner, score in zip(owners, result.reshape(-1)):
                 scores[owner] = max(scores[owner], float(score))
+                if window_scores is not None:
+                    window_scores[owner].append(float(score))
             batch.clear()
             owners.clear()
 
@@ -217,8 +244,18 @@ class OnnxReranker:
                 if start + capacity >= len(tokens):
                     break
         flush()
+        if features:
+            rows = [passage_features(question, match['content'], values,
+                match['cosine_distance'], concepts) for match, values in zip(matches, window_scores)]
+            return rows, windows
         return scores, windows
+
+    def score_passages(self, question, matches, concepts=()):
+        features, windows = self.score_features(question, matches, concepts)
+        scores = apply_scoring(features, self.scoring) if self.scoring is not None else [row[0] for row in features]
+        return scores, windows, features
 
     def close(self):
         self.session = self.tokenizer = None
         self.profile = self.fingerprint = None
+        self.scoring = None

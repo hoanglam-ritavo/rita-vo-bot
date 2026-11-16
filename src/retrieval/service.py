@@ -161,7 +161,9 @@ class RetrievalService:
     async def retrieve(self, question, top_k=5):
         return await self._retrieve(question, top_k, assessment=True)
 
-    async def _retrieve(self, question, top_k=5, *, assessment):
+    async def _retrieve(self, question, top_k=5, *, assessment, collect_scoring_features=False):
+        if assessment and collect_scoring_features:
+            raise ValueError('private_scoring_diagnostics_only')
         # Offline assessment=False exposes candidate diagnostics; public output always uses finalization.
         question = validate_request(question, top_k)
         
@@ -206,6 +208,8 @@ class RetrievalService:
                 raise RetrievalError('database_search_failed', 2) from None
             result['top_k'] = top_k
             result['rerank_seconds'] = 0.0
+            if collect_scoring_features:
+                result['scoring_features'] = {}
             candidates = result['matches']
             for match in candidates:
                 match.setdefault('rerank_score', None)
@@ -215,7 +219,15 @@ class RetrievalService:
             if self._reranker and candidates:
                 started = time.perf_counter()
                 try:
-                    scores, windows = await self._worker(self._reranker.score, rerank_question, candidates)
+                    if collect_scoring_features or getattr(self._reranker, 'scoring', None) is not None:
+                        concepts = (self._semantic.artifact or {}).get('concepts', [])
+                        scores, windows, features = await self._worker(
+                            self._reranker.score_passages, rerank_question, candidates, concepts)
+                        if collect_scoring_features:
+                            result['scoring_features'] = {match['chunk_id']: row
+                                for match, row in zip(candidates, features)}
+                    else:
+                        scores, windows = await self._worker(self._reranker.score, rerank_question, candidates)
                 except ValueError as exc:
                     if str(exc) == 'reranker_question_exceeds_model_limit':
                         raise RetrievalError('question_exceeds_model_limit') from None
@@ -236,6 +248,7 @@ class RetrievalService:
                 filter_candidates(result, threshold, top_k, enabled=self.relevance_filter_enabled)
                 # Public output must not expose candidate diagnostic identities.
                 result.pop('candidate_order', None)
+                result.pop('scoring_features', None)
                 logger.info('retrieval_assessed filter_enabled=%s status=%s reason=%s candidates=%d retained=%d',
                             self.relevance_filter_enabled, result['status'], result['fallback_reason'],
                             len(candidates), len(result['matches']))

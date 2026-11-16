@@ -1,0 +1,41 @@
+# Làm rõ nguồn theo quyết định trong hội thoại ngày 16/11/2026
+
+Tài liệu bổ sung này ghi nhận các lựa chọn người dùng đã xác nhận trong quá trình chuẩn bị semantic retrieval. Đây là bản ghi quyết định trong hội thoại, không phải văn bản do HCNS ban hành, bản sửa PDF, xác nhận hiệu lực pháp lý hoặc dữ liệu nhân sự hiện tại. Không suy rộng các lựa chọn dưới đây sang chính sách khác. Các điều kiện và ngoại lệ tương thích trong nguồn gốc vẫn được giữ.
+
+## Nằm viện từ 03 ngày trở lên
+
+Người dùng chọn câu “nằm viện từ 03 ngày trở lên” tại Nội quy lao động, trang PDF 27, Điều 43.1: hỏi thăm người lao động nằm viện từ 03 ngày trở lên do ốm đau, tai nạn, mức 1.000.000 đồng. Bao gồm trường hợp nằm viện đúng 3 ngày. Đây là hỗ trợ công ty, không phải quyền lợi BHXH.
+
+Nguồn gốc: `noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf`, Điều 43 (áp dụng theo chính sách phúc lợi). Chính sách phúc lợi 2023, trang PDF 3, mục 4 lại ghi “trên 03 ngày”; không sửa nguyên văn đó thành “từ 03 ngày”. Đối với ngưỡng nằm viện đang được làm rõ, người dùng chọn Nội quy lao động. Giữ điều kiện hợp đồng chính thức, loại trừ thử việc/thời vụ/học việc/cộng tác viên, giấy ra viện và điều kiện thay đổi mức hỗ trợ trong chính sách phúc lợi; không suy ra được miễn hồ sơ hoặc điều kiện hưởng.
+
+Quyết định hội thoại: “dùng nguồn \"**nằm viện từ 03 ngày trở lên**\" cho điểm 3”. Câu trích xác định vấn đề nằm viện (mục review 4), không sửa quyết định loại trừ các đoạn mâu thuẫn về tiền phép chưa dùng ở mục review 3. Việc sửa số thứ tự đã được giải thích và người dùng trả lời “ok”.
+
+## Kéo dài thời hạn nâng lương không quá 06 tháng
+
+Đối với hình thức kỷ luật đang được đối chiếu, người dùng chọn Nội quy lao động, trang PDF 17, Điều 24.2 và giữ “Kéo dài thời hạn nâng lương không quá 06 tháng”. Không lấy mức 12 tháng hoặc hình thức chuyển công việc lương thấp hơn trong bảng quy trình năm 2017 làm chuẩn cho điều kiện này. Quyết định này không thiết lập thứ tự ưu tiên chung cho mọi nội dung của hai tài liệu.
+
+Quyết định hội thoại: dùng “Nội quy lao động” làm chuẩn, giữ “Kéo dài thời hạn nâng lương **không quá 06 tháng**”.
+
+## Tuổi hưởng Quốc tế thiếu nhi và Tết Trung thu
+
+Chỉ đối với mục 8 (Quốc tế thiếu nhi 1/6) và mục 9 (Tết Trung thu) trong Chính sách phúc lợi 2023, người dùng làm rõ điều kiện là dưới 15 tuổi, không bao gồm đúng 15 tuổi. PDF trang 3 ghi “dưới 15 tuổi trở xuống”; cách xử lý biên tuổi này là quyết định bổ sung trong hội thoại, không phải sửa bản chép PDF.
+
+Giữ mức 200.000 đồng/bé, giấy khai sinh, hợp đồng chính thức, các loại hợp đồng bị loại trừ, xét loại hợp đồng tại ngày lễ và chi theo kỳ lương như tài liệu gốc. Không suy ra một ngày tính tuổi hoặc cách làm tròn tuổi mới. Không áp dụng điều kiện này sang các phúc lợi khác.
+
+Quyết định hội thoại: “không bao gồm đúng 15”.
+
+## Kết thúc tăng ca đúng 22:00
+
+Chỉ trong nhánh TH2/TH3 tăng ca bắt đầu sau 17:00 của Tờ trình về tính thời gian tăng ca (03/2022/TTr-HCNS), người dùng làm rõ: kết thúc đúng 22:00 được xử lý theo TH2, trừ 30 phút nghỉ giữa ca (17:00–17:30). Kết thúc sau 22:00 vẫn theo TH3, trừ 1 giờ (17:00–18:00). PDF chỉ ghi trước/sau 22:00; biên đúng 22:00 là quyết định bổ sung trong hội thoại.
+
+Giữ riêng ngoại lệ lái xe, lái xe và giao nhận, điều kiện công việc và chữ ký xác nhận tại mục 4 của tài liệu gốc. Không coi “đúng” và “trước” là từ đồng nghĩa chung, không áp dụng sang ca làm việc hoặc quy định khác.
+
+Quyết định hội thoại: “\"kết thúc **đúng 22:00\"** tương đương \"Kết thúc **trước 22:00**:\"”.
+
+## Người hưởng thưởng giới thiệu nhân sự
+
+Trong Chính sách thưởng giới thiệu nhân viên mới 05/2022/TB-HCNS, người hưởng thưởng là người trung gian giới thiệu ứng viên đến, không phải nhân viên HCNS và không phải người được tuyển dụng trong chính lượt giới thiệu đó. Đây là làm rõ vai trò trong hội thoại; không tự điền động từ còn thiếu vào câu gốc của PDF.
+
+Người giới thiệu vẫn phải thỏa phạm vi chính sách: nhân viên thử việc hoặc chính thức, không phải nhân viên thuê ngoài; giữ các giới hạn liên quan việc tham gia tuyển chọn và quyết định tuyển dụng. Ngoại lệ trưởng phòng giới thiệu cho phòng khác khi không tham gia tuyển chọn không tạo ngoại lệ cho nhân viên HCNS. Phải giới thiệu thành công; chi 50% sau khi ứng viên hoàn thành thử việc, 50% sau 3 tháng tính từ hết thử việc, theo kỳ lương và thuế TNCN nếu có. Không suy ra mọi người trung gian đều đủ điều kiện, cũng không loại mọi người từng được tuyển trước đây.
+
+Quyết định hội thoại: “người **hưởng thưởng giới thiệu nhân** sự là người trung gian dẫn nhân sự đến. không phải nhân viên **HCNS, củng không phải người được tuyển dụng.**”

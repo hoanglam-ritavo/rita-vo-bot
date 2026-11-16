@@ -145,3 +145,45 @@ def test_attempt_initialization_failure_does_not_expose_credentials(monkeypatch)
         run_async(attempts.start(str(uuid4())))
     assert str(error.value) == 'publication_outcome_unknown'
     assert error.value.attempt_id
+
+
+@pytest.mark.parametrize('field,value', [
+    ('title', 'Renamed'), ('source_path', 'new.txt'), ('version_label', 'v2'),
+    ('applicability', 'New audience'), ('effective_from', date(2026, 12, 1)),
+    ('effective_to', date(2026, 12, 31)), ('lifecycle_status', 'withdrawn'),
+    ('is_catalog_current', False), ('indexing_decision', 'hold'),
+])
+def test_corpus_fingerprint_binds_retrieval_metadata(field, value):
+    from src.retrieval.storage import corpus_identity, corpus_fingerprint
+    revision = SimpleNamespace(title='Title', source_path='source.txt', version_label=None,
+        applicability='Audience', effective_from=None, effective_to=None,
+        lifecycle_status='active', is_catalog_current=True, indexing_decision='include')
+    def identity(groups=('public',)):
+        return corpus_fingerprint([corpus_identity('run', 'revision', {'model': 'pinned'}, revision, groups)])
+    original = identity()
+    revision.updated_at = datetime.now(timezone.utc)
+    revision.owner = 'Administrative change'
+    assert identity() == original
+    assert identity(('staff', 'public')) != original
+    assert identity(('staff', 'public')) == identity(('public', 'staff'))
+    setattr(revision, field, value)
+    assert identity() != original
+
+
+def test_attempt_inspector_is_read_only_by_default(monkeypatch):
+    from src.cli import publication_attempt as command
+    row = SimpleNamespace(id=uuid4(), declared_revision_id=uuid4(), status='running',
+                          outcome=None, error_code=None, run_id=None, started_at=None, finished_at=None)
+    db = SimpleNamespace(scalar=AsyncMock(return_value=row), execute=AsyncMock())
+    @asynccontextmanager
+    async def session():
+        yield db
+    import src.database
+    monkeypatch.setattr(src.database, 'session_scope', session)
+    monkeypatch.setattr(src.database, 'close_database', AsyncMock())
+    reconcile = AsyncMock()
+    monkeypatch.setattr(attempts, 'reconcile', reconcile)
+    result, code = run_async(command.inspect(row.id))
+    assert code == 0 and result['status'] == 'running'
+    assert str(db.execute.call_args.args[0]) == 'SET TRANSACTION READ ONLY'
+    reconcile.assert_not_called()

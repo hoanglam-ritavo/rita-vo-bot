@@ -46,6 +46,16 @@ Before the first model upload, confirm remote LFS support, storage quota and acc
 
 File integrity does not establish runtime compatibility. Semantic expansion requires the matching complete `chunks/` tree (JSON plus source snapshots), including currently held packages. A relevance profile binds database publication run IDs and configuration, not just document bytes; publishing the same packages independently in another database creates new IDs and requires a matching evaluated profile. Preserve database identity through an explicitly managed restore or repeat the existing calibration process against the intended corpus; do not rewrite profile fingerprints. This storage task does neither. `/health/ready` remains a dependency check, not a profile/corpus quality gate.
 
+On 2026-11-16 the user explicitly requested provisioning the source-approved
+`artifacts/semantics/v1/lexicon.json` before completing retrieval evaluation. This
+specific storage exception preserves the approved bytes and inventories the
+lexicon/manifest pair. The manifest declares
+`source_reviewed_provisioned_evaluation_pending`, with retrieval evaluation and
+runtime release acceptance false. It supplies no relevance profile, evaluated
+pipeline/corpus identity or quality claim. Environment configuration and services
+remain unchanged; a matching accepted profile is still required for calibrated
+semantic retrieval. Do not interpret inventory verification as evaluation approval.
+
 ## Copy, verify and recover
 
 1. Record the source revision and inventory **every** model file by relative name, byte length and SHA-256. Inventory the pinned reranker files too when backing up the full runtime. Store receipts outside model directories: adding a receipt inside E5 changes its recursive file fingerprint.
@@ -80,6 +90,20 @@ Before the full run:
 
 Only after user review, run the same command without `--collect-only` and with a fresh report output, for example `accepted-evaluation.json`. A successful all-gates run writes `accepted-evaluation.profile.json` beside it. A report without a profile is a valid outcome when quality or latency fails; do not hand-author a threshold or set `holdout_passed` to true.
 
+On 2026-11-16 the user accepted all final review scopes for the new 145-case /
+4,350-pair dataset. Frozen full evaluation completed in the private
+`.tmp/relevance-profile-20261116-05/` workspace against the isolated schema-0006
+28-package corpus. It failed evidence and relevance gates despite passing
+latency and read-only integrity checks. Therefore there is no emitted profile to
+copy into `artifacts/rerank/<version>/relevance-profile.json`; that completion
+criterion remains unmet. See the [current verification status](../README.md#current-verification-status)
+for actual results. This is now a scoring-quality limitation, not pending label
+approval or a missing copy operation. Preserve the accepted source snapshot and
+newer workspace source edits separately. After outcome-driven scoring changes,
+the inspected holdout is diagnostic data and cannot serve as a fresh acceptance
+holdout; collect and review new disjoint acceptance cases for the changed
+pipeline rather than changing the accepted labels or lowering gates.
+
 ### Agent-assisted source review
 
 Agents may prepare independent label proposals to reduce review work. Give both
@@ -100,6 +124,27 @@ randomly moving paraphrases does not create an independent holdout. Changes to
 questions, evidence or splits require a fresh collection and candidate review.
 Old-collection proposals remain diagnostic when preparing a revised dataset;
 never rewrite collection bindings to make a new manifest pass freeze.
+
+After source review by agents, an explicitly authorized `--collect-only` run
+may collect diagnostic candidates while human acceptance is pending. Preserve
+uncertain question/support hypotheses and all human-review declarations as
+unaccepted. Review the resulting complete source/split/label packet before
+freeze or full calibration; diagnostic collection never issues a profile.
+
+Collection uses the application's current publication readers. Verify schema,
+stored publication/evidence and model compatibility before inference. If the
+configured database is incompatible, record the exact preflight blocker and
+resume only on a compatible provisioned corpus. Calibration does not authorize
+schema migration, data conversion, republication or a silent old-code fallback.
+
+When separate provisioning is explicitly requested, initialize a new empty
+database using the [current database design](database-design.md), then publish
+the selected source packages through the existing publisher. Set both
+`DATABASE_URL` and `MIGRATION_DATABASE_URL` to the same new target in child-process
+configuration only; preserve the application database and `.env`. Never put
+connection URLs in receipts. New run/chunk identities require a fresh collection
+and corpus-bound calibration. A profile for that new corpus does not authorize
+the old database or another independently republished corpus.
 
 ## Promote and verify
 

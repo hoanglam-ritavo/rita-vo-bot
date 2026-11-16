@@ -10,11 +10,11 @@ See the [indexing guide](docs/offline-indexing.md) for schemas, commands, metada
 
 The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and authors a complete package, with manual source/coverage checks and structural validation; no embedding model or database is required. Scope 2 reads that package, checks the actual tokenizer/model through preflight, embeds and publishes to PostgreSQL. Follow the [Scope 1 authoring procedure](docs/offline-indexing.md#agent-authoring-procedure) for focused detail chunks, source-backed inventories and optional groups within schema v2, or explicit evidence structures in schema v3. See [structured evidence](docs/structured-evidence.md). Author-declared coverage requires source review.
 
-Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded. Publication verifies stored data before skipping unchanged content; explicit metadata-only updates preserve the existing run/chunks. Changed publication reuses compatible stored exact-text vectors and encodes missing text; `--force` re-encodes every chunk. History remains stored and no schema migration or automatic republication is required for this optimization.
+Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded. Publication verifies stored data before skipping unchanged content; explicit metadata-only updates preserve the existing run/chunks. Changed publication reuses compatible stored exact-text vectors and encodes missing text; `--force` re-encodes every chunk. History remains stored within the new database; vector reuse itself needs no automatic republication. See the fresh-schema requirement below.
 
 Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
-Migration `0003_agent_packages` removes revision review state and renames review notes to evidence notes, preserving chunks, vectors and successful run history. Stop ingestion and run migrations explicitly before using the new publication code; conversion of local packages is separate and never changes the database.
+The current schema head is `0006_publication_baseline`, intended for a **new empty database**. It refuses application tables containing data; no conversion of an existing corpus is supplied. Publication now tracks execution attempts, audits metadata and stores normalized evidence links. See the [database design](docs/database-design.md) before provisioning; keep existing database/model/package/evaluation inputs separate.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
@@ -23,6 +23,190 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### Reviewed lexical enrichment v2 - 2026-11-16
+
+After explicit approval of all three review lots, lexical v2 was provisioned at
+`artifacts/semantics/v2/lexicon.json` with its provenance manifest. It adds **56
+aliases across 53 concepts**, retaining all 232 concepts, canonical phrases,
+prior aliases and guards. Active rewrite rules increased from 171 to 227. V1
+remains byte-identical; this task did not change source packages, runtime code,
+models, database, environment values or services.
+
+Preparation passed 504 new-alias behavior checks, nine additional client cases,
+1,272 inherited direct/paraphrase checks and 245 old-alias examples. Focused
+semantic/preparation/inventory tests passed **72 tests**, with one dependency
+deprecation warning, before provision. After provision, runtime inventory
+verification passed for **20 assets** and the package-bound loader accepted v2.
+These are lexical checks, not retrieval-quality acceptance. The manifest keeps
+evaluation pending and supplies no relevance profile. Previously exposed cases
+remain regression data. See [lexical enrichment](docs/vietnamese-semantics.md#reviewed-lexical-enrichment-v2---2026-11-16).
+
+### Accepted rerank labels and full benchmark - 2026-11-16
+
+The user explicitly accepted all three final review scopes for **145 cases /
+4,350 candidate labels**, including the 20 remaining passage decisions and 46
+unsupported-in-current-corpus hypotheses. The accepted cases were frozen and a
+full real-model benchmark completed against the isolated schema-0006 database's
+28-package / 524-chunk corpus. Newer source/semantic workspace edits were
+preserved: evaluation used hash-verified approved source bytes and the unchanged
+current runtime in an isolated workspace, not an older implementation.
+
+The benchmark **failed evidence and relevance gates**: complete positive recall
+was **52/75 (69.33%)** overall, **17/24 (70.83%)** for calibration and **14/22
+(63.64%)** for holdout. Holdout also returned irrelevant passages. There was one
+candidate-pool miss and 23 post-filter empty positive cases. The 100-request
+latency gate passed with p50 **2.259 s** and p95 **4.257 s**; database/package
+before/after checks passed. No critical or required-top-1 cases were designated
+in the accepted scope; a vacuous top-1 gate is not coverage of those requirements.
+
+No accepted relevance profile was emitted or promoted, and the requested final
+artifact remains outstanding. Fixed-score analysis shows that changing only the
+scalar threshold cannot meet the accepted quality gates. Any outcome-driven
+scoring development needs a separately reviewed fresh holdout. The private
+acceptance, frozen inputs, execution receipt, full report and diagnostic are in
+`.tmp/relevance-profile-20261116-05/`. Existing runtime inventory verification
+passed for **18 assets**. This operational run changed no runtime code, model,
+environment configuration or API deployment; application tests were not rerun.
+See [calibration acceptance](docs/online-reranking.md#evaluation-and-rollout).
+
+### Reviewed lexicon provisioned by explicit request - 2026-11-16
+
+The user explicitly requested placing the reviewed lexicon at
+`artifacts/semantics/v1/lexicon.json` before retrieval evaluation is complete.
+The file is byte-identical to the privately exported, source-approved lexicon;
+its provenance manifest records `source_reviewed_provisioned_evaluation_pending`
+and `runtime_release_accepted: false`. Both files are in the runtime inventory.
+Verification passed for **18 assets**, and the package-bound semantic loader
+accepted the provisioned file. No matching relevance profile is supplied, and
+this storage step does not establish retrieval quality. `.env`, database and
+services are unchanged. See [runtime artifacts](docs/runtime-artifacts.md).
+
+### Semantic source reconciliation and grouped review - 2026-11-16
+
+The user-authorized source preparation restored the labor inpatient clause and
+added a separately attributed conversation-clarification package. Original PDF
+and extraction bytes are unchanged. Five affected/new packages passed structural
+validation and local E5 token preflight. The private proposal covers 29 packages /
+530 chunks with 232 concepts and 636 evidence units. The user explicitly approved
+all three source/alias groups; a reviewed lexicon was exported privately and
+passed the real package-bound loader and bounded-rewrite smoke checks. This is
+source acceptance, not runtime release. See [source reconciliation](docs/vietnamese-semantics.md#explicit-source-reconciliation---2026-11-16).
+
+Focused package/preparation/semantic-runtime tests: **86 passed**, with one
+dependency deprecation warning. Initial sandbox runs encountered Windows
+temporary-directory access errors; the passing run used a fresh repository-local
+extended-length temporary directory outside the sandbox. Existing runtime asset
+verification passed for all 16 files. These checks establish neither source
+approval nor retrieval quality.
+
+Read-only inspection of the configured application target still returned
+`0005_structured_evidence`, with five target tables and two target columns absent.
+Per the latest user instruction, no migration or backup was created or executed.
+No publication, full semantic benchmark, accepted artifact promotion, environment
+edit or service activation was performed. A refreshed 1,261-case exposed
+regression proposal remains unaccepted for evaluation; independent splits and
+complete candidate labels are still required. The separately provisioned calibration
+database described below is a distinct target; its existence does not establish
+compatibility of the configured application connection.
+
+### Isolated v0006 corpus and fresh calibration collection - 2026-11-16
+
+Explicitly authorized provisioning created a separate calibration database at
+`0006_publication_baseline`. Read-only schema introspection verified 14 application
+tables and ORM/key/index/trigger alignment; it did not execute destructive
+constraint tests. Publication and deep readback passed for **28 packages / 524
+chunks**, 28 successful attempts, 28 metadata audits and normalized evidence
+links. The original v0005 database retained its schema, row counts and ID hashes;
+`.env`, source packages, model files and runtime code were unchanged by this task.
+
+A fresh **145-question / 4,350-candidate-pair** collection completed on the new
+corpus with matching package/model/corpus hashes. Its 100 warmed requests measured
+**p95 3.54 seconds**; collection is not full calibration or relevance acceptance.
+Both independent source reviewers covered every returned UUID. They agreed on
+122 positive and 4,129 negative proposals, with 99 pairs sent to post-independent
+source consultation. That consultation proposed 53 positive, 26 negative and
+20 unresolved decisions; it is not a third blind vote. The complete private
+source/split/label packet is ready for human review, including 46 unresolved
+policy-absence hypotheses. Case support, split applicability and all human
+review declarations remain unaccepted. No full benchmark or runtime profile was
+issued, and the API connection was not changed. The new run/chunk identities and
+metadata-bound corpus fingerprint cannot reuse old-database candidate labels.
+
+An initial pre-attempt rejection was checked to have no attempt/run before
+resuming unpublished packages. A generated receipt also contained a pinned-file
+flag not exposed by the shared CLI; execution omitted only the verified implicit
+default pair, preserving the receipt and effective configuration. See
+[receipt execution](docs/online-reranking.md#prepare-baseline-calibration-inputs).
+Runtime asset integrity, prepared-input validation and the documented PowerShell
+normalization/parser check passed. Application regression tests, original-PDF
+fidelity, independent backup/restore and API rollout were not verified by this
+data/provisioning task. Private receipts and review evidence remain under `.tmp/`.
+
+### Pre-production database baseline and publication tracing - 2026-11-16
+
+Implemented on the working tree initially based on `782b4f4`; a concurrent
+commit, `2c93057`, captured the initial implementation while this work continued.
+Existing README/runtime-artifact preparation changes were preserved. The target
+is the **new empty-database** `0006_publication_baseline` with 14 application
+tables, same-run normalized evidence links, required publication identity,
+append-only metadata audit and separate execution attempts/commit receipts.
+See [database design](docs/database-design.md) for the data dictionary, invariant
+ownership, fresh initialization, unknown-outcome reconciliation and corpus
+fingerprint version 2. Package v2/v3 and HTTP contracts remain unchanged; old
+corpus fingerprints are not automatically accepted.
+
+Final post-edit non-integration regression passed **813 tests, 1 skipped,
+50 deselected**, with the existing Starlette/AnyIO deprecation warning. The
+focused schema/publication/storage/evaluator run passed **144 tests** before the
+last server-clock, failure-ID and fingerprint-reuse refinements; those changes
+are included in the final full run. An earlier full run also passed 813 tests.
+Initial development checks exposed an offline SQL guard/import-boundary problem
+and two test assertions coupled to insertion order/DDL whitespace; these were
+corrected before the passing runs. Sandbox test attempts encountered Windows
+temporary-directory access failures; passing runs used fresh repository-local
+extended-length `.tmp/` paths outside the sandbox without deleting old trees or
+changing permissions.
+
+CLI help and local documentation file-link/whitespace checks passed. The
+PostgreSQL suites were **not executed**: credential-safe configuration comparison
+found `TEST_DATABASE_URL` was not separate from the application/migration
+identity. New integration coverage includes direct SQL constraints/triggers,
+schema/ORM alignment, audit and link rollback, metadata-bound fingerprints,
+concurrent publication and lost-commit acknowledgement reconciliation. The final
+lost-ack integration case was added after the full non-integration run; it was
+collected only, not executed. Historical migration-preservation assertions remain
+on an isolated legacy test schema. Mocked tests/offline DDL do not establish live
+PostgreSQL enforcement, query plans, model quality or performance.
+
+No migration, reset, database connection/write, real-model inference, publication,
+calibration, service restart or deployment was performed. Existing database,
+source packages, model assets, `.env` and private evaluation inputs were retained.
+
+
+### Calibration collection preflight blocked by schema mismatch - 2026-11-16
+
+The configured database remains at `0005_structured_evidence`, while the current
+publication-baseline code requires additional schema. Read-only preflight failed
+with SQLSTATE `42703`; the schema audit found missing `ingestion_runs.created_at`,
+`evidence_items.parent_id` and five publication/evidence tables. The database
+contains 34 runs, 682 chunks and 28 revisions. Migration `0006` requires empty
+application tables and is not a conversion for this populated database. No
+migration, republication, schema repair or old-code fallback was performed.
+The user selected a compatible current-code database/corpus as the prerequisite
+for collection; an empty schema alone does not supply compatible publications.
+
+All **16 selected runtime assets** passed integrity verification. A private
+**145-case diagnostic draft** applies two source-supported question rewrites
+and adds two independently reviewed negative hypotheses. Shared validation and
+minimum split counts pass: calibration 24/20, holdout 22/20 and regression 29/30
+supported/unsupported proposals. Negative absence and final human acceptance
+remain unresolved. The collection receipt is prepared, but no new collection,
+candidate-label review, full calibration or profile issuance completed. Existing
+`.env`, runtime code, model files, packages and stored publication data were not
+changed by this calibration task. Application regression tests were not rerun
+for this data/documentation work; source preparation does not establish live
+database compatibility or calibrated relevance.
 
 ### Agent-assisted calibration preparation - 2026-11-16
 
@@ -270,6 +454,8 @@ No integration database tests, publication, migrations, live API/model checks, i
 
 ## Setup (PowerShell)
 
+Provision a separate empty PostgreSQL database for the current schema. Do not point the new publisher at an older database; see [initialization and boundaries](docs/database-design.md#initialization-and-boundaries).
+
 Run from the project root with Python 3.14 installed. Create the virtual environment if absent:
 
 ```powershell
@@ -463,7 +649,7 @@ This development server uses plaintext loopback only, without authentication or 
 
 `DATABASE_URL` uses `postgresql+psycopg://user:password@host:5432/database`. URL-encode special characters in usernames and passwords. Configure TLS for the server, for example `?sslmode=verify-full&sslrootcert=C%3A%2Fcerts%2Froot.crt`. System environment variables take precedence over `.env`. Do not commit `.env` or credentials.
 
-`MIGRATION_DATABASE_URL` optionally supplies an account with DDL permissions; when absent or empty, migrations use `DATABASE_URL`. Migrations run only through explicit Alembic commands, not at application startup. The current downgrade preserves the shared `vector` extension. Future runtime access should use permissions needed for application tables rather than migration privileges.
+`MIGRATION_DATABASE_URL` optionally supplies an account with DDL permissions; when absent or empty, migrations use `DATABASE_URL`. Migrations run only through explicit Alembic commands, not at application startup. The current upgrade/downgrade require empty application tables and preserve the shared `vector` extension. Future runtime access should use permissions needed for application tables rather than migration privileges.
 
 For example, the synthetic password `abc@123` must be written as `abc%40123` in a URL: `postgresql+psycopg://demo:abc%40123@localhost:5432/demo`. This changes only the URL representation, not the database password. Keep the separating `@` before the host; quoting the URL does not replace URL-encoding. The same rule applies to migration and test URLs. Configuration validation rejects detectable unencoded `@` in the connection authority with a credential-safe message; it does not automatically repair URLs or verify credentials/connectivity. Encode a literal `%` as `%25` to avoid unintended decoding.
 

@@ -65,8 +65,11 @@ def test_publish_and_dry_run(tmp_path, publication):
     service.embed.assert_not_called()
     service.write_metadata.assert_not_called()
     db.add.assert_not_called()
+    service.attempts.start.assert_not_called()
     result = run_async(service.publish(tmp_path, package, 'a'*40, model_path=model))
     assert result['code'] == 'published'
+    assert result['attempt_id']
+    service.attempts.reconcile.assert_awaited_once()
     chunks = list(db.add_all.call_args.args[0])
     assert chunks[0].content == 'Original policy.'
     assert not (p.workspace(tmp_path) / 'approved').exists()
@@ -457,3 +460,27 @@ def test_supersedes_cycle_remains_rejected():
     db.execute.side_effect = [empty, edges]
     with pytest.raises(p.Rejected, match='supersedes_cycle'):
         run_async(service.snapshot(db, record))
+
+
+@pytest.mark.parametrize('phase', ['precommit_failure', 'cancelled', 'commit_unknown'])
+def test_execution_failure_and_uncertain_commit_are_distinct(tmp_path, publication, monkeypatch, phase):
+    import asyncio
+    _, model = publication
+    package, _ = ready(tmp_path)
+    async def fail(*args, **kwargs):
+        if phase == 'commit_unknown':
+            kwargs['state']['commit_started'] = True
+        if phase == 'cancelled':
+            raise asyncio.CancelledError()
+        raise RuntimeError('fictional execution failure')
+    monkeypatch.setattr(service, '_publish', fail)
+    error_type = asyncio.CancelledError if phase == 'cancelled' else service.attempts.AttemptUncertain if phase == 'commit_unknown' else RuntimeError
+    with pytest.raises(error_type) as error:
+        run_async(service.publish(tmp_path, package, 'a'*40, model_path=model))
+    assert error.value.attempt_id
+    if phase == 'commit_unknown':
+        service.attempts.finish.assert_not_called()
+        assert str(error.value) == 'publication_outcome_unknown'
+    else:
+        assert service.attempts.finish.call_args.kwargs['cancelled'] == (phase == 'cancelled')
+    service.attempts.reconcile.assert_not_called()

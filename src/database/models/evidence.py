@@ -44,7 +44,7 @@ class EvidenceValue(Base):
         CheckConstraint("author_id ~ '^[a-zA-Z0-9_.-]{1,100}$'", name='author_id'),
         CheckConstraint("jsonb_typeof(data) = 'object' AND data->>'id' IS NOT NULL AND data->>'id' = author_id AND data->>'item_id' IS NOT NULL AND data->>'item_id' = item_id", name='snapshot'),
         CheckConstraint("data->>'type' IS NOT NULL AND data->>'type' IN ('text','boolean','decimal','date')", name='value_type'),
-        CheckConstraint("CASE WHEN data->>'type' = 'decimal' THEN numeric_value IS NOT NULL AND data->>'value' ~ '^-?[0-9]+([.][0-9]+)?$' AND numeric_value = (data->>'value')::numeric ELSE numeric_value IS NULL END", name='numeric_projection'),
+        CheckConstraint("CASE WHEN data->>'type' = 'decimal' THEN numeric_value IS NOT NULL AND data->>'value' IS NOT NULL AND data->>'value' ~ '^-?[0-9]+([.][0-9]+)?$' AND numeric_value = (data->>'value')::numeric ELSE numeric_value IS NULL END", name='numeric_projection'),
     )
 
 

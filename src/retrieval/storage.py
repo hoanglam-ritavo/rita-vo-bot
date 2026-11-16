@@ -10,6 +10,22 @@ from src.database.models import IngestionRun as Run, DocumentAccessRule as Acces
 from src.ingestion.embeddings import MODEL_NAME
 
 
+def corpus_identity(run_id, revision_id, configuration, revision, groups):
+    """Only publication identity, eligibility and public provenance affect calibration."""
+    metadata = {key: getattr(revision, key) for key in (
+        'is_catalog_current', 'lifecycle_status', 'indexing_decision',
+        'applicability', 'source_path', 'title', 'version_label')}
+    metadata.update(access_groups=sorted(groups),
+        effective_from=revision.effective_from.isoformat() if revision.effective_from else None,
+        effective_to=revision.effective_to.isoformat() if revision.effective_to else None)
+    return str(run_id), str(revision_id), configuration, metadata
+
+
+def corpus_fingerprint(identities):
+    return hashlib.sha256(json.dumps({'version': 2, 'publications': identities},
+        sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
 def eligibility(model_revision, fingerprint):
     today = business_today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
@@ -67,15 +83,9 @@ async def search(vector, model_revision, fingerprint, top_k, *, detail_only=Fals
             groups_by_revision.setdefault(revision_id, []).append(group)
         identities = []
         for run_id, revision_id, config, revision in corpus:
-            metadata = {key: getattr(revision, key) for key in (
-                'is_catalog_current', 'lifecycle_status', 'indexing_decision',
-                'applicability', 'source_path', 'title', 'version_label')}
-            metadata.update(access_groups=sorted(groups_by_revision.get(revision_id, [])),
-                effective_from=revision.effective_from.isoformat() if revision.effective_from else None,
-                effective_to=revision.effective_to.isoformat() if revision.effective_to else None)
-            identities.append((str(run_id), str(revision_id), config, metadata))
-        result['corpus_fingerprint'] = hashlib.sha256(json.dumps(
-            {'version': 2, 'publications': identities}, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+            identities.append(corpus_identity(run_id, revision_id, config, revision,
+                                              groups_by_revision.get(revision_id, [])))
+        result['corpus_fingerprint'] = corpus_fingerprint(identities)
         distance = Chunk.embedding.cosine_distance(vector).label('distance')
         query = (select(Chunk, Revision, distance).join(Run, Chunk.run_id == Run.id)
                  .join(Revision, Run.revision_id == Revision.id)

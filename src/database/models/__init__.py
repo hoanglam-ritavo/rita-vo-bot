@@ -6,12 +6,11 @@ from .document_relation import DocumentRelation
 from .ingestion_run import IngestionRun
 from .document_chunk import DocumentChunk
 from .mixins import Timestamps
-from .evidence import EvidenceScope, EvidenceItem, EvidenceValue
-
-__all__ = ['Document', 'DocumentRevision', 'DocumentAccessRule', 'DocumentRelation', 'IngestionRun', 'DocumentChunk', 'Timestamps',
-           'EvidenceScope', 'EvidenceItem', 'EvidenceValue']
+from .evidence import EvidenceScope, EvidenceItem, EvidenceValue, ScopeItem, ScopeChunk, ItemChunk
 
 from .publication_attempt import PublicationAttempt
 from .metadata_audit import MetadataAudit
-from .evidence import ScopeItem, ScopeChunk, ItemChunk
-__all__ += ['PublicationAttempt', 'MetadataAudit', 'ScopeItem', 'ScopeChunk', 'ItemChunk']
+
+__all__ = ['Document', 'DocumentRevision', 'DocumentAccessRule', 'DocumentRelation', 'IngestionRun', 'DocumentChunk', 'Timestamps',
+           'EvidenceScope', 'EvidenceItem', 'EvidenceValue', 'ScopeItem', 'ScopeChunk', 'ItemChunk',
+           'PublicationAttempt', 'MetadataAudit']

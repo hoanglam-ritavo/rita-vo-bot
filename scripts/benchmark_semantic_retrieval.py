@@ -26,6 +26,8 @@ from src.retrieval.config import add_arguments, from_arguments
 from src.retrieval.semantic_evaluation import (check_labels, compare, digest, private_path,
     summarize, threshold_for, validate_dataset)
 from src.retrieval.semantics import SemanticSettings
+from src.retrieval.scoring import FEATURES, validate_scoring
+from src.retrieval.reranking import MODEL_REVISION
 
 
 def path_at_root(value):
@@ -73,6 +75,25 @@ def load_inputs(args):
     artifacts = [path_at_root(args.semantic_artifact)]
     if args.intent_artifact:
         artifacts.append(path_at_root(args.intent_artifact))
+    scoring_path = getattr(args, 'scoring_candidate', None)
+    training_path = getattr(args, 'scoring_training_report', None)
+    if bool(scoring_path) != bool(training_path):
+        raise ValueError('scoring_training_report_required')
+    if scoring_path:
+        scoring_path, training_path = private_path(scoring_path), private_path(training_path)
+        scoring = validate_scoring(json.loads(scoring_path.read_bytes()))
+        training = json.loads(training_path.read_bytes())
+        groups = training.get('development_intent_groups')
+        case_ids = training.get('development_case_ids')
+        if (training.get('scoring_digest') != scoring['digest']
+                or training.get('training_only') is not True
+                or not isinstance(groups, list) or not groups
+                or not isinstance(case_ids, list) or not case_ids):
+            raise ValueError('invalid_scoring_training_report')
+        if any(case['split'] in ('calibration', 'holdout') and
+                (case['intent_group'] in groups or case['id'] in case_ids) for case in cases):
+            raise ValueError('scoring_development_acceptance_leak')
+        artifacts.extend([scoring_path, training_path])
     model_paths = [path_at_root(args.model_path), from_arguments(args).model_path.resolve()]
     protected = {args.dataset, *artifacts}
     outputs = [args.output, *[args.output.with_name(args.output.stem + f'.{arm}.profile.json')
@@ -129,11 +150,16 @@ async def benchmark(args, inputs=None):
     try:
         for arm, (semantic, intent) in pipeline_settings(args).items():
             service = RetrievalService(model_path=model_path, model_revision=args.model_revision,
-                device='cpu', rerank=replace(from_arguments(args), profile_path=None),
+                device='cpu', rerank=replace(from_arguments(args), profile_path=None,
+                    scoring_path=private_path(args.scoring_candidate) if getattr(args, 'scoring_candidate', None) else None),
                 semantic=semantic, intent=intent)
             services[arm] = service
             results[arm], latency[arm] = [], []
             await service.start()
+            if getattr(args, 'scoring_candidate', None):
+                expected_scoring = validate_scoring(json.loads(artifact_bytes[private_path(args.scoring_candidate)]))
+                if service._reranker.scoring != expected_scoring:
+                    raise ValueError('semantic_evaluation_inputs_changed')
             if arm == 'intent' and service._intent.artifact is None:
                 raise ValueError('accepted_intent_artifact_required_for_benchmark')
         def verify_corpus(result):
@@ -149,7 +175,8 @@ async def benchmark(args, inputs=None):
         for index, case in enumerate(cases):
             case_results = {}
             for arm in arms if index % 2 == 0 else list(reversed(arms)):
-                result = await services[arm]._retrieve(case['question'], 5, assessment=False)
+                result = await services[arm]._retrieve(case['question'], 5, assessment=False,
+                    collect_scoring_features=getattr(args, 'collect_features', False))
                 verify_corpus(result)
                 if (result.get('status') == 'model_mismatch'
                         or not result.get('reranker_fingerprint') or 'candidate_order' not in result):
@@ -164,6 +191,8 @@ async def benchmark(args, inputs=None):
             if thresholds[arm] is not None:
                 service._reranker.profile = {'schema_version': 2, 'fingerprint': service._reranker.fingerprint,
                     'corpus_fingerprint': corpus, 'threshold': thresholds[arm], 'holdout_passed': True}
+                if getattr(service._reranker, 'scoring', None) is not None:
+                    service._reranker.profile.update(schema_version=3, scoring=service._reranker.scoring)
         if not args.collect_only:
             for index in range(args.requests):
                 question = cases[index % len(cases)]['question']
@@ -188,6 +217,9 @@ async def benchmark(args, inputs=None):
                     'after_rerank': [{key: match[key] for key in
                         ('chunk_id', 'document_id', 'revision_id', 'chunk_index', 'run_id', 'rerank_score', 'cosine_distance')}
                         for match in result['matches']]} for case, result in zip(cases, results[arm])])
+                if getattr(args, 'collect_features', False):
+                    for row, result in zip(base['candidate_collection'], results[arm]):
+                        row['scoring_features'] = result['scoring_features']
             else:
                 base.update(summarize(cases, results[arm], latency[arm], thresholds[arm]))
             arms_report[arm] = base
@@ -203,6 +235,17 @@ async def benchmark(args, inputs=None):
             'rollout_ready': not args.collect_only and comparisons['semantic_vs_baseline']['promotion_ready'],
             'database_and_packages_unchanged': True,
             'python': platform.python_version(), 'platform': platform.platform()}
+        if getattr(args, 'collect_features', False):
+            report['feature_names'] = list(FEATURES)
+        if getattr(args, 'scoring_candidate', None):
+            report['scoring'] = validate_scoring(json.loads(artifact_bytes[private_path(args.scoring_candidate)]))
+            report['release_configuration'] = {
+                'semantic_mode': 'expand', 'intent_mode': 'assist' if args.intent_artifact else 'off',
+                'candidate_count': 30, 'batch_size': from_arguments(args).batch_size,
+                'model_revision': args.model_revision, 'rerank_model_revision': MODEL_REVISION,
+                'semantic_artifact_sha256': hashlib.sha256(artifact_bytes[path_at_root(args.semantic_artifact)]).hexdigest(),
+                'scoring_digest': report['scoring']['digest'],
+                'training_report_sha256': hashlib.sha256(artifact_bytes[private_path(args.scoring_training_report)]).hexdigest()}
     finally:
         # A cleanup failure must prevent writing any accepted profile/report.
         errors = []
@@ -232,6 +275,9 @@ def write_report(args, report):
                     'schema_version': 2, 'fingerprint': result['fingerprint'],
                     'corpus_fingerprint': report['corpus_fingerprint'],
                     'threshold': result['threshold'], 'holdout_passed': True}
+                if report.get('scoring') is not None:
+                    outputs[args.output.with_name(args.output.stem + f'.{arm}.profile.json')].update(
+                        schema_version=3, scoring=validate_scoring(report['scoring']))
     for path in outputs:
         if path.exists():
             raise ValueError('semantic_output_already_exists')
@@ -252,6 +298,9 @@ def main(argv=None):
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--collect-only', action='store_true')
     parser.add_argument('--requests', type=int, default=100)
+    parser.add_argument('--collect-features', action='store_true', help='Include private numeric development features in collection.')
+    parser.add_argument('--scoring-candidate', type=Path, help='Private fitted scoring coefficients; never an accepted profile.')
+    parser.add_argument('--scoring-training-report', type=Path, help='Matching development provenance and family-isolation ledger.')
     add_arguments(parser)
     args = parser.parse_args(argv)
     try:

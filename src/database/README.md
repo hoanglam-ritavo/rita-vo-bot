@@ -13,13 +13,13 @@ This guide describes the current source configuration, not the verified state of
 | Source | Responsibility |
 | --- | --- |
 | [base.py](base.py) | Defines `Base.metadata` and constraint/index naming conventions. |
-| [models/__init__.py](models/__init__.py) | Imports the nine application ORM models so their tables are registered. |
+| [models/__init__.py](models/__init__.py) | Imports the 14 application ORM models so their tables are registered. |
 | [migrations/env.py](migrations/env.py) | Imports models, configures Alembic, and runs migrations through the async engine and Windows-compatible runner. |
 | [migrations/helpers.py](migrations/helpers.py) | Supplies `target_metadata` and the table-exclusion filter. |
 | [config.py](config.py) | Loads the database URL from environment variables or the repository-root `.env`. |
 | [alembic.ini](../../alembic.ini) | Locates the migration directory. |
 
-The current head is `0005_structured_evidence`; the nine application tables include `evidence_scopes`, `evidence_items` and `evidence_values`. See [structured evidence](../../docs/structured-evidence.md#storage-and-deployment) for the v2/v3 compatibility and downgrade boundaries. This describes local migrations, not a live database inspection.
+The current head is `0006_publication_baseline`; its 14 application tables are described in the [database design](../../docs/database-design.md). It requires a new empty application schema, preserves unrelated tables/vector and refuses populated-database upgrade or downgrade. This describes local DDL, not a live database inspection.
 
 New models must inherit `src.database.Base`, live in `src/database/models/`, and be imported/exported by its `__init__.py`. Otherwise, Alembic cannot compare their tables against the database.
 
@@ -31,7 +31,7 @@ URL-encode usernames and passwords in all connection URLs, including `TEST_DATAB
 
 ## Apply existing migrations
 
-Run the following PowerShell commands from the repository root with the virtual environment activated and the intended database configured. For a new empty database, or one already managed by this migration history:
+Run the following PowerShell commands from the repository root with the virtual environment activated and the intended database configured. For a newly provisioned empty database (do not convert a populated older database):
 
 ```powershell
 python -m alembic upgrade head
@@ -45,13 +45,14 @@ The current revision chain is:
 | [0002_type_a_catalog](migrations/versions/0002_type_a_catalog.py) | Creates the six application tables. |
 | [0003_agent_packages](migrations/versions/0003_agent_packages.py) | Removes revision review status and renames review notes to evidence notes. |
 | [0004_updated_at_triggers](migrations/versions/0004_updated_at_triggers.py) | Maintains row update timestamps through PostgreSQL triggers. |
-| [0005_structured_evidence](migrations/versions/0005_structured_evidence.py) | Adds nullable chunk author IDs/roles and the three run-owned evidence tables. |
+| [0005_structured_evidence](migrations/versions/0005_structured_evidence.py) | Historical additive v3 schema. |
+| [0006_publication_baseline](migrations/versions/0006_publication_baseline.py) | Empty-schema-only 14-table target with constraints, immutable source identity, normalized links, execution attempts and append-only metadata audit. |
 
 Alembic tracks applied revisions in `alembic_version`. Applying the current head again normally has no pending migration to execute; it does not repair arbitrary schema drift. Stop ingestion before applying the current package-schema migration, as described in the root README.
 
 ## Change models and generate a migration
 
-1. Use a development database managed by this migration history. Before editing models, bring it to the existing migration head:
+1. Use a development database managed by this migration history. Before editing models, use a separate empty database to reach the existing migration head:
 
    ```powershell
    python -m alembic upgrade head

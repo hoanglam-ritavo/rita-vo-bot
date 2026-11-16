@@ -6,6 +6,8 @@ This opt-in pipeline retrieves and filters candidates without modifying packages
 
 ## Local model and configuration
 
+The current fresh database uses corpus fingerprint version 2, binding retrieval metadata as well as publication IDs/configuration. Historical profiles/collections must not be relabeled as compatible. See [database identity and retrieval](database-design.md#evidence-consistency-and-retrieval) before provisioning/calibration.
+
 The supported model is `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`, pinned to revision `1427fd652930e4ba29e8149678df786c240d8825`. Place `model_quint8_avx2.onnx` directly in `models/`, alongside `config.json`, `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json` and `sentencepiece.bpe.model` from that revision. These selected files use byte-preserving Git/LFS storage; run the [runtime inventory check](runtime-artifacts.md#git-lfs-checkout-and-verification) after LFS hydration. Startup validates every file against the pinned SHA-256 allowlist in `src/retrieval/reranking.py`; renaming an unrelated model does not make it compatible.
 
 The ONNX SHA-256 is `6c2513767fb63d008a4377bef7a7a3555433d9436342bb53e35a3a72ffc52d4b`. The official model is available at [Hugging Face](https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/tree/1427fd652930e4ba29e8149678df786c240d8825). Download matching files explicitly during provisioning, never at application startup. Preserve the original downloaded file when preparing another environment.
@@ -135,11 +137,31 @@ calibration and holdout, plus 20 regression cases. Do not simply shuffle cases
 to meet counts. Validate the final authored files again.
 
 The receipt's `collection_arguments` is a JSON argument array, not shell-quoted
-text. To execute that exact command explicitly in PowerShell:
+text. Current preparation receipts include `--rerank-model-file`, while the shared
+CLI pins that filename and does not expose the flag. Verify the value is exactly
+the supported default, omit only that flag/value pair for execution, and preserve
+the original receipt. This does not change the effective model configuration or
+skip artifact validation. Apply the same normalization to frozen
+`benchmark_arguments`. In PowerShell:
 
 ```powershell
 $rerankReceipt = Get-Content .tmp/rerank/receipt.json -Raw | ConvertFrom-Json
 $rerankArgs = @($rerankReceipt.collection_arguments | Select-Object -Skip 1)
+$rerankFileFlag = [Array]::IndexOf($rerankArgs, '--rerank-model-file')
+if ($rerankFileFlag -ge 0) {
+    if (($rerankFileFlag + 1) -ge $rerankArgs.Count -or
+        $rerankArgs[$rerankFileFlag + 1] -ne 'model_quint8_avx2.onnx') {
+        throw 'The receipt does not select the supported pinned reranker file.'
+    }
+    $rerankArgs = @(
+        for ($rerankArgIndex = 0; $rerankArgIndex -lt $rerankArgs.Count; $rerankArgIndex++) {
+            if ($rerankArgIndex -ne $rerankFileFlag -and
+                $rerankArgIndex -ne ($rerankFileFlag + 1)) {
+                $rerankArgs[$rerankArgIndex]
+            }
+        }
+    )
+}
 & $rerankReceipt.collection_arguments[0] @rerankArgs
 ```
 

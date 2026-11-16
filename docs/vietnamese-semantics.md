@@ -6,6 +6,57 @@ the API never calls an agent or hosted model. The initial corpus has 28 packages
 and 524 chunks. Coverage means accounting for every source-backed unit, not
 claiming recognition of every possible Vietnamese sentence.
 
+### Explicit source reconciliation - 2026-11-16
+
+The user-authorized reconciliation adds a separate Markdown conversation-decision
+source under `assets/semantic-clarifications/`, with its own current package and
+`supplements` relations to the four affected PDF revisions. It records scoped
+interpretations, not an officially issued HR policy or new legal-validity claim.
+Original PDF snapshots and transcription remain unchanged. Labor Article 43.1 is
+restored from its real extraction span; the other PDF-backed chunks retain their
+original wording. Their notes distinguish the separate clarification from literal
+PDF evidence. Runtime retrieval does not implement automatic source precedence
+or automatically attach related clarification chunks.
+
+The resulting authoring snapshot contains **29 packages / 530 chunks**. The
+private semantic proposal has 232 concepts and 636 evidence units, including the
+restored inpatient unit and five attributed clarification units. Previous policy
+replies remain recorded. The user subsequently approved all three source/alias
+groups explicitly; private receipts bind that approval to the reviewed content
+and prove a formatting-only line-ending carryover. A reviewed lexicon was exported
+privately and passed the package-bound loader. Publication to a compatible target
+and independent semantic evaluation remain required. The refreshed exposed
+regression proposal is not a reviewed calibration/holdout dataset. No matching
+accepted relevance profile or runtime release is supplied by this source step.
+Age/time boundaries and document choices are evidence content, not global lexical
+substitutions. Source approval never fills evaluation candidate labels.
+
+### Reviewed lexical enrichment v2 - 2026-11-16
+
+The user explicitly approved all three lexical review lots: 15 policy/HR,
+16 administration and 25 software aliases. The resulting v2 at
+`artifacts/semantics/v2/lexicon.json` has 232 concepts and 301 alias entries,
+including 227 effective non-canonical rewrite rules. Fifty-three concepts gained
+aliases; 66 concepts remain canonical-only. All v1 canonical phrases, old aliases,
+styles and context guards are retained. No new policy rule, source package,
+runtime algorithm, API, environment configuration or database change is included.
+
+The private review packet records each proposal, complete client examples,
+contrasts, source references and dispositions for all 232 concepts. Eleven
+ambiguous or grammatically unsafe candidates were rejected. The user approval is
+bound to exact proposal/inventory hashes. Source-unit review is inherited; no new
+independent PDF-transcription review is claimed. The inventory contains both v1
+and v2 lexicon/manifest pairs, preserving v1 for comparison and rollback planning.
+
+Behavior checks preserve the exercised v1 rewrites within the two-alternate
+budget, retain negation and numerical/role boundaries, and inspect overlapping
+aliases. The v2 manifest still declares source-reviewed/provisioned with retrieval
+evaluation pending and runtime release acceptance false. No compatible relevance
+profile is emitted or inferred; deployment configuration remains unchanged.
+These authored examples are exposed regression inputs, not independent holdout
+families or candidate relevance labels. Private review and promotion receipts
+remain outside tracked artifacts.
+
 ## Separate authoring, review and release
 
 The inventory accounts for all packages/chunks, package JSON and source snapshot

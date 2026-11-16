@@ -31,9 +31,12 @@ Every structured object has nonempty source refs with real segment IDs and Pytho
 
 ## Storage and deployment
 
-Run `python -m alembic upgrade head` explicitly before using the new code. Migration `0005_structured_evidence` adds chunk author ID/role and `evidence_scopes`, `evidence_items`, `evidence_values`. Keys include `ingestion_run`; typed decimal values also use PostgreSQL Numeric. JSONB retains original representation, links, conditions and provenance. V2 chunk fields remain null.
+Provision the fresh `0006_publication_baseline` schema explicitly; see [database design](database-design.md). It refuses nonempty application tables and does not convert or downgrade a populated older corpus. V2 package fields remain supported without fabricated author IDs/roles.
 
-Validate → preflight with `--check-embeddings` → publication dry-run → publication using the existing CLIs. Structure participates in the publication fingerprint. Chunks, vectors and structure commit together; failure leaves the previous active run intact. No `--force` is needed merely for a structure change. Downgrade removes only the new structure/fields, preserving chunks, vectors and the shared vector extension. It requires subsequent v2-compatible code and cannot preserve v3 aggregate functionality.
+Scopes/items/values retain authored JSON. Ordered scope-item, scope-chunk and item-chunk links have same-run composite FKs; item parents also have same-run FKs. Decimal projections use PostgreSQL Numeric and must match authored values. Shared readers verify projections and ordered memberships before skip, vector reuse or structured expansion. Semantic cycles, source fidelity and coverage remain package-validator/author responsibilities.
+
+Validate, preflight with `--check-embeddings`, publication dry-run, then publication using the existing CLIs. Chunks, vectors, evidence links, metadata audit and the attempt receipt commit together; failure preserves the prior active publication. Structure participates in fingerprints. No `--force` is needed merely for a structure change. Neither schema provisioning nor successful publication establishes aggregate correctness or calibration acceptance.
+
 
 ## Online behavior and limits
 

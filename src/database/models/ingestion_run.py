@@ -28,5 +28,6 @@ class IngestionRun(Base):
         CheckConstraint("length(trim(model_name)) > 0", name='model_name'),
         CheckConstraint("model_revision ~ '^[0-9a-f]{40}$'", name='model_revision'),
         CheckConstraint("jsonb_typeof(configuration) = 'object'", name='configuration_object'),
+        CheckConstraint("configuration->>'model_files_sha256' IS NOT NULL AND configuration->>'model_files_sha256' ~ '^[0-9a-f]{64}$' AND configuration->>'content_hash' IS NOT NULL AND configuration->>'content_hash' ~ '^[0-9a-f]{64}$' AND configuration->>'package_sha256' IS NOT NULL AND configuration->>'package_sha256' ~ '^[0-9a-f]{64}$' AND configuration->>'metadata_sha256' IS NOT NULL AND configuration->>'metadata_sha256' ~ '^[0-9a-f]{64}$'", name='fingerprints'),
         Index('uq_run_active_revision', 'revision_id', unique=True, postgresql_where=text('is_active')),
     )
