@@ -4,7 +4,6 @@ import json
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, Mock
 
-import httpx
 import pytest
 
 from scripts import answer_evaluation_contract as contract
@@ -63,7 +62,8 @@ def retrieval(matches=True, reason=None):
     return SimpleNamespace(retrieve=AsyncMock(return_value={
         'status': 'matches_found' if matches else 'no_matches',
         'matches': [{'content': 'Only permanent employees receive 100 credits.', 'chunk_id': 'fictional'}] if matches else [],
-        'fallback_reason': reason, 'corpus_fingerprint': 'fixed-corpus'}))
+        'fallback_reason': reason, 'corpus_fingerprint': 'fixed-corpus',
+        'relevance': {'status': 'relevant_candidates' if matches else 'no_candidates', 'warnings': []}}))
 
 
 def test_unassessed_retrieval_never_calls_generator():
@@ -218,60 +218,16 @@ def test_outputs_cannot_overwrite_or_escape_private_workspace(tmp_path, monkeypa
 
 def test_preflight_fails_closed_without_opening_model_or_database(monkeypatch):
     monkeypatch.setattr(cli, 'load_settings', lambda: SimpleNamespace(
-        rerank=SimpleNamespace(enabled=True, profile_path=None)))
-    args = SimpleNamespace(cases=None, runtime=None, model=None, runtime_sha256=None, model_sha256=None)
+        relevance_filter_enabled=True, rerank=SimpleNamespace(enabled=True, profile_path=None)))
+    monkeypatch.setattr(cli, 'binding_identity', Mock(side_effect=ValueError('missing')))
+    args = SimpleNamespace(cases=None, model=None, model_sha256=None)
     result = cli.preflight(args)
     assert result['status'] == 'blocked' and result['integration_ready'] is False
     assert set(result['blockers']) == {'validated_retrieval_profile_missing',
-        'source_reviewed_60_case_manifest_missing', 'runtime_file_missing', 'model_file_missing'}
+        'source_reviewed_60_case_manifest_missing', 'native_binding_missing_or_incompatible', 'model_file_missing'}
 
 
-def test_runtime_checks_context_before_inference_and_requests_schema(tmp_path):
-    async def exercise(too_long):
-        requests = []
-        def handle(request):
-            payload = json.loads(request.content)
-            requests.append((request.url.path, payload))
-            if request.url.path == '/apply-template':
-                return httpx.Response(200, json={'prompt': 'Formatted conversation'})
-            if request.url.path == '/tokenize':
-                return httpx.Response(200, json={'tokens': list(range(8192 if too_long else 20))})
-            if request.url.path == '/v1/chat/completions':
-                return httpx.Response(200, json={'choices': [{'finish_reason': 'stop',
-                     'message': {'content': '{"ok": true}'}}], 'usage': {'completion_tokens': 5}})
-            raise AssertionError('Unexpected endpoint')
-        runtime = LocalRuntime(tmp_path / 'server', tmp_path / 'model', 'runtime', 'model')
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handle), base_url='http://127.0.0.1:8099') as client:
-            runtime.client = client
-            if too_long:
-                with pytest.raises(ValueError, match='context_limit'):
-                    await runtime.complete('policy', {}, {'type': 'object'}, 512)
-                assert len(requests) == 2
-            else:
-                result, usage = await runtime.complete('policy', {}, {'type': 'object'}, 512)
-                assert result == {'ok': True} and usage['completion_tokens'] == 5
-                payload = requests[-1][1]
-                assert payload['stream'] is False and payload['chat_template_kwargs'] == {'enable_thinking': False}
-                assert payload['response_format']['json_schema']['strict'] is True
-    asyncio.run(exercise(False))
-    asyncio.run(exercise(True))
-
-
-def test_owned_runtime_is_terminated_on_cleanup(tmp_path):
-    class Process:
-        stopped = False
-        def poll(self):
-            return None if not self.stopped else 0
-        def terminate(self):
-            self.stopped = True
-        def wait(self, timeout=None):
-            assert self.stopped
-    runtime = LocalRuntime(tmp_path / 'server', tmp_path / 'model', 'x', 'y')
-    process = Process()
-    runtime.process = process
-    runtime.client = SimpleNamespace(aclose=AsyncMock())
-    asyncio.run(runtime.close())
-    assert process.stopped and runtime.process is None and runtime.client is None
+# Native token/schema/lifecycle regressions live in test_native_answer_runtime.py.
 
 
 def test_cancellation_does_not_launch_verification(draft):
@@ -301,7 +257,8 @@ def test_assess_binds_review_and_samples_to_completed_report(manifest, monkeypat
     monkeypatch.setattr(cli, 'load_settings', lambda: SimpleNamespace(model_path=tmp_path / 'embedding',
                        rerank=SimpleNamespace(model_path=tmp_path / 'reranker')))
     report, reviews = gate_inputs(manifest[1])
-    report['status'] = 'awaiting_manual_review'
+    report.update(status='awaiting_manual_review', schema_version=3,
+                  configuration=cli.configuration(), implementation_sha256=cli.implementation_identity())
     directory = tmp_path / '.tmp' / 'run'
     contract.write_new(directory / 'samples.private.json', [{'draft': 'fictional'}])
     report['samples_sha256'] = contract.sha_file(directory / 'samples.private.json')
@@ -334,8 +291,10 @@ def experiment_batch(manifest, draft, verdict, tmp_path, monkeypatch):
     path, data, _ = manifest
     profile = tmp_path / '.tmp' / 'profile.json'
     profile.write_text('{}', encoding='utf-8')
-    settings = SimpleNamespace(model_path=tmp_path / 'e5', model_revision='a' * 40,
-                               rerank=SimpleNamespace(profile_path=profile))
+    from src.api.config import Settings
+    from src.retrieval.reranking import RerankSettings
+    settings = Settings(model_path=tmp_path / 'e5', model_revision='a' * 40,
+                        rerank=RerankSettings(enabled=True, profile_path=profile))
     service = retrieval()
     service.start, service.close = AsyncMock(), AsyncMock()
     runtime = SimpleNamespace(start=AsyncMock(), close=AsyncMock(),
@@ -352,12 +311,11 @@ def experiment_batch(manifest, draft, verdict, tmp_path, monkeypatch):
     monkeypatch.setattr(evaluation, 'database_state', database)
     monkeypatch.setattr(evaluation.packages, 'load_package', lambda *a, **kw:
         ({'revision_id': 'fictional-revision'}, {}, {'metadata.json': b'{}'}))
-    monkeypatch.setattr(approved_publication, 'configuration', lambda *a: {})
+    monkeypatch.setattr(approved_publication, 'configuration', lambda *a: {'fictional_publication': True})
     monkeypatch.setattr(embeddings, 'model_fingerprint', lambda *a: 'fictional-embedding')
     monkeypatch.setattr(psutil, 'virtual_memory', lambda: SimpleNamespace(percent=70., total=16 * 1024**3))
     monkeypatch.setattr(psutil, 'cpu_count', lambda **kw: 6 if kw.get('logical') is False else 12)
-    args = SimpleNamespace(cases=path, runtime=tmp_path / 'server', model=tmp_path / 'model',
-                           runtime_sha256='fictional', model_sha256='fictional', port=8099)
+    args = SimpleNamespace(cases=path, model=tmp_path / 'model', model_sha256='fictional')
     return SimpleNamespace(args=args, data=data, profile=profile, service=service, runtime=runtime,
                            database=database, closed=closed)
 
@@ -379,6 +337,9 @@ def test_experiment_batch_completes_private_samples_without_granting_acceptance(
     report, samples = asyncio.run(run_batch_without_leaked_tasks(batch))
     assert report['status'] == 'awaiting_manual_review' and report['error'] is None
     assert report['integration_ready'] is False and report['runtime_measured'] is True
+    assert report['configuration'] == cli.configuration()
+    assert report['configuration']['backend'] == 'llama-cpp-python-inprocess'
+    assert report['schema_version'] == 3
     assert len(report['cases']) == len(samples) == 60
     assert all(row['error'] is None and row['accepted'] for row in report['cases'])
     assert [row['id'] for row in report['cases']] == [c['id'] for c in batch.data['cases']]

@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and a local gRPC server with health checking only. E5-small runs directly in Python; the system returns source chunks, not generated answers or aggregate conclusions. Chatbot generation, business RPCs, authenticated Type B tools and conversation history remain planned.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and health-only gRPC. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in grounded answer API is implemented but disabled until the Qwen3.5-0.8B Q5_K_M study passes manual review and user acceptance. Business RPCs, authenticated Type B tools and conversation history remain planned.
 
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
@@ -23,6 +23,146 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### In-process native Q5 runtime - 2026-11-16
+
+Working tree based on `b0c3ec0`, preserving prior answer/scoring/documentation
+changes and the existing source-data removal. Replaced the answer HTTP model
+server with `llama-cpp-python==0.3.37` in the existing FastAPI process, using one
+dedicated model worker and no additional answer port. The optional dependencies
+are pinned in [requirements-answer.txt](requirements-answer.txt). Retired server
+environment values are ignored without editing `.env`; API response contracts
+and excerpt-only retrieval are preserved. Report schema v3 binds installed
+native/binding/template/model identity; server-runtime reports cannot enable it.
+See [native setup and cancellation limits](docs/answer-evaluation.md#native-python-runtime).
+
+Installed the official PyPI source release after SHA-256 verification and built
+a CPU wheel with the existing Visual Studio Build Tools 2026 for Python 3.14.10.
+CUDA/Vulkan/BLAS were off and host-native CPU compilation was on. A first build
+attempt hit Windows archive path-length limits; the successful build used short
+repository-local `.tmp` paths without modifying third-party source. Only the
+optional binding and diskcache were newly installed; no existing dependency was
+upgraded. Build/wheel/native hashes and fictional smoke receipts are retained
+under `.tmp/native-answer-build-20261116/`.
+
+Actual Q5 smoke checks passed: load, template/tokenizer, constrained JSON,
+independent second prompt, token-generation stop, native prefill abort,
+coroutine cancellation/drain and idempotent close. A raw fictional JSON probe
+measured about 0.45 seconds to load and 0.91 seconds to generate; a separate
+application-wrapper probe completed start/warm-up in about 3.48 seconds and
+cancelled/drained in about 0.014 seconds. These are individual fictional probes,
+not policy-quality, production-load or p95 latency acceptance. Model bytes were
+unchanged. Native inference cannot be force-killed safely in this process;
+cleanup may exceed the 30-second cancellation deadline.
+
+Post-edit focused tests: **152 passed**. Full non-integration regression:
+**936 passed, 1 skipped, 51 deselected**, with the existing Starlette/AnyIO
+warning. `pip check`, CLI help, changed-document links/anchors and diff whitespace
+checks passed. Synthetic tests use a fictional native binding and cover shared
+worker ownership, grammar/token parity, cancellation in prefill/generation,
+late-result suppression, reset/release and acceptance binding. Evaluator
+regression now checks the real answer configuration shape separately from
+publication configuration, fixing their previous name collision.
+
+Static preflight accepted the installed binding and Q5 metadata/hash, but remained
+blocked by disabled relevance filtering, a missing accepted retrieval profile
+and no supplied source-reviewed 60-case manifest. Its receipt is under
+`.tmp/native-answer-preflight-20261116-a9764bef/`. Answering remains disabled;
+no real-document generation, 60-case quality/user-acceptance run, production
+latency/memory study, integration database test, migration, publication, service
+restart, backend/portal change or `.env` edit was performed.
+
+Full-suite command (use fresh paths on repeat):
+
+```powershell
+.\env\Scripts\python.exe -B -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\native-answer-20261116-full-01' -o cache_dir=.tmp/native-answer-20261116-full-cache-01
+```
+
+### Grounded Q5 answer implementation - 2026-11-16
+
+Working tree based on `b0c3ec0`, preserving existing scoring, documentation,
+source-data removal and untracked work. Added the separate disabled-by-default
+`POST /api/v1/answer` and application-owned answer runtime/contracts/pipeline,
+shared with offline evaluation. The candidate is now
+`models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf`; Q4/4B results cannot authorize it.
+See [answer behavior and acceptance](docs/answer-evaluation.md#local-answer-api).
+
+Post-edit full non-integration verification: **931 passed, 1 skipped,
+51 deselected**, with the existing Starlette/AnyIO deprecation warning. `pip check`,
+answer CLI help and local path/anchor checks (130 links across seven documents)
+passed. Synthetic tests cover API serialization, source/citation handling,
+acceptance identity binding, busy state, rejected drafts, timeout, repeated
+cancellation, disconnect cleanup and optional prediction-layer GGUF metadata.
+The first focused sandbox attempt failed with Windows temporary-directory
+permissions; successful runs used fresh repository-local extended-length paths
+outside the sandbox, without deleting old temporary trees or changing permissions.
+
+Read-only inspection of the actual Q5 file confirmed **646,093,920 bytes**,
+qwen35/0.8B, embedding size 1024, Q5_K_M type 17 and 24 base layers plus one
+next-token prediction layer. Metadata and SHA-256 checks do not authenticate its
+upstream conversion or establish runtime support. Static preflight remained
+**blocked** by disabled relevance filtering, a missing accepted retrieval profile,
+no supplied source-reviewed 60-case manifest and no supplied runtime executable.
+The receipt is under `.tmp/answer-q5-preflight-20261116-e9c5eb30/`.
+
+No real generation, quality/user-acceptance study, latency/memory benchmark,
+database integration test, migration, publication, backend/portal change, service
+restart or `.env` edit was performed. Model bytes were not changed or promoted.
+Answering remains disabled until the exact Q5 study meets every gate, including
+95% successful completion within 30 seconds and explicit user acceptance.
+
+Full-suite invocation (choose new temporary paths when repeating):
+
+```powershell
+.\env\Scripts\python.exe -B -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\answer-q5-20261116-full-01' -o cache_dir=.tmp/answer-q5-20261116-full-cache-01
+```
+
+### Learned relevance scoring implementation - 2026-11-16
+
+Implemented the user-approved local eight-feature logistic scoring experiment,
+schema-v3 coefficient profiles and schema-v2 compatibility, development-only
+five-fold fitting, score-free review/export, and gated byte-preserving promotion.
+Models and 30 candidates remain pinned; public API fields and environment
+configuration are unchanged. The target remains semantic lexicon **v1**, with
+semantic expansion on and intent off. Provisioned lexical v2 remains intact.
+See [scoring workflow and limitations](docs/relevance-scoring.md).
+
+A new isolated schema-0006 database was provisioned and read back against the
+current **29 packages / 530 chunks**. All 29 publications succeeded; five initial
+package-lock rejections were retried only after confirming no run or attempt
+existed for those revisions. Original database count/ID-hash snapshots were
+preserved. The development proposal contains 300 questions and no accepted
+candidate labels; source/alias approval is not retrieval-data approval. All
+previously exposed source questions/families stay development/regression data.
+Private receipts are under `.tmp/relevance-profile-20261116-06/`.
+
+Verification: **885 passed, 1 skipped, 51 deselected** in the final non-integration
+suite, including the review-bridge integration refinements. Native ONNX
+smoke passed for two fictional passages, checking same-batch raw-max parity,
+eight features and coefficient-bound fingerprint changes. Runtime inventory
+passed for **20 assets**. Successful pytest runs used fresh extended-length
+repository-local temporary directories outside the Windows sandbox after
+sandbox setup failed with access-denied errors. The existing Starlette/AnyIO
+deprecation warning remains. These checks establish implementation behavior,
+not real-data scoring quality. No fitted real-data scorer, accepted profile,
+promotion, API deployment or independent backup is claimed at this stage.
+
+Real development collection completed for **300 cases / 18,000 arm-candidate
+pairs**, with **9,062 unique case/passage pairs**. Before/after database/package
+checks passed; runtime files, `.env` and both lexicons matched their recorded
+hashes. The source-only preliminary candidate sets matched every full-collection
+arm/case exactly. A score/rank-free source worksheet was generated and an actual
+unapproved export was rejected without producing training data. The user
+accepted the realism and family partition of an initial **96-case** prospective
+acceptance-task packet only. A subsequent explicit review accepted all **200**
+proposed acceptance-case definitions, supported/unsupported evidence hypotheses,
+family partition and eight designated critical/top-1 cases. These decisions do
+not approve candidate labels or profile release. Both development and acceptance
+candidate labels still require actual review. Source review also corrected two
+Workit draft questions and a contract-navigation evidence alternative; fresh
+collection uses the corrected Unicode-verified dataset. An intermediate draft
+with damaged Vietnamese codepoints and its interrupted run were invalidated,
+preserved privately and excluded from evidence.
 
 ### Reviewed lexical enrichment v2 - 2026-11-16
 
@@ -526,7 +666,7 @@ The application owns the loop; use the existing `run_async()` wrapper only at a 
 
 ## Local retrieval API and Swagger
 
-Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. E5-small is loaded directly in Python on CPU; no separate inference service or generative model is used. The application never downloads weights or falls back to hosted inference.
+Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. Retrieval loads E5-small directly in Python on CPU and uses no generative model; the optional answer route loads GGUF directly through an optional native Python binding. The application never downloads weights or falls back to hosted inference.
 
 Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). Existing environment variables override repository `.env`. Relative model paths resolve from the repository root. The default pinned E5 directory under `models/embeddings` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
 
@@ -581,16 +721,22 @@ Implementation working tree based on `e656991`, preserving existing documentatio
 
 The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally checked, **unreviewed** cases; training rejects it before loading E5. Human label/split review, real-model intent training, the quality gate and paired retrieval latency benchmark have **not run**. No accepted intent artifact has been produced, and observation has not been enabled. Database integration tests were deselected; no migration, publication, source-package edit, backend or portal change is part of this implementation. See the guide for the draft's template/diversity limitations and the independent retrieval calibration prerequisite.
 
-## Offline answer evaluation (endpoint not implemented)
+<a id="offline-answer-evaluation-endpoint-not-implemented"></a>
+## Grounded answers and offline acceptance
 
-The stage-one [answer evaluation tool](docs/answer-evaluation.md) compares accepted
-retrieval excerpts with a locally generated draft and a separately checked draft.
-It requires a valid retrieval calibration profile, frozen source-reviewed cases,
-explicit local model/runtime artifacts, and manual review before any integration
-decision. Public retrieval remains excerpt-only; there is no answer endpoint.
-See the guide for commands, private artifact handling, gates and the current
-2026-11-13 verification/blocked status. The historical local 40-case answer files
-are not sufficient for this new experiment.
+`POST /api/v1/answer` is a separate, opt-in local endpoint; `/api/v1/retrieve`
+remains excerpt-only. Answering defaults to disabled and requires a matching,
+manually reviewed 60-case study with explicit user acceptance. It loads the local
+`models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf` directly inside Python through
+`requirements-answer.txt`, using one dedicated model thread and the existing
+API port. It uses filtered retrieval, source-backed claims,
+and at most one generator/verifier call each. There is no conversation storage,
+automatic repair/retry, backend route or portal integration.
+
+See [answer API and acceptance](docs/answer-evaluation.md#local-answer-api) for
+configuration, response fields, lifecycle, failure behavior and rollout. Passing
+synthetic tests does not establish real-model quality, latency or production
+readiness. Historical 40-case reports and Q4 model results cannot enable Q5.
 
 ### Fallback verification - 2026-11-13
 

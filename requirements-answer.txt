@@ -1,0 +1,4 @@
+# Optional in-process GGUF answering; install alongside requirements-example.txt.
+# Source-build prerequisites and tested Windows CPU build: docs/answer-evaluation.md.
+llama-cpp-python==0.3.37
+jinja2==3.1.6

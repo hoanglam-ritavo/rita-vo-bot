@@ -8,7 +8,7 @@
 
 The target is the fresh-database `0006_publication_baseline` schema. It refuses nonempty application tables and does not convert an existing corpus. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
 
-Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Local health-only gRPC, public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; generative answering and chatbot business RPCs remain planned. Real-model retrieval quality is not established by synthetic tests.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Local health-only gRPC, public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; grounded answering has a separate disabled-by-default acceptance-gated API; chatbot business RPCs remain planned. Real-model retrieval quality is not established by synthetic tests.
 
 Source documents stay in `assets/`. `src.paths` anchors Git-trackable current packages at `chunks/<document_id>/`. Metadata is the sole owner of source identity, including revision_id; the directory name is document_id. Source-path uniqueness is checked case-insensitively. Git stores committed package history, while each checkout has only the current package. Per-document OS locks protect reads against replacement; staging, recovery markers and displaced packages live under ignored `.tmp/`. An interrupted replacement blocks reads until explicit recovery. Locks coordinate Python commands, not external editors; stop editing while validation/publication runs. Each complete package contains three consistently versioned v2 or v3 JSON files (metadata, extraction and chunks) and unchanged source bytes. Initialization may leave an incomplete package until the agent authors extraction/chunks. Historical `indexing_chunks/` is never scanned or merged.
 
@@ -50,6 +50,14 @@ Remote/container connectivity, business RPC contracts, TLS/mTLS and authenticati
 
 ## Implemented public-document retrieval
 
+The experimental local learned-scoring path is owned by
+`src/retrieval/scoring.py` and `scoring_training.py`. It keeps the pinned
+E5/ONNX models and 30 candidates, derives eight fixed passage features, and
+binds fitted coefficients into the runtime fingerprint. Schema-v3 profiles
+carry coefficients; schema-v2 retains raw-max scoring. Development-only fitting
+and paired collection cannot issue acceptance. Public results omit numeric
+feature diagnostics. See [scoring and acceptance](docs/relevance-scoring.md).
+
 Optional corpus-bound Vietnamese expansion is owned by `src.retrieval.semantics`
 and offline preparation by `src.semantics`. It defaults off, preserves source
 content and uses a separately reviewed language artifact rather than document-ID
@@ -63,7 +71,7 @@ database migration or public retrieval wire change is involved.
 
 `src.retrieval.RetrievalService` accepts an independent question string and returns nearest-neighbor chunks with source provenance. Both the retrieval CLI and HTTP retrieval service reuse it; no chat RPC is implemented. The service loads and fingerprints a local embedding model once, embeds questions with `query: `, checks token limits without truncation and validates/normalizes the 384-dimensional query vector. Model work is serialized in worker threads; each database request owns a separate read-only repeatable-read session. The application closes the shared database at shutdown, independently of service close. Runtime model files are immutable for the service lifetime.
 
-Exact cosine retrieval filters current include/active revisions, inclusive effective dates using the shared Asia/Ho_Chi_Minh business date, as publication does, public access rules and active successful runs before ranking. Model name, revision, dimensions, file fingerprint, normalization and indexed passage prefix must match. Public access uses EXISTS to avoid duplicate matches; ties use chunk IDs. Results include source spans and document metadata, never vectors. Empty eligibility, model incompatibility, absent vectors and operational failures remain distinct. Cosine search supplies candidates internally; public results require a matching per-passage relevance profile by default and may be empty. HTTP configuration can explicitly disable this gate to return unassessed top-k candidates; access and eligibility filters still apply. Accepted excerpts do not establish sufficient evidence, truth or answerability. Private-document authentication and conversation resolution remain future work. The HTTP layer below exposes the same source retrieval without generation.
+Exact cosine retrieval filters current include/active revisions, inclusive effective dates using the shared Asia/Ho_Chi_Minh business date, as publication does, public access rules and active successful runs before ranking. Model name, revision, dimensions, file fingerprint, normalization and indexed passage prefix must match. Public access uses EXISTS to avoid duplicate matches; ties use chunk IDs. Results include source spans and document metadata, never vectors. Empty eligibility, model incompatibility, absent vectors and operational failures remain distinct. Cosine search supplies candidates internally; public results require a matching per-passage relevance profile by default and may be empty. HTTP configuration can explicitly disable this gate to return unassessed top-k candidates; access and eligibility filters still apply. Accepted excerpts do not establish sufficient evidence, truth or answerability. Private-document authentication and conversation resolution remain future work. The retrieval HTTP route below exposes the same source retrieval without generation; the separately gated answer route consumes accepted excerpts.
 
 Synthetic unit tests cover query input, vector checks, model lifecycle and safe errors. Dedicated disposable PostgreSQL integration tests cover ranking and eligibility filters; they must not use the application database. Real-model retrieval evaluation is a separate read-only exercise against an explicitly selected dataset, measuring expected-source recall and latency without updating packages or database rows.
 
@@ -79,18 +87,50 @@ Structured scopes, items and values remain supported by package validation, publ
 
 Startup loads and fingerprints local E5-small once on CPU, checks PostgreSQL, and only then serves requests. Imports do not initialize models or connections. No downloads, migrations or publication occur. A single worker uses the Windows-compatible async runner. Embedding runs off the event loop; one HTTP retrieval owns the busy state through database search and response validation. Additional requests receive 429. A 120-second deadline requests cancellation, but cancellation (including repeated cancellation) drains embedding work before releasing ownership. Shutdown waits for active requests, releases E5 and closes the database, including partial-startup cleanup.
 
-Readiness checks model initialization and database availability, not semantic quality or dataset completeness. Errors distinguish invalid requests (422), busy (429), unavailable dependencies/model mismatch (503) and timeout (504). Valid empty results remain 200. Logs contain fixed status/error codes and timings, not questions or source content. No LLM planner, generator, verifier, confidence mapping or automatic aggregate computation remains. Top-K results cannot certify completeness or answerability. See [manual retrieval evaluation](docs/retrieval-evaluation.md).
+Readiness checks model initialization and database availability, not semantic quality or dataset completeness. Errors distinguish invalid requests (422), busy (429), unavailable dependencies/model mismatch (503) and timeout (504). Valid empty results remain 200. Logs contain fixed status/error codes and timings, not questions or source content. The retrieval route has no LLM planner, generator, verifier, confidence mapping or automatic aggregate computation. Top-K results cannot certify completeness or answerability. See [manual retrieval evaluation](docs/retrieval-evaluation.md).
 
 ## Planned operational retrieval and extended answering
 
-An offline-only stage-one experiment now lives in `scripts.evaluate_answers`,
-with contract/gate helpers in `scripts.answer_evaluation_contract` and owned
-local runtime handling in `scripts.answer_evaluation_runtime`. It reuses the
-public filtered retrieval service and read-only publication validation; it does
-not add application routes or change retrieval semantics. Private comparison
-artifacts remain under `.tmp`. See [answer evaluation](docs/answer-evaluation.md)
-for the source-review and value/cost gates that must precede bot/backend/portal
-integration. Synthetic verifier tests are not real model acceptance evidence.
+`src.answering` owns shared structured claims/verdicts, exact-quote validation,
+metadata-aware duplicate consolidation, Qwen3.5-0.8B Q5_K_M GGUF inspection,
+in-process llama-cpp-python runtime, prompts, pipeline identity and acceptance gates.
+`scripts.evaluate_answers` owns private study orchestration and read-only
+publication validation. Existing script helper imports remain compatibility
+exports; the HTTP application never imports scripts.
+
+`POST /api/v1/answer` is implemented separately from retrieval and disabled by
+default. `src.api.answer` owns acceptance loading, deterministic rendering,
+answer runtime availability and the shared retrieval/answer busy slot. Startup
+requires matching native-binding/model identity, implementation and retrieval configuration,
+corpus identity and a manually accepted 60-case report. Model failure leaves
+retrieval usable. Each request checks the accepted corpus identity before inference.
+Only assessed matches reach generation; empty evidence skips the model. Exact
+content duplicates are consolidated only with equal title, applicability,
+version and effective dates, retaining each origin. Questions and evidence are
+untrusted data; generation produces cited claims and at most one model verifier
+checks them. Same-model verification is not proof of correctness.
+
+The runtime loads GGUF inside FastAPI through pinned llama-cpp-python, with one
+dedicated executor thread for load/tokenization/inference/reset/release and six
+CPU inference threads. It opens no model server socket or subprocess. Imports
+and static inspection do not load weights; binding/library/template/model and
+Python/ABI identity are bound to report schema v3. Reports from the previous
+server backend cannot enable this runtime. The model uses its own tokenizer and
+sandboxed chat template, with thinking disabled and JSON grammar enforcement.
+
+The 30-second deadline covers retrieval, generation and verification. Timeout or
+client disconnect sets a cooperative cancellation flag observed by token stopping
+criteria and the CPU native abort callback. Ownership persists through repeated
+cancellation until the thread exits; closing/reusing its context while decode is
+running is forbidden. Cleanup can exceed the deadline. After uncertain failure,
+answering remains disabled until restart; retrieval is usable after cleanup.
+A hung native thread cannot be force-killed safely inside the process, and a
+fatal native crash can affect FastAPI. There is no automatic server/worker fallback.
+HTTP 429 covers shared answer/retrieval work; 503 disabled/stale/unavailable
+answering; 504 deadline expiry; 422 invalid input. No failed draft is published.
+Logs contain fixed codes/timings only. See [the answer contract](docs/answer-evaluation.md#local-answer-api)
+for dependencies, fields, retired server settings and evaluation gates. No backend,
+portal, history, Type B tool or database schema change is included.
 
 Type A documents provide policy evidence; Type B tools provide authoritative current operational facts. Preserve applicability, access restrictions, source citations and explicit unavailable/conflicting-source handling. Exact lookup/computation is needed for structured questions; the stored chunks and vectors alone are not a table query engine. Models are locally operated; internal data must not be uploaded as an implicit implementation choice.
 

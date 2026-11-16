@@ -13,11 +13,14 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | `evaluate_retrieval.py` | Current offline evaluator | Evaluate one published package against pinned source-reviewed cases. |
 | `benchmark_online_retrieval.py` | Current offline benchmark | Inspect offline candidates, calibrate per-passage relevance and measure quality/latency gates. |
 | `benchmark_semantic_retrieval.py` | Current offline benchmark | Compare baseline/semantics/optional intent assistance across corpus-wide cross-document evidence cases. |
+| `fit_relevance_scoring.py` | Experimental offline fitter | Fit development-only local passage scoring; emits coefficients and a training report, never an accepted profile. |
+| `prepare_scoring_review.py` | Private offline review bridge | Create unranked source worksheets or export actually reviewed paired features into development rows. |
+| `promote_relevance_profile.py` | Gated local release utility | Copy only an emitted, reviewed, passing semantic schema-v3 profile and provenance into a new version; update runtime inventory. |
 | `diagnose_retrieval.py` | Current offline diagnostic | Inspect a saved benchmark collection and prepare unranked source-review worksheets; no model/DB access or profile issuance. |
 | `benchmark_intent.py` | Current offline benchmark | Paired intent-off/observe checks and gated accepted-artifact output. |
-| `evaluate_answers.py` | Experimental entrypoint | Offline local-model answer comparison; no application answer endpoint. |
-| `answer_evaluation_contract.py` | Experimental support module | Cases, output schemas and evaluation gates; no standalone command. |
-| `answer_evaluation_runtime.py` | Experimental support module | Owned local llama.cpp lifecycle and question evaluation; no standalone command. |
+| `evaluate_answers.py` | Experimental entrypoint | Offline Qwen3.5-0.8B Q5_K_M comparison and manual acceptance; does not enable the API. |
+| `answer_evaluation_contract.py` | Experimental support module | Private case IO plus compatibility exports of shared answer schemas/gates; no standalone command. |
+| `answer_evaluation_runtime.py` | Experimental support module | Compatibility exports of src.answering runtime/pipeline; no standalone command. |
 | `train_intent.py` | Supported compatibility entrypoint | Delegates to `src.intent.training`; prefer config-driven `prepare_intents` for batches. |
 | `intent_contract.py` | Compatibility support alias | Aliases `src.intent.dataset`; no standalone command. |
 | `convert_chunk_package.py` | Supported legacy conversion | Explicit non-destructive v1 review/approved to v2 conversion. |
@@ -38,6 +41,41 @@ Requires PostgreSQL, compatible published vectors and a local model. Reads publi
 
 ## Evaluation and experiments
 
+Learned passage scoring uses private numeric development features and actual
+source-reviewed labels. Paired collection accepts `--collect-features`; use
+`--collect-only --requests 0` for development collection without a latency claim.
+`python -m scripts.fit_relevance_scoring --dataset .tmp/scoring/reviewed-development.json --output .tmp/scoring/candidate.json`
+requires at least 300 reviewed development cases and writes new candidate and
+`.training-report.json` files only under `.tmp/`. Exit codes are `0` candidate
+fitted (not accepted), `2` invalid inputs/fit/output failure. No model or database
+IO occurs. The paired benchmark accepts `--scoring-candidate` plus
+`--scoring-training-report`, checks development/acceptance family separation,
+and emits schema-v3 only through existing quality gates. See
+[scoring workflow](../docs/relevance-scoring.md).
+
+`python -m scripts.prepare_scoring_review worksheet --dataset .tmp/scoring/development-collection.json --collection .tmp/scoring/collection.json --output-dir .tmp/scoring/review`
+creates an escaped HTML worksheet, source JSON and an unapproved review template
+in a new private directory. Candidate UUIDs are unioned across arms and ordered
+by source identity; scores, feature vectors and ranks are omitted. All labels
+start unresolved. After actual source/question/label/family review,
+`python -m scripts.prepare_scoring_review export --dataset .tmp/scoring/development-collection.json --collection .tmp/scoring/collection.json --review .tmp/scoring/review/human-review.json --output .tmp/scoring/reviewed-development.json`
+requires bound raw hashes, complete boolean union labels and affirmative review
+declarations, then exports numeric development rows. It rejects acceptance
+splits and never accesses models/DB, infers labels or emits a profile. Both
+commands refuse existing outputs; exit codes are `0` prepared/exported (not
+retrieval acceptance), `2` invalid/operational failure.
+
+`python -m scripts.promote_relevance_profile --report .tmp/scoring/accepted.json --dataset .tmp/scoring/frozen.json --review .tmp/scoring/human-acceptance.json --profile .tmp/scoring/accepted.semantic.profile.json --semantic-artifact artifacts/semantics/v1/lexicon.json --training-report .tmp/scoring/candidate.training-report.json --version semantic-v1-score-v3-001`
+requires a full passing paired report, exact emitted profile and bound actual
+human review. It checks model/lexicon inventory and recomputes report summaries
+and comparison gates, then copies profile bytes plus whitelisted provenance to
+a new immutable version and adds both entries to the inventory. It does not
+load a model, access PostgreSQL, edit `.env` or restart services. Exit codes:
+`0` promotion verified, `1` rejected or partial promotion requiring reconciliation,
+`2` invalid/operational input failure. Do not retry a surviving promotion lock or
+partially written version automatically. See
+[promotion and recovery](../docs/relevance-scoring.md#independent-evaluation-and-release).
+
 Prepare baseline manifest/cases with `python -m src.cli.prepare_rerank` before
 using the benchmark below; see [input preparation](../docs/online-reranking.md#prepare-baseline-calibration-inputs).
 New baseline reports include authored-input/package bindings and explicit
@@ -57,12 +95,12 @@ All commands below require explicitly provisioned local dependencies/models for 
 
 Evaluation/benchmark readers sharing `scripts.evaluate_retrieval.database_state` compare current revision metadata/access/relations, canonical runtime-content/model identity and actual stored chunks/vectors/evidence. Original publication byte hashes may differ after formatting or explicit metadata-only updates; legacy and version-1 fingerprints remain readable without rewriting historical run configuration. Package/model bytes must still remain unchanged during each evaluation. See [publication compatibility](../docs/offline-indexing.md#publication-and-consistency).
 
-See [retrieval cases and reporting limitations](../docs/retrieval-evaluation.md), [calibration and rollout gates](../docs/online-reranking.md), and [intent preparation/acceptance](../docs/intent-classifier.md). Candidate inspection is offline-only; the public CLI/HTTP has no bypass for passage filtering.
+See [retrieval cases and reporting limitations](../docs/retrieval-evaluation.md), [calibration and rollout gates](../docs/online-reranking.md), and [intent preparation/acceptance](../docs/intent-classifier.md). Candidate diagnostics are offline-only. The explicit HTTP unassessed mode does not authorize answer generation; the CLI and answer study retain calibrated filtering.
 
 For the answer experiment use `python -m scripts.evaluate_answers <preflight/run/assess> ...`:
 
-- `preflight --cases .tmp/answer-study/cases.json --output .tmp/answer-study/preflight-01` checks configuration/cases and optional runtime/model hashes, writes a new `preflight.json`, but does not start models or establish DB/corpus validity.
-- `run` additionally supplies `--runtime <local-llama-server> --runtime-sha256 <sha256> --model <local-gguf> --model-sha256 <sha256>`; optional `--port` defaults to `8099`. It requires configured filtered retrieval/model/DB and frozen reviewed cases. Starts an owned loopback process, writes private samples/report/review template under a new `.tmp/` directory and closes owned resources. A successful run still awaits manual review.
+- `preflight --cases .tmp/answer-study/cases.json --output .tmp/answer-study/preflight-01` checks configuration/cases and installed native binding identity and optional model hash, writes a new `preflight.json`, but does not start models or establish DB/corpus validity.
+- `run` additionally supplies `--model <local-gguf> --model-sha256 <sha256>` and requires the optional pinned `requirements-answer.txt` binding. There are no executable/port arguments. It requires configured filtered retrieval/model/DB and frozen reviewed cases. Loads GGUF in the current Python process on one dedicated thread, writes private samples/report/review template under a new `.tmp/` directory and closes owned resources. A successful run still awaits manual review.
 - `assess --report .tmp/answer-study/run-01/report.json --review .tmp/answer-study/review.json --output .tmp/answer-study/decision.json` reads matching report/sample/review identities and writes a new decision file; it does not run models or enable an API.
 
 Exit `0` means static checks passed, experiment completed awaiting review, or assessment accepted, depending on the subcommand. Exit `1` means blocked preflight or assessment rejection; `2` means invalid inputs/experiment failure. See [answer evaluation](../docs/answer-evaluation.md) for prerequisites and evidence gates. Support modules have no CLI and must not be presented as application capabilities.

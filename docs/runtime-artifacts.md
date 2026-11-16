@@ -38,6 +38,15 @@ Before the first model upload, confirm remote LFS support, storage quota and acc
 
 ## Add or promote a version
 
+For the user-approved learned-scoring experiment, schema-v3 relevance profiles
+embed the exact evaluated coefficients. Use the gated local promotion utility
+after the paired semantic benchmark and actual bound human review; see
+[scoring release and recovery](relevance-scoring.md#independent-evaluation-and-release).
+Development coefficients, source worksheets and training reports remain private
+and are not substitutes for an emitted passing profile. Runtime loading against
+the matching corpus/configuration must still pass before claiming end-to-end
+completion.
+
 1. Keep model preparation and all evaluator/training outputs in their existing offline workflows. Do not change benchmarks to emit directly into a tracked directory. Never mark a candidate accepted just to make storage validation pass.
 2. For models, inventory the exact reviewed file set, preserve immutable revisions and update the explicit Git allowlist for a new revision. Keep model metadata/receipts outside model directories. Update the `models` identities and file entries in the runtime inventory from actual bytes; verify pinned reranker hashes against the runtime allowlist. New model identity may require separate publication/calibration work.
 3. For accepted runtime JSON, copy unchanged bytes into a new version directory: `artifacts/rerank/<version>/relevance-profile.json`, `artifacts/semantics/<version>/lexicon.json` or `artifacts/intent/<version>/accepted-artifact.json`. Use version names containing letters, digits, dots, underscores or hyphens, beginning with a letter/digit. Never overwrite a released version. Include a matching `manifest.json` and inventory both files; no empty directories or placeholder artifacts are required today.
@@ -157,3 +166,18 @@ Verify hashes and compatibility before setting `RERANK_PROFILE_PATH` to that exi
 `/health/ready` retains its dependency-availability contract. A ready response does not prove profile/corpus compatibility, semantic quality or complete evidence. Perform the profile/retrieval checklist separately; no health or retrieval response schema is added by this storage change.
 
 Corpus eligibility/publication changes or model/pipeline fingerprint changes invalidate reuse until compatibility is checked and calibration repeated where needed. Roll back only to an artifact compatible with the current corpus/runtime. Otherwise preserve unavailable assessment and withhold candidates; neither disabling reranking nor a high raw score authorizes an unfiltered fallback.
+
+## Optional answer model and runtime
+
+The grounded answer candidate is `models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf`.
+It is separately provisioned and is not implicitly added to the selected
+E5/reranker inventory or promoted by this feature. Keep its bytes unchanged.
+GGUF metadata inspection checks qwen35, 0.8B, 24 base layers (optionally one
+next-token prediction layer), embedding size 1024 and Q5_K_M file type 17; these checks do not authenticate its upstream origin.
+Record the upstream conversion source/revision, model SHA-256, official binding
+source/wheel/build provenance and native-library hashes in private deployment
+notes. The schema-v3 report binds the in-process binding, Python/ABI, template
+and model identity; previous server-backend reports, Q4 or differently quantized
+artifacts require a fresh study.
+No application command downloads weights or runtime binaries. See
+[answer setup and gates](answer-evaluation.md).

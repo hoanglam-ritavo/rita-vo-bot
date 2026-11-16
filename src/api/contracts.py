@@ -2,6 +2,7 @@
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from src.answering.contracts import AnswerStatus, Claim
 
 
 class StrictModel(BaseModel):
@@ -82,3 +83,30 @@ class ApiError(Exception):
         super().__init__(code)
         self.code = code
         self.status_code = status_code
+
+
+class AnswerTimings(StrictModel):
+    retrieval_seconds: float
+    generation_seconds: float
+    verification_seconds: float
+    total_seconds: float
+
+
+class AnswerSource(StrictModel):
+    source_id: str
+    title: str | None
+    applicability: str | None
+    effective_from: str | None
+    effective_to: str | None
+    version_label: str | None
+    origins: list[dict]
+
+
+class AnswerResponse(StrictModel):
+    status: AnswerStatus
+    answer: str
+    claims: list[Claim]
+    sources: list[AnswerSource]
+    limitations: list[str]
+    fallback_reason: str | None
+    timings: AnswerTimings

@@ -74,6 +74,13 @@ One request runs at a time in the API; concurrent calls still receive 429. Cance
 
 ## Evaluation and rollout
 
+The user-authorized learned-scoring experiment adds an optional local scoring
+layer and schema-v3 profiles without changing the pinned models or acceptance
+gates. It uses the paired semantic evaluator, not the baseline preparation CLI.
+See [development-only passage scoring](relevance-scoring.md) for feature,
+training, review and compatibility requirements. No accepted v3 profile is
+supplied by the implementation itself.
+
 ### Diagnose empty results before recalibration
 
 First distinguish unavailable assessment (`relevance_unavailable`) from scored rejection (`below_relevance_threshold`). Check the effective process configuration separately from `.env`: environment overrides and a previously started process can differ from the current file. Do not expose credentials or assume readiness establishes profile compatibility.

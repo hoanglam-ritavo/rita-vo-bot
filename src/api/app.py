@@ -1,5 +1,6 @@
 """FastAPI application factory; importing does not initialize runtime resources."""
 import logging
+import asyncio
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -7,7 +8,8 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from .config import load_settings
-from .contracts import RetrievalResponse, ApiError, RetrieveRequest
+from .contracts import RetrievalResponse, AnswerResponse, ApiError, RetrieveRequest
+from .answer import drain
 from .service import ApiService
 
 logger = logging.getLogger(__name__)
@@ -61,6 +63,32 @@ def create_app(settings=None, *, service_factory=ApiService):
         service = request.app.state.retrieval_service
         top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
         return await service.retrieve(body.text, top_k)
+
+    @app.post('/api/v1/answer', response_model=AnswerResponse,
+              description='Opt-in local grounded answers. Requires a matching manually accepted offline study. '
+                          'No conversation history or live personnel facts.',
+              responses={422: {'description': 'Invalid request.'}, 429: {'description': 'Service busy.'},
+                         503: {'description': 'Answering disabled, unaccepted or unavailable.'},
+                         504: {'description': 'Answer deadline exceeded.'}})
+    async def answer(body: RetrieveRequest, request: Request):
+        service = request.app.state.retrieval_service
+        task = asyncio.create_task(service.answers.answer(body.text, body.top_k))
+        async def watch_disconnect():
+            while not await request.is_disconnected():
+                await asyncio.sleep(.1)
+        watcher = asyncio.create_task(watch_disconnect())
+        try:
+            done, _ = await asyncio.wait((task, watcher), return_when=asyncio.FIRST_COMPLETED)
+            if task in done:
+                return task.result()
+            raise asyncio.CancelledError
+        finally:
+            watcher.cancel()
+            if not task.done():
+                task.cancel()
+            async def cleanup():
+                await asyncio.gather(task, watcher, return_exceptions=True)
+            await drain(asyncio.create_task(cleanup()))
 
     @app.get('/health/live')
     async def live():

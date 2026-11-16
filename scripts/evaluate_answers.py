@@ -18,6 +18,9 @@ from src.database.runtime import run_async
 from src.paths import REPOSITORY_ROOT
 from src.retrieval import RetrievalService
 from src.retrieval.reranking import load_profile
+from src.answering.acceptance import configuration
+from src.answering.identity import DEADLINE_SECONDS, binding_identity, implementation_identity, retrieval_identity
+from src.answering.gguf import model_metadata
 
 
 def preflight(args):
@@ -25,6 +28,8 @@ def preflight(args):
     blockers = []
     try:
         settings = load_settings()
+        if not settings.relevance_filter_enabled:
+            blockers.append('relevance_filter_disabled')
         if not settings.rerank.enabled:
             blockers.append('reranking_disabled')
         profile = load_profile(settings.rerank.profile_path) if settings.rerank.profile_path else None
@@ -39,12 +44,21 @@ def preflight(args):
             load_cases(args.cases)
         except (ValueError, OSError, KeyError, TypeError):
             blockers.append('case_manifest_invalid_or_stale')
-    for name in ('runtime', 'model'):
+    try:
+        binding_identity()
+    except (ValueError, OSError):
+        blockers.append('native_binding_missing_or_incompatible')
+    for name in ('model',):
         path, expected = getattr(args, name), getattr(args, name + '_sha256')
         if path is None or not path.is_file():
             blockers.append(name + '_file_missing')
         elif not expected or sha_file(path) != expected:
             blockers.append(name + '_hash_missing_or_mismatched')
+        elif name == 'model':
+            try:
+                model_metadata(path)
+            except (ValueError, OSError):
+                blockers.append('answer_model_metadata_mismatch')
     return {'schema_version': 1, 'status': 'blocked' if blockers else 'static_checks_passed',
             'blockers': blockers, 'integration_ready': False,
             'notice': 'No inference or database checks performed. Corpus compatibility and human review remain required.'}
@@ -52,7 +66,7 @@ def preflight(args):
 
 def protect_artifact_directories(output, args):
     protected = []
-    for key in ('model', 'runtime'):
+    for key in ('model',):
         artifact = getattr(args, key, None)
         if artifact is not None:
             protected.append(artifact.resolve().parent)
@@ -70,9 +84,15 @@ async def run_experiment(args):
     cases_data = load_cases(args.cases)
     case_hash = sha_file(args.cases)
     settings = load_settings()
+    if not settings.relevance_filter_enabled:
+        raise ValueError('relevance_filter_disabled')
+    pipeline_identity = retrieval_identity(settings)
+    code_identity = implementation_identity()
+    profile_hash = sha_file(settings.rerank.profile_path)
     retrieval = RetrievalService(model_path=settings.model_path, model_revision=settings.model_revision,
-                                 device='cpu', rerank=settings.rerank)
-    runtime = LocalRuntime(args.runtime, args.model, args.runtime_sha256, args.model_sha256, port=args.port)
+                                 device='cpu', rerank=settings.rerank, semantic=settings.semantic,
+                                 intent=settings.intent, relevance_filter_enabled=True)
+    runtime = LocalRuntime(args.model, args.model_sha256)
     rows, samples = [], []
     peak_memory = psutil.virtual_memory().percent
     stop = asyncio.Event()
@@ -86,19 +106,18 @@ async def run_experiment(args):
                 pass
     monitor = asyncio.create_task(sample_memory())
     error, corpus, identity, measured = None, None, None, False
-    profile_hash = sha_file(settings.rerank.profile_path)
     try:
         # Compare pinned authored content, spans and vectors against the published run.
         from scripts.evaluate_retrieval import database_state
         from src.ingestion import document_packages as packages
-        from src.ingestion.approved_publication import configuration
+        from src.ingestion.approved_publication import configuration as publication_configuration
         from src.ingestion.embeddings import model_fingerprint
         embedding_hash = model_fingerprint(settings.model_path)
         snapshots = []
         for relative in cases_data['packages']:
             package = REPOSITORY_ROOT / relative
             record, payload, files = packages.load_package(REPOSITORY_ROOT, package, eligible=True)
-            expected = configuration(payload, settings.model_revision)
+            expected = publication_configuration(payload, settings.model_revision)
             expected.update(package_sha256=packages.files_hash(files), model_files_sha256=embedding_hash,
                             metadata_sha256=packages.sha(files['metadata.json']))
             before = await database_state(record, payload, expected)
@@ -127,13 +146,13 @@ async def run_experiment(args):
             started = time.perf_counter()
             row = {key: case[key] for key in ('id', 'split', 'category', 'critical')}
             try:
-                async with asyncio.timeout(120):
+                async with asyncio.timeout(DEADLINE_SECONDS):
                     value = await evaluate_question(case['question'], retrieval, runtime)
                 if value['corpus_fingerprint'] != corpus:
                     raise ValueError('evaluation_corpus_changed')
                 sample = {**{key: case[key] for key in ('id', 'question', 'expected', 'expected_status', 'source_refs')},
                           **value}
-                row.update({key: val for key, val in value.items() if key not in ('baseline', 'draft', 'verdict')})
+                row.update({key: val for key, val in value.items() if key not in ('baseline', 'draft', 'verdict', 'sources')})
                 samples.append(sample)
                 row['error'] = None
             except TimeoutError:
@@ -146,10 +165,12 @@ async def run_experiment(args):
             row['seconds'] = time.perf_counter() - started
             rows.append(row)
             if error:
-                # Stop the owned process, rather than assuming closing HTTP cancelled inference.
+                # Stop the batch; finally drains the native worker before releasing its context.
                 break
         if (sha_file(args.cases) != case_hash or sha_file(settings.rerank.profile_path) != profile_hash
-                or load_cases(args.cases) != cases_data or runtime.verify_files() != identity):
+                or load_cases(args.cases) != cases_data or runtime.verify_files() != identity
+                or retrieval_identity(settings) != pipeline_identity
+                or implementation_identity() != code_identity):
             error = 'evaluation_inputs_changed'
         # Detect publication changes after the last generated answer too.
         if not error:
@@ -176,15 +197,14 @@ async def run_experiment(args):
                 await close_database()
                 stop.set()
                 await monitor
-    report = {'schema_version': 1, 'status': 'failed' if error else 'awaiting_manual_review',
+    report = {'schema_version': 3, 'status': 'failed' if error else 'awaiting_manual_review',
               'error': error, 'cases_sha256': case_hash, 'profile_sha256': profile_hash,
               'runtime_identity': identity, 'runtime_measured': measured, 'corpus_fingerprint': corpus,
               'evaluator_sha256': hashlib.sha256(b''.join(Path(p).read_bytes() for p in (
                   __file__, Path(__file__).with_name('answer_evaluation_runtime.py'),
                   Path(__file__).with_name('answer_evaluation_contract.py')))).hexdigest(),
-              'configuration': {'model': 'Qwen3-4B-Q4_K_M', 'context': 8192, 'threads': 6,
-                                'generation_tokens': 1024, 'verification_tokens': 512,
-                                'thinking': False, 'gpu_layers': 0, 'deadline_seconds': 120},
+              'configuration': configuration(), 'implementation_sha256': code_identity,
+              'retrieval_identity': pipeline_identity,
               'cases': rows, 'peak_system_memory_percent': peak_memory,
               'machine': {'cpu': platform.processor(), 'logical_cores': psutil.cpu_count(),
                           'physical_cores': psutil.cpu_count(logical=False),
@@ -199,11 +219,8 @@ def parser():
     for name in ('preflight', 'run'):
         command = sub.add_parser(name)
         command.add_argument('--cases', type=Path)
-        command.add_argument('--runtime', type=Path, help='Explicit local llama-server executable')
-        command.add_argument('--runtime-sha256')
-        command.add_argument('--model', type=Path, help='Explicit local Qwen3-4B Q4_K_M GGUF')
+        command.add_argument('--model', type=Path, help='Explicit local Qwen3.5-0.8B Q5_K_M GGUF')
         command.add_argument('--model-sha256')
-        command.add_argument('--port', type=int, default=8099)
         command.add_argument('--output', type=Path, required=True, help='New directory under .tmp')
     command = sub.add_parser('assess')
     command.add_argument('--report', type=Path, required=True)
@@ -222,7 +239,10 @@ def main(argv=None):
         if args.command == 'assess':
             report = json.loads(private_path(args.report).read_text(encoding='utf-8'))
             reviews = json.loads(private_path(args.review).read_text(encoding='utf-8'))
-            if report.get('status') != 'awaiting_manual_review' or reviews.get('report_sha256') != sha_file(args.report):
+            if (report.get('schema_version') != 3 or report.get('configuration') != configuration()
+                    or report.get('implementation_sha256') != implementation_identity()
+                    or report.get('status') != 'awaiting_manual_review'
+                    or reviews.get('report_sha256') != sha_file(args.report)):
                 raise ValueError('review_does_not_match_successful_report')
             samples = private_path(args.report).with_name('samples.private.json')
             if report.get('samples_sha256') != sha_file(samples):

@@ -5,6 +5,7 @@ import time
 
 from src.retrieval import RetrievalService, RetrievalError
 from .contracts import ApiError, RetrievalResponse, Timings
+from .answer import AnswerService
 
 logger = logging.getLogger(__name__)
 REQUEST_TIMEOUT_SECONDS = 120
@@ -24,6 +25,7 @@ class ApiService:
         self.busy = False
         self._idle = asyncio.Event()
         self._idle.set()
+        self.answers = AnswerService(settings, self)
 
     async def start(self):
         if self.started:
@@ -33,6 +35,7 @@ class ApiService:
         model_seconds = time.perf_counter() - started
         await self.database_check()
         self.started = True
+        await self.answers.start()
         logger.info('retrieval_startup model_initialization_seconds=%.3f total_seconds=%.3f',
                     model_seconds, time.perf_counter() - started)
 
@@ -49,9 +52,12 @@ class ApiService:
         self.started = False
         await self._idle.wait()
         try:
-            await self.retrieval.close()
+            await self.answers.close()
         finally:
-            await self.database_close()
+            try:
+                await self.retrieval.close()
+            finally:
+                await self.database_close()
 
     async def retrieve(self, text, top_k=None):
         if not self.started:

@@ -1,8 +1,10 @@
-# Offline answer evaluation before endpoint integration
+# Grounded answer evaluation and gated local API
 
-The answer endpoint is **not implemented**. This is stage one of the approved
-measure-before-integrating plan. Public HTTP/CLI retrieval continues to return
-filtered excerpts only. No backend or portal changes are part of this stage.
+The separate `/api/v1/answer` endpoint is implemented but **disabled by default**.
+Its rollout requires the offline study below and actual user acceptance against
+the exact Qwen3.5-0.8B Q5_K_M model, runtime, code and retrieval configuration.
+Public HTTP/CLI retrieval remains excerpt-only. Backend/portal integration and
+conversation history are outside this implementation.
 
 `scripts.evaluate_answers` compares the same accepted evidence in three forms:
 retrieval excerpts, an unverified generated draft, and the draft after code and
@@ -12,7 +14,7 @@ model verification. It never bypasses public relevance filtering. The historical
 ## Prerequisites and stop conditions
 
 1. Meet the existing [retrieval calibration gates](online-reranking.md#evaluation-and-rollout).
-   A schema-v2 profile must match the current model/pipeline and immutable eligible
+   A supported schema-v2/v3 per-passage profile must match the current model/pipeline and immutable eligible
    publication corpus. Missing or stale assessment stops the experiment before
    generation. Do not synthesize passage labels from scores or lower the gates.
 2. Prepare 60 source-reviewed Vietnamese cases before examining model output.
@@ -22,26 +24,57 @@ model verification. It never bypasses public relevance filtering. The historical
    cross splits. Freeze the cases and prompt before the full run; do not tune on
    inspected holdout results. An inspected holdout needs replacement before a new
    acceptance claim.
-3. Explicitly provision a local `llama-server` executable and Qwen3-4B Q4_K_M GGUF.
-   Record the upstream model revision and runtime release/commit in the local
-   experiment notes, and pass SHA-256 hashes of both artifacts to the tool.
-   No tool command installs dependencies, downloads weights, changes `.env`,
-   publishes documents, or migrates storage.
+3. Install optional `requirements-answer.txt` alongside the existing retrieval
+   dependencies, and provision the local Qwen3.5-0.8B Q5_K_M GGUF. Record the
+   conversion source/revision and model SHA-256; do not infer authenticity from
+   the filename or metadata. No command downloads weights or changes `.env`.
 
-The reference machine is an Intel i5-10505 (6 physical/12 logical cores) with
-approximately 16 GiB RAM. The experiment uses six CPU threads, zero GPU layers,
-one inference slot, an 8,192-token context, thinking disabled, and output budgets
-of 1,024 generation tokens and 512 verifier tokens. It performs one generation
-and at most one verification call, with no repair loop.
+## Native Python runtime
 
-Use the official [Qwen GGUF model](https://huggingface.co/Qwen/Qwen3-4B-GGUF) and
-[llama.cpp server contract](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md).
-The selected executable must support `/apply-template`, `/tokenize`, structured
-chat completions, `--reasoning off`, `--no-context-shift` and `--no-webui`.
-Actual compatibility must be checked with that pinned executable; mocked tests
-do not establish compatibility with an installed runtime. The managed process
-is hidden on Windows, loopback-only and terminated on completion/cancellation.
-It never attaches to an existing server or calls a hosted model.
+`llama-cpp-python==0.3.37` and `jinja2==3.1.6` are pinned in
+[requirements-answer.txt](../requirements-answer.txt). The supported runtime
+loads GGUF directly in the FastAPI Python process, on one dedicated executor
+thread. It does not use Ollama, llama-server, an internal HTTP client or an
+additional answer port. Imports and static preflight do not load model weights.
+
+Install with `python -m pip install -r requirements-answer.txt`. When a compatible
+CPU wheel is unavailable on Windows, source installation requires Visual Studio
+C++ Build Tools; pip's isolated build provisions its declared CMake/build tools.
+The tested Python 3.14.10 CPU build used Visual Studio Build Tools 2026, the
+PyPI 0.3.37 source archive, and CUDA/Vulkan/BLAS disabled. A reproducible invocation
+from an activated environment with those prerequisites is:
+
+```powershell
+$env:CMAKE_BUILD_PARALLEL_LEVEL = "6"
+python -m pip install -r requirements-answer.txt --config-settings 'cmake.args=-DGGML_CUDA=OFF;-DGGML_VULKAN=OFF;-DGGML_BLAS=OFF'
+```
+
+Windows extraction/build paths must remain short enough for the compiler tools;
+use a short ignored directory under `.tmp` when building from an explicitly
+verified source archive. Do not patch third-party source or bypass dependency
+resolution. Wheel/build hashes and the official source archive SHA-256 belong
+in private provisioning notes. Host-native CPU wheels are not assumed portable
+to different CPUs. No Python downgrade or server fallback is automatic.
+
+The reference machine remains an Intel i5-10505 (6 physical/12 logical cores),
+approximately 16 GiB RAM. The runtime uses six CPU threads, no GPU layers, an
+8,192-token context, thinking disabled, 1,024 generation tokens and 512 verifier
+tokens. It performs one generation and at most one verification call, without
+repair. Actual compatibility and cooperative cancellation must pass a fictional
+smoke test before a real answer study.
+
+The model's own GGUF tokenizer/chat template is rendered once with
+`enable_thinking=false` in a sandbox. Counting and inference use the same token
+IDs; the root `models` tokenizer files belong to the reranker and are not used
+for Qwen. A JSON grammar constrains each completion, followed by strict schema,
+quote and model-verdict validation. Model state is reset between calls.
+
+Runtime identity binds the binding version, Python/ABI, Jinja/NumPy versions,
+binding source/native-library hashes, template hash and model hash. An explicit
+`LLAMA_CPP_LIB_PATH` override is rejected. Exact bytes/configuration must match
+the reviewed report; a version string alone is not sufficient. See the official
+[binding documentation](https://llama-cpp-python.readthedocs.io/en/latest/) for
+the underlying local GGUF interface.
 
 ## Case manifest
 
@@ -95,29 +128,32 @@ must actually be reviewed. Never mark placeholder cases as reviewed.
 ## Commands
 
 Run from the repository root with `requirements-dev.txt` and
-`requirements-example.txt` already installed. Preflight requires no database
+`requirements-example.txt` already installed; a full run also needs
+`requirements-answer.txt`. Preflight requires no database
 connection or model inference:
 
 ```powershell
 .\env\Scripts\python.exe -m scripts.evaluate_answers preflight --cases .tmp/answer-study/cases.json --output .tmp/answer-study/preflight-01
 ```
 
-Without artifact arguments, preflight explicitly reports missing model/runtime.
+Without model arguments, preflight reports missing model configuration. An
+absent/incompatible installed binding is reported separately without loading weights.
 For a full run, replace every placeholder with an explicitly provisioned file
-or its verified hash:
+and its verified hash:
 
 ```powershell
-.\env\Scripts\python.exe -m scripts.evaluate_answers run --cases .tmp/answer-study/cases.json --runtime .tmp/runtime/llama-server.exe --runtime-sha256 <runtime-sha256> --model .tmp/models/qwen3-4b-q4_k_m.gguf --model-sha256 <model-sha256> --output .tmp/answer-study/run-01
+.\env\Scripts\python.exe -m scripts.evaluate_answers run --cases .tmp/answer-study/cases.json --model models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf --model-sha256 <model-sha256> --output .tmp/answer-study/run-01
 ```
 
-The output directory must not exist. The process uses port 8099 by default
-(`--port` can change it); an occupied port fails rather than attaching to it.
-Retrieval settings come from the existing explicit configuration loader.
+The output directory must not exist. There is no runtime executable or port
+argument. Retrieval settings come from the existing explicit configuration
+loader, including its semantic/intent settings. Retired `--runtime`,
+`--runtime-sha256` and `--port` arguments are rejected by argparse.
 
-The full run includes a fictional warm-up, then all 60 frozen cases. A 120-second
+The full run includes a fictional warm-up, then all 60 frozen cases. A 30-second
 deadline covers each question's retrieval, generation and verification. On an
-operational failure/timeout, the experiment stops and terminates its owned model
-process; it does not continue while unknown inference may still be running.
+operational failure/timeout, the experiment stops, requests cooperative cancellation and drains its native
+worker before closing the model; no later case starts during cleanup.
 Existing retrieval cancellation drains worker threads, so safe cleanup can
 exceed the deadline. Timings include that wait and are not recorded as success.
 
@@ -160,7 +196,7 @@ All gates must pass:
 - At least 90% of supported holdout cases receive a correct, complete answer;
   refusing answers does not improve this metric.
 - All critical and adversarial cases pass source review.
-- At least 95% of all measured cases finish successfully within 110 seconds.
+- At least 95% of all measured cases finish successfully within 30 seconds.
 - Sampled whole-machine memory stays at or below 85%; run alongside the normal
   Rita services to represent the deployment load. Sampling is not an OOM proof.
 - At least 80% of supported holdout cases deliver an accepted answer judged more
@@ -171,9 +207,98 @@ run uses 0 for completed-but-unreviewed, 1 for blocked prerequisites and 2 for
 execution/input failures; assess uses 0 only when every gate passes, 1 when a
 gate fails and 2 for invalid/incomplete review. No command adds or enables an API.
 
-Only after the experiment and user acceptance pass should a subsequent change
-add `/api/v1/answer`, authenticated `/chat-bot/answer`, progress SSE and portal
-integration. Preserve retrieval while that work remains gated.
+Only after the experiment and user acceptance pass may the implemented local
+`/api/v1/answer` be enabled. Authenticated `/chat-bot/answer`, progress SSE and
+portal integration remain separate future work. Preserve retrieval independently.
+
+## Local answer API
+
+Run the existing `python -m src.cli.serve_api`. With no answer settings, retrieval
+starts normally and `POST /api/v1/answer` returns 503 `answer_unavailable`.
+Copy the documented names from [the environment example](../.env.example);
+this implementation does not edit the application's `.env` or restart services.
+
+After a successful Q5 study and real manual acceptance, configure:
+
+```dotenv
+ANSWER_ENABLED=true
+ANSWER_MODEL_PATH=models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf
+ANSWER_MODEL_SHA256=<verified-model-sha256>
+ANSWER_REPORT_PATH=.tmp/answer-study/run-01/report.json
+ANSWER_REVIEW_PATH=.tmp/answer-study/review.json
+```
+
+These are placeholders, not supplied acceptance artifacts. Keep the report,
+review and report-adjacent `samples.private.json` local and private. Startup
+recomputes all manual gates and checks their hashes, report schema v3,
+model/native-binding identity, implementation hash, retrieval settings/artifact hashes,
+and the measured configuration. A standalone `integration_ready=true` flag is
+insufficient. Any code/model/pipeline change invalidates the study; each request
+also checks the corpus fingerprint. Never set acceptance on the user's behalf.
+Report schema v1/v2, server-runtime reports and Q4/4B study artifacts cannot
+authorize this release. Retired `ANSWER_PORT`, `ANSWER_RUNTIME_PATH` and
+`ANSWER_RUNTIME_SHA256` environment settings are ignored without editing `.env`.
+
+`POST /api/v1/answer` accepts `{"text":"Fictional policy question?","top_k":5}`.
+Validation matches retrieval (trimmed nonempty text, at most 8,000 characters
+and the E5 token limit; integer `top_k` 1-20). The answer default is always five,
+independently of `RETRIEVAL_TOP_K`; the acceptance study measures that default.
+Larger contexts still must fit the full prompt/output budget without truncation.
+
+The response includes:
+
+- `status`: `answered`, `partial`, `needs_clarification`,
+  `insufficient_evidence` or `unsupported`.
+- `answer`: deterministic Vietnamese rendering of checked claim text with
+  `[S1]` references, followed by checked limitations/clarification text.
+- `claims`: checked text with `source_id` and verbatim supporting `quote`.
+- `sources`: server-owned title/applicability/version/effective dates and origins
+  (chunk/document/revision/run IDs, relative path and source spans). Exact duplicate
+  excerpts consolidate only with identical title and applicability/version/dates;
+  all corresponding origins remain. Source content is not repeated in metadata.
+- `limitations`, nullable `fallback_reason`, and retrieval/generation/verification/
+  total seconds in `timings`. No confidence, chain-of-thought or failed draft.
+
+Valid empty/partial/clarification outcomes return HTTP 200. Empty accepted evidence
+skips inference. Citation/schema or verifier rejection returns a fixed insufficient-
+evidence response without the rejected text. Missing/stale calibration, changed
+corpus, disabled/unaccepted model, context overflow or runtime failure returns
+503; invalid input returns 422; concurrent answer/retrieval returns 429; deadline
+expiry returns 504. There is no automatic inference retry or repair loop.
+
+The answer model is loaded once after acceptance checks, warmed with fictional
+input, and owned by one executor thread. Tokenization, grammar, inference,
+reset and release run on that same thread; the event loop stays responsive.
+Thinking prefixes, reasoning-bearing text and incomplete output are rejected.
+Startup failures leave retrieval available.
+
+Timeout/disconnect uses a thread-safe cancellation flag, token stopping criteria
+and the CPU native abort callback. The busy slot remains held through repeated
+coroutine cancellation until native work exits. The context is never freed or
+reused concurrently with decode. After timeout/uncertain inference failure,
+answering stays unavailable until restart; restart revalidates acceptance.
+
+A 30-second deadline requests cancellation; cleanup and HTTP 504/shutdown may
+exceed it. An in-process native thread cannot be force-killed safely. If native
+code hangs without observing its callback, the busy slot and shutdown wait for
+it; operators must restart the application process. A fatal native crash can
+also affect FastAPI. This is the accepted tradeoff for in-process loading;
+there is no hidden process/server fallback. Successful native cleanup releases
+the slot so retrieval remains usable.
+
+Logs contain fixed outcome/error codes and timings only, never questions,
+source passages or drafts. Offline private samples deliberately retain these
+for source review; the metadata report excludes source/draft/verdict text.
+
+## Implementation validation
+
+Synthetic tests cover source preservation/consolidation, acceptance binding,
+rejected drafts, HTTP payloads, busy handling, timeout, repeated cancellation,
+client disconnect and native thread/model lifecycle. Tests use fictional binding
+boundaries, not real weights. Real native smoke evidence is reported separately
+and does not establish Vietnamese policy quality or the 30-second target. See the fixed
+[verification status](../README.md#current-verification-status) for actual runs.
+The following older observations are historical and are not a current Q5 probe.
 
 ## Verification — 2026-11-13 working tree
 
