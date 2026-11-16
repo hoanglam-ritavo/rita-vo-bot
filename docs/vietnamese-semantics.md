@@ -163,8 +163,9 @@ overall or in any domain. Failed gates produce a diagnostic report, not an
 accepted profile; never relax thresholds to fit the five known examples.
 
 Deploy semantics before considering assistance. Provision immutable lexicon,
-matching profile and reports under ignored versioned `artifacts/` directories;
-retain frozen private data and independent backups. Restart explicitly. Log only
+matching profile and reviewed provenance under selectively tracked versioned
+`artifacts/` directories; keep reports and frozen private data in private durable
+storage with independent backups. Restart explicitly. Log only
 fixed codes, labels, hashes, counts and timings, never questions or excerpts.
 Rollback restores the previous compatible pipeline/profile pair. Source/package
 drift requires review and recalibration, not automatic alias updates.

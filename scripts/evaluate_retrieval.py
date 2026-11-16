@@ -15,7 +15,8 @@ from src.database.models import IngestionRun, DocumentChunk, DocumentRevision, D
 from src.database.models import EvidenceScope, EvidenceItem, EvidenceValue
 from src.database.runtime import run_async
 from src.ingestion import document_packages as packages
-from src.ingestion.approved_publication import configuration
+from src.ingestion.approved_publication import configuration, snapshot
+from src.ingestion.publication_state import PREPROCESSING
 from src.ingestion.embeddings import model_fingerprint
 from src.paths import REPOSITORY_ROOT
 from src.retrieval import RetrievalService
@@ -63,10 +64,16 @@ def summarize(results):
 
 
 def check_run(run, expected, count):
+    # Byte hashes describe the original publication, which can precede harmless
+    # reformatting or an explicit metadata-only update. Content/provenance hashes
+    # and the actual stored rows below must still match.
+    ignored = {'package_sha256', 'metadata_sha256'}
     if (run is None or not run.is_active or run.status != 'succeeded' or run.chunk_count != count
             or run.embedding_dimensions != 384 or run.model_name != expected['model_name']
             or run.model_revision != expected['model_revision']
-            or any(run.configuration.get(k) != v for k, v in expected.items())):
+            or run.configuration.get('fingerprint_version', 1) != 1
+            or run.configuration.get('embedding_preprocessing', PREPROCESSING) != PREPROCESSING
+            or any(run.configuration.get(k) != v for k, v in expected.items() if k not in ignored)):
         raise ValueError('active_run_mismatch')
 
 
@@ -83,6 +90,9 @@ async def database_state(record, payload, expected):
                 or (revision.effective_from and revision.effective_from > today)
                 or (revision.effective_to and revision.effective_to < today)):
             raise ValueError('revision_not_eligible')
+        # Includes current metadata, access groups, immutable source identity and
+        # resolved relations; old run metadata hashes are intentionally immutable.
+        await snapshot(db, record)
         run = await db.scalar(select(IngestionRun).where(
             IngestionRun.revision_id == revision.id, IngestionRun.is_active.is_(True)))
         check_run(run, expected, len(payload['chunks']))
@@ -91,11 +101,10 @@ async def database_state(record, payload, expected):
         if len(stored) != len(payload['chunks']):
             raise ValueError('stored_count_mismatch')
         norms = []
-        if 'structured' in payload:
-            for key, model in [('scopes', EvidenceScope), ('items', EvidenceItem), ('values', EvidenceValue)]:
-                rows = list(await db.scalars(select(model).where(model.run_id == run.id)))
-                if {r.author_id: r.data for r in rows} != {r['id']: r for r in payload['structured'][key]}:
-                    raise ValueError('stored_structure_mismatch')
+        for key, model in [('scopes', EvidenceScope), ('items', EvidenceItem), ('values', EvidenceValue)]:
+            rows = list(await db.scalars(select(model).where(model.run_id == run.id)))
+            if {r.author_id: r.data for r in rows} != {r['id']: r for r in payload.get('structured', {}).get(key, [])}:
+                raise ValueError('stored_structure_mismatch')
         for actual, wanted in zip(stored, payload['chunks']):
             if actual.author_id != wanted.get('author_id') or actual.role != wanted.get('role'):
                 raise ValueError('stored_identity_mismatch')

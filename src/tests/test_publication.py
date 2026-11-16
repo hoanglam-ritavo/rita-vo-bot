@@ -11,13 +11,14 @@ from package_fixtures import ready
 
 @pytest.fixture
 def publication(tmp_path, monkeypatch):
-    db = SimpleNamespace(execute=AsyncMock(), flush=AsyncMock(), add=Mock(), add_all=Mock())
+    db = SimpleNamespace(execute=AsyncMock(), scalar=AsyncMock(return_value=None), flush=AsyncMock(), add=Mock(), add_all=Mock())
     @asynccontextmanager
     async def session():
         yield db
     monkeypatch.setattr(service, 'session_scope', session)
     monkeypatch.setattr(service, 'snapshot', AsyncMock(return_value=(None, None, 'initial', {}, [])))
     monkeypatch.setattr(service, 'write_metadata', AsyncMock())
+    monkeypatch.setattr(service, 'read_storage', AsyncMock(return_value={'chunks': [], 'structured': {}}))
     def embed(path, chunks, revision):
         for c in chunks:
             c['embedding'] = [1.0] + [0.0] * 383
@@ -27,6 +28,29 @@ def publication(tmp_path, monkeypatch):
     model.mkdir()
     (model / 'weights').write_bytes(b'synthetic')
     return db, model
+
+
+def active_package(path, model, *, legacy=False):
+    """A complete stored publication, including its actual rows, not just hashes."""
+    import copy
+    from src.catalog.importer import revision_values
+    record, payload, files = p.load_package(path.parents[1], path)
+    config = service.configuration(payload, 'a'*40)
+    config.update(model_files_sha256=service.model_fingerprint(model), package_sha256=p.files_hash(files),
+                  metadata_sha256=p.sha(files['metadata.json']))
+    if not legacy:
+        config.update(fingerprint_version=1, embedding_preprocessing=service.PREPROCESSING)
+    active = SimpleNamespace(configuration=config, id='old-run', is_active=True, status='succeeded',
+        chunk_count=len(payload['chunks']), source_sha256=record['sha256'], model_name=config['model_name'],
+        model_revision=config['model_revision'], embedding_dimensions=384)
+    revision = SimpleNamespace(**revision_values(record))
+    token = (None, tuple(record['access_groups']), tuple((r['revision_id'], r['type']) for r in record['relations']))
+    service.snapshot.return_value = (revision, active, token, record, [])
+    chunks = copy.deepcopy(payload['chunks'])
+    for c in chunks:
+        c['embedding'] = [1.0] + [0.0] * 383
+    service.read_storage.return_value = {'chunks': chunks, 'structured': payload.get('structured', {})}
+    return active, record, payload
 
 def test_publish_and_dry_run(tmp_path, publication):
     db, model = publication
@@ -116,12 +140,8 @@ def test_snapshot_conflicts_and_missing_relations():
 def test_identical_run_and_force(tmp_path, publication):
     _, model = publication
     path, _ = ready(tmp_path)
-    record, payload, files = p.load_package(tmp_path, path)
-    config = service.configuration(payload, 'a'*40)
-    config.update(model_files_sha256=service.model_fingerprint(model), package_sha256=p.files_hash(files),
-                  metadata_sha256=p.sha(files['metadata.json']))
-    active = SimpleNamespace(configuration=config, id='old-run', is_active=True)
-    service.snapshot.return_value = (None, active, 'initial', {}, [])
+    active, _, _ = active_package(path, model)
+    config = active.configuration
     assert run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))['status'] == 'skipped'
     service.embed.assert_not_called()
     assert run_async(service.publish(tmp_path, path, 'a'*40, model_path=model, force=True))['code'] == 'published'
@@ -151,32 +171,164 @@ def test_package_change_during_embedding(tmp_path, publication, file):
 def test_content_or_metadata_change_does_not_skip(tmp_path, publication, file):
     _, model = publication
     path, _ = ready(tmp_path)
-    record, payload, files = p.load_package(tmp_path, path)
-    config = service.configuration(payload, 'a'*40)
-    config.update(model_files_sha256=service.model_fingerprint(model), package_sha256=p.files_hash(files),
-                  metadata_sha256=p.sha(files['metadata.json']))
-    active = SimpleNamespace(configuration=config, id='old', is_active=True)
-    service.snapshot.return_value = (None, active, 'initial', {}, [])
+    active, record, _ = active_package(path, model)
     value = p.decode((path / file).read_bytes())
     if file == 'metadata.json':
         value['owner'] = 'Changed owner'
     else:
         value['chunks'][0]['content'] = 'Corrected policy.'
     (path / file).write_bytes(p.encoded(value))
-    assert run_async(service.publish(tmp_path, path, 'a'*40, model_path=model, update_metadata=True))['code'] == 'published'
-    service.embed.assert_called_once()
+    if file == 'metadata.json':
+        updated = dict(record, owner=value['owner'])
+        revision, _, token, _, _ = service.snapshot.return_value
+        service.snapshot.return_value = (revision, active, token, updated, [])
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model, update_metadata=True))
+    if file == 'metadata.json':
+        assert result['code'] == 'metadata_updated'
+        assert result['run_id'] == active.id
+        service.embed.assert_not_called()
+        publication[0].add.assert_not_called()
+    else:
+        assert result['code'] == 'published'
+        assert result['reused_chunk_count'] == 1
+        assert result['encoded_chunk_count'] == 1
+        service.embed.assert_called_once()
 
 
 def test_failure_preserves_previous_active_run(tmp_path, publication):
     _, model = publication
     path, _ = ready(tmp_path)
-    active = SimpleNamespace(configuration={}, id='old', is_active=True)
-    service.snapshot.return_value = (None, active, 'initial', {}, [])
+    active, _, _ = active_package(path, model)
+    active.configuration = {}
     service.embed.side_effect = RuntimeError('synthetic embedding failure')
     with pytest.raises(RuntimeError):
         run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
     assert active.is_active is True
     service.write_metadata.assert_not_called()
+
+
+@pytest.mark.parametrize('legacy', [False, True])
+@pytest.mark.parametrize('change', ['none', 'format', 'notes'])
+def test_runtime_equivalent_package_does_not_publish(tmp_path, publication, legacy, change):
+    import json
+    _, model = publication
+    path, _ = ready(tmp_path)
+    active, _, _ = active_package(path, model, legacy=legacy)
+    before = dict(active.configuration)
+    if change != 'none':
+        draft = p.decode((path / 'chunks.json').read_bytes())
+        if change == 'notes':
+            draft['chunks'][0]['notes'] = 'Authoring note, not embedding content.'
+        (path / 'chunks.json').write_text(json.dumps(draft, indent=4), encoding='utf-8')
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
+    assert result['status'] == 'skipped'
+    assert result['code'] == ('identical_active_run' if not legacy and change == 'none' else 'unchanged_publication')
+    assert result['run_id'] == active.id
+    assert result['encoded_chunk_count'] == 0
+    service.embed.assert_not_called()
+    service.write_metadata.assert_not_called()
+    publication[0].add.assert_not_called()
+    assert active.configuration == before
+
+
+@pytest.mark.parametrize('damage', ['missing', 'vector', 'content', 'structure'])
+def test_identical_config_does_not_hide_damaged_storage(tmp_path, publication, damage):
+    _, model = publication
+    path, _ = ready(tmp_path)
+    active_package(path, model)
+    stored = service.read_storage.return_value
+    if damage == 'missing':
+        stored['chunks'].pop()
+    elif damage == 'vector':
+        stored['chunks'][0]['embedding'] = None
+    elif damage == 'content':
+        stored['chunks'][0]['content'] = 'Corrupted stored text'
+    else:
+        stored['structured'] = {'items': [{'id': 'unexpected'}]}
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
+    assert result['code'] == 'published'
+    assert result['encoded_chunk_count'] == (0 if damage == 'structure' else 1)
+    assert result['reused_chunk_count'] + result['encoded_chunk_count'] == 2
+
+
+def test_provenance_change_reuses_vectors_but_publishes_new_spans(tmp_path, publication):
+    _, model = publication
+    path, _ = ready(tmp_path)
+    active, _, _ = active_package(path, model)
+    extraction = p.decode((path / 'extraction.json').read_bytes())
+    extraction['segments'][0]['location'].update(line_start=10, line_end=10)
+    (path / 'extraction.json').write_bytes(p.encoded(extraction))
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
+    assert result['code'] == 'published'
+    assert result['reused_chunk_count'] == 2
+    service.embed.assert_not_called()
+    inserted = list(publication[0].add_all.call_args.args[0])
+    assert inserted[0].source_location['spans'][0]['location']['line_start'] == 10
+    assert not active.is_active
+
+
+def test_dry_run_metadata_only_has_no_writes(tmp_path, publication):
+    _, model = publication
+    path, _ = ready(tmp_path)
+    active, record, _ = active_package(path, model)
+    revision, _, token, _, _ = service.snapshot.return_value
+    updated = dict(record, owner='New owner')
+    (path / 'metadata.json').write_bytes(p.encoded(updated))
+    service.snapshot.return_value = (revision, active, token, updated, [])
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model,
+                                      dry_run=True, update_metadata=True))
+    assert result['code'] == 'dry_run' and result['reason'] == 'metadata_only'
+    assert result['encoded_chunk_count'] == 0
+    service.embed.assert_not_called()
+    service.write_metadata.assert_not_called()
+
+
+def test_storage_change_under_lock_rejects_before_metadata(tmp_path, publication):
+    import copy
+    _, model = publication
+    path, _ = ready(tmp_path)
+    active_package(path, model)
+    stored = service.read_storage.return_value
+    changed = copy.deepcopy(stored)
+    changed['chunks'][0]['embedding'][0] = 0.5
+    service.read_storage.side_effect = [stored, changed]
+    with pytest.raises(p.Rejected, match='concurrent_publication_or_storage_change'):
+        run_async(service.publish(tmp_path, path, 'a'*40, model_path=model, force=True))
+    service.write_metadata.assert_not_called()
+
+
+def test_v3_evidence_change_publishes_without_reencoding(tmp_path, publication):
+    from test_structured_evidence import structured_package
+    _, model = publication
+    path, _ = structured_package(tmp_path)
+    active, _, _ = active_package(path, model, legacy=True)
+    original_config = dict(active.configuration)
+    draft = p.decode((path / 'chunks.json').read_bytes())
+    draft['values'][0]['value'] = '200.00'
+    (path / 'chunks.json').write_bytes(p.encoded(draft))
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
+    assert result['code'] == 'published' and result['reason'] == 'publication_changed'
+    assert result['reused_chunk_count'] == 2 and result['encoded_chunk_count'] == 0
+    service.embed.assert_not_called()
+    inserted_values = list(publication[0].add_all.call_args.args[0])
+    from decimal import Decimal
+    assert inserted_values[0].numeric_value == Decimal('200.00')
+    assert active.configuration == original_config and not active.is_active
+
+
+def test_warning_decision_change_keeps_vectors_but_creates_provenance_run(tmp_path, publication):
+    _, model = publication
+    path, _ = ready(tmp_path, warnings=[{'warning_id': 'w1', 'code': 'uncertain', 'location': {}}])
+    draft = p.decode((path / 'chunks.json').read_bytes())
+    draft['warning_decisions'] = {'w1': 'Source checked'}
+    (path / 'chunks.json').write_bytes(p.encoded(draft))
+    active_package(path, model)
+    draft['warning_decisions']['w1'] = 'Source checked with added evidence'
+    (path / 'chunks.json').write_bytes(p.encoded(draft))
+    result = run_async(service.publish(tmp_path, path, 'a'*40, model_path=model))
+    assert result['code'] == 'published'
+    assert result['encoded_chunk_count'] == 0 and result['reused_chunk_count'] == 2
+    service.embed.assert_not_called()
 
 
 def test_change_while_waiting_for_publication_lock(tmp_path, publication):
@@ -278,8 +430,11 @@ def test_missing_supersedes_is_reported_and_persisted(tmp_path, publication):
     config = db.add.call_args.args[0].configuration
     assert config['declared_supersedes'] == [target]
     assert config['missing_supersedes'] == [target]
-    active = SimpleNamespace(configuration=config, id='existing', is_active=True)
-    service.snapshot.return_value = (None, active, 'initial', resolved, [target])
+    active, _, _ = active_package(package, model)
+    active.configuration = config
+    revision, _, token, _, _ = service.snapshot.return_value
+    token = (token[0], token[1], ())
+    service.snapshot.return_value = (revision, active, token, resolved, [target])
     result = run_async(service.publish(tmp_path, package, 'a'*40, model_path=model))
     assert result['status'] == 'skipped' and result['missing_supersedes'] == [target]
 

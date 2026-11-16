@@ -6,7 +6,7 @@ This opt-in pipeline retrieves and filters candidates without modifying packages
 
 ## Local model and configuration
 
-The supported model is `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`, pinned to revision `1427fd652930e4ba29e8149678df786c240d8825`. Place `model_quint8_avx2.onnx` directly in `models/`, alongside `config.json`, `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json` and `sentencepiece.bpe.model` from that revision. These local artifacts are ignored by Git. Startup validates every file against the pinned SHA-256 allowlist in `src/retrieval/reranking.py`; renaming an unrelated model does not make it compatible.
+The supported model is `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`, pinned to revision `1427fd652930e4ba29e8149678df786c240d8825`. Place `model_quint8_avx2.onnx` directly in `models/`, alongside `config.json`, `tokenizer.json`, `tokenizer_config.json`, `special_tokens_map.json` and `sentencepiece.bpe.model` from that revision. These selected files use byte-preserving Git/LFS storage; run the [runtime inventory check](runtime-artifacts.md#git-lfs-checkout-and-verification) after LFS hydration. Startup validates every file against the pinned SHA-256 allowlist in `src/retrieval/reranking.py`; renaming an unrelated model does not make it compatible.
 
 The ONNX SHA-256 is `6c2513767fb63d008a4377bef7a7a3555433d9436342bb53e35a3a72ffc52d4b`. The official model is available at [Hugging Face](https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/tree/1427fd652930e4ba29e8149678df786c240d8825). Download matching files explicitly during provisioning, never at application startup. Preserve the original downloaded file when preparing another environment.
 

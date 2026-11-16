@@ -10,6 +10,8 @@ from src.database.models import Document, DocumentRevision, DocumentAccessRule, 
 from src.catalog.importer import revision_values, IMPORT_LOCK
 from src.ingestion import document_packages as packages
 from src.ingestion.embeddings import MODEL_NAME, embed, validate_vectors, model_fingerprint
+from src.ingestion.publication_state import (PREPROCESSING, read_storage, storage_matches,
+                                            storage_token, plan_vectors, compatible)
 
 def configuration(payload, model_revision):
     packages.require(isinstance(model_revision, str) and re.fullmatch('[0-9a-f]{40}', model_revision), 'model_commit_required')
@@ -104,23 +106,75 @@ async def write_metadata(db, record, revision):
                for r in record['relations'])
 
 
+def metadata_matches(revision, record, token):
+    if revision is None:
+        return False
+    return (all(getattr(revision, k) == v for k, v in revision_values(record).items())
+            and set(token[1]) == set(record['access_groups'])
+            and set(token[2]) == {(r['revision_id'], r['type']) for r in record['relations']})
+
+
+async def reuse_source(db, active, record):
+    if active is not None:
+        return active
+    # Only the current, explicitly superseded revision of this same document.
+    targets = [UUID(r['revision_id']) for r in record['relations'] if r['type'] == 'supersedes']
+    if not targets:
+        return None
+    return await db.scalar(select(IngestionRun).join(DocumentRevision,
+        IngestionRun.revision_id == DocumentRevision.id).where(
+            DocumentRevision.document_id == UUID(record['document_id']),
+            DocumentRevision.id.in_(targets), DocumentRevision.is_catalog_current.is_(True),
+            IngestionRun.is_active.is_(True), IngestionRun.status == 'succeeded'))
+
+
 async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
     record, payload, files = packages.load_package(root, directory, eligible=True)
     config = configuration(payload, model_revision)
     config.update(model_files_sha256=model_fingerprint(model_path),
                   package_sha256=packages.files_hash(files),
-                  metadata_sha256=packages.sha(files['metadata.json']))
+                  metadata_sha256=packages.sha(files['metadata.json']),
+                  fingerprint_version=1, embedding_preprocessing=PREPROCESSING)
     async with session_scope() as db:
         await db.execute(text('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY'))
         revision, active, expected, resolved_record, missing = await snapshot(db, record, update_metadata)
         declared = sorted({r['revision_id'] for r in record['relations'] if r['type'] == 'supersedes'})
         if declared:
             config.update(declared_supersedes=declared, missing_supersedes=missing)
-        if not force and active is not None and active.configuration == config:
-            return {'status': 'skipped', 'code': 'identical_active_run', 'run_id': str(active.id), 'missing_supersedes': missing}
+        source = await reuse_source(db, active, record)
+        stored = await read_storage(db, source)
+        expected_storage = storage_token(source, stored)
+        unchanged = not force and storage_matches(active, stored, payload, config)
+        same_metadata = metadata_matches(revision, resolved_record, expected)
+        chunks, missing_chunks, reused = plan_vectors(payload, source, stored, config, force)
+        reason = ('forced' if force else 'metadata_only' if unchanged and not same_metadata
+                  else 'unchanged' if unchanged else 'first_publication' if source is None
+                  else 'embedding_configuration_changed' if not compatible(source, config)
+                  else 'storage_unverified' if source.configuration.get('content_hash') == config['content_hash']
+                  else 'publication_changed')
+        result = {'revision_id': record['revision_id'], 'missing_supersedes': missing,
+                  'reason': reason, 'chunk_count': len(chunks),
+                  'reused_chunk_count': 0 if unchanged else reused,
+                  'encoded_chunk_count': 0 if unchanged else len(chunks) - reused,
+                  'encoded_unique_text_count': 0 if unchanged else len({c['content'] for c in missing_chunks})}
+        if unchanged and same_metadata:
+            packages.require(packages.snapshot_files(directory) == files, 'package_changed')
+            packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
+            code = 'identical_active_run' if active.configuration == config else 'unchanged_publication'
+            return dict(result, status='skipped', code=code, run_id=str(active.id))
     if dry_run:
-        return {'status': 'processed', 'code': 'dry_run', 'revision_id': record['revision_id'], 'missing_supersedes': missing}
-    chunks = embed(model_path, copy.deepcopy(payload['chunks']), model_revision)
+        packages.require(packages.snapshot_files(directory) == files, 'package_changed')
+        packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
+        return dict(result, status='processed', code='dry_run')
+    if missing_chunks and not unchanged:
+        encoded = embed(model_path, copy.deepcopy(missing_chunks), model_revision)
+        validate_vectors(encoded)
+        packages.require([{k: v for k, v in c.items() if k != 'embedding'} for c in encoded] == missing_chunks,
+                         'embedding_changed_content')
+        vectors = {c['content']: c['embedding'] for c in encoded}
+        for chunk in chunks:
+            if 'embedding' not in chunk:
+                chunk['embedding'] = list(vectors[chunk['content']])
     validate_vectors(chunks)
     packages.require([{k: v for k, v in c.items() if k != 'embedding'} for c in chunks] == payload['chunks'], 'embedding_changed_content')
     packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
@@ -131,8 +185,15 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
         await db.execute(text('SELECT pg_advisory_xact_lock(:key)'), {'key': IMPORT_LOCK})
         revision, active, actual, resolved_record, _ = await snapshot(db, record, update_metadata)
         packages.require(packages.snapshot_files(directory) == files, 'package_changed')
+        packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
         packages.require(actual == expected, 'concurrent_publication_or_metadata_change')
+        current_source = await reuse_source(db, active, record)
+        current_storage = await read_storage(db, current_source)
+        packages.require(storage_token(current_source, current_storage) == expected_storage,
+                         'concurrent_publication_or_storage_change')
         await write_metadata(db, resolved_record, revision)
+        if unchanged:
+            return dict(result, status='processed', code='metadata_updated', run_id=str(active.id))
         if active:
             active.is_active = False
             await db.flush()
@@ -151,4 +212,4 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
             await db.flush()
             db.add_all(EvidenceValue(run_id=run_id, author_id=r['id'], item_id=r['item_id'],
                 numeric_value=Decimal(r['value']) if r['type'] == 'decimal' else None, data=r) for r in data['values'])
-    return {'status': 'processed', 'code': 'published', 'run_id': str(run_id), 'revision_id': record['revision_id'], 'missing_supersedes': missing}
+    return dict(result, status='processed', code='published', run_id=str(run_id))

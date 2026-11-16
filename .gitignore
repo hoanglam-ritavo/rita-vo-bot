@@ -10,9 +10,53 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 /.tmp/
-/models/
-/artifacts/
 pytest-cache-files-*/
+
+# Runtime models: open only the pinned file inventory, never download caches.
+/models/*
+!/models/config.json
+!/models/model_quint8_avx2.onnx
+!/models/sentencepiece.bpe.model
+!/models/special_tokens_map.json
+!/models/tokenizer.json
+!/models/tokenizer_config.json
+!/models/embeddings/
+/models/embeddings/*
+!/models/embeddings/multilingual-e5-small/
+/models/embeddings/multilingual-e5-small/*
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/
+/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/**
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/config.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/model.safetensors
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/modules.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/README.md
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/sentencepiece.bpe.model
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/sentence_bert_config.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/special_tokens_map.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/tokenizer.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/tokenizer_config.json
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/1_Pooling/
+/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/1_Pooling/*
+!/models/embeddings/multilingual-e5-small/614241f622f53c4eeff9890bdc4f31cfecc418b3/1_Pooling/config.json
+
+# Accepted runtime JSON only. Evaluation reports and machine receipts stay local.
+/artifacts/*
+!/artifacts/runtime-assets.json
+!/artifacts/rerank/
+!/artifacts/semantics/
+!/artifacts/intent/
+/artifacts/rerank/**
+/artifacts/semantics/**
+/artifacts/intent/**
+!/artifacts/rerank/*/
+!/artifacts/semantics/*/
+!/artifacts/intent/*/
+!/artifacts/rerank/*/relevance-profile.json
+!/artifacts/rerank/*/manifest.json
+!/artifacts/semantics/*/lexicon.json
+!/artifacts/semantics/*/manifest.json
+!/artifacts/intent/*/accepted-artifact.json
+!/artifacts/intent/*/manifest.json
 
 # Local catalog and generated outputs; keep directory documentation.
 /app/data/*

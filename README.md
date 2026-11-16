@@ -10,7 +10,7 @@ See the [indexing guide](docs/offline-indexing.md) for schemas, commands, metada
 
 The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and authors a complete package, with manual source/coverage checks and structural validation; no embedding model or database is required. Scope 2 reads that package, checks the actual tokenizer/model through preflight, embeds and publishes to PostgreSQL. Follow the [Scope 1 authoring procedure](docs/offline-indexing.md#agent-authoring-procedure) for focused detail chunks, source-backed inventories and optional groups within schema v2, or explicit evidence structures in schema v3. See [structured evidence](docs/structured-evidence.md). Author-declared coverage requires source review.
 
-Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded; publication encodes again unless an identical active configuration is skipped.
+Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded. Publication verifies stored data before skipping unchanged content; explicit metadata-only updates preserve the existing run/chunks. Changed publication reuses compatible stored exact-text vectors and encodes missing text; `--force` re-encodes every chunk. History remains stored and no schema migration or automatic republication is required for this optimization.
 
 Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
@@ -23,6 +23,79 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### Incremental publication and retained history - 2026-11-16
+
+Implemented on the working tree based on `cf68ce9`, preserving pre-existing
+runtime-asset, Git/LFS and documentation changes. Publication now verifies stored
+chunks/evidence before skipping canonical-equivalent input, applies explicit
+metadata-only updates without another run/chunk set, and reuses compatible
+exact-text vectors for changed publications. Legacy runs remain readable without
+configuration rewrites. See [publication decisions and compatibility](docs/offline-indexing.md#publication-and-consistency).
+Shared evaluation readers verify current metadata and stored runtime content
+separately from original publication byte hashes. No API wire or schema change.
+
+Final post-edit non-integration validation passed **782 tests, 1 skipped,
+37 deselected**, with the existing Starlette/AnyIO deprecation warning. The
+initial focused run passed 78 tests; an earlier broad snapshot passed 780 tests.
+The subsequent broad run caught a new evidence-test assertion indexing an
+insertion generator; converting it to a list fixed the test, and the final full
+run passed. CLI help, 167 local Markdown file links and diff whitespace checks
+passed, including this verification entry. The system Python lacked pytest; tests
+used the existing `env` interpreter. An initial sandbox attempt hit Windows
+temporary-directory access errors; successful runs used fresh repository-local
+extended-length temporary directories outside the sandbox, without deleting old
+trees or changing permissions:
+
+```powershell
+.\env\Scripts\python.exe -B -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\publication-incremental-full-03' -o cache_dir=.tmp/publication-full-cache-03
+```
+
+Choose a new unused temporary directory when repeating. Integration coverage was
+added for metadata-only/history preservation, incremental encoding, rollback,
+and the real HTTP-to-storage retrieval path excluding inactive/superseded runs.
+These PostgreSQL tests were **not executed**: credential-safe configuration
+inspection found `TEST_DATABASE_URL` matched an application/migration database.
+The preflight stopped before connecting. A separate disposable database is still
+required; mocked tests do not establish live PostgreSQL behavior. No migration,
+publication, database write, model inference, service restart or deployment was
+performed. Existing data, package files, `.env` and the exported mock CSV were
+not changed.
+
+### Selective runtime assets and Git LFS - 2026-11-16
+
+Implementation on the working tree based on `cf68ce9` opens only the pinned
+model inventory and selected versioned runtime JSON. Large model/tokenizer
+files use Git LFS; all selected model/artifact bytes bypass newline conversion.
+The read-only `python -m scripts.verify_runtime_assets` checks the manifest,
+hydration, hashes, E5 file inventory and tracked-path policy without optional
+ML dependencies, `.env`, network or database access. See
+[runtime asset checkout and verification](docs/runtime-artifacts.md#git-lfs-checkout-and-verification).
+
+Post-edit asset verification passed for **16 files / 634,066,120 bytes**;
+the baseline file inventory and E5 recursive fingerprint remain unchanged.
+The new focused suite passed **25 tests**, including real local Git/LFS
+staging, pointer rejection, checkout and fresh-clone hydration with fictional
+files and `core.autocrlf=true`. The full non-integration suite passed
+**748 tests, 1 skipped, 34 deselected**, with the existing Starlette/AnyIO
+deprecation warning. CLI help, 99 local documentation file links and diff
+whitespace checks passed. Repository-local LFS filters/hooks were initialized.
+
+Initial sandbox test attempts failed on Windows temporary-directory permissions;
+successful runs used fresh repository-local extended-length paths outside the
+sandbox without deleting old trees or changing permissions. Intermediate LFS
+fixture failures (missing HEAD and absolute extended-length clone arguments)
+were corrected before the successful runs. The full suite used:
+
+```powershell
+python -B -m pytest -m 'not integration' -q --tb=line --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\runtime-assets-20261116\full-01' -o cache_dir=.tmp/runtime-assets-20261116/full-01-cache
+```
+
+Choose a new unused temporary directory when repeating. Real model files
+remain unchanged; no profile is supplied or feature enabled by this work.
+No remote upload, application-repository commit, database operation, training,
+calibration or service restart is part of this change. Remote LFS availability,
+quota and a checkout of the actual committed model release remain unverified.
 
 ### Baseline rerank input preparation - 2026-11-14
 
@@ -186,7 +259,7 @@ if (-not (Test-Path -LiteralPath .env)) {
 
 The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments; process environment variables override `.env`, and running services need a restart to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts with filtering enabled. The HTTP-only `RELEVANCE_FILTER_ENABLED` switch defaults to `true`; explicitly setting `false` returns unassessed top-k candidates without a profile and leaves reranking independent. CLI/evaluator defaults and calibration requirements are unchanged; see [filter modes](docs/online-reranking.md#local-model-and-configuration).
 
-Runtime model files now use durable ignored storage under `models/embeddings/`; accepted rerank profiles use versioned `artifacts/rerank/` directories. `.tmp/` remains the evaluation/cache workspace. Git does not back up any of these local files. See [runtime artifacts](docs/runtime-artifacts.md) for verified copying, independent backup/restore, source-review handoff and rollout checks. Do not clear old temporary model copies until validation and recovery are complete.
+Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; versioned accepted runtime JSON can be tracked under `artifacts/`. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
 
 Configuration presentation verification (2026-11-13, existing working tree): parsed `.env` values were identical before and after the comment/layout update; `.env.example` only removed the active sample profile assignment by commenting it out. Parser checks found no malformed entries or duplicate active keys. No API, database, model benchmark or application test suite was run for this documentation-only change.
 
@@ -323,7 +396,7 @@ Final non-integration verification: `python -m pytest -m 'not integration' -q` w
 
 ## Retrieval evaluation
 
-Use `python -m scripts.evaluate_retrieval --package chunks/<document_id> --cases .tmp/evaluation/cases.json --model-path <local-model-directory> --model-revision <40-hex-commit> --top-k 5 --output .tmp/evaluation/report.json` for read-only evaluation of a published package. Package and cases paths are required; top-K defaults to 5 (1–20). Reports may only be written under `.tmp/`, outside the package/model and without overwriting the case file. The evaluator reads revision identity from metadata and rejects stale package/model fingerprints, ineligible revisions, changed inputs or stored content/spans/vectors that differ from the selected package. It records ranks, distances, model-load/overall question timings and storage verification, without copying retrieved content or vectors into reports. These timings do not separate query embedding from database latency.
+Use `python -m scripts.evaluate_retrieval --package chunks/<document_id> --cases .tmp/evaluation/cases.json --model-path <local-model-directory> --model-revision <40-hex-commit> --top-k 5 --output .tmp/evaluation/report.json` for read-only evaluation of a published package. Package and cases paths are required; top-K defaults to 5 (1–20). Reports may only be written under `.tmp/`, outside the package/model and without overwriting the case file. The evaluator reads revision identity from metadata and rejects stale runtime-content/model fingerprints, current metadata/access/relation mismatches, ineligible revisions, changed inputs or stored content/spans/vectors/evidence that differ from the selected package. Original run byte hashes may precede harmless formatting or explicit metadata-only updates; they are not treated as current runtime identity. It records ranks, distances, model-load/overall question timings and storage verification, without copying retrieved content or vectors into reports. These timings do not separate query embedding from database latency.
 
 Author cases before examining retrieval rankings. A case file contains `revision_id`, `chunks_sha256` (the `canonical_hash` of the validated payload's `chunks` returned by `src.ingestion.document_packages.load_package`) and a nonempty `cases` array. Each case has a unique string `id`, `question`, `category` (`detail`, `condition`, `aggregate`, or `unsupported`), optional boolean `critical`, and `required_groups`: a list of nonempty lists of zero-based package chunk indices. Every group must have at least one retrieved member from the pinned revision/run. For example, `[[1, 2], [3]]` requires chunk 1 or 2 plus chunk 3. Choose chunks containing the required answer evidence, not merely a shared source segment; an inventory can reference a detail's segment without containing its amount. Unsupported cases may have empty groups and are marked for manual review, never scored as answered or correctly refused. Keep real-document case files and reports under ignored `.tmp/`; committed tests use synthetic content.
 

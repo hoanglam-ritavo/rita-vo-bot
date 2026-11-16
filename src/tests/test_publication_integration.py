@@ -37,7 +37,7 @@ def test_atomic_publication_metadata_conflict_and_failure(empty_catalog_db, tmp_
                 raise RuntimeError('synthetic embedding failure')
             monkeypatch.setattr(service, 'embed', fail)
             with pytest.raises(RuntimeError):
-                await service.publish(tmp_path, second, 'a'*40, model_path=model, update_metadata=True)
+                await service.publish(tmp_path, second, 'a'*40, model_path=model, update_metadata=True, force=True)
             async with session_scope() as db:
                 revision = await db.get(DocumentRevision, UUID(record['revision_id']))
                 assert revision.owner != record['owner']
@@ -79,7 +79,7 @@ async def database_state():
         return state
 
 
-@pytest.mark.parametrize('failure_stage', ['after_metadata', 'chunk_insert'])
+@pytest.mark.parametrize('failure_stage', ['after_metadata', 'metadata_only', 'chunk_insert'])
 def test_transaction_failure_restores_all_committed_state(tmp_path, local_model, monkeypatch, failure_stage):
     package, _ = ready(tmp_path)
     target, _ = ready(tmp_path, name='related-policy.txt')
@@ -114,17 +114,18 @@ def test_transaction_failure_restores_all_committed_state(tmp_path, local_model,
                     raise RuntimeError('synthetic transaction failure')
 
             original_write = service.write_metadata
-            if failure_stage == 'after_metadata':
+            if failure_stage in ('after_metadata', 'metadata_only'):
                 monkeypatch.setattr(service, 'write_metadata', fail_after_metadata)
             else:
                 event.listen(engine, 'before_cursor_execute', fail_chunk_insert)
             try:
                 with pytest.raises(RuntimeError, match='synthetic transaction failure'):
-                    await service.publish(tmp_path, package, 'a'*40, model_path=local_model, update_metadata=True)
+                    await service.publish(tmp_path, package, 'a'*40, model_path=local_model,
+                                          update_metadata=True, force=failure_stage != 'metadata_only')
             finally:
                 if failure_stage == 'chunk_insert':
                     event.remove(engine, 'before_cursor_execute', fail_chunk_insert)
-            assert reached == [failure_stage]
+            assert reached == ['after_metadata' if failure_stage == 'metadata_only' else failure_stage]
             # Includes metadata, rights, relations, active flags, row counts, vector values and timestamps.
             assert await database_state() == before
         finally:
@@ -152,7 +153,7 @@ def test_source_path_update_is_explicit_metadata_change(tmp_path, local_model):
                 original = before['document_revisions'][0]
                 assert revision.created_at == original['created_at']
                 assert update_start <= revision.updated_at <= await db.scalar(select(func.statement_timestamp()))
-                assert await db.scalar(select(func.count()).select_from(IngestionRun)) == 2
+                assert await db.scalar(select(func.count()).select_from(IngestionRun)) == 1
         finally:
             await close_database()
     run_async(scenario())
@@ -287,6 +288,93 @@ def test_batch_rejection_preserves_independent_success(tmp_path, local_model, ca
                 assert await db.get(DocumentRevision, UUID(p.metadata(independent)["revision_id"])) is not None
                 assert await db.scalar(select(func.count()).select_from(IngestionRun)) == 1
                 assert await db.scalar(select(func.count()).select_from(DocumentChunk)) == 2
+        finally:
+            await close_database()
+    run_async(scenario())
+
+
+def test_metadata_only_and_incremental_publication_preserve_history(tmp_path, local_model, monkeypatch):
+    from unittest.mock import Mock
+    package, _ = ready(tmp_path)
+    encoder = Mock(wraps=service.embed)
+    monkeypatch.setattr(service, 'embed', encoder)
+
+    async def scenario():
+        try:
+            first = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            before = await database_state()
+            set_metadata(package, owner='New owner', access_groups=['public', 'staff'])
+            encoder.reset_mock()
+            metadata = await service.publish(tmp_path, package, 'a'*40, model_path=local_model, update_metadata=True)
+            assert metadata['code'] == 'metadata_updated' and metadata['run_id'] == first['run_id']
+            encoder.assert_not_called()
+            after_metadata = await database_state()
+            assert after_metadata['ingestion_runs'] == before['ingestion_runs']
+            assert after_metadata['document_chunks'] == before['document_chunks']
+            assert (await service.publish(tmp_path, package, 'a'*40, model_path=local_model))['code'] == 'unchanged_publication'
+
+            draft = p.decode((package / 'chunks.json').read_bytes())
+            draft['chunks'][1]['content'] = 'Corrected synthetic paragraph.'
+            (package / 'chunks.json').write_bytes(p.encoded(draft))
+            second = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            assert second['reused_chunk_count'] == second['encoded_chunk_count'] == 1
+            assert second['encoded_unique_text_count'] == 1
+            assert [c['content'] for c in encoder.call_args.args[1]] == ['Corrected synthetic paragraph.']
+            after = await database_state()
+            assert len(after['document_chunks']) == 4
+            assert [r for r in after['document_chunks'] if str(r['run_id']) == first['run_id']] == before['document_chunks']
+            assert sum(r['is_active'] for r in after['ingestion_runs']) == 1
+            assert (await service.publish(tmp_path, package, 'a'*40, model_path=local_model))['code'] == 'identical_active_run'
+        finally:
+            await close_database()
+    run_async(scenario())
+
+
+def test_http_retrieval_ignores_inactive_and_superseded_publications(tmp_path, local_model, monkeypatch):
+    """Real endpoint -> ApiService -> RetrievalService -> PostgreSQL; fake encoder only."""
+    from types import SimpleNamespace
+    import httpx
+    import numpy as np
+    from src.api.app import create_app
+    from src.api.config import Settings
+    from src.api.service import ApiService
+    from src.retrieval import RetrievalService
+
+    class Tokenizer:
+        model_max_length = 512
+
+        def __call__(self, text, **kwargs):
+            return {'input_ids': [1, 2, 3]}
+
+    fake_model = SimpleNamespace(max_seq_length=512, tokenizer=Tokenizer(),
+                                 encode=lambda texts, **kwargs: np.array([[1.] + [0.] * 383 for _ in texts]))
+    package, _ = ready(tmp_path)
+    set_metadata(package, access_groups=['public'])
+
+    async def scenario():
+        try:
+            first = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            second = await service.publish(tmp_path, package, 'a'*40, model_path=local_model, force=True)
+            revised_package(tmp_path, package)
+            set_metadata(package, access_groups=['public'])
+            third = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            assert third['reused_chunk_count'] == 2 and third['encoded_chunk_count'] == 0
+            settings = Settings(local_model, 'a'*40, relevance_filter_enabled=False)
+            retrieval = RetrievalService(model_path=local_model, model_revision='a'*40,
+                                          relevance_filter_enabled=False)
+            monkeypatch.setattr(retrieval, '_load', lambda: (fake_model, service.model_fingerprint(local_model)))
+            app = create_app(settings, service_factory=lambda config: ApiService(config, retrieval=retrieval))
+            async with app.router.lifespan_context(app):
+                async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test') as client:
+                    response = await client.post('/api/v1/retrieve', json={'text': 'Synthetic policy', 'top_k': 20})
+                    assert response.status_code == 200
+                    data = response.json()
+                    assert data['status'] == 'matches_found'
+                    assert len(data['matches']) == 2
+                    assert {m['run_id'] for m in data['matches']} == {third['run_id']}
+                    assert not {first['run_id'], second['run_id']} & {m['run_id'] for m in data['matches']}
+                    assert len({m['chunk_id'] for m in data['matches']}) == 2
+                    assert 'candidate_order' not in data
         finally:
             await close_database()
     run_async(scenario())

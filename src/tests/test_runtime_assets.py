@@ -1,0 +1,245 @@
+"""Asset inventory and real Git policy checks; no model downloads or database IO."""
+import copy
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+import pytest
+
+from scripts import verify_runtime_assets as assets
+
+REVISION = '614241f622f53c4eeff9890bdc4f31cfecc418b3'
+E5 = 'models/embeddings/multilingual-e5-small/' + REVISION
+
+
+def git(root, *args, check=True, input=None):
+    return subprocess.run(['git', '-C', str(root), *args], input=input, check=check,
+                          stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+def write_manifest(root, data):
+    (root / assets.MANIFEST).write_text(json.dumps(data), encoding='utf-8')
+
+
+@pytest.fixture
+def inventory(tmp_path):
+    git(tmp_path, 'init')
+    entries, models = [], {}
+    for group, directory, names, model_id in [
+        ('e5', E5, assets.E5_FILES, 'intfloat/multilingual-e5-small'),
+        ('reranker', 'models', assets.RERANK_FILES, 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'),
+    ]:
+        hashes = {}
+        for name in sorted(names):
+            path = tmp_path / directory / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            raw = ('fictional ' + group + ' ' + name + '\n').encode()
+            path.write_bytes(raw)
+            hashes[name] = hashlib.sha256(raw).hexdigest()
+            entries.append({'path': directory + '/' + name, 'group': group,
+                            'size_bytes': len(raw), 'sha256': hashes[name]})
+        models[group] = {'id': model_id, 'revision': REVISION, 'root': directory,
+                         'files_sha256': assets.canonical_hash(hashes)}
+    data = {'schema_version': 1, 'models': models, 'assets': entries}
+    (tmp_path / 'artifacts').mkdir()
+    write_manifest(tmp_path, data)
+    return tmp_path, data
+
+
+def error_codes(result):
+    return {entry['code'] for entry in result['errors']}
+
+
+def test_valid_inventory_is_read_only_and_uses_no_optional_dependencies(inventory):
+    root, _ = inventory
+    before = {p.relative_to(root): p.read_bytes() for directory in ('models', 'artifacts')
+              for p in (root / directory).rglob('*') if p.is_file()}
+    result, code = assets.verify(root)
+    assert code == 0 and result == {'files': 16, 'errors': []}
+    assert all((root / name).read_bytes() == raw for name, raw in before.items())
+    script = "import sys; import scripts.verify_runtime_assets; print(any(n in sys.modules for n in ('dotenv', 'numpy', 'torch', 'sqlalchemy', 'transformers', 'src.retrieval')))"
+    process = subprocess.run([sys.executable, '-I', '-S', '-c',
+        'import sys; sys.path.insert(0, ' + repr(str(assets.ROOT)) + '); ' + script],
+        check=True, capture_output=True, text=True)
+    assert process.stdout.strip() == 'False'
+
+
+@pytest.mark.parametrize('change,expected', [
+    ('missing', 'file_missing_or_nonregular'), ('size', 'size_mismatch'),
+    ('hash', 'sha256_mismatch'), ('pointer', 'lfs_pointer_not_hydrated'),
+    ('extra', 'unexpected_e5_file'),
+])
+def test_file_failures(inventory, change, expected):
+    root, data = inventory
+    entry = data['assets'][0]
+    path = root / entry['path']
+    if change == 'missing':
+        path.unlink()
+    elif change == 'size':
+        path.write_bytes(b'changed size')
+    elif change == 'hash':
+        path.write_bytes(b'x' * entry['size_bytes'])
+    elif change == 'pointer':
+        path.write_bytes(b'version https://git-lfs.github.com/spec/v1\noid sha256:fictional\nsize 9000\n')
+    else:
+        (root / E5 / 'receipt.json').write_text('private output')
+    result, code = assets.verify(root)
+    assert code == 1 and expected in error_codes(result)
+    assert 'private output' not in json.dumps(result)
+
+
+@pytest.mark.parametrize('change,expected', [
+    ('duplicate', 'duplicate_asset'), ('incomplete', 'incomplete_model_inventory'),
+    ('identity', 'model_fingerprint_mismatch'), ('invalid_group', 'invalid_asset_entry'),
+    ('bool_size', 'invalid_asset_entry'), ('schema', 'invalid_manifest'),
+])
+def test_invalid_manifest(inventory, change, expected):
+    root, data = inventory
+    if change == 'duplicate':
+        data['assets'].append(copy.deepcopy(data['assets'][0]))
+    elif change == 'incomplete':
+        data['assets'].pop()
+    elif change == 'identity':
+        data['models']['e5']['files_sha256'] = '0' * 64
+    elif change == 'invalid_group':
+        data['assets'][0]['group'] = 'unknown'
+    elif change == 'bool_size':
+        data['assets'][0]['size_bytes'] = True
+    else:
+        data['schema_version'] = True
+    write_manifest(root, data)
+    result, code = assets.verify(root)
+    assert code == 2 and error_codes(result) == {expected}
+
+
+@pytest.mark.parametrize('path', ['/etc/file', 'C:/secret', '../secret', 'models/../secret',
+                                  'models\\secret', 'models//file', 'models/name:stream'])
+def test_reject_paths_before_reading(inventory, path):
+    root, data = inventory
+    data['assets'][0]['path'] = path
+    write_manifest(root, data)
+    result, code = assets.verify(root)
+    assert code == 2 and error_codes(result) == {'invalid_asset_entry'}
+
+
+def test_link_is_rejected_without_reading_target(inventory, monkeypatch):
+    root, data = inventory
+    original = Path.lstat
+    target = root / data['assets'][0]['path']
+    class Reparse:
+        st_mode = 0
+        st_file_attributes = 0x400
+    def lstat(path, *args, **kwargs):
+        return Reparse() if path == target else original(path, *args, **kwargs)
+    monkeypatch.setattr(Path, 'lstat', lstat)
+    result, code = assets.verify(root)
+    assert code == 1 and 'linked_path' in error_codes(result)
+
+
+def test_bad_json_and_duplicate_keys_are_content_safe(inventory):
+    root, _ = inventory
+    for raw, expected in [('PRIVATE_INVALID_JSON', 'invalid_manifest'),
+                          ('{"schema_version":1,"schema_version":2}', 'duplicate_json_key')]:
+        (root / assets.MANIFEST).write_text(raw)
+        result, code = assets.verify(root)
+        assert code == 2 and error_codes(result) == {expected}
+        assert 'PRIVATE_INVALID_JSON' not in json.dumps(result)
+
+
+def test_tracked_policy_and_optional_artifact_pair(inventory):
+    root, data = inventory
+    # An ignored root-level cache is harmless until somebody force-adds it.
+    (root / '.gitignore').write_text('models/.cache/\n')
+    cache = root / 'models/.cache/download.metadata'
+    cache.parent.mkdir()
+    cache.write_text('fictional cache')
+    assert assets.verify(root)[1] == 0
+    git(root, 'add', '-f', 'models/.cache/download.metadata')
+    assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
+    git(root, 'rm', '--cached', 'models/.cache/download.metadata')
+    parent = root / 'artifacts/rerank/v1'
+    parent.mkdir(parents=True)
+    for name in ('relevance-profile.json', 'manifest.json'):
+        path = parent / name
+        raw = b'{"fictional": true}\n'
+        path.write_bytes(raw)
+        git(root, 'add', path.relative_to(root).as_posix())
+        assert 'tracked_asset_not_in_manifest' in error_codes(assets.verify(root)[0])
+        data['assets'].append({'path': path.relative_to(root).as_posix(), 'size_bytes': len(raw),
+                              'sha256': hashlib.sha256(raw).hexdigest(), 'group': 'rerank'})
+    write_manifest(root, data)
+    assert assets.verify(root)[1] == 0  # Integrity only, not acceptance validation.
+    data['assets'].pop()
+    write_manifest(root, data)
+    assert error_codes(assets.verify(root)[0]) == {'artifact_provenance_missing'}
+
+
+def test_git_failure_is_an_operational_error(inventory):
+    root, _ = inventory
+    # Point Git elsewhere without touching this fixture's Git directory.
+    from unittest.mock import patch
+    with patch.object(assets, 'git_files', side_effect=assets.InventoryError('git_inventory_unavailable')):
+        result, code = assets.verify(root)
+    assert code == 2 and error_codes(result) == {'git_inventory_unavailable'}
+
+
+def test_real_allowlist_attributes_and_lfs_checkout(inventory):
+    root, _ = inventory
+    for name in ('.gitignore', '.gitattributes'):
+        (root / name).write_bytes((assets.ROOT / name).read_bytes())
+    paths = [E5 + '/' + name for name in assets.E5_FILES] + ['models/' + name for name in assets.RERANK_FILES]
+    paths += [assets.MANIFEST, 'artifacts/rerank/v1/relevance-profile.json',
+              'artifacts/rerank/v1/manifest.json', 'artifacts/semantics/v1/lexicon.json',
+              'artifacts/semantics/v1/manifest.json', 'artifacts/intent/v1/accepted-artifact.json',
+              'artifacts/intent/v1/manifest.json']
+    for path in paths:
+        result = git(root, 'check-ignore', '--no-index', path, check=False)
+        assert result.returncode == 1, (path, result.stdout, result.stderr)
+        values = git(root, 'check-attr', '-z', 'filter', 'text', 'ident', 'working-tree-encoding', '--', path).stdout.decode().split('\0')
+        attrs = {values[i + 1]: values[i + 2] for i in range(0, len(values) - 1, 3)}
+        assert attrs['text'] == attrs['ident'] == attrs['working-tree-encoding'] == 'unset'
+        large = path.startswith('models/') and (path.endswith(('.safetensors', '.onnx', '.model', '/tokenizer.json')))
+        assert attrs['filter'] == ('lfs' if large else 'unset')
+    for path in ['.env', '.tmp/report.json', 'env/config', 'models/.cache/tokenizer.json.metadata',
+                 'models/other.onnx', E5 + '/receipt.json', E5 + '/1_Pooling/extra.json',
+                 'artifacts/storage-preparation-20261114/verification.json',
+                 'artifacts/rerank/v1/report.json', 'artifacts/intent/v1/candidate.json',
+                 'artifacts/rerank/v1/nested/relevance-profile.json']:
+        assert git(root, 'check-ignore', '--no-index', path, check=False).returncode == 0, path
+    # Stage and re-checkout tiny fictional files through real LFS and autocrlf.
+    git(root, 'lfs', 'install', '--local', '--skip-smudge')
+    git(root, 'config', 'core.autocrlf', 'true')
+    before = {path: (root / path).read_bytes() for path in paths[:16]}
+    git(root, 'add', '.gitattributes', '.gitignore', 'models', assets.MANIFEST)
+    pointer = git(root, 'show', ':models/model_quint8_avx2.onnx').stdout
+    assert pointer.startswith(b'version https://git-lfs.github.com/spec/v1\n')
+    git(root, '-c', 'user.name=Asset fixture', '-c', 'user.email=fixture@example.invalid',
+        '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=.git/no-hooks',
+        'commit', '-m', 'Fictional runtime assets')
+    for path in before:
+        (root / path).unlink()
+    git(root, 'checkout-index', '-a', '-f')
+    assert 'lfs_pointer_not_hydrated' in error_codes(assets.verify(root)[0])
+    git(root, 'lfs', 'checkout')
+    assert {path: (root / path).read_bytes() for path in before} == before
+    assert assets.verify(root)[1] == 0
+    clone = root.parent / 'asset-clone'
+    git(root, 'clone', '--no-checkout', '--no-hardlinks', '.', '../asset-clone')
+    git(clone, 'lfs', 'install', '--local', '--skip-smudge')
+    git(clone, 'config', 'core.autocrlf', 'true')
+    git(clone, 'checkout', '-f', 'HEAD')
+    assert 'lfs_pointer_not_hydrated' in error_codes(assets.verify(clone)[0])
+    git(clone, 'lfs', 'pull')  # Local fixture remote only; no external network.
+    assert {path: (clone / path).read_bytes() for path in before} == before
+    assert assets.verify(clone)[1] == 0
+
+
+def test_committed_inventory_matches_runtime_pins_without_loading_models():
+    from src.retrieval.reranking import ARTIFACTS, MODEL_ID, MODEL_REVISION
+    data = assets.load_manifest(assets.ROOT, assets.MANIFEST)
+    model = data['models']['reranker']
+    assert (model['id'], model['revision']) == (MODEL_ID, MODEL_REVISION)
+    assert {e['path'].removeprefix('models/'): e['sha256'] for e in data['assets']
+            if e['group'] == 'reranker'} == ARTIFACTS

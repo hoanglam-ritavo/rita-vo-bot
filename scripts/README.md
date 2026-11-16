@@ -9,6 +9,7 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | File | Status / role | Purpose |
 | --- | --- | --- |
 | `try_retrieval.py` | Current manual utility | Run the public retrieval contract from an IDE and display Vietnamese source excerpts/timings. |
+| `verify_runtime_assets.py` | Current read-only release utility | Verify selected local model/artifact bytes, hydrated LFS files, the E5 tree and tracked Git paths against the runtime inventory. |
 | `evaluate_retrieval.py` | Current offline evaluator | Evaluate one published package against pinned source-reviewed cases. |
 | `benchmark_online_retrieval.py` | Current offline benchmark | Inspect offline candidates, calibrate per-passage relevance and measure quality/latency gates. |
 | `benchmark_semantic_retrieval.py` | Current offline benchmark | Compare baseline/semantics/optional intent assistance across corpus-wide cross-document evidence cases. |
@@ -28,6 +29,8 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | `migrate_indexing_chunks.py`, `migrate_indexing_workspace.py` | Retired entrypoints | Return replacement guidance, without performing migrations. |
 
 ## Manual retrieval
+
+For asset verification before retrieval, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets`. Optional `--manifest <repository-relative-path>` selects another inventory. The utility uses only standard-library Python and local Git, without reading `.env`, loading models, accessing a database, downloading or writing files. Use `python -B` to also suppress Python's normal ignored bytecode-cache writes. Exit codes: `0` integrity/policy passed, `1` asset mismatch, `2` invalid manifest or operational failure. JSON output contains paths, fixed error codes and counts. This is not calibration acceptance or live database/remote LFS verification. See [checkout and promotion](../docs/runtime-artifacts.md#git-lfs-checkout-and-verification).
 
 Edit `QUESTION`, `TOP_K`, `MODEL_PATH`, `MODEL_REVISION` in `try_retrieval.py`, keeping UTF-8 encoding, then run `python -m scripts.try_retrieval` or execute the file in the IDE. Direct execution works from other working directories without changing them. Its configured local model directory must actually be provisioned.
 
@@ -51,6 +54,8 @@ All commands below require explicitly provisioned local dependencies/models for 
 | `python -m scripts.diagnose_retrieval --manifest .tmp/evaluation/manifest.json --collection .tmp/evaluation/benchmark.json --output .tmp/evaluation/new-diagnostic [--reference .tmp/evaluation/historical-report.json]` | Reads saved collection, pinned cases and current local package sources. Writes `diagnostic.json` and private `source-review.json` in a new directory under `.tmp/`; refuses existing destinations. No model inference, database access, label changes or profile output. A reference cutoff is diagnostic only and requires matching model/corpus fingerprints. | `0` diagnostic written (not acceptance), `2` invalid inputs or operational failure. |
 | `python -m scripts.benchmark_intent --dataset .tmp/intent/cases.json --candidate .tmp/intent/candidate.json --training-report .tmp/intent/report.json --model-path <local-model> --model-revision <40-hex> --output-prefix .tmp/intent/bench --rerank --rerank-profile .tmp/evaluation/profile.json [--requests 200]` | Requires reviewed data, candidate/report identity and calibrated retrieval. Reads DB; requires at least 200 requests. Writes `-benchmark.json` and gated `-accepted.json` outputs. Does not change runtime configuration. | `0` accepted, `1` rejected, `2` failure/usage error. |
 | `python -m scripts.train_intent --dataset .tmp/intent/cases.json --model-path <local-model> --model-revision <40-hex> --output-prefix .tmp/intent/run [--rerank-preprocessing]` | No DB. Uses shared dataset/training code and writes new `-report.json` / `-candidate.json` artifacts. Candidate is not runtime acceptance. | `0` quality gates pass, `1` quality gates fail, `2` failure/usage error. |
+
+Evaluation/benchmark readers sharing `scripts.evaluate_retrieval.database_state` compare current revision metadata/access/relations, canonical runtime-content/model identity and actual stored chunks/vectors/evidence. Original publication byte hashes may differ after formatting or explicit metadata-only updates; legacy and version-1 fingerprints remain readable without rewriting historical run configuration. Package/model bytes must still remain unchanged during each evaluation. See [publication compatibility](../docs/offline-indexing.md#publication-and-consistency).
 
 See [retrieval cases and reporting limitations](../docs/retrieval-evaluation.md), [calibration and rollout gates](../docs/online-reranking.md), and [intent preparation/acceptance](../docs/intent-classifier.md). Candidate inspection is offline-only; the public CLI/HTTP has no bypass for passage filtering.
 

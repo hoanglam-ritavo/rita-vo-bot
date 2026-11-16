@@ -57,7 +57,7 @@ def test_cases_pin_metadata_revision_and_chunk_bytes(tmp_path):
         evaluation.load_cases(path, record, payload)
 
 
-@pytest.mark.parametrize('changed', ['package_sha256', 'model_files_sha256', 'content_hash'])
+@pytest.mark.parametrize('changed', ['model_files_sha256', 'content_hash'])
 def test_active_run_fingerprint_drift_rejected(changed):
     expected = {'model_name': 'synthetic', 'model_revision': 'a' * 40,
                 'package_sha256': 'package', 'model_files_sha256': 'model', 'content_hash': 'content'}
@@ -67,6 +67,16 @@ def test_active_run_fingerprint_drift_rejected(changed):
     run.configuration[changed] = 'old'
     with pytest.raises(ValueError, match='active_run_mismatch'):
         evaluation.check_run(run, expected, 2)
+
+
+def test_snapshot_byte_hashes_are_not_current_runtime_identity():
+    expected = {'model_name': 'synthetic', 'model_revision': 'a' * 40,
+                'package_sha256': 'new-package', 'metadata_sha256': 'new-metadata',
+                'model_files_sha256': 'model', 'content_hash': 'content'}
+    old = dict(expected, package_sha256='original-package', metadata_sha256='original-metadata')
+    run = SimpleNamespace(is_active=True, status='succeeded', chunk_count=2, embedding_dimensions=384,
+                          model_name='synthetic', model_revision='a' * 40, configuration=old)
+    evaluation.check_run(run, expected, 2)
 
 
 def test_output_must_resolve_below_tmp(tmp_path, monkeypatch):

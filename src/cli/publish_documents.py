@@ -1,4 +1,4 @@
-"""Embed and publish agent-authored v2 JSON packages; never parse original documents."""
+"""Publish v2/v3 JSON packages, reusing compatible vectors; never parse original documents."""
 import argparse
 from collections import Counter
 from pathlib import Path
@@ -16,10 +16,13 @@ def main(argv=None):
     selection.add_argument('--all', action='store_true')
     cli.add_argument('--model-revision', type=model_commit, required=True)
     cli.add_argument('--model-path', type=Path, required=True)
-    cli.add_argument('--update-metadata', action='store_true')
+    cli.add_argument('--update-metadata', action='store_true',
+                     help='Allow supported metadata updates; unchanged publication keeps its run/chunks.')
     cli.add_argument('--json', action='store_true')
-    cli.add_argument('--dry-run', action='store_true')
-    cli.add_argument('--force', action='store_true')
+    cli.add_argument('--dry-run', action='store_true',
+                     help='Report the database-aware plan without tokenizing, encoding or writing.')
+    cli.add_argument('--force', action='store_true',
+                     help='Create another run and encode every chunk; metadata checks still apply.')
     import sys
     raw = list(sys.argv[1:] if argv is None else argv)
     if any(a.split('=')[0] == '--approved' for a in raw):

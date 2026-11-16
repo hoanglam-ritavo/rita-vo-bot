@@ -23,6 +23,8 @@ Use `python -m scripts.evaluate_retrieval` with pinned package/cases/model and a
 
 Synthetic tests validate contracts, lifecycle and provenance handling, not real-model semantic quality. PostgreSQL integration tests require a separate disposable `TEST_DATABASE_URL` and are distinct from these read-only application-database checks. Missing prerequisites or skipped checks are not successful validation.
 
+Publication history retains original package/metadata byte hashes. Shared evaluation readers allow formatting changes and explicit metadata-only updates when current metadata/access/relations, canonical content/provenance/model identity and actual stored chunks/vectors/structured evidence match. They do not rewrite old runs or silently accept content drift. Input package/model bytes remain pinned for the duration of evaluation. See [publication compatibility](offline-indexing.md#publication-and-consistency).
+
 ## Online reranking evaluation
 
 Use the same model/pipeline settings for API, CLI and evaluator. `--rerank` enables pinned local ONNX scoring; `--rerank-candidates`, `--rerank-batch-size`, `--rerank-model-path` and `--rerank-profile` mirror API configuration. The evaluator records filtered match ranks, final logits, relevance and rerank time. See [the online gate](online-reranking.md#evaluation-and-rollout) for the minimum 100-question source-reviewed dataset, independent calibration/holdout/regression intent groups, labels for every retrieved candidate and at least 100 warmed CPU requests. Historical 40-case top-1 experiments do not meet that gate. Keep original cases and baseline reports; never tune on holdout outcomes.
