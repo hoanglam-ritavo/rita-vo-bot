@@ -109,4 +109,5 @@ class AnswerResponse(StrictModel):
     sources: list[AnswerSource]
     limitations: list[str]
     fallback_reason: str | None
+    relevance: Relevance
     timings: AnswerTimings

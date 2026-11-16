@@ -1,4 +1,4 @@
-"""Gated answer lifecycle; retrieval keeps working if answer prerequisites fail."""
+"""Answer lifecycle with separate calibrated and explicit unfiltered branches."""
 import asyncio
 import logging
 import time
@@ -37,12 +37,14 @@ class AnswerService:
         if not config.enabled:
             return
         try:
-            if (not self.settings.relevance_filter_enabled or not self.settings.rerank.enabled
+            filtered = self.settings.relevance_filter_enabled
+            if filtered and (not self.settings.rerank.enabled
                     or config.report_path is None or config.review_path is None):
                 raise ValueError('answer_prerequisites_missing')
             self.runtime = LocalRuntime(config.model_path, config.model_sha256)
-            self.corpus = load_acceptance(config.report_path, config.review_path, self.settings,
-                                          await asyncio.to_thread(self.runtime.verify_files))
+            identity = await asyncio.to_thread(self.runtime.verify_files)
+            self.corpus = (load_acceptance(config.report_path, config.review_path, self.settings, identity)
+                           if filtered else None)
             await self.runtime.start()
             await self.runtime.warmup()
             self.available = True
@@ -70,7 +72,8 @@ class AnswerService:
         try:
             async with asyncio.timeout(DEADLINE_SECONDS):
                 row = await evaluate_question(text, self.owner.retrieval, self.runtime,
-                                              top_k=top_k, expected_corpus=self.corpus)
+                    top_k=top_k, expected_corpus=self.corpus,
+                    allow_unassessed=not self.settings.relevance_filter_enabled)
             claims, sources, limitations = [], [], [EMPTY]
             if row['accepted']:
                 draft = Draft.model_validate(row['draft'])
@@ -82,6 +85,7 @@ class AnswerService:
                 c.source_id for c in claim.citations)) for claim in claims]
             response = AnswerResponse(status=row['status'], answer='\n\n'.join(lines + limitations),
                 claims=claims, sources=sources, limitations=limitations, fallback_reason=row['reason'],
+                relevance=row['relevance'],
                 timings=AnswerTimings(retrieval_seconds=row['retrieval_seconds'],
                     generation_seconds=row['generation_seconds'], verification_seconds=row['verification_seconds'],
                     total_seconds=time.perf_counter() - started))

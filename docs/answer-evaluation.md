@@ -1,8 +1,10 @@
 # Grounded answer evaluation and gated local API
 
 The separate `/api/v1/answer` endpoint is implemented but **disabled by default**.
-Its rollout requires the offline study below and actual user acceptance against
-the exact Qwen3.5-0.8B Q5_K_M model, runtime, code and retrieval configuration.
+The filtered branch requires the offline study below and actual user acceptance
+against the exact Qwen3.5-0.8B Q5_K_M model/runtime/code/retrieval configuration.
+The explicitly unfiltered branch can run without a profile or study, retaining
+unassessed relevance metadata, technical model checks, source validation and verifier.
 Public HTTP/CLI retrieval remains excerpt-only. Backend/portal integration and
 conversation history are outside this implementation.
 
@@ -67,7 +69,9 @@ The model's own GGUF tokenizer/chat template is rendered once with
 `enable_thinking=false` in a sandbox. Counting and inference use the same token
 IDs; the root `models` tokenizer files belong to the reranker and are not used
 for Qwen. A JSON grammar constrains each completion, followed by strict schema,
-quote and model-verdict validation. Model state is reset between calls.
+quote and model-verdict validation. The native grammar adapter omits string
+`maxLength` to avoid the binding converter's excessive recursion at 2,000 characters;
+Pydantic still enforces the original length limits before a draft can be published. Model state is reset between calls.
 
 Runtime identity binds the binding version, Python/ABI, Jinja/NumPy versions,
 binding source/native-library hashes, template hash and model hash. An explicit
@@ -207,8 +211,9 @@ run uses 0 for completed-but-unreviewed, 1 for blocked prerequisites and 2 for
 execution/input failures; assess uses 0 only when every gate passes, 1 when a
 gate fails and 2 for invalid/incomplete review. No command adds or enables an API.
 
-Only after the experiment and user acceptance pass may the implemented local
-`/api/v1/answer` be enabled. Authenticated `/chat-bot/answer`, progress SSE and
+Only after the experiment and user acceptance pass may filtered
+`/api/v1/answer` be enabled. Explicit unfiltered trials are the separate exception
+below; they do not produce official acceptance evidence. Authenticated `/chat-bot/answer`, progress SSE and
 portal integration remain separate future work. Preserve retrieval independently.
 
 ## Local answer API
@@ -216,28 +221,61 @@ portal integration remain separate future work. Preserve retrieval independently
 Run the existing `python -m src.cli.serve_api`. With no answer settings, retrieval
 starts normally and `POST /api/v1/answer` returns 503 `answer_unavailable`.
 Copy the documented names from [the environment example](../.env.example);
-this implementation does not edit the application's `.env` or restart services.
+application entrypoints do not edit `.env` or restart an existing service.
+Settings are read at startup; apply changes through an explicit service restart.
 
-After a successful Q5 study and real manual acceptance, configure:
+For filtered answering after a successful Q5 study and real manual acceptance, configure:
 
 ```dotenv
 ANSWER_ENABLED=true
+RELEVANCE_FILTER_ENABLED=true
 ANSWER_MODEL_PATH=models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf
 ANSWER_MODEL_SHA256=<verified-model-sha256>
 ANSWER_REPORT_PATH=.tmp/answer-study/run-01/report.json
 ANSWER_REVIEW_PATH=.tmp/answer-study/review.json
 ```
 
-These are placeholders, not supplied acceptance artifacts. Keep the report,
-review and report-adjacent `samples.private.json` local and private. Startup
+This filtered configuration also requires enabled reranking and a compatible
+relevance profile; see [relevance setup](online-reranking.md#local-model-and-configuration).
+These are placeholders, not supplied acceptance artifacts. In this filtered branch, keep the report,
+review and report-adjacent `samples.private.json` local and private. Filtered startup
 recomputes all manual gates and checks their hashes, report schema v3,
 model/native-binding identity, implementation hash, retrieval settings/artifact hashes,
 and the measured configuration. A standalone `integration_ready=true` flag is
 insufficient. Any code/model/pipeline change invalidates the study; each request
 also checks the corpus fingerprint. Never set acceptance on the user's behalf.
 Report schema v1/v2, server-runtime reports and Q4/4B study artifacts cannot
-authorize this release. Retired `ANSWER_PORT`, `ANSWER_RUNTIME_PATH` and
+authorize filtered answering. Retired `ANSWER_PORT`, `ANSWER_RUNTIME_PATH` and
 `ANSWER_RUNTIME_SHA256` environment settings are ignored without editing `.env`.
+
+### Explicit unfiltered answering
+
+To generate from top-K without calibrated threshold filtering:
+
+```dotenv
+ANSWER_ENABLED=true
+RELEVANCE_FILTER_ENABLED=false
+ANSWER_MODEL_PATH=models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf
+ANSWER_MODEL_SHA256=<verified-model-sha256>
+```
+
+This branch ignores answer report/review paths, including missing or stale files,
+and does not require a relevance profile. The model hash, metadata, pinned binding
+and warm-up remain mandatory. `RERANK_ENABLED=true` reranks candidates; false
+uses vector order. Access/eligibility/effective-date checks and top-K bounds
+remain enforced. There is no request-level bypass flag or automatic mode switch.
+
+The pipeline's internal unassessed permission defaults to false; only the HTTP
+answer service derives it from server configuration. Candidates must carry
+`relevance.status=unassessed` plus `relevance_filter_disabled`; empty outcomes use
+`no_candidates` plus that warning. Missing/contradictory metadata is rejected
+before model inference. Sources are still consolidated and checked against the
+question, with one draft and at most one verifier call. No answer is forced.
+
+Official `scripts.evaluate_answers` remains filtered-only and rejects this
+configuration before generation. Trials do not satisfy calibration/60-case
+acceptance, cannot mark themselves user-accepted, and cannot issue an accepted
+profile. Existing filtered reports are not rewritten to fit changed code.
 
 `POST /api/v1/answer` accepts `{"text":"Fictional policy question?","top_k":5}`.
 Validation matches retrieval (trimmed nonempty text, at most 8,000 characters
@@ -256,17 +294,22 @@ The response includes:
   (chunk/document/revision/run IDs, relative path and source spans). Exact duplicate
   excerpts consolidate only with identical title and applicability/version/dates;
   all corresponding origins remain. Source content is not repeated in metadata.
+- `relevance`: server-owned retrieval status/warnings, preserved even after a
+  verifier pass or rejected draft. Unfiltered candidates remain `unassessed` with
+  `relevance_filter_disabled`; all HTTP 200 answer responses retain `evidence_completeness_not_assessed`.
+  This additive field does not change the existing request or status/error codes.
 - `limitations`, nullable `fallback_reason`, and retrieval/generation/verification/
   total seconds in `timings`. No confidence, chain-of-thought or failed draft.
 
 Valid empty/partial/clarification outcomes return HTTP 200. Empty accepted evidence
 skips inference. Citation/schema or verifier rejection returns a fixed insufficient-
-evidence response without the rejected text. Missing/stale calibration, changed
-corpus, disabled/unaccepted model, context overflow or runtime failure returns
+evidence response without the rejected text. Missing/stale calibration or report-bound corpus changes in the filtered branch,
+disabled/unavailable model, context overflow or runtime failure returns
 503; invalid input returns 422; concurrent answer/retrieval returns 429; deadline
 expiry returns 504. There is no automatic inference retry or repair loop.
 
-The answer model is loaded once after acceptance checks, warmed with fictional
+The answer model is loaded once after technical checks (and filtered acceptance
+checks when applicable), warmed with fictional
 input, and owned by one executor thread. Tokenization, grammar, inference,
 reset and release run on that same thread; the event loop stays responsive.
 Thinking prefixes, reasoning-bearing text and incomplete output are rejected.
@@ -276,7 +319,8 @@ Timeout/disconnect uses a thread-safe cancellation flag, token stopping criteria
 and the CPU native abort callback. The busy slot remains held through repeated
 coroutine cancellation until native work exits. The context is never freed or
 reused concurrently with decode. After timeout/uncertain inference failure,
-answering stays unavailable until restart; restart revalidates acceptance.
+answering stays unavailable until restart; restart revalidates technical checks
+and the configured branch's prerequisites.
 
 A 30-second deadline requests cancellation; cleanup and HTTP 504/shutdown may
 exceed it. An in-process native thread cannot be force-killed safely. If native

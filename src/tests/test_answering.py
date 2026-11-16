@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import struct
 from types import SimpleNamespace
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, Mock
 
 from fastapi.testclient import TestClient
 import pytest
@@ -113,6 +113,7 @@ def test_http_answer_serialized_sources_and_request_defaults(top_k):
         assert not {'draft', 'verdict', 'confidence', 'reasoning'} & body.keys()
         service.retrieval.retrieve.assert_awaited_once_with('Fictional question?', top_k=top_k or 5)
         assert 'timings' in body
+        assert body['relevance'] == evidence()['relevance']
 
 
 @pytest.mark.parametrize('body', [{'text': ''}, {'text': 'Question', 'top_k': 21},
@@ -338,6 +339,115 @@ def test_http_disconnect_cancels_inference_and_drains_owned_runtime():
             await asyncio.wait_for(app(scope, receive, AsyncMock()), timeout=2)
         service.answers.runtime.close.assert_awaited_once()
         assert not service.answers.available and not service.busy
+    asyncio.run(run())
+
+
+def unassessed(*, empty=False):
+    return evidence(status='no_matches' if empty else 'matches_found', matches=[] if empty else [match()],
+        fallback_reason='no_candidates' if empty else None,
+        relevance={'status': 'no_candidates' if empty else 'unassessed',
+                   'warnings': ['evidence_completeness_not_assessed', 'relevance_filter_disabled']})
+
+
+@pytest.mark.parametrize('answer_enabled,filter_enabled,rerank_enabled', [
+    (False, True, True), (False, False, False), (False, False, True),
+    (True, False, False), (True, False, True), (True, True, True), (True, True, False)])
+def test_answer_flag_matrix_without_acceptance(monkeypatch, answer_enabled, filter_enabled, rerank_enabled):
+    from src.retrieval.reranking import RerankSettings
+    service = owner()
+    service.settings = replace(service.settings, relevance_filter_enabled=filter_enabled,
+        rerank=RerankSettings(enabled=rerank_enabled),
+        answer=AnswerSettings(enabled=answer_enabled, model_sha256='fictional',
+                              report_path=Path('missing-report'), review_path=Path('missing-review')))
+    service.answers.settings = service.settings
+    runtime = SimpleNamespace(verify_files=Mock(return_value={'model': 'fictional'}),
+        start=AsyncMock(), warmup=AsyncMock(), close=AsyncMock(),
+        complete=AsyncMock(side_effect=[(draft(), {}), (verdict(), {})]))
+    factory = Mock(return_value=runtime)
+    acceptance = Mock(side_effect=ValueError('not accepted'))
+    monkeypatch.setattr(answer_module, 'LocalRuntime', factory)
+    monkeypatch.setattr(answer_module, 'load_acceptance', acceptance)
+    service.retrieval.retrieve.return_value = evidence() if filter_enabled else unassessed()
+    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
+        response = client.post('/api/v1/answer', json={'text': 'Fictional question?', 'top_k': 5})
+        active = answer_enabled and not filter_enabled
+        assert response.status_code == (200 if active else 503)
+        if active:
+            body = response.json()
+            assert body['status'] == 'answered'
+            assert body['relevance'] == unassessed()['relevance']
+            assert service.answers.corpus is None
+            runtime.verify_files.assert_called_once()
+            runtime.start.assert_awaited_once()
+            runtime.warmup.assert_awaited_once()
+            assert runtime.complete.await_count == 2
+        if not filter_enabled:
+            acceptance.assert_not_called()  # Even configured bad reports are ignored, not read.
+        if not answer_enabled:
+            factory.assert_not_called()
+        assert client.post('/api/v1/retrieve', json={'text': 'Other question'}).status_code == 200
+
+
+@pytest.mark.parametrize('failure', ['hash', 'load', 'warmup'])
+def test_unfiltered_startup_still_requires_technical_checks(monkeypatch, failure):
+    service = owner()
+    service.settings = replace(service.settings, relevance_filter_enabled=False,
+                               answer=AnswerSettings(enabled=True))
+    service.answers.settings = service.settings
+    runtime = SimpleNamespace(verify_files=Mock(return_value={}), start=AsyncMock(),
+                              warmup=AsyncMock(), close=AsyncMock())
+    target = {'hash': runtime.verify_files, 'load': runtime.start, 'warmup': runtime.warmup}[failure]
+    target.side_effect = ValueError('PRIVATE technical failure')
+    monkeypatch.setattr(answer_module, 'LocalRuntime', lambda *args: runtime)
+    acceptance = Mock(side_effect=AssertionError('must not read a report'))
+    monkeypatch.setattr(answer_module, 'load_acceptance', acceptance)
+    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
+        assert client.post('/api/v1/answer', json={'text': 'Question'}).status_code == 503
+        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 200
+    acceptance.assert_not_called()
+
+
+@pytest.mark.parametrize('outcome', ['empty', 'bad_citation', 'verifier_rejects', 'clarification'])
+def test_unfiltered_outcomes_preserve_relevance_without_unchecked_text(monkeypatch, outcome):
+    async def run():
+        service = owner()
+        service.settings = replace(service.settings, relevance_filter_enabled=False)
+        service.answers.settings = service.settings
+        value, check = draft(), verdict()
+        if outcome == 'bad_citation':
+            value['claims'][0]['citations'][0]['quote'] = 'PRIVATE fabricated'
+        elif outcome == 'verifier_rejects':
+            check['no_unresolved_conflict'] = False
+        elif outcome == 'clarification':
+            value = draft(status='needs_clarification', claims=[], limitations=['Which policy?'])
+            check = verdict(checks=[])
+        enable(service, SimpleNamespace(complete=AsyncMock(side_effect=[(value, {}), (check, {})]), close=AsyncMock()))
+        service.answers.corpus = None
+        raw = unassessed(empty=outcome == 'empty')
+        service.retrieval.retrieve.return_value = raw
+        result = await service.answers.answer('Question', 5)
+        assert result.relevance.model_dump() == raw['relevance']
+        assert result.claims == result.sources == []
+        assert 'PRIVATE' not in result.model_dump_json()
+        assert result.status == ('needs_clarification' if outcome == 'clarification' else 'insufficient_evidence')
+        if outcome == 'empty':
+            service.answers.runtime.complete.assert_not_awaited()
+    asyncio.run(run())
+
+
+@pytest.mark.parametrize('metadata', [None, {}, {'status': 'unassessed', 'warnings': []},
+    {'status': 'relevant_candidates', 'warnings': ['relevance_filter_disabled']},
+    {'status': 'unassessed', 'warnings': 'relevance_filter_disabled'},
+    {'status': [], 'warnings': ['relevance_filter_disabled']}])
+def test_unfiltered_mode_rejects_missing_or_contradictory_metadata(metadata):
+    async def run():
+        runtime = SimpleNamespace(complete=AsyncMock())
+        result = unassessed()
+        result['relevance'] = metadata
+        retrieval = SimpleNamespace(retrieve=AsyncMock(return_value=result))
+        with pytest.raises(ValueError, match='relevance_unavailable'):
+            await evaluate_question('Question', retrieval, runtime, allow_unassessed=True)
+        runtime.complete.assert_not_awaited()
     asyncio.run(run())
 
 

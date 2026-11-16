@@ -9,7 +9,8 @@ import pytest
 
 from src.answering.config import from_environment
 from src.answering.identity import BINDING_VERSION
-from src.answering.runtime import LocalRuntime
+from src.answering.runtime import LocalRuntime, grammar_schema
+from src.answering.contracts import Draft, validate_draft
 import src.answering.runtime as runtime_module
 
 
@@ -187,3 +188,17 @@ def test_retired_server_environment_is_ignored():
                                'ANSWER_RUNTIME_SHA256': 'old', 'ANSWER_ENABLED': 'false'})
     assert config.enabled is False
     assert not hasattr(config, 'port') and not hasattr(config, 'runtime_path')
+
+
+def test_large_string_limits_remain_in_validation_without_recursive_native_grammar():
+    schema = Draft.model_json_schema()
+    compiled = grammar_schema(schema)
+    original = schema['$defs']['Claim']['properties']['text']
+    assert original['maxLength'] == 2000
+    assert 'maxLength' not in compiled['$defs']['Claim']['properties']['text']
+    assert compiled['$defs']['Claim']['properties']['text']['minLength'] == 1
+    assert compiled['properties']['claims']['maxItems'] == 12
+    raw = {'status': 'answered', 'claims': [{'text': 'x' * 2001,
+        'citations': [{'source_id': 'S1', 'quote': 'fictional'}]}], 'limitations': []}
+    with pytest.raises(ValueError):
+        validate_draft(raw, {'S1': {'content': 'fictional'}})

@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and health-only gRPC. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in grounded answer API is implemented but disabled until the Qwen3.5-0.8B Q5_K_M study passes manual review and user acceptance. Business RPCs, authenticated Type B tools and conversation history remain planned.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and health-only gRPC. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in grounded answer API supports reviewed filtered answering and explicitly unfiltered trials with Qwen3.5-0.8B Q5_K_M; trials retain unassessed relevance metadata and do not establish acceptance. Business RPCs, authenticated Type B tools and conversation history remain planned.
 
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
@@ -23,6 +23,61 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### Explicit unfiltered answering - 2026-11-16
+
+Working tree based on clean `900b00a`. The user-authorized combination
+`ANSWER_ENABLED=true` / `RELEVANCE_FILTER_ENABLED=false` now permits native
+answer generation without a relevance profile or answer report/review. Reranking
+remains independent. The filtered branch retains its existing acceptance and
+corpus checks; official offline evaluation still rejects unassessed candidates.
+Normal answer responses add server-owned `relevance` metadata and retain
+`unassessed`, `relevance_filter_disabled` and completeness warnings even after
+successful verification. See [the unfiltered contract](docs/answer-evaluation.md#explicit-unfiltered-answering).
+
+Local `.env` was prepared only for the four approved answer/model/filter keys,
+with the actual Q5 SHA-256; all unrelated parsed values were checked unchanged.
+No credentials were copied to reports, and model bytes were unchanged. Existing
+services were not restarted. New configuration/code requires an explicit restart
+to affect a previously running API.
+
+Post-edit focused regression: **175 passed**. Full non-integration suite:
+**959 passed, 1 skipped, 51 deselected**, with the existing Starlette/AnyIO
+warning. `pip check`, changed-document links/anchors and diff whitespace checks
+passed. Tests cover the flag matrix, skipped report IO, technical startup checks,
+metadata preservation/rejection, empty and rejected drafts, unchanged official
+evaluation strictness and native grammar/length validation.
+
+Real checks used the existing database read-only and the local Q5 through an
+in-process ASGI transport, without opening a listener or restarting the user's
+service. They exposed a pre-existing native grammar conversion failure: string
+`maxLength=2000` expanded beyond the parser recursion limit. The grammar adapter
+now omits only string maximum lengths; strict Pydantic limits remain unchanged.
+Both actual Draft and Verdict grammars compiled after the fix.
+
+The three previously discussed questions were then checked with independent
+application lifecycles. **All three returned HTTP 504** at roughly 30.21-30.26
+seconds. Retrieval took about 2.47-6.70 seconds; the first inference consumed the
+remaining 23.35-27.60 seconds, before a verifier call. This proves the request
+reached inference rather than being blocked by absent calibration/report, but
+it does **not** establish usable answer latency or policy-answer quality.
+Timeout still closes the runtime and disables answering until restart; the
+30-second deadline and verifier were not weakened. Performance remains an
+operational limitation requiring separate work.
+
+Private receipts are under `.tmp/unfiltered-answer-20261116/`: the initial
+native-grammar failure and subsequent sequential timeout run were preserved;
+`three-question.private-03.json` contains the independent-case timings/responses.
+These are exposed regression trials, not holdout, a 60-case study or user
+acceptance. No profile, accepted report or review was created/modified. No
+migration, publication, database integration suite, backend/portal change or
+production deployment was performed.
+
+Full-suite invocation (choose fresh paths on repeat):
+
+```powershell
+.\env\Scripts\python.exe -B -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\unfiltered-answer-20261116-full-01' -o cache_dir=.tmp/unfiltered-answer-20261116-full-cache-01
+```
 
 ### In-process native Q5 runtime - 2026-11-16
 
@@ -725,11 +780,13 @@ The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally ch
 ## Grounded answers and offline acceptance
 
 `POST /api/v1/answer` is a separate, opt-in local endpoint; `/api/v1/retrieve`
-remains excerpt-only. Answering defaults to disabled and requires a matching,
-manually reviewed 60-case study with explicit user acceptance. It loads the local
+remains excerpt-only. Answering defaults to disabled. With filtering enabled it requires a matching,
+manually reviewed 60-case study with explicit user acceptance. With filtering
+disabled it may use marked unassessed candidates without a profile or study,
+while retaining technical model checks, source validation and the verifier. It loads the local
 `models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf` directly inside Python through
 `requirements-answer.txt`, using one dedicated model thread and the existing
-API port. It uses filtered retrieval, source-backed claims,
+API port. It uses configured retrieval, source-backed claims,
 and at most one generator/verifier call each. There is no conversation storage,
 automatic repair/retry, backend route or portal integration.
 

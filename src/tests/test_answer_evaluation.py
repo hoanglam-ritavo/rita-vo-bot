@@ -73,6 +73,16 @@ def test_unassessed_retrieval_never_calls_generator():
     model.complete.assert_not_called()
 
 
+def test_official_pipeline_default_rejects_explicit_unfiltered_candidates():
+    source = retrieval()
+    source.retrieve.return_value['relevance'] = {'status': 'unassessed',
+        'warnings': ['evidence_completeness_not_assessed', 'relevance_filter_disabled']}
+    model = SimpleNamespace(complete=AsyncMock())
+    with pytest.raises(ValueError, match='relevance_unavailable'):
+        asyncio.run(evaluate_question('Question', source, model))
+    model.complete.assert_not_awaited()
+
+
 def test_empty_retrieval_remains_distinct_from_error():
     model = SimpleNamespace(complete=AsyncMock())
     result = asyncio.run(evaluate_question('Question', retrieval(False, 'below_relevance_threshold'), model))
@@ -425,3 +435,15 @@ def test_experiment_cancellation_drains_resources_before_propagating(experiment_
     with pytest.raises(asyncio.CancelledError):
         asyncio.run(run_batch_without_leaked_tasks(batch))
     assert batch.runtime.complete.await_count == 2
+
+
+def test_official_study_refuses_unfiltered_configuration_before_runtime(experiment_batch, monkeypatch):
+    from dataclasses import replace
+    settings = cli.load_settings()
+    monkeypatch.setattr(cli, 'load_settings', lambda: replace(settings, relevance_filter_enabled=False))
+    factory = Mock(side_effect=AssertionError('must not construct generation runtime'))
+    monkeypatch.setattr(cli, 'LocalRuntime', factory)
+    with pytest.raises(ValueError, match='relevance_filter_disabled'):
+        asyncio.run(cli.run_experiment(experiment_batch.args))
+    factory.assert_not_called()
+    experiment_batch.runtime.complete.assert_not_awaited()

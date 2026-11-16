@@ -1,4 +1,4 @@
-"""Answering is explicitly opt-in and requires a reviewed matching study."""
+"""Answering is opt-in; the filtered branch requires a reviewed matching study."""
 from dataclasses import dataclass
 from pathlib import Path
 

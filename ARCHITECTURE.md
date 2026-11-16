@@ -100,11 +100,13 @@ exports; the HTTP application never imports scripts.
 
 `POST /api/v1/answer` is implemented separately from retrieval and disabled by
 default. `src.api.answer` owns acceptance loading, deterministic rendering,
-answer runtime availability and the shared retrieval/answer busy slot. Startup
-requires matching native-binding/model identity, implementation and retrieval configuration,
-corpus identity and a manually accepted 60-case report. Model failure leaves
-retrieval usable. Each request checks the accepted corpus identity before inference.
-Only assessed matches reach generation; empty evidence skips the model. Exact
+answer runtime availability and the shared retrieval/answer busy slot. Startup always verifies model SHA-256, GGUF metadata, native binding/template
+and warm-up. With relevance filtering enabled, it additionally requires matching
+implementation/retrieval/corpus identity and a manually accepted 60-case report;
+each request checks the accepted corpus before inference. With filtering disabled,
+it does not read report/review or require a relevance profile, and accepts only
+explicitly marked unassessed candidates. Reranking is independent in this branch.
+Model failure leaves retrieval usable; empty evidence skips the model. Exact
 content duplicates are consolidated only with equal title, applicability,
 version and effective dates, retaining each origin. Questions and evidence are
 untrusted data; generation produces cited claims and at most one model verifier
@@ -115,7 +117,7 @@ dedicated executor thread for load/tokenization/inference/reset/release and six
 CPU inference threads. It opens no model server socket or subprocess. Imports
 and static inspection do not load weights; binding/library/template/model and
 Python/ABI identity are bound to report schema v3. Reports from the previous
-server backend cannot enable this runtime. The model uses its own tokenizer and
+server backend cannot authorize its filtered branch. The model uses its own tokenizer and
 sandboxed chat template, with thinking disabled and JSON grammar enforcement.
 
 The 30-second deadline covers retrieval, generation and verification. Timeout or
@@ -128,6 +130,10 @@ A hung native thread cannot be force-killed safely inside the process, and a
 fatal native crash can affect FastAPI. There is no automatic server/worker fallback.
 HTTP 429 covers shared answer/retrieval work; 503 disabled/stale/unavailable
 answering; 504 deadline expiry; 422 invalid input. No failed draft is published.
+Answer responses preserve server-owned `relevance` metadata, including
+`relevance_filter_disabled` and evidence-completeness warnings. A verifier pass
+does not change unassessed candidates into calibrated evidence. Official offline
+evaluation remains strict and cannot grant acceptance from unfiltered trials.
 Logs contain fixed codes/timings only. See [the answer contract](docs/answer-evaluation.md#local-answer-api)
 for dependencies, fields, retired server settings and evaluation gates. No backend,
 portal, history, Type B tool or database schema change is included.
