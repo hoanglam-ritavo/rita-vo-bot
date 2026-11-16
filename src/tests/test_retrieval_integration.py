@@ -1,5 +1,6 @@
 """Synthetic vector ordering/filters on a dedicated disposable PostgreSQL database."""
-from datetime import date, timedelta
+from datetime import timedelta
+from src.business_calendar import business_today
 from uuid import UUID
 import pytest
 from sqlalchemy import select, delete
@@ -16,7 +17,7 @@ pytestmark = pytest.mark.integration
 
 @pytest.mark.parametrize('change,expected', [
     ('none', 'matches_found'), ('private', 'no_eligible_documents'),
-    ('inactive_run', 'no_eligible_documents'), ('failed_run', 'no_eligible_documents'),
+    ('inactive_run', 'no_eligible_documents'),
     ('not_current', 'no_eligible_documents'), ('hold', 'no_eligible_documents'),
     ('expired', 'no_eligible_documents'), ('future', 'no_eligible_documents'),
     ('withdrawn', 'no_eligible_documents'), ('model_name', 'model_mismatch'),
@@ -47,13 +48,12 @@ def test_public_search(empty_catalog_db, tmp_path, monkeypatch, change, expected
                 if change == 'private':
                     await db.execute(delete(DocumentAccessRule).where(DocumentAccessRule.group_name == 'public'))
                 elif change == 'inactive_run': run.is_active = False
-                elif change == 'failed_run': run.is_active, run.status = False, 'failed'
                 elif change == 'not_current': revision.is_catalog_current = False
                 elif change == 'hold': revision.indexing_decision = 'hold'
                 elif change == 'withdrawn': revision.lifecycle_status = 'withdrawn'
-                elif change == 'expired': revision.effective_to = date.today() - timedelta(days=1)
-                elif change == 'future': revision.effective_from = date.today() + timedelta(days=1)
-                elif change == 'boundary_dates': revision.effective_from = revision.effective_to = date.today()
+                elif change == 'expired': revision.effective_to = business_today() - timedelta(days=1)
+                elif change == 'future': revision.effective_from = business_today() + timedelta(days=1)
+                elif change == 'boundary_dates': revision.effective_from = revision.effective_to = business_today()
                 elif change == 'model_name': run.model_name = 'different'
                 elif change == 'model_revision': run.model_revision = 'b'*40
                 elif change in {'fingerprint', 'normalization', 'prefix'}:

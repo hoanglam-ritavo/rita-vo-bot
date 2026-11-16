@@ -24,6 +24,32 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### Agent-assisted calibration preparation - 2026-11-16
+
+Operational preparation on the working tree based on `782b4f4` verified all
+**16 selected runtime assets** and read-only compatibility of **28 published
+packages**; the corpus fingerprint matched the earlier collection. Two blind
+agent reviews assessed **100 questions / 3,000 candidate pairs** independently:
+104 pairs had agreed positive proposals, 2,812 agreed negative proposals and
+84 remained disagreeing or unresolved. These are source-based proposals, not
+human-approved labels or calibration acceptance.
+
+A new private **143-case draft** moves 39 historical or unrepresentative cases
+to regression and adds 43 source-backed question proposals. Its collection
+structure and minimum split counts pass the shared validators. Both reviewers
+flagged partial or premise-correcting evidence for two proposed unsupported
+questions; all 30 new negative hypotheses still require human source review.
+One patrol question was revised before collection to preserve ambiguous source
+wording, with independent source-fidelity checks. See
+[agent-assisted review](docs/runtime-artifacts.md#agent-assisted-source-review).
+
+No new collection, full calibration, profile issuance, runtime/configuration
+change, publication write or API restart was performed. Final calibration-input
+validation correctly rejects missing candidate labels. Private review packets
+and provenance stay under ignored `.tmp/`; original-source transcription
+fidelity, human review, independent backup/restore and rollout remain unverified.
+Application regression tests were not rerun for this data/documentation work.
+
 ### Incremental publication and retained history - 2026-11-16
 
 Implemented on the working tree based on `cf68ce9`, preserving pre-existing

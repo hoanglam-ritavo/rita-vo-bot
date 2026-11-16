@@ -1,7 +1,7 @@
 """Read-only package-pinned retrieval evaluation; never generates answers."""
 import argparse
 from contextlib import redirect_stdout, redirect_stderr
-from datetime import date
+from src.business_calendar import business_today
 import json
 import math
 import os
@@ -12,7 +12,7 @@ from uuid import UUID
 from sqlalchemy import select, text
 from src.database import session_scope, close_database
 from src.database.models import IngestionRun, DocumentChunk, DocumentRevision, DocumentAccessRule
-from src.database.models import EvidenceScope, EvidenceItem, EvidenceValue
+from src.ingestion.evidence import read_evidence
 from src.database.runtime import run_async
 from src.ingestion import document_packages as packages
 from src.ingestion.approved_publication import configuration, snapshot
@@ -81,7 +81,7 @@ async def database_state(record, payload, expected):
     async with session_scope() as db:
         await db.execute(text('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY'))
         revision = await db.get(DocumentRevision, UUID(record['revision_id']))
-        today = date.today()
+        today = business_today()
         groups = set(await db.scalars(select(DocumentAccessRule.group_name).where(
             DocumentAccessRule.revision_id == UUID(record['revision_id']))))
         if (revision is None or str(revision.document_id) != record['document_id']
@@ -101,9 +101,9 @@ async def database_state(record, payload, expected):
         if len(stored) != len(payload['chunks']):
             raise ValueError('stored_count_mismatch')
         norms = []
-        for key, model in [('scopes', EvidenceScope), ('items', EvidenceItem), ('values', EvidenceValue)]:
-            rows = list(await db.scalars(select(model).where(model.run_id == run.id)))
-            if {r.author_id: r.data for r in rows} != {r['id']: r for r in payload.get('structured', {}).get(key, [])}:
+        structure = await read_evidence(db, run.id)
+        for key in ('scopes', 'items', 'values'):
+            if {r['id']: r for r in structure[key]} != {r['id']: r for r in payload.get('structured', {}).get(key, [])}:
                 raise ValueError('stored_structure_mismatch')
         for actual, wanted in zip(stored, payload['chunks']):
             if actual.author_id != wanted.get('author_id') or actual.role != wanted.get('role'):

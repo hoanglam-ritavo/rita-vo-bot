@@ -1,5 +1,6 @@
 """Package metadata schema, eligibility and source comparison."""
 import re
+from src.business_calendar import business_today
 from collections import defaultdict
 from datetime import date
 from pathlib import PurePosixPath
@@ -132,7 +133,7 @@ def validate_schema(catalog: object) -> list[str]:
             if (record['lifecycle_status'] != 'active' or not record['applicability']
                     or not record['access_groups']):
                 errors.append(f'{prefix}: include requires active source, applicability and access groups.')
-            today = date.today()
+            today = business_today()
             if (dates.get('effective_from', today) > today
                     or dates.get('effective_to', today) < today):
                 errors.append(f'{prefix}: include is outside effective dates.')

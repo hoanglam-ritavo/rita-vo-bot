@@ -114,7 +114,7 @@ def test_timestamp_updates_and_rollback(empty_catalog_db):
 
 
 @pytest.mark.integration
-def test_timestamp_migration_preserves_rows(empty_catalog_db):
+def test_timestamp_migration_preserves_rows(legacy_catalog_db):
     config = Config('alembic.ini')
 
     async def seed_closed():
@@ -146,10 +146,10 @@ def test_timestamp_migration_preserves_rows(empty_catalog_db):
         ids = run_async(seed_closed())
         for enabled in (True, False, True):
             if enabled:
-                command.upgrade(config, 'head')
+                command.upgrade(config, '0005_structured_evidence')
             else:
                 command.downgrade(config, '0003_agent_packages')
             with pytest.raises(RuntimeError, match='rollback verification'):
                 run_async(verify(ids, enabled))
     finally:
-        command.upgrade(config, 'head')
+        command.upgrade(config, '0005_structured_evidence')

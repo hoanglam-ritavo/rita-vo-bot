@@ -1,0 +1,147 @@
+"""Pre-production schema, evidence projection and execution safety contracts."""
+from contextlib import asynccontextmanager
+from datetime import datetime, timezone, date
+from decimal import Decimal
+from io import StringIO
+import importlib
+from types import SimpleNamespace
+from unittest.mock import AsyncMock, Mock
+from uuid import uuid4
+
+from alembic.migration import MigrationContext
+from alembic.operations import Operations
+import pytest
+from sqlalchemy.schema import CreateTable
+from sqlalchemy.dialects.postgresql import dialect
+
+from src.database import Base
+from src.business_calendar import business_today
+from src.database.models import PublicationAttempt, ScopeItem, ScopeChunk, ItemChunk, IngestionRun
+from src.database.runtime import run_async
+from src.ingestion import attempts
+from src.ingestion.evidence import read_evidence, write_evidence
+from src.ingestion.document_packages import Rejected
+
+
+def test_business_date_at_vietnam_midnight():
+    assert business_today(datetime(2026, 11, 16, 16, 59, tzinfo=timezone.utc)) == date(2026, 11, 16)
+    assert business_today(datetime(2026, 11, 16, 17, tzinfo=timezone.utc)) == date(2026, 11, 17)
+    with pytest.raises(ValueError):
+        business_today(datetime(2026, 11, 16))
+
+
+def test_explicit_baseline_sql_matches_model_tables_and_guards_data():
+    migration = importlib.import_module('src.database.migrations.versions.0006_publication_baseline')
+    output = StringIO()
+    context = MigrationContext.configure(dialect_name='postgresql', opts={'as_sql': True, 'output_buffer': output})
+    with Operations.context(context):
+        migration.upgrade()
+    sql = output.getvalue()
+    assert sql.index('LOCK TABLE') < sql.index('IF EXISTS') < sql.index('DROP TABLE')
+    assert 'Fresh empty application schema required' in sql
+    assert 'DROP EXTENSION' not in sql
+    assert 'revision_identity_immutable' in sql and 'metadata_audit_append_only' in sql
+    for table in Base.metadata.sorted_tables:
+        expected = str(CreateTable(table).compile(dialect=dialect())).strip()
+        assert ' '.join(expected.split()) in ' '.join(sql.split())
+    assert len(Base.metadata.tables) == 14
+    assert {'started_at', 'finished_at', 'error_code'}.isdisjoint(IngestionRun.__table__.columns.keys())
+    for key in ('model_name', 'model_revision', 'embedding_dimensions', 'created_at'):
+        assert not IngestionRun.__table__.c[key].nullable
+
+
+def test_link_foreign_keys_are_run_scoped():
+    for model in (ScopeItem, ScopeChunk, ItemChunk):
+        constraints = list(model.__table__.foreign_key_constraints)
+        assert len(constraints) == 2
+        assert all(list(c.column_keys)[0] == 'run_id' for c in constraints)
+
+
+def evidence_rows():
+    scope = {'id': 's', 'item_ids': ['i'], 'chunk_ids': ['c']}
+    item = {'id': 'i', 'parent_id': None, 'chunk_ids': ['c']}
+    value = {'id': 'v', 'item_id': 'i', 'type': 'decimal', 'value': '1.20'}
+    return [
+        [SimpleNamespace(author_id='s', data=scope)],
+        [SimpleNamespace(author_id='i', parent_id=None, data=item)],
+        [SimpleNamespace(author_id='v', item_id='i', numeric_value=Decimal('1.20'), data=value)],
+        [SimpleNamespace(scope_id='s', item_id='i', position=0)],
+        [SimpleNamespace(scope_id='s', chunk_id='c', position=0)],
+        [SimpleNamespace(item_id='i', chunk_id='c', position=0)],
+    ]
+
+
+@pytest.mark.parametrize('damage', ['none', 'missing_link', 'order', 'parent', 'numeric', 'identity', 'item'])
+def test_evidence_reader_detects_projection_drift(damage):
+    rows = evidence_rows()
+    if damage == 'missing_link': rows[3] = []
+    if damage == 'order': rows[3][0].position = 1
+    if damage == 'parent': rows[1][0].parent_id = 'other'
+    if damage == 'numeric': rows[2][0].numeric_value = Decimal('2')
+    if damage == 'identity': rows[0][0].author_id = 'other'
+    if damage == 'item': rows[2][0].item_id = 'other'
+    db = SimpleNamespace(scalars=AsyncMock(side_effect=rows))
+    if damage != 'none':
+        with pytest.raises(Rejected, match='evidence_projection_mismatch'):
+            run_async(read_evidence(db, uuid4()))
+    else:
+        result = run_async(read_evidence(db, uuid4()))
+        assert result['values'][0]['value'] == '1.20'
+        result['scopes'][0]['item_ids'].append('new')
+        assert rows[0][0].data['item_ids'] == ['i']
+
+
+def test_evidence_writer_preserves_membership_order_and_parent():
+    db = SimpleNamespace(add_all=Mock(), flush=AsyncMock())
+    data = {'scopes': [{'id': 's', 'item_ids': ['b', 'a'], 'chunk_ids': ['c']}],
+            'items': [{'id': 'a', 'parent_id': None, 'chunk_ids': ['c']},
+                      {'id': 'b', 'parent_id': 'a', 'chunk_ids': ['d', 'c']}],
+            'values': [{'id': 'v', 'item_id': 'b', 'type': 'decimal', 'value': '0.10'}]}
+    run_id = uuid4()
+    run_async(write_evidence(db, run_id, data))
+    inserted = [row for call in db.add_all.call_args_list for row in call.args[0]]
+    assert [(r.item_id, r.position) for r in inserted if isinstance(r, ScopeItem)] == [('b', 0), ('a', 1)]
+    assert all(r.run_id == run_id for r in inserted)
+
+
+@pytest.fixture
+def attempt_db(monkeypatch):
+    row = SimpleNamespace(status='running', outcome=None, run_id=None, error_code=None, finished_at=None)
+    db = SimpleNamespace(scalar=AsyncMock(return_value=row), add=Mock())
+    @asynccontextmanager
+    async def session():
+        yield db
+    monkeypatch.setattr(attempts, 'session_scope', session)
+    return row, db
+
+
+@pytest.mark.parametrize('outcome,error,cancelled,expected', [
+    ('published', None, False, 'succeeded'), ('metadata_updated', 'publication_failed', False, 'succeeded'),
+    ('unchanged', None, False, 'succeeded'), (None, 'publication_failed', False, 'failed'),
+    (None, 'publication_cancelled', True, 'cancelled'),
+])
+def test_receipt_wins_over_observed_transport_failure(attempt_db, outcome, error, cancelled, expected):
+    row, _ = attempt_db
+    row.outcome = outcome
+    assert run_async(attempts.finish(uuid4(), error_code=error, cancelled=cancelled)) == expected
+    assert row.finished_at is not None
+    assert row.error_code == (None if outcome else error)
+
+
+def test_no_receipt_never_means_failure_on_reconciliation(attempt_db):
+    row, _ = attempt_db
+    with pytest.raises(attempts.AttemptUncertain):
+        run_async(attempts.reconcile(uuid4()))
+    assert row.status == 'running' and row.finished_at is None
+
+
+def test_attempt_initialization_failure_does_not_expose_credentials(monkeypatch):
+    @asynccontextmanager
+    async def broken():
+        raise RuntimeError('private-connection-string')
+        yield
+    monkeypatch.setattr(attempts, 'session_scope', broken)
+    with pytest.raises(attempts.AttemptUncertain) as error:
+        run_async(attempts.start(str(uuid4())))
+    assert str(error.value) == 'publication_outcome_unknown'
+    assert error.value.attempt_id

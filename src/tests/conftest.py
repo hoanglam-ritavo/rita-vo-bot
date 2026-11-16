@@ -4,7 +4,7 @@ import pytest
 from alembic import command
 from alembic.config import Config
 from dotenv import load_dotenv
-from sqlalchemy import delete, func, select
+from sqlalchemy import func, select, text
 from src.database import Base, close_database, session_scope
 from src.database import models  # Register all tables before fixture cleanup.
 from src.database.config import ROOT, validate_url
@@ -61,8 +61,32 @@ def empty_catalog_db(test_database):
     async def clean():
         try:
             async with session_scope() as db:
-                for table in reversed(Base.metadata.sorted_tables):
-                    await db.execute(delete(table))
+                names = ', '.join(table.name for table in reversed(Base.metadata.sorted_tables))
+                # Test-only cleanup; append-only audit rows intentionally reject DELETE.
+                await db.execute(text('TRUNCATE TABLE ' + names))
         finally:
             await close_database()
     run_async(clean())
+
+
+@pytest.fixture
+def legacy_catalog_db(test_database):
+    """Keep historical migration preservation tests on their original schema."""
+    async def check():
+        try:
+            async with session_scope() as db:
+                for table in Base.metadata.sorted_tables:
+                    assert await db.scalar(select(func.count()).select_from(table)) == 0
+        finally:
+            await close_database()
+    run_async(check())
+    command.downgrade(Config('alembic.ini'), '0005_structured_evidence')
+    yield
+    async def clean():
+        try:
+            async with session_scope() as db:
+                await db.execute(text('TRUNCATE TABLE document_chunks, evidence_values, evidence_items, evidence_scopes, ingestion_runs, document_relations, document_access_rules, document_revisions, documents'))
+        finally:
+            await close_database()
+    run_async(clean())
+    command.upgrade(Config('alembic.ini'), 'head')

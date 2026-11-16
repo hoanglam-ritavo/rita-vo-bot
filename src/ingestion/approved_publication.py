@@ -1,15 +1,17 @@
 """Publish validated v2/v3 packages with atomic metadata, vectors and evidence."""
 import copy
-from decimal import Decimal
+import asyncio
 import re
 from uuid import UUID, uuid4
-from datetime import datetime, timezone
 from sqlalchemy import select, delete, text, or_
 from src.database import session_scope
 from src.database.models import Document, DocumentRevision, DocumentAccessRule, DocumentRelation, IngestionRun, DocumentChunk
 from src.catalog.importer import revision_values, IMPORT_LOCK
 from src.ingestion import document_packages as packages
 from src.ingestion.embeddings import MODEL_NAME, embed, validate_vectors, model_fingerprint
+from src.ingestion import attempts
+from src.ingestion.audit import metadata_snapshot, record_change
+from src.ingestion.evidence import write_evidence
 from src.ingestion.publication_state import (PREPROCESSING, read_storage, storage_matches,
                                             storage_token, plan_vectors, compatible)
 
@@ -89,12 +91,17 @@ async def write_metadata(db, record, revision):
         await db.flush()
     old = await db.scalar(select(DocumentRevision).where(DocumentRevision.document_id == document_id,
                           DocumentRevision.is_catalog_current.is_(True), DocumentRevision.id != revision_id))
+    attempt_id = db.info.get('publication_attempt_id')
+    before = await metadata_snapshot(db, revision)
     if old:
+        old_before = await metadata_snapshot(db, old)
         old.is_catalog_current = False
         old.lifecycle_status = 'superseded'
         await db.flush()
+        await record_change(db, old, old_before, attempt_id, 'superseded')
     if revision is None:
-        db.add(DocumentRevision(id=revision_id, **revision_values(record)))
+        revision = DocumentRevision(id=revision_id, **revision_values(record))
+        db.add(revision)
     else:
         for key, value in revision_values(record).items():
             setattr(revision, key, value)
@@ -104,6 +111,8 @@ async def write_metadata(db, record, revision):
     db.add_all(DocumentAccessRule(revision_id=revision_id, group_name=g) for g in set(record['access_groups']))
     db.add_all(DocumentRelation(source_revision_id=revision_id, target_revision_id=UUID(r['revision_id']), relation_type=r['type'])
                for r in record['relations'])
+    await db.flush()
+    await record_change(db, revision, before, attempt_id, 'created' if before is None else 'updated')
 
 
 def metadata_matches(revision, record, token):
@@ -129,7 +138,47 @@ async def reuse_source(db, active, record):
 
 
 async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
-    record, payload, files = packages.load_package(root, directory, eligible=True)
+    loaded = packages.load_package(root, directory, eligible=True)
+    # Validate model identity before allocating a durable execution attempt.
+    configuration(loaded[1], model_revision)
+    model_fingerprint(model_path)
+    if dry_run:
+        return await _publish(root, directory, model_revision, model_path=model_path,
+                              dry_run=True, force=force, update_metadata=update_metadata, loaded=loaded)
+    attempt_id = await attempts.start(loaded[0]['revision_id'])
+    state = {'commit_started': False, 'receipt': False}
+    try:
+        result = await _publish(root, directory, model_revision, model_path=model_path,
+                                force=force, update_metadata=update_metadata, loaded=loaded,
+                                attempt_id=attempt_id, state=state)
+        if not state['receipt']:
+            async with session_scope() as db:
+                await attempts.receipt(db, attempt_id, result['run_id'], 'unchanged')
+                state['commit_started'] = True
+        await attempts.reconcile(attempt_id)
+        return dict(result, attempt_id=str(attempt_id))
+    except BaseException as exc:
+        if state['commit_started']:
+            # A lost acknowledgement must never become a failed run or automatic retry.
+            if isinstance(exc, asyncio.CancelledError):
+                exc.attempt_id = str(attempt_id)
+                raise
+            raise attempts.AttemptUncertain(attempt_id) from None
+        try:
+            await attempts.finish(attempt_id, error_code='publication_cancelled' if isinstance(exc, asyncio.CancelledError)
+                                  else 'publication_failed', cancelled=isinstance(exc, asyncio.CancelledError))
+        except BaseException:
+            if isinstance(exc, asyncio.CancelledError):
+                exc.attempt_id = str(attempt_id)
+                raise exc
+            raise attempts.AttemptUncertain(attempt_id) from None
+        exc.attempt_id = str(attempt_id)
+        raise
+
+
+async def _publish(root, directory, model_revision, *, model_path, dry_run=False, force=False,
+                   update_metadata=False, loaded, attempt_id=None, state=None):
+    record, payload, files = loaded
     config = configuration(payload, model_revision)
     config.update(model_files_sha256=model_fingerprint(model_path),
                   package_sha256=packages.files_hash(files),
@@ -180,7 +229,6 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
     packages.require(model_fingerprint(model_path) == config['model_files_sha256'], 'model_changed')
     packages.require(packages.snapshot_files(directory) == files, 'package_changed')
     run_id = uuid4()
-    now = datetime.now(timezone.utc)
     async with session_scope() as db:
         await db.execute(text('SELECT pg_advisory_xact_lock(:key)'), {'key': IMPORT_LOCK})
         revision, active, actual, resolved_record, _ = await snapshot(db, record, update_metadata)
@@ -191,25 +239,27 @@ async def publish(root, directory, model_revision, *, model_path, dry_run=False,
         current_storage = await read_storage(db, current_source)
         packages.require(storage_token(current_source, current_storage) == expected_storage,
                          'concurrent_publication_or_storage_change')
+        db.info['publication_attempt_id'] = attempt_id
         await write_metadata(db, resolved_record, revision)
         if unchanged:
-            return dict(result, status='processed', code='metadata_updated', run_id=str(active.id))
-        if active:
+            await attempts.receipt(db, attempt_id, active.id, 'metadata_updated')
+        if not unchanged and active:
             active.is_active = False
             await db.flush()
-        db.add(IngestionRun(id=run_id, revision_id=UUID(record['revision_id']), status='succeeded', is_active=True,
-            started_at=now, finished_at=datetime.now(timezone.utc), source_sha256=record['sha256'], configuration=config,
-            model_name=MODEL_NAME, model_revision=model_revision, embedding_dimensions=384, chunk_count=len(chunks)))
-        await db.flush()
-        db.add_all(DocumentChunk(run_id=run_id, chunk_index=c['chunk_index'], content=c['content'], source_location=c['source_location'],
-            extraction_method=c['extraction_method'], embedding=c['embedding'],
-            author_id=c.get('author_id'), role=c.get('role')) for c in chunks)
-        if 'structured' in payload:
-            from src.database.models import EvidenceScope, EvidenceItem, EvidenceValue
-            data = payload['structured']
-            db.add_all(EvidenceScope(run_id=run_id, author_id=r['id'], data=r) for r in data['scopes'])
-            db.add_all(EvidenceItem(run_id=run_id, author_id=r['id'], data=r) for r in data['items'])
+        if not unchanged:
+            db.add(IngestionRun(id=run_id, revision_id=UUID(record['revision_id']), status='succeeded', is_active=True,
+                source_sha256=record['sha256'], configuration=config,
+                model_name=MODEL_NAME, model_revision=model_revision, embedding_dimensions=384, chunk_count=len(chunks)))
             await db.flush()
-            db.add_all(EvidenceValue(run_id=run_id, author_id=r['id'], item_id=r['item_id'],
-                numeric_value=Decimal(r['value']) if r['type'] == 'decimal' else None, data=r) for r in data['values'])
-    return dict(result, status='processed', code='published', run_id=str(run_id))
+            db.add_all(DocumentChunk(run_id=run_id, chunk_index=c['chunk_index'], content=c['content'], source_location=c['source_location'],
+                extraction_method=c['extraction_method'], embedding=c['embedding'],
+                author_id=c.get('author_id'), role=c.get('role')) for c in chunks)
+            await db.flush()
+            if 'structured' in payload:
+                await write_evidence(db, run_id, payload['structured'])
+            await attempts.receipt(db, attempt_id, run_id, 'published')
+        await db.flush()
+        state['receipt'] = True
+        state['commit_started'] = True
+    return dict(result, status='processed', code='metadata_updated' if unchanged else 'published',
+                run_id=str(active.id if unchanged else run_id))

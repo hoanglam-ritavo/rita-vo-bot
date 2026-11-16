@@ -72,6 +72,8 @@ async def database_state():
     async with session_scope() as db:
         state = {}
         for table in Base.metadata.sorted_tables:
+            if table.name == 'publication_attempts':
+                continue  # Failed/rejected executions remain tracked outside publication rollback.
             columns = [column.cast(Text).label(column.name) if column.name == 'embedding' else column
                        for column in table.columns]
             result = await db.execute(select(*columns).order_by(*table.primary_key.columns))

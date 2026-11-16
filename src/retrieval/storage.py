@@ -1,5 +1,5 @@
 """Exact cosine search of eligible public documents in a read-only snapshot."""
-from datetime import date
+from src.business_calendar import business_today
 import math
 import hashlib
 import json
@@ -11,7 +11,7 @@ from src.ingestion.embeddings import MODEL_NAME
 
 
 def eligibility(model_revision, fingerprint):
-    today = date.today()
+    today = business_today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
     return (Run.status == 'succeeded', Run.is_active.is_(True), Revision.is_catalog_current.is_(True),
             Revision.indexing_decision == 'include', Revision.lifecycle_status == 'active', public,
@@ -34,7 +34,7 @@ def match_record(chunk, revision):
 
 
 async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=()):
-    today = date.today()
+    today = business_today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
     eligible = (Run.status == 'succeeded', Run.is_active.is_(True),
                 Revision.is_catalog_current.is_(True), Revision.indexing_decision == 'include',
@@ -56,14 +56,26 @@ async def search(vector, model_revision, fingerprint, top_k, *, detail_only=Fals
         if await db.scalar(base.where(*compatible).limit(1)) is None:
             result['status'] = 'model_mismatch'
             return result
-        # Active publications are immutable; IDs plus publication configuration bind
-        # calibration to exactly the searchable corpus in this read snapshot.
-        corpus = (await db.execute(select(Run.id, Run.revision_id, Run.configuration)
+        # v2 binds metadata that changes eligibility and returned source provenance.
+        corpus = (await db.execute(select(Run.id, Run.revision_id, Run.configuration, Revision)
                   .join(Revision, Run.revision_id == Revision.id)
                   .where(*eligible, *compatible).order_by(Run.id))).all()
+        group_rows = (await db.execute(select(Access.revision_id, Access.group_name).where(
+            Access.revision_id.in_([row[1] for row in corpus])))).all()
+        groups_by_revision = {}
+        for revision_id, group in group_rows:
+            groups_by_revision.setdefault(revision_id, []).append(group)
+        identities = []
+        for run_id, revision_id, config, revision in corpus:
+            metadata = {key: getattr(revision, key) for key in (
+                'is_catalog_current', 'lifecycle_status', 'indexing_decision',
+                'applicability', 'source_path', 'title', 'version_label')}
+            metadata.update(access_groups=sorted(groups_by_revision.get(revision_id, [])),
+                effective_from=revision.effective_from.isoformat() if revision.effective_from else None,
+                effective_to=revision.effective_to.isoformat() if revision.effective_to else None)
+            identities.append((str(run_id), str(revision_id), config, metadata))
         result['corpus_fingerprint'] = hashlib.sha256(json.dumps(
-            [(str(row[0]), str(row[1]), row[2]) for row in corpus],
-            sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+            {'version': 2, 'publications': identities}, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         distance = Chunk.embedding.cosine_distance(vector).label('distance')
         query = (select(Chunk, Revision, distance).join(Run, Chunk.run_id == Run.id)
                  .join(Revision, Run.revision_id == Revision.id)

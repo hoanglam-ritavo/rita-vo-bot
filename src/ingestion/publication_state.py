@@ -8,7 +8,8 @@ import math
 
 from sqlalchemy import select
 
-from src.database.models import DocumentChunk, EvidenceScope, EvidenceItem, EvidenceValue
+from src.database.models import DocumentChunk
+from .evidence import read_evidence
 from src.ingestion import document_packages as packages
 
 EMBEDDING_KEYS = ('model_name', 'model_revision', 'model_files_sha256',
@@ -56,10 +57,7 @@ async def read_storage(db, run):
             chunk['role'] = row.role
         chunk['embedding'] = vector_values(row.embedding)
         chunks.append(chunk)
-    structured = {}
-    for key, model in [('scopes', EvidenceScope), ('items', EvidenceItem), ('values', EvidenceValue)]:
-        records = list(await db.scalars(select(model).where(model.run_id == run.id)))
-        structured[key] = sorted((copy.deepcopy(r.data) for r in records), key=lambda r: r['id'])
+    structured = await read_evidence(db, run.id)
     return {'chunks': chunks, 'structured': structured}
 
 

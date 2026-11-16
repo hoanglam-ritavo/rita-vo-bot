@@ -75,11 +75,14 @@ async def run(root, args):
                 result = await publish(root, path, args.model_revision, model_path=args.model_path, dry_run=args.dry_run, force=args.force, update_metadata=args.update_metadata)
                 results.append(result)
             except packages.Rejected as exc:
-                results.append({'status': 'rejected', 'code': str(exc), 'revision_id': revision})
+                results.append({'status': 'rejected', 'code': str(exc), 'revision_id': revision,
+                                **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
             except (PublishRejected, CatalogError):
                 results.append({'status': 'rejected', 'code': 'metadata_or_source_rejected', 'revision_id': revision})
-            except Exception:
-                results.append({'status': 'failed', 'code': 'publication_failed', 'revision_id': revision})
+            except Exception as exc:
+                from src.ingestion.attempts import AttemptUncertain
+                results.append({'status': 'failed', 'code': 'publication_outcome_unknown' if isinstance(exc, AttemptUncertain) else 'publication_failed',
+                                'revision_id': revision, **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
         if not paths:
             results.append({'status': 'rejected', 'code': 'no_packages'})
     except packages.Rejected as exc:

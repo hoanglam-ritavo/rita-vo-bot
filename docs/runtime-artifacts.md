@@ -80,6 +80,27 @@ Before the full run:
 
 Only after user review, run the same command without `--collect-only` and with a fresh report output, for example `accepted-evaluation.json`. A successful all-gates run writes `accepted-evaluation.profile.json` beside it. A report without a profile is a valid outcome when quality or latency fails; do not hand-author a threshold or set `holdout_passed` to true.
 
+### Agent-assisted source review
+
+Agents may prepare independent label proposals to reduce review work. Give both
+reviewers the same question, candidate text and source references without model
+scores, ranks, historical candidate labels or the other reviewer's decisions.
+Each reviewer must assess every candidate, preserve conditions and record a
+source-based reason; unassessed or ambiguous pairs remain unresolved, never
+default negatives. Required evidence groups are not an exhaustive relevance map.
+Source-extraction excerpts support review but do not establish original-source
+transcription accuracy.
+
+Compare proposals by case ID and candidate UUID only after both independent
+reviews are complete. Preserve disagreements and source limitations for the
+responsible person's review of the complete proposed label set. Agent agreement
+does not complete the human review declarations. Audit semantic families against
+historical inspected questions as well as current splits; renaming a family or
+randomly moving paraphrases does not create an independent holdout. Changes to
+questions, evidence or splits require a fresh collection and candidate review.
+Old-collection proposals remain diagnostic when preparing a revised dataset;
+never rewrite collection bindings to make a new manifest pass freeze.
+
 ## Promote and verify
 
 Profile promotion applies to the default `RELEVANCE_FILTER_ENABLED=true` mode. Explicitly setting it to `false` returns unassessed candidates and skips loading the profile; it does not create a profile or satisfy calibration gates. See [filter modes](online-reranking.md#local-model-and-configuration). Restore `true` and restart to restore the calibrated gate; without a matching profile it withholds candidates. The CLI and offline benchmarks retain their existing defaults.

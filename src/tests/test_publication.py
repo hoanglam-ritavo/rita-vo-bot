@@ -11,11 +11,16 @@ from package_fixtures import ready
 
 @pytest.fixture
 def publication(tmp_path, monkeypatch):
-    db = SimpleNamespace(execute=AsyncMock(), scalar=AsyncMock(return_value=None), flush=AsyncMock(), add=Mock(), add_all=Mock())
+    db = SimpleNamespace(info={}, execute=AsyncMock(), scalar=AsyncMock(return_value=None), flush=AsyncMock(), add=Mock(), add_all=Mock())
     @asynccontextmanager
     async def session():
         yield db
     monkeypatch.setattr(service, 'session_scope', session)
+    from uuid import uuid4
+    monkeypatch.setattr(service.attempts, 'start', AsyncMock(return_value=uuid4()))
+    monkeypatch.setattr(service.attempts, 'receipt', AsyncMock())
+    monkeypatch.setattr(service.attempts, 'finish', AsyncMock())
+    monkeypatch.setattr(service.attempts, 'reconcile', AsyncMock())
     monkeypatch.setattr(service, 'snapshot', AsyncMock(return_value=(None, None, 'initial', {}, [])))
     monkeypatch.setattr(service, 'write_metadata', AsyncMock())
     monkeypatch.setattr(service, 'read_storage', AsyncMock(return_value={'chunks': [], 'structured': {}}))
@@ -310,7 +315,8 @@ def test_v3_evidence_change_publishes_without_reencoding(tmp_path, publication):
     assert result['code'] == 'published' and result['reason'] == 'publication_changed'
     assert result['reused_chunk_count'] == 2 and result['encoded_chunk_count'] == 0
     service.embed.assert_not_called()
-    inserted_values = list(publication[0].add_all.call_args.args[0])
+    from src.database.models import EvidenceValue
+    inserted_values = [row for call in publication[0].add_all.call_args_list for row in call.args[0] if isinstance(row, EvidenceValue)]
     from decimal import Decimal
     assert inserted_values[0].numeric_value == Decimal('200.00')
     assert active.configuration == original_config and not active.is_active

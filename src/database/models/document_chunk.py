@@ -21,6 +21,7 @@ class DocumentChunk(Base):
         UniqueConstraint('run_id', 'chunk_index'),
         UniqueConstraint('run_id', 'author_id', name='uq_chunk_run_author'),
         CheckConstraint('chunk_index >= 0', name='chunk_index'),
+        CheckConstraint("(author_id IS NULL AND role IS NULL) OR (author_id IS NOT NULL AND role IS NOT NULL AND author_id ~ '^[a-zA-Z0-9_.-]{1,100}$' AND role IN ('definition','rule','procedure','inventory','detail','table','administrative'))", name='identity_role'),
         CheckConstraint("length(trim(content)) > 0", name='content_nonempty'),
         CheckConstraint("jsonb_typeof(source_location) = 'object'", name='location_object'),
         CheckConstraint("extraction_method IN ('native','ocr')", name='extraction_method'),

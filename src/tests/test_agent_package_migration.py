@@ -34,7 +34,7 @@ def test_migration_sql_and_model_contract():
 
 
 @pytest.mark.integration
-def test_upgrade_downgrade_preserve_notes_vectors_and_history(empty_catalog_db):
+def test_upgrade_downgrade_preserve_notes_vectors_and_history(legacy_catalog_db):
     """The shared fixture guards the dedicated test URL before any migrations."""
     config = Config('alembic.ini')
     doc, rev, run, chunk = [uuid4() for _ in range(4)]
@@ -77,10 +77,10 @@ def test_upgrade_downgrade_preserve_notes_vectors_and_history(empty_catalog_db):
     command.downgrade(config, '0002_type_a_catalog')
     try:
         run_async(seed())
-        command.upgrade(config, 'head')
+        command.upgrade(config, '0005_structured_evidence')
         run_async(verify(True))
         command.downgrade(config, '0002_type_a_catalog')
         run_async(verify(False))
     finally:
         # Restore head before the shared fixture cleans up via current models.
-        command.upgrade(config, 'head')
+        command.upgrade(config, '0005_structured_evidence')

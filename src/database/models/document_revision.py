@@ -29,6 +29,7 @@ class DocumentRevision(Timestamps, Base):
     evidence_notes: Mapped[list] = mapped_column(JSONB, server_default=text("'[]'::jsonb"))
     is_catalog_current: Mapped[bool] = mapped_column(Boolean, server_default=text('false'))
     __table_args__ = (
+        CheckConstraint("length(trim(source_path)) > 0 AND length(trim(source_path_key)) > 0 AND length(trim(extension)) > 0", name='source_nonempty'),
         CheckConstraint("sha256 ~ '^[0-9a-f]{64}$'", name='sha256'),
         CheckConstraint('size_bytes >= 0', name='size_bytes'),
         CheckConstraint('effective_from <= effective_to', name='effective_dates'),

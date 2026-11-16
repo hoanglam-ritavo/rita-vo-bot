@@ -76,10 +76,10 @@ def test_read_storage_detaches_pgvector_arrays_and_evidence():
                           extraction_method='native', author_id='a', role='detail',
                           embedding=np.array([1.] + [0.] * 383))
     db = SimpleNamespace(scalars=AsyncMock(side_effect=[
-        [row], [], [SimpleNamespace(data={'id': 'item', 'label': 'Synthetic'})], []]))
+        [row], [], [], [], [], [], []]))
     result = run_async(state.read_storage(db, run))
     assert result['chunks'][0]['embedding'] == [1.] + [0.] * 383
     assert result['chunks'][0]['author_id'] == 'a'
-    assert result['structured']['items'] == [{'id': 'item', 'label': 'Synthetic'}]
+    assert result['structured'] == {'scopes': [], 'items': [], 'values': []}
     result['chunks'][0]['source_location']['spans'].append('new')
     assert row.source_location == {'spans': []}
