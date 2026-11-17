@@ -1,5 +1,24 @@
 # Rita Bot Architecture
 
+## Readonly HRM source foundation
+
+`src.employee_source` owns a lazy independent PostgreSQL/psycopg connection,
+fixed 64-column employee_sso_store repository, immutable validated contracts and
+service reads by one/batched user_id. HRM_DATABASE_URL never falls back to the
+Type A database; schema defaults to public. All source relations are readonly:
+dedicated externally provisioned SELECT-only privileges, readonly connection
+defaults and REPEATABLE READ / READ ONLY transactions. No ORM/Alembic registration,
+source writes, preload, cache, alias/account access or synchronization is added.
+The backend's microsecond timestamp/completeness/employee_id selector is ported,
+including inactive winners and conflict failures before normalization.
+
+This is an internal data-access foundation, not a connected Type B tool: no API,
+intent routing, model context, authentication or authorization integration uses
+it. The opt-in check_employee_source CLI checks metadata/readonly capabilities
+without returning personnel. See [employee source](docs/employee-source.md) for
+the full property dictionary, lifecycle, role prerequisites, semantic unknowns,
+errors and preprovisioned disposable test contract.
+
 ## Command ownership
 
 [Application entrypoints](src/cli/README.md) remain in `src/cli/`; [manual utilities, offline evaluations and experiments](scripts/README.md) remain in `scripts/`. Both inventories distinguish current commands, compatibility aliases, retired stubs and support modules. Existing command paths remain supported. One-shot retrieval lifecycle/timings live in `src.retrieval.runner`, used by the CLI compatibility wrapper and IDE utility; HTTP continues to own its long-lived service lifecycle. Pure model revision validation lives in `src.ingestion.model_identity`, shared by publication, preflight and evaluation without imports between those CLI implementations. Historical asset tools retain their old `app/` paths and are not current setup commands.
@@ -120,7 +139,8 @@ Python/ABI identity are bound to report schema v3. Reports from the previous
 server backend cannot authorize its filtered branch. The model uses its own tokenizer and
 sandboxed chat template, with thinking disabled and JSON grammar enforcement.
 
-The 30-second deadline covers retrieval, generation and verification. Timeout or
+The 300-second operational deadline covers retrieval, generation and verification;
+the official study's 30-second latency gate remains unchanged. Timeout or
 client disconnect sets a cooperative cancellation flag observed by token stopping
 criteria and the CPU native abort callback. Ownership persists through repeated
 cancellation until the thread exits; closing/reusing its context while decode is
@@ -134,7 +154,13 @@ Answer responses preserve server-owned `relevance` metadata, including
 `relevance_filter_disabled` and evidence-completeness warnings. A verifier pass
 does not change unassessed candidates into calibrated evidence. Official offline
 evaluation remains strict and cannot grant acceptance from unfiltered trials.
-Logs contain fixed codes/timings only. See [the answer contract](docs/answer-evaluation.md#local-answer-api)
+The model payload omits response-only origins/UUIDs/spans while retaining complete
+content and applicability/version/date metadata. Verifier grammar fixes one check
+per claim and its index; code validation still rejects malformed or unsupported
+verdicts. Neither grammar nor same-model verification proves semantic correctness.
+Default logs contain request IDs, fixed diagnostics, counts, token usage and timings.
+Explicit `ANSWER_DEBUG_RAW=true` enables private local raw draft/verdict prints.
+See [the answer contract](docs/answer-evaluation.md#local-answer-api)
 for dependencies, fields, retired server settings and evaluation gates. No backend,
 portal, history, Type B tool or database schema change is included.
 

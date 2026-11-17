@@ -154,7 +154,7 @@ argument. Retrieval settings come from the existing explicit configuration
 loader, including its semantic/intent settings. Retired `--runtime`,
 `--runtime-sha256` and `--port` arguments are rejected by argparse.
 
-The full run includes a fictional warm-up, then all 60 frozen cases. A 30-second
+The full run includes a fictional warm-up, then all 60 frozen cases. A 300-second
 deadline covers each question's retrieval, generation and verification. On an
 operational failure/timeout, the experiment stops, requests cooperative cancellation and drains its native
 worker before closing the model; no later case starts during cleanup.
@@ -322,7 +322,7 @@ reused concurrently with decode. After timeout/uncertain inference failure,
 answering stays unavailable until restart; restart revalidates technical checks
 and the configured branch's prerequisites.
 
-A 30-second deadline requests cancellation; cleanup and HTTP 504/shutdown may
+A 300-second deadline requests cancellation; cleanup and HTTP 504/shutdown may
 exceed it. An in-process native thread cannot be force-killed safely. If native
 code hangs without observing its callback, the busy slot and shutdown wait for
 it; operators must restart the application process. A fatal native crash can
@@ -330,9 +330,42 @@ also affect FastAPI. This is the accepted tradeoff for in-process loading;
 there is no hidden process/server fallback. Successful native cleanup releases
 the slot so retrieval remains usable.
 
-Logs contain fixed outcome/error codes and timings only, never questions,
-source passages or drafts. Offline private samples deliberately retain these
-for source review; the metadata report excludes source/draft/verdict text.
+By default, logs contain only generated request IDs, fixed outcome/diagnostic codes,
+source/claim/check counts, timings and allowlisted nonnegative integer token usage.
+They do not contain questions, source passages, drafts or verdict text.
+`ANSWER_DEBUG_RAW=true` explicitly enables local raw draft/verdict prints;
+the default is `false`, and values other than `true`/`false` are rejected.
+Treat this as private local diagnosis and disable it for normal operation.
+No credentials or environment values are printed. Debug configuration is passed
+explicitly into the pipeline; it never reads the environment itself.
+Offline private samples deliberately retain evidence/drafts/verdicts for source
+review; metadata reports exclude that text. The 300-second operational deadline
+is distinct from the unchanged official gate requiring 95% of cases within 30 seconds.
+
+### Bounded verifier and compact evidence
+
+Each request's verifier grammar has exactly one positional check per draft claim,
+with a fixed zero-based index; a zero-claim draft requires an empty checks array.
+Strict code validation remains authoritative if a runtime bypasses grammar.
+Internal diagnostics distinguish invalid verdict structure, mismatched indices,
+unsupported claims, missing conditions, inappropriate status, undisclosed missing
+parts and unresolved conflict. Public `fallback_reason=verification_failed` stays
+unchanged, with rejected claims/sources withheld and no repair/retry inference.
+Correct grammar does not establish semantic correctness or independent verification.
+
+Both model calls receive the same complete source content, title, applicability,
+version and effective dates, keyed by source ID. Origins/UUIDs/source spans remain
+application-owned for response rendering and are omitted from the model payload.
+Retrieval candidates, deduplication and verbatim quotation validation are unchanged.
+Prompts require necessary conditions and paperwork in claims, preserve uncertainty,
+and distinguish missing supplied evidence from claims about the entire document.
+There is no claim that top-K establishes exhaustive benefits or personal eligibility.
+
+For an exposed eight-case local comparison, see the separate
+[bounded regression utility](../scripts/README.md#bounded-answer-pipeline-regression).
+It does not relax the official evaluator or issue acceptance. Model/code/pipeline
+changes invalidate prior filtered-study identities; never rewrite old hashes to
+make an existing acceptance report match.
 
 ## Implementation validation
 

@@ -9,6 +9,7 @@ Run commands from the repository root with the repository virtual environment. B
 | File | Status | Purpose and invocation |
 | --- | --- | --- |
 | `check_db.py` | Current | `python -m src.cli.check_db`: check PostgreSQL connectivity and pgvector version. |
+| `check_employee_source.py` | Current, opt-in readonly foundation | `python -m src.cli.check_employee_source`: metadata-only HRM connectivity, readonly role/transaction and 64-column projection check; exits 0/1, loads root `.env`, closes its own pool; no employee output, writes or migrations. See [employee source](../../docs/employee-source.md). |
 | `prepare_documents.py` | Current | `python -m src.cli.prepare_documents <init/validate/revise/recover> ...`: manage current agent-authored packages. |
 | `prepare_rerank.py` | Current, offline baseline preparation | `python -m src.cli.prepare_rerank <init/validate/freeze> --manifest <private-manifest> ... [--json]`: import draft cases, validate pins and freeze reviewed candidate labels. |
 | `preflight_documents.py` | Current | `python -m src.cli.preflight_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--check-embeddings] [--json]`: local technical checks. |

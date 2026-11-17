@@ -2,6 +2,15 @@
 
 Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and health-only gRPC. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in grounded answer API supports reviewed filtered answering and explicitly unfiltered trials with Qwen3.5-0.8B Q5_K_M; trials retain unassessed relevance metadata and do not establish acceptance. Business RPCs, authenticated Type B tools and conversation history remain planned.
 
+An opt-in [readonly employee source](docs/employee-source.md) now supplies a separate
+PostgreSQL connection, explicit 64-field employee_sso_store repository, immutable
+contracts and service reads by user_id (one or up to 200 IDs). Configure
+`HRM_DATABASE_URL` with an externally provisioned SELECT-only role and optionally
+`HRM_DATABASE_SCHEMA` (default public); it never uses the Type A URL or Alembic.
+Run `python -m src.cli.check_employee_source` for a metadata-only preflight.
+Every relation on this connection is readonly. No answering, retrieval, model,
+account authentication, authorization or Type B tool integration is activated.
+
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
 Each source has at most one current package. Editing chunks keeps the source revision; changed source bytes require `python -m src.cli.prepare_documents revise --package chunks/<document_id> --source <relative-source-path> --supersedes-current`. Revision identity stays in metadata while the directory remains stable. Git preserves committed package history; `.gitattributes` preserves exact bytes across checkouts. Each environment still needs its own local model and explicit publication to its own database. See [layout migration and deployment](docs/offline-indexing.md#layout-migration-and-deployment) before using an older checkout's packages.
@@ -23,6 +32,27 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### Readonly employee source foundation - 2026-11-17
+
+Added an independent, opt-in HRM connection/repository/service and 64-property
+dictionary; no source data/schema writes, live HRM calls, migrations, backend
+changes or Type B/answering integration were performed. See
+[employee source](docs/employee-source.md) for readonly provisioning and semantic
+limits. Work was validated in the uncommitted working tree at `3924222`, preserving
+pre-existing answering/docs edits and concurrent changes outside this module.
+
+Focused employee-source plus existing database tests: **79 passed, 2 skipped**
+(the HRM integration tests require an externally preprovisioned disposable fixture).
+The initial sandboxed run hit Windows temporary-directory permissions; the focused
+suite passed outside that restriction using a separate cache under `.tmp`.
+Full `python -m pytest -m 'not integration'` was attempted but stopped during
+collection on unrelated answering contract imports: initially missing
+`verdict_schema`; a diagnostic rerun excluding that pre-existing test then found
+missing `Draft` imports in answering/evaluation/runtime/API suites while those
+files were being edited concurrently. These tests were not weakened or changed
+by this task; no full-suite pass is claimed. Unit doubles do not prove PostgreSQL
+role enforcement, live schema compatibility or source meaning/completeness.
 
 ### Corpus publication and additive schema guards - 2026-11-17
 

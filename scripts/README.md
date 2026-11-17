@@ -41,6 +41,33 @@ Requires PostgreSQL, compatible published vectors and a local model. Reads publi
 
 ## Evaluation and experiments
 
+### Bounded answer pipeline regression
+
+`python -B -m scripts.benchmark_answer_pipeline --cases .tmp/answer-regression/cases.json --output .tmp/answer-regression/baseline`
+runs eight exposed cases sequentially through the application-owned retrieval/answer runtimes and shared
+answer pipeline. It does not open a listener, restart a service, write the database, or grant acceptance.
+It requires the existing local models, optional answer binding, compatible published database and enabled
+answer settings. The normal filtered acceptance checks still apply when filtering is enabled; explicitly
+unfiltered configuration remains unassessed. It does not weaken `evaluate_answers`.
+
+Inputs and new output directories must resolve under `.tmp/`. The JSON input is
+`{"schema_version":1,"cases":[{"id":"fictional-case","text":"Fictional question?"}]}` with exactly eight
+unique IDs (lowercase letters, digits and hyphens; at most 60 characters), each text nonblank and at most
+8,000 characters. Freeze this private input before collecting a baseline and do not tune to its results.
+Output directories must not exist. Private per-case JSON contains evidence, draft and verdict; private stdout
+files capture legacy/debug prints. Metadata-only `report.json` records identities, tokens, timings and outcomes.
+Startup/warm-up is timed separately. A failed/uncertain request stops the run without retrying. The deadline
+is the application's current 300 seconds per case; cancellation cleanup can take longer.
+
+After changes, use another new output directory and `--compare .tmp/answer-regression/baseline/report.json`.
+Comparison requires completed runs with matching case, model/binding, retrieval/artifact, package, configuration
+and corpus identities. The implementation hash is intentionally allowed to differ between the runs, but must
+remain stable during each run. Each run executes at most eight requests. Review published answers against
+the private source excerpts; acceptance rate alone is not quality. Small exposed runs establish neither p95 nor
+official latency/quality acceptance. Exit codes: `0` completed collection, `1` runtime/identity failure,
+`2` invalid input or operational failure. A completed collection can still have an incompatible comparison;
+inspect `comparison.comparable` before drawing conclusions.
+
 Learned passage scoring uses private numeric development features and actual
 source-reviewed labels. Paired collection accepts `--collect-features`; use
 `--collect-only --requests 0` for development collection without a latency claim.

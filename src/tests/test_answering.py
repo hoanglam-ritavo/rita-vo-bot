@@ -71,6 +71,23 @@ def test_dedup_preserves_origins_and_different_conditions():
     assert sources['S3']['version_label'] == 'v2'
 
 
+@pytest.mark.parametrize('debug', [False, True])
+def test_http_debug_setting_only_changes_private_stdout(debug, capsys):
+    service = owner()
+    service.settings = replace(service.settings, answer=AnswerSettings(debug_raw=debug))
+    service.answers.settings = service.settings
+    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
+        enable(service)
+        response = client.post('/api/v1/answer', json={'text': 'Fictional question?'})
+    assert response.status_code == 200
+    body = response.json()
+    assert body['status'] == 'answered'
+    assert not {'draft', 'verdict', 'request_id', 'verification_diagnostics'} & body.keys()
+    output = capsys.readouterr().out
+    assert ('Raw draft generated:' in output) is debug
+    assert ('Raw verdict generated:' in output) is debug
+
+
 @pytest.mark.parametrize('change', [
     {'relevance': {'status': 'unassessed', 'warnings': []}},
     {'relevance': {'status': 'relevant_candidates', 'warnings': ['relevance_filter_disabled']}},

@@ -82,6 +82,19 @@ def _pattern(phrase):
     return re.compile(r'(?<!\w)' + re.escape(normalized(phrase)) + r'(?!\w)', re.IGNORECASE)
 
 
+def phrase_matches(phrase, question):
+    """Bounded matching shared by retrieval and authored answers."""
+    return bool(_pattern(phrase).search(normalized(question)))
+
+
+def matching_concepts(data, question):
+    """Guarded language concepts, never document routing or authorization."""
+    return {c['id'] for c in data['concepts']
+            if (not c['requires_any'] or any(phrase_matches(p, question) for p in c['requires_any']))
+            and not any(phrase_matches(p, question) for p in c['excludes_any'])
+            and any(phrase_matches(p, question) for p in [c['canonical'], *c['aliases']])}
+
+
 def _rules(data):
     targets = {}
     for concept in data['concepts']:
