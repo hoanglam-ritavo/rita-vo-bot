@@ -43,6 +43,37 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Intent Colab workflow notebook - 2026-11-17
+
+The [intent notebook](collabs/intent-colab/notebooks/train_intent.ipynb) now
+orchestrates the existing CLI: verified kit extraction, dependency installation,
+local model/device selection, private dataset setup/review, preflight, training
+and hash-bound export. It is stored with empty outputs and included in the
+packager allowlist/source identity. This work continued across the concurrent
+`369cfa4` commit; existing user edits were retained.
+
+Post-edit notebook-focused checks passed **12 tests** using synthetic fixtures,
+mocked upload/install/device/train/download boundaries and an actual extracted-CLI
+validation/review rejection without a model or database. Existing runtime intent,
+evaluation and preparation regressions separately passed **60 tests**, with the
+existing Starlette/AnyIO deprecation warning. The sandboxed notebook-only pytest
+run also reported a cache-write permission warning; its assertions passed.
+
+The full local kit verifier remains **31 passed, 6 failed, 2 errors, 1 skipped**:
+the preserved tracked sample has `reviewed=true` while its generator and agent
+review notes still describe an unreviewed draft, so source/hash/review and
+packaging checks reject it. The skip is actual Windows symlink creation.
+These assertions remain enabled. Per the user's explicit choice, this task does
+not reset that sample or produce a new release ZIP. An old ZIP lacking the
+notebook cannot be used with the notebook setup cell; resolve source consistency
+and reverify before creating a matching release archive.
+
+Static review passed for **127 local documentation links**, all **11 notebook
+code cells**, empty execution outputs, Git LF attributes and diff whitespace.
+
+No live Colab/CUDA run, dependency installation, real training, database benchmark,
+acceptance/promotion, `.env` change or service deployment was performed.
+
 ### Relevance scoring V3 Colab development kit - 2026-11-17
 
 The independent [V3 kit](collabs/relevance-scoring-v3/README.md) packages numeric

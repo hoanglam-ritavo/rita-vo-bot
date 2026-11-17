@@ -114,6 +114,13 @@ and the same CPU sklearn heads, quality gates, candidate schema and report hashe
 Portable source snapshots normalize UTF-8/LF; runtime model identity stays
 byte-bound. Colab/CUDA numerical behavior still needs actual verification.
 
+The kit's [ready-to-run notebook](../collabs/intent-colab/notebooks/train_intent.ipynb)
+orchestrates ZIP integrity checks, installation, existing local-model selection,
+private dataset review/validation, preflight, training and an allowlisted download.
+It calls the CLI without duplicating training, automatically marking reviewed,
+mounting Drive or connecting to the internal database. The notebook is included
+in the upload ZIP and in source-bound verification; committed outputs stay empty.
+
 Run the kit's build and dataset `--check` modes, canonical synthetic verification,
 then the allowlisted package command described in its README. A supplied local
 verification receipt must match current source and retain skipped checks.

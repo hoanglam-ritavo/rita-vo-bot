@@ -2,8 +2,10 @@
 import argparse
 import ast
 import copy
+from contextlib import contextmanager
 import hashlib
 import importlib.util
+import io
 import json
 import os
 from pathlib import Path
@@ -15,6 +17,7 @@ import unittest
 import uuid
 import zipfile
 from unittest.mock import patch
+from unittest.mock import Mock
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT / 'collabs/intent-colab'
@@ -155,7 +158,8 @@ class BundleChecks(unittest.TestCase):
         with zipfile.ZipFile(result['archive']) as archive:
             self.assertEqual(set(archive.namelist()), {
                 'train_intent_standalone.py', 'draft-cases.json', 'dataset-review.json',
-                'requirements-colab.txt', 'README.md', 'verification.json', 'bundle-manifest.json'})
+                'requirements-colab.txt', 'README.md', 'verification.json', 'bundle-manifest.json',
+                'notebooks/train_intent.ipynb'})
             manifest = json.loads(archive.read('bundle-manifest.json'))
             self.assertEqual(manifest['verification']['passed'], 2)
             self.assertEqual(manifest['verification']['skipped'], report['skipped'])
@@ -172,6 +176,268 @@ class BundleChecks(unittest.TestCase):
             self.assertNotIn('verification.json', archive.namelist())
             self.assertEqual(json.loads(archive.read('bundle-manifest.json'))['verification']['status'],
                              'not_supplied')
+
+    def test_notebook_is_part_of_source_identity_and_invalidates_receipt(self):
+        tool = load_tool('prepare_upload')
+        report_path, report = self.receipt(tool)
+        notebook_key = 'collabs/intent-colab/notebooks/train_intent.ipynb'
+        self.assertIn(notebook_key, report['source_sha256'])
+        scope = tool.verification_identity.__globals__
+        original_hash = scope['text_hash']
+        def changed_hash(path):
+            return 'changed-notebook' if path.suffix == '.ipynb' else original_hash(path)
+        with self.notebook_package_inputs(tool), patch.dict(scope, {'text_hash': changed_hash}):
+            with self.assertRaisesRegex(ValueError, 'verification_failed_or_stale'):
+                tool.package(self.private / 'dist', report_path)
+
+    def notebook(self):
+        return json.loads((HERE / 'notebooks/train_intent.ipynb').read_text(encoding='utf-8'))
+
+    @contextmanager
+    def notebook_package_inputs(self, tool):
+        # Notebook workflow tests use canonical synthetic inputs independently
+        # of a user's edits to the tracked sample. The separate sample/build/
+        # review binding regressions stay enabled and still detect that drift.
+        source = self.private / 'notebook-package-inputs'
+        source.mkdir(exist_ok=True)
+        dataset, notes = source / 'draft.json', source / 'review.json'
+        dataset.write_text(json.dumps(tool.expected_dataset), encoding='utf-8')
+        notes.write_text(json.dumps(tool.expected_review), encoding='utf-8')
+        with patch.dict(tool.UPLOAD_FILES, {'draft-cases.json': dataset, 'dataset-review.json': notes}):
+            yield
+
+    def notebook_cell(self, identity):
+        return ''.join(next(c['source'] for c in self.notebook()['cells'] if c['id'] == identity))
+
+    def notebook_namespace(self):
+        namespace = {}
+        exec(compile(self.notebook_cell('configuration'), 'configuration', 'exec'), namespace)
+        namespace.update(WORKSPACE=self.workspace, KIT_DIR=self.workspace / 'kit with spaces',
+                         KIT_ZIP=self.private / 'upload.zip', MODEL_PATH=self.workspace / 'e5 model',
+                         WORK_DIR=self.private / 'notebook', DEVICE='cpu')
+        namespace['DATASET_PATH'] = namespace['WORK_DIR'] / 'reviewed-cases.json'
+        namespace['RUN_ROOT'] = namespace['WORK_DIR'] / 'runs'
+        namespace['WORK_DIR'].mkdir()
+        exec(compile(self.notebook_cell('workflow-helpers'), 'workflow-helpers', 'exec'), namespace)
+        return namespace
+
+    def notebook_fixture(self, namespace, status='candidate_ready_for_benchmark'):
+        self.data.update(reviewed=True, review_notes='Synthetic fixture; not actual human review.')
+        namespace['DATASET_PATH'].write_text(json.dumps(self.data), encoding='utf-8')
+        namespace['KIT_DIR'].mkdir(exist_ok=True)
+        (namespace['KIT_DIR'] / 'train_intent_standalone.py').write_text('# mocked CLI only\n')
+        namespace['MODEL_PATH'].mkdir(exist_ok=True)
+        run = namespace['RUN_ROOT'] / 'fictional-run'
+        run.mkdir(parents=True)
+        outputs = {'validation.json': {}, 'preflight.json': {}, 'candidate.json': {'fictional': True},
+                   'training-report.json': {'fictional': True}}
+        manifest = {'complete': True, 'status': status, 'dataset_sha256': bundle.digest(self.data),
+                    'outputs': {name: bundle.digest(outputs[name])
+                                for name in ('candidate.json', 'training-report.json')}}
+        outputs['manifest.json'] = manifest
+        for name, content in outputs.items():
+            (run / name).write_text(json.dumps(content), encoding='utf-8')
+        return run, manifest
+
+    def test_notebook_format_empty_outputs_and_no_training_duplication(self):
+        notebook = self.notebook()
+        self.assertEqual((notebook['nbformat'], notebook['nbformat_minor']), (4, 5))
+        self.assertEqual(notebook['metadata']['kernelspec']['name'], 'python3')
+        ids = [c['id'] for c in notebook['cells']]
+        self.assertEqual(len(ids), len(set(ids)))
+        for cell in notebook['cells']:
+            self.assertRegex(cell['id'], r'^[A-Za-z0-9_-]{1,64}$')
+            self.assertIsInstance(cell['source'], list)
+            self.assertEqual(cell['metadata'], {})
+            if cell['cell_type'] == 'code':
+                self.assertEqual(cell['outputs'], [])
+                self.assertIsNone(cell['execution_count'])
+                tree = ast.parse(''.join(cell['source']))
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.ImportFrom):
+                        self.assertFalse((node.module or '').startswith(('src', 'sklearn', 'sentence_transformers')))
+                    if isinstance(node, ast.Assign):
+                        for target in node.targets:
+                            if isinstance(target, ast.Subscript) and isinstance(target.slice, ast.Constant):
+                                self.assertNotEqual(target.slice.value, 'reviewed')
+
+    def test_notebook_extracts_verified_kit_and_rerun_never_overwrites(self):
+        namespace = self.notebook_namespace()
+        tool = load_tool('prepare_upload')
+        with self.notebook_package_inputs(tool):
+            packaged = tool.package(self.private / 'dist')
+        namespace['KIT_ZIP'] = Path(packaged['archive'])
+        namespace['prepare_kit']()
+        trainer = namespace['KIT_DIR'] / 'train_intent_standalone.py'
+        before = trainer.read_bytes()
+        namespace['prepare_kit']()
+        self.assertEqual(trainer.read_bytes(), before)
+        # Exercise the extracted CLI for real without project imports/model/DB.
+        namespace['prepare_dataset']()
+        result = namespace['run_cli']('validate')
+        self.assertFalse(result['validation']['training_allowed'])
+        with self.assertRaisesRegex(RuntimeError, 'Human review required'):
+            namespace['train_once']()
+        trainer.write_text('# explicit private edit\n')
+        with self.assertRaisesRegex(RuntimeError, 'Existing kit differs'):
+            namespace['prepare_kit']()
+        self.assertEqual(trainer.read_text(), '# explicit private edit\n')
+
+    def test_notebook_rejects_unsafe_archives_and_bad_checksums_before_extract(self):
+        namespace = self.notebook_namespace()
+        tool = load_tool('prepare_upload')
+        with self.notebook_package_inputs(tool):
+            packaged = tool.package(self.private / 'dist')
+        with zipfile.ZipFile(packaged['archive']) as archive:
+            valid = {name: archive.read(name) for name in archive.namelist()}
+        variants = [dict(valid, **{'../outside.txt': b'fictional'}),
+                    dict(valid, **{'draft-cases.json': b'changed checksum'})]
+        for payloads in variants:
+            with zipfile.ZipFile(namespace['KIT_ZIP'], 'w') as archive:
+                for name, content in payloads.items():
+                    archive.writestr(name, content)
+            with self.assertRaises(RuntimeError):
+                namespace['prepare_kit']()
+            self.assertFalse(namespace['KIT_DIR'].exists())
+        with zipfile.ZipFile(namespace['KIT_ZIP'], 'w') as archive:
+            for name, content in valid.items():
+                info = zipfile.ZipInfo(name)
+                if name == 'draft-cases.json':
+                    info.create_system = 3
+                    info.external_attr = 0o120777 << 16
+                archive.writestr(info, content)
+        with self.assertRaisesRegex(RuntimeError, 'Unsafe archive entry'):
+            namespace['prepare_kit']()
+
+    def test_notebook_retains_dataset_and_requires_explicit_upload(self):
+        namespace = self.notebook_namespace()
+        namespace['KIT_DIR'].mkdir()
+        (namespace['KIT_DIR'] / 'draft-cases.json').write_bytes(self.dataset.read_bytes())
+        namespace['prepare_dataset']()
+        target = namespace['DATASET_PATH']
+        target.write_text('{"private-edit": true}')
+        namespace['prepare_dataset']()
+        self.assertEqual(target.read_text(), '{"private-edit": true}')
+        uploader = Mock()
+        namespace['colab_files'] = lambda: types.SimpleNamespace(upload=uploader)
+        exec(self.notebook_cell('upload-reviewed'), namespace)
+        uploader.assert_not_called()
+
+    def test_notebook_reviewed_upload_validates_before_replacement(self):
+        namespace = self.notebook_namespace()
+        target = namespace['DATASET_PATH']
+        target.write_text('{"keep-private-edit": true}')
+        api = types.SimpleNamespace(upload=Mock(return_value={'reviewed.json': b'{"reviewed": true}'}))
+        namespace['colab_files'] = lambda: api
+        validator = Mock(return_value={'validation': {'training_allowed': False}})
+        namespace['run_cli'] = validator
+        with self.assertRaisesRegex(RuntimeError, 'not reviewed/valid'):
+            namespace['upload_reviewed_dataset']()
+        self.assertEqual(target.read_text(), '{"keep-private-edit": true}')
+        validator.return_value = {'validation': {'training_allowed': True}}
+        namespace['upload_reviewed_dataset']()
+        self.assertEqual(json.loads(target.read_text()), {'reviewed': True})
+        self.assertEqual(validator.call_args.args, ('validate',))
+        self.assertTrue(validator.call_args.kwargs['dataset_path'].is_relative_to(namespace['WORK_DIR']))
+        self.assertFalse(list(namespace['WORK_DIR'].glob('upload-*.json')))
+
+    def test_notebook_cli_uses_arguments_handles_failures_and_never_echoes_raw_stdout(self):
+        namespace = self.notebook_namespace()
+        namespace['KIT_DIR'].mkdir()
+        (namespace['KIT_DIR'] / 'train_intent_standalone.py').write_text('# mocked CLI\n')
+        payload = {'status': 'valid', 'validation': {'training_allowed': False, 'case_count': 600}}
+        completed = types.SimpleNamespace(returncode=0, stdout=json.dumps(payload))
+        with patch.object(subprocess, 'run', return_value=completed) as execute:
+            self.assertEqual(namespace['run_cli']('validate'), payload)
+        args, kwargs = execute.call_args
+        self.assertEqual(args[0][1], str(namespace['KIT_DIR'] / 'train_intent_standalone.py'))
+        self.assertIsInstance(args[0], list)
+        self.assertEqual(kwargs['cwd'], str(self.workspace))
+        self.assertNotIn('shell', kwargs)
+        for completed in [types.SimpleNamespace(returncode=2, stdout='{"status":"failed"}'),
+                          types.SimpleNamespace(returncode=0, stdout='PRIVATE QUESTION NEVER ECHO')]:
+            with patch.object(subprocess, 'run', return_value=completed), patch('sys.stdout', new_callable=io.StringIO) as output:
+                with self.assertRaises(RuntimeError):
+                    namespace['run_cli']('validate')
+                self.assertNotIn('PRIVATE QUESTION', output.getvalue())
+
+    def test_notebook_install_and_device_check_are_explicit(self):
+        namespace = self.notebook_namespace()
+        namespace['KIT_DIR'].mkdir()
+        requirement = namespace['KIT_DIR'] / 'requirements-colab.txt'
+        requirement.write_text('# mocked installation\n')
+        with patch.object(subprocess, 'run') as install:
+            namespace['install_dependencies']()
+        self.assertEqual(install.call_args.args[0],
+                         [sys.executable, '-m', 'pip', 'install', '-r', str(requirement)])
+        self.assertTrue(install.call_args.kwargs['check'])
+        namespace['MODEL_PATH'].mkdir()
+        namespace['DEVICE'] = 'cuda'
+        fake_torch = types.SimpleNamespace(cuda=types.SimpleNamespace(is_available=lambda: False))
+        with patch.dict(sys.modules, {'torch': fake_torch}):
+            with self.assertRaisesRegex(RuntimeError, 'CUDA unavailable'):
+                namespace['check_environment']()
+        self.assertEqual(namespace['DEVICE'], 'cuda')
+
+    def test_notebook_train_stops_before_model_check_for_unreviewed_data(self):
+        namespace = self.notebook_namespace()
+        namespace['LAST_RUN'] = 'previous-selection'
+        namespace['run_cli'] = Mock(return_value={'validation': {'training_allowed': False}})
+        namespace['check_environment'] = Mock()
+        with self.assertRaisesRegex(RuntimeError, 'Human review required'):
+            exec(self.notebook_cell('train'), namespace)
+        namespace['run_cli'].assert_called_once_with('validate')
+        namespace['check_environment'].assert_not_called()
+        self.assertIsNone(namespace['LAST_RUN'])
+
+    def test_notebook_train_selects_only_completed_matching_run(self):
+        namespace = self.notebook_namespace()
+        run, manifest = self.notebook_fixture(namespace)
+        def cli(command, *args, **kwargs):
+            return ({'validation': {'training_allowed': True}} if command == 'validate'
+                    else {'status': manifest['status'], 'run_directory': str(run)})
+        namespace['run_cli'] = Mock(side_effect=cli)
+        exec(self.notebook_cell('train'), namespace)
+        self.assertEqual(namespace['LAST_RUN'], run)
+        self.assertIn(str(namespace['MODEL_PATH']), namespace['run_cli'].call_args.args[1])
+        manifest['complete'] = False
+        (run / 'manifest.json').write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(RuntimeError, 'incomplete or failed'):
+            namespace['train_once']()
+        self.assertIsNone(namespace['LAST_RUN'])
+
+    def test_notebook_export_download_is_allowlisted_and_bound_to_dataset(self):
+        namespace = self.notebook_namespace()
+        run, manifest = self.notebook_fixture(namespace, status='quality_failed')
+        (run / '.env').write_text('FICTIONAL_PRIVATE_MARKER=excluded')
+        namespace['LAST_RUN'] = run
+        api = types.SimpleNamespace(download=Mock())
+        namespace['colab_files'] = lambda: api
+        exec(self.notebook_cell('download'), namespace)
+        archive_path = Path(api.download.call_args.args[0])
+        with zipfile.ZipFile(archive_path) as archive:
+            prefix = 'runs/' + run.name + '/'
+            self.assertEqual(set(archive.namelist()), {'reviewed-cases.json', *(
+                prefix + name for name in ('validation.json', 'preflight.json', 'training-report.json',
+                                          'candidate.json', 'manifest.json'))})
+            self.assertNotIn(b'FICTIONAL_PRIVATE_MARKER', b''.join(archive.read(n) for n in archive.namelist()))
+            self.assertEqual(bundle.digest(json.loads(archive.read('reviewed-cases.json'))),
+                             manifest['dataset_sha256'])
+        namespace['DATASET_PATH'].write_text('{"different": true}')
+        api.download.reset_mock()
+        with self.assertRaisesRegex(RuntimeError, 'Dataset hash mismatch'):
+            exec(self.notebook_cell('download'), namespace)
+        api.download.assert_not_called()
+
+    def test_notebook_export_rejects_corrupt_outputs_and_unselected_run(self):
+        namespace = self.notebook_namespace()
+        with self.assertRaisesRegex(RuntimeError, 'No completed run selected'):
+            namespace['export_run'](None)
+        run, manifest = self.notebook_fixture(namespace)
+        (run / 'candidate.json').write_text('{"changed": true}')
+        with self.assertRaisesRegex(RuntimeError, 'output hash mismatch'):
+            namespace['export_run'](run)
+        self.assertFalse((namespace['WORK_DIR'] / 'exports').exists())
 
     def test_package_refuses_stale_or_failed_verification_and_public_output(self):
         tool = load_tool('prepare_upload')

@@ -5,11 +5,44 @@ cloning the repository. E5 embedding uses FP32 CUDA; sklearn logistic heads use
 CPU. The exported trainer has no project imports, implicit installs/downloads,
 database connection or dotenv loading. It produces a candidate, never acceptance.
 
+## Run the notebook on Colab
+
+Open [notebooks/train_intent.ipynb](notebooks/train_intent.ipynb) in Google Colab
+(download and upload the notebook if opening it from the repository). It is also
+included in the generated kit ZIP. No Git clone is required. The notebook is saved
+with empty outputs and execution counts; do not commit private session output.
+
+Upload `colab-upload.zip` through Colab Files, provision the unchanged E5 folder
+at a local path, and edit the first configuration cell. Defaults are `/content`
+workspace, `/content/intent-colab-kit` for extracted kit files, `/content/e5-model`,
+CUDA and batch size 16. There is no automatic Drive connection or model download.
+Run the cells in order to verify/extract the ZIP, install dependencies, check the
+model/device, prepare/validate a private dataset, optionally upload a reviewed
+replacement, preflight, train and download the selected batch.
+
+An existing matching kit is retained; a differing kit stops extraction. Existing
+working data is never overwritten by sample setup. Set
+`UPLOAD_REVIEWED_DATASET=True` only for the explicit replacement cell; it accepts
+one JSON and validates its review/structure before replacing the private copy.
+It never marks data reviewed or changes the tracked sample. Train validates again
+and refuses unreviewed data before starting the model. CLI failures stop the step,
+with no automatic retries or CPU fallback.
+
+The notebook calls the standalone CLI; it does not duplicate the model algorithm.
+Only a completed matching run is selected. Export checks dataset/output hashes
+and includes exactly that run's five output files plus its exact dataset. It
+excludes all other runs, models, credentials and caches. A quality-failed run can
+be exported for diagnostics and is never represented as accepted. Saved files
+survive a cell rerun; the active run selection resets with configuration/runtime.
+Live Colab/CUDA execution and real training remain separately unverified.
+
 ## Maintained files and private work
 
 The selected synthetic sample is `datasets/draft-cases.json`; its authoring and
-agent-review notes are in `datasets/dataset-review.json`. It contains 600 fictional
-questions with `reviewed: false`. Names, labels and review state do not certify
+agent-review notes are in `datasets/dataset-review.json`. The generator produces
+600 fictional questions with `reviewed: false`; tracked edits that diverge from
+that source are rejected by source/review-binding checks before packaging.
+Names, labels and review state do not certify
 policy correctness, real employee facts, corpus coverage or live tool availability.
 Human review is still required before training. Many Type B labels represent
 prospective read-only needs beyond the currently bounded HTTP implementation.
@@ -54,13 +87,21 @@ current kit, canonical tests and upstream source hashes. Omitting
 Counts/skips come from the receipt; no historical result is hard-coded.
 
 The ZIP uses a fixed allowlist: trainer, requirements, README, sample, synthetic
-review notes, manifest, and optional matching verification report. It never scans
+review notes, notebook, manifest, and optional matching verification report. It never scans
 the private workspace. Source snapshot hashes normalize UTF-8 line endings to LF
 (`sha256-utf8-lf-v1`); model and archive payload fingerprints still use raw bytes.
+Notebook source participates in verification identity; edits invalidate old receipts.
+An older ZIP without the notebook is not compatible with the notebook's setup
+cell. Generate a matching ZIP only after source/sample consistency is resolved;
+an edited sample or stale receipt must not be bypassed to release a new archive.
 Maintenance exits are 0 success, 1 consistency/test failure, 2 package input error.
 Build/authoring require an explicit `--check` or `--write`; imports have no writes.
 
 ## Upload without Git
+
+The cells above automate this workflow. The following commands are the manual
+alternative; their extracted `/content` paths differ from the notebook's
+`/content/intent-colab-kit` directory. Do not mix the two sets of paths.
 
 Download the source files directly from the repository, or use the ZIP above.
 Upload the ZIP through Colab Files. Extract this trusted generated bundle:

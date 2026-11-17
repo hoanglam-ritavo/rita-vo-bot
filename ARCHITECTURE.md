@@ -55,6 +55,13 @@ unreviewed. Private review/train copies, source-bound test receipts and allowlis
 upload ZIPs stay under `.tmp/intent-colab/`. Packaging neither authorizes runtime
 use nor replaces internal paired acceptance/semantic evaluation.
 
+The versioned [intent notebook](collabs/intent-colab/notebooks/train_intent.ipynb)
+is a Colab workflow over that CLI, not a second training implementation. It
+checks the fixed ZIP allowlist/manifest, retains existing kit/dataset files,
+offers explicit reviewed-dataset upload and selects only completed matching runs.
+Exports contain the selected run and hash-matched dataset only. Notebook source
+is part of package checksums and verification identity; saved outputs remain empty.
+
 ## Independent relevance scoring Colab kit
 
 The independent [relevance V3 Colab kit](collabs/relevance-scoring-v3/README.md)
