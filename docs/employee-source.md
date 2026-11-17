@@ -1,8 +1,9 @@
 # Readonly employee source
 
 `src.employee_source` provides explicitly invoked PostgreSQL access to
-`employee_sso_store`. It is independent of the Type A database, Alembic, ingestion,
-retrieval, intent classification, answering and HTTP routes. It performs no
+`employee_sso_store`. Its connection remains independent of the Type A database,
+Alembic and ingestion. The opt-in [Type B HTTP adapter](type-b-http.md) uses it
+for bounded work-profile evidence in retrieve/answer. The source module performs no
 authentication, authorization, user synchronization, HRM account lookup, alias
 resolution, birthday business logic or model inference. Callers must establish
 identity and access rights before any future business integration. Access to all

@@ -6,13 +6,14 @@ import time
 from src.retrieval import RetrievalService, RetrievalError
 from .contracts import ApiError, RetrievalResponse, Timings
 from .answer import AnswerService
+from src.type_b.service import TypeBCoordinator
 
 logger = logging.getLogger(__name__)
 REQUEST_TIMEOUT_SECONDS = 120
 
 
 class ApiService:
-    def __init__(self, settings, *, retrieval=None, database_check=None, database_close=None):
+    def __init__(self, settings, *, retrieval=None, database_check=None, database_close=None, employee_service=None):
         from src.database import check_database, close_database
         self.settings = settings
         self.retrieval = retrieval if retrieval is not None else RetrievalService(
@@ -26,6 +27,7 @@ class ApiService:
         self._idle = asyncio.Event()
         self._idle.set()
         self.answers = AnswerService(settings, self)
+        self.context = TypeBCoordinator(self, employee_service)
 
     async def start(self):
         if self.started:
@@ -36,6 +38,7 @@ class ApiService:
         await self.database_check()
         self.started = True
         await self.answers.start()
+        await self.context.start()
         logger.info('retrieval_startup model_initialization_seconds=%.3f total_seconds=%.3f',
                     model_seconds, time.perf_counter() - started)
 
@@ -55,9 +58,22 @@ class ApiService:
             await self.answers.close()
         finally:
             try:
-                await self.retrieval.close()
+                await self.context.close()
             finally:
-                await self.database_close()
+                try:
+                    await self.retrieval.close()
+                finally:
+                    await self.database_close()
+
+    async def execute(self, text, top_k, hrm_user_id=None, service_key=None, *, answer=False):
+        return await self.context.execute(text, top_k, hrm_user_id, service_key, answer=answer)
+
+    def retrieval_response(self, result, started, elapsed):
+        return RetrievalResponse(status=result['status'], matches=result['matches'],
+            fallback_reason=result['fallback_reason'],
+            relevance=result.get('relevance', {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}),
+            timings=Timings(retrieval_seconds=elapsed, rerank_seconds=result.get('rerank_seconds', 0.0),
+                            total_seconds=time.perf_counter() - started))
 
     async def answer_readiness(self):
         # Dependency readiness is independent of the request busy slot.
@@ -86,12 +102,7 @@ class ApiService:
                 retrieval_seconds = time.perf_counter() - retrieval_started
                 if result['status'] == 'model_mismatch':
                     raise ApiError('model_mismatch')
-                response = RetrievalResponse(status=result['status'], matches=result['matches'],
-                    fallback_reason=result['fallback_reason'],
-                    relevance=result.get('relevance', {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}),
-                    timings=Timings(retrieval_seconds=retrieval_seconds,
-                                    rerank_seconds=result.get('rerank_seconds', 0.0),
-                                    total_seconds=time.perf_counter() - started))
+                response = self.retrieval_response(result, started, retrieval_seconds)
                 outcome = response.status
                 return response
         except RetrievalError as exc:

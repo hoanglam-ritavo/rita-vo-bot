@@ -4,7 +4,7 @@ import math
 import re
 import time
 import logging
-from dataclasses import replace
+from dataclasses import dataclass, field, replace
 
 from src.ingestion import embeddings
 from src.ingestion.document_packages import Rejected
@@ -14,6 +14,14 @@ from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, 
 from .semantics import SemanticSettings, SemanticExpander
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass(frozen=True, repr=False)
+class PreparedQuery:
+    question: str
+    vector: tuple[float, ...]
+    hint: dict
+    owner: object = field(repr=False)
 
 
 class RetrievalError(ValueError):
@@ -61,6 +69,8 @@ class RetrievalService:
         self.rerank_settings = rerank or RerankSettings()
         self._reranker = None
         self._intent = IntentObserver(intent or IntentSettings())
+        self._source_intent = IntentObserver(IntentSettings())
+        self._prepared_owner = object()
         self._semantic = SemanticExpander(semantic or SemanticSettings())
         if self._semantic.settings.mode == 'expand' and not self.rerank_settings.enabled:
             raise ValueError('semantic_requires_reranker')
@@ -161,7 +171,32 @@ class RetrievalService:
     async def retrieve(self, question, top_k=5):
         return await self._retrieve(question, top_k, assessment=True)
 
-    async def _retrieve(self, question, top_k=5, *, assessment, collect_scoring_features=False):
+    async def start_source_intent(self, artifact_path):
+        """Independent source hints: never change observe/assist or retrieval fingerprints."""
+        async with self._lock:
+            self._source_intent = IntentObserver(IntentSettings('observe', artifact_path))
+            await self._worker(self._source_intent.start, intent_identity(
+                self.model_revision, self._fingerprint, self.rerank_settings.enabled))
+
+    async def prepare_query(self, question, top_k=5):
+        question = validate_request(question, top_k)
+        async with self._lock:
+            if self._model is None:
+                raise RetrievalError('service_not_started', 2)
+            original = query_variants(question)[0] if self._reranker else question
+            try:
+                vector = await self._worker(self._encode, original)
+                hint = await self._worker(self._source_intent.predict, vector)
+                return PreparedQuery(question, tuple(vector), hint, self._prepared_owner)
+            except RetrievalError:
+                raise
+            except Exception:
+                raise RetrievalError('query_embedding_failed', 2) from None
+
+    async def retrieve_prepared(self, prepared, top_k=5):
+        return await self._retrieve(prepared.question, top_k, assessment=True, prepared=prepared)
+
+    async def _retrieve(self, question, top_k=5, *, assessment, collect_scoring_features=False, prepared=None):
         if assessment and collect_scoring_features:
             raise ValueError('private_scoring_diagnostics_only')
         # Offline assessment=False exposes candidate diagnostics; public output always uses finalization.
@@ -173,7 +208,12 @@ class RetrievalService:
             try:
                 variants = query_variants(question) if self._reranker else [question]
                 rerank_question = variants[-1]
-                vector = await self._worker(self._encode, variants[0])
+                if prepared is not None:
+                    if not isinstance(prepared, PreparedQuery) or prepared.owner is not self._prepared_owner or prepared.question != question:
+                        raise RetrievalError('invalid_prepared_query', 2)
+                    vector = list(prepared.vector)
+                else:
+                    vector = await self._worker(self._encode, variants[0])
                 styles = ()
                 if self._intent.settings.mode == 'assist':
                     prediction = await self._worker(self._intent.predict, vector)
@@ -262,6 +302,8 @@ class RetrievalService:
             return result
 
     def _clear_runtime(self):
+        self._source_intent.close()
+        self._prepared_owner = object()
         self._intent.close()
         self._semantic.close()
         if self._reranker:

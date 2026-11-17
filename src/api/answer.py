@@ -4,12 +4,25 @@ import logging
 import time
 from uuid import uuid4
 from src.answering.catalog import load_catalog
-from src.answering.pipeline import evaluate_question
+from src.answering.pipeline import evaluate_question, render
 from src.retrieval import RetrievalError
 from .contracts import AnswerResponse, AnswerTimings, ApiError
 
 logger = logging.getLogger(__name__)
 DEADLINE_SECONDS = 120
+
+
+def format_answer(row, started):
+    referenced = {c['source_id'] for claim in row['claims'] for c in claim['citations']}
+    sources = [dict(source_id=key, **{k: v for k, v in source.items() if k != 'content'})
+               for key, source in row['sources'].items() if key in referenced]
+    lines = ([row['intro']] if row['intro'] else []) + [
+        claim['text'] + ' ' + ' '.join(f'[{key}]' for key in dict.fromkeys(
+            c['source_id'] for c in claim['citations'])) for claim in row['claims']]
+    return AnswerResponse(status=row['status'], answer='\n\n'.join(lines + row['limitations']),
+        claims=row['claims'], sources=sources, limitations=row['limitations'], fallback_reason=row['reason'],
+        relevance=row['relevance'], timings=AnswerTimings(retrieval_seconds=row.get('retrieval_seconds', 0.0),
+            generation_seconds=0.0, verification_seconds=0.0, total_seconds=time.perf_counter() - started))
 
 
 async def drain(task):
@@ -67,6 +80,13 @@ class AnswerService:
     async def close(self):
         self._set_state('stopped', 'dependency_unavailable')
 
+    def render_documents(self, text, result, started, elapsed):
+        if not self.available:
+            raise ApiError('answer_unavailable')
+        row = render(text, result, self.catalog, self.lexicon,
+                     allow_unassessed=not self.settings.relevance_filter_enabled)
+        return format_answer({**row, 'retrieval_seconds': elapsed}, started)
+
     async def answer(self, text, top_k):
         if not self.owner.started or not self.available:
             raise ApiError('answer_unavailable')
@@ -79,16 +99,7 @@ class AnswerService:
             async with asyncio.timeout(DEADLINE_SECONDS):
                 row = await evaluate_question(text, self.owner.retrieval, self.catalog, self.lexicon,
                     top_k=top_k, allow_unassessed=not self.settings.relevance_filter_enabled)
-            referenced = {c['source_id'] for claim in row['claims'] for c in claim['citations']}
-            sources = [dict(source_id=key, **{k: v for k, v in source.items() if k != 'content'})
-                       for key, source in row['sources'].items() if key in referenced]
-            lines = ([row['intro']] if row['intro'] else []) + [
-                claim['text'] + ' ' + ' '.join(f'[{key}]' for key in dict.fromkeys(
-                    c['source_id'] for c in claim['citations'])) for claim in row['claims']]
-            response = AnswerResponse(status=row['status'], answer='\n\n'.join(lines + row['limitations']),
-                claims=row['claims'], sources=sources, limitations=row['limitations'], fallback_reason=row['reason'],
-                relevance=row['relevance'], timings=AnswerTimings(retrieval_seconds=row['retrieval_seconds'],
-                    generation_seconds=0.0, verification_seconds=0.0, total_seconds=time.perf_counter() - started))
+            response = format_answer(row, started)
             outcome = response.status
             return response
         except TimeoutError:

@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in Semantic + template answer API uses source-bound catalog entries and explicit excerpt/clarification fallbacks, with no generative model. Unfiltered responses retain unassessed relevance metadata and do not establish acceptance. Authenticated Type B tools and conversation history remain planned.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI. E5-small runs directly in Python; document retrieval returns source chunks. A separate opt-in Semantic + template answer API uses source-bound catalog entries and explicit excerpt/clarification fallbacks, with no generative model. Unfiltered responses retain unassessed relevance metadata and do not establish acceptance. Optional trusted-backend Type B work-profile evidence is available through the two HTTP endpoints; conversation history and broader operational tools remain planned.
 
 An opt-in [readonly employee source](docs/employee-source.md) now supplies a separate
 PostgreSQL connection, explicit 64-field employee_sso_store repository, immutable
@@ -8,8 +8,12 @@ contracts and service reads by user_id (one or up to 200 IDs). Configure
 `HRM_DATABASE_URL` with an externally provisioned SELECT-only role and optionally
 `HRM_DATABASE_SCHEMA` (default public); it never uses the Type A URL or Alembic.
 Run `python -m src.cli.check_employee_source` for a metadata-only preflight.
-Every relation on this connection is readonly. No answering, retrieval, model,
-account authentication, authorization or Type B tool integration is activated.
+Every relation on this connection is readonly. The opt-in
+[Type B HTTP adapter](docs/type-b-http.md) adds optional hrm_user_id to retrieve/answer,
+with TYPE_B_ENABLED=false by default and X-Rita-Service-Key required for employee
+context. Backend must derive the reference from its authenticated user and enforce
+access. Only nine work fields are supported; mixed responses keep policy/facts
+separate without deciding individual eligibility. No local .env is changed.
 
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
@@ -38,6 +42,30 @@ before catalog/inventory release checks. Runtime still reads the same monolithic
 files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 ## Current verification status
+
+### HTTP Type B work-profile integration - 2026-11-17
+
+Working tree based on `996ba0f`. Both HTTP endpoints now accept optional
+hrm_user_id and provide opt-in trusted-backend work-profile evidence/templates.
+Type A wire shapes, readonly HRM access, document eligibility and relevance
+semantics are preserved. See [Type B contract](docs/type-b-http.md) for the service
+key, supported fields, separate mixed evidence, lifecycle and deployment limits.
+
+Post-edit full non-integration regression: **1036 passed, 1 skipped, 54 deselected**
+using a fresh short temporary root under `.tmp`. Focused Type B plus optional
+source integration: **84 passed, 2 skipped**; PostgreSQL checks were not configured.
+The initial default-temp full run had **1007 passed, 1 skipped, 15 fixture setup
+errors** from Windows path length in the existing asset-restructure suite; a
+short-temp rerun passed, and the final full run includes the later matcher guards.
+All runs retained the existing Starlette/AnyIO deprecation warning. Syntax,
+new documentation links, nine-field OpenAPI contract and final diff whitespace
+checks passed. Tests use fictional source/model boundaries, not real HRM data or
+evidence of classifier/answer quality or live backend authorization.
+
+No .env edits, real HRM/application database access, migration, real-model inference,
+artifact rebuild/promotion, service restart/deployment, backend or portal changes
+were performed. Type B stays disabled by default until separately provisioned
+readonly access and the authorized caller's ID/header contract are verified.
 
 ### Split artifact authoring sources - 2026-11-17
 
@@ -1031,7 +1059,7 @@ async def retrieve_example(model_path, model_revision):
         await close_database()  # Application owner closes the shared database at shutdown.
 ```
 
-The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. The retrieval CLI and HTTP `/api/v1/retrieve` return source chunks only; the separate opt-in answer route renders templates. Conversation history, personnel lookup and authenticated Type B tools remain unimplemented.
+The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Retrieval service close does not dispose the shared database. Imports do not load configuration, models or connect. CLI/direct retrieval stays document-only. The HTTP endpoints optionally support [Type B work-profile evidence](docs/type-b-http.md); answer renders templates and retrieve returns structured evidence without generating an answer. Conversation history, cross-employee lookup and broader operational tools remain unimplemented.
 
 ## Local retrieval API and Swagger
 
@@ -1055,7 +1083,7 @@ The response contains `status` (`matches_found`, `no_eligible_documents`, `no_ma
 
 This is a breaking replacement: `POST /api/v1/ask` no longer exists and returns 404. Clients must use the new route and response. Old `ANSWER_TOP_K` and `OLLAMA_*` settings are unused; configure `RETRIEVAL_TOP_K` instead. Removing the project dependency does not uninstall software or delete model weights on the machine.
 
-Use the supplied entrypoint: it binds only to loopback (default `127.0.0.1:8000`), without authentication, with one worker and no reload on the psycopg-compatible Windows loop. Startup loads/fingerprints E5 once on CPU and checks the database. Startup logs separate model initialization and total startup durations. One retrieval runs at a time; additional requests receive 429. The overall deadline is 120 seconds. Cancellation waits for an in-progress embedding worker to finish safely before releasing the busy state, so timeout responses and shutdown may exceed the nominal deadline.
+Use the supplied entrypoint: it binds only to loopback (default `127.0.0.1:8000`) with one worker and no reload on the psycopg-compatible Windows loop. Type A retains its existing caller behavior; personnel context requires the trusted backend service key and backend user authorization described in [Type B](docs/type-b-http.md). Startup loads/fingerprints E5 once on CPU and checks the database. Startup logs separate model initialization and total startup durations. One request owns retrieval/context processing at a time; competitors receive 429. The overall deadline is 120 seconds. Cancellation waits for an in-progress embedding worker to finish safely before releasing the busy state, so timeout responses and shutdown may exceed the nominal deadline.
 
 `/health/live` reports HTTP availability. `/health/ready` checks initialized model state and database connectivity, not publication completeness, model compatibility with every stored run or semantic quality. Shutdown drains active work and closes E5, the optional reranker and the shared database. Imports create no runtime connections. Questions and document contents are not logged or retained as history.
 
@@ -1067,12 +1095,13 @@ See [online reranking](docs/online-reranking.md) for the pinned local ONNX model
 
 ## Optional intent observation
 
-The lightweight [intent classifier](docs/intent-classifier.md) reuses the E5 query vector with small logistic heads for source intent and Type A evidence needs. `INTENT_MODE=off` is the default; `observe` requires an explicitly provisioned, accepted local JSON artifact through `INTENT_ARTIFACT_PATH`. It only emits safe technical logs and does not change HTTP/CLI responses, passage filtering, or route requests to Type B. There is no additional transformer or embedding call. Missing or incompatible classifier artifacts leave retrieval available.
+The lightweight [intent classifier](docs/intent-classifier.md) reuses the E5 query vector with small logistic heads for source intent and Type A evidence needs. `INTENT_MODE=off` is the default; `observe` requires an explicitly provisioned, accepted local JSON artifact through `INTENT_ARTIFACT_PATH` and only emits safe technical logs. Separately, TYPE_B_ENABLED enables an HTTP source-hint observer at that path, combined with a bounded work-task matcher and service authentication. This does not change observe/assist, passage filtering or CLI behavior. No additional transformer or duplicate original-query embedding is used. Missing/incompatible hints leave explicit supported tasks and Type A retrieval available.
 
 Optional `assist` requires `SEMANTIC_MODE=expand` and uses accepted style hints
 only to prioritize valid phrase alternatives. It has its own pipeline/profile
-identity and release gate after semantic-only evaluation. Source routing and Type B
-execution remain unavailable. See [semantic workflow](docs/vietnamese-semantics.md).
+identity and release gate after semantic-only evaluation. HTTP Type B routing is a
+separate opt-in coordinator, not an effect of assistance mode. See
+[semantic workflow](docs/vietnamese-semantics.md) and [Type B](docs/type-b-http.md).
 
 Install `requirements-intent.txt` only for offline training. `python -m scripts.train_intent --help` describes training/calibration; `python -m scripts.benchmark_intent --help` describes the paired read-only benchmark required before promotion. Follow the guide for reviewed private datasets, model identity, quality/latency gates and rollback. No command automatically changes `.env`, downloads models, migrates storage or publishes documents.
 

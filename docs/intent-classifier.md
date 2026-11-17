@@ -11,6 +11,13 @@ release. Intent scores are not evidence relevance or calibrated confidence.
 
 ## Runtime contract
 
+The opt-in [Type B HTTP coordinator](type-b-http.md) loads an independent source-hint
+observer at INTENT_ARTIFACT_PATH when TYPE_B_ENABLED is true. It reuses the original
+query vector and identity/acceptance checks, without changing the off/observe/assist
+meanings below, passage scoring or retrieval fingerprints. A bounded task matcher
+controls supported fields; labels alone never authorize source access. Unavailable
+hints retain explicit task matching. This adds no training or artifact promotion.
+
 `INTENT_MODE=off` is the default. `observe` and `assist` load `INTENT_ARTIFACT_PATH`
 once at service startup. Relative paths resolve against the repository. CLI
 equivalents are `--intent-mode observe --intent-artifact-path <artifact>` (or
@@ -237,8 +244,9 @@ relevance profile remains independently required for returned evidence. Rollback
 sets `INTENT_MODE=off` and restarts. Assistance must first pass the separate
 semantic paired evaluation; rolling it back also restores the semantic-only
 relevance profile. There is no automatic routing activation.
-Entity/time extraction, conversation state, ID resolution, authorization,
-Type B calls, and answer generation require separate implementation and review.
+General entity/time extraction, conversation state and user authorization remain
+separate work. The opt-in HTTP coordinator now implements bounded Type B calls and
+templates as documented above; caller identity/permissions still belong to backend.
 
 ## Implementation verification — 2026-11-13
 

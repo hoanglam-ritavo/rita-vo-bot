@@ -14,6 +14,7 @@ from src.intent.config import from_environment as intent_from_environment
 from src.retrieval.semantics import SemanticSettings
 from src.retrieval.semantic_config import from_environment as semantic_from_environment
 from src.answering.config import AnswerSettings, from_environment as answer_from_environment
+from src.type_b.config import TypeBSettings, from_environment as type_b_from_environment
 
 logger = logging.getLogger(__name__)
 DIAGNOSTIC_KEYS = ('ANSWER_ENABLED', 'SEMANTIC_MODE', 'RELEVANCE_FILTER_ENABLED')
@@ -31,6 +32,7 @@ class Settings:
     relevance_filter_enabled: bool = True
     semantic: SemanticSettings = SemanticSettings()
     answer: AnswerSettings = AnswerSettings()
+    type_b: TypeBSettings = TypeBSettings()
 
     def __post_init__(self):
         if type(self.relevance_filter_enabled) is not bool:
@@ -63,7 +65,8 @@ def load_settings():
                     intent_from_environment(os.environ),
                     relevance_filter_enabled=relevance_filter == 'true',
                     semantic=semantic_from_environment(os.environ),
-                    answer=answer_from_environment(os.environ))
+                    answer=answer_from_environment(os.environ),
+                    type_b=type_b_from_environment(os.environ))
     effective = {
         'ANSWER_ENABLED': str(settings.answer.enabled).lower(),
         'SEMANTIC_MODE': settings.semantic.mode,

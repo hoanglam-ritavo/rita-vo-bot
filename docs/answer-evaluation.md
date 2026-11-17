@@ -6,11 +6,14 @@
 GGUF binding, generator, model verifier or automatic inference retry. The request
 and response field names remain compatible. `generation_seconds` and
 `verification_seconds` are always zero; total time includes deterministic
-matching/rendering. `/api/v1/retrieve` is unchanged.
+matching/rendering. Type A request/response behavior is preserved. Both endpoints
+also support opt-in trusted-backend work-profile context through hrm_user_id;
+see the [Type B HTTP contract](type-b-http.md). This separate deterministic adapter
+does not change policy-catalog eligibility or citations.
 
 ### Configuration and validation
 
-Keep `ANSWER_ENABLED=false` by default. To enable the separate answer route,
+Keep `ANSWER_ENABLED=false` by default. To enable document-template answering,
 configure `SEMANTIC_MODE=expand`, a compatible `SEMANTIC_ARTIFACT_PATH`, and
 `ANSWER_CATALOG_PATH` (default `artifacts/answers/catalog.json`). Existing
 model/hash/report/review/debug keys are ignored. No local `.env` is rewritten.
@@ -22,7 +25,9 @@ package fingerprint, lexical artifact hash, coverage inventory, revision/content
 hashes, exact source quotations, applicability/version/date metadata and schema.
 Output contains counts and fixed codes only. Exit 0 means structurally/source-bound
 valid, not business approval; exit 1 means unavailable or invalid. Startup failure
-disables answering while leaving compatible retrieval usable.
+disables document-template answering while leaving compatible retrieval usable.
+Opt-in B-only work-profile templates have their own HRM preflight and do not need
+the policy catalog; see the Type B contract linked above.
 
 HTTP startup uses repository `.env` values before process environment, then
 defaults for absent keys. This applies to all loaded keys, including database
@@ -88,8 +93,10 @@ their original warnings, even when a deterministic template is rendered. Unknown
 questions receive labeled excerpts, not a fabricated answer or an assertion that
 the whole corpus contains no answer. Up to twelve complete excerpts of at most
 2,000 characters are displayed; omitted excerpts are disclosed, never truncated.
-Counts, comparisons, sums, arbitrary multi-topic composition, Type B lookups and
-conversation memory remain unsupported. A follow-up must restate the topic.
+Counts, comparisons, sums, arbitrary multi-topic policy composition and conversation
+memory remain unsupported by the policy renderer. Bounded work-profile lookups now
+use the separate [Type B adapter](type-b-http.md); they do not change policy template
+matching or prove individual eligibility. A follow-up must restate the topic.
 
 Public fallback reasons include existing retrieval reasons plus
 `needs_clarification`, `incomplete_template_evidence`, `template_unavailable` and

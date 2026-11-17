@@ -12,12 +12,31 @@ source writes, preload, cache, alias/account access or synchronization is added.
 The backend's microsecond timestamp/completeness/employee_id selector is ported,
 including inactive winners and conflict failures before normalization.
 
-This is an internal data-access foundation, not a connected Type B tool: no API,
-intent routing, model context, authentication or authorization integration uses
-it. The opt-in check_employee_source CLI checks metadata/readonly capabilities
+The source module remains an internal data-access foundation. The opt-in
+src/type_b HTTP coordinator now uses it for bounded self work-profile evidence;
+backend retains end-user authentication and authorization. The
+check_employee_source CLI checks metadata/readonly capabilities
 without returning personnel. See [employee source](docs/employee-source.md) for
 the full property dictionary, lifecycle, role prerequisites, semantic unknowns,
 errors and preprovisioned disposable test contract.
+
+## Type B HTTP coordination
+
+Both endpoints accept optional hrm_user_id (HRM user_id/backend odooId), not
+employee_id. TYPE_B_ENABLED defaults false; a supplied reference or B/mixed route
+requires X-Rita-Service-Key. Backend must bind the ID to an authorized authenticated
+user. A shared coordinator prepares one original E5 vector and source hint, matches
+versioned bounded work tasks, reads the readonly employee service and/or retrieves
+policy documents. It exposes only requested work fields, preserves null/missing/error
+outcomes and never resolves identity by name/email. The source-hint observer is
+independent of INTENT_MODE observe/assist and does not change retrieval fingerprints.
+
+Type A wire responses stay unchanged; B/mixed have strict evidence/claim variants.
+Database facts never become document chunks or fabricated quotations. B-only answer
+templates work without the policy catalog; mixed separates facts/policy and does
+not infer personal entitlement. Request ownership, 429, deadline, cancellation and
+shutdown draining cover both sources. API owns/closes its HRM pool; HRM preflight
+failure leaves Type A available. See [HTTP contract and rollout](docs/type-b-http.md).
 
 ## Command ownership
 
@@ -45,7 +64,7 @@ See [authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 The schema chain is the applied `bce4184a7f51` baseline followed by additive `c7d92e6a104b` publication guards. The latter preserves tables/data and restores timestamp, immutable revision identity and append-only audit triggers. Fresh baseline installation requires vector provisioning first; older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
 
-Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; source-bound template answering has a separate disabled-by-default catalog-gated API; authenticated Type B integration and conversation history remain planned. Real-model retrieval quality is not established by synthetic tests.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; policy-template answering is separately catalog-gated. Opt-in HTTP work-profile Type B evidence uses its independent readonly connection and trusted-service boundary; conversation history and broader operational tools remain planned. Real-model retrieval quality is not established by synthetic tests.
 
 Source documents stay in `assets/`. `src.paths` anchors Git-trackable current packages at `chunks/<document_id>/`. Metadata is the sole owner of source identity, including revision_id; the directory name is document_id. Source-path uniqueness is checked case-insensitively. Git stores committed package history, while each checkout has only the current package. Per-document OS locks protect reads against replacement; staging, recovery markers and displaced packages live under ignored `.tmp/`. An interrupted replacement blocks reads until explicit recovery. Locks coordinate Python commands, not external editors; stop editing while validation/publication runs. Each complete package contains three consistently versioned v2 or v3 JSON files (metadata, extraction and chunks) and unchanged source bytes. Initialization may leave an incomplete package until the agent authors extraction/chunks. Historical `indexing_chunks/` is never scanned or merged.
 
@@ -178,11 +197,15 @@ Type A documents provide policy evidence; Type B tools provide authoritative cur
 
 ### Type B: current operational evidence
 
-Resolve the authenticated user and required entity identifiers, validate parameters and permissions in the backend, and call a defined read-only function. Initial examples are retrieving a person's direct manager, active project memberships, or a project's responsible person. Future service integration will use HTTP APIs; the Type B contract and authentication mechanism are not yet defined or implemented.
+Backend must resolve the authenticated user and validate permissions. The implemented opt-in HTTP adapter reads a bounded self work profile by hrm_user_id with a service key. Project memberships, responsible-person lookup, cross-employee reads and end-user authentication inside the bot remain future work. See [Type B contract](docs/type-b-http.md).
 
-The model proposes a function and arguments; the backend controls execution. Arbitrary model-generated SQL is not the initial approach. A copied embedding index must not become the source of truth for current reporting relationships or assignments. Responses should identify the operational source and preserve relevant freshness information supplied by that source.
+The current adapter uses a deterministic task matcher plus optional accepted source hints, not model-generated functions or SQL. Backend controls authorization. A copied embedding index must not become the source of truth for reporting relationships. Responses identify the operational source and preserve its timestamp/null without asserting freshness.
 
 ### Routing and combined questions
+
+The following describes the broader target. Implemented v1 supports only the
+bounded work tasks and separated mixed evidence documented above; follow-up
+memory, role-to-person workflow resolution and project lookups are not implemented.
 
 Use model interpretation together with deterministic backend checks. Supply descriptions of each source/tool's capabilities and required parameters. Consider conversation history and required evidence rather than keywords alone. Model-reported confidence is not sufficient proof that a route or answer is correct.
 
@@ -224,7 +247,7 @@ semantic review nor changes calibration gates or runtime APIs. See
 | --- | --- | --- |
 | 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and loopback HTTP transport | Database behavior; source identity, consistency, history and metadata validation; HTTP health and lifecycle |
 | 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; corpus-matched calibration acceptance, integrated generated answers and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
-| 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
+| 2 — partial, opt-in | Service-authenticated self work-profile evidence; backend owns user authorization | Broader entity resolution, project tools and user rollout remain separate |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
 
 Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous requests, and unanswerable questions. Measure retrieval quality and answer grounding separately, alongside latency and resource use. Phase 1 must not claim live personnel/project knowledge before Phase 2 exists.
@@ -271,7 +294,7 @@ semantic-only stage; off/observe parity and classifier acceptance remain separat
 
 `src.cli.prepare_intents` provides JSON-configured validate/preflight/run batches. Shared dataset validation and offline orchestration live in `src.intent.dataset` and `src.intent.preparation`; `src.intent.training` owns regularization selection on grouped training folds, separate threshold calibration and frozen holdout evaluation. The historical `scripts.train_intent` and `scripts.intent_contract` entrypoints delegate to those modules. Import/help/validation do not load ML runtimes. Preflight uses the same query token helper as retrieval without encoding; run reuses one local E5 instance, never connects to PostgreSQL, and writes atomic files in a new private run directory. Manifest completion distinguishes a valid diagnostic run, a quality-passed candidate and an incomplete/failed run; it never authorizes runtime usage.
 
-`scripts.benchmark_intent` remains separate and uses the public filtered retrieval path for paired off/observe checks, emitting an accepted artifact only after quality, export parity, retrieval invariance and latency gates pass. Runtime identity binds E5 files/revision and preprocessing; classifier evaluation does not replace corpus-matched passage calibration. Entity extraction, conversation state and Type B execution remain planned. See [intent observation and verification](docs/intent-classifier.md).
+`scripts.benchmark_intent` remains separate and uses the public filtered retrieval path for paired off/observe checks, emitting an accepted artifact only after quality, export parity, retrieval invariance and latency gates pass. Runtime identity binds E5 files/revision and preprocessing; classifier evaluation does not replace corpus-matched passage calibration. The opt-in HTTP Type B coordinator consumes source hints independently, while general entity extraction and conversation state remain planned. See [intent observation and verification](docs/intent-classifier.md).
 
 ## Relevance filtering and empty fallback
 
