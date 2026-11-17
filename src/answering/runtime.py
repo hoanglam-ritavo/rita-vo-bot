@@ -69,7 +69,7 @@ class LocalRuntime:
         return {**binding_identity(), 'model': self.expected,
                 'template_sha256': metadata['chat_template_sha256']}
 
-    async def _execute(self, function, seconds=30):
+    async def _execute(self, function, seconds=300):
         async with self._gate:
             if self._closing or self._executor is None:
                 raise ValueError('answer_runtime_unavailable')

@@ -10,7 +10,7 @@ import sys
 from src.paths import REPOSITORY_ROOT
 
 MODEL_ID = 'Qwen3.5-0.8B-Q5_K_M'
-DEADLINE_SECONDS = 30
+DEADLINE_SECONDS = 300
 BINDING_VERSION = '0.3.37'
 
 

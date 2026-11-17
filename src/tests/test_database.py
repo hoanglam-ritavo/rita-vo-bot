@@ -193,5 +193,5 @@ def test_migration_offline_sql(monkeypatch):
     assert 'secret' not in output.getvalue()
     output.seek(0)
     output.truncate()
-    command.downgrade(cfg, '0001_enable_vector:base', sql=True)
+    command.downgrade(cfg, 'c7d92e6a104b:bce4184a7f51', sql=True)
     assert 'DROP EXTENSION' not in output.getvalue()

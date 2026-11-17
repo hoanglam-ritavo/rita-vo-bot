@@ -19,23 +19,23 @@ OLD = datetime(2000, 1, 1, tzinfo=timezone.utc)
 
 
 def test_timestamp_migration_contract():
-    migration = importlib.import_module('src.database.migrations.versions.0004_updated_at_triggers')
-    assert migration.down_revision == '0003_agent_packages'
+    migration = importlib.import_module('src.database.migrations.versions.c7d92e6a104b_publication_guards')
+    assert migration.down_revision == 'bce4184a7f51'
     output = StringIO()
     context = MigrationContext.configure(dialect_name='postgresql', opts={'as_sql': True, 'output_buffer': output})
     with Operations.context(context):
         migration.upgrade()
         migration.downgrade()
     sql = output.getvalue()
-    assert sql.count('CREATE TRIGGER') == 2
-    assert sql.count('DROP TRIGGER') == 2
+    assert sql.count('CREATE TRIGGER') == 4
+    assert sql.count('DROP TRIGGER') == 4
     for table in ('documents', 'document_revisions'):
         assert f'BEFORE UPDATE ON {table}' in sql
         assert f'DROP TRIGGER rita_vo_{table}_updated_at ON {table}' in sql
     assert 'NEW.updated_at = statement_timestamp()' in sql
     assert sql.index('CREATE FUNCTION') < sql.index('CREATE TRIGGER')
     assert sql.rindex('DROP TRIGGER') < sql.index('DROP FUNCTION')
-    for forbidden in ('DROP TABLE', 'DELETE FROM', 'ALTER TABLE', 'EXTENSION', 'CASCADE'):
+    for forbidden in ('DROP TABLE', 'DELETE FROM', 'ALTER TABLE', 'DROP EXTENSION', 'CASCADE'):
         assert forbidden not in sql
     for model in (Document, DocumentRevision):
         column = model.__table__.c.updated_at
@@ -114,7 +114,7 @@ def test_timestamp_updates_and_rollback(empty_catalog_db):
 
 
 @pytest.mark.integration
-def test_timestamp_migration_preserves_rows(legacy_catalog_db):
+def test_timestamp_migration_preserves_rows(baseline_catalog_db):
     config = Config('alembic.ini')
 
     async def seed_closed():
@@ -141,15 +141,15 @@ def test_timestamp_migration_preserves_rows(legacy_catalog_db):
         finally:
             await close_database()
 
-    command.downgrade(config, '0003_agent_packages')
+    command.downgrade(config, 'bce4184a7f51')
     try:
         ids = run_async(seed_closed())
         for enabled in (True, False, True):
             if enabled:
-                command.upgrade(config, '0005_structured_evidence')
+                command.upgrade(config, 'head')
             else:
-                command.downgrade(config, '0003_agent_packages')
+                command.downgrade(config, 'bce4184a7f51')
             with pytest.raises(RuntimeError, match='rollback verification'):
                 run_async(verify(ids, enabled))
     finally:
-        command.upgrade(config, '0005_structured_evidence')
+        command.upgrade(config, 'head')

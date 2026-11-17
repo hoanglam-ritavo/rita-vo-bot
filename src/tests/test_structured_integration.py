@@ -69,7 +69,7 @@ def test_structured_atomicity_and_visibility(empty_catalog_db, tmp_path, monkeyp
     run_async(scenario())
 
 
-def test_baseline_refuses_nonempty_downgrade_and_preserves_vectors(empty_catalog_db, tmp_path, monkeypatch):
+def test_guard_downgrade_preserves_populated_vectors(empty_catalog_db, tmp_path, monkeypatch):
     from alembic import command
     from alembic.config import Config
     from sqlalchemy import text
@@ -93,6 +93,8 @@ def test_baseline_refuses_nonempty_downgrade_and_preserves_vectors(empty_catalog
         finally:
             await close_database()
     before = run_async(publish_and_read(True))
-    with pytest.raises(SystemExit):
-        command.downgrade(Config('alembic.ini'), '0004_updated_at_triggers')
-    assert run_async(publish_and_read()) == before
+    try:
+        command.downgrade(Config('alembic.ini'), 'bce4184a7f51')
+        assert run_async(publish_and_read()) == before
+    finally:
+        command.upgrade(Config('alembic.ini'), 'head')
