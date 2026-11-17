@@ -222,3 +222,19 @@ def test_cli_run_delegates_to_shared_runner(monkeypatch):
     monkeypatch.setattr(runner, 'run', shared)
     assert run_async(cli.run(args)) == expected
     shared.assert_awaited_once_with(args)
+
+
+def test_cli_keeps_filtering_when_http_environment_disables_it(model, monkeypatch, capsys):
+    monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', 'false')
+    storage.search.return_value = {
+        'status': 'matches_found', 'corpus_fingerprint': 'fictional-corpus',
+        'matches': [dict(chunk_id='fictional-chunk', chunk_index=0, revision_id='revision',
+                         run_id='run', content='Fictional policy', cosine_distance=.1)]}
+    assert cli.main(['--question', 'policy?', '--model-path', 'unused',
+                     '--model-revision', 'a' * 40, '--json']) == 0
+    result = json.loads(capsys.readouterr().out)
+    storage.search.assert_awaited_once()
+    assert result['status'] == 'no_matches' and result['matches'] == []
+    assert result['fallback_reason'] == 'relevance_unavailable'
+    assert result['relevance']['status'] == 'unassessed'
+    assert 'relevance_filter_disabled' not in result['relevance']['warnings']

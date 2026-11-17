@@ -31,7 +31,7 @@ Every structured object has nonempty source refs with real segment IDs and Pytho
 
 ## Storage and deployment
 
-Provision the fresh `0006_publication_baseline` schema explicitly; see [database design](database-design.md). It refuses nonempty application tables and does not convert or downgrade a populated older corpus. V2 package fields remain supported without fabricated author IDs/roles.
+Provision the `bce4184a7f51` baseline and additive `c7d92e6a104b` guards explicitly; see [database initialization and boundaries](database-design.md#initialization-and-boundaries) for the vector prerequisite, fresh provisioning and data-preserving guard upgrade. The retired `0006_publication_baseline` is not available, and no automatic conversion of an older corpus is supplied. V2 package fields remain supported without fabricated author IDs/roles.
 
 Scopes/items/values retain authored JSON. Ordered scope-item, scope-chunk and item-chunk links have same-run composite FKs; item parents also have same-run FKs. Decimal projections use PostgreSQL Numeric and must match authored values. Shared readers verify projections and ordered memberships before skip, vector reuse or structured expansion. Semantic cycles, source fidelity and coverage remain package-validator/author responsibilities.
 
@@ -45,7 +45,7 @@ templates; it does not activate the stored scope/item expansion helpers describe
 here. No package/schema/publication change is required. See the
 [current answer contract](answer-evaluation.md#semantic-template-answer-api).
 
-`POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It searches vector candidates across all eligible chunk roles, optionally reranks them on CPU, and returns only passages accepted by a matching relevance profile. Missing assessment withholds candidates; see [filtering and fallback](online-reranking.md#retrieval-and-response-semantics). There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
+`POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It searches vector candidates across all eligible chunk roles and optionally reranks them on CPU. With filtering enabled by default, only passages accepted by a matching relevance profile are returned and missing assessment withholds candidates. Explicitly unfiltered HTTP/direct-service results remain unassessed and still enforce eligibility/access; see [filtering and fallback](online-reranking.md#retrieval-and-response-semantics). There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
 
 The structured storage helpers remain available internally and covered by storage tests; they are not exposed as API operations. Stored `operations`, `comparison` and `ambiguous` fields describe source-backed semantics for possible future consumers. They do not cause the retrieval endpoint to count, compare or evaluate conditions. Top-K matches cannot establish a complete inventory or individual entitlement.
 

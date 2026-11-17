@@ -33,6 +33,42 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### Documentation and regression reconciliation - 2026-11-17
+
+Validated the docs/test working tree based on `bbeec8c` (clean before this task).
+Current operational guidance now uses baseline `bce4184a7f51` and additive guard
+`c7d92e6a104b`, distinguishes their upgrade/downgrade boundaries, and separates
+HTTP filtering overrides from CLI/evaluator defaults. Profile schema-v2 raw-max
+and schema-v3 learned scoring remain distinct. The single-package evaluator's
+semantic-off/intent-off limitation is explicit; its existing
+[reporting gap](docs/retrieval-evaluation.md#known-evaluator-reporting-gap) remains.
+Historical migration/Qwen verification records and their anchors are retained.
+
+Seven new fictional regression cases cover ASGI answer disconnect/timeout,
+worker/watcher cleanup and shared busy ownership, lifespan shutdown, missing or
+invalid catalog isolation, retired answer-study execution, and CLI filtering
+despite the HTTP environment override. Existing HTTP filter/rerank and source
+identity regressions are retained. Focused answer/catalog, HTTP/retrieval/scoring,
+employee-source and database/schema unit suites: **298 passed**. Full
+`python -m pytest -m 'not integration' -q`: **900 passed, 1 skipped,
+54 deselected**; the existing AnyIO portal deprecation warning remains.
+These overlapping runs are separate results, not additive test counts.
+
+The first sandboxed focused run encountered Windows access errors while creating
+and cleaning pytest temporary fixtures. Successful focused/full runs used fresh,
+verified-unused short `.tmp/dtr2` and `.tmp/dtr3` basetemps with separate caches
+outside the sandbox; no old temporary trees or permissions were changed. Local
+Markdown paths/anchors and concrete documented Python command module paths were
+checked against the source; `git diff --check` passed. Catalog validation passed
+for **29 documents / 530 chunks / 32 template entries / 498 excerpt-only chunks**;
+runtime inventory verification passed for **22 files**.
+
+Only documentation and tests changed. No runtime, dependencies, private `.env`,
+model/artifact/package bytes, backend or database were changed. No integration
+database tests, migrations, publication, real-model quality checks, network
+listener/proxy checks or service restarts ran. Synthetic ASGI checks do not prove
+real-network cancellation, semantic correctness, live HRM access or rollout readiness.
+
 ### HTTP-only service transport - 2026-11-17
 
 Removed the health-only gRPC server, entrypoint, dedicated tests, direct
@@ -878,7 +914,7 @@ async def retrieve_example(model_path, model_revision):
         await close_database()  # Application owner closes the shared database at shutdown.
 ```
 
-The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. Both the retrieval CLI and the HTTP API below return source chunks only. Conversation history, personnel lookup and authenticated Type B tools remain unimplemented.
+The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. The retrieval CLI and HTTP `/api/v1/retrieve` return source chunks only; the separate opt-in answer route renders templates. Conversation history, personnel lookup and authenticated Type B tools remain unimplemented.
 
 ## Local retrieval API and Swagger
 
@@ -1036,7 +1072,7 @@ backend, portal or HRM-source integration changes are required for this cleanup.
 
 `DATABASE_URL` uses `postgresql+psycopg://user:password@host:5432/database`. URL-encode special characters in usernames and passwords. Configure TLS for the server, for example `?sslmode=verify-full&sslrootcert=C%3A%2Fcerts%2Froot.crt`. System environment variables take precedence over `.env`. Do not commit `.env` or credentials.
 
-`MIGRATION_DATABASE_URL` optionally supplies an account with DDL permissions; when absent or empty, migrations use `DATABASE_URL`. Migrations run only through explicit Alembic commands, not at application startup. The current upgrade/downgrade require empty application tables and preserve the shared `vector` extension. Future runtime access should use permissions needed for application tables rather than migration privileges.
+`MIGRATION_DATABASE_URL` optionally supplies an account with DDL permissions; when absent or empty, migrations use `DATABASE_URL`. Migrations run only through explicit Alembic commands, not at application startup. Fresh provisioning uses the `bce4184a7f51` baseline after enabling vector. The additive `c7d92e6a104b` guard upgrade/downgrade preserves existing tables/data and does not require them to be empty; baseline downgrade drops application tables and must never run on the application database. Both downgrades preserve the shared `vector` extension. See [database initialization and boundaries](docs/database-design.md#initialization-and-boundaries). Future runtime access should use permissions needed for application tables rather than migration privileges.
 
 For example, the synthetic password `abc@123` must be written as `abc%40123` in a URL: `postgresql+psycopg://demo:abc%40123@localhost:5432/demo`. This changes only the URL representation, not the database password. Keep the separating `@` before the host; quoting the URL does not replace URL-encoding. The same rule applies to migration and test URLs. Configuration validation rejects detectable unencoded `@` in the connection authority with a credential-safe message; it does not automatically repair URLs or verify credentials/connectivity. Encode a literal `%` as `%25` to avoid unintended decoding.
 

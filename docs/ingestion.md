@@ -6,7 +6,7 @@ Start with [Scope 1: source preparation and package authoring](offline-indexing.
 
 Follow the [Scope 2 operational guide](offline-indexing.md#scope-2-package-reading-embedding-and-publication) for package reading, [technical preflight](offline-indexing.md#technical-preflight), database-aware dry-run, explicit publication and result verification. This is a recommended sequence, not a persisted preflight prerequisite. Optional preflight embeddings are discarded, and dry-run does not tokenize or encode. Oversized input returns to authoring for revision without losing meaning. Passing Scope 1 does not establish model compatibility, publication eligibility or retrieval quality; Online routing, answering and fallback are separate concerns.
 
-Migration `0003_agent_packages` removes database review status and renames review notes to evidence notes. Run it explicitly before new publication code. Existing chunks, vectors and run history remain intact; local conversion does not change the database.
+The current baseline stores evidence notes without review status. The former `0003_agent_packages` migration belongs to retired history and cannot run in this checkout. Provision the `bce4184a7f51` baseline and additive `c7d92e6a104b` guards as described in [database design](database-design.md#initialization-and-boundaries); local package conversion does not convert a database or change stored vectors/history.
 
 Historical `indexing_chunks/` is not scanned or moved. Historical source-renaming utilities are not part of this workflow and must not be applied to the current source tree.
 

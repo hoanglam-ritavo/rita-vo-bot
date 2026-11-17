@@ -202,6 +202,14 @@ FastAPI, local E5/ONNX runtimes, ranking configuration and quantitative offline 
 
 See [current verification](README.md#current-verification-status) for the latest checked working tree and test limits. The public filtered evaluator has a [known reporting gap](docs/retrieval-evaluation.md#known-evaluator-reporting-gap); its legacy candidate fields do not establish candidate recall.
 
+Answer HTTP lifecycle regressions drive the actual ASGI route with fictional
+retrieval workers and explicit disconnect events. They check timeout/disconnect
+draining, watcher cleanup, shared busy ownership and lifespan shutdown, plus
+catalog-failure isolation from retrieval/health. This complements service-level
+repeated-cancellation tests; it does not establish proxy/network behavior or
+real-model cancellation latency. CLI coverage retains filtering even when the
+HTTP-only environment setting disables it.
+
 The [2026-11-13 offline corpus preparation](docs/chunk-coverage-verification.md) adds source-authored policy and software-procedure evidence without changing runtime composition. Its in-memory CPU diagnostic includes held packages and is deliberately separate from eligible-publication retrieval and passage-relevance calibration. It does not establish live API quality or current personnel facts.
 
 Unit tests cover synthetic package contracts, converter compatibility, CLI batch ordering and publication boundaries; HTTP tests exercise retrieval contracts, health and lifecycle. They cannot establish transcription accuracy or real embedding-model behavior. PostgreSQL integration tests use guarded disposable databases and synthetic embeddings to exercise publication, revision relations, transaction rollback and migration preservation. They perform schema changes and application-table writes/cleanup, including downgrade/upgrade; see [test setup and safety](README.md#testing). Missing configuration means skipped verification, not a successful database check. Historical rename-utility tests remain compatibility checks outside the v2 ingestion workflow.

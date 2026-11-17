@@ -1,6 +1,6 @@
 # Local retrieval evaluation
 
-This checklist evaluates source retrieval, separately from synthetic tests. The API uses native E5-small on CPU and does not generate answers, interpret applicability, count items or certify complete evidence.
+This checklist evaluates source retrieval, separately from synthetic tests. The retrieval endpoint uses native E5-small on CPU and does not generate answers, interpret applicability, count items or certify complete evidence. The separate opt-in [template answer endpoint](answer-evaluation.md#semantic-template-answer-api) has its own contract and regression workflow.
 
 ## Prerequisites
 
@@ -12,10 +12,10 @@ This checklist evaluates source retrieval, separately from synthetic tests. The 
 
 1. Before inspecting rankings, read the selected sources and author cases with expected source groups. Include Vietnamese paraphrases, conditions, exceptions, ambiguous questions, counts/exhaustive requests and unrelated questions. Store real-data cases and reports under ignored `.tmp/`.
 2. Submit `POST /api/v1/retrieve` with `text` and optional `top_k`. Confirm full chunk content, order and provenance. The retired `/api/v1/ask` must return 404. Verify results contain neither generated prose nor confidence/evidence-completeness assessment. Additive relevance metadata is separate from completeness; see [online reranking](online-reranking.md).
-3. On a stable database, compare the HTTP response with `python -m src.cli.retrieve_documents` using identical text, top-K and model bytes/revision. Match IDs, order, content, source spans and metadata must agree; distances may differ only within floating-point tolerance when device/runtime differs.
+3. On a stable database, compare the HTTP response with `python -m src.cli.retrieve_documents` using identical text, top-K, model bytes/revision, reranking/profile, semantic and intent settings. Keep HTTP `RELEVANCE_FILTER_ENABLED=true` for this comparison: CLI/evaluators do not read that HTTP setting and retain filtering. With the same effective pipeline and corpus, match IDs, order, content, source spans and metadata must agree; distances may differ only within floating-point tolerance when device/runtime differs. An explicitly unfiltered HTTP/direct-service run is a separate diagnostic and is not expected to match the filtered CLI.
 4. Exercise repeated HTTP requests. Confirm one E5 initialization per API lifecycle, record startup duration and retrieval/total times, and measure process RAM. Keep timings for failed attempts separately. These observations do not establish a latency SLA.
 5. Verify 422 for invalid input, 429 for overlapping retrieval, 503 for dependency failures/model mismatch and 504 for timeout. Cancellation drains embedding work, so 504 can occur after the nominal 120-second deadline. Health endpoints must remain responsive while embedding runs.
-6. Report empty valid results distinctly from errors. With candidates but no matching relevance profile, public retrieval returns no matches with `relevance_unavailable`. Below-threshold results, absent candidates and absent eligible documents have separate fallback reasons; none proves that no policy exists.
+6. Report empty valid results distinctly from errors. With filtering enabled, candidates but no matching relevance profile produce no matches with `relevance_unavailable`. Below-threshold results, absent candidates and absent eligible documents have separate fallback reasons; none proves that no policy exists. Explicitly unfiltered HTTP results preserve `unassessed` metadata and `relevance_filter_disabled` instead of certifying relevance.
 
 ## Dataset acceptance
 
@@ -29,10 +29,16 @@ Publication history retains original package/metadata byte hashes. Shared evalua
 
 Use the same model/pipeline settings for API, CLI and evaluator. `--rerank` enables pinned local ONNX scoring; `--rerank-candidates`, `--rerank-batch-size`, `--rerank-model-path` and `--rerank-profile` mirror API configuration. The evaluator records filtered match ranks, final logits, relevance and rerank time. See [the online gate](online-reranking.md#evaluation-and-rollout) for the minimum 100-question source-reviewed dataset, independent calibration/holdout/regression intent groups, labels for every retrieved candidate and at least 100 warmed CPU requests. Historical 40-case top-1 experiments do not meet that gate. Keep original cases and baseline reports; never tune on holdout outcomes.
 
+The single-package `scripts.evaluate_retrieval` evaluator has no semantic or intent
+arguments and constructs a semantic-off/intent-off service. It cannot reproduce
+a semantic-enabled HTTP pipeline merely by passing its profile path. Use the
+[paired semantic benchmark](vietnamese-semantics.md#independent-evaluation-and-promotion) for
+semantic arms; keep profile identities and acceptance gates separate.
+
 
 ## Filtered retrieval evaluation
 
-Public retrieval now withholds unassessed candidates. This evaluator measures the filtered result and will report missing evidence without a matching schema-v2 profile. For offline candidate collection and per-passage labeling use the separate [online benchmark](online-reranking.md#evaluation-and-rollout); no public API/CLI parameter disables filtering. Historical unfiltered results do not establish current quality.
+Retrieval with filtering enabled withholds unassessed candidates. This evaluator measures the filtered result and will report missing evidence without a compatible corpus/pipeline-bound profile: schema-v2 for raw-max scoring, or schema-v3 with its bound learned coefficients. See [scoring profiles](relevance-scoring.md#features-and-runtime-contract). For offline candidate collection and per-passage labeling use the separate [online benchmark](online-reranking.md#evaluation-and-rollout). No HTTP request parameter or public CLI flag disables filtering; only HTTP startup configuration or the explicit direct-service option permits unassessed output. Historical or explicitly unfiltered results do not establish current quality.
 
 ## Known evaluator reporting gap
 

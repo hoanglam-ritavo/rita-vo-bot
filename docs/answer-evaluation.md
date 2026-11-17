@@ -67,6 +67,12 @@ catalog/model/database returns 503. No native generation context needs disabling
 after timeout. Logs contain generated request IDs, fixed statuses and elapsed
 time, never raw questions, source text or answers.
 
+Synthetic regressions exercise the actual ASGI answer route for disconnect,
+timeout and lifespan shutdown, including worker draining, shared busy ownership
+and watcher cleanup. Missing/invalid catalog tests check HTTP answer isolation
+from retrieval and health. These checks do not validate a real network listener,
+reverse-proxy disconnect propagation, model latency or live database behavior.
+
 Use the [template regression utility](../scripts/README.md#template-answer-regression)
 for read-only private real-data checks. It emits no acceptance/profile and does
 not restart services or write database/publication storage. See

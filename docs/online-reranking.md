@@ -22,7 +22,7 @@ Install `requirements-example.txt`. ONNX Runtime uses `CPUExecutionProvider`, fo
 | `RERANK_MODEL_FILE` | `model_quint8_avx2.onnx` | Only the pinned artifact is supported |
 | `RERANK_CANDIDATE_COUNT` | `30` | Exactly 30; independent of requested top-K |
 | `RERANK_BATCH_SIZE` | `4` | 1–16 windows per inference batch |
-| `RERANK_PROFILE_PATH` | unset | Local schema-v2 per-passage calibration profile; missing/stale profile returns an empty fallback when filtering is enabled |
+| `RERANK_PROFILE_PATH` | unset | Local per-passage profile: schema-v2 raw-max or schema-v3 learned scoring; missing/stale profile returns an empty fallback when filtering is enabled. See [scoring profiles](relevance-scoring.md#features-and-runtime-contract). |
 
 The API reads these settings with the existing explicit `.env` loader. CLI and evaluation use explicit arguments instead: `--rerank`, `--rerank-model-path`, `--rerank-candidates`, `--rerank-batch-size`, `--rerank-profile`. Use identical settings for API/CLI comparisons. Restart with `RERANK_ENABLED=false` to stop rerank inference. This does not disable relevance filtering: with the default filter setting, vector candidates are withheld as `relevance_unavailable`.
 

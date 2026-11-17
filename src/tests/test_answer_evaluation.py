@@ -42,3 +42,24 @@ def test_template_regression_input_is_private_and_bounded(tmp_path,monkeypatch):
     with pytest.raises(ValueError): utility.private_path(tmp_path/'outside.json')
     path.write_text(json.dumps([{'text':' '}]),encoding='utf-8')
     with pytest.raises(ValueError): utility.load_cases(path)
+
+
+def test_retired_answer_study_has_no_model_or_database_imports():
+    import subprocess
+    import sys
+
+    script = '''
+import builtins, runpy, sys
+original = builtins.__import__
+def guarded(name, *args, **kwargs):
+    if name.startswith(('src.', 'llama_cpp', 'torch', 'transformers', 'sqlalchemy', 'dotenv')):
+        raise AssertionError('Retired studies must not initialize runtime dependencies')
+    return original(name, *args, **kwargs)
+builtins.__import__ = guarded
+sys.argv = ['scripts.evaluate_answers', 'run', '--cases', 'absent', '--model', 'absent']
+runpy.run_module('scripts.evaluate_answers', run_name='__main__')
+'''
+    process = subprocess.run([sys.executable, '-B', '-c', script], capture_output=True, text=True)
+    assert process.returncode == 2 and not process.stderr
+    assert 'src.cli.check_answer_catalog' in process.stdout
+    assert 'scripts.benchmark_template_answers' in process.stdout

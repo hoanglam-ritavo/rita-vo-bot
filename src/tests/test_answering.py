@@ -8,6 +8,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import AsyncMock
 import pytest
+import httpx
 from fastapi.testclient import TestClient
 from src.answering.catalog import Catalog, validate_catalog, METADATA
 from src.answering.config import AnswerSettings, from_environment
@@ -229,3 +230,178 @@ def test_config_retired_keys_cannot_load_models():
     assert settings.enabled and not hasattr(settings,'model_path') and not hasattr(settings,'debug_raw')
     with pytest.raises(ValueError): from_environment({'ANSWER_ENABLED':'yes'})
     assert AnswerSettings().enabled is False
+
+
+async def http_answer(app, incoming, watchers):
+    """Exercise the ASGI route, including Request.is_disconnected and cleanup."""
+    incoming.put_nowait({'type': 'http.request', 'body': json.dumps(
+        {'text': 'Sinh con được bao nhiêu?'}).encode('utf-8'), 'more_body': False})
+    messages = []
+
+    async def receive():
+        try:
+            return incoming.get_nowait()
+        except asyncio.QueueEmpty:
+            watchers.add(asyncio.current_task())
+            return await incoming.get()
+
+    async def send(message):
+        messages.append(message)
+
+    await app({'type': 'http', 'asgi': {'version': '3.0'}, 'http_version': '1.1',
+               'method': 'POST', 'scheme': 'http', 'path': '/api/v1/answer',
+               'raw_path': b'/api/v1/answer', 'query_string': b'',
+               'headers': [(b'content-type', b'application/json')],
+               'client': ('127.0.0.1', 1234), 'server': ('test', 80), 'root_path': ''},
+              receive, send)
+    status = next(m['status'] for m in messages if m['type'] == 'http.response.start')
+    body = b''.join(m.get('body', b'') for m in messages if m['type'] == 'http.response.body')
+    return status, json.loads(body)
+
+
+def hold_retrieval(owner, result):
+    """A worker that acknowledges cancellation but owns resources until released."""
+    entered, cancelled, release = asyncio.Event(), asyncio.Event(), asyncio.Event()
+
+    async def retrieve(*args, **kwargs):
+        from src.api.answer import drain
+        worker = asyncio.create_task(release.wait())
+        entered.set()
+        try:
+            await asyncio.shield(worker)
+        except asyncio.CancelledError:
+            cancelled.set()
+            await drain(worker)
+            raise
+        return result
+
+    owner.retrieval.retrieve.side_effect = retrieve
+    return entered, cancelled, release
+
+
+@pytest.mark.parametrize('termination', ['disconnect', 'timeout'])
+def test_http_answer_drains_worker_and_watcher_before_releasing_busy(sample, monkeypatch, termination):
+    async def run():
+        owner = service(sample)
+        app = create_app(owner.settings, service_factory=lambda _: owner)
+        entered, cancelled, release = hold_retrieval(owner, sample.result)
+        incoming, watchers = asyncio.Queue(), set()
+        if termination == 'timeout':
+            monkeypatch.setattr('src.api.answer.DEADLINE_SECONDS', .01)
+        async with app.router.lifespan_context(app):
+            task = asyncio.create_task(http_answer(app, incoming, watchers))
+            try:
+                await entered.wait()
+                if termination == 'disconnect':
+                    incoming.put_nowait({'type': 'http.disconnect'})
+                await cancelled.wait()
+                assert owner.busy and not owner._idle.is_set() and not task.done()
+                async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app),
+                                            base_url='http://test') as client:
+                    assert (await client.get('/health/live')).status_code == 200
+                    assert (await client.get('/health/ready')).status_code == 200
+                    assert (await client.post('/api/v1/retrieve', json={'text': 'Second'})).status_code == 429
+                    assert (await client.post('/api/v1/answer', json={'text': 'Second'})).status_code == 429
+                    release.set()
+                    if termination == 'disconnect':
+                        with pytest.raises(asyncio.CancelledError):
+                            await task
+                    else:
+                        status, body = await task
+                        assert status == 504 and body['error']['code'] == 'answer_timeout'
+                    assert watchers and all(w.done() for w in watchers)
+                    assert not owner.busy and owner._idle.is_set() and owner.answers.available
+                    owner.retrieval.retrieve.side_effect = None
+                    response = await client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu?'})
+                    assert response.status_code == 200 and response.json()['status'] == 'answered'
+            finally:
+                release.set()
+                if not task.done():
+                    task.cancel()
+                await asyncio.gather(task, return_exceptions=True)
+        owner.retrieval.close.assert_awaited_once()
+        owner.database_close.assert_awaited_once()
+
+    async def bounded():
+        async with asyncio.timeout(5):
+            await run()
+    asyncio.run(bounded())
+
+
+def test_http_lifespan_shutdown_waits_for_active_answer(sample, monkeypatch):
+    async def run():
+        owner = service(sample)
+        closing_entered = asyncio.Event()
+        original_close = owner.close
+
+        async def close():
+            closing_entered.set()
+            await original_close()
+
+        monkeypatch.setattr(owner, 'close', close)
+        app = create_app(owner.settings, service_factory=lambda _: owner)
+        entered, cancelled, release = hold_retrieval(owner, sample.result)
+        watchers = set()
+        lifetime = app.router.lifespan_context(app)
+        await lifetime.__aenter__()
+        task = asyncio.create_task(http_answer(app, asyncio.Queue(), watchers))
+        closing = None
+        try:
+            await entered.wait()
+            closing = asyncio.create_task(lifetime.__aexit__(None, None, None))
+            await closing_entered.wait()
+            assert not closing.done() and owner.busy and not owner.started
+            owner.retrieval.close.assert_not_awaited()
+            owner.database_close.assert_not_awaited()
+            release.set()
+            status, body = await task
+            assert status == 200 and body['status'] == 'answered'
+            await closing
+            assert not cancelled.is_set()
+            assert watchers and all(w.done() for w in watchers)
+            assert not owner.busy and owner._idle.is_set()
+            assert not owner.answers.available and owner.answers.catalog is None
+            owner.retrieval.close.assert_awaited_once()
+            owner.database_close.assert_awaited_once()
+        finally:
+            release.set()
+            await asyncio.gather(task, return_exceptions=True)
+            if closing is None:
+                await lifetime.__aexit__(None, None, None)
+            else:
+                await closing
+
+    async def bounded():
+        async with asyncio.timeout(5):
+            await run()
+    asyncio.run(bounded())
+
+
+@pytest.mark.parametrize('failure', ['missing', 'invalid'])
+def test_http_catalog_failure_isolated_from_retrieval_and_health(sample, monkeypatch, failure):
+    from src.retrieval.semantics import SemanticSettings
+
+    def load(*args):
+        if failure == 'missing':
+            raise FileNotFoundError('PRIVATE')
+        raise ValueError('PRIVATE')
+
+    monkeypatch.setattr('src.api.answer.load_catalog', load)
+    owner = service(sample)
+    owner.started = False
+    owner.settings = replace(owner.settings, answer=AnswerSettings(enabled=True),
+                             semantic=SemanticSettings('expand', Path('fictional')))
+    owner.answers.settings = owner.settings
+    sample.result['matches'][0].update(cosine_distance=.1, author_id=None, role=None)
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        assert client.get('/health/live').status_code == 200
+        assert client.get('/health/ready').status_code == 200
+        response = client.post('/api/v1/answer', json={'text': 'Fictional question'})
+        assert response.status_code == 503
+        assert response.json()['error']['code'] == 'answer_unavailable' and 'PRIVATE' not in response.text
+        owner.retrieval.retrieve.assert_not_awaited()
+        retrieval = client.post('/api/v1/retrieve', json={'text': 'Fictional question'})
+        assert retrieval.status_code == 200
+        assert retrieval.json()['matches'][0]['content'] == sample.result['matches'][0]['content']
+    owner.retrieval.close.assert_awaited_once()
+    owner.database_close.assert_awaited_once()

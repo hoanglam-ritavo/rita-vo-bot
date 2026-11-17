@@ -2,7 +2,7 @@
 
 The local catalog and direct PDF ingestion workflows are retired. Metadata belongs to schema-v2/v3 packages at `chunks/<document_id>/`; PostgreSQL receives it transactionally during publication. See the [chunk package workflow](offline-indexing.md) for initialization, agent-authored extraction/chunking, validation, publication and non-destructive legacy conversion. No approval or reviewer identity is required.
 
-The current fresh-database baseline is `0006_publication_baseline`. See [database design](database-design.md) for initialization, data dictionary, constraints, normalized evidence links, attempts and metadata audit. Historical migration preservation does not authorize upgrading a populated corpus to this baseline. V2 text conventions do not infer hierarchy; [v3 authoring](structured-evidence.md) remains explicit.
+The current revision chain is the `bce4184a7f51` baseline followed by additive `c7d92e6a104b` guards. See [database design](database-design.md) for initialization, data dictionary, constraints, normalized evidence links, attempts and metadata audit. The retired `0006_publication_baseline` is not an executable migration in this checkout; an older corpus requires separately reviewed reconciliation. V2 text conventions do not infer hierarchy; [v3 authoring](structured-evidence.md) remains explicit.
 
 Historical `indexing_chunks/` is not scanned or moved. Historical source-renaming utilities are not part of this workflow and must not be applied to the current source tree.
 
