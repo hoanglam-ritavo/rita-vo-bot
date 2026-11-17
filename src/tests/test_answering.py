@@ -4,9 +4,10 @@ from copy import deepcopy
 from dataclasses import replace
 import hashlib
 import json
+import logging
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, Mock
 import pytest
 import httpx
 from fastapi.testclient import TestClient
@@ -396,6 +397,9 @@ def test_http_catalog_failure_isolated_from_retrieval_and_health(sample, monkeyp
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
         assert client.get('/health/live').status_code == 200
         assert client.get('/health/ready').status_code == 200
+        health = client.get('/health/answer')
+        assert health.status_code == 503
+        assert health.json() == {'status': 'unavailable', 'reason': 'answer_catalog_unavailable'}
         response = client.post('/api/v1/answer', json={'text': 'Fictional question'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable' and 'PRIVATE' not in response.text
@@ -405,3 +409,143 @@ def test_http_catalog_failure_isolated_from_retrieval_and_health(sample, monkeyp
         assert retrieval.json()['matches'][0]['content'] == sample.result['matches'][0]['content']
     owner.retrieval.close.assert_awaited_once()
     owner.database_close.assert_awaited_once()
+
+
+@pytest.mark.parametrize('mode,expected_reason', [
+    ('disabled', 'answer_disabled'),
+    ('semantic_off', 'answer_semantics_required'),
+    ('identity_mismatch', 'answer_catalog_unavailable'),
+    ('ready', None),
+])
+def test_answer_health_startup_states_and_safe_logs(sample, monkeypatch, caplog, mode, expected_reason):
+    from src.retrieval.semantics import SemanticSettings
+
+    caplog.set_level(logging.INFO)
+    loader = Mock(return_value=(sample.catalog, sample.lexicon))
+    if mode == 'identity_mismatch':
+        loader.side_effect = ValueError('answer_catalog_identity_mismatch PRIVATE_SOURCE')
+    monkeypatch.setattr('src.api.answer.load_catalog', loader)
+    owner = service(sample)
+    owner.started = False
+    owner.settings = replace(owner.settings, answer=AnswerSettings(enabled=mode != 'disabled'),
+                             semantic=SemanticSettings() if mode == 'semantic_off' else
+                             SemanticSettings('expand', Path('PRIVATE_PATH')))
+    owner.answers.settings = owner.settings
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        response = client.get('/health/answer')
+        assert response.status_code == (503 if expected_reason else 200)
+        assert response.json() == {'status': 'unavailable' if expected_reason else 'ready',
+                                   'reason': expected_reason}
+        assert owner.answers.reason == expected_reason
+        assert owner.answers.state == ('disabled' if mode == 'disabled' else
+                                        'unavailable' if expected_reason else 'ready')
+        assert owner.answers.available is (expected_reason is None)
+        if mode in {'disabled', 'semantic_off'}:
+            loader.assert_not_called()
+        else:
+            loader.assert_called_once()
+        if expected_reason:
+            failed = client.post('/api/v1/answer', json={'text': 'PRIVATE_QUESTION'})
+            assert failed.status_code == 503
+            assert failed.json()['error']['code'] == 'answer_unavailable'
+        owner.retrieval.retrieve.assert_not_awaited()
+        assert len([r for r in caplog.records if r.message.startswith('answer_startup ')]) == 1
+        schema = client.get('/openapi.json').json()['paths']['/health/answer']['get']
+        assert {'200', '503'} <= schema['responses'].keys()
+    assert owner.answers.state == 'stopped' and not owner.answers.available
+    assert owner.answers.catalog is owner.answers.lexicon is None
+    assert 'PRIVATE' not in caplog.text + response.text
+
+
+@pytest.mark.parametrize('failure', ['database', 'model', 'stopped', 'closed'])
+def test_answer_health_dependency_failures_do_not_expose_details(sample, failure, caplog):
+    owner = service(sample)
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        if failure == 'database':
+            owner.database_check.side_effect = RuntimeError('PRIVATE_CONNECTION')
+        elif failure == 'model':
+            owner.retrieval.started = False
+        elif failure == 'stopped':
+            owner.started = False
+        else:
+            client.portal.call(owner.answers.close)
+        response = client.get('/health/answer')
+        assert response.status_code == 503
+        assert response.json() == {'status': 'unavailable', 'reason': 'dependency_unavailable'}
+        owner.retrieval.retrieve.assert_not_awaited()
+    assert 'PRIVATE' not in caplog.text + response.text
+
+
+def test_answer_health_remains_available_while_request_owns_busy_slot(sample, monkeypatch):
+    from src.retrieval.semantics import SemanticSettings
+
+    loader = Mock(return_value=(sample.catalog, sample.lexicon))
+    monkeypatch.setattr('src.api.answer.load_catalog', loader)
+    owner = service(sample)
+    owner.started = False
+    owner.settings = replace(owner.settings, answer=AnswerSettings(enabled=True),
+                             semantic=SemanticSettings('expand', Path('fictional')))
+    owner.answers.settings = owner.settings
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        owner.busy = True
+        owner._idle.clear()
+        try:
+            for _ in range(2):
+                response = client.get('/health/answer')
+                assert response.status_code == 200
+                assert response.json() == {'status': 'ready', 'reason': None}
+            assert owner.busy and not owner._idle.is_set()
+            loader.assert_called_once()
+            owner.retrieval.retrieve.assert_not_awaited()
+        finally:
+            owner.busy = False
+            owner._idle.set()
+
+
+def test_answer_processing_failure_has_safe_correlated_log_and_releases_slot(sample, caplog):
+    caplog.set_level(logging.INFO)
+    owner = service(sample)
+    owner.retrieval.retrieve.side_effect = RuntimeError('PRIVATE_EVIDENCE credentials question')
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        response = client.post('/api/v1/answer', json={'text': 'PRIVATE_QUESTION'})
+        assert response.status_code == 503
+        assert response.json()['error']['code'] == 'answer_unavailable'
+        assert not owner.busy and owner._idle.is_set() and owner.answers.available
+    record = next(r for r in caplog.records if r.message.startswith('answer_processing_failed '))
+    assert 'exception_type=RuntimeError' in record.message
+    request_id = record.message.split('request_id=')[1].split()[0]
+    assert len(request_id) == 32 and all(c in '0123456789abcdef' for c in request_id)
+    assert f'answer_finished request_id={request_id} status=failed' in caplog.text
+    assert record.exc_info is None
+    assert 'PRIVATE' not in caplog.text + response.text and 'credentials' not in caplog.text
+
+
+def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sample, monkeypatch, tmp_path):
+    monkeypatch.setattr('src.api.config.REPOSITORY_ROOT', tmp_path)
+    monkeypatch.setenv('ANSWER_ENABLED', 'false')
+    monkeypatch.setenv('SEMANTIC_MODE', 'off')
+    monkeypatch.setenv('SEMANTIC_ARTIFACT_PATH', 'fictional-process-artifact')
+    monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', 'true')
+    monkeypatch.delenv('PYTHON_DOTENV_DISABLED', raising=False)
+    (tmp_path / '.env').write_text('ANSWER_ENABLED=true\nSEMANTIC_MODE=expand\n'
+                                  'SEMANTIC_ARTIFACT_PATH=fictional-file-artifact\n', encoding='utf-8')
+    loader = Mock(return_value=(sample.catalog, sample.lexicon))
+    monkeypatch.setattr('src.api.answer.load_catalog', loader)
+    owners = []
+
+    def factory(settings):
+        owner = ApiService(settings, retrieval=SimpleNamespace(start=AsyncMock(), close=AsyncMock(),
+                           started=True, retrieve=AsyncMock(return_value=sample.result)),
+                           database_check=AsyncMock(), database_close=AsyncMock())
+        owners.append(owner)
+        return owner
+
+    with TestClient(create_app(service_factory=factory)) as client:
+        assert owners[0].settings.answer.enabled
+        assert owners[0].settings.semantic.mode == 'expand'
+        assert client.get('/health/ready').status_code == 200
+        assert client.get('/health/answer').json() == {'status': 'ready', 'reason': None}
+        response = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu?'})
+        assert response.status_code == 200 and response.json()['status'] == 'answered'
+        loader.assert_called_once()
+    owners[0].database_close.assert_awaited_once()

@@ -1,10 +1,11 @@
 """Explicit local retrieval API configuration; imports have no side effects."""
+import logging
 import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from dotenv import load_dotenv
+from dotenv import dotenv_values, load_dotenv
 from src.paths import REPOSITORY_ROOT
 from src.retrieval.reranking import RerankSettings
 from src.retrieval.config import from_environment
@@ -13,6 +14,9 @@ from src.intent.config import from_environment as intent_from_environment
 from src.retrieval.semantics import SemanticSettings
 from src.retrieval.semantic_config import from_environment as semantic_from_environment
 from src.answering.config import AnswerSettings, from_environment as answer_from_environment
+
+logger = logging.getLogger(__name__)
+DIAGNOSTIC_KEYS = ('ANSWER_ENABLED', 'SEMANTIC_MODE', 'RELEVANCE_FILTER_ENABLED')
 
 
 @dataclass(frozen=True)
@@ -40,7 +44,12 @@ class Settings:
 
 
 def load_settings():
-    load_dotenv(REPOSITORY_ROOT / '.env', override=False)
+    env_path = REPOSITORY_ROOT / '.env'
+    inherited = {key: os.environ.get(key) for key in DIAGNOSTIC_KEYS}
+    file_values = dotenv_values(env_path)
+    # HTTP startup owns this precedence, including downstream database settings.
+    # Standalone CLI/database entrypoints retain their own loading policy.
+    load_dotenv(env_path, override=True)
     relevance_filter = os.environ.get('RELEVANCE_FILTER_ENABLED', 'true').lower()
     if relevance_filter not in ('true', 'false'):
         raise ValueError('Invalid relevance filter configuration.')
@@ -48,10 +57,22 @@ def load_settings():
     path = Path(os.environ.get('E5_MODEL_PATH', str(REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / revision)))
     if not path.is_absolute():
         path = REPOSITORY_ROOT / path
-    return Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),
+    settings = Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),
                     int(os.environ.get('API_PORT', '8000')),
                     int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
                     intent_from_environment(os.environ),
                     relevance_filter_enabled=relevance_filter == 'true',
                     semantic=semantic_from_environment(os.environ),
                     answer=answer_from_environment(os.environ))
+    effective = {
+        'ANSWER_ENABLED': str(settings.answer.enabled).lower(),
+        'SEMANTIC_MODE': settings.semantic.mode,
+        'RELEVANCE_FILTER_ENABLED': str(settings.relevance_filter_enabled).lower(),
+    }
+    for key, value in effective.items():
+        from_file = file_values.get(key) is not None
+        source = 'dotenv' if from_file else 'process' if inherited[key] is not None else 'default'
+        if from_file and inherited[key] is not None and inherited[key] != file_values[key]:
+            logger.warning('http_configuration_conflict key=%s selected=dotenv', key)
+        logger.info('http_configuration key=%s source=%s value=%s', key, source, value)
+    return settings

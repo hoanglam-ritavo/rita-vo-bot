@@ -24,6 +24,39 @@ Output contains counts and fixed codes only. Exit 0 means structurally/source-bo
 valid, not business approval; exit 1 means unavailable or invalid. Startup failure
 disables answering while leaving compatible retrieval usable.
 
+HTTP startup uses repository `.env` values before process environment, then
+defaults for absent keys. This applies to all loaded keys, including database
+URLs; standalone CLI loading is unchanged. Restart the API to apply changes.
+Only `ANSWER_ENABLED`, `SEMANTIC_MODE` and `RELEVANCE_FILTER_ENABLED` have their
+effective source/value logged. Conflicts for these keys log `selected=dotenv`;
+other environment values, connection strings and credentials are never logged.
+
+`GET /health/answer` returns HTTP 200 with
+`{"status":"ready","reason":null}` when answer initialization and the existing
+retrieval/database readiness check pass. Otherwise it returns HTTP 503 with
+`{"status":"unavailable","reason":"<fixed-code>"}`. Dependency failures take
+precedence; the reason codes are:
+
+| Reason | Meaning and operator action |
+| --- | --- |
+| `answer_disabled` | Enable `ANSWER_ENABLED` in `.env` and restart. |
+| `answer_semantics_required` | Configure `SEMANTIC_MODE=expand` and its artifact, then restart. |
+| `answer_catalog_unavailable` | Check catalog/lexicon availability and identity with the catalog CLI, then restart. |
+| `dependency_unavailable` | Check retrieval lifecycle and database availability. |
+
+The probe does not run retrieval, reload artifacts or acquire the busy slot;
+it can report ready during an active request. It does not certify source quality,
+complete evidence or successful business answers. `/health/live` and
+`/health/ready` retain their existing behavior; retrieval readiness alone does not
+mean the answer route is enabled.
+
+Answer startup logs a fixed state/reason: disabled, unavailable or ready; shutdown
+clears artifacts and marks the state stopped. Unexpected processing failures log
+`answer_processing_failed`, the generated request ID and exception type, without
+the exception message/traceback, question, answer or evidence. `/api/v1/answer`
+keeps its existing 503 `answer_unavailable` error shape. These diagnostics do not
+add automatic retries or change fallback/relevance semantics.
+
 The initial catalog covers availability of all 29 documents / 530 chunks: 32
 source-bound entries and 498 excerpt-only chunks. Most initial templates retain
 full source wording and explicitly report partial coverage. Three benefit entries

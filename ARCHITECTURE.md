@@ -108,6 +108,21 @@ Structured scopes, items and values remain supported by package validation, publ
 
 `src.api` owns HTTP configuration, typed request/response contracts and application lifecycle. `POST /api/v1/retrieve` reuses `RetrievalService.retrieve()` and returns source matches plus retrieval/total timings. Optional request `top_k` overrides `RETRIEVAL_TOP_K`; strict validation rejects extra fields and invalid types. The former `/api/v1/ask` route is removed without an alias.
 
+HTTP configuration loading in `src/api/config.py` applies repository `.env`
+before process environment, then defaults for absent keys. All loaded keys,
+including downstream database URLs, follow this HTTP startup policy; standalone
+database/CLI loaders are unchanged. No configuration is hot-reloaded. Logs expose
+only the effective source/value of the three allowlisted answer/semantic/filter
+switches and fixed conflict warnings, never arbitrary environment values.
+
+`AnswerService` owns answer startup state/reason and clears its catalog/lexicon
+on failure or shutdown. `/health/answer` checks retrieval/database readiness and
+this answer state without running a question or acquiring the shared busy slot.
+It returns typed ready/unavailable metadata with HTTP 200/503; dependency failures
+take precedence. Existing `/health/live`, `/health/ready` and answer errors remain
+compatible. Fixed reason codes, safe processing logs and operator actions are
+documented in [answer diagnostics](docs/answer-evaluation.md#configuration-and-validation).
+
 Startup loads and fingerprints local E5-small once on CPU, checks PostgreSQL, and only then serves requests. Imports do not initialize models or connections. No downloads, migrations or publication occur. A single worker uses the Windows-compatible async runner. Embedding runs off the event loop; one HTTP retrieval owns the busy state through database search and response validation. Additional requests receive 429. A 120-second deadline requests cancellation, but cancellation (including repeated cancellation) drains embedding work before releasing ownership. Shutdown waits for active requests, releases E5 and closes the database, including partial-startup cleanup.
 
 Readiness checks model initialization and database availability, not semantic quality or dataset completeness. Errors distinguish invalid requests (422), busy (429), unavailable dependencies/model mismatch (503) and timeout (504). Valid empty results remain 200. Logs contain fixed status/error codes and timings, not questions or source content. The retrieval route has no LLM planner, generator, verifier, confidence mapping or automatic aggregate computation. Top-K results cannot certify completeness or answerability. See [manual retrieval evaluation](docs/retrieval-evaluation.md).

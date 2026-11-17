@@ -9,6 +9,12 @@ class StrictModel(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
 
 
+class AnswerHealthResponse(StrictModel):
+    status: Literal['ready', 'unavailable']
+    reason: Literal['answer_disabled', 'answer_semantics_required',
+                    'answer_catalog_unavailable', 'dependency_unavailable'] | None
+
+
 class RetrieveRequest(StrictModel):
     text: str = Field(min_length=1, max_length=8000)
     top_k: int = Field(default=5, ge=1, le=20,

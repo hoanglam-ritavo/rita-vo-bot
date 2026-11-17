@@ -26,13 +26,25 @@ class AnswerService:
         self.settings, self.owner = settings, owner
         self.available = False
         self.catalog = self.lexicon = None
+        self.state = 'unavailable'
+        self.reason = 'dependency_unavailable'
+
+    def _set_state(self, state, reason):
+        self.state, self.reason = state, reason
+        self.available = state == 'ready'
+        if not self.available:
+            self.catalog = self.lexicon = None
 
     async def start(self):
         if not self.settings.answer.enabled:
+            self._set_state('disabled', 'answer_disabled')
+            logger.info('answer_startup state=%s reason=%s', self.state, self.reason)
+            return
+        if self.settings.semantic.mode != 'expand':
+            self._set_state('unavailable', 'answer_semantics_required')
+            logger.warning('answer_startup state=%s reason=%s', self.state, self.reason)
             return
         try:
-            if self.settings.semantic.mode != 'expand':
-                raise ValueError('answer_semantics_required')
             task = asyncio.create_task(asyncio.to_thread(load_catalog,
                 self.settings.answer.catalog_path, self.settings.semantic.artifact_path))
             try:
@@ -43,17 +55,17 @@ class AnswerService:
                 except Exception:
                     pass  # Preserve cancellation even if the owned file-read worker failed.
                 raise
-            self.available = True
+            self._set_state('ready', None)
+            logger.info('answer_startup state=%s reason=%s', self.state, self.reason)
         except asyncio.CancelledError:
             await self.close()
             raise
         except Exception:
-            await self.close()
-            logger.warning('answer_unavailable code=answer_catalog_unavailable')
+            self._set_state('unavailable', 'answer_catalog_unavailable')
+            logger.warning('answer_startup state=%s reason=%s', self.state, self.reason)
 
     async def close(self):
-        self.available = False
-        self.catalog = self.lexicon = None
+        self._set_state('stopped', 'dependency_unavailable')
 
     async def answer(self, text, top_k):
         if not self.owner.started or not self.available:
@@ -84,7 +96,9 @@ class AnswerService:
         except RetrievalError as exc:
             invalid = exc.code in {'invalid_question', 'question_too_long', 'question_exceeds_model_limit', 'invalid_top_k'}
             raise ApiError(exc.code, 422 if invalid else 503) from None
-        except Exception:
+        except Exception as exc:
+            logger.warning('answer_processing_failed request_id=%s exception_type=%s',
+                           request_id, type(exc).__name__)
             raise ApiError('answer_unavailable') from None
         finally:
             self.owner.busy = False

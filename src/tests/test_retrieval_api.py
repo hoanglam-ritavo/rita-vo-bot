@@ -1,5 +1,7 @@
 """Synthetic HTTP lifecycle and retrieval contracts; no database/model needed."""
 import asyncio
+import logging
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -218,7 +220,7 @@ def test_default_model_uses_durable_directory_from_any_working_directory(monkeyp
     assert result.model_path == REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / ('a' * 40)
 
 
-def test_environment_load_preserves_explicit_model_and_artifact_paths(monkeypatch, tmp_path):
+def test_environment_file_overrides_model_but_preserves_absent_artifact_paths(monkeypatch, tmp_path):
     from src.paths import REPOSITORY_ROOT
 
     local_env = tmp_path / '.env'
@@ -229,7 +231,7 @@ def test_environment_load_preserves_explicit_model_and_artifact_paths(monkeypatc
     monkeypatch.setenv('RERANK_PROFILE_PATH', 'artifacts/rerank/release-1/relevance-profile.json')
     monkeypatch.setenv('INTENT_MODE', 'off')
     result = load_settings()
-    assert result.model_path == tmp_path / 'provisioned-model'
+    assert result.model_path == REPOSITORY_ROOT / 'unused/from-file'
     assert result.rerank.profile_path == REPOSITORY_ROOT / 'artifacts/rerank/release-1/relevance-profile.json'
     assert result.intent.mode == 'off'
 
@@ -301,13 +303,13 @@ def test_relevance_filter_rejects_invalid_environment(monkeypatch, raw):
         load_settings()
 
 
-def test_relevance_filter_process_environment_overrides_file(monkeypatch, tmp_path):
+def test_relevance_filter_file_overrides_process_environment(monkeypatch, tmp_path):
     from dotenv import load_dotenv
     env_file = tmp_path / '.env'
     env_file.write_text('RELEVANCE_FILTER_ENABLED=true\n', encoding='utf-8')
     monkeypatch.setattr('src.api.config.load_dotenv', lambda *a, **kw: load_dotenv(env_file, **kw))
     monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', 'false')
-    assert load_settings().relevance_filter_enabled is False
+    assert load_settings().relevance_filter_enabled is True
     monkeypatch.delenv('RELEVANCE_FILTER_ENABLED')
     assert load_settings().relevance_filter_enabled is True
 
@@ -316,6 +318,73 @@ def test_relevance_filter_process_environment_overrides_file(monkeypatch, tmp_pa
 def test_api_settings_require_boolean_filter_setting(value):
     with pytest.raises(ValueError, match='Invalid relevance filter configuration'):
         settings(relevance_filter_enabled=value)
+
+
+@pytest.fixture
+def http_env(monkeypatch, tmp_path):
+    # These tests load a fictional file, never the developer's private .env.
+    monkeypatch.setattr('src.api.config.REPOSITORY_ROOT', tmp_path)
+    for key in ('ANSWER_ENABLED', 'ANSWER_CATALOG_PATH', 'SEMANTIC_MODE',
+                'SEMANTIC_ARTIFACT_PATH', 'RELEVANCE_FILTER_ENABLED',
+                'PYTHON_DOTENV_DISABLED'):
+        monkeypatch.delenv(key, raising=False)
+    # Register restoration before dotenv writes previously absent keys.
+    for key in ('ANSWER_ENABLED', 'SEMANTIC_MODE', 'RELEVANCE_FILTER_ENABLED', 'DATABASE_URL'):
+        monkeypatch.setenv(key, '')
+        monkeypatch.delenv(key)
+    return tmp_path / '.env'
+
+
+@pytest.mark.parametrize('file_value,process_value,expected', [
+    ('true', 'false', True), ('false', 'true', False),
+])
+def test_http_file_precedence_and_safe_configuration_diagnostics(
+        http_env, monkeypatch, caplog, file_value, process_value, expected):
+    caplog.set_level(logging.INFO)
+    http_env.write_text(f'ANSWER_ENABLED={file_value}\nSEMANTIC_MODE=off\n'
+                        'RELEVANCE_FILTER_ENABLED=false\n'
+                        'DATABASE_URL=postgresql+psycopg://fictional:PRIVATE_FILE@localhost/fictional\n',
+                        encoding='utf-8')
+    monkeypatch.setenv('ANSWER_ENABLED', process_value)
+    monkeypatch.setenv('DATABASE_URL', 'postgresql+psycopg://fictional:PRIVATE_PROCESS@localhost/other')
+    assert load_settings().answer.enabled is expected
+    assert os.environ['DATABASE_URL'].endswith('@localhost/fictional')
+    assert f'http_configuration key=ANSWER_ENABLED source=dotenv value={file_value}' in caplog.text
+    assert 'http_configuration_conflict key=ANSWER_ENABLED selected=dotenv' in caplog.text
+    assert 'PRIVATE' not in caplog.text and 'DATABASE_URL' not in caplog.text
+
+
+@pytest.mark.parametrize('file_exists', [True, False])
+def test_http_missing_file_or_key_uses_process_then_defaults(http_env, monkeypatch, caplog, file_exists):
+    caplog.set_level(logging.INFO)
+    if file_exists:
+        http_env.write_text('# No answer configuration\n', encoding='utf-8')
+    monkeypatch.setenv('ANSWER_ENABLED', 'true')
+    assert load_settings().answer.enabled is True
+    assert 'key=ANSWER_ENABLED source=process value=true' in caplog.text
+    monkeypatch.delenv('ANSWER_ENABLED')
+    assert load_settings().answer.enabled is False
+    assert 'key=ANSWER_ENABLED source=default value=false' in caplog.text
+    assert 'configuration_conflict' not in caplog.text
+
+
+def test_http_invalid_file_value_does_not_fall_back_to_valid_process(http_env, monkeypatch, caplog):
+    http_env.write_text('ANSWER_ENABLED=PRIVATE_INVALID\n', encoding='utf-8')
+    monkeypatch.setenv('ANSWER_ENABLED', 'true')
+    with pytest.raises(ValueError, match='invalid_answer_configuration'):
+        load_settings()
+    assert 'PRIVATE_INVALID' not in caplog.text
+
+
+def test_http_loading_does_not_change_standalone_database_precedence(http_env, monkeypatch):
+    from src.database.config import database_url
+    monkeypatch.setattr('src.database.config.ROOT', http_env.parent)
+    http_env.write_text('DATABASE_URL=postgresql+psycopg://fictional:PRIVATE@localhost/from_file\n',
+                        encoding='utf-8')
+    monkeypatch.setenv('DATABASE_URL', 'postgresql+psycopg://fictional:PRIVATE@localhost/from_process')
+    assert database_url().database == 'from_process'
+    load_settings()
+    assert database_url().database == 'from_file'
 
 
 @pytest.mark.parametrize('filter_enabled', [True, False])

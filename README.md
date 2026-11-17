@@ -33,6 +33,38 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### HTTP configuration precedence and answer diagnostics - 2026-11-17
+
+Validated the implementation working tree against `7c5957c`; pre-existing
+documentation/test changes were preserved (and committed separately during this
+task). HTTP startup now gives repository `.env` precedence over process
+environment, including database URLs; standalone CLI policies are unchanged.
+Added `/health/answer`, fixed answer lifecycle reasons and allowlisted
+configuration/processing diagnostics. Existing answer error contracts, retrieval
+readiness and cancellation/busy behavior are retained. See [answer diagnostics](docs/answer-evaluation.md#configuration-and-validation)
+and [rollout checks](#http-service-operation-and-rollout).
+
+Post-edit focused HTTP/configuration/answer checks passed **104 tests**. An
+intermediate non-integration run passed **916 tests, 1 skipped, 54 deselected**.
+After adding the end-to-end fictional `.env` conflict/startup/answer regression
+and request-ID correlation assertion, final
+`python -m pytest -m 'not integration' -q` passed **917 tests, 1 skipped,
+54 deselected**. The existing Starlette/AnyIO portal deprecation warning remains.
+The first sandboxed focused attempt hit Windows temporary-directory access
+errors; successful runs used verified-unused short `.tmp/ac2`, `.tmp/ac3` and
+`.tmp/ac4` basetemps with separate caches outside the sandbox. No existing
+temporary trees or permissions were changed.
+
+Local Markdown link targets (**133**) and five referenced heading anchors were
+checked, along with the documented API/catalog command module paths;
+`git diff --check` passed. No dependencies, private `.env`, runtime assets,
+catalog/packages, database data or other repositories were changed. No live
+service restart/deployment, real-model/network smoke test, integration database
+tests, migrations or publication ran. Synthetic ASGI checks verify configuration,
+health and response wiring, not live dependency availability or semantic quality.
+Restart the API explicitly after reviewing `.env`/launcher differences to apply
+this behavior to an already-running process.
+
 ### Documentation and regression reconciliation - 2026-11-17
 
 Validated the docs/test working tree based on `bbeec8c` (clean before this task).
@@ -861,7 +893,7 @@ if (-not (Test-Path -LiteralPath .env)) {
 }
 ```
 
-The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments; process environment variables override `.env`, and running services need a restart to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts with filtering enabled. The HTTP-only `RELEVANCE_FILTER_ENABLED` switch defaults to `true`; explicitly setting `false` returns unassessed top-k candidates without a profile and leaves reranking independent. CLI/evaluator defaults and calibration requirements are unchanged; see [filter modes](docs/online-reranking.md#local-model-and-configuration).
+The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments. HTTP startup gives repository `.env` precedence over process environment, including database URLs; absent keys use process environment, then defaults. Standalone database/CLI loading keeps its existing precedence. Restart running services to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts with filtering enabled. The HTTP-only `RELEVANCE_FILTER_ENABLED` switch defaults to `true`; explicitly setting `false` returns unassessed top-k candidates without a profile and leaves reranking independent. CLI/evaluator defaults and calibration requirements are unchanged; see [filter modes](docs/online-reranking.md#local-model-and-configuration).
 
 Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; versioned accepted runtime JSON can be tracked under `artifacts/`. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
 
@@ -920,7 +952,7 @@ The application owns the loop; use the existing `run_async()` wrapper only at a 
 
 Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. Retrieval loads E5-small directly in Python on CPU and uses no generative model; the optional answer route renders source-bound templates without a generative model or native GGUF binding. The application never downloads weights or falls back to hosted inference.
 
-Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). Existing environment variables override repository `.env`. Relative model paths resolve from the repository root. The default pinned E5 directory under `models/embeddings` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
+Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). For HTTP startup, repository `.env` values override process environment; missing keys use process environment, then defaults. This also applies to database URLs. Restart the API after changes; configuration is not hot-reloaded. Relative model paths resolve from the repository root. The default pinned E5 directory under `models/embeddings` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
 
 ```powershell
 .\env\Scripts\python.exe -m src.cli.serve_api
@@ -1050,6 +1082,24 @@ state and database connectivity; it does not certify catalog availability,
 retrieval quality or publication completeness. Allow startup time for local model
 loading and the database check before enforcing probes.
 
+For deployments that require answers, also call
+`GET http://127.0.0.1:8000/health/answer` with a 20-second client timeout. It returns
+200 with `{"status":"ready","reason":null}` only when answer initialization and
+retrieval/database readiness pass; disabled answers or unavailable dependencies
+return 503 with a fixed reason. This probe does not run a question, reload a
+catalog or acquire the request busy slot. See [answer diagnostics and reason
+codes](docs/answer-evaluation.md#configuration-and-validation).
+
+When updating to the `.env`-first HTTP configuration policy, compare the file
+with launcher configuration before restarting: declared database URLs are also
+overridden. Keep `.env` private and do not copy credentials into diagnostics.
+After an explicit restart, check startup switch source/value logs, both existing
+health probes and `/health/answer`; test one valid answer if enabled/provisioned.
+For the original conflict regression, a launcher `ANSWER_ENABLED=false` with
+`.env` `ANSWER_ENABLED=true` must use the file value. No launcher changes or live
+restart are performed automatically by the application. Rollback requires the
+previous artifact and a restart, with its previous environment precedence reviewed.
+
 Before rollout, inventory external service launchers and probes; these are not
 provided or verified by this repository. Replace any gRPC probes with HTTP probes
 before retiring the old process, then deploy the bot with the existing one-worker
@@ -1070,7 +1120,7 @@ backend, portal or HRM-source integration changes are required for this cleanup.
 
 ## Database configuration and behavior
 
-`DATABASE_URL` uses `postgresql+psycopg://user:password@host:5432/database`. URL-encode special characters in usernames and passwords. Configure TLS for the server, for example `?sslmode=verify-full&sslrootcert=C%3A%2Fcerts%2Froot.crt`. System environment variables take precedence over `.env`. Do not commit `.env` or credentials.
+`DATABASE_URL` uses `postgresql+psycopg://user:password@host:5432/database`. URL-encode special characters in usernames and passwords. Configure TLS for the server, for example `?sslmode=verify-full&sslrootcert=C%3A%2Fcerts%2Froot.crt`. Standalone database/CLI entrypoints give system environment precedence over `.env`. HTTP startup instead applies `.env` first, including database URLs; see [HTTP configuration](#local-retrieval-api-and-swagger). Do not commit `.env` or credentials.
 
 `MIGRATION_DATABASE_URL` optionally supplies an account with DDL permissions; when absent or empty, migrations use `DATABASE_URL`. Migrations run only through explicit Alembic commands, not at application startup. Fresh provisioning uses the `bce4184a7f51` baseline after enabling vector. The additive `c7d92e6a104b` guard upgrade/downgrade preserves existing tables/data and does not require them to be empty; baseline downgrade drops application tables and must never run on the application database. Both downgrades preserve the shared `vector` extension. See [database initialization and boundaries](docs/database-design.md#initialization-and-boundaries). Future runtime access should use permissions needed for application tables rather than migration privileges.
 

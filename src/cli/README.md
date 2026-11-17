@@ -66,7 +66,7 @@ Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the
 
 `serve_api` reads configuration, loads the local model and checks PostgreSQL at startup; it binds HTTP until stopped. Exit `0` requires successful server startup; configuration/startup failure exits `1`. No migrations or publication run at startup. See [HTTP setup](../../README.md#local-retrieval-api-and-swagger).
 
-`serve_api` does not accept application-specific argparse flags or implement a `--help` command; use the linked configuration guide. Use HTTP `/health/live` and `/health/ready` probes; see [operation and rollout](../../README.md#http-service-operation-and-rollout).
+`serve_api` does not accept application-specific argparse flags or implement a `--help` command; use the linked configuration guide. HTTP startup gives repository `.env` precedence over process environment, including database URLs; standalone CLI policies are unchanged. Use HTTP `/health/live` and `/health/ready` probes, plus `/health/answer` for answer availability; see [operation and rollout](../../README.md#http-service-operation-and-rollout).
 
 `check_db` loads DB configuration only when executed, reports the extension version or a credential-safe error, always closes the engine, and exits `0`/`1`. It does not migrate or write application tables.
 

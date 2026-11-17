@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from .config import load_settings
-from .contracts import RetrievalResponse, AnswerResponse, ApiError, RetrieveRequest
+from .contracts import RetrievalResponse, AnswerResponse, AnswerHealthResponse, ApiError, RetrieveRequest
 from .answer import drain
 from .service import ApiService
 
@@ -99,5 +99,13 @@ def create_app(settings=None, *, service_factory=ApiService):
     async def ready(request: Request):
         await request.app.state.retrieval_service.ready()
         return {'status': 'ready', 'notice': 'Availability only; retrieval quality and dataset completeness are not verified.'}
+
+    @app.get('/health/answer', response_model=AnswerHealthResponse,
+             description='Answer initialization and dependency availability only; not answer quality or completeness.',
+             responses={503: {'model': AnswerHealthResponse, 'description': 'Answering or dependencies unavailable.'}})
+    async def answer_ready(request: Request):
+        reason = await request.app.state.retrieval_service.answer_readiness()
+        body = AnswerHealthResponse(status='unavailable' if reason else 'ready', reason=reason)
+        return JSONResponse(status_code=503 if reason else 200, content=body.model_dump())
 
     return app

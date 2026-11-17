@@ -59,6 +59,16 @@ class ApiService:
             finally:
                 await self.database_close()
 
+    async def answer_readiness(self):
+        # Dependency readiness is independent of the request busy slot.
+        try:
+            await self.ready()
+        except ApiError:
+            return 'dependency_unavailable'
+        if not self.answers.available:
+            return self.answers.reason
+        return None
+
     async def retrieve(self, text, top_k=None):
         if not self.started:
             raise ApiError('not_ready')

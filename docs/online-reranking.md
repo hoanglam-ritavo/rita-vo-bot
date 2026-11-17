@@ -26,7 +26,7 @@ Install `requirements-example.txt`. ONNX Runtime uses `CPUExecutionProvider`, fo
 
 The API reads these settings with the existing explicit `.env` loader. CLI and evaluation use explicit arguments instead: `--rerank`, `--rerank-model-path`, `--rerank-candidates`, `--rerank-batch-size`, `--rerank-profile`. Use identical settings for API/CLI comparisons. Restart with `RERANK_ENABLED=false` to stop rerank inference. This does not disable relevance filtering: with the default filter setting, vector candidates are withheld as `relevance_unavailable`.
 
-`RELEVANCE_FILTER_ENABLED` accepts case-insensitive `true`/`false` only and defaults to `true`; other values fail configuration loading. It is read at HTTP startup, with process environment taking precedence over `.env`. Restart the API to apply changes. `RetrievalService(..., relevance_filter_enabled=False)` provides the same explicit behavior to direct callers; the CLI, benchmarks and evaluators do not read this setting and keep their existing defaults. There is no request parameter to override it.
+`RELEVANCE_FILTER_ENABLED` accepts case-insensitive `true`/`false` only and defaults to `true`; other values fail configuration loading. It is read at HTTP startup, with `.env` taking precedence over process environment; missing keys use process environment, then defaults. Restart the API to apply changes. `RetrievalService(..., relevance_filter_enabled=False)` provides the same explicit behavior to direct callers; the CLI, benchmarks and evaluators do not read this setting and keep their existing defaults. There is no request parameter to override it.
 
 | Filter enabled | Rerank enabled | Public behavior with candidates |
 | --- | --- | --- |
