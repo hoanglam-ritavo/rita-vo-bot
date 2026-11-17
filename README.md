@@ -14,7 +14,7 @@ Before publication, use `python -m src.cli.preflight_documents --package <packag
 
 Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
-The current schema head is `0006_publication_baseline`, intended for a **new empty database**. It refuses application tables containing data; no conversion of an existing corpus is supplied. Publication now tracks execution attempts, audits metadata and stores normalized evidence links. See the [database design](docs/database-design.md) before provisioning; keep existing database/model/package/evaluation inputs separate.
+The current schema head is `c7d92e6a104b`, an additive guard migration after the provisioned `bce4184a7f51` baseline. Existing databases at that baseline upgrade without rebuilding tables. Fresh databases require the `vector` extension before the baseline creates its 14 tables. Older `0001` through `0006` histories are not automatically converted. See [database design](docs/database-design.md) for provisioning and [corpus publication](docs/corpus-publication.md) for validate/preflight/dry-run/publication and verification.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
@@ -23,6 +23,53 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### Corpus publication and additive schema guards - 2026-11-17
+
+The working tree started at `3ec7101` with user-owned answering edits and a
+provisioned replacement baseline. During execution, commit `562ff44` recorded
+the baseline/guard migration and initial test reconciliation. Remaining work
+adds documentation and fresh-baseline integration coverage. Concurrent later
+edits to `src/answering/pipeline.py` were preserved and are outside this task.
+
+Before writing, read-only inspection found 14 empty application tables at
+`bce4184a7f51` and vector already enabled. A private full backup and schema dump
+were saved, and the full backup was successfully restored to a newly created
+disposable database. Additive `c7d92e6a104b` restored four protection triggers;
+application `alembic check` reported no schema/ORM differences. No table reset,
+baseline rewrite or API configuration change was performed.
+
+All **29 packages / 530 chunks** passed structural validation and local E5
+preflight (maximum **421 tokens**). Publication completed in two dependency
+waves: the original whole-corpus dry-run had three `relation_target_missing`
+rejections because its selected targets were not stored yet. Each wave passed
+dry-run before publication. Stored content, provenance, metadata, relations,
+v3 projections and all **530 finite normalized 384-dimensional vectors** were
+verified. Repeating ordinary publication skipped all 29 packages, kept every
+non-attempt table row snapshot unchanged and left **58 successful attempts**.
+
+Real, exposed unfiltered regression retrieval found exact expected top-5
+evidence for **57/58** supported questions and a source hit for **58/58**. All
+29 documents had at least one exact-evidence hit. Five outside-corpus probes
+each returned five unassessed candidates; no rejection or answer-quality
+acceptance is claimed. See [execution results and limits](docs/corpus-publication.md#execution-results---2026-11-17).
+
+Validation: **63 focused non-integration passed**; **959 passed, 1 skipped,
+52 deselected** in the full non-integration suite; **52 integration passed**
+on the restored disposable database; a fresh database initially without vector
+also passed its dedicated baseline test (**1 passed**). Broad regression ran
+before the later concurrent answering-pipeline edits, so it does not certify
+that subsequent working tree. Initial sandbox runs hit pytest temporary-path
+permission errors; successful retries used new extended-length `.tmp/` paths
+outside the sandbox, without permission changes or deleting old test storage.
+The existing Starlette/AnyIO deprecation warning remains. Private receipts are
+under `.tmp/corpus-publication-20261117/`; `.env`, package/snapshot, model and
+initial user-edit hashes were verified unchanged. Services were not restarted;
+no accepted relevance profile, answer report or API rollout was produced.
+The two generated disposable databases were removed after verifying empty test
+tables; the backup remains. `pip check` and 128 local Markdown links/anchors
+passed. Scoped diff whitespace checks passed; a whole-tree check also reported
+trailing whitespace in the separately edited answering pipeline, left intact.
 
 ### Explicit unfiltered answering - 2026-11-16
 
@@ -912,11 +959,11 @@ python -m pytest -m integration
 
 Integration tests modify the selected database. The fixture validates `TEST_DATABASE_URL` and rejects a match with the configured application or migration host/port/database before running migrations; it cannot detect different hostname aliases for the same server. It upgrades to head twice to check idempotence. Publication/migration tests then require all application tables to be empty; that check occurs **after** the migration, not before it.
 
-Tests write synthetic documents, revisions, access rules, relations, ingestion runs and vector chunks into application tables and delete application-table rows during fixture cleanup. The migration preservation test also downgrades to `0002_type_a_catalog` and upgrades to head; removed review statuses cannot be recovered and downgrade initializes them as pending. Other tests create/drop randomly named tables or use temporary vector tables. Normal completion leaves application schemas, `alembic_version` and the vector extension in the disposable database. Never use production, the application database or a database containing data you need to keep.
+Tests write synthetic documents, revisions, access rules, relations, ingestion runs and vector chunks into application tables and delete application-table rows during fixture cleanup. Migration preservation tests downgrade only the additive guards to `bce4184a7f51` and verify unchanged rows after re-upgrade. A separate empty-schema test traverses the destructive baseline only on the disposable database, preserving an unrelated synthetic table and the vector extension. Other tests create/drop randomly named tables or use temporary vector tables. Normal completion leaves application schemas, `alembic_version` and the vector extension in the disposable database. Never use production, the application database or a database containing data you need to keep.
 
 Publication integration tests use synthetic embeddings and a synthetic local model directory to exercise PostgreSQL behavior, including rollback after metadata writes and at chunk insertion. They do not validate a real embedding model or tokenizer.
 
-To verify both extension states, run the suite against a fresh test database where vector has not been enabled, then rerun with vector already enabled. Missing `TEST_DATABASE_URL` causes integration tests to be skipped; a skipped run does not verify real PostgreSQL connectivity. Do not substitute SQLite for these checks.
+The fixture provisions `vector` before the baseline; a fresh test database therefore also exercises the extension prerequisite. Reruns retain the existing extension. Missing `TEST_DATABASE_URL` causes integration tests to be skipped; a skipped run does not verify real PostgreSQL connectivity. Do not substitute SQLite for these checks.
 
 Historical source-utility compatibility tests are separate from v2 ingestion. The standalone PowerShell test is not collected by pytest and uses only synthetic temporary sources:
 

@@ -69,8 +69,12 @@ async def evaluate_question(question, retrieval, runtime, *, top_k=5, expected_c
     data = {'question': question, 'evidence': sources}
     started = time.perf_counter()
     raw, usage = await runtime.complete(SYSTEM, data, Draft.model_json_schema(), 1024)
+    
+    # Debugging line to check the raw draft output
     row.update(draft=raw, generation_usage=usage, inference_calls=1,
                generation_seconds=time.perf_counter() - started)
+    
+    print("Raw draft generated:", row['draft']) 
     try:
         draft = validate_draft(raw, sources)
     except ValueError:
@@ -80,6 +84,8 @@ async def evaluate_question(question, retrieval, runtime, *, top_k=5, expected_c
     verdict, usage = await runtime.complete(VERIFY, {**data, 'draft': raw}, Verdict.model_json_schema(), 512)
     row.update(verdict=verdict, verification_usage=usage, inference_calls=2,
                verification_seconds=time.perf_counter() - started)
+    print("Raw verdict generated:", row['verdict'])
+    
     try:
         passed = accepted(draft, verdict)
     except ValueError:

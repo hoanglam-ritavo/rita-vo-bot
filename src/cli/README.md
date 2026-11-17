@@ -55,7 +55,7 @@ Package commands emit summaries or `--json` reports: exit `0` for success/skips,
 
 `python -m src.cli.publication_attempt --id <uuid>` needs the configured database and current schema. Default inspection is read-only; output contains IDs, status, fixed error codes and timestamps, never source content. `--reconcile` explicitly writes completion state only when an outcome/run receipt exists. Confirm the old worker has stopped before reconciliation. Missing receipts remain unresolved; neither command retries publication or declares a running attempt failed by age. Exit codes: `0` inspected/reconciled, `1` missing attempt, `2` unavailable/unresolved or invalid arguments. See [execution and failure semantics](../../docs/database-design.md#failure-and-reconciliation).
 
-Publication on the current code requires a separately provisioned empty baseline database. Real executions return `attempt_id`, including safe failure results after attempt allocation. `--dry-run` creates no attempts/audits; it retains the existing result shape. A `publication_outcome_unknown` result requires inspection, not an automatic retry.
+Publication requires the baseline and additive guards described in [database design](../../docs/database-design.md). Existing databases at `bce4184a7f51` upgrade without resetting their tables. Real executions return `attempt_id`, including safe failure results after attempt allocation. `--dry-run` creates no attempts/audits; it retains the existing result shape. A `publication_outcome_unknown` result requires inspection, not an automatic retry.
 
 ## Retrieval and services
 

@@ -1,24 +1,35 @@
 # Pre-production database design
 
-This is the target schema for a **new, empty PostgreSQL database**, not a data
-conversion or an authorization to reset an existing database. Packages v2/v3 and
-HTTP retrieval contracts are unchanged. Provisioning this schema does not publish
-documents, certify retrieval quality or authorize a relevance profile.
+The 14-table PostgreSQL schema stores v2/v3 packages, publications and evidence.
+Provisioning does not publish documents, certify retrieval quality or authorize a
+relevance profile. HTTP contracts and package bytes remain unchanged.
 
 ## Initialization and boundaries
 
-The Alembic head is `0006_publication_baseline`. Run `python -m alembic upgrade head`
-explicitly against a separately provisioned empty database. The revision locks
-and checks all application tables before replacing the empty historical schema
-with its explicit DDL snapshot. Nonempty application tables abort the transaction.
-Unrelated tables and the shared vector extension are not removed. Downgrade also
-requires empty application tables; it is not a populated-database rollback tool.
-Application startup never calls migrations or `create_all()`.
+The revision chain is `bce4184a7f51` (already provisioned baseline) followed by
+`c7d92e6a104b` (additive publication guards). Never rewrite or stamp the applied
+baseline to install missing functions/triggers. Stop publication workers, back up
+and inspect the intended database, then run `python -m alembic upgrade head`.
+The guard revision adds functions/triggers without table replacement or row
+backfill; existing IDs, vectors, notes, receipts and timestamps are preserved.
 
-Keep an existing database and its code revision available separately while
-validating the new environment. No reset, automatic data transfer or production
-migration compatibility is provided. Model files, source packages, `.env`, private
-evaluation inputs and accepted artifacts must not be rewritten for this change.
+For a fresh database, a provisioning role must first execute
+`CREATE EXTENSION IF NOT EXISTS vector`. The baseline uses vector columns before
+the guard migration can run. Install pgvector on the server separately; no runtime
+download or automatic application-startup migration is provided. The guard
+revision also checks extension creation idempotently. Test fixtures provision
+this prerequisite only after checking disposable-database URL separation.
+
+Downgrading guards to `bce4184a7f51` removes only their four triggers and three
+functions, retaining all tables/data and vector. It disables those protections
+and is not an application-data rollback. The immutable baseline downgrade drops
+application tables: never use it on the application database. No conversion from
+the retired `0001` through `0006` chain, reset or automatic corpus transfer is supplied.
+Unrelated tables remain outside application ownership. Keep model/package/env
+bytes and accepted evaluation artifacts separate from schema work.
+
+See [corpus publication](corpus-publication.md) for backup, inventory, dry-run,
+publication and real retrieval verification.
 
 ## Data dictionary
 
@@ -135,9 +146,9 @@ Run focused schema/publication tests, then `python -m pytest -m 'not integration
 PostgreSQL tests require a dedicated disposable `TEST_DATABASE_URL`, distinct from
 both application and migration URLs. They verify SQL constraints/triggers,
 metadata/audit rollback, normalized links, schema/ORM alignment, concurrent writes,
-metadata-bound fingerprints and actual HTTP-to-storage eligibility. Historical
-migration-preservation tests run on an isolated empty legacy schema and return to
-the new head only after test cleanup.
+metadata-bound fingerprints and actual HTTP-to-storage eligibility. Migration-preservation tests round-trip the additive guards with populated
+synthetic rows and compare every table. Fresh baseline reconstruction runs only
+on an empty disposable application schema.
 
 Missing or unsafe test configuration means PostgreSQL acceptance is unverified.
 Mocked tests and offline DDL compilation are not live database, performance,

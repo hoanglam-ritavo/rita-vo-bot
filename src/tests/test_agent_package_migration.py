@@ -1,6 +1,7 @@
 """Additive guard migration preserves notes, vectors, evidence and receipts."""
 import importlib
 from io import StringIO
+from uuid import uuid4
 
 import pytest
 from alembic import command
@@ -71,3 +72,35 @@ def test_upgrade_downgrade_preserve_notes_vectors_and_history(empty_catalog_db, 
             assert run_async(snapshot()) == before
     finally:
         command.upgrade(config, 'head')
+
+
+@pytest.mark.integration
+def test_fresh_baseline_preserves_unrelated_tables_and_vector(empty_catalog_db):
+    """Only the guarded disposable database may traverse the destructive baseline."""
+    name = 'synthetic_external_' + uuid4().hex
+    config = Config('alembic.ini')
+
+    async def external(action):
+        try:
+            async with session_scope() as db:
+                if action == 'create':
+                    await db.execute(text(f'CREATE TABLE {name} (value integer NOT NULL)'))
+                    await db.execute(text(f'INSERT INTO {name} VALUES (7)'))
+                elif action == 'drop':
+                    await db.execute(text(f'DROP TABLE {name}'))
+                else:
+                    assert await db.scalar(text(f'SELECT value FROM {name}')) == 7
+                    assert await db.scalar(text("SELECT count(*) FROM pg_extension WHERE extname='vector'")) == 1
+        finally:
+            await close_database()
+
+    run_async(external('create'))
+    try:
+        command.downgrade(config, 'base')
+        run_async(external('verify'))
+        command.upgrade(config, 'head')
+        command.upgrade(config, 'head')
+        run_async(external('verify'))
+    finally:
+        command.upgrade(config, 'head')
+        run_async(external('drop'))
