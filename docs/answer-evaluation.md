@@ -12,7 +12,7 @@ matching/rendering. `/api/v1/retrieve` is unchanged.
 
 Keep `ANSWER_ENABLED=false` by default. To enable the separate answer route,
 configure `SEMANTIC_MODE=expand`, a compatible `SEMANTIC_ARTIFACT_PATH`, and
-`ANSWER_CATALOG_PATH` (default `artifacts/answers/v1/catalog.json`). Existing
+`ANSWER_CATALOG_PATH` (default `artifacts/answers/catalog.json`). Existing
 model/hash/report/review/debug keys are ignored. No local `.env` is rewritten.
 `requirements-answer.txt` is retired and contains no generation dependencies.
 Existing GGUF files and installed environments are left untouched.

@@ -1,4 +1,4 @@
-"""Synthetic promotion protocol: acceptance gates and immutable byte copies."""
+"""Synthetic promotion protocol: acceptance gates and current byte copies."""
 import hashlib
 import json
 from pathlib import Path
@@ -62,7 +62,7 @@ def fixture(root):
         'development_case_ids': ['development-' + str(i) for i in range(300)]}
     paths = {'report': private / 'full.json', 'dataset': private / 'dataset.json',
         'review': private / 'review.json', 'profile': private / 'full.semantic.profile.json',
-        'semantic_artifact': root / 'artifacts/semantics/v1/lexicon.json',
+        'semantic_artifact': root / 'artifacts/semantics/lexicon.json',
         'training_report': private / 'training.json'}
     write(paths['dataset'], dataset)
     write(paths['semantic_artifact'], semantic)
@@ -108,8 +108,8 @@ def checker(*, root, manifest):
     return {'files': len(data['assets']), 'errors': errors}, bool(errors)
 
 
-def promote(root, paths, verifier=checker):
-    return promote_profile(**paths, version='semantic-score-v3-001', root=root, verify_inventory=verifier)
+def promote(root, paths, verifier=checker, **kwargs):
+    return promote_profile(**paths, version='semantic-score-v3-001', root=root, verify_inventory=verifier, **kwargs)
 
 
 def test_copy_is_exact_inventory_preserved_and_manifest_excludes_private_inputs(tmp_path):
@@ -129,12 +129,13 @@ def test_copy_is_exact_inventory_preserved_and_manifest_excludes_private_inputs(
     assert 'PRIVATE' not in manifest_raw and 'Private fictional question' not in manifest_raw
     assert str(tmp_path) not in manifest_raw
     manifest = json.loads(manifest_raw)
+    assert manifest['release_version'] == 'semantic-score-v3-001'
     assert manifest['runtime_release_accepted'] is True
     assert manifest['api_deployed'] is False
     assert manifest['evaluation']['human_review_sha256'] == sha(before['review'])
     assert all(path.read_bytes() == before[key] for key, path in paths.items())
     assert not (tmp_path / '.tmp/rerank-promotion.lock').exists()
-    with pytest.raises(PromotionError, match='version_exists'):
+    with pytest.raises(PromotionError, match='expected_current_sha256_required'):
         promote(tmp_path, paths)
     assert target.read_bytes() == before['profile']
 
@@ -189,7 +190,7 @@ def test_partial_promotion_preserves_concurrent_inventory_and_requires_reconcili
     with pytest.raises(PromotionError, match='partial_promotion_reconcile_required'):
         promote(tmp_path, paths, changing_checker)
     assert (tmp_path / 'artifacts/runtime-assets.json').read_bytes() == concurrent
-    assert (tmp_path / 'artifacts/rerank/semantic-score-v3-001/relevance-profile.json').read_bytes() == paths['profile'].read_bytes()
+    assert (tmp_path / 'artifacts/rerank/relevance-profile.json').read_bytes() == paths['profile'].read_bytes()
     assert (tmp_path / '.tmp/rerank-promotion.lock').exists()
     receipts = list((tmp_path / '.tmp').glob('rerank-promotion-*/reconciliation.json'))
     assert len(receipts) == 1
@@ -250,3 +251,80 @@ def test_raw_profile_bytes_including_whitespace_are_copied_unchanged(tmp_path):
     paths['profile'].write_bytes(raw)
     result = promote(tmp_path, paths)
     assert (tmp_path / result['profile']).read_bytes() == raw
+
+
+def test_replace_current_profile_requires_matching_hash_and_keeps_recovery_bytes(tmp_path):
+    paths = fixture(tmp_path)
+    first = promote(tmp_path, paths)
+    target = tmp_path / first['profile']
+    previous = target.read_bytes()
+    old_inventory = (tmp_path / 'artifacts/runtime-assets.json').read_bytes()
+    paths['profile'].write_bytes(previous + b'\n')
+    for expected in ('0' * 64, 'invalid'):
+        with pytest.raises(PromotionError, match='current_rerank_sha256_mismatch'):
+            promote(tmp_path, paths, expected_current_sha256=expected)
+        assert target.read_bytes() == previous
+        assert (tmp_path / 'artifacts/runtime-assets.json').read_bytes() == old_inventory
+    result = promote(tmp_path, paths, expected_current_sha256=sha(previous))
+    assert target.read_bytes() == paths['profile'].read_bytes()
+    assert result['profile'] == 'artifacts/rerank/relevance-profile.json'
+    inventory = json.loads((tmp_path / 'artifacts/runtime-assets.json').read_bytes())
+    assert len([e for e in inventory['assets'] if e['group'] == 'rerank']) == 2
+    backups = list((tmp_path / '.tmp').glob('rerank-promotion-*/previous/relevance-profile.json'))
+    assert len(backups) == 1 and backups[0].read_bytes() == previous
+    assert (backups[0].parent / 'runtime-assets.json').read_bytes() == old_inventory
+
+
+def test_expected_hash_cannot_create_a_missing_current_profile(tmp_path):
+    paths = fixture(tmp_path)
+    with pytest.raises(PromotionError, match='current_rerank_profile_missing'):
+        promote(tmp_path, paths, expected_current_sha256='0' * 64)
+    assert not (tmp_path / 'artifacts/rerank').exists()
+
+
+def test_failed_replacement_quality_gate_preserves_current(tmp_path):
+    paths = fixture(tmp_path)
+    first = promote(tmp_path, paths)
+    profile = (tmp_path / first['profile']).read_bytes()
+    inventory = (tmp_path / 'artifacts/runtime-assets.json').read_bytes()
+    report = json.loads(paths['report'].read_bytes())
+    report['rollout_ready'] = False
+    write(paths['report'], report)
+    with pytest.raises(PromotionError, match='full_passing_evaluation_required'):
+        promote(tmp_path, paths, expected_current_sha256=sha(profile))
+    assert (tmp_path / first['profile']).read_bytes() == profile
+    assert (tmp_path / 'artifacts/runtime-assets.json').read_bytes() == inventory
+    assert not (tmp_path / '.tmp/rerank-promotion.lock').exists()
+
+
+@pytest.mark.parametrize('failure_at', [1, 2, 3])
+def test_failed_replacement_keeps_lock_and_complete_previous_snapshot(tmp_path, monkeypatch, failure_at):
+    from src.retrieval import rerank_promotion as module
+    paths = fixture(tmp_path)
+    first = promote(tmp_path, paths)
+    old = {name: (tmp_path / 'artifacts/rerank' / name).read_bytes()
+           for name in ('relevance-profile.json', 'manifest.json')}
+    inventory = (tmp_path / 'artifacts/runtime-assets.json').read_bytes()
+    paths['profile'].write_bytes(old['relevance-profile.json'] + b'\n')
+    original = module.os.replace
+    calls = 0
+
+    def interrupted(source, target):
+        nonlocal calls
+        calls += 1
+        if calls == failure_at:
+            raise OSError('fictional interrupted replacement')
+        original(source, target)
+
+    monkeypatch.setattr(module.os, 'replace', interrupted)
+    with pytest.raises(PromotionError, match='partial_promotion_reconcile_required'):
+        promote(tmp_path, paths, expected_current_sha256=first['profile_sha256'])
+    assert (tmp_path / '.tmp/rerank-promotion.lock').exists()
+    receipts = list((tmp_path / '.tmp').glob('rerank-promotion-*/reconciliation.json'))
+    assert len(receipts) == 1
+    previous = receipts[0].parent / 'previous'
+    assert all((previous / name).read_bytes() == raw for name, raw in old.items())
+    assert (previous / 'runtime-assets.json').read_bytes() == inventory
+    assert (tmp_path / 'artifacts/runtime-assets.json').read_bytes() == inventory
+    with pytest.raises(PromotionError, match='locked_reconcile'):
+        promote(tmp_path, paths, expected_current_sha256=first['profile_sha256'])

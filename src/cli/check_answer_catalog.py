@@ -9,8 +9,8 @@ from src.paths import REPOSITORY_ROOT
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--catalog', type=Path, default=REPOSITORY_ROOT/'artifacts/answers/v1/catalog.json')
-    parser.add_argument('--lexicon', type=Path, default=REPOSITORY_ROOT/'artifacts/semantics/v2/lexicon.json')
+    parser.add_argument('--catalog', type=Path, default=REPOSITORY_ROOT/'artifacts/answers/catalog.json')
+    parser.add_argument('--lexicon', type=Path, default=REPOSITORY_ROOT/'artifacts/semantics/lexicon.json')
     args = parser.parse_args(argv)
     try:
         catalog, lexicon = load_catalog(args.catalog, args.lexicon)

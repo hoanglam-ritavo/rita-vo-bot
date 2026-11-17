@@ -238,12 +238,12 @@ def _validate_inputs(report, dataset, review, profile, semantic, training, inven
 
 
 def promote_profile(*, report, dataset, review, profile, semantic_artifact, training_report,
-                    version, root, verify_inventory):
-    """Validate, copy a new immutable pair and atomically update its inventory.
+                    version, root, verify_inventory, expected_current_sha256=None):
+    """Validate and replace the current pair; replace inventory last.
 
     The verifier callback receives ``(root=Path, manifest=relative_string)`` and
-    returns ``(content_safe_result, exit_code)``. A surviving lock or version
-    directory after failure is a reconciliation boundary, never an auto-retry.
+    returns ``(content_safe_result, exit_code)``. A surviving lock or partial
+    replacement after failure is a reconciliation boundary, never an auto-retry.
     """
     root = Path(root).absolute()
     if (not isinstance(version, str) or re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}', version) is None
@@ -257,14 +257,32 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
     if len(set(paths.values())) != len(paths):
         _fail('promotion_input_alias')
     inventory_path = _checked(root, INVENTORY)
-    target_relative = 'artifacts/rerank/' + version
+    target_relative = 'artifacts/rerank'
     target = _checked(root, target_relative)
-    if target.exists():
-        _fail('rerank_version_exists')
+    lock = _checked(root, '.tmp/rerank-promotion.lock')
+    if lock.exists():
+        _fail('promotion_locked_reconcile_before_retry')
+    names = ('relevance-profile.json', 'manifest.json')
+    if target.exists() and (not target.is_dir() or {p.name for p in target.iterdir()} != set(names)):
+        _fail('current_rerank_pair_incomplete')
+    current = {name: _checked(root, target_relative + '/' + name).read_bytes()
+               for name in names} if target.exists() else {}
+    if current:
+        if expected_current_sha256 is None:
+            _fail('expected_current_sha256_required')
+        if not _hex(expected_current_sha256) or _sha(current[names[0]]) != expected_current_sha256:
+            _fail('current_rerank_sha256_mismatch')
+    elif expected_current_sha256 is not None:
+        _fail('current_rerank_profile_missing')
     raw_inventory, inventory = _read(inventory_path)
     preflight, code = verify_inventory(root=root, manifest=INVENTORY)
     if code != 0 or preflight.get('errors'):
         _fail('runtime_inventory_preflight_failed')
+    existing_entries = [e for e in inventory['assets'] if e['group'] == 'rerank']
+    if (len(existing_entries) != (2 if current else 0)
+            or {e['path'] for e in existing_entries} !=
+            ({target_relative + '/' + name for name in names} if current else set())):
+        _fail('current_rerank_inventory_mismatch')
     raws, parsed = {}, {}
     for name, path in paths.items():
         raws[name], parsed[name] = _read(path)
@@ -282,7 +300,7 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
     manifest_relative = target_relative + '/manifest.json'
     provenance = {'schema_version': 1, 'status': 'retrieval_evaluation_accepted',
         'artifact': {'path': artifact_relative, 'sha256': _sha(raws['profile']), 'size_bytes': len(raws['profile'])},
-        'runtime_release_accepted': True,
+        'runtime_release_accepted': True, 'release_version': version,
         'evaluation': {'report_sha256': _sha(raws['report']), 'dataset_sha256': _sha(raws['dataset']),
             'human_review_sha256': _sha(raws['review']), 'training_report_sha256': _sha(raws['training']),
             'cases': len(cases), 'pipeline_fingerprint': parsed['profile']['fingerprint'],
@@ -294,21 +312,19 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
         'api_deployed': False, 'environment_configuration_changed': False}
     manifest_bytes = _bytes(provenance)
     updated = _json(raw_inventory)
+    updated['assets'] = [e for e in updated['assets'] if e['group'] != 'rerank']
     for relative, raw in ((artifact_relative, raws['profile']), (manifest_relative, manifest_bytes)):
-        if any(e['path'] == relative for e in updated['assets']):
-            _fail('rerank_version_already_in_inventory')
         updated['assets'].append({'path': relative, 'size_bytes': len(raw), 'sha256': _sha(raw), 'group': 'rerank'})
     updated_bytes = _bytes(updated)
     temporary = _checked(root, '.tmp')
     temporary.mkdir(exist_ok=True)
-    lock = _checked(root, '.tmp/rerank-promotion.lock')
     try:
         lock_stream = lock.open('xb')
     except FileExistsError:
         _fail('promotion_locked_reconcile_before_retry')
     stage = _checked(root, '.tmp/rerank-promotion-' + uuid.uuid4().hex)
     lock_bytes = ('rerank-promotion:' + stage.name + '\n').encode('utf-8')
-    wrote_version = False
+    wrote_current = False
     complete = False
     try:
         with lock_stream:
@@ -321,24 +337,45 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
                 stream.write(raw)
                 stream.flush()
                 os.fsync(stream.fileno())
-        # Recheck all observed bytes under the cooperative promotion lock.
-        if inventory_path.read_bytes() != raw_inventory or any(path.read_bytes() != raws[name] for name, path in paths.items()):
-            _fail('promotion_inputs_changed')
-        _checked(root, target_relative)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.mkdir(exist_ok=False)
-        wrote_version = True
-        for name, raw in (('relevance-profile.json', raws['profile']), ('manifest.json', manifest_bytes)):
-            with _checked(root, target_relative + '/' + name).open('xb') as stream:
+        # Preserve exact recovery bytes outside the running artifact tree.
+        previous = stage / 'previous'
+        previous.mkdir()
+        for name, raw in {'runtime-assets.json': raw_inventory, **current}.items():
+            with (previous / name).open('xb') as stream:
                 stream.write(raw)
                 stream.flush()
                 os.fsync(stream.fileno())
+
+        def unchanged():
+            if (not lock.exists() or lock.read_bytes() != lock_bytes
+                    or inventory_path.read_bytes() != raw_inventory
+                    or any(path.read_bytes() != raws[key] for key, path in paths.items())):
+                _fail('promotion_inputs_changed')
+            _checked(root, target_relative)
+            if target.exists():
+                if not target.is_dir() or {p.name for p in target.iterdir()} != set(current):
+                    _fail('promotion_current_changed')
+            elif current:
+                _fail('promotion_current_changed')
+            for name, raw in current.items():
+                if _checked(root, target_relative + '/' + name).read_bytes() != raw:
+                    _fail('promotion_current_changed')
+
+        unchanged()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if not current:
+            target.mkdir(exist_ok=False)
+        wrote_current = True
+        # Each rename is atomic, but the pair and inventory are not one transaction.
+        for name, staged, raw in ((names[0], stage_profile, raws['profile']),
+                                  (names[1], stage_manifest, manifest_bytes)):
+            unchanged()
+            os.replace(staged, _checked(root, target_relative + '/' + name))
+            current[name] = raw
         candidate_result, code = verify_inventory(root=root, manifest=stage_inventory.relative_to(root).as_posix())
         if code != 0 or candidate_result.get('errors'):
             _fail('promoted_inventory_candidate_failed')
-        if (inventory_path.read_bytes() != raw_inventory
-                or any(path.read_bytes() != raws[name] for name, path in paths.items())):
-            _fail('promotion_inputs_changed')
+        unchanged()
         # Atomic inventory replacement follows a last-byte concurrency check.
         # Writers bypassing the cooperative lock cannot be globally serialized;
         # any detected conflict is retained for explicit reconciliation.
@@ -360,7 +397,7 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
             'inventory_sha256': _sha(updated_bytes), 'inventory_files': final_result.get('files'),
             'api_deployed': False, 'environment_configuration_changed': False}
     except Exception as exc:
-        if wrote_version:
+        if wrote_current:
             receipt = {'status': 'partial_promotion_reconcile_required', 'version': version,
                 'code': str(exc) if isinstance(exc, PromotionError) else 'promotion_write_failed',
                 'inventory_before_sha256': _sha(raw_inventory), 'inventory_expected_sha256': _sha(updated_bytes)}
@@ -373,6 +410,6 @@ def promote_profile(*, report, dataset, review, profile, semantic_artifact, trai
             raise
         _fail('promotion_write_failed')
     finally:
-        if not complete and not wrote_version:
+        if not complete and not wrote_current:
             if lock.exists() and lock.read_bytes() == lock_bytes:
                 lock.unlink()

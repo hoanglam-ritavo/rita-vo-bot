@@ -159,7 +159,7 @@ def test_tracked_policy_and_optional_artifact_pair(inventory):
     git(root, 'add', '-f', 'models/.cache/download.metadata')
     assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
     git(root, 'rm', '--cached', 'models/.cache/download.metadata')
-    parent = root / 'artifacts/rerank/v1'
+    parent = root / 'artifacts/rerank'
     parent.mkdir(parents=True)
     for name in ('relevance-profile.json', 'manifest.json'):
         path = parent / name
@@ -190,10 +190,10 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
     for name in ('.gitignore', '.gitattributes'):
         (root / name).write_bytes((assets.ROOT / name).read_bytes())
     paths = [E5 + '/' + name for name in assets.E5_FILES] + ['models/' + name for name in assets.RERANK_FILES]
-    paths += [assets.MANIFEST, 'artifacts/rerank/v1/relevance-profile.json',
-              'artifacts/rerank/v1/manifest.json', 'artifacts/semantics/v1/lexicon.json',
-              'artifacts/semantics/v1/manifest.json', 'artifacts/intent/v1/accepted-artifact.json',
-              'artifacts/intent/v1/manifest.json']
+    paths += ['artifacts/answers/catalog.json', 'artifacts/answers/manifest.json', assets.MANIFEST, 'artifacts/rerank/relevance-profile.json',
+              'artifacts/rerank/manifest.json', 'artifacts/semantics/lexicon.json',
+              'artifacts/semantics/manifest.json', 'artifacts/intent/accepted-artifact.json',
+              'artifacts/intent/manifest.json']
     for path in paths:
         result = git(root, 'check-ignore', '--no-index', path, check=False)
         assert result.returncode == 1, (path, result.stdout, result.stderr)
@@ -205,8 +205,10 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
     for path in ['.env', '.tmp/report.json', 'env/config', 'models/.cache/tokenizer.json.metadata',
                  'models/other.onnx', E5 + '/receipt.json', E5 + '/1_Pooling/extra.json',
                  'artifacts/storage-preparation-20261114/verification.json',
-                 'artifacts/rerank/v1/report.json', 'artifacts/intent/v1/candidate.json',
-                 'artifacts/rerank/v1/nested/relevance-profile.json']:
+                 'artifacts/rerank/report.json', 'artifacts/intent/candidate.json',
+                 'artifacts/rerank/nested/relevance-profile.json',
+                 'artifacts/answers/v1/catalog.json', 'artifacts/semantics/v2/lexicon.json',
+                 'artifacts/rerank/v1/manifest.json', 'artifacts/intent/v1/accepted-artifact.json']:
         assert git(root, 'check-ignore', '--no-index', path, check=False).returncode == 0, path
     # Stage and re-checkout tiny fictional files through real LFS and autocrlf.
     git(root, 'lfs', 'install', '--local', '--skip-smudge')
@@ -243,3 +245,18 @@ def test_committed_inventory_matches_runtime_pins_without_loading_models():
     assert (model['id'], model['revision']) == (MODEL_ID, MODEL_REVISION)
     assert {e['path'].removeprefix('models/'): e['sha256'] for e in data['assets']
             if e['group'] == 'reranker'} == ARTIFACTS
+
+
+@pytest.mark.parametrize('group,name', list(assets.ARTIFACT_FILES.items()))
+def test_versioned_inventory_and_force_added_paths_rejected(inventory, group, name):
+    root, data = inventory
+    relative = f'artifacts/{group}/v1/{name}'
+    path = root / relative
+    path.parent.mkdir(parents=True)
+    path.write_bytes(b'{}')
+    git(root, 'add', '-f', relative)
+    assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
+    data['assets'].append({'path': relative, 'group': group,
+        'sha256': hashlib.sha256(b'{}').hexdigest(), 'size_bytes': 2})
+    write_manifest(root, data)
+    assert 'invalid_asset_entry' in error_codes(assets.verify(root)[0])

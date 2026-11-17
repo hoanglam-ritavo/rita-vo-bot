@@ -7,7 +7,7 @@ from src.paths import REPOSITORY_ROOT
 @dataclass(frozen=True)
 class AnswerSettings:
     enabled: bool = False
-    catalog_path: Path = REPOSITORY_ROOT / 'artifacts/answers/v1/catalog.json'
+    catalog_path: Path = REPOSITORY_ROOT / 'artifacts/answers/catalog.json'
 
     def __post_init__(self):
         if type(self.enabled) is not bool:
@@ -21,4 +21,4 @@ def from_environment(env):
     if enabled not in ('true', 'false'):
         raise ValueError('invalid_answer_configuration')
     return AnswerSettings(enabled=enabled == 'true',
-        catalog_path=Path(env.get('ANSWER_CATALOG_PATH', 'artifacts/answers/v1/catalog.json')))
+        catalog_path=Path(env.get('ANSWER_CATALOG_PATH', 'artifacts/answers/catalog.json')))

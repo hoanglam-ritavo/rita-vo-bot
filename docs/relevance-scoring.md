@@ -48,7 +48,7 @@ candidate labels. Never infer missing candidate labels as false.
 Collect numeric development features with the paired semantic benchmark:
 
 ```powershell
-python -m scripts.benchmark_semantic_retrieval --dataset .tmp/scoring/development-collection.json --model-path <local-E5> --model-revision <40-hex> --semantic-artifact artifacts/semantics/v1/lexicon.json --rerank --collect-only --collect-features --requests 0 --output .tmp/scoring/collection.json
+python -m scripts.benchmark_semantic_retrieval --dataset .tmp/scoring/development-collection.json --model-path <local-E5> --model-revision <40-hex> --semantic-artifact artifacts/semantics/lexicon.json --rerank --collect-only --collect-features --requests 0 --output .tmp/scoring/collection.json
 ```
 
 This draft collection may use regression splits, but is not an acceptance run.
@@ -110,7 +110,7 @@ accepted semantic profile. Outcome-driven changes require a fresh holdout.
 A successful learned-scoring arm emits schema-v3 with the exact evaluated
 coefficients. Promote the unchanged emitted semantic profile only after all
 gates and actual human review, following the
-[versioned artifact policy](runtime-artifacts.md#add-or-promote-a-version).
+[current artifact policy](runtime-artifacts.md#add-or-promote-a-version).
 Include provenance and both inventory entries, then test profile loading and
 public filtering against the matching database and configuration. Presence of
 a candidate, a synthetic smoke result or an inventory pass is not acceptance.
@@ -118,16 +118,18 @@ a candidate, a synthetic smoke result or an inventory pass is not acceptance.
 `scripts.promote_relevance_profile` performs this gated copy for semantic-v1
 schema-v3 reports: it requires the exact sibling emitted profile and a bound
 actual human-review declaration, recomputes report summaries/comparison, and
-checks every semantic gate plus current model/lexicon inventory. A new version
+checks every semantic gate plus current model/lexicon inventory. The current pair
 contains byte-identical profile data and a whitelisted provenance manifest;
 private report paths, questions and review free text are not copied. See the
 [utility command](../scripts/README.md#evaluation-and-experiments).
 
-Promotion uses a cooperative lock, exclusive new-version writes, byte rechecks,
-staging and atomic inventory replacement. The version pair and inventory are
+Promotion uses a cooperative lock, byte rechecks, staged file replacement
+and atomic inventory replacement. The current pair and inventory are
 not a global filesystem transaction; external writers must coordinate. A
 partial/uncertain promotion retains its lock and private reconciliation receipt.
-Do not retry or delete the partial version automatically. Successful storage
+Do not retry or delete the partial replacement automatically. Recovery details
+and the expected-current-hash requirement are in the
+[current artifact workflow](runtime-artifacts.md#add-or-promote-a-version). Successful storage
 verification still needs the planned matching-corpus public-path smoke before
 declaring the end-to-end task complete. Independent backup remains a separate
 operational check and is not established by a second directory on the same disk.

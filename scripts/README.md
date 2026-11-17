@@ -16,7 +16,7 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | `benchmark_semantic_retrieval.py` | Current offline benchmark | Compare baseline/semantics/optional intent assistance across corpus-wide cross-document evidence cases. |
 | `fit_relevance_scoring.py` | Experimental offline fitter | Fit development-only local passage scoring; emits coefficients and a training report, never an accepted profile. |
 | `prepare_scoring_review.py` | Private offline review bridge | Create unranked source worksheets or export actually reviewed paired features into development rows. |
-| `promote_relevance_profile.py` | Gated local release utility | Copy only an emitted, reviewed, passing semantic schema-v3 profile and provenance into a new version; update runtime inventory. |
+| `promote_relevance_profile.py` | Gated local release utility | Copy only an emitted, reviewed, passing semantic schema-v3 profile and provenance to the current fixed-path pair; hash-guard replacements and update runtime inventory. |
 | `diagnose_retrieval.py` | Current offline diagnostic | Inspect a saved benchmark collection and prepare unranked source-review worksheets; no model/DB access or profile issuance. |
 | `benchmark_intent.py` | Current offline benchmark | Paired intent-off/observe checks and gated accepted-artifact output. |
 | `evaluate_answers.py` | Retired entrypoint | Returns 2 with template-tool guidance; cannot issue acceptance. |
@@ -85,15 +85,18 @@ splits and never accesses models/DB, infers labels or emits a profile. Both
 commands refuse existing outputs; exit codes are `0` prepared/exported (not
 retrieval acceptance), `2` invalid/operational failure.
 
-`python -m scripts.promote_relevance_profile --report .tmp/scoring/accepted.json --dataset .tmp/scoring/frozen.json --review .tmp/scoring/human-acceptance.json --profile .tmp/scoring/accepted.semantic.profile.json --semantic-artifact artifacts/semantics/v1/lexicon.json --training-report .tmp/scoring/candidate.training-report.json --version semantic-v1-score-v3-001`
+`python -m scripts.promote_relevance_profile --report .tmp/scoring/accepted.json --dataset .tmp/scoring/frozen.json --review .tmp/scoring/human-acceptance.json --profile .tmp/scoring/accepted.semantic.profile.json --semantic-artifact artifacts/semantics/lexicon.json --training-report .tmp/scoring/candidate.training-report.json --version semantic-v1-score-v3-001`
 requires a full passing paired report, exact emitted profile and bound actual
 human review. It checks model/lexicon inventory and recomputes report summaries
 and comparison gates, then copies profile bytes plus whitelisted provenance to
-a new immutable version and adds both entries to the inventory. It does not
+the current `artifacts/rerank/` pair and replaces its inventory entries.
+`--version` is a provenance release label. Replacement requires
+`--expected-current-sha256 <existing-profile-sha256>`; omit it only for first
+provisioning. Run in a release-preparation checkout, never a live service tree. It does not
 load a model, access PostgreSQL, edit `.env` or restart services. Exit codes:
 `0` promotion verified, `1` rejected or partial promotion requiring reconciliation,
 `2` invalid/operational input failure. Do not retry a surviving promotion lock or
-partially written version automatically. See
+partially written pair automatically. See
 [promotion and recovery](../docs/relevance-scoring.md#independent-evaluation-and-release).
 
 Prepare baseline manifest/cases with `python -m src.cli.prepare_rerank` before

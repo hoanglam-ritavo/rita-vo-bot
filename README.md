@@ -33,6 +33,46 @@ Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 
 
 ## Current verification status
 
+### Stable current artifact layout - 2026-11-17
+
+Implemented against the initially clean `e01fdee` checkout; results below validate
+this uncommitted working tree. Runtime JSON/manifest pairs now live directly
+under `artifacts/answers/` and `artifacts/semantics/`, with the same policy for
+future eligible rerank/intent artifacts. Git retains history. Selected catalog
+and lexicon data are byte-identical to the former `answers/v1` and `semantics/v2`
+files; acceptance states remain unchanged. Defaults, allowlists, inventory and
+the gated profile promotion utility follow the stable layout. See the
+[transition and configuration checklist](docs/runtime-artifacts.md#stable-path-transition)
+and [replacement/recovery workflow](docs/runtime-artifacts.md#current-relevance-profile-replacement-and-reconciliation).
+
+The focused promotion/inventory/answer run passed **102 tests** before the final
+default-path/fallback regressions. Final post-edit
+`python -m pytest -m 'not integration' -q` passed **929 tests, 1 skipped,
+54 deselected**, including those regressions and replacement interruption tests.
+Successful runs used fresh `.tmp/artifact-layout-01` and `.tmp/artifact-layout-02`
+basetemps with separate caches outside the sandbox after the initial sandboxed
+attempt encountered Windows temporary-directory access errors. No existing
+permissions or temporary trees were changed. The existing Starlette/AnyIO portal
+deprecation warning remains.
+
+`python -m src.cli.check_answer_catalog` passed: 29 documents, 530 chunks,
+32 cards and 232 concepts. `python -B -m scripts.verify_runtime_assets` passed
+for **20 files** using an isolated temporary Git index/object store representing
+the complete artifact moves; the repository index was left untouched. Against
+the actual unstaged index, that command reports six `tracked_path_not_allowed`
+errors for deleted legacy paths until the moves are staged/committed. An initial
+isolated-index attempt could not write Git objects inside the sandbox; the
+successful attempt kept both index and new objects entirely under `.tmp/`.
+Byte comparisons against `HEAD` confirmed the selected data files are unchanged.
+
+Local Markdown links/anchors and `git diff --check` were checked after the docs
+update. No private `.env`, model bytes, chunks, database, backend or portal were
+changed. No live service restart/deployment, real-model or HTTP smoke,
+integration database tests, migration, publication, calibration or actual profile
+promotion ran. Private configuration still needs explicit path review before a
+restart; passing identity/integrity checks is not semantic acceptance or backup
+verification. Earlier verification entries use historical artifact paths.
+
 ### HTTP configuration precedence and answer diagnostics - 2026-11-17
 
 Validated the implementation working tree against `7c5957c`; pre-existing
@@ -895,7 +935,7 @@ if (-not (Test-Path -LiteralPath .env)) {
 
 The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments. HTTP startup gives repository `.env` precedence over process environment, including database URLs; absent keys use process environment, then defaults. Standalone database/CLI loading keeps its existing precedence. Restart running services to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts with filtering enabled. The HTTP-only `RELEVANCE_FILTER_ENABLED` switch defaults to `true`; explicitly setting `false` returns unassessed top-k candidates without a profile and leaves reranking independent. CLI/evaluator defaults and calibration requirements are unchanged; see [filter modes](docs/online-reranking.md#local-model-and-configuration).
 
-Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; versioned accepted runtime JSON can be tracked under `artifacts/`. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
+Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; the selected current runtime JSON and provenance can be tracked at stable paths under `artifacts/`. Git retains prior versions; see the [layout transition](docs/runtime-artifacts.md#stable-path-transition) before restarting an older configuration. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
 
 Configuration presentation verification (2026-11-13, existing working tree): parsed `.env` values were identical before and after the comment/layout update; `.env.example` only removed the active sample profile assignment by commenting it out. Parser checks found no malformed entries or duplicate active keys. No API, database, model benchmark or application test suite was run for this documentation-only change.
 
@@ -1011,7 +1051,7 @@ The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally ch
 `POST /api/v1/answer` is a separate opt-in Semantic + template endpoint;
 `/api/v1/retrieve` remains excerpt-only. Set `ANSWER_ENABLED=true`,
 `SEMANTIC_MODE=expand`, a matching `SEMANTIC_ARTIFACT_PATH`, and optionally
-`ANSWER_CATALOG_PATH` (default `artifacts/answers/v1/catalog.json`). No GGUF,
+`ANSWER_CATALOG_PATH` (default `artifacts/answers/catalog.json`). No GGUF,
 native generation dependency, report, model verifier or inference retry is used.
 Retired model/report/debug settings are ignored; local `.env` is not rewritten.
 

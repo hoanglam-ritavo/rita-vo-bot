@@ -47,21 +47,17 @@ pytest-cache-files-*/
 !/artifacts/intent/
 !/artifacts/answers/
 /artifacts/answers/**
-!/artifacts/answers/v1/
-!/artifacts/answers/v1/catalog.json
-!/artifacts/answers/v1/manifest.json
+!/artifacts/answers/catalog.json
+!/artifacts/answers/manifest.json
 /artifacts/rerank/**
+!/artifacts/rerank/relevance-profile.json
+!/artifacts/rerank/manifest.json
 /artifacts/semantics/**
+!/artifacts/semantics/lexicon.json
+!/artifacts/semantics/manifest.json
 /artifacts/intent/**
-!/artifacts/rerank/*/
-!/artifacts/semantics/*/
-!/artifacts/intent/*/
-!/artifacts/rerank/*/relevance-profile.json
-!/artifacts/rerank/*/manifest.json
-!/artifacts/semantics/*/lexicon.json
-!/artifacts/semantics/*/manifest.json
-!/artifacts/intent/*/accepted-artifact.json
-!/artifacts/intent/*/manifest.json
+!/artifacts/intent/accepted-artifact.json
+!/artifacts/intent/manifest.json
 
 # Local catalog and generated outputs; keep directory documentation.
 /app/data/*

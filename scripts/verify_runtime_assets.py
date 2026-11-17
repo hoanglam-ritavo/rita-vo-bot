@@ -73,9 +73,8 @@ def group_for(path, e5_root):
     if path in {f'models/{name}' for name in RERANK_FILES}:
         return 'reranker'
     parts = path.split('/')
-    if (len(parts) == 4 and parts[0] == 'artifacts' and parts[1] in ARTIFACT_FILES
-            and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}', parts[2])
-            and parts[3] in (ARTIFACT_FILES[parts[1]], 'manifest.json')):
+    if (len(parts) == 3 and parts[0] == 'artifacts' and parts[1] in ARTIFACT_FILES
+            and parts[2] in (ARTIFACT_FILES[parts[1]], 'manifest.json')):
         return parts[1]
     return None
 

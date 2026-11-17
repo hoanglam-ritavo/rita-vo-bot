@@ -35,7 +35,7 @@ substitutions. Source approval never fills evaluation candidate labels.
 
 The user explicitly approved all three lexical review lots: 15 policy/HR,
 16 administration and 25 software aliases. The resulting v2 at
-`artifacts/semantics/v2/lexicon.json` has 232 concepts and 301 alias entries,
+`artifacts/semantics/lexicon.json` (previously stored under `semantics/v2`) has 232 concepts and 301 alias entries,
 including 227 effective non-canonical rewrite rules. Fifty-three concepts gained
 aliases; 66 concepts remain canonical-only. All v1 canonical phrases, old aliases,
 styles and context guards are retained. No new policy rule, source package,

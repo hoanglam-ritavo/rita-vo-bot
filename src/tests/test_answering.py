@@ -549,3 +549,37 @@ def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sampl
         assert response.status_code == 200 and response.json()['status'] == 'answered'
         loader.assert_called_once()
     owners[0].database_close.assert_awaited_once()
+
+
+def test_fixed_artifact_defaults_and_explicit_path_overrides(monkeypatch, sample, capsys):
+    from src.paths import REPOSITORY_ROOT
+    from src.cli import check_answer_catalog as cli
+    from src.retrieval.semantic_config import from_environment as semantic_environment
+    expected = REPOSITORY_ROOT / 'artifacts/answers/catalog.json'
+    assert AnswerSettings().catalog_path == expected
+    assert from_environment({}).catalog_path == expected
+    custom = 'custom/catalog.json'
+    assert from_environment({'ANSWER_CATALOG_PATH': custom}).catalog_path == REPOSITORY_ROOT / custom
+    assert semantic_environment({}).artifact_path is None
+    calls = []
+
+    def load(catalog, lexicon):
+        calls.append((catalog, lexicon))
+        return sample.catalog, sample.lexicon
+
+    monkeypatch.setattr(cli, 'load_catalog', load)
+    assert cli.main([]) == 0
+    assert calls[-1] == (expected, REPOSITORY_ROOT / 'artifacts/semantics/lexicon.json')
+    assert cli.main(['--catalog', custom, '--lexicon', 'custom/lexicon.json']) == 0
+    assert calls[-1] == (Path(custom), Path('custom/lexicon.json'))
+    capsys.readouterr()
+
+
+def test_missing_current_catalog_does_not_search_versioned_files(tmp_path):
+    from src.answering.catalog import load_catalog
+    legacy = tmp_path / 'artifacts/answers/v1/catalog.json'
+    legacy.parent.mkdir(parents=True)
+    legacy.write_bytes(b'{}')
+    with pytest.raises(FileNotFoundError):
+        load_catalog(tmp_path / 'artifacts/answers/catalog.json',
+                     tmp_path / 'artifacts/semantics/lexicon.json')

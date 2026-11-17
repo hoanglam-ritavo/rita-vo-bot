@@ -8,15 +8,54 @@ Runtime dependencies must survive deletion of `.tmp/`. Keeping files outside Git
 | --- | --- | --- |
 | `models/embeddings/multilingual-e5-small/<revision>/` | Pinned E5 model files | Immutable while running; provision before startup |
 | `models/` | Existing pinned reranker ONNX and tokenizer files directly in this directory | Selective Git/LFS inventory; preserve the supported layout and file bytes |
-| `artifacts/rerank/<version>/` | Accepted `relevance-profile.json` and provenance manifest; full reports stay in private durable storage | Immutable version; switch configuration explicitly |
-| `artifacts/semantics/<version>/` | Reviewed corpus-bound language lexicon and provenance | Provision only after review and matching pipeline evaluation |
+| `artifacts/rerank/` | Accepted `relevance-profile.json` and provenance manifest; full reports stay in private durable storage | One selected current pair; history in Git |
+| `artifacts/semantics/` | Reviewed corpus-bound language lexicon and provenance | Provision only after review and matching pipeline evaluation |
+| `artifacts/answers/` | Source-bound `catalog.json` and provenance | One current pair, compatible with the selected lexicon |
 | `artifacts/storage-preparation-<date>/` | File inventory and migration/smoke receipts | Local operational evidence, not an independent backup |
 | `.tmp/` | Evaluation workspaces, private draft cases, candidates, caches and package staging | Not a runtime dependency; reviewed evaluation inputs still need backup |
 | `artifacts/runtime-assets.json` | Versioned model identities and selected file inventory | Track in Git; verify before startup and update explicitly for a new release |
 
-Git allows only the pinned 10 E5 files, the six supported root reranker files, the runtime inventory and selected versioned runtime JSON. `.tmp/`, model download caches, machine receipts and experiment reports remain ignored. Do not commit real questions, excerpts, credentials or `.env`. Optional accepted intent artifacts may live under `artifacts/intent/<version>/`; do not create that directory or enable observation/assistance before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this inventory. A semantic lexicon's hash participates in the effective reranker fingerprint; keep each lexicon, classifier (if assistance is enabled) and relevance profile as a compatible versioned set. See [semantic preparation and release](vietnamese-semantics.md).
+Git allows only the pinned 10 E5 files, the six supported root reranker files, the runtime inventory and selected current runtime JSON. `.tmp/`, model download caches, machine receipts and experiment reports remain ignored. Do not commit real questions, excerpts, credentials or `.env`. Optional accepted intent artifacts may live under `artifacts/intent/`; do not create that directory or enable observation/assistance before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this inventory. A semantic lexicon's hash participates in the effective reranker fingerprint; keep each lexicon, classifier (if assistance is enabled) and relevance profile as a compatible release set. See [semantic preparation and release](vietnamese-semantics.md).
 
 The API defaults to the durable E5 path above. An explicit `E5_MODEL_PATH` still overrides it, including legacy paths; there is no silent fallback to the old directory. API environment paths resolve against the repository root, and HTTP startup gives `.env` precedence over process environment; missing keys use process environment, then defaults. The retrieval CLI uses explicit model/rerank arguments. Restart existing services explicitly after changing their configuration.
+
+## Stable-path transition
+
+Each checkout contains one selected compatible runtime set. Git commit/release
+identity and manifest hashes identify its version; `schema_version` still means
+file format. There is no directory scan, automatic latest selection or fallback.
+The layout transition retains the exact catalog bytes formerly at `answers/v1`
+and lexicon bytes formerly at `semantics/v2`; the catalog binds that lexicon by
+SHA-256. The older `semantics/v1` is retained in Git history only. Both selected
+manifests still declare runtime acceptance false. Layout/integrity validation
+does not grant evaluation acceptance.
+
+Before restarting a deployment using old paths, update only the applicable
+assignments in its private `.env` or launcher configuration:
+
+| Previous path | Current path |
+| --- | --- |
+| `artifacts/answers/v1/catalog.json` | `artifacts/answers/catalog.json` |
+| `artifacts/semantics/v2/lexicon.json` | `artifacts/semantics/lexicon.json` |
+| `artifacts/rerank/<version>/relevance-profile.json` | `artifacts/rerank/relevance-profile.json` |
+| `artifacts/intent/<version>/accepted-artifact.json` | `artifacts/intent/accepted-artifact.json` |
+
+A deployment using `semantics/v1` must deliberately select and validate a
+compatible catalog/lexicon/profile set; do not merely redirect that setting to
+the different current lexicon. Variable names remain `ANSWER_CATALOG_PATH`,
+`SEMANTIC_ARTIFACT_PATH`, `RERANK_PROFILE_PATH` and `INTENT_ARTIFACT_PATH`.
+Explicit custom paths remain supported by loaders, but tracked runtime assets
+must follow the current inventory policy. Missing old paths remain unavailable.
+This repository change does not edit private `.env`, enable features or restart
+services.
+
+Prepare the full release from a pinned commit in a separate checkout, hydrate
+LFS, run the inventory checker and catalog validator, and verify profile/corpus
+compatibility before switching the service to that checkout and restarting.
+Deploy or roll back the compatible set and its configuration together, never
+just the lexicon. An old profile still needs compatibility with the current
+publication identities; a Git rollback cannot roll back the database. Historical
+verification entries mentioning version directories describe earlier snapshots.
 
 ## Git LFS checkout and verification
 
@@ -30,9 +69,15 @@ python -m scripts.verify_runtime_assets
 
 The pull retrieves model bytes from the repository's LFS storage during checkout/deployment preparation, never from application startup. Weights (`.safetensors`/`.onnx`), SentencePiece `.model` files and `tokenizer.json` use LFS. Small model configuration and the existing E5 README use ordinary Git. Byte-preserving attributes cover every selected file, including JSON, with `core.autocrlf=true`. Do not remove the E5 README, add receipts inside E5 or normalize file contents: the recursive runtime fingerprint includes every file. Keep LFS filters enabled; `-text` must not disable hydration.
 
-The manifest has `schema_version: 1`, `models` entries for `e5` and `reranker` (model ID, revision, root and `files_sha256`), and `assets` entries (`path`, `size_bytes`, `sha256`, `group`). Paths are repository-relative with forward slashes. Each model's `files_sha256` is the canonical SHA-256 of its relative-file-name-to-SHA-256 map; E5 uses the existing runtime algorithm. The reranker file-map hash is **not** its pipeline fingerprint, which also includes configuration and ONNX Runtime version. Optional asset groups are `rerank`, `semantics` and `intent`.
+The manifest has `schema_version: 1`, `models` entries for `e5` and `reranker` (model ID, revision, root and `files_sha256`), and `assets` entries (`path`, `size_bytes`, `sha256`, `group`). Paths are repository-relative with forward slashes. Each model's `files_sha256` is the canonical SHA-256 of its relative-file-name-to-SHA-256 map; E5 uses the existing runtime algorithm. The reranker file-map hash is **not** its pipeline fingerprint, which also includes configuration and ONNX Runtime version. Optional asset groups are `answers`, `rerank`, `semantics` and `intent`.
 
 The checker is read-only and uses only Python's standard library plus local Git. It does not read `.env`, import ML libraries, load models, access a database, download or repair files. It rejects invalid/duplicate entries, unsafe paths or links/junctions, missing/changed files, unhydrated LFS pointers, extra files anywhere below E5, and tracked asset paths outside the inventory/allowlist. Ignored root model caches and operational receipts do not fail verification. Output contains paths, fixed error codes and file counts, never file contents. Exit codes: `0` integrity/policy passed, `1` asset mismatch, `2` invalid inventory or operational failure. `--manifest <repository-relative-path>` selects an alternative local inventory. Running with `python -B` also suppresses Python's normal bytecode-cache writes.
+
+The checker reads tracked paths from the Git index. During this layout migration,
+unstaged old-path deletions still produce `tracked_path_not_allowed`; include all
+artifact additions/deletions in the reviewed index before the release check. An
+isolated temporary index/object store can validate that intended state without
+staging changes in the working repository.
 
 Before the first model upload, confirm remote LFS support, storage quota and access. If unavailable, stop release preparation rather than committing large files through ordinary Git. No history rewrite is needed for the currently untracked models. This change does not push, configure CI, or supply a container/deployment bundle. A passing local checker does not establish remote availability, independent backup, model redistribution rights or a successful production release. Preserve upstream attribution and review model terms before distribution; do not insert extra license files into the existing fingerprinted E5 directory.
 
@@ -49,13 +94,14 @@ completion.
 
 1. Keep model preparation and all evaluator/training outputs in their existing offline workflows. Do not change benchmarks to emit directly into a tracked directory. Never mark a candidate accepted just to make storage validation pass.
 2. For models, inventory the exact reviewed file set, preserve immutable revisions and update the explicit Git allowlist for a new revision. Keep model metadata/receipts outside model directories. Update the `models` identities and file entries in the runtime inventory from actual bytes; verify pinned reranker hashes against the runtime allowlist. New model identity may require separate publication/calibration work.
-3. For accepted runtime JSON, copy unchanged bytes into a new version directory: `artifacts/rerank/<version>/relevance-profile.json`, `artifacts/semantics/<version>/lexicon.json` or `artifacts/intent/<version>/accepted-artifact.json`. Use version names containing letters, digits, dots, underscores or hyphens, beginning with a letter/digit. Never overwrite a released version. Include a matching `manifest.json` and inventory both files; no empty directories or placeholder artifacts are required today.
+3. In a separate release-preparation checkout, place unchanged selected bytes directly at the stable paths in the layout table, alongside a matching `manifest.json`, and replace the corresponding inventory entries. Each group has one current pair; Git preserves previous releases. Keep schema versions, content hashes, fingerprints and acceptance states unchanged. Do not overwrite a live service tree or automatically promote the newest candidate. Do not create empty optional directories or placeholder artifacts.
 4. The provenance manifest records artifact/report/frozen-input hashes, model/pipeline identity and relevant package/corpus identity, plus the reviewed release configuration. Keep raw reports, questions, source worksheets and machine-specific paths outside tracked artifacts. Review free-text provenance and lexicon content before committing; the integrity checker cannot certify acceptance or detect all private content.
 5. Run the checker and review the selected Git diff, ignore rules and attributes. After an approved commit/upload, validate a fresh checkout with `git lfs pull` and the checker. Missing LFS objects must block preparation; never substitute generated files or silently download from upstream.
 
 File integrity does not establish runtime compatibility. Semantic expansion requires the matching complete `chunks/` tree (JSON plus source snapshots), including currently held packages. A relevance profile binds database publication run IDs and configuration, not just document bytes; publishing the same packages independently in another database creates new IDs and requires a matching evaluated profile. Preserve database identity through an explicitly managed restore or repeat the existing calibration process against the intended corpus; do not rewrite profile fingerprints. This storage task does neither. `/health/ready` remains a dependency check, not a profile/corpus quality gate.
 
-On 2026-11-16 the user explicitly requested provisioning the source-approved
+Historical provisioning snapshot (the old path is retained only in Git history):
+on 2026-11-16 the user explicitly requested provisioning the source-approved
 `artifacts/semantics/v1/lexicon.json` before completing retrieval evaluation. This
 specific storage exception preserves the approved bytes and inventories the
 lexicon/manifest pair. The manifest declares
@@ -64,6 +110,34 @@ runtime release acceptance false. It supplies no relevance profile, evaluated
 pipeline/corpus identity or quality claim. Environment configuration and services
 remain unchanged; a matching accepted profile is still required for calibrated
 semantic retrieval. Do not interpret inventory verification as evaluation approval.
+
+### Current relevance-profile replacement and reconciliation
+
+The gated promotion command retains `--version` as a provenance `release_version`
+label, with its existing validation; it always writes `artifacts/rerank/`.
+First provisioning requires no existing pair or inventory entries. Replacement
+requires `--expected-current-sha256 <existing-profile-sha256>` matching the exact
+current profile bytes. Missing/mismatched hashes, incomplete pairs, invalid
+inventory or failed evaluation/review gates reject without replacing the pair.
+The command never edits `.env`, deploys or restarts services.
+
+Promotion stages the new pair/inventory and fsyncs exact old pair/inventory
+snapshots under `.tmp/rerank-promotion-<id>/previous/` before replacing current
+files. A cooperative `.tmp/rerank-promotion.lock` names the stage directory.
+Inputs, current bytes and inventory are rechecked under the lock; each file
+replacement is atomic, but the pair plus inventory are not one filesystem
+transaction. Inventory is replaced last and postflight verifies the resulting
+bytes. External writers must coordinate; use a release-preparation checkout.
+
+After a partial/uncertain write, keep the lock and reconciliation receipt. Stop
+other writers, compare the stage, `previous/`, current files and receipt hashes,
+and explicitly reconcile either the complete new pair/inventory or the complete
+previous pair/inventory. Verify inventory and compatibility before clearing only
+the identified lock. For failed first provisioning, the previous snapshot has
+no profile pair: remove only the newly created pair after confirming its paths
+and hashes, then restore the previous inventory. Never retry, delete recovery
+state or restore over a running service automatically. The local snapshot is
+recovery evidence, not an independent backup.
 
 ## Copy, verify and recover
 
@@ -104,7 +178,7 @@ On 2026-11-16 the user accepted all final review scopes for the new 145-case /
 `.tmp/relevance-profile-20261116-05/` workspace against the isolated schema-0006
 28-package corpus. It failed evidence and relevance gates despite passing
 latency and read-only integrity checks. Therefore there is no emitted profile to
-copy into `artifacts/rerank/<version>/relevance-profile.json`; that completion
+copy into `artifacts/rerank/relevance-profile.json`; that completion
 criterion remains unmet. See the [current verification status](../README.md#current-verification-status)
 for actual results. This is now a scoring-quality limitation, not pending label
 approval or a missing copy operation. Preserve the accepted source snapshot and
@@ -159,7 +233,7 @@ the old database or another independently republished corpus.
 
 Profile promotion applies to the default `RELEVANCE_FILTER_ENABLED=true` mode. Explicitly setting it to `false` returns unassessed candidates and skips loading the profile; it does not create a profile or satisfy calibration gates. See [filter modes](online-reranking.md#local-model-and-configuration). Restore `true` and restart to restore the calibrated gate; without a matching profile it withholds candidates. The CLI and offline benchmarks retain their existing defaults.
 
-For raw-max scoring, copy an emitted schema-v2 profile into a new `artifacts/rerank/<version>/relevance-profile.json`. Learned scoring uses schema-v3 with bound coefficients and the separate [gated promotion workflow](relevance-scoring.md#independent-evaluation-and-release); a fitted candidate alone is not eligible for release. Preserve the full evaluation report in private durable storage and commit only the selected runtime JSON plus a provenance `manifest.json` recording file hashes, report/frozen dataset/manifest hashes, E5 revision/fingerprint, reranker fingerprint, corpus fingerprint and exact runtime configuration. Add the pair to the runtime inventory and run the checker. Keep private cases/source excerpts in the private backup, not committed documentation.
+For raw-max scoring, copy an emitted schema-v2 profile to `artifacts/rerank/relevance-profile.json`. Learned scoring uses schema-v3 with bound coefficients and the separate [gated promotion workflow](relevance-scoring.md#independent-evaluation-and-release); a fitted candidate alone is not eligible for release. Preserve the full evaluation report in private durable storage and commit only the selected runtime JSON plus a provenance `manifest.json` recording file hashes, report/frozen dataset/manifest hashes, E5 revision/fingerprint, reranker fingerprint, corpus fingerprint and exact runtime configuration. Add the pair to the runtime inventory and run the checker. Keep private cases/source excerpts in the private backup, not committed documentation.
 
 Verify hashes and compatibility before setting `RERANK_PROFILE_PATH` to that existing file. Restart the API at an agreed time and exercise supported and unsupported questions through HTTP. Distinguish `relevance_unavailable`, `below_relevance_threshold`, `no_candidates`, `no_eligible_documents` and operational failures. Inspect counts/reasons/timings without recording question/document content in operational logs.
 
@@ -172,7 +246,7 @@ Corpus eligibility/publication changes or model/pipeline fingerprint changes inv
 Qwen/GGUF answering is retired. Local model bytes and installed packages are
 preserved, but no runtime path loads them. No accepted Qwen report can authorize
 Semantic + template answers. The current runtime uses
-`artifacts/answers/v1/catalog.json` and its provenance manifest, inventoried under
+`artifacts/answers/catalog.json` and its provenance manifest, inventoried under
 the `answers` group. Source/lexicon identity validation is distinct from business
 review and retrieval relevance acceptance. See the
 [current answer contract](answer-evaluation.md#semantic-template-answer-api).
