@@ -194,6 +194,9 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
               'artifacts/rerank/manifest.json', 'artifacts/semantics/lexicon.json',
               'artifacts/semantics/manifest.json', 'artifacts/intent/accepted-artifact.json',
               'artifacts/intent/manifest.json']
+    paths += ['artifacts/semantics/source/index.json', 'artifacts/semantics/source/concepts/fictional.json',
+              'artifacts/answers/source/index.json', 'artifacts/answers/source/cards/fictional.json',
+              'artifacts/answers/source/coverage/fictional.json']
     for path in paths:
         result = git(root, 'check-ignore', '--no-index', path, check=False)
         assert result.returncode == 1, (path, result.stdout, result.stderr)
@@ -207,6 +210,7 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
                  'artifacts/storage-preparation-20261114/verification.json',
                  'artifacts/rerank/report.json', 'artifacts/intent/candidate.json',
                  'artifacts/rerank/nested/relevance-profile.json',
+                 'artifacts/answers/source/report.json', 'artifacts/semantics/source/concepts/private.txt',
                  'artifacts/answers/v1/catalog.json', 'artifacts/semantics/v2/lexicon.json',
                  'artifacts/rerank/v1/manifest.json', 'artifacts/intent/v1/accepted-artifact.json']:
         assert git(root, 'check-ignore', '--no-index', path, check=False).returncode == 0, path
@@ -245,6 +249,30 @@ def test_committed_inventory_matches_runtime_pins_without_loading_models():
     assert (model['id'], model['revision']) == (MODEL_ID, MODEL_REVISION)
     assert {e['path'].removeprefix('models/'): e['sha256'] for e in data['assets']
             if e['group'] == 'reranker'} == ARTIFACTS
+
+
+@pytest.mark.parametrize('group,collection', [('semantics', 'concepts'), ('answers', 'cards')])
+def test_exact_authoring_declarations_are_separate_from_runtime_inventory(inventory, group, collection):
+    root, data = inventory
+    directory = root / 'artifacts' / group / 'source'
+    (directory / collection).mkdir(parents=True)
+    metadata = dict(schema_version=1, package_fingerprint='fictional')
+    if group == 'semantics':
+        metadata.update(reviewed=True, review_notes='Fictional review')
+    index = dict(schema_version=1, metadata=metadata, **{collection: [collection + '/fictional.json']})
+    if group == 'answers':
+        index['coverage'] = []
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    record = directory / collection / 'fictional.json'
+    record.write_bytes(b'{"id":"fictional"}')
+    git(root, 'add', '-f', str(directory.relative_to(root)))
+    result, code = assets.verify(root)
+    assert code == 0 and result['files'] == len(data['assets'])
+    (directory / 'extra.json').write_bytes(b'{}')
+    assert 'invalid_artifact_sources' in error_codes(assets.verify(root)[0])
+    (directory / 'extra.json').unlink()
+    record.write_bytes(b'{"id":"different"}')
+    assert 'invalid_artifact_sources' in error_codes(assets.verify(root)[0])
 
 
 @pytest.mark.parametrize('group,name', list(assets.ARTIFACT_FILES.items()))

@@ -31,7 +31,52 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
+Lexicon and template-catalog edits belong in the small declared JSON files under
+each artifact group's `source/` directory. Run `python -m src.cli.build_artifacts build`
+to regenerate the tracked runtime files, then `python -m src.cli.build_artifacts check`
+before catalog/inventory release checks. Runtime still reads the same monolithic
+files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
+
 ## Current verification status
+
+### Split artifact authoring sources - 2026-11-17
+
+Implemented from the clean `7126f2b` checkout; results describe this uncommitted
+working tree. The selected lexicon/catalog now have 295 declared authoring files:
+232 concepts, 32 cards, coverage for 29 documents and two ordered source indexes.
+Offline import/build/check and the exact source-path inventory exception are
+implemented; runtime readers and artifact schema-v1 contracts are unchanged.
+See [source authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
+
+Initial focused authoring/inventory checks passed **48 tests**; the broader
+affected semantic/answer/promotion run passed **183 tests** before the last
+import-formatting, staging-membership and file-type guards. The full run before
+the final regular-file guard,
+`python -m pytest -m 'not integration' -q` passed **952 tests, 1 skipped,
+54 deselected**. The final authoring/inventory rerun after the regular-file guard
+passed **52 tests**. These overlapping runs are not additive. The existing
+Starlette/AnyIO portal deprecation warning remains in the broader/full runs.
+
+Initial sandboxed runs failed on Windows pytest temporary-directory access;
+successful runs used fresh `.tmp/as02`, `.tmp/as04`, `.tmp/as05` and `.tmp/as06`
+basetemps with separate caches outside the sandbox. No old temporary trees or
+permissions were changed. One intermediate focused invocation selected a
+nonexistent test filename and ran no tests; the corrected invocation is the
+183-test result above.
+
+`build_artifacts check` passed; a real `build` was a no-op (zero changed files).
+Catalog validation passed for **29 documents / 530 chunks / 32 cards /
+232 concepts**. Runtime inventory verification passed for **20 files**;
+all **295** declared source files are visible through the Git allowlist.
+Byte comparisons against `HEAD` confirmed that both generated runtime files,
+both provenance manifests and `runtime-assets.json` are unchanged. Local
+Markdown links/anchors and `git diff --check` were checked.
+
+No dependency, model, package, environment, database, backend or portal changes;
+no deployment/restart, integration database checks, real-model evaluation,
+publication or calibration. Source/integrity validation does not establish
+semantic acceptance. Future content edits require explicit manifest/inventory
+and compatible pipeline reconciliation before release; build does not do that.
 
 ### Stable current artifact layout - 2026-11-17
 

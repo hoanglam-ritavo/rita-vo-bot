@@ -15,9 +15,94 @@ Runtime dependencies must survive deletion of `.tmp/`. Keeping files outside Git
 | `.tmp/` | Evaluation workspaces, private draft cases, candidates, caches and package staging | Not a runtime dependency; reviewed evaluation inputs still need backup |
 | `artifacts/runtime-assets.json` | Versioned model identities and selected file inventory | Track in Git; verify before startup and update explicitly for a new release |
 
-Git allows only the pinned 10 E5 files, the six supported root reranker files, the runtime inventory and selected current runtime JSON. `.tmp/`, model download caches, machine receipts and experiment reports remain ignored. Do not commit real questions, excerpts, credentials or `.env`. Optional accepted intent artifacts may live under `artifacts/intent/`; do not create that directory or enable observation/assistance before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this inventory. A semantic lexicon's hash participates in the effective reranker fingerprint; keep each lexicon, classifier (if assistance is enabled) and relevance profile as a compatible release set. See [semantic preparation and release](vietnamese-semantics.md).
+Git allows only the pinned 10 E5 files, the six supported root reranker files, the runtime inventory, selected current runtime JSON and the explicitly declared lexicon/catalog authoring sources below. `.tmp/`, model download caches, machine receipts and experiment reports remain ignored. Do not commit real questions, additional source excerpts outside the existing source-bound catalog contract, credentials or `.env`. Optional accepted intent artifacts may live under `artifacts/intent/`; do not create that directory or enable observation/assistance before the separate intent gates pass. Experimental answer-model paths under `.tmp/` are outside this inventory. A semantic lexicon's hash participates in the effective reranker fingerprint; keep each lexicon, classifier (if assistance is enabled) and relevance profile as a compatible release set. See [semantic preparation and release](vietnamese-semantics.md).
 
 The API defaults to the durable E5 path above. An explicit `E5_MODEL_PATH` still overrides it, including legacy paths; there is no silent fallback to the old directory. API environment paths resolve against the repository root, and HTTP startup gives `.env` precedence over process environment; missing keys use process environment, then defaults. The retrieval CLI uses explicit model/rerank arguments. Restart existing services explicitly after changing their configuration.
+
+## Split-source authoring
+
+Edit only these source inputs for the selected lexicon/catalog, keeping each
+concept/card intact with its aliases, guards, sections and citations:
+
+```text
+artifacts/semantics/source/index.json
+artifacts/semantics/source/concepts/<concept-id>.json
+artifacts/answers/source/index.json
+artifacts/answers/source/cards/<card-id>.json
+artifacts/answers/source/coverage/<document-id>.json
+```
+
+Each index has `schema_version: 1`, `metadata` and ordered relative-path arrays:
+`concepts` for semantics, `cards` and `coverage` for answers. Semantics metadata
+contains exactly the runtime `schema_version`, `reviewed`, `review_notes` and
+`package_fingerprint`; answers metadata contains exactly `schema_version` and
+`package_fingerprint`. Source and runtime schema versions are separate contracts.
+For example a concept reference is `concepts/annual-leave.json`. The arrays
+determine output order; directory discovery never selects additional content.
+Each concept/card file is the existing object, with an ID matching the filename.
+Each coverage file is a nonempty array for its document, preserving chunk order.
+Add/remove references explicitly when adding/removing files. IDs must be safe
+portable filenames; case-colliding references, duplicate JSON keys/IDs, invalid
+coverage indexes, unsafe paths, links/junctions and undeclared files are rejected.
+
+```powershell
+python -m src.cli.build_artifacts check
+python -m src.cli.build_artifacts build
+python -m src.cli.build_artifacts check
+python -m src.cli.check_answer_catalog
+python -B -m scripts.verify_runtime_assets
+```
+
+Both check/build assemble in memory and validate against the complete current
+`chunks/` snapshot using existing semantic and catalog validators. They need
+the ordinary Python application dependencies and local packages, but no model,
+database, `.env` or network. `check` writes nothing and fails on missing/stale
+runtime outputs. `build` writes only changed runtime files after validating both
+outputs and rechecking source bytes/file membership. Unchanged files retain their
+mtime. JSON is UTF-8 without BOM, indent 2 and a final newline; lexicon uses LF,
+catalog uses CRLF to preserve the selected artifact bytes. Field and array order
+are preserved. Catalog `lexicon_sha256` is derived from the assembled lexicon.
+This is not a runtime memory optimization: existing loader size limits remain.
+
+New candidates still come from explicit offline preparation; semantic export
+continues to write only a private candidate. To import a compatible pair:
+
+```powershell
+python -m src.cli.build_artifacts import --lexicon .tmp/candidate/lexicon.json --catalog .tmp/candidate/catalog.json --output .tmp/new-artifact-import
+```
+
+Both input files must pass current source/lexicon identity validation. Output
+must be a new directory below repository `.tmp/`; it contains
+`artifacts/<group>/source/` trees. Review those trees before explicitly replacing
+the selected sources in a release-preparation checkout. There is no automatic
+candidate discovery or promotion. Input formatting is normalized on assembly,
+so noncanonical candidate bytes can produce new hashes even with equal content.
+A failed import can leave an incomplete private output; inspect it and use a new
+output path for another attempt. Do not commit the private import workspace.
+
+Build never edits either provenance manifest or `runtime-assets.json`. After
+intentional content changes, review and reconcile their hashes/sizes, compatible
+pipeline bindings and evaluation declarations through the existing release
+workflow. Do not carry forward an acceptance claim invalidated by new content.
+Stale inventory fails the separate inventory gate until reconciliation is done.
+Passing source/build/catalog checks is not business review or runtime acceptance.
+
+Runtime still consumes only the selected artifact/manifest pairs, not `source/`.
+The inventory checker permits only paths declared by structurally valid source
+indexes; these files are not runtime assets and have no entries in the runtime
+inventory. It rejects extra on-disk files inside source trees and undeclared
+tracked paths. Its source checks are layout checks, not the full semantic or
+source-bound catalog validation; always run `build_artifacts check` first.
+The Git ignore allowlist exposes only indexes and the three JSON record folders;
+the checker remains responsible for rejecting undeclared JSON files.
+
+Build fsyncs staged outputs under `.tmp/` and replaces each changed output
+atomically, after checking that targets have not changed. The pair replacement
+is not a multi-file transaction. Never run it over a live service tree or edit
+sources concurrently. After interruption, run build and check again in the
+release-preparation checkout before release. Roll back source inputs, generated
+outputs, provenance and inventory as one compatible Git release set in a
+separate checkout. No service deployment/restart happens in these commands.
 
 ## Stable-path transition
 
@@ -94,7 +179,7 @@ completion.
 
 1. Keep model preparation and all evaluator/training outputs in their existing offline workflows. Do not change benchmarks to emit directly into a tracked directory. Never mark a candidate accepted just to make storage validation pass.
 2. For models, inventory the exact reviewed file set, preserve immutable revisions and update the explicit Git allowlist for a new revision. Keep model metadata/receipts outside model directories. Update the `models` identities and file entries in the runtime inventory from actual bytes; verify pinned reranker hashes against the runtime allowlist. New model identity may require separate publication/calibration work.
-3. In a separate release-preparation checkout, place unchanged selected bytes directly at the stable paths in the layout table, alongside a matching `manifest.json`, and replace the corresponding inventory entries. Each group has one current pair; Git preserves previous releases. Keep schema versions, content hashes, fingerprints and acceptance states unchanged. Do not overwrite a live service tree or automatically promote the newest candidate. Do not create empty optional directories or placeholder artifacts.
+3. In a separate release-preparation checkout, place unchanged selected bytes directly at the stable paths in the layout table, alongside a matching `manifest.json`, and replace the corresponding inventory entries. For lexicon/catalog releases, also import/reconcile the selected authoring sources and run `python -m src.cli.build_artifacts check` before catalog/inventory validation; generated bytes must match the selected release. Each group has one current pair; Git preserves previous releases. Keep schema versions, content hashes, fingerprints and acceptance states unchanged for layout-only changes. Do not overwrite a live service tree or automatically promote the newest candidate. Do not create empty optional directories or placeholder artifacts.
 4. The provenance manifest records artifact/report/frozen-input hashes, model/pipeline identity and relevant package/corpus identity, plus the reviewed release configuration. Keep raw reports, questions, source worksheets and machine-specific paths outside tracked artifacts. Review free-text provenance and lexicon content before committing; the integrity checker cannot certify acceptance or detect all private content.
 5. Run the checker and review the selected Git diff, ignore rules and attributes. After an approved commit/upload, validate a fresh checkout with `git lfs pull` and the checker. Missing LFS objects must block preparation; never substitute generated files or silently download from upstream.
 

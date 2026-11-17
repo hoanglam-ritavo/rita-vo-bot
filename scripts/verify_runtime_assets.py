@@ -7,6 +7,8 @@ import stat
 import subprocess
 from pathlib import Path, PureWindowsPath
 
+from src.artifact_authoring.sources import SourceError, declared_sources
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'artifacts/runtime-assets.json'
 E5_FILES = frozenset({
@@ -186,7 +188,12 @@ def verify(root=ROOT, manifest=MANIFEST):
             except (InventoryError, OSError) as exc:
                 errors.append({'path': relative, 'code': str(exc) if isinstance(exc, InventoryError)
                                else 'directory_unavailable'})
-        for path in sorted(git_files(root) - expected - {MANIFEST}):
+        try:
+            source_paths = declared_sources(root)
+        except (SourceError, OSError):
+            source_paths = set()
+            errors.append({'path': 'artifacts', 'code': 'invalid_artifact_sources'})
+        for path in sorted(git_files(root) - expected - source_paths - {MANIFEST}):
             code = 'tracked_asset_not_in_manifest' if group_for(path, e5_root) else 'tracked_path_not_allowed'
             errors.append({'path': path, 'code': code})
         return {'files': len(data['assets']), 'errors': errors}, 1 if errors else 0

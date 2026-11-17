@@ -10,7 +10,7 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | --- | --- | --- |
 | `try_retrieval.py` | Current manual utility | Run the public retrieval contract from an IDE and display Vietnamese source excerpts/timings. |
 | `benchmark_template_answers.py` | Current read-only exposed regression | Run private Type A answer cases without a listener, model generation or acceptance claim. |
-| `verify_runtime_assets.py` | Current read-only release utility | Verify selected local model/artifact bytes, hydrated LFS files, the E5 tree and tracked Git paths against the runtime inventory. |
+| `verify_runtime_assets.py` | Current read-only release utility | Verify selected local model/artifact bytes, hydrated LFS files, the E5 tree and tracked Git paths against the runtime inventory. Permits exact declared authoring sources separately, rejecting undeclared source files; run `python -m src.cli.build_artifacts check` first for full source/output validation. See [source contract](../docs/runtime-artifacts.md#split-source-authoring). |
 | `evaluate_retrieval.py` | Current offline evaluator | Evaluate one published package against pinned source-reviewed cases. |
 | `benchmark_online_retrieval.py` | Current offline benchmark | Inspect offline candidates, calibrate per-passage relevance and measure quality/latency gates. |
 | `benchmark_semantic_retrieval.py` | Current offline benchmark | Compare baseline/semantics/optional intent assistance across corpus-wide cross-document evidence cases. |

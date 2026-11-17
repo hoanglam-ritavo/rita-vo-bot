@@ -23,6 +23,24 @@ errors and preprovisioned disposable test contract.
 
 [Application entrypoints](src/cli/README.md) remain in `src/cli/`; [manual utilities, offline evaluations and experiments](scripts/README.md) remain in `scripts/`. Both inventories distinguish current commands, compatibility aliases, retired stubs and support modules. Existing command paths remain supported. One-shot retrieval lifecycle/timings live in `src.retrieval.runner`, used by the CLI compatibility wrapper and IDE utility; HTTP continues to own its long-lived service lifecycle. Pure model revision validation lives in `src.ingestion.model_identity`, shared by publication, preflight and evaluation without imports between those CLI implementations. Historical asset tools retain their old `app/` paths and are not current setup commands.
 
+## Artifact source assembly
+
+`src.artifact_authoring.sources` owns the standard-library-only declared source
+layout, duplicate/path checks and deterministic assembly. The runtime inventory
+checker uses that module to permit exact authoring paths outside the runtime
+asset inventory, without importing retrieval, ML or database libraries.
+`src.artifact_authoring.workflow` owns explicit offline import/build and invokes
+the existing semantic/catalog validators against the current package snapshot;
+`src.cli.build_artifacts` is its CLI. Importing these modules performs no IO.
+
+Concepts and cards are authored by ID; coverage is authored by document ID.
+Version-1 source indexes retain metadata and ordered references. Assembly keeps
+the schema-v1 runtime interfaces, computes the catalog's lexicon byte hash and
+preserves record/field order. Runtime never loads source indexes. Generated
+outputs remain tracked; source changes require build/check and separately
+reviewed provenance/inventory reconciliation, not automatic acceptance.
+See [authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
+
 ## Implemented storage and ingestion
 
 The schema chain is the applied `bce4184a7f51` baseline followed by additive `c7d92e6a104b` publication guards. The latter preserves tables/data and restores timestamp, immutable revision identity and append-only audit triggers. Fresh baseline installation requires vector provisioning first; older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
