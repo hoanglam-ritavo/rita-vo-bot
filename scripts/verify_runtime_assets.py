@@ -18,7 +18,7 @@ RERANK_FILES = frozenset({
     'config.json', 'model_quint8_avx2.onnx', 'sentencepiece.bpe.model',
     'special_tokens_map.json', 'tokenizer.json', 'tokenizer_config.json',
 })
-ARTIFACT_FILES = {'rerank': 'relevance-profile.json', 'semantics': 'lexicon.json',
+ARTIFACT_FILES = {'answers': 'catalog.json', 'rerank': 'relevance-profile.json', 'semantics': 'lexicon.json',
                   'intent': 'accepted-artifact.json'}
 HEX = re.compile(r'[0-9a-f]{64}')
 

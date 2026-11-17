@@ -1,4 +1,86 @@
-# Grounded answer evaluation and gated local API
+# Semantic + template answers and historical Qwen evaluation
+
+## Semantic template answer API
+
+`POST /api/v1/answer` now uses source-bound authored templates, with no Qwen,
+GGUF binding, generator, model verifier or automatic inference retry. The request
+and response field names remain compatible. `generation_seconds` and
+`verification_seconds` are always zero; total time includes deterministic
+matching/rendering. `/api/v1/retrieve` is unchanged.
+
+### Configuration and validation
+
+Keep `ANSWER_ENABLED=false` by default. To enable the separate answer route,
+configure `SEMANTIC_MODE=expand`, a compatible `SEMANTIC_ARTIFACT_PATH`, and
+`ANSWER_CATALOG_PATH` (default `artifacts/answers/v1/catalog.json`). Existing
+model/hash/report/review/debug keys are ignored. No local `.env` is rewritten.
+`requirements-answer.txt` is retired and contains no generation dependencies.
+Existing GGUF files and installed environments are left untouched.
+
+Run `python -m src.cli.check_answer_catalog` before use. It checks the complete
+package fingerprint, lexical artifact hash, coverage inventory, revision/content
+hashes, exact source quotations, applicability/version/date metadata and schema.
+Output contains counts and fixed codes only. Exit 0 means structurally/source-bound
+valid, not business approval; exit 1 means unavailable or invalid. Startup failure
+disables answering while leaving compatible retrieval usable.
+
+The initial catalog covers availability of all 29 documents / 530 chunks: 32
+source-bound entries and 498 excerpt-only chunks. Most initial templates retain
+full source wording and explicitly report partial coverage. Three benefit entries
+have authored natural-language amount/conditions/paperwork sections. Source-bound
+paraphrases require source review; no validator can establish their meaning.
+Neither source authoring nor alias declarations supply relevance calibration.
+
+### Selection, rendering and limitations
+
+Canonical/alias matching uses the same bounded NFC/whitespace rules and context
+guards as semantic expansion, without changing retrieval expansion behavior.
+Catalog-specific aliases are separate from the unchanged lexicon v2. A question
+must uniquely match a card and a supported aspect. Every required evidence
+reference must occur in the current top-K matches with matching revision, content
+hash, quote and applicability/version/date/path metadata. No database UUID is
+hardcoded; provenance is taken from current matches. No extra evidence is fetched.
+Insufficient top-K can therefore cause partial/excerpt output rather than a full
+answer. Source replacement invalidates the catalog and requires deliberate reauthoring.
+
+`answered` requires a section explicitly authored complete for that question
+aspect and all required source material. `partial` means either a supported part
+or explicitly labeled verbatim candidate excerpts; `needs_clarification` asks for
+one specific topic/beneficiary or a simpler question. Missing candidates yield
+`insufficient_evidence`. Top-K, a raw reranker score and lexical similarity never
+establish completeness, personal entitlement or exhaustive benefits.
+
+Filtering remains authoritative. Unfiltered candidates stay `unassessed` with
+their original warnings, even when a deterministic template is rendered. Unknown
+questions receive labeled excerpts, not a fabricated answer or an assertion that
+the whole corpus contains no answer. Up to twelve complete excerpts of at most
+2,000 characters are displayed; omitted excerpts are disclosed, never truncated.
+Counts, comparisons, sums, arbitrary multi-topic composition, Type B lookups and
+conversation memory remain unsupported. A follow-up must restate the topic.
+
+Public fallback reasons include existing retrieval reasons plus
+`needs_clarification`, `incomplete_template_evidence`, `template_unavailable` and
+`template_evidence_missing`. Responses retain citations and server-owned origins.
+The shared busy slot returns 429 to competitors; the 120-second deadline returns
+504 after retrieval cancellation drains. Invalid inputs return 422; unavailable
+catalog/model/database returns 503. No native generation context needs disabling
+after timeout. Logs contain generated request IDs, fixed statuses and elapsed
+time, never raw questions, source text or answers.
+
+Use the [template regression utility](../scripts/README.md#template-answer-regression)
+for read-only private real-data checks. It emits no acceptance/profile and does
+not restart services or write database/publication storage. See
+[current verification](../README.md#current-verification-status) for actual results.
+
+## Historical Qwen archive — retired 2026-11-17
+
+Everything below records the former Qwen implementation and its historical
+experiments. Its commands, prerequisites, deadlines, model paths and acceptance
+reports do not describe or authorize the current Semantic + template runtime.
+The historical headings remain available for old links. `scripts.evaluate_answers`
+now returns 2 without loading a model or issuing acceptance.
+
+# Historical grounded answer evaluation and gated local API
 
 The separate `/api/v1/answer` endpoint is implemented but **disabled by default**.
 The filtered branch requires the offline study below and actual user acceptance
@@ -330,42 +412,7 @@ also affect FastAPI. This is the accepted tradeoff for in-process loading;
 there is no hidden process/server fallback. Successful native cleanup releases
 the slot so retrieval remains usable.
 
-By default, logs contain only generated request IDs, fixed outcome/diagnostic codes,
-source/claim/check counts, timings and allowlisted nonnegative integer token usage.
-They do not contain questions, source passages, drafts or verdict text.
-`ANSWER_DEBUG_RAW=true` explicitly enables local raw draft/verdict prints;
-the default is `false`, and values other than `true`/`false` are rejected.
-Treat this as private local diagnosis and disable it for normal operation.
-No credentials or environment values are printed. Debug configuration is passed
-explicitly into the pipeline; it never reads the environment itself.
-Offline private samples deliberately retain evidence/drafts/verdicts for source
-review; metadata reports exclude that text. The 300-second operational deadline
-is distinct from the unchanged official gate requiring 95% of cases within 30 seconds.
-
-### Bounded verifier and compact evidence
-
-Each request's verifier grammar has exactly one positional check per draft claim,
-with a fixed zero-based index; a zero-claim draft requires an empty checks array.
-Strict code validation remains authoritative if a runtime bypasses grammar.
-Internal diagnostics distinguish invalid verdict structure, mismatched indices,
-unsupported claims, missing conditions, inappropriate status, undisclosed missing
-parts and unresolved conflict. Public `fallback_reason=verification_failed` stays
-unchanged, with rejected claims/sources withheld and no repair/retry inference.
-Correct grammar does not establish semantic correctness or independent verification.
-
-Both model calls receive the same complete source content, title, applicability,
-version and effective dates, keyed by source ID. Origins/UUIDs/source spans remain
-application-owned for response rendering and are omitted from the model payload.
-Retrieval candidates, deduplication and verbatim quotation validation are unchanged.
-Prompts require necessary conditions and paperwork in claims, preserve uncertainty,
-and distinguish missing supplied evidence from claims about the entire document.
-There is no claim that top-K establishes exhaustive benefits or personal eligibility.
-
-For an exposed eight-case local comparison, see the separate
-[bounded regression utility](../scripts/README.md#bounded-answer-pipeline-regression).
-It does not relax the official evaluator or issue acceptance. Model/code/pipeline
-changes invalidate prior filtered-study identities; never rewrite old hashes to
-make an existing acceptance report match.
+Historical Qwen runtime logs used fixed outcome/error codes and timings. Private offline samples retained source/draft/verdict text for review. The paused verifier-improvement proposal was never activated and is not an implemented historical capability.
 
 ## Implementation validation
 

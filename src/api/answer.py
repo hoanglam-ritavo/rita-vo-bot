@@ -38,7 +38,10 @@ class AnswerService:
             try:
                 self.catalog, self.lexicon = await asyncio.shield(task)
             except asyncio.CancelledError:
-                await drain(task)
+                try:
+                    await drain(task)
+                except Exception:
+                    pass  # Preserve cancellation even if the owned file-read worker failed.
                 raise
             self.available = True
         except asyncio.CancelledError:

@@ -27,7 +27,7 @@ errors and preprovisioned disposable test contract.
 
 The schema chain is the applied `bce4184a7f51` baseline followed by additive `c7d92e6a104b` publication guards. The latter preserves tables/data and restores timestamp, immutable revision identity and append-only audit triggers. Fresh baseline installation requires vector provisioning first; older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
 
-Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Local health-only gRPC, public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; grounded answering has a separate disabled-by-default acceptance-gated API; chatbot business RPCs remain planned. Real-model retrieval quality is not established by synthetic tests.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; source-bound template answering has a separate disabled-by-default catalog-gated API; authenticated Type B integration and conversation history remain planned. Real-model retrieval quality is not established by synthetic tests.
 
 Source documents stay in `assets/`. `src.paths` anchors Git-trackable current packages at `chunks/<document_id>/`. Metadata is the sole owner of source identity, including revision_id; the directory name is document_id. Source-path uniqueness is checked case-insensitively. Git stores committed package history, while each checkout has only the current package. Per-document OS locks protect reads against replacement; staging, recovery markers and displaced packages live under ignored `.tmp/`. An interrupted replacement blocks reads until explicit recovery. Locks coordinate Python commands, not external editors; stop editing while validation/publication runs. Each complete package contains three consistently versioned v2 or v3 JSON files (metadata, extraction and chunks) and unchanged source bytes. Initialization may leave an incomplete package until the agent authors extraction/chunks. Historical `indexing_chunks/` is never scanned or merged.
 
@@ -57,15 +57,19 @@ V3 explicitly represents evidence roles, stable author IDs, item hierarchy and a
 
 The encoder requests normalized 384-dimensional vectors; validation checks count, indices, dimensions and finite values, not independent unit norm or semantic accuracy. Publication fingerprints the package/model, checks concurrent changes and verifies stored chunks/evidence before skipping an unchanged publication. Missing text is encoded with temporary contiguous indices and then assigned to the complete destination snapshot; moved chunks retain their new indices/provenance. Current revision, active run, policy eligibility and retrieval model compatibility remain distinct conditions. Retrieval continues filtering active successful runs and current eligible model-compatible revisions; historical chunk rows are not searched. V3 adds run-owned structured item/coverage storage. Separate embedding text remains future work.
 
-## Implemented local gRPC transport
+## Service transport
 
-`src/helper/grpc` owns explicit configuration and an instance-scoped `grpc.aio` server. `python -m src.cli.serve_grpc` runs it through the existing Windows-compatible async runner. Imports and server construction do not load `.env`, create an async server or bind a port. Server creation, health registration and binding occur during `start()` on the owning event loop; lifecycle operations must remain on that loop.
+HTTP through FastAPI is the only implemented service transport. The backend calls
+`POST /api/v1/retrieve`; the separately gated `POST /api/v1/answer` remains opt-in.
+The API and backend must share the same machine/network namespace: the bot accepts
+only a `127.0.0.1` bind, and the backend accepts only a loopback HTTP origin.
+There is no service authentication or remote/container-network support.
 
-The intended inbound direction is monolithic backend to chatbot microservice. Currently only the standard gRPC Health Checking service is registered. Overall health (`service=""`) becomes `SERVING` after startup and `NOT_SERVING` on graceful shutdown. It reflects transport availability only, without database/model checks. Shutdown waits up to the configured grace period and releases the listening socket.
-
-The initial server is plaintext and restricted to `127.0.0.1`, with no authentication or business data. It supports same-machine development only. Public configuration rejects port zero and non-loopback binds; tests privately request ephemeral ports. Configuration, startup and shutdown failures produce nonzero CLI exits. See the [local server instructions](README.md#local-grpc-server) for configuration and a health call.
-
-Remote/container connectivity, business RPC contracts, TLS/mTLS and authentication require a separate implementation. This inbound server does not implement outbound Type B access or change the database schema.
+The former health-only gRPC server and entrypoint have been removed, without a
+compatibility stub. Use `/health/live` for HTTP liveness and `/health/ready` for
+initialized retrieval/model state and database connectivity. Readiness does not
+certify answer-catalog availability, retrieval quality or corpus completeness.
+See [HTTP operation and rollout](README.md#http-service-operation-and-rollout).
 
 ## Implemented public-document retrieval
 
@@ -110,65 +114,38 @@ Readiness checks model initialization and database availability, not semantic qu
 
 ## Planned operational retrieval and extended answering
 
-`src.answering` owns shared structured claims/verdicts, exact-quote validation,
-metadata-aware duplicate consolidation, Qwen3.5-0.8B Q5_K_M GGUF inspection,
-in-process llama-cpp-python runtime, prompts, pipeline identity and acceptance gates.
-`scripts.evaluate_answers` owns private study orchestration and read-only
-publication validation. Existing script helper imports remain compatibility
-exports; the HTTP application never imports scripts.
+`src.answering` owns the source-bound catalog, strict claims/citations and
+deterministic renderer. There is no generative model, GGUF loader, model verifier
+or automatic repair. `src.api.answer` retains the shared busy slot and a 120-second
+request deadline, including retrieval. Cancellation drains retrieval workers;
+template processing has no uncertain native generation context to disable.
 
-`POST /api/v1/answer` is implemented separately from retrieval and disabled by
-default. `src.api.answer` owns acceptance loading, deterministic rendering,
-answer runtime availability and the shared retrieval/answer busy slot. Startup always verifies model SHA-256, GGUF metadata, native binding/template
-and warm-up. With relevance filtering enabled, it additionally requires matching
-implementation/retrieval/corpus identity and a manually accepted 60-case report;
-each request checks the accepted corpus before inference. With filtering disabled,
-it does not read report/review or require a relevance profile, and accepts only
-explicitly marked unassessed candidates. Reranking is independent in this branch.
-Model failure leaves retrieval usable; empty evidence skips the model. Exact
-content duplicates are consolidated only with equal title, applicability,
-version and effective dates, retaining each origin. Questions and evidence are
-untrusted data; generation produces cited claims and at most one model verifier
-checks them. Same-model verification is not proof of correctness.
+Startup validates catalog/package/lexicon fingerprints and all source references.
+Bad or missing catalog disables answering while retrieval remains available.
+The semantic phrase matcher is shared without changing retrieval expansion/ranking.
+At request time, a unique catalog concept/alias and question aspect select a
+template. Every required source must occur in the current returned matches with
+matching document/revision/index/content/metadata. No extra evidence fetch or
+DB-ID routing occurs. Response-only origins stay application-owned.
 
-The runtime loads GGUF inside FastAPI through pinned llama-cpp-python, with one
-dedicated executor thread for load/tokenization/inference/reset/release and six
-CPU inference threads. It opens no model server socket or subprocess. Imports
-and static inspection do not load weights; binding/library/template/model and
-Python/ABI identity are bound to report schema v3. Reports from the previous
-server backend cannot authorize its filtered branch. The model uses its own tokenizer and
-sandboxed chat template, with thinking disabled and JSON grammar enforcement.
-
-The 300-second operational deadline covers retrieval, generation and verification;
-the official study's 30-second latency gate remains unchanged. Timeout or
-client disconnect sets a cooperative cancellation flag observed by token stopping
-criteria and the CPU native abort callback. Ownership persists through repeated
-cancellation until the thread exits; closing/reusing its context while decode is
-running is forbidden. Cleanup can exceed the deadline. After uncertain failure,
-answering remains disabled until restart; retrieval is usable after cleanup.
-A hung native thread cannot be force-killed safely inside the process, and a
-fatal native crash can affect FastAPI. There is no automatic server/worker fallback.
-HTTP 429 covers shared answer/retrieval work; 503 disabled/stale/unavailable
-answering; 504 deadline expiry; 422 invalid input. No failed draft is published.
-Answer responses preserve server-owned `relevance` metadata, including
-`relevance_filter_disabled` and evidence-completeness warnings. A verifier pass
-does not change unassessed candidates into calibrated evidence. Official offline
-evaluation remains strict and cannot grant acceptance from unfiltered trials.
-The model payload omits response-only origins/UUIDs/spans while retaining complete
-content and applicability/version/date metadata. Verifier grammar fixes one check
-per claim and its index; code validation still rejects malformed or unsupported
-verdicts. Neither grammar nor same-model verification proves semantic correctness.
-Default logs contain request IDs, fixed diagnostics, counts, token usage and timings.
-Explicit `ANSWER_DEBUG_RAW=true` enables private local raw draft/verdict prints.
-See [the answer contract](docs/answer-evaluation.md#local-answer-api)
-for dependencies, fields, retired server settings and evaluation gates. No backend,
-portal, history, Type B tool or database schema change is included.
+Catalog coverage inventories every chunk; selected units retain source wording
+or authored prose with exact quotes and conditions. Complete coverage is local
+to the declared aspect, never inferred from top-K. Ambiguity and unsupported
+personal/aggregate questions ask for clarification. Missing templates/evidence
+return labeled verbatim excerpts, or insufficient evidence when none exist.
+Filtered/unassessed retrieval policy is preserved without a model-verifier gate.
+The API request/response shape stays compatible; generation/verification seconds
+are zero, and template/rendering overhead is included in total seconds. Logs
+contain generated request IDs, status and timings, not questions or raw content.
+See [current contract](docs/answer-evaluation.md#semantic-template-answer-api).
+`scripts.evaluate_answers` is a retired stub; historical studies cannot authorize
+the new template runtime. Models and source/database packages are untouched.
 
 Type A documents provide policy evidence; Type B tools provide authoritative current operational facts. Preserve applicability, access restrictions, source citations and explicit unavailable/conflicting-source handling. Exact lookup/computation is needed for structured questions; the stored chunks and vectors alone are not a table query engine. Models are locally operated; internal data must not be uploaded as an implicit implementation choice.
 
 ### Type B: current operational evidence
 
-Resolve the authenticated user and required entity identifiers, validate parameters and permissions in the backend, and call a defined read-only function. Initial examples are retrieving a person's direct manager, active project memberships, or a project's responsible person. gRPC is the intended integration option; the external contract and authentication mechanism are not yet defined.
+Resolve the authenticated user and required entity identifiers, validate parameters and permissions in the backend, and call a defined read-only function. Initial examples are retrieving a person's direct manager, active project memberships, or a project's responsible person. Future service integration will use HTTP APIs; the Type B contract and authentication mechanism are not yet defined or implemented.
 
 The model proposes a function and arguments; the backend controls execution. Arbitrary model-generated SQL is not the initial approach. A copied embedding index must not become the source of truth for current reporting relationships or assignments. Responses should identify the operational source and preserve relevant freshness information supplied by that source.
 
@@ -212,14 +189,14 @@ semantic review nor changes calibration gates or runtime APIs. See
 
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
-| 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and local health-only gRPC transport | Database behavior; source identity, consistency, history and metadata validation; local gRPC health and lifecycle |
+| 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and loopback HTTP transport | Database behavior; source identity, consistency, history and metadata validation; HTTP health and lifecycle |
 | 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; corpus-matched calibration acceptance, integrated generated answers and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — planned | Authenticated, authorized Type B read-only tools | Identity/entity resolution, permission enforcement, freshness, unavailable services |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
 
 Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous requests, and unanswerable questions. Measure retrieval quality and answer grounding separately, alongside latency and resource use. Phase 1 must not claim live personnel/project knowledge before Phase 2 exists.
 
-FastAPI, local E5/ONNX runtimes, ranking configuration and quantitative offline gates are implemented; their existence does not establish production acceptance. Production sizing, authenticated integration, business gRPC contracts and extended answering remain future work. The current 14-table application schema, including run-owned structured evidence, and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
+FastAPI, local E5/ONNX runtimes, ranking configuration and quantitative offline gates are implemented; their existence does not establish production acceptance. Production sizing, authenticated HTTP service integration and extended answering remain future work. The current 14-table application schema, including run-owned structured evidence, and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
 
 ## Verification boundaries
 
@@ -227,7 +204,7 @@ See [current verification](README.md#current-verification-status) for the latest
 
 The [2026-11-13 offline corpus preparation](docs/chunk-coverage-verification.md) adds source-authored policy and software-procedure evidence without changing runtime composition. Its in-memory CPU diagnostic includes held packages and is deliberately separate from eligible-publication retrieval and passage-relevance calibration. It does not establish live API quality or current personnel facts.
 
-Unit tests cover synthetic package contracts, converter compatibility, CLI batch ordering and publication boundaries; gRPC tests exercise local health RPCs. They cannot establish transcription accuracy or real embedding-model behavior. PostgreSQL integration tests use guarded disposable databases and synthetic embeddings to exercise publication, revision relations, transaction rollback and migration preservation. They perform schema changes and application-table writes/cleanup, including downgrade/upgrade; see [test setup and safety](README.md#testing). Missing configuration means skipped verification, not a successful database check. Historical rename-utility tests remain compatibility checks outside the v2 ingestion workflow.
+Unit tests cover synthetic package contracts, converter compatibility, CLI batch ordering and publication boundaries; HTTP tests exercise retrieval contracts, health and lifecycle. They cannot establish transcription accuracy or real embedding-model behavior. PostgreSQL integration tests use guarded disposable databases and synthetic embeddings to exercise publication, revision relations, transaction rollback and migration preservation. They perform schema changes and application-table writes/cleanup, including downgrade/upgrade; see [test setup and safety](README.md#testing). Missing configuration means skipped verification, not a successful database check. Historical rename-utility tests remain compatibility checks outside the v2 ingestion workflow.
 
 ## Optional online reranking
 

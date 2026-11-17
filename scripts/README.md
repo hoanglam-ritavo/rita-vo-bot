@@ -9,6 +9,7 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | File | Status / role | Purpose |
 | --- | --- | --- |
 | `try_retrieval.py` | Current manual utility | Run the public retrieval contract from an IDE and display Vietnamese source excerpts/timings. |
+| `benchmark_template_answers.py` | Current read-only exposed regression | Run private Type A answer cases without a listener, model generation or acceptance claim. |
 | `verify_runtime_assets.py` | Current read-only release utility | Verify selected local model/artifact bytes, hydrated LFS files, the E5 tree and tracked Git paths against the runtime inventory. |
 | `evaluate_retrieval.py` | Current offline evaluator | Evaluate one published package against pinned source-reviewed cases. |
 | `benchmark_online_retrieval.py` | Current offline benchmark | Inspect offline candidates, calibrate per-passage relevance and measure quality/latency gates. |
@@ -18,9 +19,9 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | `promote_relevance_profile.py` | Gated local release utility | Copy only an emitted, reviewed, passing semantic schema-v3 profile and provenance into a new version; update runtime inventory. |
 | `diagnose_retrieval.py` | Current offline diagnostic | Inspect a saved benchmark collection and prepare unranked source-review worksheets; no model/DB access or profile issuance. |
 | `benchmark_intent.py` | Current offline benchmark | Paired intent-off/observe checks and gated accepted-artifact output. |
-| `evaluate_answers.py` | Experimental entrypoint | Offline Qwen3.5-0.8B Q5_K_M comparison and manual acceptance; does not enable the API. |
-| `answer_evaluation_contract.py` | Experimental support module | Private case IO plus compatibility exports of shared answer schemas/gates; no standalone command. |
-| `answer_evaluation_runtime.py` | Experimental support module | Compatibility exports of src.answering runtime/pipeline; no standalone command. |
+| `evaluate_answers.py` | Retired entrypoint | Returns 2 with template-tool guidance; cannot issue acceptance. |
+| `answer_evaluation_contract.py` | Retired support module | Historical placeholder; no study contracts or acceptance gates. |
+| `answer_evaluation_runtime.py` | Retired support module | No runtime exports or standalone command. |
 | `train_intent.py` | Supported compatibility entrypoint | Delegates to `src.intent.training`; prefer config-driven `prepare_intents` for batches. |
 | `intent_contract.py` | Compatibility support alias | Aliases `src.intent.dataset`; no standalone command. |
 | `convert_chunk_package.py` | Supported legacy conversion | Explicit non-destructive v1 review/approved to v2 conversion. |
@@ -41,32 +42,24 @@ Requires PostgreSQL, compatible published vectors and a local model. Reads publi
 
 ## Evaluation and experiments
 
-### Bounded answer pipeline regression
+### Template answer regression
 
-`python -B -m scripts.benchmark_answer_pipeline --cases .tmp/answer-regression/cases.json --output .tmp/answer-regression/baseline`
-runs eight exposed cases sequentially through the application-owned retrieval/answer runtimes and shared
-answer pipeline. It does not open a listener, restart a service, write the database, or grant acceptance.
-It requires the existing local models, optional answer binding, compatible published database and enabled
-answer settings. The normal filtered acceptance checks still apply when filtering is enabled; explicitly
-unfiltered configuration remains unassessed. It does not weaken `evaluate_answers`.
+`python -m scripts.benchmark_template_answers --cases .tmp/template-run/cases.private.json --output .tmp/template-run/run-01`
+uses the real application service without opening a listener, restarting a service
+or writing the database. Requires configured E5/ONNX, compatible publications,
+semantic expand and enabled template answers. Inputs/outputs must resolve under
+`.tmp`; output directories must not exist. Input is a JSON list of objects with
+nonblank `text` (at most 8,000 characters); optional labels remain private. At most
+1,000 cases run sequentially, once each, without retries. Per-case private files
+contain questions/responses; metadata report contains timings, status counts,
+artifact/input hashes and CPU logical count. Startup time is separate.
+The empirical median/p95 describe this exposed local sample, not production or
+independent acceptance. Exit codes: 0 completed collection (inspect errors and
+content separately), 1 runtime/identity failure, 2 invalid input/operational failure.
+Do not use acceptance rate as a correctness measure. Validate the catalog first
+with `python -m src.cli.check_answer_catalog`; compare every published claim
+against the retained citations. No model or calibration acceptance is emitted.
 
-Inputs and new output directories must resolve under `.tmp/`. The JSON input is
-`{"schema_version":1,"cases":[{"id":"fictional-case","text":"Fictional question?"}]}` with exactly eight
-unique IDs (lowercase letters, digits and hyphens; at most 60 characters), each text nonblank and at most
-8,000 characters. Freeze this private input before collecting a baseline and do not tune to its results.
-Output directories must not exist. Private per-case JSON contains evidence, draft and verdict; private stdout
-files capture legacy/debug prints. Metadata-only `report.json` records identities, tokens, timings and outcomes.
-Startup/warm-up is timed separately. A failed/uncertain request stops the run without retrying. The deadline
-is the application's current 300 seconds per case; cancellation cleanup can take longer.
-
-After changes, use another new output directory and `--compare .tmp/answer-regression/baseline/report.json`.
-Comparison requires completed runs with matching case, model/binding, retrieval/artifact, package, configuration
-and corpus identities. The implementation hash is intentionally allowed to differ between the runs, but must
-remain stable during each run. Each run executes at most eight requests. Review published answers against
-the private source excerpts; acceptance rate alone is not quality. Small exposed runs establish neither p95 nor
-official latency/quality acceptance. Exit codes: `0` completed collection, `1` runtime/identity failure,
-`2` invalid input or operational failure. A completed collection can still have an incompatible comparison;
-inspect `comparison.comparable` before drawing conclusions.
 
 Learned passage scoring uses private numeric development features and actual
 source-reviewed labels. Paired collection accepts `--collect-features`; use
@@ -122,15 +115,12 @@ All commands below require explicitly provisioned local dependencies/models for 
 
 Evaluation/benchmark readers sharing `scripts.evaluate_retrieval.database_state` compare current revision metadata/access/relations, canonical runtime-content/model identity and actual stored chunks/vectors/evidence. Original publication byte hashes may differ after formatting or explicit metadata-only updates; legacy and version-1 fingerprints remain readable without rewriting historical run configuration. Package/model bytes must still remain unchanged during each evaluation. See [publication compatibility](../docs/offline-indexing.md#publication-and-consistency).
 
-See [retrieval cases and reporting limitations](../docs/retrieval-evaluation.md), [calibration and rollout gates](../docs/online-reranking.md), and [intent preparation/acceptance](../docs/intent-classifier.md). Candidate diagnostics are offline-only. The explicit HTTP unassessed mode does not authorize answer generation; the CLI and answer study retain calibrated filtering.
+See [retrieval cases and reporting limitations](../docs/retrieval-evaluation.md), [calibration and rollout gates](../docs/online-reranking.md), and [intent preparation/acceptance](../docs/intent-classifier.md). Candidate diagnostics are offline-only. The retrieval CLI retains calibrated filtering. Template answers preserve explicit unassessed metadata when HTTP filtering is disabled.
 
-For the answer experiment use `python -m scripts.evaluate_answers <preflight/run/assess> ...`:
+`python -m scripts.evaluate_answers` is a retired Qwen-study stub and returns 2.
+Its old preflight/run/assess commands do not load models or issue acceptance.
+Use the [template regression](#template-answer-regression) and catalog validator instead.
 
-- `preflight --cases .tmp/answer-study/cases.json --output .tmp/answer-study/preflight-01` checks configuration/cases and installed native binding identity and optional model hash, writes a new `preflight.json`, but does not start models or establish DB/corpus validity.
-- `run` additionally supplies `--model <local-gguf> --model-sha256 <sha256>` and requires the optional pinned `requirements-answer.txt` binding. There are no executable/port arguments. It requires configured filtered retrieval/model/DB and frozen reviewed cases. Loads GGUF in the current Python process on one dedicated thread, writes private samples/report/review template under a new `.tmp/` directory and closes owned resources. A successful run still awaits manual review.
-- `assess --report .tmp/answer-study/run-01/report.json --review .tmp/answer-study/review.json --output .tmp/answer-study/decision.json` reads matching report/sample/review identities and writes a new decision file; it does not run models or enable an API.
-
-Exit `0` means static checks passed, experiment completed awaiting review, or assessment accepted, depending on the subcommand. Exit `1` means blocked preflight or assessment rejection; `2` means invalid inputs/experiment failure. See [answer evaluation](../docs/answer-evaluation.md) for prerequisites and evidence gates. Support modules have no CLI and must not be presented as application capabilities.
 
 ## Package conversion and task authoring
 

@@ -65,14 +65,15 @@ def create_app(settings=None, *, service_factory=ApiService):
         return await service.retrieve(body.text, top_k)
 
     @app.post('/api/v1/answer', response_model=AnswerResponse,
-              description='Opt-in local grounded answers. Requires a matching manually accepted offline study. '
-                          'No conversation history or live personnel facts.',
+              description='Opt-in source-bound Semantic + template answers, with explicit excerpt fallback. '
+                          'No generative model, conversation history or live personnel facts.',
               responses={422: {'description': 'Invalid request.'}, 429: {'description': 'Service busy.'},
-                         503: {'description': 'Answering disabled, unaccepted or unavailable.'},
+                         503: {'description': 'Answering disabled, catalog incompatible or dependencies unavailable.'},
                          504: {'description': 'Answer deadline exceeded.'}})
     async def answer(body: RetrieveRequest, request: Request):
         service = request.app.state.retrieval_service
-        task = asyncio.create_task(service.answers.answer(body.text, body.top_k))
+        top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
+        task = asyncio.create_task(service.answers.answer(body.text, top_k))
         async def watch_disconnect():
             while not await request.is_disconnected():
                 await asyncio.sleep(.1)

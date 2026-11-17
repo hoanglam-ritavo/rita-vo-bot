@@ -1,5 +1,6 @@
 """Deterministic source-bound templates; no language-model inference or routing."""
 import hashlib
+import re
 import time
 from src.retrieval.semantics import matching_concepts, phrase_matches
 from src.retrieval.reranking import query_variants
@@ -34,7 +35,9 @@ def checked_relevance(result, *, allow_unassessed=False):
     disabled = 'relevance_filter_disabled' in warnings
     valid = (disabled and status == ('unassessed' if result['matches'] else 'no_candidates')
              if allow_unassessed else not disabled and
-             (status == 'relevant_candidates' if result['matches'] else status in {'no_candidates', 'low_relevance'}))
+             (status == 'relevant_candidates' if result['matches'] else
+              status in {'no_candidates', 'low_relevance'} or
+              (status == 'unassessed' and result.get('fallback_reason') == 'relevance_unavailable')))
     if not valid:
         raise ValueError('relevance_unavailable')
     if 'evidence_completeness_not_assessed' not in warnings:
@@ -71,10 +74,20 @@ def render(question, result, catalog, lexicon, *, allow_unassessed=False):
              if (any(phrase_matches(p, question) for p in c.aliases) or bool(set(c.concept_ids) & concepts))
              and (not c.requires_any or any(phrase_matches(p, question) for p in c.requires_any))
              and not any(phrase_matches(p, question) for p in c.excludes_any)]
-    complex_request = any(phrase_matches(p, question) for p in
-        ('tính tổng', 'tổng cộng', 'so sánh', 'bao nhiêu loại', 'bao nhiêu mục', 'có mấy',
-         'quản lý trực tiếp của tôi', 'dự án của tôi', 'trường hợp của tôi', 'tôi có được'))
-    if len(cards) > 1 or complex_request:
+    complex_request = any(phrase_matches(p, question) for p in (
+        'tổng', 'so sánh', 'bao nhiêu mục', 'bao nhiêu loại', 'tôi có được',
+        'có mấy', 'quản lý trực tiếp của tôi', 'dự án của tôi',
+        'trường hợp của tôi', 'tôi thử việc', 'không sinh con', 'không kết hôn'))
+    # An exclusion in the second clause must not hide another requested beneficiary.
+    clause_cards = set()
+    for clause in re.split(r'\bvà\b|;', question, flags=re.IGNORECASE):
+        clause_concepts = matching_concepts(lexicon, clause)
+        clause_cards.update(c.id for c in catalog.cards
+            if (any(phrase_matches(p, clause) for p in c.aliases)
+                or bool(set(c.concept_ids) & clause_concepts))
+            and (not c.requires_any or any(phrase_matches(p, clause) for p in c.requires_any))
+            and not any(phrase_matches(p, clause) for p in c.excludes_any))
+    if len(cards) > 1 or len(clause_cards) > 1 or complex_request:
         row.update(status='needs_clarification', reason='needs_clarification', limitations=[
             'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ quyền lợi hoặc thủ tục và đối tượng cần tìm; mình chưa thể kết luận điều kiện cá nhân hay tính toán tổng hợp.'])
         return row

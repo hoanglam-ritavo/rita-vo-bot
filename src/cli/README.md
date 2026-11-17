@@ -18,8 +18,8 @@ Run commands from the repository root with the repository virtual environment. B
 | `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve accepted source excerpts. |
 | `prepare_intents.py` | Current, preferred batch interface | `python -m src.cli.prepare_intents <validate/preflight/run> --config .tmp/intent/config.json [--json]`. |
 | `prepare_semantics.py` | Current, offline authoring | `python -m src.cli.prepare_semantics <inventory/validate/export> ...`: snapshot all packages, validate declared coverage, export a reviewed lexicon. |
+| `check_answer_catalog.py` | Current read-only validator | `python -m src.cli.check_answer_catalog [--catalog <path>] [--lexicon <path>]`: validates catalog/source identity; does not issue acceptance. |
 | `serve_api.py` | Current | `python -m src.cli.serve_api`: serve local HTTP retrieval and the separately gated opt-in answer route using environment configuration. |
-| `serve_grpc.py` | Current | `python -m src.cli.serve_grpc`: serve local health-only gRPC using environment configuration. |
 | `main.py` | Compatibility dispatcher | Root `python main.py [check-db]` calls the DB check; `python main.py ingest` returns retirement guidance. Importing `src.cli.main` does not execute it. |
 | `asset_catalog.py`, `import_catalog.py`, `ingest.py`, `review.py` | Retired | `python -m src.cli.<name>` only prints replacement guidance and exits `2`; these do not perform the named operations. |
 | `__init__.py` | Package initializer | No standalone command. |
@@ -66,7 +66,7 @@ Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the
 
 `serve_api` reads configuration, loads the local model and checks PostgreSQL at startup; it binds HTTP until stopped. Exit `0` requires successful server startup; configuration/startup failure exits `1`. No migrations or publication run at startup. See [HTTP setup](../../README.md#local-retrieval-api-and-swagger).
 
-`serve_grpc` binds the configured loopback port and exposes health only, without model/DB checks. Exit `0` on normal shutdown and `1` on configuration/lifecycle failure. See [gRPC setup](../../README.md#local-grpc-server). Neither service accepts application-specific argparse flags or implements a `--help` command; use the linked configuration guides.
+`serve_api` does not accept application-specific argparse flags or implement a `--help` command; use the linked configuration guide. Use HTTP `/health/live` and `/health/ready` probes; see [operation and rollout](../../README.md#http-service-operation-and-rollout).
 
 `check_db` loads DB configuration only when executed, reports the extension version or a credential-safe error, always closes the engine, and exits `0`/`1`. It does not migrate or write application tables.
 

@@ -45,6 +45,11 @@ pytest-cache-files-*/
 !/artifacts/rerank/
 !/artifacts/semantics/
 !/artifacts/intent/
+!/artifacts/answers/
+/artifacts/answers/**
+!/artifacts/answers/v1/
+!/artifacts/answers/v1/catalog.json
+!/artifacts/answers/v1/manifest.json
 /artifacts/rerank/**
 /artifacts/semantics/**
 /artifacts/intent/**

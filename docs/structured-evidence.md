@@ -40,6 +40,11 @@ Validate, preflight with `--check-embeddings`, publication dry-run, then publica
 
 ## Online behavior and limits
 
+The separate `/api/v1/answer` route now uses a source-bound catalog and deterministic
+templates; it does not activate the stored scope/item expansion helpers described
+here. No package/schema/publication change is required. See the
+[current answer contract](answer-evaluation.md#semantic-template-answer-api).
+
 `POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It searches vector candidates across all eligible chunk roles, optionally reranks them on CPU, and returns only passages accepted by a matching relevance profile. Missing assessment withholds candidates; see [filtering and fallback](online-reranking.md#retrieval-and-response-semantics). There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
 
 The structured storage helpers remain available internally and covered by storage tests; they are not exposed as API operations. Stored `operations`, `comparison` and `ambiguous` fields describe source-backed semantics for possible future consumers. They do not cause the retrieval endpoint to count, compare or evaluate conditions. Top-K matches cannot establish a complete inventory or individual entitlement.

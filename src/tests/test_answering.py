@@ -1,504 +1,231 @@
-"""Grounded answer/API regressions with fictional evidence and no model/database."""
+"""Source-bound template and HTTP regressions with fictional evidence only."""
 import asyncio
+from copy import deepcopy
 from dataclasses import replace
+import hashlib
 import json
 from pathlib import Path
-import struct
 from types import SimpleNamespace
-from unittest.mock import AsyncMock, Mock
-
-from fastapi.testclient import TestClient
+from unittest.mock import AsyncMock
 import pytest
-
-from src.answering.acceptance import CATEGORIES, configuration, load_acceptance
-from src.answering.config import AnswerSettings
-from src.answering.gguf import model_metadata
-from src.answering.identity import implementation_identity, retrieval_identity, sha_file
-from src.answering.pipeline import evaluate_question, evidence_sources
+from fastapi.testclient import TestClient
+from src.answering.catalog import Catalog, validate_catalog, METADATA
+from src.answering.config import AnswerSettings, from_environment
+from src.answering.pipeline import render, evaluate_question, evidence_sources
 from src.api.app import create_app
 from src.api.config import Settings
 from src.api.contracts import ApiError
 from src.api.service import ApiService
-import src.api.answer as answer_module
+from src.retrieval import RetrievalError
 
 
-def match(**changes):
-    return dict(content='Fictional policy: permanent staff receive 100 credits, except temporary staff.',
-        title='Fictional policy', applicability='Permanent staff', effective_from=None, effective_to=None,
-        version_label='v1', chunk_id='c1', document_id='d1', revision_id='r1', run_id='run1',
-        source_path='fictional.pdf', source_spans=[{'location': {'kind': 'pdf', 'page_start': 1, 'page_end': 1}}],
-        chunk_index=0, cosine_distance=.1, author_id=None, role='detail') | changes
+@pytest.fixture
+def sample():
+    text = 'Fictional policy: permanent staff receive 100 credits with a certificate; temporary staff excluded.'
+    metadata = dict(title='Fictional policy', applicability='Permanent staff', effective_from=None,
+                    effective_to=None, version_label='v1', source_path='fictional.pdf')
+    match = dict(content=text, **metadata, document_id='doc', revision_id='revision', chunk_index=0,
+                 chunk_id='chunk', run_id='run', source_spans=[{'page': 1}])
+    ref = dict(document_id='doc', revision_id='revision', chunk_index=0,
+               content_sha256=hashlib.sha256(text.encode()).hexdigest(), quote=text, metadata=metadata)
+    unit = dict(text='Permanent staff receive 100 credits with a certificate; temporary staff are excluded.', refs=[ref])
+    card = dict(id='birth', label='Fictional childbirth benefit', concept_ids=['birth'],
+                aliases=['sinh con'], requires_any=[], excludes_any=['vợ', 'Workit'],
+                sections={'overview':dict(complete=False, units=[unit]), 'amount':dict(complete=True, units=[unit]),
+                          'conditions':dict(complete=True, units=[unit]), 'paperwork':dict(complete=True, units=[unit])})
+    data = dict(schema_version=1, package_fingerprint='packages', lexicon_sha256='lexicon', cards=[card],
+                coverage=[dict(document_id='doc',chunk_index=0,disposition='template',note='Fictional source checked.')])
+    lexicon = dict(package_fingerprint='packages', concepts=[dict(id='birth', canonical='sinh con',
+        aliases=['sinh em bé'], requires_any=[], excludes_any=['vợ', 'Workit'])])
+    result = dict(status='matches_found', matches=[match], fallback_reason=None,
+                  relevance=dict(status='relevant_candidates', warnings=[]))
+    return SimpleNamespace(data=data, catalog=Catalog.model_validate(data), lexicon=lexicon, result=result,
+                           metadata=metadata)
 
 
-def evidence(**changes):
-    return dict(status='matches_found', matches=[match()], fallback_reason=None,
-        corpus_fingerprint='fictional-corpus',
-        relevance={'status': 'relevant_candidates', 'warnings': ['evidence_completeness_not_assessed']}) | changes
+def test_template_aspects_and_partial_overview(sample):
+    row = render('Sinh em bé được bao nhiêu và cần giấy tờ gì?', sample.result, sample.catalog, sample.lexicon)
+    assert row['status'] == 'answered' and len(row['claims']) == 1
+    assert 'certificate' in row['claims'][0]['text']
+    assert row['claims'][0]['citations'][0]['quote'] == sample.result['matches'][0]['content']
+    assert render('Hỗ trợ sinh con?', sample.result, sample.catalog, sample.lexicon)['status'] == 'partial'
 
 
-def draft(**changes):
-    return dict(status='answered', claims=[{'text': 'Nhân viên chính thức được 100 credits; loại trừ nhân viên tạm thời.',
-        'citations': [{'source_id': 'S1', 'quote': match()['content']}]}], limitations=[]) | changes
+@pytest.mark.parametrize('mutation', ['revision_id','chunk_index','content','applicability','effective_from','source_path'])
+def test_source_mismatch_never_uses_authored_text(sample, mutation):
+    sample.result['matches'][0][mutation] = 9 if mutation == 'chunk_index' else 'CHANGED'
+    row = render('Sinh con được bao nhiêu?', sample.result, sample.catalog, sample.lexicon)
+    assert row['reason'] == 'template_evidence_missing'
+    assert row['intro'] and row['claims'][0]['text'] == sample.result['matches'][0]['content']
 
 
-def verdict(**changes):
-    return dict(checks=[{'claim_index': 0, 'supported': True, 'conditions_preserved': True}],
-        status_appropriate=True, missing_parts_disclosed=True, no_unresolved_conflict=True) | changes
+def test_all_required_sources_or_partial(sample):
+    data = deepcopy(sample.data)
+    data['cards'][0]['sections']['amount']['units'][0]['refs'].append(
+        {**data['cards'][0]['sections']['amount']['units'][0]['refs'][0], 'chunk_index':1})
+    row = render('Sinh con được bao nhiêu?', sample.result, Catalog.model_validate(data), sample.lexicon)
+    assert row['reason'] == 'template_evidence_missing'
 
 
-def owner():
-    service = ApiService(Settings(Path('unused'), 'a' * 40), retrieval=AsyncMock(),
-                         database_check=AsyncMock(), database_close=AsyncMock())
-    service.retrieval.started = True
-    service.retrieval.retrieve.return_value = evidence()
-    return service
+@pytest.mark.parametrize('text', ['Vợ sinh con?', 'Trường hợp của tôi có được hỗ trợ không?',
+    'Nhân viên không sinh con có được hỗ trợ?', 'Tổng phúc lợi bao nhiêu?', 'So sánh hai chính sách?'])
+def test_ambiguity_and_guards(sample,text):
+    row=render(text,sample.result,sample.catalog,sample.lexicon)
+    assert row['status'] in {'needs_clarification','partial'}
+    assert row['status'] != 'answered'
+    if row['status']=='partial': assert row['reason']=='template_unavailable'
 
 
-def enable(service, runtime=None):
-    service.started = True
-    service.answers.available = True
-    service.answers.corpus = 'fictional-corpus'
-    service.answers.runtime = runtime or SimpleNamespace(
-        complete=AsyncMock(side_effect=[(draft(), {}), (verdict(), {})]), close=AsyncMock())
+def test_multiple_cards_do_not_choose_top_one(sample):
+    data=deepcopy(sample.data)
+    data['cards'].append({**data['cards'][0],'id':'other'})
+    row=render('Sinh con được bao nhiêu?',sample.result,Catalog.model_validate(data),sample.lexicon)
+    assert row['status']=='needs_clarification' and row['claims']==[]
 
 
-def test_dedup_preserves_origins_and_different_conditions():
-    sources = evidence_sources([match(), match(chunk_id='c2', source_path='copy.pdf'),
-                               match(applicability='All staff'), match(version_label='v2')])
-    assert len(sources) == 3
-    assert [o['chunk_id'] for o in sources['S1']['origins']] == ['c1', 'c2']
-    assert sources['S2']['applicability'] == 'All staff'
-    assert sources['S3']['version_label'] == 'v2'
+def test_conjunction_preserves_two_beneficiaries_despite_global_exclusion(sample):
+    data=deepcopy(sample.data)
+    data['cards'][0]['excludes_any']=['con nhân viên']
+    child=deepcopy(data['cards'][0])
+    child.update(id='child',aliases=['con nhân viên sinh con'],concept_ids=[],excludes_any=[])
+    data['cards'].append(child)
+    catalog=Catalog.model_validate(data)
+    row=render('Nhân viên sinh con và con nhân viên sinh con được bao nhiêu?',
+               sample.result,catalog,sample.lexicon)
+    assert row['status']=='needs_clarification' and row['claims']==[]
+    assert render('Con nhân viên sinh con được bao nhiêu?',sample.result,catalog,
+                  sample.lexicon)['status']=='answered'
 
 
-@pytest.mark.parametrize('debug', [False, True])
-def test_http_debug_setting_only_changes_private_stdout(debug, capsys):
-    service = owner()
-    service.settings = replace(service.settings, answer=AnswerSettings(debug_raw=debug))
-    service.answers.settings = service.settings
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        enable(service)
-        response = client.post('/api/v1/answer', json={'text': 'Fictional question?'})
-    assert response.status_code == 200
-    body = response.json()
-    assert body['status'] == 'answered'
-    assert not {'draft', 'verdict', 'request_id', 'verification_diagnostics'} & body.keys()
-    output = capsys.readouterr().out
-    assert ('Raw draft generated:' in output) is debug
-    assert ('Raw verdict generated:' in output) is debug
+def test_unassessed_preserved_and_filter_never_bypassed(sample):
+    sample.result['relevance']={'status':'unassessed','warnings':['relevance_filter_disabled']}
+    row=render('Sinh con được bao nhiêu?',sample.result,sample.catalog,sample.lexicon,allow_unassessed=True)
+    assert row['status']=='answered' and row['relevance']['status']=='unassessed'
+    assert 'evidence_completeness_not_assessed' in row['relevance']['warnings']
+    with pytest.raises(ValueError): render('Question',sample.result,sample.catalog,sample.lexicon)
+    sample.result.update(matches=[],fallback_reason='relevance_unavailable')
+    sample.result['relevance']={'status':'unassessed','warnings':[]}
+    row=render('Sinh con được bao nhiêu?',sample.result,sample.catalog,sample.lexicon)
+    assert row['status']=='insufficient_evidence' and row['sources']=={}
 
 
-@pytest.mark.parametrize('change', [
-    {'relevance': {'status': 'unassessed', 'warnings': []}},
-    {'relevance': {'status': 'relevant_candidates', 'warnings': ['relevance_filter_disabled']}},
-    {'relevance': {}}, {'corpus_fingerprint': 'changed'}])
-def test_unassessed_or_changed_corpus_never_reaches_model(change):
+def test_excerpts_are_verbatim_bounded_and_keep_provenance(sample):
+    sample.result['matches']*=20
+    sample.result['matches']=[dict(m,chunk_id=str(i),content=m['content']+str(i))
+                              for i,m in enumerate(sample.result['matches'])]
+    row=render('Unrecognized question?',sample.result,sample.catalog,sample.lexicon)
+    assert row['status']=='partial' and len(row['claims'])==12 and row['intro']
+    assert all(c['text']==c['citations'][0]['quote'] for c in row['claims'])
+    assert len(row['limitations'])==2
+    duplicate=evidence_sources([sample.result['matches'][0],dict(sample.result['matches'][0],chunk_id='copy')])
+    assert len(duplicate)==1 and len(duplicate['S1']['origins'])==2
+
+
+def service(sample):
+    owner=ApiService(Settings(Path('unused'),'a'*40),retrieval=SimpleNamespace(
+        start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result)),
+        database_check=AsyncMock(),database_close=AsyncMock())
+    owner.started=True
+    owner.answers.available=True
+    owner.answers.catalog,owner.answers.lexicon=sample.catalog,sample.lexicon
+    return owner
+
+
+@pytest.mark.parametrize('top_k',[None,3])
+def test_http_wire_sources_no_qwen_and_default_query(sample,top_k,monkeypatch,caplog,capsys):
+    import builtins
+    original=builtins.__import__
+    def guard(name,*args,**kwargs):
+        if name.startswith('llama_cpp'): raise AssertionError('No GGUF imports allowed')
+        return original(name,*args,**kwargs)
+    monkeypatch.setattr(builtins,'__import__',guard)
+    owner=service(sample)
+    owner.settings=replace(owner.settings,top_k=7)
+    owner.answers.settings=owner.settings
+    with TestClient(create_app(owner.settings,service_factory=lambda _:owner)) as client:
+        body={'text':'Sinh con được bao nhiêu?'}
+        if top_k: body['top_k']=top_k
+        response=client.post('/api/v1/answer',json=body)
+    assert response.status_code==200
+    data=response.json()
+    assert data['status']=='answered' and '[S1]' in data['answer']
+    assert data['sources'][0]['origins'][0]['chunk_id']=='chunk'
+    assert data['timings']['generation_seconds']==data['timings']['verification_seconds']==0
+    assert not {'draft','verdict','confidence','request_id'} & data.keys()
+    owner.retrieval.retrieve.assert_awaited_once_with(body['text'],top_k=top_k or 7)
+    assert not capsys.readouterr().out
+    assert 'certificate' not in caplog.text
+
+
+def test_busy_timeout_errors_and_cleanup(sample,monkeypatch):
+    import src.api.answer as module
     async def run():
-        retrieval = SimpleNamespace(retrieve=AsyncMock(return_value=evidence(**change)))
-        runtime = SimpleNamespace(complete=AsyncMock())
-        with pytest.raises(ValueError):
-            await evaluate_question('Question', retrieval, runtime, expected_corpus='fictional-corpus')
-        runtime.complete.assert_not_awaited()
+        owner=service(sample)
+        owner.busy=True
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        assert exc.value.status_code==429
+        owner.busy=False
+        owner.retrieval.retrieve.side_effect=RetrievalError('question_too_long')
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        assert exc.value.status_code==422 and not owner.busy and owner._idle.is_set()
+        owner.retrieval.retrieve.side_effect=None
+        async def wait(*args, **kwargs): await asyncio.sleep(10)
+        owner.retrieval.retrieve.side_effect=wait
+        monkeypatch.setattr(module,'DEADLINE_SECONDS',.01)
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        assert exc.value.status_code==504 and not owner.busy
+        assert owner.answers.available  # No uncertain native context to invalidate.
     asyncio.run(run())
 
 
-def test_disabled_api_does_not_start_model_and_retrieval_works():
-    service = owner()
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        assert client.post('/api/v1/answer', json={'text': 'Question'}).status_code == 503
-        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 200
-    service.retrieval.retrieve.assert_awaited_once()
-
-
-@pytest.mark.parametrize('top_k', [None, 3])
-def test_http_answer_serialized_sources_and_request_defaults(top_k):
-    service = owner()
-    service.settings = replace(service.settings, top_k=7)
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        enable(service)
-        body = {'text': '  Fictional question?  '}
-        if top_k is not None:
-            body['top_k'] = top_k
-        response = client.post('/api/v1/answer', json=body)
-        assert response.status_code == 200
-        body = response.json()
-        assert body['status'] == 'answered'
-        assert body['claims'][0]['text'] in body['answer'] and '[S1]' in body['answer']
-        assert body['sources'][0]['source_id'] == 'S1'
-        assert body['sources'][0]['origins'][0]['source_path'] == 'fictional.pdf'
-        assert 'content' not in body['sources'][0]
-        assert not {'draft', 'verdict', 'confidence', 'reasoning'} & body.keys()
-        service.retrieval.retrieve.assert_awaited_once_with('Fictional question?', top_k=top_k or 5)
-        assert 'timings' in body
-        assert body['relevance'] == evidence()['relevance']
-
-
-@pytest.mark.parametrize('body', [{'text': ''}, {'text': 'Question', 'top_k': 21},
-                                  {'text': 'Question', 'conversation': []}])
-def test_answer_input_validation(body):
-    service = owner()
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        assert client.post('/api/v1/answer', json=body).status_code == 422
-    service.retrieval.retrieve.assert_not_awaited()
-
-
-@pytest.mark.parametrize('status', ['partial', 'needs_clarification', 'unsupported'])
-def test_partial_and_clarification_keep_status_and_limitations(status):
+def test_cancel_and_repeated_drain_retains_ownership(sample):
     async def run():
-        service = owner()
-        answering = status == 'partial'
-        value = draft(status=status, claims=draft()['claims'] if answering else [],
-                      limitations=['Bạn muốn hỏi về loại chính sách nào?'])
-        check = verdict(checks=verdict()['checks'] if answering else [])
-        enable(service, SimpleNamespace(complete=AsyncMock(side_effect=[(value, {}), (check, {})]), close=AsyncMock()))
-        response = await service.answers.answer('Question', 5)
-        assert response.status == status and value['limitations'][0] in response.answer
-        assert bool(response.sources) == answering
-        assert service.answers.runtime.complete.await_count == 2
-    asyncio.run(run())
-
-
-@pytest.mark.parametrize('failure', ['invalid_citation', 'bad_verdict', 'bad_json_shape'])
-def test_rejected_drafts_never_escape_response_or_logs(failure, caplog):
-    async def run():
-        service = owner()
-        value, check = draft(), verdict()
-        if failure == 'invalid_citation':
-            value['claims'][0]['citations'][0]['quote'] = 'PRIVATE invented claim'
-        elif failure == 'bad_verdict':
-            check['checks'][0]['conditions_preserved'] = False
-        else:
-            value = {'secret_draft': 'PRIVATE'}
-        enable(service, SimpleNamespace(complete=AsyncMock(side_effect=[(value, {}), (check, {})]), close=AsyncMock()))
-        response = await service.answers.answer('PRIVATE question', 5)
-        assert response.status == 'insufficient_evidence'
-        assert response.claims == response.sources == []
-        assert 'PRIVATE' not in response.model_dump_json() + caplog.text
-        assert service.answers.available  # Validation rejection does not imply runtime failure.
-    asyncio.run(run())
-
-
-def test_no_matches_skips_generation():
-    async def run():
-        service = owner()
-        enable(service)
-        service.retrieval.retrieve.return_value = evidence(status='no_matches', matches=[],
-            fallback_reason='below_relevance_threshold', relevance={'status': 'low_relevance', 'warnings': []})
-        result = await service.answers.answer('Question', 5)
-        assert result.status == 'insufficient_evidence' and result.fallback_reason == 'below_relevance_threshold'
-        service.answers.runtime.complete.assert_not_awaited()
-    asyncio.run(run())
-
-
-@pytest.mark.parametrize('failure', ['timeout', 'inference', 'cancel'])
-def test_failed_request_closes_runtime_and_releases_owner(failure, monkeypatch):
-    async def run():
-        service = owner()
-        entered = asyncio.Event()
-        async def complete(*args):
+        owner=service(sample)
+        entered,finish=asyncio.Event(),asyncio.Event()
+        async def retrieve(*args, **kwargs):
             entered.set()
-            if failure == 'inference':
-                await asyncio.sleep(.01)
-                raise RuntimeError('PRIVATE model text')
-            await asyncio.Event().wait()
-        enable(service, SimpleNamespace(complete=complete, close=AsyncMock()))
-        monkeypatch.setattr(answer_module, 'DEADLINE_SECONDS', .02 if failure == 'timeout' else 30)
-        task = asyncio.create_task(service.answers.answer('Question', 5))
+            worker=asyncio.create_task(finish.wait())
+            try: await asyncio.shield(worker)
+            except asyncio.CancelledError:
+                from src.api.answer import drain
+                await drain(worker)
+                raise
+        owner.retrieval.retrieve.side_effect=retrieve
+        task=asyncio.create_task(owner.answers.answer('Question',5))
         await entered.wait()
-        with pytest.raises(ApiError) as busy:
-            await service.retrieve('Other question')
-        assert busy.value.status_code == 429
-        if failure == 'cancel':
-            task.cancel()
-            with pytest.raises(asyncio.CancelledError):
-                await task
-        else:
-            with pytest.raises(ApiError) as caught:
-                await task
-            assert caught.value.status_code == (504 if failure == 'timeout' else 503)
-        service.answers.runtime.close.assert_awaited_once()
-        assert not service.busy and not service.answers.available and service._idle.is_set()
-        assert (await service.retrieve('Question')).status == 'matches_found'
-    asyncio.run(run())
-
-
-def test_repeated_cancellation_keeps_busy_until_runtime_stops():
-    async def run():
-        service = owner()
-        generating, closing, release = asyncio.Event(), asyncio.Event(), asyncio.Event()
-        async def complete(*args):
-            generating.set()
-            await asyncio.Event().wait()
-        async def close():
-            closing.set()
-            await release.wait()
-        enable(service, SimpleNamespace(complete=complete, close=close))
-        task = asyncio.create_task(service.answers.answer('Question', 5))
-        await generating.wait()
-        task.cancel()
-        await closing.wait()
         task.cancel()
         await asyncio.sleep(0)
-        assert service.busy and not task.done()
-        release.set()
-        with pytest.raises(asyncio.CancelledError):
-            await task
-        assert not service.busy
+        task.cancel()
+        assert owner.busy
+        finish.set()
+        with pytest.raises(asyncio.CancelledError): await task
+        assert not owner.busy and owner._idle.is_set()
     asyncio.run(run())
 
 
-def reviewed_files(tmp_path, settings):
-    rows = []
-    for split in ('development', 'holdout'):
-        for category, count in CATEGORIES.items():
-            for index in range(count // 2):
-                rows.append(dict(id=f'{split}-{category}-{index}', split=split, category=category,
-                    critical=category == 'adversarial', accepted=True, status='answered', error=None, seconds=10.))
-    report = dict(schema_version=3, status='awaiting_manual_review', error=None, cases=rows,
-        runtime_identity={'model': 'm', 'runtime': 'r'}, implementation_sha256=implementation_identity(),
-        retrieval_identity=retrieval_identity(settings), configuration=configuration(),
-        corpus_fingerprint='fictional-corpus', peak_system_memory_percent=70, runtime_measured=True)
-    reviews = dict(user_accepted=True, cases=[dict(id=r['id'], correct_and_complete=True,
-        no_unsupported_claims=True, sources_valid=True, critical_passed=True, more_useful_than_excerpts=True) for r in rows])
-    samples = tmp_path / 'samples.private.json'
-    samples.write_text('[]', encoding='utf-8')
-    report['samples_sha256'] = sha_file(samples)
-    report_path, review_path = tmp_path / 'report.json', tmp_path / 'review.json'
-    def save():
-        report_path.write_text(json.dumps(report), encoding='utf-8')
-        reviews['report_sha256'] = sha_file(report_path)
-        review_path.write_text(json.dumps(reviews), encoding='utf-8')
-    save()
-    return report_path, review_path, report, reviews, save
-
-
-@pytest.mark.parametrize('change', ['none', 'unaccepted', 'model', 'code', 'pipeline', 'configuration', 'slow', 'samples', 'review_hash', 'old_report'])
-def test_acceptance_requires_matching_manual_review_and_runtime(tmp_path, change):
-    settings = owner().settings
-    report_path, review_path, report, review, save = reviewed_files(tmp_path, settings)
-    if change == 'unaccepted':
-        review['user_accepted'] = False
-    elif change in ('model', 'code', 'pipeline', 'configuration', 'old_report'):
-        field = {'model': 'runtime_identity', 'code': 'implementation_sha256', 'pipeline': 'retrieval_identity',
-                 'configuration': 'configuration', 'old_report': 'schema_version'}[change]
-        report[field] = 'changed'
-    elif change == 'slow':
-        for row in report['cases'][:4]:
-            row['seconds'] = 31
-    save()
-    if change == 'samples':
-        (tmp_path / 'samples.private.json').write_text('[1]', encoding='utf-8')
-    elif change == 'review_hash':
-        report_path.write_text('{}', encoding='utf-8')
-    if change == 'none':
-        assert load_acceptance(report_path, review_path, settings, {'model': 'm', 'runtime': 'r'}) == 'fictional-corpus'
-    else:
-        with pytest.raises(ValueError):
-            load_acceptance(report_path, review_path, settings, {'model': 'm', 'runtime': 'r'})
-
-
-def test_missing_acceptance_leaves_retrieval_available():
-    service = owner()
-    service.settings = replace(service.settings, answer=AnswerSettings(enabled=True))
-    service.answers.settings = service.settings
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        assert client.post('/api/v1/answer', json={'text': 'Question'}).status_code == 503
-        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 200
-
-
-@pytest.mark.parametrize('warmup_failure', [False, True])
-def test_enabled_lifecycle_requires_review_then_warmup(monkeypatch, warmup_failure):
+@pytest.mark.parametrize('failure',[False,True])
+def test_catalog_startup_and_role_isolation(sample,monkeypatch,failure):
+    from src.retrieval.semantics import SemanticSettings
+    import src.api.answer as module
+    def load(*args):
+        if failure: raise ValueError('PRIVATE')
+        return sample.catalog,sample.lexicon
+    monkeypatch.setattr(module,'load_catalog',load)
+    owner=service(sample)
+    owner.settings=replace(owner.settings,answer=AnswerSettings(enabled=True),
+                           semantic=SemanticSettings('expand',Path('fictional')))
+    owner.answers.settings=owner.settings
     async def run():
-        from src.retrieval.reranking import RerankSettings
-        service = owner()
-        service.settings = replace(service.settings, rerank=RerankSettings(enabled=True),
-            answer=AnswerSettings(enabled=True, report_path=Path('report'),
-                                  review_path=Path('review')))
-        service.answers.settings = service.settings
-        runtime = SimpleNamespace(verify_files=lambda: {'runtime': 'r', 'model': 'm'},
-            start=AsyncMock(), warmup=AsyncMock(side_effect=ValueError('PRIVATE') if warmup_failure else None),
-            close=AsyncMock())
-        monkeypatch.setattr(answer_module, 'LocalRuntime', lambda *a, **kw: runtime)
-        monkeypatch.setattr(answer_module, 'load_acceptance', lambda *a: 'fictional-corpus')
-        await service.start()
-        assert service.started and service.answers.available is not warmup_failure
-        runtime.start.assert_awaited_once()
-        runtime.warmup.assert_awaited_once()
-        await service.close()
-        service.retrieval.close.assert_awaited_once()
-        service.database_close.assert_awaited_once()
+        await owner.answers.start()
+        assert owner.answers.available is not failure
+        await owner.answers.close()
+        assert owner.answers.catalog is None
     asyncio.run(run())
 
 
-def test_http_disconnect_cancels_inference_and_drains_owned_runtime():
-    async def run():
-        service = owner()
-        entered = asyncio.Event()
-        async def complete(*args):
-            entered.set()
-            await asyncio.Event().wait()
-        enable(service, SimpleNamespace(complete=complete, close=AsyncMock()))
-        app = create_app(service.settings)
-        app.state.retrieval_service = service
-        first = True
-        async def receive():
-            nonlocal first
-            if first:
-                first = False
-                return {'type': 'http.request', 'body': b'{"text":"Question"}', 'more_body': False}
-            await entered.wait()
-            return {'type': 'http.disconnect'}
-        scope = {'type': 'http', 'asgi': {'version': '3.0'}, 'http_version': '1.1',
-            'method': 'POST', 'scheme': 'http', 'path': '/api/v1/answer', 'raw_path': b'/api/v1/answer',
-            'query_string': b'', 'headers': [(b'content-type', b'application/json')],
-            'client': ('127.0.0.1', 1234), 'server': ('127.0.0.1', 8000), 'root_path': ''}
-        with pytest.raises(asyncio.CancelledError):
-            await asyncio.wait_for(app(scope, receive, AsyncMock()), timeout=2)
-        service.answers.runtime.close.assert_awaited_once()
-        assert not service.answers.available and not service.busy
-    asyncio.run(run())
-
-
-def unassessed(*, empty=False):
-    return evidence(status='no_matches' if empty else 'matches_found', matches=[] if empty else [match()],
-        fallback_reason='no_candidates' if empty else None,
-        relevance={'status': 'no_candidates' if empty else 'unassessed',
-                   'warnings': ['evidence_completeness_not_assessed', 'relevance_filter_disabled']})
-
-
-@pytest.mark.parametrize('answer_enabled,filter_enabled,rerank_enabled', [
-    (False, True, True), (False, False, False), (False, False, True),
-    (True, False, False), (True, False, True), (True, True, True), (True, True, False)])
-def test_answer_flag_matrix_without_acceptance(monkeypatch, answer_enabled, filter_enabled, rerank_enabled):
-    from src.retrieval.reranking import RerankSettings
-    service = owner()
-    service.settings = replace(service.settings, relevance_filter_enabled=filter_enabled,
-        rerank=RerankSettings(enabled=rerank_enabled),
-        answer=AnswerSettings(enabled=answer_enabled, model_sha256='fictional',
-                              report_path=Path('missing-report'), review_path=Path('missing-review')))
-    service.answers.settings = service.settings
-    runtime = SimpleNamespace(verify_files=Mock(return_value={'model': 'fictional'}),
-        start=AsyncMock(), warmup=AsyncMock(), close=AsyncMock(),
-        complete=AsyncMock(side_effect=[(draft(), {}), (verdict(), {})]))
-    factory = Mock(return_value=runtime)
-    acceptance = Mock(side_effect=ValueError('not accepted'))
-    monkeypatch.setattr(answer_module, 'LocalRuntime', factory)
-    monkeypatch.setattr(answer_module, 'load_acceptance', acceptance)
-    service.retrieval.retrieve.return_value = evidence() if filter_enabled else unassessed()
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        response = client.post('/api/v1/answer', json={'text': 'Fictional question?', 'top_k': 5})
-        active = answer_enabled and not filter_enabled
-        assert response.status_code == (200 if active else 503)
-        if active:
-            body = response.json()
-            assert body['status'] == 'answered'
-            assert body['relevance'] == unassessed()['relevance']
-            assert service.answers.corpus is None
-            runtime.verify_files.assert_called_once()
-            runtime.start.assert_awaited_once()
-            runtime.warmup.assert_awaited_once()
-            assert runtime.complete.await_count == 2
-        if not filter_enabled:
-            acceptance.assert_not_called()  # Even configured bad reports are ignored, not read.
-        if not answer_enabled:
-            factory.assert_not_called()
-        assert client.post('/api/v1/retrieve', json={'text': 'Other question'}).status_code == 200
-
-
-@pytest.mark.parametrize('failure', ['hash', 'load', 'warmup'])
-def test_unfiltered_startup_still_requires_technical_checks(monkeypatch, failure):
-    service = owner()
-    service.settings = replace(service.settings, relevance_filter_enabled=False,
-                               answer=AnswerSettings(enabled=True))
-    service.answers.settings = service.settings
-    runtime = SimpleNamespace(verify_files=Mock(return_value={}), start=AsyncMock(),
-                              warmup=AsyncMock(), close=AsyncMock())
-    target = {'hash': runtime.verify_files, 'load': runtime.start, 'warmup': runtime.warmup}[failure]
-    target.side_effect = ValueError('PRIVATE technical failure')
-    monkeypatch.setattr(answer_module, 'LocalRuntime', lambda *args: runtime)
-    acceptance = Mock(side_effect=AssertionError('must not read a report'))
-    monkeypatch.setattr(answer_module, 'load_acceptance', acceptance)
-    with TestClient(create_app(service.settings, service_factory=lambda _: service)) as client:
-        assert client.post('/api/v1/answer', json={'text': 'Question'}).status_code == 503
-        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 200
-    acceptance.assert_not_called()
-
-
-@pytest.mark.parametrize('outcome', ['empty', 'bad_citation', 'verifier_rejects', 'clarification'])
-def test_unfiltered_outcomes_preserve_relevance_without_unchecked_text(monkeypatch, outcome):
-    async def run():
-        service = owner()
-        service.settings = replace(service.settings, relevance_filter_enabled=False)
-        service.answers.settings = service.settings
-        value, check = draft(), verdict()
-        if outcome == 'bad_citation':
-            value['claims'][0]['citations'][0]['quote'] = 'PRIVATE fabricated'
-        elif outcome == 'verifier_rejects':
-            check['no_unresolved_conflict'] = False
-        elif outcome == 'clarification':
-            value = draft(status='needs_clarification', claims=[], limitations=['Which policy?'])
-            check = verdict(checks=[])
-        enable(service, SimpleNamespace(complete=AsyncMock(side_effect=[(value, {}), (check, {})]), close=AsyncMock()))
-        service.answers.corpus = None
-        raw = unassessed(empty=outcome == 'empty')
-        service.retrieval.retrieve.return_value = raw
-        result = await service.answers.answer('Question', 5)
-        assert result.relevance.model_dump() == raw['relevance']
-        assert result.claims == result.sources == []
-        assert 'PRIVATE' not in result.model_dump_json()
-        assert result.status == ('needs_clarification' if outcome == 'clarification' else 'insufficient_evidence')
-        if outcome == 'empty':
-            service.answers.runtime.complete.assert_not_awaited()
-    asyncio.run(run())
-
-
-@pytest.mark.parametrize('metadata', [None, {}, {'status': 'unassessed', 'warnings': []},
-    {'status': 'relevant_candidates', 'warnings': ['relevance_filter_disabled']},
-    {'status': 'unassessed', 'warnings': 'relevance_filter_disabled'},
-    {'status': [], 'warnings': ['relevance_filter_disabled']}])
-def test_unfiltered_mode_rejects_missing_or_contradictory_metadata(metadata):
-    async def run():
-        runtime = SimpleNamespace(complete=AsyncMock())
-        result = unassessed()
-        result['relevance'] = metadata
-        retrieval = SimpleNamespace(retrieve=AsyncMock(return_value=result))
-        with pytest.raises(ValueError, match='relevance_unavailable'):
-            await evaluate_question('Question', retrieval, runtime, allow_unassessed=True)
-        runtime.complete.assert_not_awaited()
-    asyncio.run(run())
-
-
-# Native thinking/context/grammar regressions live in test_native_answer_runtime.py.
-
-
-def test_gguf_inspection_rejects_wrong_model(tmp_path):
-    path = tmp_path / 'fictional.gguf'
-    path.write_bytes(b'not gguf')
-    with pytest.raises(ValueError):
-        model_metadata(path)
-    path.write_bytes(struct.pack('<4sIQQ', b'GGUF', 3, 0, 0))
-    with pytest.raises(ValueError, match='unexpected_answer_model'):
-        model_metadata(path)
-
-
-@pytest.mark.parametrize('blocks,nextn,quant,valid', [(24, 0, 17, True), (25, 1, 17, True),
-    (24, 0, 15, False), (25, 0, 17, False), (25, 2, 17, False)])
-def test_q5_metadata_accepts_base_layers_with_optional_prediction_layer(tmp_path, blocks, nextn, quant, valid):
-    path = tmp_path / 'model.gguf'
-    values = {'general.architecture': 'qwen35', 'general.size_label': '0.8B',
-              'qwen35.block_count': blocks, 'qwen35.embedding_length': 1024,
-              'qwen35.nextn_predict_layers': nextn, 'general.file_type': quant}
-    def string(value):
-        encoded = value.encode('utf-8')
-        return struct.pack('<Q', len(encoded)) + encoded
-    content = struct.pack('<4sIQQ', b'GGUF', 3, 0, len(values))
-    for key, value in values.items():
-        content += string(key)
-        content += struct.pack('<I', 8 if isinstance(value, str) else 4)
-        content += string(value) if isinstance(value, str) else struct.pack('<I', value)
-    path.write_bytes(content)
-    if valid:
-        assert model_metadata(path)['general.file_type'] == 17
-    else:
-        with pytest.raises(ValueError, match='unexpected_answer_model'):
-            model_metadata(path)
+def test_config_retired_keys_cannot_load_models():
+    settings=from_environment({'ANSWER_ENABLED':'true','ANSWER_MODEL_PATH':'PRIVATE',
+        'ANSWER_MODEL_SHA256':'bad','ANSWER_REPORT_PATH':'bad','ANSWER_DEBUG_RAW':'invalid'})
+    assert settings.enabled and not hasattr(settings,'model_path') and not hasattr(settings,'debug_raw')
+    with pytest.raises(ValueError): from_environment({'ANSWER_ENABLED':'yes'})
+    assert AnswerSettings().enabled is False

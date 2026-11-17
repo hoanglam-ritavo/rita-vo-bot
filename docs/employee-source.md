@@ -2,7 +2,7 @@
 
 `src.employee_source` provides explicitly invoked PostgreSQL access to
 `employee_sso_store`. It is independent of the Type A database, Alembic, ingestion,
-retrieval, intent classification, answering and HTTP/gRPC routes. It performs no
+retrieval, intent classification, answering and HTTP routes. It performs no
 authentication, authorization, user synchronization, HRM account lookup, alias
 resolution, birthday business logic or model inference. Callers must establish
 identity and access rights before any future business integration. Access to all

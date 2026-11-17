@@ -169,15 +169,10 @@ Corpus eligibility/publication changes or model/pipeline fingerprint changes inv
 
 ## Optional answer model and runtime
 
-The grounded answer candidate is `models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf`.
-It is separately provisioned and is not implicitly added to the selected
-E5/reranker inventory or promoted by this feature. Keep its bytes unchanged.
-GGUF metadata inspection checks qwen35, 0.8B, 24 base layers (optionally one
-next-token prediction layer), embedding size 1024 and Q5_K_M file type 17; these checks do not authenticate its upstream origin.
-Record the upstream conversion source/revision, model SHA-256, official binding
-source/wheel/build provenance and native-library hashes in private deployment
-notes. The schema-v3 report binds the in-process binding, Python/ABI, template
-and model identity; previous server-backend reports, Q4 or differently quantized
-artifacts require a fresh study.
-No application command downloads weights or runtime binaries. See
-[answer setup and gates](answer-evaluation.md).
+Qwen/GGUF answering is retired. Local model bytes and installed packages are
+preserved, but no runtime path loads them. No accepted Qwen report can authorize
+Semantic + template answers. The current runtime uses
+`artifacts/answers/v1/catalog.json` and its provenance manifest, inventoried under
+the `answers` group. Source/lexicon identity validation is distinct from business
+review and retrieval relevance acceptance. See the
+[current answer contract](answer-evaluation.md#semantic-template-answer-api).

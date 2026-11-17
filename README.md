@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI, and health-only gRPC. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in grounded answer API supports reviewed filtered answering and explicitly unfiltered trials with Qwen3.5-0.8B Q5_K_M; trials retain unassessed relevance metadata and do not establish acceptance. Business RPCs, authenticated Type B tools and conversation history remain planned.
+Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI. E5-small runs directly in Python; retrieval returns source chunks. A separate opt-in Semantic + template answer API uses source-bound catalog entries and explicit excerpt/clarification fallbacks, with no generative model. Unfiltered responses retain unassessed relevance metadata and do not establish acceptance. Authenticated Type B tools and conversation history remain planned.
 
 An opt-in [readonly employee source](docs/employee-source.md) now supplies a separate
 PostgreSQL connection, explicit 64-field employee_sso_store repository, immutable
@@ -32,6 +32,90 @@ Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, in
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.
 
 ## Current verification status
+
+### HTTP-only service transport - 2026-11-17
+
+Removed the health-only gRPC server, entrypoint, dedicated tests, direct
+requirements and example environment settings. HTTP contracts, loopback binding,
+one-worker execution and retrieval/answer behavior are unchanged. This validation
+uses the uncommitted working tree based on `a324872`, preserving existing and
+concurrent template-answer, employee-source and runtime-asset edits. See
+[HTTP operation and rollout](#http-service-operation-and-rollout) for replacement
+probes and deployment limits.
+
+Before removal, focused HTTP/answer tests passed **83 tests** in the repository
+virtual environment. The same **83 tests passed** after removal, and again in a
+fresh isolated environment under `.tmp` installed from `requirements-dev.txt`.
+That clean environment contains neither `grpcio` nor `grpcio-health-checking`;
+FastAPI, application and API entrypoint imports passed without `grpc` or
+`grpc_health`, and `pip check` reported no broken requirements. Optional real
+embedding/ONNX dependencies were not installed in that clean environment.
+
+Post-change non-integration regression: **893 passed, 1 skipped, 54 deselected**.
+The initial sandbox run hit Windows temporary-directory permissions; tests were
+rerun outside that restriction. The first broad run then had **878 passed,
+1 skipped and 15 fixture setup errors** from Windows path lengths in historical
+asset-restructure tests. A full rerun with a verified-unused short `--basetemp`
+under `.tmp` passed without changing tests or deleting old temporary directories.
+Existing deprecation warnings remain: AnyIO's portal alias in the repository
+environment, and Starlette's HTTPX TestClient integration in the fresh environment.
+
+Local Markdown link paths, replacement HTTP anchors and `git diff --check` passed.
+No migrations, publication, real-model checks, live backend/HTTP smoke tests,
+service restarts or external launcher/probe changes were performed. Synthetic
+checks do not certify live connectivity, retrieval quality or production capacity.
+The existing runtime environment, private `.env`, model and document bytes were
+not changed; only the isolated verification environment was installed.
+
+### Semantic + template replacement - 2026-11-17
+
+The answer implementation working tree is based on `a324872`, preserving the separately developed
+readonly employee source and its documentation. Concurrent unrelated employee-source
+and gRPC edits are outside this answer validation scope. Qwen loaders, native runtime,
+model verifier, acceptance gates and model-specific tests are retired; shared
+source/citation, HTTP and cancellation regressions are covered by template tests.
+The interrupted verifier-improvement proposal is not an implemented capability.
+No model bytes, installed environments, `.env`, packages, vectors, database schema
+or publication rows were changed. No listener was opened or service restarted.
+
+Catalog/source validation passed: **29 documents / 530 chunks**, **32 template
+entries**, **498 excerpt-only chunks**, bound to the unchanged semantic v2 lexicon
+and package snapshot. Most initial templates preserve source wording and explicitly
+report partial coverage; three benefit cards include authored natural-language
+amount/conditions/paperwork sections. This is not complete conversational coverage,
+business approval or relevance acceptance. Runtime inventory verification passed
+for **22 files**; `pip check` passed.
+All **149 local Markdown file targets** in the changed answer/setup documents
+resolved, and final diff whitespace checks passed (Git's existing CRLF notices
+remain). Anchor semantics and live browser behavior were not checked by that scan.
+
+Post-edit focused checks passed **115 tests** before the additional multi-beneficiary
+regression. Final full non-integration verification passed **923 passed, 1 skipped,
+54 deselected**, with the existing Starlette/AnyIO deprecation warning. Initial
+sandbox attempts hit Windows access errors in pytest temporary storage; successful
+runs used new extended-length repository-local `.tmp/` paths outside the sandbox,
+without changing permissions or deleting prior temporary trees. No integration
+database tests or migrations ran.
+
+Read-only real-service regression used a private exposed **66-case** set covering
+two questions per document plus eight boundaries. Final `run-02` completed without
+request errors: **57 partial, 8 needs_clarification, 1 answered**; median **2.405 s**,
+empirical p95 **4.001 s**. Startup was measured separately (**16.488 s**). Median
+process CPU time per request was **10.391 CPU-seconds**, about **35.4%** normalized
+over twelve logical CPUs during each request; this is process-level measurement,
+not total-machine utilization or a controlled comparison with prior Qwen runs.
+Generation/verification timings are zero. Private receipts are under
+`.tmp/template-answer-20261117/`.
+
+The first exposed run revealed a multi-beneficiary question being reduced to one
+topic by a global exclusion. Clause-aware ambiguity handling and a fictional
+regression now preserve both requested topics and ask for clarification; the final
+run supersedes that first result. Expected document sources appeared for 54/58
+document-labeled questions; four questions with duplicate travel-document topics
+asked for clarification. Source checks retained amount, eligibility, exclusions,
+paperwork and variation caveats in the published benefit answer. These exposed
+checks are not independent holdout, exhaustive semantic review, production p95
+acceptance or personal-entitlement verification. Unfiltered results remain unassessed.
 
 ### Readonly employee source foundation - 2026-11-17
 
@@ -794,11 +878,11 @@ async def retrieve_example(model_path, model_revision):
         await close_database()  # Application owner closes the shared database at shutdown.
 ```
 
-The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. Both the retrieval CLI and the HTTP API below return source chunks only. Conversation history, personnel lookup and chat RPCs remain unimplemented.
+The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Service close does not dispose the shared database. Imports do not load configuration, models or connect. Both the retrieval CLI and the HTTP API below return source chunks only. Conversation history, personnel lookup and authenticated Type B tools remain unimplemented.
 
 ## Local retrieval API and Swagger
 
-Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. Retrieval loads E5-small directly in Python on CPU and uses no generative model; the optional answer route loads GGUF directly through an optional native Python binding. The application never downloads weights or falls back to hosted inference.
+Install `requirements-dev.txt` and `requirements-example.txt` in the Python 3.14 repository virtual environment. Retrieval loads E5-small directly in Python on CPU and uses no generative model; the optional answer route renders source-bound templates without a generative model or native GGUF binding. The application never downloads weights or falls back to hosted inference.
 
 Use `.env.example` for `API_HOST`, `API_PORT`, `E5_MODEL_PATH`, `E5_MODEL_REVISION` and `RETRIEVAL_TOP_K` (default 5, range 1-20). Existing environment variables override repository `.env`. Relative model paths resolve from the repository root. The default pinned E5 directory under `models/embeddings` must exist and match the indexed run. Model files must remain immutable until shutdown. PostgreSQL, an explicitly migrated schema and already-published public documents are prerequisites; startup does not migrate or publish.
 
@@ -822,7 +906,7 @@ Use the supplied entrypoint: it binds only to loopback (default `127.0.0.1:8000`
 
 `/health/live` reports HTTP availability. `/health/ready` checks initialized model state and database connectivity, not publication completeness, model compatibility with every stored run or semantic quality. Shutdown drains active work and closes E5, the optional reranker and the shared database. Imports create no runtime connections. Questions and document contents are not logged or retained as history.
 
-Invalid input returns 422, busy 429, unavailable dependencies/model mismatch 503 and timeout 504. Empty valid retrieval returns 200; operational failures never become empty evidence. gRPC remains an independent health-only process. See [manual retrieval evaluation](docs/retrieval-evaluation.md) for read-only real-model checks.
+Invalid input returns 422, busy 429, unavailable dependencies/model mismatch 503 and timeout 504. Empty valid retrieval returns 200; operational failures never become empty evidence. See [manual retrieval evaluation](docs/retrieval-evaluation.md) for read-only real-model checks.
 
 ## Optional online CPU reranking
 
@@ -856,21 +940,30 @@ The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally ch
 <a id="offline-answer-evaluation-endpoint-not-implemented"></a>
 ## Grounded answers and offline acceptance
 
-`POST /api/v1/answer` is a separate, opt-in local endpoint; `/api/v1/retrieve`
-remains excerpt-only. Answering defaults to disabled. With filtering enabled it requires a matching,
-manually reviewed 60-case study with explicit user acceptance. With filtering
-disabled it may use marked unassessed candidates without a profile or study,
-while retaining technical model checks, source validation and the verifier. It loads the local
-`models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf` directly inside Python through
-`requirements-answer.txt`, using one dedicated model thread and the existing
-API port. It uses configured retrieval, source-backed claims,
-and at most one generator/verifier call each. There is no conversation storage,
-automatic repair/retry, backend route or portal integration.
+`POST /api/v1/answer` is a separate opt-in Semantic + template endpoint;
+`/api/v1/retrieve` remains excerpt-only. Set `ANSWER_ENABLED=true`,
+`SEMANTIC_MODE=expand`, a matching `SEMANTIC_ARTIFACT_PATH`, and optionally
+`ANSWER_CATALOG_PATH` (default `artifacts/answers/v1/catalog.json`). No GGUF,
+native generation dependency, report, model verifier or inference retry is used.
+Retired model/report/debug settings are ignored; local `.env` is not rewritten.
 
-See [answer API and acceptance](docs/answer-evaluation.md#local-answer-api) for
-configuration, response fields, lifecycle, failure behavior and rollout. Passing
-synthetic tests does not establish real-model quality, latency or production
-readiness. Historical 40-case reports and Q4 model results cannot enable Q5.
+Validate source/lexicon identity with `python -m src.cli.check_answer_catalog`.
+The initial catalog inventories all 29 documents / 530 chunks: 32 chunks have
+source-bound template entries and 498 remain excerpt-only. Most initial entries
+preserve full source wording and report partial coverage; three benefit entries
+have authored natural-language amount/condition/paperwork responses. This is
+whole-corpus availability, not complete natural-language template coverage.
+
+Filtering remains authoritative; explicitly unfiltered results remain unassessed.
+Only uniquely matched questions with all required current top-K evidence use a
+template. Other cases return labeled excerpts, clarification or insufficient
+evidence, without personal eligibility or aggregate conclusions. Requests share
+the retrieval busy slot, 120-second deadline and cancellation cleanup. Existing
+response fields remain; generation/verification timings are zero.
+
+See [current answer contract](docs/answer-evaluation.md#semantic-template-answer-api)
+and [manual regression](scripts/README.md#template-answer-regression).
+Historical Qwen studies below describe retired behavior and cannot enable templates.
 
 ### Fallback verification - 2026-11-13
 
@@ -894,36 +987,50 @@ Author cases before examining retrieval rankings. A case file contains `revision
 
 The target is at least 90% complete evidence among detail/condition cases with every marked supported critical case passing. Aggregate results are reported separately. Exit codes are 0 for meeting this target, 1 for missing it, and 2 for evaluation/input/storage failures (argument errors also use 2). An unsupported-only set cannot meet the target. This evaluates evidence retrieval, not generated answers or fallback behavior. Agent review must still assess ambiguous wording, missing operational facts and semantic sufficiency. Package changes require re-pinning cases and a matching publication; retain baseline reports and disclose any tuning on the evaluation questions.
 
-## Local gRPC server
+## HTTP service operation and rollout
 
-After installing the dependencies, run `python -m src.cli.serve_grpc` from the repository root. This command does not require database configuration, migrations or a model. The intended inbound direction is the monolithic backend calling this chatbot microservice; business RPC contracts are not implemented yet.
+FastAPI is the only service transport. Run `python -m src.cli.serve_api` with the
+repository virtual environment activated; see [HTTP setup](#local-retrieval-api-and-swagger)
+for model, database and configuration prerequisites. The backend continues to
+call `POST /api/v1/retrieve`. Request/response contracts are unchanged; the answer
+route remains separately opt-in. No migrations or publication are part of this
+transport cleanup.
 
-| Variable | Default | Accepted values |
-| --- | --- | --- |
-| `GRPC_HOST` | `127.0.0.1` | Only `127.0.0.1` |
-| `GRPC_PORT` | `50051` | Integer from 1 to 65535 |
-| `GRPC_SHUTDOWN_GRACE_SECONDS` | `5` | Finite, non-negative seconds |
+The former health-only gRPC server and `serve_grpc` entrypoint are removed without
+a compatibility stub. Remove any old launcher and `GRPC_*` environment entries;
+leftover variables are ignored. Removing direct dependencies does not uninstall
+packages from an existing virtual environment; prefer a fresh environment built
+from the committed requirements. Do not force-remove transitive dependencies.
 
-Configuration loads explicitly from the repository-root `.env`; environment variables take precedence. Imports do not load configuration or open sockets. Invalid configuration or an occupied port fails startup with exit code 1, without selecting another port. Ctrl+C stops the server gracefully and exits with 0; shutdown failures exit with 1.
-
-From a second PowerShell terminal with the virtual environment activated, call the standard health RPC:
+Use these HTTP probes (substitute the configured port when needed):
 
 ```powershell
-@'
-import grpc
-from grpc_health.v1 import health_pb2, health_pb2_grpc
-
-with grpc.insecure_channel('127.0.0.1:50051') as channel:
-    response = health_pb2_grpc.HealthStub(channel).Check(
-        health_pb2.HealthCheckRequest(service=''), timeout=3,
-    )
-    print(health_pb2.HealthCheckResponse.ServingStatus.Name(response.status))
-'@ | python -
+Invoke-RestMethod -Uri http://127.0.0.1:8000/health/live -TimeoutSec 5
+Invoke-RestMethod -Uri http://127.0.0.1:8000/health/ready -TimeoutSec 20
 ```
 
-Use your configured port if changed. `SERVING` confirms only the gRPC transport; it does not check the database, model, retrieval or chatbot readiness. Unknown service names return `NOT_FOUND`. Shutdown marks health `NOT_SERVING` and allows in-flight RPCs up to the configured grace period.
+Liveness reports HTTP availability. Readiness checks initialized retrieval/model
+state and database connectivity; it does not certify catalog availability,
+retrieval quality or publication completeness. Allow startup time for local model
+loading and the database check before enforcing probes.
 
-This development server uses plaintext loopback only, without authentication or TLS. It cannot accept calls from another machine or a separate container network namespace. Remote backend connectivity, authentication, TLS/mTLS and chatbot contracts remain future work. The pinned gRPC packages are checked on Windows with Python 3.14 and the existing psycopg-compatible `SelectorEventLoop` runner. `main.py` retains its database-check behavior.
+Before rollout, inventory external service launchers and probes; these are not
+provided or verified by this repository. Replace any gRPC probes with HTTP probes
+before retiring the old process, then deploy the bot with the existing one-worker
+entrypoint and remove the old launcher. Smoke-test both probes, a direct retrieval
+and retrieval through the existing backend. Valid empty outcomes with explicit
+fallbacks are not transport errors. Test `/api/v1/answer` only when already enabled
+and provisioned. Confirm the retired process is stopped and monitor startup
+failures, response latency and HTTP 429/503/504. On regression, restore the previous
+application artifact and launcher; no data rollback is needed.
+
+Keep the API on `127.0.0.1`, without opening it to a network. Backend and bot must
+share the machine/network namespace; separate container networks or machines
+require a separately scoped connectivity/security change. The backend's current
+default and maximum timeout is 60 seconds, versus the bot's 120-second deadline.
+A caller timeout/disconnect does not guarantee immediate retrieval cancellation;
+this existing behavior and the single-request busy limit are unchanged. No
+backend, portal or HRM-source integration changes are required for this cleanup.
 
 ## Database configuration and behavior
 
@@ -973,7 +1080,7 @@ Run unit tests (shared database fixtures only execute when requested by integrat
 python -m pytest -m 'not integration'
 ```
 
-The non-integration suite includes real loopback gRPC calls on ephemeral ports, without an external backend or database. Synthetic multi-format package/converter tests check JSON contracts and byte preservation; they do not parse actual PDF/XLSX files or verify agent extraction accuracy. Publication tests are in `src/tests/test_publication.py` and `src/tests/test_publication_integration.py`; the production module retains its existing name.
+The non-integration suite includes HTTP contract and lifecycle tests using synthetic services, without an external backend or database. Synthetic multi-format package/converter tests check JSON contracts and byte preservation; they do not parse actual PDF/XLSX files or verify agent extraction accuracy. Publication tests are in `src/tests/test_publication.py` and `src/tests/test_publication_integration.py`; the production module retains its existing name.
 
 Pytest stores its cache in `.tmp/pytest-cache` and, by default, test temporary files in `.tmp/pytest-work`. The test configuration creates the temporary root when pytest starts and restores its environment override at shutdown; importing the fixtures does not create directories. Pytest manages numbered session directories and locks so concurrent runs use separate temporary directories. The retention policy keeps the latest three sessions after normal cleanup, including successful tests for debugging. Active, interrupted or permission-blocked sessions can remain longer; this is not a disk-space limit. The entire `.tmp/` workspace is Git-ignored.
 
