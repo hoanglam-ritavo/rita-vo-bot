@@ -6,6 +6,11 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 
 ## Inventory
 
+The external-execution [Colab intent kit](../collabs/intent-colab/README.md) is
+maintained separately under `collabs/intent-colab/`. It documents direct-file
+build/check, sample authoring, verification and packaging commands. Upload archives
+and receipts stay under `.tmp`; application CLI ownership is unchanged.
+
 | File | Status / role | Purpose |
 | --- | --- | --- |
 | `try_retrieval.py` | Current manual utility | Run the public retrieval contract from an IDE and display Vietnamese source excerpts/timings. |
@@ -15,6 +20,7 @@ Run `python -m scripts.<name>` from the repository root with the repository virt
 | `benchmark_online_retrieval.py` | Current offline benchmark | Inspect offline candidates, calibrate per-passage relevance and measure quality/latency gates. |
 | `benchmark_semantic_retrieval.py` | Current offline benchmark | Compare baseline/semantics/optional intent assistance across corpus-wide cross-document evidence cases. |
 | `fit_relevance_scoring.py` | Experimental offline fitter | Fit development-only local passage scoring; emits coefficients and a training report, never an accepted profile. |
+| `relevance_colab.py` | Development-only kit exchange | Package the independent V3 kit, export reviewed numeric rows and import/re-fit Colab candidates under `.tmp`; no model/DB access or acceptance. |
 | `prepare_scoring_review.py` | Private offline review bridge | Create unranked source worksheets or export actually reviewed paired features into development rows. |
 | `promote_relevance_profile.py` | Gated local release utility | Copy only an emitted, reviewed, passing semantic schema-v3 profile and provenance to the current fixed-path pair; hash-guard replacements and update runtime inventory. |
 | `diagnose_retrieval.py` | Current offline diagnostic | Inspect a saved benchmark collection and prepare unranked source-review worksheets; no model/DB access or profile issuance. |
@@ -41,6 +47,24 @@ Edit `QUESTION`, `TOP_K`, `MODEL_PATH`, `MODEL_REVISION` in `try_retrieval.py`, 
 Requires PostgreSQL, compatible published vectors and a local model. Reads public filtered results through `src.retrieval.runner`, shared with [the retrieval CLI](../src/cli/README.md#retrieval-and-services); does not implement another search algorithm or start HTTP. Output includes full accepted source excerpts and completed timings, without publication writes. Exit codes follow the runner (`0` valid results/empty outcomes, `1` selected input/model failures, `2` operational failure). The compact no-match display does not distinguish every fallback reason; use CLI JSON/HTTP for that. The editable default configuration does not enable calibrated reranking. See [retrieval evaluation](../docs/retrieval-evaluation.md).
 
 ## Evaluation and experiments
+
+### Independent relevance scoring Colab kit
+
+See the [standalone V3 guide](../collabs/relevance-scoring-v3/README.md) for
+notebook operation, data contracts, fictional examples and local acceptance.
+Run `python -m scripts.relevance_colab package --output .tmp/colab-kit-v1.zip`
+to package only the declared kit files. Run
+`python -m scripts.relevance_colab export --dataset .tmp/scoring/reviewed-development.json --output .tmp/colab-development-v1.zip`
+after the existing source-review bridge. Import with
+`python -m scripts.relevance_colab import --bundle .tmp/colab-development-v1.zip --result .tmp/downloaded-candidate-v1.zip --output-dir .tmp/scoring/colab-import-v1`.
+All exchange paths must be under `.tmp`; destinations must be new. Exit 0 means
+the requested development operation completed, never profile acceptance; exit 2
+is a fixed-code input/fit/output rejection. Packaging uses standard-library IO;
+export validates reviewed numeric data and import independently re-fits using
+NumPy. No network, database, publication, runtime profile, `.env` or service is
+changed. Upstream source drift rejects exchange until the kit is reviewed and
+refreshed. GPU is optional scoring diagnostics only; local CPU acceptance and
+existing promotion remain mandatory.
 
 ### Template answer regression
 

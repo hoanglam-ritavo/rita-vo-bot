@@ -1,0 +1,10 @@
+{
+  "kit_version": "1.0.0",
+  "fit_device": "cpu",
+  "gpu_role": "optional_fp64_scoring_diagnostics_only",
+  "rtol": 1e-9,
+  "atol": 1e-10,
+  "intent_mode": "off",
+  "arms": ["baseline", "semantic"],
+  "accepted_profile": false
+}

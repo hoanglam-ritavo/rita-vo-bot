@@ -1,0 +1,6007 @@
+{
+  "schema_version": 1,
+  "reviewed": true,
+  "review_notes": "Agent-authored and agent-audited synthetic draft. Human review of labels, scope, diversity and split independence is pending. No model predictions were used for labeling; not acceptance evidence.",
+  "cases": [
+    {
+      "id": "type_a-work-annual-leave-01",
+      "question": "Mỗi năm được bao nhiêu ngày phép và những đối tượng nào được áp dụng?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-annual-leave-01",
+      "question": "Tôi còn bao nhiêu ngày phép trong năm nay?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-annual-leave-01",
+      "question": "Tôi còn bao nhiêu ngày phép trong năm nay? Mỗi năm được bao nhiêu ngày phép và những đối tượng nào được áp dụng?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-annual-leave-02",
+      "question": "Liệt kê đầy đủ hồ sơ xin nghỉ phép và hướng dẫn thứ tự gửi từng loại hồ sơ.",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-annual-leave-02",
+      "question": "Đơn nghỉ gần nhất của tôi đang chờ ai duyệt?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-annual-leave-02",
+      "question": "Đơn nghỉ gần nhất của tôi đang chờ ai duyệt? Liệt kê đầy đủ hồ sơ xin nghỉ phép và hướng dẫn thứ tự gửi từng loại hồ sơ.",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-annual-leave-03",
+      "question": "Số ngày phép của người làm chưa đủ năm khác người làm cả năm như thế nào?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-annual-leave-03",
+      "question": "Tháng trước tôi đã dùng mấy ngày phép?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-annual-leave-03",
+      "question": "Tháng trước tôi đã dùng mấy ngày phép? Số ngày phép của người làm chưa đủ năm khác người làm cả năm như thế nào?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-annual-leave-04",
+      "question": "Khi nào được chuyển phép sang năm sau và cần thực hiện những bước nào?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-annual-leave-04",
+      "question": "Phép chưa sử dụng năm trước của tôi hiện còn bao nhiêu?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-annual-leave-04",
+      "question": "Phép chưa sử dụng năm trước của tôi hiện còn bao nhiêu? Khi nào được chuyển phép sang năm sau và cần thực hiện những bước nào?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-annual-leave-05",
+      "question": "Nêu toàn bộ các loại nghỉ trong quy định và đối chiếu quyền hưởng lương của từng loại.",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-annual-leave-05",
+      "question": "Lịch sử nghỉ của tôi quý này có những loại nghỉ nào?",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-annual-leave-05",
+      "question": "Lịch sử nghỉ của tôi quý này có những loại nghỉ nào? Nêu toàn bộ các loại nghỉ trong quy định và đối chiếu quyền hưởng lương của từng loại.",
+      "intent_group": "work-annual-leave",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-overtime-01",
+      "question": "Hệ số trả làm thêm giờ là bao nhiêu và phải đáp ứng điều kiện gì mới được tính?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-overtime-01",
+      "question": "Tháng này hệ thống ghi nhận tôi làm thêm bao nhiêu giờ?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-overtime-01",
+      "question": "Hệ số trả làm thêm giờ là bao nhiêu và phải đáp ứng điều kiện gì mới được tính? Tháng này hệ thống ghi nhận tôi làm thêm bao nhiêu giờ?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-overtime-02",
+      "question": "Cần chuẩn bị đầy đủ những giấy tờ nào để đăng ký tăng ca và nộp theo trình tự ra sao?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-overtime-02",
+      "question": "Phiếu tăng ca tuần trước của tôi được duyệt chưa?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-overtime-02",
+      "question": "Cần chuẩn bị đầy đủ những giấy tờ nào để đăng ký tăng ca và nộp theo trình tự ra sao? Phiếu tăng ca tuần trước của tôi được duyệt chưa?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-overtime-03",
+      "question": "Làm thêm ngày thường và ngày nghỉ có hệ số thanh toán khác nhau ở mức nào?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-overtime-03",
+      "question": "Ngày nào trong tuần này tôi có ca làm thêm đã đăng ký?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-overtime-03",
+      "question": "Làm thêm ngày thường và ngày nghỉ có hệ số thanh toán khác nhau ở mức nào? Ngày nào trong tuần này tôi có ca làm thêm đã đăng ký?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-overtime-04",
+      "question": "Trường hợp nào được nghỉ bù sau tăng ca và quy trình đề nghị nghỉ bù thế nào?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-overtime-04",
+      "question": "Số giờ nghỉ bù còn lại của tôi là bao nhiêu?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-overtime-04",
+      "question": "Trường hợp nào được nghỉ bù sau tăng ca và quy trình đề nghị nghỉ bù thế nào? Số giờ nghỉ bù còn lại của tôi là bao nhiêu?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-overtime-05",
+      "question": "Liệt kê tất cả hình thức ghi nhận làm thêm được quy định rồi so sánh cách xử lý từng hình thức.",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-overtime-05",
+      "question": "Các lần tăng ca của tôi trong tháng trước được ghi nhận theo hình thức nào?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-overtime-05",
+      "question": "Liệt kê tất cả hình thức ghi nhận làm thêm được quy định rồi so sánh cách xử lý từng hình thức. Các lần tăng ca của tôi trong tháng trước được ghi nhận theo hình thức nào?",
+      "intent_group": "work-overtime",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-maternity-01",
+      "question": "Thời gian nghỉ thai sản được quy định bao lâu và ai đủ điều kiện hưởng?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-maternity-01",
+      "question": "Ngày bắt đầu nghỉ thai sản đã lưu trong hồ sơ của tôi là ngày nào?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-maternity-01",
+      "question": "Ngày bắt đầu nghỉ thai sản đã lưu trong hồ sơ của tôi là ngày nào? Thời gian nghỉ thai sản được quy định bao lâu và ai đủ điều kiện hưởng?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-maternity-02",
+      "question": "Cho tôi danh sách trọn bộ hồ sơ thai sản cùng thứ tự các bước nộp và nhận kết quả.",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-maternity-02",
+      "question": "Hồ sơ thai sản tôi gửi đang ở bước xử lý nào?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-maternity-02",
+      "question": "Hồ sơ thai sản tôi gửi đang ở bước xử lý nào? Cho tôi danh sách trọn bộ hồ sơ thai sản cùng thứ tự các bước nộp và nhận kết quả.",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-maternity-03",
+      "question": "Quy định thời gian nghỉ khi sinh một con và sinh nhiều con khác nhau bao nhiêu?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-maternity-03",
+      "question": "Ngày kết thúc đợt nghỉ thai sản của tôi được ghi nhận là bao giờ?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-maternity-03",
+      "question": "Ngày kết thúc đợt nghỉ thai sản của tôi được ghi nhận là bao giờ? Quy định thời gian nghỉ khi sinh một con và sinh nhiều con khác nhau bao nhiêu?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-maternity-04",
+      "question": "Muốn đi làm sớm sau thai sản phải đáp ứng điều kiện nào và làm thủ tục thế nào?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-maternity-04",
+      "question": "Đề nghị đi làm sớm của tôi đã có kết quả chưa?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-maternity-04",
+      "question": "Đề nghị đi làm sớm của tôi đã có kết quả chưa? Muốn đi làm sớm sau thai sản phải đáp ứng điều kiện nào và làm thủ tục thế nào?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-maternity-05",
+      "question": "Đối chiếu tất cả chế độ nghỉ liên quan sinh con trong tài liệu và liệt kê đối tượng của từng chế độ.",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-maternity-05",
+      "question": "Trong hồ sơ của tôi đang có những đợt nghỉ liên quan sinh con nào?",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-maternity-05",
+      "question": "Trong hồ sơ của tôi đang có những đợt nghỉ liên quan sinh con nào? Đối chiếu tất cả chế độ nghỉ liên quan sinh con trong tài liệu và liệt kê đối tượng của từng chế độ.",
+      "intent_group": "work-maternity",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-referral-01",
+      "question": "Thưởng giới thiệu ứng viên ở mức nào và cần thỏa những điều kiện gì?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-referral-01",
+      "question": "Lượt giới thiệu ứng viên gần nhất của tôi được ghi nhận vào ngày nào?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-referral-01",
+      "question": "Thưởng giới thiệu ứng viên ở mức nào và cần thỏa những điều kiện gì? Lượt giới thiệu ứng viên gần nhất của tôi được ghi nhận vào ngày nào?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-referral-02",
+      "question": "Hãy kể đủ các giấy tờ xác nhận giới thiệu tuyển dụng và cách chuyển từng bước cho bộ phận tiếp nhận.",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-referral-02",
+      "question": "Đề nghị thưởng giới thiệu của tôi đang ở trạng thái gì?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-referral-02",
+      "question": "Hãy kể đủ các giấy tờ xác nhận giới thiệu tuyển dụng và cách chuyển từng bước cho bộ phận tiếp nhận. Đề nghị thưởng giới thiệu của tôi đang ở trạng thái gì?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-referral-03",
+      "question": "Mức thưởng giới thiệu vị trí kỹ thuật khác vị trí kinh doanh ra sao theo quy định?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-referral-03",
+      "question": "Khoản thưởng giới thiệu nào đã được ghi nhận cho tôi trong quý này?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-referral-03",
+      "question": "Mức thưởng giới thiệu vị trí kỹ thuật khác vị trí kinh doanh ra sao theo quy định? Khoản thưởng giới thiệu nào đã được ghi nhận cho tôi trong quý này?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-referral-04",
+      "question": "Khi nào được yêu cầu kiểm tra lại thưởng giới thiệu và phải gửi yêu cầu theo quy trình nào?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-referral-04",
+      "question": "Yêu cầu kiểm tra thưởng giới thiệu tôi gửi đã được phản hồi chưa?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-referral-04",
+      "question": "Khi nào được yêu cầu kiểm tra lại thưởng giới thiệu và phải gửi yêu cầu theo quy trình nào? Yêu cầu kiểm tra thưởng giới thiệu tôi gửi đã được phản hồi chưa?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-referral-05",
+      "question": "Tổng hợp mọi nhóm vị trí được thưởng giới thiệu và so sánh điều kiện chi trả giữa các nhóm.",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-referral-05",
+      "question": "Các lượt giới thiệu do tôi thực hiện năm nay đang thuộc những nhóm vị trí nào?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-referral-05",
+      "question": "Tổng hợp mọi nhóm vị trí được thưởng giới thiệu và so sánh điều kiện chi trả giữa các nhóm. Các lượt giới thiệu do tôi thực hiện năm nay đang thuộc những nhóm vị trí nào?",
+      "intent_group": "work-referral",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-business-trip-01",
+      "question": "Định mức phụ cấp công tác là bao nhiêu và áp dụng trong những trường hợp nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-business-trip-01",
+      "question": "Chuyến công tác sắp tới của tôi bắt đầu ngày nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-business-trip-01",
+      "question": "Chuyến công tác sắp tới của tôi bắt đầu ngày nào? Định mức phụ cấp công tác là bao nhiêu và áp dụng trong những trường hợp nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-business-trip-02",
+      "question": "Đi công tác cần toàn bộ chứng từ gì và quy trình lập, gửi, hoàn tất hồ sơ ra sao?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-business-trip-02",
+      "question": "Hồ sơ công tác của tôi hiện thiếu chứng từ nào theo trạng thái hệ thống?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-business-trip-02",
+      "question": "Hồ sơ công tác của tôi hiện thiếu chứng từ nào theo trạng thái hệ thống? Đi công tác cần toàn bộ chứng từ gì và quy trình lập, gửi, hoàn tất hồ sơ ra sao?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-business-trip-03",
+      "question": "Mức phụ cấp công tác trong nước và ngoài nước khác nhau thế nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-business-trip-03",
+      "question": "Chuyến đi gần nhất của tôi được ghi nhận là trong nước hay ngoài nước?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-business-trip-03",
+      "question": "Chuyến đi gần nhất của tôi được ghi nhận là trong nước hay ngoài nước? Mức phụ cấp công tác trong nước và ngoài nước khác nhau thế nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-business-trip-04",
+      "question": "Điều kiện để được tạm ứng công tác phí là gì và phải thực hiện các bước nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-business-trip-04",
+      "question": "Đề nghị tạm ứng công tác phí của tôi đã được duyệt chưa?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-business-trip-04",
+      "question": "Đề nghị tạm ứng công tác phí của tôi đã được duyệt chưa? Điều kiện để được tạm ứng công tác phí là gì và phải thực hiện các bước nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-business-trip-05",
+      "question": "Liệt kê đầy đủ nhóm chi phí công tác được nêu trong chính sách và đối chiếu cách thanh toán.",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-business-trip-05",
+      "question": "Trong hồ sơ chuyến đi vừa rồi của tôi đã ghi nhận những khoản chi nào?",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-business-trip-05",
+      "question": "Trong hồ sơ chuyến đi vừa rồi của tôi đã ghi nhận những khoản chi nào? Liệt kê đầy đủ nhóm chi phí công tác được nêu trong chính sách và đối chiếu cách thanh toán.",
+      "intent_group": "work-business-trip",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-onboarding-01",
+      "question": "Thời hạn hoàn tất hồ sơ nhân sự mới là bao lâu và áp dụng cho những trường hợp nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-onboarding-01",
+      "question": "Ngày nhận việc của tôi đang được lưu là ngày nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-onboarding-01",
+      "question": "Thời hạn hoàn tất hồ sơ nhân sự mới là bao lâu và áp dụng cho những trường hợp nào? Ngày nhận việc của tôi đang được lưu là ngày nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-onboarding-02",
+      "question": "Danh sách đầy đủ công việc hội nhập của nhân viên mới gồm gì và phải làm theo thứ tự nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-onboarding-02",
+      "question": "Danh sách hội nhập của tôi còn những mục chưa hoàn tất nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-onboarding-02",
+      "question": "Danh sách đầy đủ công việc hội nhập của nhân viên mới gồm gì và phải làm theo thứ tự nào? Danh sách hội nhập của tôi còn những mục chưa hoàn tất nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-onboarding-03",
+      "question": "Mốc thời gian hội nhập của nhân viên chính thức khác thực tập sinh như thế nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-onboarding-03",
+      "question": "Loại nhân sự hiện tại của tôi trong hồ sơ là gì?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-onboarding-03",
+      "question": "Mốc thời gian hội nhập của nhân viên chính thức khác thực tập sinh như thế nào? Loại nhân sự hiện tại của tôi trong hồ sơ là gì?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-onboarding-04",
+      "question": "Nếu chưa đủ giấy tờ khi nhận việc thì điều kiện bổ sung và các bước thực hiện ra sao?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-onboarding-04",
+      "question": "Hồ sơ nhận việc của tôi còn thiếu giấy tờ nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-onboarding-04",
+      "question": "Nếu chưa đủ giấy tờ khi nhận việc thì điều kiện bổ sung và các bước thực hiện ra sao? Hồ sơ nhận việc của tôi còn thiếu giấy tờ nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-onboarding-05",
+      "question": "Liệt kê tất cả nhóm hồ sơ nhận việc trong tài liệu và so sánh yêu cầu bản gốc, bản sao.",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-onboarding-05",
+      "question": "Hệ thống đã ghi nhận tôi nộp những loại giấy tờ nhận việc nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-onboarding-05",
+      "question": "Liệt kê tất cả nhóm hồ sơ nhận việc trong tài liệu và so sánh yêu cầu bản gốc, bản sao. Hệ thống đã ghi nhận tôi nộp những loại giấy tờ nhận việc nào?",
+      "intent_group": "work-onboarding",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-probation-01",
+      "question": "Thời gian thử việc tối đa theo tài liệu là bao lâu và áp dụng cho nhóm công việc nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-probation-01",
+      "question": "Ngày hết thử việc của tôi trên hệ thống là ngày nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-probation-01",
+      "question": "Ngày hết thử việc của tôi trên hệ thống là ngày nào? Thời gian thử việc tối đa theo tài liệu là bao lâu và áp dụng cho nhóm công việc nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-probation-02",
+      "question": "Nêu đủ các biểu mẫu đánh giá thử việc và hướng dẫn luồng thực hiện từ đầu đến cuối.",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-probation-02",
+      "question": "Phiếu đánh giá thử việc của tôi đang chờ bộ phận nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-probation-02",
+      "question": "Phiếu đánh giá thử việc của tôi đang chờ bộ phận nào? Nêu đủ các biểu mẫu đánh giá thử việc và hướng dẫn luồng thực hiện từ đầu đến cuối.",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-probation-03",
+      "question": "Mức lương thử việc được quy định khác mức lương chính thức như thế nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-probation-03",
+      "question": "Mức lương thử việc đang được lưu trong hồ sơ của tôi là bao nhiêu?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-probation-03",
+      "question": "Mức lương thử việc đang được lưu trong hồ sơ của tôi là bao nhiêu? Mức lương thử việc được quy định khác mức lương chính thức như thế nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-probation-04",
+      "question": "Trường hợp nào được kết thúc thử việc sớm và thủ tục cần thực hiện là gì?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-probation-04",
+      "question": "Hồ sơ kết thúc thử việc sớm của tôi đang ở trạng thái nào?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-probation-04",
+      "question": "Hồ sơ kết thúc thử việc sớm của tôi đang ở trạng thái nào? Trường hợp nào được kết thúc thử việc sớm và thủ tục cần thực hiện là gì?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-probation-05",
+      "question": "Kể toàn bộ kết quả đánh giá thử việc có trong quy định và đối chiếu bước xử lý của từng kết quả.",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-probation-05",
+      "question": "Kết quả đánh giá thử việc của tôi được lưu là gì?",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-probation-05",
+      "question": "Kết quả đánh giá thử việc của tôi được lưu là gì? Kể toàn bộ kết quả đánh giá thử việc có trong quy định và đối chiếu bước xử lý của từng kết quả.",
+      "intent_group": "work-probation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-resignation-01",
+      "question": "Thời hạn báo trước khi nghỉ việc là bao nhiêu ngày và phụ thuộc điều kiện nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-resignation-01",
+      "question": "Ngày làm việc cuối cùng của tôi đã được ghi nhận là ngày nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-resignation-01",
+      "question": "Thời hạn báo trước khi nghỉ việc là bao nhiêu ngày và phụ thuộc điều kiện nào? Ngày làm việc cuối cùng của tôi đã được ghi nhận là ngày nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-resignation-02",
+      "question": "Nghỉ việc phải nộp đầy đủ những biểu mẫu nào và quy trình bàn giao, xác nhận diễn ra ra sao?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-resignation-02",
+      "question": "Phiếu bàn giao nghỉ việc của tôi còn ai chưa xác nhận?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-resignation-02",
+      "question": "Nghỉ việc phải nộp đầy đủ những biểu mẫu nào và quy trình bàn giao, xác nhận diễn ra ra sao? Phiếu bàn giao nghỉ việc của tôi còn ai chưa xác nhận?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-resignation-03",
+      "question": "Thời hạn báo trước của hợp đồng xác định thời hạn khác hợp đồng không xác định thời hạn bao nhiêu?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-resignation-03",
+      "question": "Hợp đồng hiện tại của tôi thuộc loại nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-resignation-03",
+      "question": "Thời hạn báo trước của hợp đồng xác định thời hạn khác hợp đồng không xác định thời hạn bao nhiêu? Hợp đồng hiện tại của tôi thuộc loại nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-resignation-04",
+      "question": "Muốn rút đơn nghỉ việc thì phải thỏa điều kiện gì và thực hiện theo các bước nào?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-resignation-04",
+      "question": "Đơn xin rút đề nghị nghỉ việc của tôi đã có kết quả chưa?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-resignation-04",
+      "question": "Muốn rút đơn nghỉ việc thì phải thỏa điều kiện gì và thực hiện theo các bước nào? Đơn xin rút đề nghị nghỉ việc của tôi đã có kết quả chưa?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-resignation-05",
+      "question": "Liệt kê mọi nhóm nghĩa vụ khi chấm dứt hợp đồng và so sánh trách nhiệm nhân viên với công ty.",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-resignation-05",
+      "question": "Những hạng mục bàn giao nghỉ việc nào của tôi còn chưa hoàn tất?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-resignation-05",
+      "question": "Liệt kê mọi nhóm nghĩa vụ khi chấm dứt hợp đồng và so sánh trách nhiệm nhân viên với công ty. Những hạng mục bàn giao nghỉ việc nào của tôi còn chưa hoàn tất?",
+      "intent_group": "work-resignation",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-discipline-01",
+      "question": "Thời hạn xử lý kỷ luật trong nội quy là bao lâu và trường hợp nào được áp dụng?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-discipline-01",
+      "question": "Hồ sơ của tôi đang có quyết định kỷ luật nào còn hiệu lực?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-discipline-01",
+      "question": "Hồ sơ của tôi đang có quyết định kỷ luật nào còn hiệu lực? Thời hạn xử lý kỷ luật trong nội quy là bao lâu và trường hợp nào được áp dụng?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-discipline-02",
+      "question": "Để tổ chức cuộc họp kỷ luật cần đầy đủ hồ sơ nào và phải thực hiện theo thứ tự nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-discipline-02",
+      "question": "Tôi đã nhận thông báo họp xử lý vi phạm vào ngày nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-discipline-02",
+      "question": "Tôi đã nhận thông báo họp xử lý vi phạm vào ngày nào? Để tổ chức cuộc họp kỷ luật cần đầy đủ hồ sơ nào và phải thực hiện theo thứ tự nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-discipline-03",
+      "question": "Thời gian lưu hiệu lực của khiển trách khác kéo dài thời hạn nâng lương ở điểm nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-discipline-03",
+      "question": "Quyết định khiển trách gần nhất của tôi ghi thời hạn đến ngày nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-discipline-03",
+      "question": "Quyết định khiển trách gần nhất của tôi ghi thời hạn đến ngày nào? Thời gian lưu hiệu lực của khiển trách khác kéo dài thời hạn nâng lương ở điểm nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-discipline-04",
+      "question": "Điều kiện gửi giải trình về vi phạm là gì và quy trình tiếp nhận giải trình ra sao?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-discipline-04",
+      "question": "Bản giải trình tôi đã nộp đang ở trạng thái nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-discipline-04",
+      "question": "Bản giải trình tôi đã nộp đang ở trạng thái nào? Điều kiện gửi giải trình về vi phạm là gì và quy trình tiếp nhận giải trình ra sao?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-discipline-05",
+      "question": "Liệt kê đủ các hình thức kỷ luật trong nội quy và so sánh phạm vi áp dụng của chúng.",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-discipline-05",
+      "question": "Lịch sử xử lý vi phạm của riêng tôi có những quyết định nào?",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-discipline-05",
+      "question": "Lịch sử xử lý vi phạm của riêng tôi có những quyết định nào? Liệt kê đủ các hình thức kỷ luật trong nội quy và so sánh phạm vi áp dụng của chúng.",
+      "intent_group": "work-discipline",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-expense-01",
+      "question": "Hạn mức thanh toán chi phí mua phục vụ công việc là bao nhiêu và điều kiện được hoàn trả là gì?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-expense-01",
+      "question": "Đề nghị hoàn chi gần nhất của tôi có số tiền bao nhiêu?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-expense-01",
+      "question": "Hạn mức thanh toán chi phí mua phục vụ công việc là bao nhiêu và điều kiện được hoàn trả là gì? Đề nghị hoàn chi gần nhất của tôi có số tiền bao nhiêu?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-expense-02",
+      "question": "Liệt kê toàn bộ chứng từ hoàn ứng và hướng dẫn từng bước gửi hồ sơ quyết toán.",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-expense-02",
+      "question": "Hồ sơ quyết toán tôi gửi đang chờ ai xử lý?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-expense-02",
+      "question": "Liệt kê toàn bộ chứng từ hoàn ứng và hướng dẫn từng bước gửi hồ sơ quyết toán. Hồ sơ quyết toán tôi gửi đang chờ ai xử lý?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-expense-03",
+      "question": "Thời hạn quyết toán tạm ứng và thanh toán bằng tiền cá nhân khác nhau ra sao?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-expense-03",
+      "question": "Khoản tạm ứng chưa quyết toán của tôi được ghi nhận ngày nào?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-expense-03",
+      "question": "Thời hạn quyết toán tạm ứng và thanh toán bằng tiền cá nhân khác nhau ra sao? Khoản tạm ứng chưa quyết toán của tôi được ghi nhận ngày nào?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-expense-04",
+      "question": "Hóa đơn bị sai thông tin thì điều kiện bổ sung thế nào và phải xử lý theo trình tự nào?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-expense-04",
+      "question": "Phiếu bổ sung hóa đơn của tôi đã được tiếp nhận chưa?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-expense-04",
+      "question": "Hóa đơn bị sai thông tin thì điều kiện bổ sung thế nào và phải xử lý theo trình tự nào? Phiếu bổ sung hóa đơn của tôi đã được tiếp nhận chưa?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-expense-05",
+      "question": "Nêu đủ các nhóm chi phí được phép đề nghị hoàn trả rồi đối chiếu yêu cầu chứng từ từng nhóm.",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-expense-05",
+      "question": "Các đề nghị hoàn trả chi phí của tôi trong tháng này gồm những khoản nào?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-expense-05",
+      "question": "Nêu đủ các nhóm chi phí được phép đề nghị hoàn trả rồi đối chiếu yêu cầu chứng từ từng nhóm. Các đề nghị hoàn trả chi phí của tôi trong tháng này gồm những khoản nào?",
+      "intent_group": "work-expense",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-training-01",
+      "question": "Thời gian cam kết sau đào tạo là bao lâu và những trường hợp nào phải cam kết?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-training-01",
+      "question": "Cam kết đào tạo đã ký của tôi kết thúc vào ngày nào?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-training-01",
+      "question": "Cam kết đào tạo đã ký của tôi kết thúc vào ngày nào? Thời gian cam kết sau đào tạo là bao lâu và những trường hợp nào phải cam kết?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-training-02",
+      "question": "Muốn đăng ký đào tạo cần trọn bộ giấy tờ gì và thứ tự xin xác nhận như thế nào?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-training-02",
+      "question": "Đăng ký khóa học gần nhất của tôi đang ở trạng thái gì?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-training-02",
+      "question": "Đăng ký khóa học gần nhất của tôi đang ở trạng thái gì? Muốn đăng ký đào tạo cần trọn bộ giấy tờ gì và thứ tự xin xác nhận như thế nào?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-training-03",
+      "question": "Mức hỗ trợ khóa học nội bộ khác khóa học bên ngoài thế nào?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-training-03",
+      "question": "Khóa học sắp tới của tôi được ghi nhận là nội bộ hay bên ngoài?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-training-03",
+      "question": "Khóa học sắp tới của tôi được ghi nhận là nội bộ hay bên ngoài? Mức hỗ trợ khóa học nội bộ khác khóa học bên ngoài thế nào?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-training-04",
+      "question": "Đủ điều kiện nào thì được đổi lịch đào tạo và cần làm các bước gì?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-training-04",
+      "question": "Đề nghị đổi lịch đào tạo của tôi đã được duyệt chưa?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-training-04",
+      "question": "Đề nghị đổi lịch đào tạo của tôi đã được duyệt chưa? Đủ điều kiện nào thì được đổi lịch đào tạo và cần làm các bước gì?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-training-05",
+      "question": "Liệt kê mọi loại chương trình đào tạo trong chính sách và so sánh nghĩa vụ hoàn trả chi phí.",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-training-05",
+      "question": "Trong hồ sơ cá nhân tôi có những khóa đào tạo nào đã hoàn tất?",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-training-05",
+      "question": "Trong hồ sơ cá nhân tôi có những khóa đào tạo nào đã hoàn tất? Liệt kê mọi loại chương trình đào tạo trong chính sách và so sánh nghĩa vụ hoàn trả chi phí.",
+      "intent_group": "work-training",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-attendance-01",
+      "question": "Đi muộn bao nhiêu phút thì bị ghi nhận và những trường hợp ngoại lệ nào được quy định?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-attendance-01",
+      "question": "Hôm qua tôi được ghi nhận vào làm lúc mấy giờ?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-attendance-01",
+      "question": "Đi muộn bao nhiêu phút thì bị ghi nhận và những trường hợp ngoại lệ nào được quy định? Hôm qua tôi được ghi nhận vào làm lúc mấy giờ?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-attendance-02",
+      "question": "Liệt kê đủ biểu mẫu điều chỉnh chấm công và hướng dẫn các bước gửi, kiểm tra, xác nhận.",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-attendance-02",
+      "question": "Phiếu điều chỉnh chấm công của tôi còn chờ ai xác nhận?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-attendance-02",
+      "question": "Liệt kê đủ biểu mẫu điều chỉnh chấm công và hướng dẫn các bước gửi, kiểm tra, xác nhận. Phiếu điều chỉnh chấm công của tôi còn chờ ai xác nhận?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-attendance-03",
+      "question": "Khung giờ chấm công của ca hành chính khác ca linh hoạt ở các mốc nào?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-attendance-03",
+      "question": "Lịch làm việc hiện tại của tôi được xếp vào ca nào?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-attendance-03",
+      "question": "Khung giờ chấm công của ca hành chính khác ca linh hoạt ở các mốc nào? Lịch làm việc hiện tại của tôi được xếp vào ca nào?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-attendance-04",
+      "question": "Quên chấm công được bổ sung khi đáp ứng điều kiện nào và phải làm theo quy trình gì?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-attendance-04",
+      "question": "Đề nghị bổ sung chấm công sáng nay của tôi đã được duyệt chưa?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-attendance-04",
+      "question": "Quên chấm công được bổ sung khi đáp ứng điều kiện nào và phải làm theo quy trình gì? Đề nghị bổ sung chấm công sáng nay của tôi đã được duyệt chưa?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-attendance-05",
+      "question": "Tất cả nhóm sai lệch chấm công được xử lý như thế nào, hãy liệt kê và so sánh từng nhóm.",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-attendance-05",
+      "question": "Bảng công tháng này của tôi có những ngày bị đánh dấu sai lệch nào?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-attendance-05",
+      "question": "Tất cả nhóm sai lệch chấm công được xử lý như thế nào, hãy liệt kê và so sánh từng nhóm. Bảng công tháng này của tôi có những ngày bị đánh dấu sai lệch nào?",
+      "intent_group": "work-attendance",
+      "split": "train",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-remote-work-01",
+      "question": "Một tuần được làm việc từ xa tối đa mấy ngày và ai được áp dụng?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-remote-work-01",
+      "question": "Tuần này tôi đã đăng ký làm ở nhà những ngày nào?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-remote-work-01",
+      "question": "Tuần này tôi đã đăng ký làm ở nhà những ngày nào? Một tuần được làm việc từ xa tối đa mấy ngày và ai được áp dụng?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-remote-work-02",
+      "question": "Cho tôi đủ các mục phải đăng ký làm từ xa và trình tự xin phép tương ứng.",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-remote-work-02",
+      "question": "Đề nghị làm từ xa thứ sáu của tôi có trạng thái gì?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-remote-work-02",
+      "question": "Đề nghị làm từ xa thứ sáu của tôi có trạng thái gì? Cho tôi đủ các mục phải đăng ký làm từ xa và trình tự xin phép tương ứng.",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-remote-work-03",
+      "question": "Thời gian phản hồi bắt buộc khi làm tại nhà khác khi làm tại văn phòng bao nhiêu?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-remote-work-03",
+      "question": "Lịch hiện tại của tôi đang ghi làm tại nhà hay văn phòng?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-remote-work-03",
+      "question": "Lịch hiện tại của tôi đang ghi làm tại nhà hay văn phòng? Thời gian phản hồi bắt buộc khi làm tại nhà khác khi làm tại văn phòng bao nhiêu?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-remote-work-04",
+      "question": "Trong tình huống khẩn cấp, điều kiện xin làm từ xa và cách thông báo theo từng bước là gì?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-remote-work-04",
+      "question": "Thông báo làm từ xa khẩn cấp của tôi đã được tiếp nhận chưa?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-remote-work-04",
+      "question": "Thông báo làm từ xa khẩn cấp của tôi đã được tiếp nhận chưa? Trong tình huống khẩn cấp, điều kiện xin làm từ xa và cách thông báo theo từng bước là gì?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-remote-work-05",
+      "question": "Đối chiếu toàn bộ hình thức làm việc từ xa được quy định, kèm danh sách yêu cầu của từng hình thức.",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-remote-work-05",
+      "question": "Trong tháng này tôi đã có những đợt làm từ xa được duyệt nào?",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-remote-work-05",
+      "question": "Trong tháng này tôi đã có những đợt làm từ xa được duyệt nào? Đối chiếu toàn bộ hình thức làm việc từ xa được quy định, kèm danh sách yêu cầu của từng hình thức.",
+      "intent_group": "work-remote-work",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-work-accident-01",
+      "question": "Thời hạn khai báo tai nạn lao động được quy định là bao lâu và loại sự việc nào phải khai báo?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-work-accident-01",
+      "question": "Biên bản sự cố lao động liên quan đến tôi được lập ngày nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-work-accident-01",
+      "question": "Thời hạn khai báo tai nạn lao động được quy định là bao lâu và loại sự việc nào phải khai báo? Biên bản sự cố lao động liên quan đến tôi được lập ngày nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-work-accident-02",
+      "question": "Khi báo cáo tai nạn cần toàn bộ tài liệu gì và trình tự gửi đến các đơn vị thế nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-work-accident-02",
+      "question": "Hồ sơ báo cáo sự cố của tôi đang ở bước nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-work-accident-02",
+      "question": "Khi báo cáo tai nạn cần toàn bộ tài liệu gì và trình tự gửi đến các đơn vị thế nào? Hồ sơ báo cáo sự cố của tôi đang ở bước nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-work-accident-03",
+      "question": "Mốc báo cáo ban đầu của tai nạn nhẹ khác sự cố nghiêm trọng ở đâu?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-work-accident-03",
+      "question": "Sự cố tôi đã khai báo được hệ thống ghi nhận ở nhóm nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-work-accident-03",
+      "question": "Mốc báo cáo ban đầu của tai nạn nhẹ khác sự cố nghiêm trọng ở đâu? Sự cố tôi đã khai báo được hệ thống ghi nhận ở nhóm nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-work-accident-04",
+      "question": "Sự việc trên đường đi làm cần đáp ứng điều kiện nào để được xem xét và nộp hồ sơ theo bước nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-work-accident-04",
+      "question": "Hồ sơ sự việc trên đường đi làm của tôi đã được tiếp nhận chưa?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-work-accident-04",
+      "question": "Sự việc trên đường đi làm cần đáp ứng điều kiện nào để được xem xét và nộp hồ sơ theo bước nào? Hồ sơ sự việc trên đường đi làm của tôi đã được tiếp nhận chưa?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-work-accident-05",
+      "question": "Chính sách nêu những nhóm sự cố nào, hãy liệt kê đủ và đối chiếu trách nhiệm báo cáo.",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-work-accident-05",
+      "question": "Các biên bản sự cố thuộc hồ sơ của tôi gồm những bản nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-work-accident-05",
+      "question": "Chính sách nêu những nhóm sự cố nào, hãy liệt kê đủ và đối chiếu trách nhiệm báo cáo. Các biên bản sự cố thuộc hồ sơ của tôi gồm những bản nào?",
+      "intent_group": "work-work-accident",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-asset-handover-01",
+      "question": "Thời hạn trả thiết bị sau điều chuyển là bao lâu và trường hợp nào phải bàn giao?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-asset-handover-01",
+      "question": "Tôi đang được cấp phát những thiết bị nào?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-asset-handover-01",
+      "question": "Tôi đang được cấp phát những thiết bị nào? Thời hạn trả thiết bị sau điều chuyển là bao lâu và trường hợp nào phải bàn giao?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-asset-handover-02",
+      "question": "Bàn giao tài sản yêu cầu những biểu mẫu nào và kiểm tra, ký nhận theo thứ tự ra sao?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-asset-handover-02",
+      "question": "Biên bản bàn giao máy tính gần nhất của tôi đã đủ chữ ký chưa?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-asset-handover-02",
+      "question": "Biên bản bàn giao máy tính gần nhất của tôi đã đủ chữ ký chưa? Bàn giao tài sản yêu cầu những biểu mẫu nào và kiểm tra, ký nhận theo thứ tự ra sao?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-asset-handover-03",
+      "question": "Thời hạn bảo quản hồ sơ giao nhận máy tính khác hồ sơ vật tư ở điểm nào?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-asset-handover-03",
+      "question": "Ngày nhận máy tính hiện tại của tôi được ghi là ngày nào?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-asset-handover-03",
+      "question": "Ngày nhận máy tính hiện tại của tôi được ghi là ngày nào? Thời hạn bảo quản hồ sơ giao nhận máy tính khác hồ sơ vật tư ở điểm nào?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-asset-handover-04",
+      "question": "Thiết bị hỏng khi bàn giao được xử lý trong điều kiện nào và theo các bước gì?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-asset-handover-04",
+      "question": "Phiếu báo hỏng thiết bị do tôi gửi đang ở trạng thái gì?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-asset-handover-04",
+      "question": "Phiếu báo hỏng thiết bị do tôi gửi đang ở trạng thái gì? Thiết bị hỏng khi bàn giao được xử lý trong điều kiện nào và theo các bước gì?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-asset-handover-05",
+      "question": "Nêu toàn bộ loại tài sản phải xác nhận khi bàn giao và so sánh đơn vị tiếp nhận từng loại.",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-asset-handover-05",
+      "question": "Những tài sản nào trong hồ sơ cấp phát của tôi đã được trả lại?",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-asset-handover-05",
+      "question": "Những tài sản nào trong hồ sơ cấp phát của tôi đã được trả lại? Nêu toàn bộ loại tài sản phải xác nhận khi bàn giao và so sánh đơn vị tiếp nhận từng loại.",
+      "intent_group": "work-asset-handover",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-health-check-01",
+      "question": "Chu kỳ khám sức khỏe định kỳ là bao lâu và nhóm nhân viên nào được đăng ký?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-health-check-01",
+      "question": "Lịch khám sức khỏe công ty đã xếp cho tôi là ngày nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-health-check-01",
+      "question": "Chu kỳ khám sức khỏe định kỳ là bao lâu và nhóm nhân viên nào được đăng ký? Lịch khám sức khỏe công ty đã xếp cho tôi là ngày nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-health-check-02",
+      "question": "Đợt khám định kỳ yêu cầu đầy đủ giấy tờ gì và đăng ký theo những bước nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-health-check-02",
+      "question": "Tôi đã có tên trong đợt khám định kỳ nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-health-check-02",
+      "question": "Đợt khám định kỳ yêu cầu đầy đủ giấy tờ gì và đăng ký theo những bước nào? Tôi đã có tên trong đợt khám định kỳ nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-health-check-03",
+      "question": "Thời hạn đăng ký khám lần đầu và khám bổ sung khác nhau thế nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-health-check-03",
+      "question": "Ngày tôi gửi đăng ký khám bổ sung được lưu là ngày nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-health-check-03",
+      "question": "Thời hạn đăng ký khám lần đầu và khám bổ sung khác nhau thế nào? Ngày tôi gửi đăng ký khám bổ sung được lưu là ngày nào?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-health-check-04",
+      "question": "Muốn đổi lịch khám thì cần điều kiện gì và thủ tục ra sao?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-health-check-04",
+      "question": "Yêu cầu đổi lịch khám của tôi đã được xác nhận chưa?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-health-check-04",
+      "question": "Muốn đổi lịch khám thì cần điều kiện gì và thủ tục ra sao? Yêu cầu đổi lịch khám của tôi đã được xác nhận chưa?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-health-check-05",
+      "question": "Liệt kê đủ các hình thức tổ chức khám được hướng dẫn rồi so sánh cách đăng ký.",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-health-check-05",
+      "question": "Hồ sơ đăng ký của tôi đang ghi khám tập trung hay tự bố trí theo đợt?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-health-check-05",
+      "question": "Liệt kê đủ các hình thức tổ chức khám được hướng dẫn rồi so sánh cách đăng ký. Hồ sơ đăng ký của tôi đang ghi khám tập trung hay tự bố trí theo đợt?",
+      "intent_group": "work-health-check",
+      "split": "calibration",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-insurance-01",
+      "question": "Thời điểm bắt đầu tham gia bảo hiểm được quy định thế nào và áp dụng với hợp đồng nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-insurance-01",
+      "question": "Mã số bảo hiểm đã lưu trong hồ sơ của tôi là gì?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-insurance-01",
+      "question": "Mã số bảo hiểm đã lưu trong hồ sơ của tôi là gì? Thời điểm bắt đầu tham gia bảo hiểm được quy định thế nào và áp dụng với hợp đồng nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-insurance-02",
+      "question": "Đăng ký bảo hiểm cần đủ các giấy tờ gì và chuyển hồ sơ qua những bước nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-insurance-02",
+      "question": "Hồ sơ đăng ký bảo hiểm của tôi đang ở trạng thái nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-insurance-02",
+      "question": "Hồ sơ đăng ký bảo hiểm của tôi đang ở trạng thái nào? Đăng ký bảo hiểm cần đủ các giấy tờ gì và chuyển hồ sơ qua những bước nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-insurance-03",
+      "question": "Mốc báo tăng và báo giảm bảo hiểm khác nhau thế nào theo hướng dẫn?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-insurance-03",
+      "question": "Tháng bắt đầu tham gia bảo hiểm của tôi được ghi nhận là tháng nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-insurance-03",
+      "question": "Tháng bắt đầu tham gia bảo hiểm của tôi được ghi nhận là tháng nào? Mốc báo tăng và báo giảm bảo hiểm khác nhau thế nào theo hướng dẫn?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-insurance-04",
+      "question": "Điều chỉnh sai thông tin bảo hiểm cần đáp ứng điều kiện gì và thực hiện ra sao?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-insurance-04",
+      "question": "Đề nghị sửa thông tin bảo hiểm của tôi đã được xử lý chưa?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-insurance-04",
+      "question": "Đề nghị sửa thông tin bảo hiểm của tôi đã được xử lý chưa? Điều chỉnh sai thông tin bảo hiểm cần đáp ứng điều kiện gì và thực hiện ra sao?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-insurance-05",
+      "question": "Kể đủ các thủ tục bảo hiểm được tài liệu hướng dẫn và so sánh hồ sơ đầu vào của từng thủ tục.",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-insurance-05",
+      "question": "Trong năm nay hồ sơ của tôi có những lần báo tăng hoặc báo giảm bảo hiểm nào?",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-insurance-05",
+      "question": "Trong năm nay hồ sơ của tôi có những lần báo tăng hoặc báo giảm bảo hiểm nào? Kể đủ các thủ tục bảo hiểm được tài liệu hướng dẫn và so sánh hồ sơ đầu vào của từng thủ tục.",
+      "intent_group": "work-insurance",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-salary-payment-01",
+      "question": "Ngày trả lương theo quy chế là ngày nào và trường hợp nào được điều chỉnh lịch?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-salary-payment-01",
+      "question": "Kỳ lương vừa rồi của tôi được hệ thống ghi ngày thanh toán nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-salary-payment-01",
+      "question": "Ngày trả lương theo quy chế là ngày nào và trường hợp nào được điều chỉnh lịch? Kỳ lương vừa rồi của tôi được hệ thống ghi ngày thanh toán nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-salary-payment-02",
+      "question": "Muốn phản ánh sai lệch bảng lương phải có đầy đủ chứng từ gì và gửi theo các bước nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-salary-payment-02",
+      "question": "Phiếu phản ánh bảng lương của tôi đang chờ xử lý ở đâu?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-salary-payment-02",
+      "question": "Muốn phản ánh sai lệch bảng lương phải có đầy đủ chứng từ gì và gửi theo các bước nào? Phiếu phản ánh bảng lương của tôi đang chờ xử lý ở đâu?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-salary-payment-03",
+      "question": "Thời hạn trả lương thông thường khác thanh toán cuối cùng khi nghỉ việc bao lâu?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-salary-payment-03",
+      "question": "Khoản thanh toán cuối cùng của tôi được ghi nhận vào ngày nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-salary-payment-03",
+      "question": "Thời hạn trả lương thông thường khác thanh toán cuối cùng khi nghỉ việc bao lâu? Khoản thanh toán cuối cùng của tôi được ghi nhận vào ngày nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-salary-payment-04",
+      "question": "Được đổi tài khoản nhận lương trong điều kiện nào và quy trình đăng ký ra sao?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-salary-payment-04",
+      "question": "Đề nghị đổi tài khoản nhận lương của tôi đã được xác nhận chưa?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-salary-payment-04",
+      "question": "Được đổi tài khoản nhận lương trong điều kiện nào và quy trình đăng ký ra sao? Đề nghị đổi tài khoản nhận lương của tôi đã được xác nhận chưa?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-salary-payment-05",
+      "question": "Liệt kê mọi hình thức thanh toán lương trong quy chế và đối chiếu điều kiện sử dụng.",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-salary-payment-05",
+      "question": "Hồ sơ nhận lương của tôi đang lưu hình thức thanh toán nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-salary-payment-05",
+      "question": "Liệt kê mọi hình thức thanh toán lương trong quy chế và đối chiếu điều kiện sử dụng. Hồ sơ nhận lương của tôi đang lưu hình thức thanh toán nào?",
+      "intent_group": "work-salary-payment",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-confidentiality-01",
+      "question": "Nghĩa vụ bảo mật kéo dài bao lâu sau khi nghỉ việc và áp dụng cho nhóm thông tin nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-confidentiality-01",
+      "question": "Ngày tôi ký cam kết bảo mật gần nhất là ngày nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-confidentiality-01",
+      "question": "Ngày tôi ký cam kết bảo mật gần nhất là ngày nào? Nghĩa vụ bảo mật kéo dài bao lâu sau khi nghỉ việc và áp dụng cho nhóm thông tin nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-confidentiality-02",
+      "question": "Muốn chia sẻ tài liệu cho đối tác cần đầy đủ xác nhận gì và tiến hành theo thứ tự nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-confidentiality-02",
+      "question": "Đề nghị chia sẻ tài liệu do tôi gửi đang chờ ai phê duyệt?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-confidentiality-02",
+      "question": "Đề nghị chia sẻ tài liệu do tôi gửi đang chờ ai phê duyệt? Muốn chia sẻ tài liệu cho đối tác cần đầy đủ xác nhận gì và tiến hành theo thứ tự nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-confidentiality-03",
+      "question": "Thời hạn lưu trữ tài liệu mật khác tài liệu nội bộ thông thường ở mức nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-confidentiality-03",
+      "question": "Cam kết bảo mật của tôi đang được lưu với thời hạn nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-confidentiality-03",
+      "question": "Cam kết bảo mật của tôi đang được lưu với thời hạn nào? Thời hạn lưu trữ tài liệu mật khác tài liệu nội bộ thông thường ở mức nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-confidentiality-04",
+      "question": "Khi phát hiện gửi nhầm tài liệu, điều kiện thông báo và trình tự xử lý được quy định ra sao?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-confidentiality-04",
+      "question": "Báo cáo gửi nhầm tài liệu tôi đã nộp có trạng thái gì?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-confidentiality-04",
+      "question": "Báo cáo gửi nhầm tài liệu tôi đã nộp có trạng thái gì? Khi phát hiện gửi nhầm tài liệu, điều kiện thông báo và trình tự xử lý được quy định ra sao?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-confidentiality-05",
+      "question": "Tài liệu phân loại thông tin thành những nhóm nào, liệt kê đủ rồi so sánh quyền chia sẻ.",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-confidentiality-05",
+      "question": "Hồ sơ của tôi có những bản cam kết bảo mật đã ký nào?",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-confidentiality-05",
+      "question": "Hồ sơ của tôi có những bản cam kết bảo mật đã ký nào? Tài liệu phân loại thông tin thành những nhóm nào, liệt kê đủ rồi so sánh quyền chia sẻ.",
+      "intent_group": "work-confidentiality",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-promotion-01",
+      "question": "Chu kỳ xét nâng bậc là bao lâu và cần đạt điều kiện nào để được xem xét?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-promotion-01",
+      "question": "Bậc công việc hiện tại của tôi được lưu là bậc nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-promotion-01",
+      "question": "Chu kỳ xét nâng bậc là bao lâu và cần đạt điều kiện nào để được xem xét? Bậc công việc hiện tại của tôi được lưu là bậc nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "detail",
+        "conditions"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-promotion-02",
+      "question": "Hồ sơ đề nghị nâng bậc bao gồm đầy đủ những mục gì và được xét qua các bước nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-promotion-02",
+      "question": "Hồ sơ đề xuất nâng bậc của tôi đang ở vòng nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-promotion-02",
+      "question": "Hồ sơ đề nghị nâng bậc bao gồm đầy đủ những mục gì và được xét qua các bước nào? Hồ sơ đề xuất nâng bậc của tôi đang ở vòng nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "procedure",
+        "enumeration_count"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-promotion-03",
+      "question": "Mốc xét nâng bậc định kỳ và xét đặc cách khác nhau thế nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-promotion-03",
+      "question": "Ngày quyết định nâng bậc gần nhất của tôi có hiệu lực là ngày nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-promotion-03",
+      "question": "Mốc xét nâng bậc định kỳ và xét đặc cách khác nhau thế nào? Ngày quyết định nâng bậc gần nhất của tôi có hiệu lực là ngày nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "comparison",
+        "detail"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_a-work-promotion-04",
+      "question": "Khiếu nại kết quả xét nâng bậc cần thỏa điều kiện nào và nộp theo quy trình gì?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_b-work-promotion-04",
+      "question": "Đề nghị xem lại kết quả nâng bậc của tôi đã có phản hồi chưa?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "mixed-work-promotion-04",
+      "question": "Khiếu nại kết quả xét nâng bậc cần thỏa điều kiện nào và nộp theo quy trình gì? Đề nghị xem lại kết quả nâng bậc của tôi đã có phản hồi chưa?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "conditions",
+        "procedure"
+      ],
+      "critical": true
+    },
+    {
+      "id": "type_a-work-promotion-05",
+      "question": "Liệt kê tất cả hình thức xét nâng bậc trong quy định và so sánh tiêu chí của từng hình thức.",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_a",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "type_b-work-promotion-05",
+      "question": "Lịch sử thay đổi bậc công việc của tôi có những quyết định nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "type_b",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "mixed-work-promotion-05",
+      "question": "Liệt kê tất cả hình thức xét nâng bậc trong quy định và so sánh tiêu chí của từng hình thức. Lịch sử thay đổi bậc công việc của tôi có những quyết định nào?",
+      "intent_group": "work-promotion",
+      "split": "holdout",
+      "source": "mixed",
+      "styles": [
+        "enumeration_count",
+        "comparison"
+      ],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-greeting-01",
+      "question": "Chào bạn!",
+      "intent_group": "conversation-greeting",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-greeting-02",
+      "question": "Xin chào trợ lý nhân sự.",
+      "intent_group": "conversation-greeting",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-greeting-03",
+      "question": "Chúc bạn buổi sáng tốt lành.",
+      "intent_group": "conversation-greeting",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-greeting-04",
+      "question": "Hello, mình ghé chào thôi.",
+      "intent_group": "conversation-greeting",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-greeting-05",
+      "question": "Buổi tối vui vẻ nhé.",
+      "intent_group": "conversation-greeting",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-thanks-01",
+      "question": "Cảm ơn bạn đã hỗ trợ.",
+      "intent_group": "conversation-thanks",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-thanks-02",
+      "question": "Mình hiểu rồi, cảm ơn nhiều.",
+      "intent_group": "conversation-thanks",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-thanks-03",
+      "question": "Câu trả lời vừa rồi hữu ích, cảm ơn nhé.",
+      "intent_group": "conversation-thanks",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-thanks-04",
+      "question": "Thanks, mình không cần hỏi thêm.",
+      "intent_group": "conversation-thanks",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-thanks-05",
+      "question": "Rất cảm kích sự giúp đỡ của bạn.",
+      "intent_group": "conversation-thanks",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-farewell-01",
+      "question": "Tạm biệt, hẹn gặp lại.",
+      "intent_group": "conversation-farewell",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-farewell-02",
+      "question": "Mình dừng trò chuyện ở đây nhé.",
+      "intent_group": "conversation-farewell",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-farewell-03",
+      "question": "Chào nhé, mình đi làm tiếp.",
+      "intent_group": "conversation-farewell",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-farewell-04",
+      "question": "Hẹn bạn vào lần khác.",
+      "intent_group": "conversation-farewell",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-farewell-05",
+      "question": "Bye, kết thúc buổi trao đổi nha.",
+      "intent_group": "conversation-farewell",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-apology-01",
+      "question": "Xin lỗi vì mình gõ nhầm lúc nãy.",
+      "intent_group": "conversation-apology",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-apology-02",
+      "question": "Mình xin lỗi đã làm phiền.",
+      "intent_group": "conversation-apology",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-apology-03",
+      "question": "Nãy mình hơi nóng, cho mình xin lỗi nhé.",
+      "intent_group": "conversation-apology",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-apology-04",
+      "question": "Sorry bạn, mình gửi nhầm lời chào.",
+      "intent_group": "conversation-apology",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-apology-05",
+      "question": "Xin lỗi vì vừa nói thiếu lịch sự.",
+      "intent_group": "conversation-apology",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-wellbeing-01",
+      "question": "Hôm nay bạn khỏe không?",
+      "intent_group": "conversation-wellbeing",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-wellbeing-02",
+      "question": "Bạn vẫn ổn chứ?",
+      "intent_group": "conversation-wellbeing",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-wellbeing-03",
+      "question": "Chúc bạn một ngày nhẹ nhàng.",
+      "intent_group": "conversation-wellbeing",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-wellbeing-04",
+      "question": "Hy vọng hôm nay bạn làm việc vui vẻ.",
+      "intent_group": "conversation-wellbeing",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-wellbeing-05",
+      "question": "Bạn có đang vui không, mình hỏi thăm thôi.",
+      "intent_group": "conversation-wellbeing",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-praise-01",
+      "question": "Bạn giải thích dễ hiểu đấy.",
+      "intent_group": "conversation-praise",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-praise-02",
+      "question": "Trợ lý làm tốt lắm.",
+      "intent_group": "conversation-praise",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-praise-03",
+      "question": "Mình thích cách bạn trình bày.",
+      "intent_group": "conversation-praise",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-praise-04",
+      "question": "Phản hồi vừa rồi rất rõ ràng.",
+      "intent_group": "conversation-praise",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-praise-05",
+      "question": "Bạn hỗ trợ nhiệt tình quá.",
+      "intent_group": "conversation-praise",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-acknowledge-01",
+      "question": "Được rồi, mình đã hiểu.",
+      "intent_group": "conversation-acknowledge",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-acknowledge-02",
+      "question": "OK, mình ghi nhận rồi.",
+      "intent_group": "conversation-acknowledge",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-acknowledge-03",
+      "question": "Rõ nhé, không có câu hỏi thêm.",
+      "intent_group": "conversation-acknowledge",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-acknowledge-04",
+      "question": "Mình đã đọc xong, vậy là đủ.",
+      "intent_group": "conversation-acknowledge",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-acknowledge-05",
+      "question": "Ừ, mình nắm được rồi.",
+      "intent_group": "conversation-acknowledge",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-presence-01",
+      "question": "Bạn còn ở đây không?",
+      "intent_group": "conversation-presence",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-presence-02",
+      "question": "A lô, trợ lý có nghe mình không?",
+      "intent_group": "conversation-presence",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-presence-03",
+      "question": "Mình kiểm tra xem cuộc trò chuyện còn hoạt động thôi.",
+      "intent_group": "conversation-presence",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-presence-04",
+      "question": "Có ai đang trả lời mình không nhỉ?",
+      "intent_group": "conversation-presence",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-presence-05",
+      "question": "Ping bạn một cái nhé.",
+      "intent_group": "conversation-presence",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-friendly-01",
+      "question": "Rất vui được trò chuyện với bạn.",
+      "intent_group": "conversation-friendly",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-friendly-02",
+      "question": "Làm quen nhé, mình là người dùng mới.",
+      "intent_group": "conversation-friendly",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-friendly-03",
+      "question": "Mình chỉ ghé nói chuyện một chút thôi.",
+      "intent_group": "conversation-friendly",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-friendly-04",
+      "question": "Mong mình và bạn phối hợp vui vẻ.",
+      "intent_group": "conversation-friendly",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-friendly-05",
+      "question": "Cảm giác có trợ lý đồng hành cũng hay đấy.",
+      "intent_group": "conversation-friendly",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-patience-01",
+      "question": "Không sao, mình chờ được.",
+      "intent_group": "conversation-patience",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-patience-02",
+      "question": "Bạn cứ từ từ nhé.",
+      "intent_group": "conversation-patience",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-patience-03",
+      "question": "Mình chưa vội đâu.",
+      "intent_group": "conversation-patience",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-patience-04",
+      "question": "Cảm ơn, mình sẽ kiên nhẫn chờ.",
+      "intent_group": "conversation-patience",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-patience-05",
+      "question": "Ổn mà, không cần cuống lên.",
+      "intent_group": "conversation-patience",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-encourage-01",
+      "question": "Cố lên nhé trợ lý.",
+      "intent_group": "conversation-encourage",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-encourage-02",
+      "question": "Chúc bạn tiếp tục làm tốt.",
+      "intent_group": "conversation-encourage",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-encourage-03",
+      "question": "Mình tin bạn sẽ cải thiện dần.",
+      "intent_group": "conversation-encourage",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-encourage-04",
+      "question": "Chúng ta cứ trao đổi bình tĩnh nhé.",
+      "intent_group": "conversation-encourage",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-encourage-05",
+      "question": "Bạn đã giúp được mình rồi, tiếp tục nhé.",
+      "intent_group": "conversation-encourage",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-humor-social-01",
+      "question": "Haha, vui thật đấy.",
+      "intent_group": "conversation-humor-social",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-humor-social-02",
+      "question": "Hì hì, mình cười một chút thôi.",
+      "intent_group": "conversation-humor-social",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-humor-social-03",
+      "question": "Đùa chút cho vui nhé.",
+      "intent_group": "conversation-humor-social",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-humor-social-04",
+      "question": "Không có câu hỏi đâu, mình đang vui thôi.",
+      "intent_group": "conversation-humor-social",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-humor-social-05",
+      "question": "Mình vừa bấm nhầm biểu tượng cười, hihi.",
+      "intent_group": "conversation-humor-social",
+      "split": "train",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-fatigue-sharing-01",
+      "question": "Hôm nay mình hơi mệt, chỉ muốn tâm sự vậy thôi.",
+      "intent_group": "conversation-fatigue-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-fatigue-sharing-02",
+      "question": "Một ngày dài thật, mình đang thấy đuối.",
+      "intent_group": "conversation-fatigue-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-fatigue-sharing-03",
+      "question": "Mình vừa xong việc và thấy hết năng lượng.",
+      "intent_group": "conversation-fatigue-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-fatigue-sharing-04",
+      "question": "Tự nhiên mình muốn ngồi yên một lát vì mệt.",
+      "intent_group": "conversation-fatigue-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-fatigue-sharing-05",
+      "question": "Mình buồn ngủ quá, kể bạn nghe thôi.",
+      "intent_group": "conversation-fatigue-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-boredom-sharing-01",
+      "question": "Hôm nay mình hơi chán.",
+      "intent_group": "conversation-boredom-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-boredom-sharing-02",
+      "question": "Mình đang thấy thời gian trôi chậm ghê.",
+      "intent_group": "conversation-boredom-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-boredom-sharing-03",
+      "question": "Ngồi không một lát thấy buồn chán thật.",
+      "intent_group": "conversation-boredom-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-boredom-sharing-04",
+      "question": "Mình chưa muốn làm gì, chỉ đang chán thôi.",
+      "intent_group": "conversation-boredom-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-boredom-sharing-05",
+      "question": "Một buổi thật tẻ nhạt với mình.",
+      "intent_group": "conversation-boredom-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nostalgia-sharing-01",
+      "question": "Mình bỗng nhớ những ngày mới đi làm.",
+      "intent_group": "conversation-nostalgia-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-nostalgia-sharing-02",
+      "question": "Nhớ đồng nghiệp cũ ghê, mình tâm sự chút thôi.",
+      "intent_group": "conversation-nostalgia-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nostalgia-sharing-03",
+      "question": "Tự nhiên mình hoài niệm về văn phòng ngày trước.",
+      "intent_group": "conversation-nostalgia-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nostalgia-sharing-04",
+      "question": "Hôm nay mình nhớ các buổi ăn trưa cùng đội cũ.",
+      "intent_group": "conversation-nostalgia-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-nostalgia-sharing-05",
+      "question": "Nhìn bàn làm việc cũ làm mình nhớ nhiều chuyện.",
+      "intent_group": "conversation-nostalgia-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-surprise-sharing-01",
+      "question": "Ồ, mình bất ngờ thật đấy!",
+      "intent_group": "conversation-surprise-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-surprise-sharing-02",
+      "question": "Không ngờ lại có chuyện vui như vậy.",
+      "intent_group": "conversation-surprise-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-surprise-sharing-03",
+      "question": "Mình vẫn còn ngạc nhiên, chia sẻ bạn nghe thôi.",
+      "intent_group": "conversation-surprise-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-surprise-sharing-04",
+      "question": "Chà, chuyện này làm mình tròn mắt.",
+      "intent_group": "conversation-surprise-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-surprise-sharing-05",
+      "question": "Mình đang thấy thật khó tin, bất ngờ quá.",
+      "intent_group": "conversation-surprise-sharing",
+      "split": "calibration",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-frustration-sharing-01",
+      "question": "Mình đang hơi bực, chỉ muốn nói ra thôi.",
+      "intent_group": "conversation-frustration-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-frustration-sharing-02",
+      "question": "Hôm nay nhiều chuyện làm mình khó chịu quá.",
+      "intent_group": "conversation-frustration-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-frustration-sharing-03",
+      "question": "Mình thấy cáu một chút, không có yêu cầu tra cứu đâu.",
+      "intent_group": "conversation-frustration-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-frustration-sharing-04",
+      "question": "Thật là một buổi khiến mình bực mình.",
+      "intent_group": "conversation-frustration-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-frustration-sharing-05",
+      "question": "Mình đang cố bình tĩnh sau chuyện không vui.",
+      "intent_group": "conversation-frustration-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-pride-sharing-01",
+      "question": "Mình thấy tự hào về nỗ lực của bản thân.",
+      "intent_group": "conversation-pride-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-pride-sharing-02",
+      "question": "Cuối cùng mình cũng làm được việc khó, muốn khoe chút.",
+      "intent_group": "conversation-pride-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-pride-sharing-03",
+      "question": "Mình vui vì đã không bỏ cuộc.",
+      "intent_group": "conversation-pride-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-pride-sharing-04",
+      "question": "Hôm nay mình rất tự hào về cả đội.",
+      "intent_group": "conversation-pride-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-pride-sharing-05",
+      "question": "Mình đã vượt qua thử thách đó bằng cố gắng của mình.",
+      "intent_group": "conversation-pride-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nervous-sharing-01",
+      "question": "Mình hơi hồi hộp trước buổi gặp mới.",
+      "intent_group": "conversation-nervous-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-nervous-sharing-02",
+      "question": "Tim mình cứ đập nhanh vì mong chờ, kể bạn nghe thôi.",
+      "intent_group": "conversation-nervous-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nervous-sharing-03",
+      "question": "Mình thấy lo lắng nhẹ nhưng chưa cần tư vấn gì.",
+      "intent_group": "conversation-nervous-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-nervous-sharing-04",
+      "question": "Ngày mai có chuyện mới nên mình hơi run.",
+      "intent_group": "conversation-nervous-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-nervous-sharing-05",
+      "question": "Mình đang bồn chồn, chỉ chia sẻ cảm xúc một chút.",
+      "intent_group": "conversation-nervous-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-relief-sharing-01",
+      "question": "Phù, cuối cùng mình cũng nhẹ nhõm rồi.",
+      "intent_group": "conversation-relief-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-relief-sharing-02",
+      "question": "Mình vừa trút được một nỗi lo.",
+      "intent_group": "conversation-relief-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-relief-sharing-03",
+      "question": "Xong chuyện rồi nên mình thấy dễ thở hơn hẳn.",
+      "intent_group": "conversation-relief-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "conversation-conversation-relief-sharing-04",
+      "question": "Giờ mình bình tâm hơn nhiều, tâm sự vậy thôi.",
+      "intent_group": "conversation-relief-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "conversation-conversation-relief-sharing-05",
+      "question": "Cảm giác được thả lỏng sau một ngày căng thẳng thật dễ chịu.",
+      "intent_group": "conversation-relief-sharing",
+      "split": "holdout",
+      "source": "conversation",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-cooking-01",
+      "question": "Chỉ tôi cách nấu phở bò ở nhà.",
+      "intent_group": "out_of_scope-cooking",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-cooking-02",
+      "question": "Canh chua cá cần những nguyên liệu nào?",
+      "intent_group": "out_of_scope-cooking",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-cooking-03",
+      "question": "Nướng bánh mì bằng nồi chiên thế nào?",
+      "intent_group": "out_of_scope-cooking",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-cooking-04",
+      "question": "Làm sao ướp thịt bò cho mềm?",
+      "intent_group": "out_of_scope-cooking",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-cooking-05",
+      "question": "Cho tôi thực đơn giảm cân để tự nấu.",
+      "intent_group": "out_of_scope-cooking",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-sports-01",
+      "question": "Kết quả trận bóng tối qua là bao nhiêu?",
+      "intent_group": "out_of_scope-sports",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-sports-02",
+      "question": "Đội nào đang dẫn đầu giải bóng đá Anh?",
+      "intent_group": "out_of_scope-sports",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-sports-03",
+      "question": "Hướng dẫn chiến thuật chơi cầu lông đôi.",
+      "intent_group": "out_of_scope-sports",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-sports-04",
+      "question": "Luật việt vị trong bóng đá là gì?",
+      "intent_group": "out_of_scope-sports",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-sports-05",
+      "question": "Dự đoán nhà vô địch giải bóng rổ mùa này.",
+      "intent_group": "out_of_scope-sports",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-tourism-01",
+      "question": "Lập lịch du lịch cá nhân ở Đà Lạt ba ngày.",
+      "intent_group": "out_of_scope-tourism",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-tourism-02",
+      "question": "Đi Phú Quốc tháng nào đẹp nhất?",
+      "intent_group": "out_of_scope-tourism",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-tourism-03",
+      "question": "Gợi ý khách sạn cho chuyến nghỉ dưỡng gia đình.",
+      "intent_group": "out_of_scope-tourism",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-tourism-04",
+      "question": "Xin visa du lịch Nhật tự túc cần gì?",
+      "intent_group": "out_of_scope-tourism",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-tourism-05",
+      "question": "Tìm vé máy bay đi chơi cuối tuần cho tôi.",
+      "intent_group": "out_of_scope-tourism",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-entertainment-01",
+      "question": "Gợi ý một phim trinh thám hay.",
+      "intent_group": "out_of_scope-entertainment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-entertainment-02",
+      "question": "Kể nội dung bộ truyện giả tưởng nổi tiếng.",
+      "intent_group": "out_of_scope-entertainment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-entertainment-03",
+      "question": "Viết lời bài hát tình yêu cho tôi.",
+      "intent_group": "out_of_scope-entertainment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-entertainment-04",
+      "question": "Tìm lịch chiếu phim ở rạp tối nay.",
+      "intent_group": "out_of_scope-entertainment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-entertainment-05",
+      "question": "Đề xuất game giải trí trên điện thoại.",
+      "intent_group": "out_of_scope-entertainment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-medical-01",
+      "question": "Tôi đau ngực, hãy chẩn đoán bệnh giúp.",
+      "intent_group": "out_of_scope-medical",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-medical-02",
+      "question": "Uống kháng sinh loại nào khi bị sốt?",
+      "intent_group": "out_of_scope-medical",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-medical-03",
+      "question": "Đọc kết quả xét nghiệm và kê thuốc cho tôi.",
+      "intent_group": "out_of_scope-medical",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-medical-04",
+      "question": "Hãy lên phác đồ chữa tiểu đường.",
+      "intent_group": "out_of_scope-medical",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-medical-05",
+      "question": "Mắt mờ đột ngột thì nên tự dùng thuốc gì?",
+      "intent_group": "out_of_scope-medical",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-investment-01",
+      "question": "Nên mua cổ phiếu nào để có lãi tháng này?",
+      "intent_group": "out_of_scope-investment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-investment-02",
+      "question": "Dự đoán giá bitcoin tuần tới.",
+      "intent_group": "out_of_scope-investment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-investment-03",
+      "question": "Lập danh mục đầu tư cá nhân lợi nhuận cao.",
+      "intent_group": "out_of_scope-investment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-investment-04",
+      "question": "Có nên vay tiền mua vàng lúc này không?",
+      "intent_group": "out_of_scope-investment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-investment-05",
+      "question": "Tính chiến lược giao dịch ngoại hối cho tôi.",
+      "intent_group": "out_of_scope-investment",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-schoolwork-01",
+      "question": "Giải phương trình bậc ba này giúp tôi.",
+      "intent_group": "out_of_scope-schoolwork",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-schoolwork-02",
+      "question": "Viết bài văn phân tích một bài thơ.",
+      "intent_group": "out_of_scope-schoolwork",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-schoolwork-03",
+      "question": "Dạy tôi chứng minh định lý hình học.",
+      "intent_group": "out_of_scope-schoolwork",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-schoolwork-04",
+      "question": "Làm bài tập hóa hữu cơ cấp ba.",
+      "intent_group": "out_of_scope-schoolwork",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-schoolwork-05",
+      "question": "Soạn đề luyện thi môn vật lý.",
+      "intent_group": "out_of_scope-schoolwork",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-home-repair-01",
+      "question": "Máy giặt nhà tôi không xả nước thì sửa thế nào?",
+      "intent_group": "out_of_scope-home-repair",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-home-repair-02",
+      "question": "Hướng dẫn đấu điện cho ổ cắm trong nhà.",
+      "intent_group": "out_of_scope-home-repair",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-home-repair-03",
+      "question": "Chọn sơn chống thấm cho phòng ngủ.",
+      "intent_group": "out_of_scope-home-repair",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-home-repair-04",
+      "question": "Cách sửa vòi nước bếp bị rò?",
+      "intent_group": "out_of_scope-home-repair",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-home-repair-05",
+      "question": "Máy lạnh gia đình kêu to do đâu?",
+      "intent_group": "out_of_scope-home-repair",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-shopping-01",
+      "question": "Tư vấn mua điện thoại chụp ảnh cho gia đình.",
+      "intent_group": "out_of_scope-shopping",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-shopping-02",
+      "question": "So sánh hai mẫu xe máy để đi chơi.",
+      "intent_group": "out_of_scope-shopping",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-shopping-03",
+      "question": "Tìm chỗ bán bàn ăn gỗ giá rẻ.",
+      "intent_group": "out_of_scope-shopping",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-shopping-04",
+      "question": "Nên mua máy hút bụi hãng nào?",
+      "intent_group": "out_of_scope-shopping",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-shopping-05",
+      "question": "Chọn quà sinh nhật cho em bé giúp tôi.",
+      "intent_group": "out_of_scope-shopping",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-personal-writing-01",
+      "question": "Viết thư tình tặng người yêu tôi.",
+      "intent_group": "out_of_scope-personal-writing",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-personal-writing-02",
+      "question": "Sáng tác một truyện ma ngắn.",
+      "intent_group": "out_of_scope-personal-writing",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-personal-writing-03",
+      "question": "Làm thơ chúc mừng đám cưới bạn tôi.",
+      "intent_group": "out_of_scope-personal-writing",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-personal-writing-04",
+      "question": "Viết kịch bản hài cho nhóm bạn.",
+      "intent_group": "out_of_scope-personal-writing",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-personal-writing-05",
+      "question": "Soạn lời mời sinh nhật cá nhân.",
+      "intent_group": "out_of_scope-personal-writing",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-account-write-01",
+      "question": "Đổi mật khẩu tài khoản công ty giúp tôi ngay.",
+      "intent_group": "out_of_scope-account-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-account-write-02",
+      "question": "Hãy cập nhật email trong hồ sơ của tôi.",
+      "intent_group": "out_of_scope-account-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-account-write-03",
+      "question": "Xóa phiên đăng nhập của tôi trên thiết bị khác.",
+      "intent_group": "out_of_scope-account-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-account-write-04",
+      "question": "Tạo tài khoản nhân viên mới cho người này.",
+      "intent_group": "out_of_scope-account-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-account-write-05",
+      "question": "Khóa tài khoản đồng nghiệp giúp tôi.",
+      "intent_group": "out_of_scope-account-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-workflow-write-01",
+      "question": "Duyệt đơn nghỉ phép đang chờ của tôi đi.",
+      "intent_group": "out_of_scope-workflow-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-workflow-write-02",
+      "question": "Hủy đơn công tác tôi vừa gửi.",
+      "intent_group": "out_of_scope-workflow-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-workflow-write-03",
+      "question": "Sửa giờ chấm công hôm qua thành tám giờ.",
+      "intent_group": "out_of_scope-workflow-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-workflow-write-04",
+      "question": "Tự gửi đơn xin tăng lương thay tôi.",
+      "intent_group": "out_of_scope-workflow-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-workflow-write-05",
+      "question": "Chuyển trạng thái đề nghị hoàn ứng thành đã duyệt.",
+      "intent_group": "out_of_scope-workflow-write",
+      "split": "train",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-weather-01",
+      "question": "Thời tiết Hà Nội ngày mai ra sao?",
+      "intent_group": "out_of_scope-weather",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-weather-02",
+      "question": "Cuối tuần ở Huế có mưa không?",
+      "intent_group": "out_of_scope-weather",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-weather-03",
+      "question": "Dự báo bão ngoài biển tuần này.",
+      "intent_group": "out_of_scope-weather",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-weather-04",
+      "question": "Nhiệt độ hiện tại ở Tokyo là bao nhiêu?",
+      "intent_group": "out_of_scope-weather",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-weather-05",
+      "question": "Tra chỉ số chất lượng không khí khu nhà tôi.",
+      "intent_group": "out_of_scope-weather",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-politics-01",
+      "question": "Phân tích kết quả bầu cử nước ngoài.",
+      "intent_group": "out_of_scope-politics",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-politics-02",
+      "question": "Ai đang lãnh đạo chính phủ quốc gia này?",
+      "intent_group": "out_of_scope-politics",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-politics-03",
+      "question": "Tóm tắt tranh luận chính trị hôm qua.",
+      "intent_group": "out_of_scope-politics",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-politics-04",
+      "question": "Dự đoán ứng viên nào thắng bầu cử.",
+      "intent_group": "out_of_scope-politics",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-politics-05",
+      "question": "Giải thích cương lĩnh một đảng chính trị.",
+      "intent_group": "out_of_scope-politics",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-religion-01",
+      "question": "Giải thích giáo lý của tôn giáo này.",
+      "intent_group": "out_of_scope-religion",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-religion-02",
+      "question": "Chọn ngày cúng theo tín ngưỡng gia đình.",
+      "intent_group": "out_of_scope-religion",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-religion-03",
+      "question": "Viết bài giảng cho buổi lễ tôn giáo.",
+      "intent_group": "out_of_scope-religion",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-religion-04",
+      "question": "Luận giải một đoạn kinh giúp tôi.",
+      "intent_group": "out_of_scope-religion",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-religion-05",
+      "question": "Tư vấn nghi thức thờ cúng tại nhà.",
+      "intent_group": "out_of_scope-religion",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-gaming-cheat-01",
+      "question": "Viết công cụ gian lận cho trò chơi trực tuyến.",
+      "intent_group": "out_of_scope-gaming-cheat",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-gaming-cheat-02",
+      "question": "Tìm cách mở khóa vật phẩm game không trả phí.",
+      "intent_group": "out_of_scope-gaming-cheat",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-gaming-cheat-03",
+      "question": "Chỉ tôi khai thác lỗi nhân đôi tiền trong game.",
+      "intent_group": "out_of_scope-gaming-cheat",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-gaming-cheat-04",
+      "question": "Tạo bot tự chơi trò chơi để kiếm điểm.",
+      "intent_group": "out_of_scope-gaming-cheat",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-gaming-cheat-05",
+      "question": "Hướng dẫn né hệ thống chống gian lận của game.",
+      "intent_group": "out_of_scope-gaming-cheat",
+      "split": "calibration",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-public-programming-01",
+      "question": "Viết ứng dụng bán hàng cá nhân bằng Python.",
+      "intent_group": "out_of_scope-public-programming",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-public-programming-02",
+      "question": "Giải thích thuật toán sắp xếp nhanh.",
+      "intent_group": "out_of_scope-public-programming",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-public-programming-03",
+      "question": "Tạo website cưới cho tôi.",
+      "intent_group": "out_of_scope-public-programming",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-public-programming-04",
+      "question": "Sửa đoạn JavaScript trong dự án riêng của tôi.",
+      "intent_group": "out_of_scope-public-programming",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-public-programming-05",
+      "question": "Hướng dẫn lập trình game đơn giản.",
+      "intent_group": "out_of_scope-public-programming",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-property-01",
+      "question": "Định giá căn hộ tôi muốn mua.",
+      "intent_group": "out_of_scope-property",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-property-02",
+      "question": "Tư vấn vay mua nhà cho gia đình.",
+      "intent_group": "out_of_scope-property",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-property-03",
+      "question": "Tìm đất đầu tư ở vùng ven.",
+      "intent_group": "out_of_scope-property",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-property-04",
+      "question": "Soạn hợp đồng thuê nhà riêng.",
+      "intent_group": "out_of_scope-property",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-property-05",
+      "question": "So sánh giá bất động sản hai khu dân cư.",
+      "intent_group": "out_of_scope-property",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-animal-care-01",
+      "question": "Mèo nhà tôi bỏ ăn thì chăm thế nào?",
+      "intent_group": "out_of_scope-animal-care",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-animal-care-02",
+      "question": "Chó con nên tiêm loại vaccine nào?",
+      "intent_group": "out_of_scope-animal-care",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-animal-care-03",
+      "question": "Chọn thức ăn cho cá cảnh giúp tôi.",
+      "intent_group": "out_of_scope-animal-care",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-animal-care-04",
+      "question": "Hướng dẫn nuôi thỏ trong căn hộ.",
+      "intent_group": "out_of_scope-animal-care",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-animal-care-05",
+      "question": "Chim cảnh bị rụng lông là vì sao?",
+      "intent_group": "out_of_scope-animal-care",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-admin-write-01",
+      "question": "Chạy SQL xóa hồ sơ nhân sự này đi.",
+      "intent_group": "out_of_scope-admin-write",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-admin-write-02",
+      "question": "Cấp cho tôi quyền quản trị hệ thống.",
+      "intent_group": "out_of_scope-admin-write",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-admin-write-03",
+      "question": "Chỉnh mức lương trong cơ sở dữ liệu giúp tôi.",
+      "intent_group": "out_of_scope-admin-write",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "out_of_scope-out_of_scope-admin-write-04",
+      "question": "Tải lên và thay thế chính sách công ty ngay.",
+      "intent_group": "out_of_scope-admin-write",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "out_of_scope-out_of_scope-admin-write-05",
+      "question": "Xóa nhật ký kiểm toán của tài khoản này.",
+      "intent_group": "out_of_scope-admin-write",
+      "split": "holdout",
+      "source": "out_of_scope",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-policy-01",
+      "question": "Quy định đó áp dụng cho ai?",
+      "intent_group": "needs_context-unbound-policy",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-policy-02",
+      "question": "Mức trong chính sách ấy là bao nhiêu?",
+      "intent_group": "needs_context-unbound-policy",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-policy-03",
+      "question": "Điều khoản vừa nhắc có ngoại lệ không?",
+      "intent_group": "needs_context-unbound-policy",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-policy-04",
+      "question": "Nội dung trên còn hiệu lực chứ?",
+      "intent_group": "needs_context-unbound-policy",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-policy-05",
+      "question": "Quy chế này nói gì về thời hạn?",
+      "intent_group": "needs_context-unbound-policy",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-action-01",
+      "question": "Làm việc đó theo bước nào?",
+      "intent_group": "needs_context-unbound-action",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-action-02",
+      "question": "Cần chuẩn bị gì cho thủ tục ấy?",
+      "intent_group": "needs_context-unbound-action",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-action-03",
+      "question": "Nộp cái đó ở đâu?",
+      "intent_group": "needs_context-unbound-action",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-action-04",
+      "question": "Ai xử lý bước vừa nói?",
+      "intent_group": "needs_context-unbound-action",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-action-05",
+      "question": "Xong bước này thì làm gì nữa?",
+      "intent_group": "needs_context-unbound-action",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-person-01",
+      "question": "Người đó thuộc phòng ban nào?",
+      "intent_group": "needs_context-unbound-person",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-person-02",
+      "question": "Anh ấy vào làm ngày nào?",
+      "intent_group": "needs_context-unbound-person",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-person-03",
+      "question": "Chị kia còn đang làm không?",
+      "intent_group": "needs_context-unbound-person",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-person-04",
+      "question": "Bạn đó giữ chức vụ gì?",
+      "intent_group": "needs_context-unbound-person",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-person-05",
+      "question": "Hồ sơ của người vừa nhắc ghi mã gì?",
+      "intent_group": "needs_context-unbound-person",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-request-01",
+      "question": "Đơn đó được duyệt chưa?",
+      "intent_group": "needs_context-unbound-request",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-request-02",
+      "question": "Yêu cầu kia đang ở bước nào?",
+      "intent_group": "needs_context-unbound-request",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-request-03",
+      "question": "Phiếu vừa rồi thiếu gì?",
+      "intent_group": "needs_context-unbound-request",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-request-04",
+      "question": "Ai đang giữ hồ sơ ấy?",
+      "intent_group": "needs_context-unbound-request",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-request-05",
+      "question": "Trạng thái cái mình nói lúc nãy là gì?",
+      "intent_group": "needs_context-unbound-request",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-amount-01",
+      "question": "Khoản đó tính thế nào?",
+      "intent_group": "needs_context-unbound-amount",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-amount-02",
+      "question": "Số tiền ấy có bao gồm phần phụ không?",
+      "intent_group": "needs_context-unbound-amount",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-amount-03",
+      "question": "Mức vừa nêu là trước hay sau khấu trừ?",
+      "intent_group": "needs_context-unbound-amount",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-amount-04",
+      "question": "Bao giờ nhận được khoản này?",
+      "intent_group": "needs_context-unbound-amount",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-amount-05",
+      "question": "Khoản bên trên áp dụng một lần hay nhiều lần?",
+      "intent_group": "needs_context-unbound-amount",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-time-01",
+      "question": "Hôm đó mình có phải đi làm không?",
+      "intent_group": "needs_context-unbound-time",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-time-02",
+      "question": "Khoảng thời gian ấy tính mấy ngày?",
+      "intent_group": "needs_context-unbound-time",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-time-03",
+      "question": "Đợt kia bắt đầu khi nào?",
+      "intent_group": "needs_context-unbound-time",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-time-04",
+      "question": "Mốc vừa nói là ngày nào?",
+      "intent_group": "needs_context-unbound-time",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-time-05",
+      "question": "Kỳ đó đã chốt chưa?",
+      "intent_group": "needs_context-unbound-time",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-document-01",
+      "question": "Tài liệu đó nằm ở đâu?",
+      "intent_group": "needs_context-unbound-document",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-document-02",
+      "question": "Bản ấy có phải bản mới nhất không?",
+      "intent_group": "needs_context-unbound-document",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-document-03",
+      "question": "Cho biết tên của file vừa nhắc.",
+      "intent_group": "needs_context-unbound-document",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-document-04",
+      "question": "Mục này ở trang mấy?",
+      "intent_group": "needs_context-unbound-document",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-document-05",
+      "question": "Ai ban hành văn bản đó?",
+      "intent_group": "needs_context-unbound-document",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-comparison-01",
+      "question": "Hai cái đó khác nhau chỗ nào?",
+      "intent_group": "needs_context-unbound-comparison",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-comparison-02",
+      "question": "Cái nào trong số vừa nói có lợi hơn theo quy định?",
+      "intent_group": "needs_context-unbound-comparison",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-comparison-03",
+      "question": "Đối chiếu mục đầu với mục sau giúp.",
+      "intent_group": "needs_context-unbound-comparison",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-comparison-04",
+      "question": "Bên này khác bên kia bao nhiêu?",
+      "intent_group": "needs_context-unbound-comparison",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-comparison-05",
+      "question": "Trường hợp thứ hai có giống trường hợp đầu không?",
+      "intent_group": "needs_context-unbound-comparison",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-quantity-01",
+      "question": "Có tất cả bao nhiêu cái như vậy?",
+      "intent_group": "needs_context-unbound-quantity",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-quantity-02",
+      "question": "Liệt kê hết những mục đó đi.",
+      "intent_group": "needs_context-unbound-quantity",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-quantity-03",
+      "question": "Còn thiếu phần nào trong danh sách ấy?",
+      "intent_group": "needs_context-unbound-quantity",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-quantity-04",
+      "question": "Có thêm loại nào ngoài mấy loại vừa kể?",
+      "intent_group": "needs_context-unbound-quantity",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-quantity-05",
+      "question": "Tổng số mục bên trên là mấy?",
+      "intent_group": "needs_context-unbound-quantity",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-condition-01",
+      "question": "Như vậy có đủ điều kiện chưa?",
+      "intent_group": "needs_context-unbound-condition",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-condition-02",
+      "question": "Trường hợp này có được áp dụng không?",
+      "intent_group": "needs_context-unbound-condition",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-condition-03",
+      "question": "Nếu thế thì có bị loại không?",
+      "intent_group": "needs_context-unbound-condition",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-condition-04",
+      "question": "Ngoại lệ ấy cần đáp ứng gì?",
+      "intent_group": "needs_context-unbound-condition",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-condition-05",
+      "question": "Điều kiện vừa nói có bắt buộc không?",
+      "intent_group": "needs_context-unbound-condition",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-attachment-01",
+      "question": "Xem hình đính kèm và giải thích giúp, nhưng tôi chưa gửi hình.",
+      "intent_group": "needs_context-missing-attachment",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-attachment-02",
+      "question": "Phân tích bảng tôi định gửi, hiện chưa có bảng.",
+      "intent_group": "needs_context-missing-attachment",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-attachment-03",
+      "question": "Đọc file đính kèm giúp tôi; tôi sẽ gửi sau.",
+      "intent_group": "needs_context-missing-attachment",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-attachment-04",
+      "question": "Dựa vào ảnh chụp chưa tải lên để cho biết lỗi.",
+      "intent_group": "needs_context-missing-attachment",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-attachment-05",
+      "question": "Tóm tắt văn bản tôi chưa cung cấp.",
+      "intent_group": "needs_context-missing-attachment",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-topic-01",
+      "question": "Cho tôi biết thêm về việc ấy.",
+      "intent_group": "needs_context-unbound-topic",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-topic-02",
+      "question": "Giải thích rõ hơn phần đó.",
+      "intent_group": "needs_context-unbound-topic",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-topic-03",
+      "question": "Mình muốn hỏi tiếp chuyện vừa rồi.",
+      "intent_group": "needs_context-unbound-topic",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-topic-04",
+      "question": "Nói cụ thể hơn giúp tôi được không, về điều trước đó ấy?",
+      "intent_group": "needs_context-unbound-topic",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-topic-05",
+      "question": "Tóm tắt lại chủ đề đó nhé.",
+      "intent_group": "needs_context-unbound-topic",
+      "split": "train",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-base-01",
+      "question": "Nếu tăng thêm chừng ấy thì tổng là bao nhiêu?",
+      "intent_group": "needs_context-missing-base",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-base-02",
+      "question": "Trừ phần đó đi thì còn mấy ngày?",
+      "intent_group": "needs_context-missing-base",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-base-03",
+      "question": "Chia số ấy cho số người kia được bao nhiêu?",
+      "intent_group": "needs_context-missing-base",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-base-04",
+      "question": "So với mốc ban đầu thì chênh lệch thế nào?",
+      "intent_group": "needs_context-missing-base",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-base-05",
+      "question": "Gộp các khoản vừa nêu lại giúp tôi.",
+      "intent_group": "needs_context-missing-base",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-location-01",
+      "question": "Chỗ ấy thuộc chi nhánh nào?",
+      "intent_group": "needs_context-unbound-location",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-location-02",
+      "question": "Địa điểm vừa nhắc mở cửa lúc mấy giờ?",
+      "intent_group": "needs_context-unbound-location",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-location-03",
+      "question": "Tôi phải đến đó hay gửi trực tuyến?",
+      "intent_group": "needs_context-unbound-location",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-location-04",
+      "question": "Văn phòng kia nằm ở đâu?",
+      "intent_group": "needs_context-unbound-location",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-location-05",
+      "question": "Nơi tiếp nhận ấy có làm cuối tuần không?",
+      "intent_group": "needs_context-unbound-location",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-code-01",
+      "question": "Mã đó có nghĩa gì?",
+      "intent_group": "needs_context-unbound-code",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-code-02",
+      "question": "Tra cứu số tham chiếu ấy giúp tôi.",
+      "intent_group": "needs_context-unbound-code",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-code-03",
+      "question": "Trạng thái mang ký hiệu kia là sao?",
+      "intent_group": "needs_context-unbound-code",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-code-04",
+      "question": "Mã trong ảnh chưa gửi thuộc hồ sơ nào?",
+      "intent_group": "needs_context-unbound-code",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-code-05",
+      "question": "Số hồ sơ vừa nói liên quan việc gì?",
+      "intent_group": "needs_context-unbound-code",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-ellipsis-01",
+      "question": "Còn trường hợp ngược lại thì sao?",
+      "intent_group": "needs_context-ellipsis",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-ellipsis-02",
+      "question": "Nếu không như thế thì xử lý thế nào?",
+      "intent_group": "needs_context-ellipsis",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-ellipsis-03",
+      "question": "Thế còn năm sau?",
+      "intent_group": "needs_context-ellipsis",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-ellipsis-04",
+      "question": "Vậy người còn lại thì sao?",
+      "intent_group": "needs_context-ellipsis",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-ellipsis-05",
+      "question": "Với loại khác có tương tự không?",
+      "intent_group": "needs_context-ellipsis",
+      "split": "calibration",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-identity-01",
+      "question": "Tra hồ sơ nhân viên giúp tôi, nhưng chưa biết của ai.",
+      "intent_group": "needs_context-missing-identity",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-identity-02",
+      "question": "Ngày nhận việc của người tôi định hỏi là khi nào?",
+      "intent_group": "needs_context-missing-identity",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-identity-03",
+      "question": "Xem phép của một người giúp, tôi chưa chỉ rõ người đó.",
+      "intent_group": "needs_context-missing-identity",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-identity-04",
+      "question": "Tôi cần trạng thái đơn nhưng chưa có thông tin đơn nào.",
+      "intent_group": "needs_context-missing-identity",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-identity-05",
+      "question": "Tìm hợp đồng cần xem giúp tôi, chưa xác định hợp đồng.",
+      "intent_group": "needs_context-missing-identity",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-approval-01",
+      "question": "Cái này cần ai ký?",
+      "intent_group": "needs_context-unbound-approval",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-approval-02",
+      "question": "Có phải xin phép trước việc ấy không?",
+      "intent_group": "needs_context-unbound-approval",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-approval-03",
+      "question": "Bộ phận nào duyệt trường hợp vừa đề cập?",
+      "intent_group": "needs_context-unbound-approval",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-approval-04",
+      "question": "Đã qua vòng đó thì còn cần xác nhận gì?",
+      "intent_group": "needs_context-unbound-approval",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-approval-05",
+      "question": "Chữ ký bên dưới có đủ chưa, tôi chưa gửi biểu mẫu?",
+      "intent_group": "needs_context-unbound-approval",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-choice-01",
+      "question": "Tôi nên chọn phương án nào trong hai phương án chưa gửi?",
+      "intent_group": "needs_context-missing-choice",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-choice-02",
+      "question": "Mục nào phù hợp với tình huống tôi chưa mô tả?",
+      "intent_group": "needs_context-missing-choice",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-choice-03",
+      "question": "Loại nào là đúng với hồ sơ ấy?",
+      "intent_group": "needs_context-missing-choice",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-missing-choice-04",
+      "question": "Đánh dấu lựa chọn đúng trong danh sách tôi chưa cung cấp.",
+      "intent_group": "needs_context-missing-choice",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-missing-choice-05",
+      "question": "Nên áp dụng nhánh nào của quy trình đó?",
+      "intent_group": "needs_context-missing-choice",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-change-01",
+      "question": "Bản mới thay đổi gì so với bản ấy?",
+      "intent_group": "needs_context-unbound-change",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-change-02",
+      "question": "Phần vừa sửa có ảnh hưởng tới tôi không?",
+      "intent_group": "needs_context-unbound-change",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-change-03",
+      "question": "Điều chỉnh đó có hiệu lực từ lúc nào?",
+      "intent_group": "needs_context-unbound-change",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    },
+    {
+      "id": "needs_context-needs_context-unbound-change-04",
+      "question": "Trường hợp trước thay đổi này được xử lý ra sao?",
+      "intent_group": "needs_context-unbound-change",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": true
+    },
+    {
+      "id": "needs_context-needs_context-unbound-change-05",
+      "question": "So sánh trước và sau lần cập nhật vừa nói.",
+      "intent_group": "needs_context-unbound-change",
+      "split": "holdout",
+      "source": "needs_context",
+      "styles": [],
+      "critical": false
+    }
+  ]
+}

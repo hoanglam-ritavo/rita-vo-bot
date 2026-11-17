@@ -42,6 +42,32 @@ failure leaves Type A available. See [HTTP contract and rollout](docs/type-b-htt
 
 [Application entrypoints](src/cli/README.md) remain in `src/cli/`; [manual utilities, offline evaluations and experiments](scripts/README.md) remain in `scripts/`. Both inventories distinguish current commands, compatibility aliases, retired stubs and support modules. Existing command paths remain supported. One-shot retrieval lifecycle/timings live in `src.retrieval.runner`, used by the CLI compatibility wrapper and IDE utility; HTTP continues to own its long-lived service lifecycle. Pure model revision validation lives in `src.ingestion.model_identity`, shared by publication, preflight and evaluation without imports between those CLI implementations. Historical asset tools retain their old `app/` paths and are not current setup commands.
 
+## Standalone Colab intent kit
+
+The external-execution [Colab intent kit](collabs/intent-colab/README.md) is
+versioned under `collabs/intent-colab/`, with canonical tests in `src/tests/`.
+Its generated single-file trainer embeds selected intent contracts plus a local
+runtime template; it has no project imports or database dependency. Explicit
+check/write generators detect drift; source snapshots normalize UTF-8/LF while
+model identities retain raw-byte fingerprints. E5 may encode on GPU; sklearn
+heads preserve the CPU training algorithm. The tracked synthetic sample remains
+unreviewed. Private review/train copies, source-bound test receipts and allowlisted
+upload ZIPs stay under `.tmp/intent-colab/`. Packaging neither authorizes runtime
+use nor replaces internal paired acceptance/semantic evaluation.
+
+## Independent relevance scoring Colab kit
+
+The independent [relevance V3 Colab kit](collabs/relevance-scoring-v3/README.md)
+keeps versioned UTF-8/LF scoring/fitter snapshots and a byte-bound package manifest.
+`scripts.relevance_colab` checks upstream source drift before packaging/export/
+import. Reviewed numeric development bundles contain no source text or database
+credentials; identifiers and group strings remain for leakage checks. The
+standalone NumPy CPU fitter needs neither the repo nor models/database. Optional
+CUDA FP64 scoring is diagnostic only. Imports bind the original bundle and
+independently re-fit on local CPU into `.tmp`; existing semantic acceptance,
+corpus/pipeline identities and gated profile promotion remain unchanged. See
+the [kit contract](collabs/relevance-scoring-v3/contracts/data.md).
+
 ## Artifact source assembly
 
 `src.artifact_authoring.sources` owns the standard-library-only declared source

@@ -25,7 +25,7 @@ The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and autho
 
 Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded. Publication verifies stored data before skipping unchanged content; explicit metadata-only updates preserve the existing run/chunks. Changed publication reuses compatible stored exact-text vectors and encodes missing text; `--force` re-encodes every chunk. History remains stored within the new database; vector reuse itself needs no automatic republication. See the fresh-schema requirement below.
 
-Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
+Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. The [standalone Colab intent kit](collabs/intent-colab/README.md) lives in `collabs/intent-colab/` with a fictional unreviewed sample; its private datasets, runs and generated ZIPs stay under `.tmp`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
 The current schema head is `c7d92e6a104b`, an additive guard migration after the provisioned `bce4184a7f51` baseline. Existing databases at that baseline upgrade without rebuilding tables. Fresh databases require the `vector` extension before the baseline creates its 14 tables. Older `0001` through `0006` histories are not automatically converted. See [database design](docs/database-design.md) for provisioning and [corpus publication](docs/corpus-publication.md) for validate/preflight/dry-run/publication and verification.
 
@@ -42,6 +42,64 @@ before catalog/inventory release checks. Runtime still reads the same monolithic
 files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 ## Current verification status
+
+### Relevance scoring V3 Colab development kit - 2026-11-17
+
+The independent [V3 kit](collabs/relevance-scoring-v3/README.md) packages numeric
+development fitting without a source clone, model or database. Optional GPU
+scoring is diagnostic; final acceptance/promotion stays on the local CPU pipeline.
+The exchange utility exports reviewed numeric rows and independently re-fits
+imported candidates; it never creates a runtime profile or changes `.env`.
+
+Implemented in the uncommitted working tree based on `1961fc9`, preserving the
+concurrent standalone intent-kit work. Post-edit focused non-integration checks
+across the V3 kit, canonical scoring/training/review, semantic evaluation and
+promotion passed **136 tests**, including **28 kit cases**. The extracted-kit
+subprocess fitted fictional features outside the repository and its result was
+independently re-fitted/imported locally. The notebook's code cells compiled with
+empty outputs. The initial sandboxed run hit Windows temporary-directory access
+errors; successful runs used new short `.tmp/rv3b`, `.tmp/rv3c` and `.tmp/rv3d`
+roots outside the sandbox. No permissions or old temporary trees were changed.
+
+The packaging command produced the private upload ZIP
+`.tmp/relevance-scoring-v3-kit-1.0.0.zip`. Local links/anchors, command help and
+diff whitespace were checked. Python 3.14.10 / NumPy 2.5.4 was used locally;
+the pinned NumPy requires Python >=3.12. GPU checks used simulated absence/error
+boundaries, not actual CUDA. No real Colab session, clean dependency install,
+full application regression, model inference, database, real-data collection,
+training, acceptance, promotion, service restart or deployment ran. Fictional
+fitting proves exchange compatibility, not real retrieval quality or a usable
+relevance profile. Canonical runtime source, `.env`, models and selected runtime
+artifacts are unchanged by this kit work.
+
+### Git-managed standalone intent Colab kit - 2026-11-17
+
+Implemented in the uncommitted working tree based on `1961fc9`. Reusable kit
+source and its 600-case fictional unreviewed sample now live under
+`collabs/intent-colab/`; existing ignored local kit/workspaces remain intact.
+See the [kit commands and boundaries](collabs/intent-colab/README.md). No runtime
+API, model bytes, selected artifacts or `.env` were changed by this migration.
+
+Post-edit focused non-integration regression across the Colab kit, runtime intent,
+intent evaluation and preparation suites passed **87 tests, 1 skipped**, with the
+existing Starlette/AnyIO deprecation warning. The skip is actual symlink creation
+on this Windows account; the mocked link guard passed. This includes synthetic
+numerical sklearn training parity, source/build consistency, dataset review gate,
+standalone isolation, packaging allowlists/checksums and stale-receipt rejection.
+The initial sandbox run had **48 passed, 1 skipped, 39 fixture setup errors** from
+Windows temporary-directory permissions; the successful rerun used a fresh
+`.tmp/ic-regression-02` temporary root outside the sandbox, without changing
+permissions or deleting previous workspaces. Build/sample `--check` modes passed.
+
+The standalone verifier also passed **27 checks, 1 skipped** and supplies a
+source-bound receipt for a newly generated private upload ZIP. Git attributes
+select LF for kit source and samples; source snapshots normalize UTF-8/LF while
+model/archive checks remain raw-byte hashes. The sample is still `reviewed=false`.
+Static review checked **170 local documentation links**, parsed seven kit/test
+Python files, confirmed unchanged sample content, and passed diff whitespace,
+Git attribute/ignore and upload checksum checks.
+No real E5 training, CUDA/Colab execution, database benchmark, acceptance/promotion,
+service restart, full regression suite, Git commit or push was performed.
 
 ### HTTP Type B work-profile integration - 2026-11-17
 

@@ -1,5 +1,10 @@
 # Development-only passage scoring and profile v3
 
+For independent numeric fitting on Google Colab, use the
+[V3 development kit](../collabs/relevance-scoring-v3/README.md). It exchanges
+reviewed feature vectors and development candidates only; this document's local
+CPU acceptance and release gates remain authoritative.
+
 The user-approved 2026-11-16 workflow keeps the pinned E5 and ONNX bytes and 30
 candidates, but permits a small locally fitted passage scorer. This is an
 experimental scoring path, not an accepted relevance profile. Its initial target

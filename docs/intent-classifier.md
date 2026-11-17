@@ -103,6 +103,23 @@ occurred merely because the boolean was changed.
 
 ## Training and evaluation
 
+### Standalone Google Colab kit
+
+For training without cloning the repository on Colab, use the
+[versioned standalone kit](../collabs/intent-colab/README.md). Its source,
+generators and fictional sample are Git-managed; local review/train copies and
+generated upload ZIPs remain under `.tmp`. The sample is not human-reviewed and
+cannot authorize training as shipped. The exported trainer uses GPU E5 embeddings
+and the same CPU sklearn heads, quality gates, candidate schema and report hashes.
+Portable source snapshots normalize UTF-8/LF; runtime model identity stays
+byte-bound. Colab/CUDA numerical behavior still needs actual verification.
+
+Run the kit's build and dataset `--check` modes, canonical synthetic verification,
+then the allowlisted package command described in its README. A supplied local
+verification receipt must match current source and retain skipped checks.
+The internal paired benchmark below remains the accepted-artifact promotion path;
+packaging or generating a candidate does not establish acceptance or enable intent.
+
 ### Unified offline preparation CLI
 
 Use `python -m src.cli.prepare_intents` for repeatable Stage 2 batches. Processing

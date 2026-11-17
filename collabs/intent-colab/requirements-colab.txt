@@ -1,0 +1,5 @@
+# Minimal standalone dependencies, matching the repository's selected versions.
+# PyTorch (including CUDA support), NumPy and tokenizer dependencies are resolved
+# transitively. Record the installed versions from the run manifest.
+sentence-transformers==6.2.0
+scikit-learn==1.9.1

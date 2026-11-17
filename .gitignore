@@ -10,6 +10,16 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 /.tmp/
+# Colab source belongs in collabs; generated/local data belongs in .tmp.
+/collabs/intent-colab/dist/
+/collabs/intent-colab/runs/
+/collabs/intent-colab/models/
+/collabs/intent-colab/verification-work/
+/collabs/intent-colab/verification-env/
+/collabs/intent-colab/verify-*/
+/collabs/intent-colab/*.zip
+/collabs/intent-colab/verification.json
+/collabs/intent-colab/bundle-manifest.json
 pytest-cache-files-*/
 
 # Runtime models: open only the pinned file inventory, never download caches.

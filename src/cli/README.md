@@ -73,6 +73,11 @@ Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the
 
 ## Intent preparation and compatibility
 
+The [standalone Colab kit](../../collabs/intent-colab/README.md) is the separate
+external-execution option. It preserves candidate compatibility, not acceptance;
+its synthetic sample requires human review. Application entrypoints below remain
+in this directory; kit maintenance and private ZIP output are documented there.
+
 Use `prepare_intents` for repeatable config-driven batches. `validate` requires no ML runtime; `preflight` requires the local tokenizer/model and checks tokens without encoding; `run` requires reviewed data and offline training dependencies. Preflight/run create new private run artifacts under `.tmp/`; run produces a manifest, training report and candidate, not a runtime-accepted artifact. No PostgreSQL is used. Exit `0` indicates successful completion, `1` validation/preflight/quality rejection, `2` operational failure or unreviewed training data, `130` interruption. See [config, outputs and gates](../../docs/intent-classifier.md#unified-offline-preparation-cli).
 
 The historical `scripts.train_intent` shares the training implementation. `scripts.benchmark_intent` remains a separate acceptance step; neither interface automatically changes `.env` or enables a classifier.
