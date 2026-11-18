@@ -59,6 +59,8 @@ async def collect(settings,cases,top_k):
 
         def metadata(match):
             b=service.policy._bindings.get((match.get('document_id'),match.get('revision_id'),match.get('chunk_index')))
+            if isinstance(b,list):
+                b=next((binding for binding in b if matches_reference(binding.ref,match)),None)
             valid=b is not None and matches_reference(b.ref,match)
             return {'chunk_id':match['chunk_id'],'binding_id':b.id if valid else None,
                     'role':b.role if valid else None,'system':b.system if valid else None}

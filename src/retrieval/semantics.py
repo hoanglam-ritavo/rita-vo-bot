@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import unicodedata
+from functools import lru_cache
 
 from src.paths import REPOSITORY_ROOT
 
@@ -79,6 +80,7 @@ def validate_artifact(data, *, require_reviewed=True):
     return data
 
 
+@lru_cache(maxsize=8192)
 def _pattern(phrase):
     return re.compile(r'(?<!\w)' + re.escape(normalized(phrase)) + r'(?!\w)', re.IGNORECASE)
 

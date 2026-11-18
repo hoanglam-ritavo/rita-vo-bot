@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "reviewed": true,
-  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred. 2026-11-18: bounded leave-query recognition rules source-checked by implementation agent; recognition-only concepts never rewrite retrieval questions. No human acceptance inferred.",
+  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred. 2026-11-18: bounded leave-query recognition rules source-checked by implementation agent; recognition-only concepts never rewrite retrieval questions. No human acceptance inferred. 2026-11-18: explicit cross-domain task/source mappings and platform recognizers authored by implementation agent. Partial sections retain source conditions; no independent business acceptance inferred.",
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
   "concepts": [
     {
@@ -3448,6 +3448,606 @@
         "lỗi gửi đơn",
         "không nhận được email",
         "không quét được QR"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.eworkdate",
+      "canonical": "E-Workdate",
+      "aliases": [
+        "E-Workdate",
+        "EWorkdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.epostal",
+      "canonical": "E-Postal",
+      "aliases": [
+        "E-Postal",
+        "EPostal"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.outlook",
+      "canonical": "Outlook",
+      "aliases": [
+        "Outlook",
+        "E-Booking"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.bravo",
+      "canonical": "Bravo",
+      "aliases": [
+        "Bravo",
+        "VPN RitaVO"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.mobile-counters",
+      "canonical": "Số phiếu chờ duyệt Workit Mobile",
+      "aliases": [
+        "Số phiếu chờ duyệt Workit Mobile",
+        "số phiếu ngoài menu Workit Mobile",
+        "menu Workit Mobile ít phiếu hơn"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.bravo-warning",
+      "canonical": "Cảnh báo Windows trong hướng dẫn cài Bravo",
+      "aliases": [
+        "Cảnh báo Windows trong hướng dẫn cài Bravo",
+        "cảnh báo Windows khi cài Bravo",
+        "More Info Run Anyway Bravo"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.manager-desk",
+      "canonical": "Bàn làm việc quản lý Workit",
+      "aliases": [
+        "Bàn làm việc quản lý Workit",
+        "mở bàn làm việc quản lý Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eleave-delegate",
+      "canonical": "Ủy quyền gửi đơn E-Leave",
+      "aliases": [
+        "Ủy quyền gửi đơn E-Leave",
+        "gửi đơn E-Leave thay người không có email"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eleave-approval",
+      "canonical": "Duyệt đơn E-Leave",
+      "aliases": [
+        "Duyệt đơn E-Leave",
+        "duyệt đơn E-Leave lần đầu",
+        "duyệt E-Leave trên điện thoại",
+        "duyệt E-Leave qua Teams"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eleave-cancel",
+      "canonical": "Thay đổi hoặc hủy kế hoạch nghỉ E-Leave",
+      "aliases": [
+        "Thay đổi hoặc hủy kế hoạch nghỉ E-Leave",
+        "hủy đơn E-Leave",
+        "đổi kế hoạch nghỉ E-Leave"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eleave-email",
+      "canonical": "Xử lý email E-Leave",
+      "aliases": [
+        "Xử lý email E-Leave",
+        "không nhận email E-Leave",
+        "email nhắc duyệt E-Leave"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eleave-status",
+      "canonical": "Thông báo trạng thái trong hướng dẫn E-Leave",
+      "aliases": [
+        "Thông báo trạng thái trong hướng dẫn E-Leave",
+        "quy trình thông báo E-Leave"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.labor-scope",
+      "canonical": "Phạm vi và cấu trúc nội quy lao động",
+      "aliases": [
+        "Phạm vi và cấu trúc nội quy lao động",
+        "hiệu lực nội quy lao động",
+        "phạm vi nội quy lao động"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.annual-entitlement",
+      "canonical": "Số ngày phép năm theo nội quy",
+      "aliases": [
+        "Số ngày phép năm theo nội quy",
+        "quy định số ngày phép năm",
+        "nghỉ phép năm được bao nhiêu ngày",
+        "phép năm theo nội quy"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.labor-health-benefits",
+      "canonical": "Hỏi thăm nằm viện theo Điều 43 nội quy",
+      "aliases": [
+        "Hỏi thăm nằm viện theo Điều 43 nội quy",
+        "hỗ trợ nằm viện theo nội quy lao động"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.labor-family-benefits",
+      "canonical": "Tang gia và sinh con theo Điều 43 nội quy",
+      "aliases": [
+        "Tang gia và sinh con theo Điều 43 nội quy",
+        "hỗ trợ tang gia theo nội quy lao động"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.labor-health-examination",
+      "canonical": "Khám sức khỏe và phúc lợi theo Điều 43 nội quy",
+      "aliases": [
+        "Khám sức khỏe và phúc lợi theo Điều 43 nội quy",
+        "khám sức khỏe định kỳ hằng năm cho nhân viên"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.contract-end",
+      "canonical": "Các trường hợp chấm dứt hợp đồng trong nội quy",
+      "aliases": [
+        "Các trường hợp chấm dứt hợp đồng trong nội quy",
+        "trường hợp chấm dứt hợp đồng lao động"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.security-forms",
+      "canonical": "Biểu mẫu quản lý bảo vệ",
+      "aliases": [
+        "Biểu mẫu quản lý bảo vệ",
+        "mẫu lý lịch nhân viên bảo vệ",
+        "mẫu biên bản xử lý vi phạm bảo vệ"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.task-complete",
+      "canonical": "Hoàn tất công việc Workit",
+      "aliases": [
+        "Hoàn tất công việc Workit",
+        "bỏ hoàn tất công việc Workit",
+        "đánh dấu hoàn tất công việc Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.task-owner",
+      "canonical": "Chuyển người chủ trì công việc Workit",
+      "aliases": [
+        "Chuyển người chủ trì công việc Workit",
+        "thêm người tham gia công việc Workit",
+        "đổi người chủ trì Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.building-common",
+      "canonical": "Quy định chung tại tòa nhà Tây Đô",
+      "aliases": [
+        "Quy định chung tại tòa nhà Tây Đô",
+        "tác phong tại tòa nhà Tây Đô",
+        "vật cản lối thoát hiểm Tây Đô"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.chairman-room",
+      "canonical": "Sử dụng phòng Chủ tịch tại Tây Đô",
+      "aliases": [
+        "Sử dụng phòng Chủ tịch tại Tây Đô",
+        "ra vào phòng Chủ tịch Tây Đô"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.building-security",
+      "canonical": "An ninh tại tòa nhà Tây Đô theo tài liệu",
+      "aliases": [
+        "An ninh tại tòa nhà Tây Đô theo tài liệu",
+        "báo phản ánh bảo vệ tòa nhà Tây Đô"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.referral-implementation",
+      "canonical": "Trách nhiệm triển khai chính sách giới thiệu nhân viên",
+      "aliases": [
+        "Trách nhiệm triển khai chính sách giới thiệu nhân viên",
+        "phòng Nhân sự triển khai thưởng giới thiệu"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.resign-submit",
+      "canonical": "Gửi và theo dõi Phiếu xét nghỉ việc Workit",
+      "aliases": [
+        "Gửi và theo dõi Phiếu xét nghỉ việc Workit",
+        "trình ký phiếu xét nghỉ việc Workit",
+        "theo dõi phiếu xét nghỉ việc Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.resign-approve",
+      "canonical": "Phê duyệt Phiếu xét nghỉ việc Workit",
+      "aliases": [
+        "Phê duyệt Phiếu xét nghỉ việc Workit",
+        "quản lý duyệt phiếu xét nghỉ việc Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.uniform-violation",
+      "canonical": "Xử lý vi phạm đồng phục và tác phong",
+      "aliases": [
+        "Xử lý vi phạm đồng phục và tác phong",
+        "vi phạm quy định đồng phục"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.vehicle-advance",
+      "canonical": "Tạm ứng và kỳ thanh toán chi phí xe",
+      "aliases": [
+        "Tạm ứng và kỳ thanh toán chi phí xe",
+        "kỳ thanh toán chi phí xe",
+        "tạm ứng chi phí xe"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.vehicle-proposal",
+      "canonical": "Đối tượng được đề xuất sử dụng xe",
+      "aliases": [
+        "Đối tượng được đề xuất sử dụng xe",
+        "ai được đề xuất xe tập đoàn"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.vehicle-forms",
+      "canonical": "Biểu mẫu quản lý xe",
+      "aliases": [
+        "Biểu mẫu quản lý xe",
+        "mẫu sổ nhật trình xe",
+        "mẫu phiếu đề xuất sửa chữa xe"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.vehicle-scope",
+      "canonical": "Phạm vi và hiệu lực quy định sử dụng xe",
+      "aliases": [
+        "Phạm vi và hiệu lực quy định sử dụng xe",
+        "hiệu lực quy định sử dụng xe"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-home",
+      "canonical": "Màn hình chính và menu Workit",
+      "aliases": [
+        "Màn hình chính và menu Workit",
+        "các menu trên màn hình chính Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-approval-buttons",
+      "canonical": "Ý nghĩa nút phê duyệt Workit",
+      "aliases": [
+        "Ý nghĩa nút phê duyệt Workit",
+        "bỏ duyệt và trả lại Workit khác nhau thế nào"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-avatar",
+      "canonical": "Thay ảnh đại diện Workit",
+      "aliases": [
+        "Thay ảnh đại diện Workit",
+        "đổi avatar Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-organization",
+      "canonical": "Xem sơ đồ tổ chức Workit",
+      "aliases": [
+        "Xem sơ đồ tổ chức Workit",
+        "cơ cấu tổ chức trên Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-history",
+      "canonical": "Hướng dẫn xem quá trình công tác Workit",
+      "aliases": [
+        "Hướng dẫn xem quá trình công tác Workit",
+        "xem quá trình công tác trên Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-family",
+      "canonical": "Hướng dẫn mục Gia đình Workit",
+      "aliases": [
+        "Hướng dẫn mục Gia đình Workit",
+        "người phụ thuộc trên Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-rewards",
+      "canonical": "Hướng dẫn mục khen thưởng kỷ luật Workit",
+      "aliases": [
+        "Hướng dẫn mục khen thưởng kỷ luật Workit",
+        "xem mục kỷ luật Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-equipment",
+      "canonical": "Hướng dẫn xem trang thiết bị Workit",
+      "aliases": [
+        "Hướng dẫn xem trang thiết bị Workit",
+        "lịch sử cấp phát thiết bị trên Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.workit-insurance",
+      "canonical": "Hướng dẫn xem quá trình BHXH Workit",
+      "aliases": [
+        "Hướng dẫn xem quá trình BHXH Workit",
+        "xem quá trình tham gia BHXH trên Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eworkdate-mobile",
+      "canonical": "Duyệt E-Workdate bằng điện thoại",
+      "aliases": [
+        "Duyệt E-Workdate bằng điện thoại",
+        "Power Automate trên điện thoại E-Workdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eworkdate-status",
+      "canonical": "Nhắc duyệt và kết quả E-Workdate theo tài liệu",
+      "aliases": [
+        "Nhắc duyệt và kết quả E-Workdate theo tài liệu",
+        "thông báo kết quả E-Workdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.eworkdate-missing-email",
+      "canonical": "Xử lý email phản hồi E-Workdate",
+      "aliases": [
+        "Xử lý email phản hồi E-Workdate",
+        "không nhận email E-Workdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.attendance-external",
+      "canonical": "Chấm công khi đi công tác bên ngoài",
+      "aliases": [
+        "Chấm công khi đi công tác bên ngoài",
+        "quét vân tay khi đi công tác"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.attendance-responsibility",
+      "canonical": "Trách nhiệm thực hiện quy định chấm công",
+      "aliases": [
+        "Trách nhiệm thực hiện quy định chấm công",
+        "thời hạn nộp phiếu chấm công theo quy định"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.benefits-scope-definition",
+      "canonical": "Mục đích định nghĩa và hiệu lực chính sách phúc lợi",
+      "aliases": [
+        "Mục đích định nghĩa và hiệu lực chính sách phúc lợi",
+        "hiệu lực chính sách phúc lợi 2023"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.benefits-inventory",
+      "canonical": "Danh mục trong chính sách phúc lợi 2023",
+      "aliases": [
+        "Danh mục trong chính sách phúc lợi 2023",
+        "danh mục phúc lợi trong văn bản 2023"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.stationery-track",
+      "canonical": "Theo dõi đề nghị văn phòng phẩm Workit",
+      "aliases": [
+        "Theo dõi đề nghị văn phòng phẩm Workit",
+        "trạng thái phiếu văn phòng phẩm Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.resign-flow",
+      "canonical": "Luồng xét nghỉ việc Workit trong hướng dẫn",
+      "aliases": [
+        "Luồng xét nghỉ việc Workit trong hướng dẫn",
+        "các bước ký phiếu xét nghỉ việc Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.epostal-mobile",
+      "canonical": "Xác nhận thư E-Postal qua Teams và điện thoại",
+      "aliases": [
+        "Xác nhận thư E-Postal qua Teams và điện thoại",
+        "xác nhận thư E-Postal trên Teams"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.epostal-reminder",
+      "canonical": "Email nhắc nhận thư E-Postal",
+      "aliases": [
+        "Email nhắc nhận thư E-Postal",
+        "nhắc nhận thư E-Postal sau 24 giờ"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.topic.epostal-email",
+      "canonical": "Xử lý email E-Postal",
+      "aliases": [
+        "Xử lý email E-Postal",
+        "không thấy email E-Postal",
+        "không có email công ty khi nhận thư E-Postal"
       ],
       "requires_any": [],
       "excludes_any": [],

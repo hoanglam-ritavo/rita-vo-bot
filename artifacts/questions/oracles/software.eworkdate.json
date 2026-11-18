@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "group_id": "software.eworkdate",
+  "turns": [
+    {
+      "case_id": "q.software.eworkdate.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7cb26f68c29f5df1a5bebd8b92f49276"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7cb26f68c29f5df1a5bebd8b92f49276"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7cb26f68c29f5df1a5bebd8b92f49276"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7cb26f68c29f5df1a5bebd8b92f49276"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.005",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-channels"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-channels"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-channels"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-channels"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.010",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-channels"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.012",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.015",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.016",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.017",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.018",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-outlook"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.019",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-outlook"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.020",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-outlook"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.021",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-outlook"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.022",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.eworkdate-outlook"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eworkdate.023",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-outlook"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    }
+  ]
+}

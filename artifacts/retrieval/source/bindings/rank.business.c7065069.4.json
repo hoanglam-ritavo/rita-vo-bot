@@ -1,0 +1,29 @@
+{
+  "id": "rank.business.c7065069.4",
+  "family": "administration",
+  "role": "policy",
+  "operation": "policy",
+  "ref": {
+    "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+    "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+    "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+    "chunk_index": 4,
+    "content_sha256": "1436756cfa90f9b86a04fe8c4c7cdd7301f1e52b5b3674d77bfcb9b9ac7a3259",
+    "quote": "Quy trình thanh lý TS-CCDC/PL — lưu đồ 5.2.1 gồm 7 bước: (1) Đề xuất, ngày T; (2) Đánh giá và đề xuất phương án, T+1; (3) Tìm nhà thầu, T+3; (4) Trình BOD, T+4; không duyệt quay về đánh giá, duyệt chuyển xử lý; (5) Giám sát xử lý và lập biên bản kiêm phiếu xuất kho, T+5; (6) Đối chiếu hệ thống chứng từ, T+6; (7) Kết thúc. Các mốc T là ký hiệu trong lưu đồ; nguồn không định nghĩa là ngày làm việc hay ngày lịch.",
+    "metadata": {
+      "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+      "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "01/23",
+      "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.asset-disposal.c7065069"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

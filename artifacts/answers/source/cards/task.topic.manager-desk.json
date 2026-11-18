@@ -1,0 +1,71 @@
+{
+  "id": "task.topic.manager-desk",
+  "label": "Bàn làm việc quản lý Workit",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.manager-desk"
+  ],
+  "aliases": [
+    "Bàn làm việc quản lý Workit",
+    "mở bàn làm việc quản lý Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.4b2aadb1.0",
+          "text": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+          "refs": [
+            {
+              "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+              "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+              "chunk_index": 0,
+              "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+              "content_sha256": "58b5dae53d082ce3fc906ea03dad84c6ca2c48c91eace1d1687d28012ad22832",
+              "quote": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.4b2aadb1.0",
+          "text": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+          "refs": [
+            {
+              "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+              "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+              "chunk_index": 0,
+              "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+              "content_sha256": "58b5dae53d082ce3fc906ea03dad84c6ca2c48c91eace1d1687d28012ad22832",
+              "quote": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

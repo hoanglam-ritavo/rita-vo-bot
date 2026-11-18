@@ -1,0 +1,31 @@
+{
+  "id": "rank.business.88c4a90d.6",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+    "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+    "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+    "chunk_index": 6,
+    "content_sha256": "b617f88d603f101c9237aa26e87eb57eaed7b434fdb66d01ec2678f60ecdae45",
+    "quote": "Workit — tạo dự án: menu Dự án > Thêm/sửa (Dự án/hạng mục) > Thêm > nhập thông tin dự án và thành viên > Lưu/F8. Thêm hạng mục: cùng màn hình, chọn dòng dự án > dấu + > nhập thông tin hạng mục > Lưu/F8. Thêm công việc dự án: chọn dự án và hạng mục phát sinh công việc > + > nhập công việc > Lưu/F8.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-12/4/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.systems.project-item.88c4a90d",
+    "task.business.workit-project.88c4a90d"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

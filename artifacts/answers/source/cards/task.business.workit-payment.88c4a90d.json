@@ -1,0 +1,160 @@
+{
+  "id": "task.business.workit-payment.88c4a90d",
+  "source_type": "type_a",
+  "label": "đề nghị thanh toán Workit",
+  "concept_ids": [
+    "workit-payment"
+  ],
+  "aliases": [
+    "đề nghị thanh toán Workit",
+    "phiếu đề nghị thanh toán Workit",
+    "ĐNTT Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.14",
+          "text": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 14,
+              "content_sha256": "67f02b27ac7006703a6e1ab38df63f61d431b13dc9fc33fa9b734489d089dd32",
+              "quote": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.15",
+          "text": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 15,
+              "content_sha256": "0d3762dd9f49a942c2311d5e83067406cbf4bb7cd01bd6af165e4f373911e44a",
+              "quote": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.16",
+          "text": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 16,
+              "content_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa",
+              "quote": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.14",
+          "text": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 14,
+              "content_sha256": "67f02b27ac7006703a6e1ab38df63f61d431b13dc9fc33fa9b734489d089dd32",
+              "quote": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.15",
+          "text": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 15,
+              "content_sha256": "0d3762dd9f49a942c2311d5e83067406cbf4bb7cd01bd6af165e4f373911e44a",
+              "quote": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.16",
+          "text": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 16,
+              "content_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa",
+              "quote": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+}

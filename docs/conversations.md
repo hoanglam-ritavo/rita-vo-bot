@@ -15,15 +15,18 @@ source. The total application schema now has 17 tables. No migration runs at
 startup. Downgrade destroys chat storage and deletion receipts and is not an
 application rollback procedure.
 
-`CONVERSATION_ENABLED=false` by default. When enabled, `CHAT_BOT_SERVICE_KEY`
-is required and must match Backend. Keep it private and the API loopback-only.
+`CONVERSATION_ENABLED=false` by default. `CHAT_BOT_SERVICE_KEY` is always required
+for HTTP startup and must match Backend. Keep it private.
 Configure `ANSWER_ENABLED`, semantics and the source-bound catalog as documented
 for answers; Type B retains its existing opt-in source configuration. The new
-service credential authenticates every conversation operation, including Type A
-history, and is independent of the legacy Type B credential. Backend resolves
+service credential authenticates all HTTP business operations, including stateless
+Type A retrieval/answer and history. TYPE_B_SERVICE_KEY is retired. Backend resolves
 numeric HRM references from its authenticated internal user; no lookup by name
 or email is performed. If Type B is disabled the reference is not used; its
 facts are not fabricated or restored from cache.
+
+See [shared authentication and remote HTTPS](http-service-auth.md). Python still
+binds loopback; Backend can connect through a separate HTTPS reverse proxy.
 
 ## Internal wire contract
 

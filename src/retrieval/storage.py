@@ -81,7 +81,7 @@ async def read_references(references, model_revision, fingerprint):
         return [values[0] for _, values in sorted(grouped.items()) if len(values) == 1]
 
 
-async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=()):
+async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=(), references=()):
     today = business_today()
     public = exists(select(Access.revision_id).where(Access.revision_id == Revision.id, Access.group_name == 'public'))
     eligible = (Run.status == 'succeeded', Run.is_active.is_(True),
@@ -139,6 +139,31 @@ async def search(vector, model_revision, fingerprint, top_k, *, detail_only=Fals
             result['matches'] = fuse_candidates(lists, top_k)
         else:
             result['matches'] = lists[0]
+        if references:
+            # Both retrieval and addressed reads share this eligible snapshot.
+            import uuid
+            from sqlalchemy import tuple_
+            from src.answering.pipeline import matches_reference
+            addresses = {(uuid.UUID(ref.document_id), uuid.UUID(ref.revision_id), ref.chunk_index)
+                         for ref in references}
+            if len(addresses) > 10:
+                raise ValueError('retrieval_bundle_too_large')
+            linked_query = (select(Chunk, Revision, distance).join(Run, Chunk.run_id == Run.id)
+                .join(Revision, Run.revision_id == Revision.id)
+                .where(*eligible, *compatible, Chunk.embedding.is_not(None),
+                       tuple_(Revision.document_id, Revision.id, Chunk.chunk_index).in_(sorted(addresses))))
+            linked = _records((await db.execute(linked_query)).all())
+            grouped = {}
+            for match in linked:
+                address = (match['document_id'], match['revision_id'], match['chunk_index'])
+                grouped.setdefault(address, []).append(match)
+            accepted = []
+            for ref in references:
+                values = grouped.get((ref.document_id, ref.revision_id, ref.chunk_index), [])
+                if len(values) == 1 and matches_reference(ref, values[0]) and values[0] not in accepted:
+                    accepted.append(values[0])
+            seen = {m['chunk_id'] for m in accepted}
+            result['matches'] = (accepted + [m for m in result['matches'] if m['chunk_id'] not in seen])[:30]
     result['status'] = 'matches_found' if result['matches'] else 'no_matches'
     return result
 

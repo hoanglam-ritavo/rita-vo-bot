@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "group_id": "software.eleave",
+  "turns": [
+    {
+      "case_id": "q.software.eleave.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5ddf63a03da2518aa04e44a754bc0a49"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5ddf63a03da2518aa04e44a754bc0a49"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5ddf63a03da2518aa04e44a754bc0a49"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5ddf63a03da2518aa04e44a754bc0a49"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.005",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.010",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.leave.eleave.annual",
+        "task.leave.eleave.sessions"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.012",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.015",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.016",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.017",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.018",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.019",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.020",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.eleave.020",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    }
+  ]
+}

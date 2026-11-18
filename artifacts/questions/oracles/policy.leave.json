@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.leave",
+  "turns": [
+    {
+      "case_id": "q.policy.leave.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.leave.policy.annual"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "resignation_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.010",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.012",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.leave.policy.unpaid",
+        "task.leave.workit.unpaid"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.policy.leave.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    }
+  ]
+}

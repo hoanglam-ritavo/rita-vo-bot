@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "group_id": "boundaries.evidence-availability",
+  "turns": [
+    {
+      "case_id": "q.boundaries.evidence-availability.001",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "missing"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.002",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "withdrawn"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.003",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "changed"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.004",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "denied"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.005",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "partial"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "unrelated_changed"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.007",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.008",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.009",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.010",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.011",
+      "turn": 0,
+      "statuses": [
+        "answer_unavailable"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "catalog_unavailable",
+      "http_status": 503
+    }
+  ]
+}

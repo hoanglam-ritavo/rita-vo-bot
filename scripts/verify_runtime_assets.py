@@ -155,7 +155,7 @@ def git_files(root):
 
 
 def question_sources(root, tracked):
-    """Allow indexed question sources without making them runtime assets or tests."""
+    """Allow indexed question/oracle sources without making them runtime assets."""
     directory = checked_path(root, QUESTIONS)
     if not directory.exists() and not any(path.startswith(QUESTIONS + '/') for path in tracked):
         return set()
@@ -184,6 +184,17 @@ def question_sources(root, tracked):
         parts = relative.split('/')
         if (len(parts) != 2 or parts[0] not in QUESTION_GROUPS
                 or not parts[1].endswith('.json') or parts[1] == '.json'):
+            raise InventoryError('invalid_question_path')
+        if relative.casefold() in seen:
+            raise InventoryError('duplicate_question_path')
+        seen.add(relative.casefold())
+        regular(QUESTIONS + '/' + relative)
+        allowed.add(QUESTIONS + '/' + relative)
+    for relative in index.get('oracles', []):
+        if not safe_path(relative):
+            raise InventoryError('invalid_question_path')
+        parts = relative.split('/')
+        if len(parts) != 2 or parts[0] != 'oracles' or not parts[1].endswith('.json') or parts[1] == '.json':
             raise InventoryError('invalid_question_path')
         if relative.casefold() in seen:
             raise InventoryError('duplicate_question_path')

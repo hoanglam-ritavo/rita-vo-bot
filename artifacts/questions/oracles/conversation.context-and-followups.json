@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.context-and-followups",
+  "turns": [
+    {
+      "case_id": "q.conversation.context-and-followups.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.001",
+      "turn": 1,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.001",
+      "turn": 2,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.002",
+      "turn": 1,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.002",
+      "turn": 2,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.003",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.003",
+      "turn": 1,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.003",
+      "turn": 2,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.004",
+      "turn": 1,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "department_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.004",
+      "turn": 2,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "manager_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.005",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.006",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.007",
+      "turn": 1,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.008",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.009",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.009",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.010",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.010",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "catalog_changed"
+    }
+  ]
+}

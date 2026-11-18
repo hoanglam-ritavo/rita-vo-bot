@@ -66,7 +66,9 @@ class TypeBCoordinator:
             async with asyncio.timeout(DEADLINE_SECONDS):
                 from src.retrieval.service import validate_request
                 validate_request(text, top_k)
-                route = route_question(text)
+                policy = getattr(self.owner.retrieval, 'policy', None)
+                document_task = policy is not None and policy.resolve_generic(text).state == 'task'
+                route = route_question(text, document_task=document_task)
                 prepared = None if answer else await self.owner.retrieval.prepare_query(text, top_k)
                 if route.source == 'type_a':
                     documents = (await self.owner.answers.document_evidence(text, top_k) if answer
@@ -77,7 +79,17 @@ class TypeBCoordinator:
                 else:
                     if hrm_user_id is None:
                         raise ApiError('hrm_user_id_required', 422)
-                    evidence = await self._employee_evidence(route, hrm_user_id)
+                    try:
+                        evidence = await self._employee_evidence(route, hrm_user_id)
+                    except self.source_error_type:
+                        if route.source != 'mixed':
+                            raise
+                        evidence = EmployeeEvidence(status='unavailable', facts=[], source=None,
+                                                    reason='employee_source_unavailable')
+                    except ApiError as error:
+                        if route.source != 'mixed' or error.code not in ('employee_source_unavailable', 'employee_source_timeout'):
+                            raise
+                        evidence = EmployeeEvidence(status='unavailable', facts=[], source=None, reason=error.code)
                     documents = None
                     if route.source == 'mixed' and route.reason is None and (not answer or self.owner.answers.available):
                         documents = (await self.owner.answers.document_evidence(text, top_k) if answer
@@ -166,6 +178,8 @@ class TypeBCoordinator:
             status, limitations = 'unsupported', [UNSUPPORTED]
         elif evidence.status == 'not_found':
             limitations = ['Chưa tìm thấy hồ sơ nhân viên tương ứng trong nguồn HRM.']
+        elif evidence.status == 'unavailable':
+            limitations = ['Nguồn thông tin công việc hiện không khả dụng; chưa xác định được dữ liệu cá nhân được hỏi.']
         if route.source == 'mixed' and route.reason is None:
             personnel = '\n'.join(lines)
             lines = ['Thông tin hồ sơ:\n' + personnel] if personnel else []

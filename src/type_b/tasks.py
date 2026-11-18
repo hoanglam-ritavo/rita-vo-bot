@@ -58,15 +58,25 @@ RESTRICTED = ('ngan hang', 'tai khoan ngan hang', 'so tai khoan', 'cccd', 'can c
               'lich su', 'ho so cua toi', 'toan bo ho so', 'tat ca thong tin')
 
 
-def route_question(text):
+def route_question(text, *, document_task=False):
+    from src.retrieval.language import positive_question
+    text = positive_question(text)
     query = normalized(text)
     original = unicodedata.normalize('NFC', text.casefold())
     self_reference = bool(re.search(r'\b(?:tôi|toi|mình)\b', original)) or (
-        phrase(query, 'cua minh') or phrase(query, 'ban than') or query.startswith('minh '))
+        phrase(query, 'cua minh') or phrase(query, 'ban than') and not phrase(query, 'ban than nhan vien')
+        or query.startswith('minh '))
     policy = any(phrase(query, value) for value in POLICY)
     fields = tuple(task.field for task in TASKS if any(phrase(query, alias) for alias in task.aliases))
     if query in ('toi la ai', 'toi ten gi'):
         fields = ('employee_name',)
+    # A recognized software/policy instruction mentioning email, phones or
+    # family is not by itself a request to read those personnel fields.
+    named_subject = bool(re.search(r'\bcua (?!(?:toi|minh|ban than|cong ty|doanh nghiep)\b)', query))
+    if document_task and (not fields or not self_reference and not named_subject) and not any(phrase(query, marker) for marker in
+            ('cua toi', 'cua minh', 'toi co duoc', 'chac chan', 'duoc huong',
+             'cua dong nghiep', 'cua nguoi khac', 'cua tai khoan', 'noi dung email', 'tu gui', 'tu duyet')):
+        return Route('type_a')
     source = 'mixed' if policy and fields and self_reference else 'type_b'
     # A named subject plus a trailing "I want to know" is not a self-reference.
     nonself = r'\bcua (?!(?:toi|minh|ban than)\b)'

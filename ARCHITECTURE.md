@@ -164,11 +164,13 @@ The encoder requests normalized 384-dimensional vectors; validation checks count
 
 HTTP through FastAPI is the only implemented service transport. The backend calls
 `POST /api/v1/retrieve`; the separately gated `POST /api/v1/answer` remains opt-in.
-The API and backend must share the same machine/network namespace: the bot accepts
-only a `127.0.0.1` bind, and the backend accepts only a loopback HTTP origin.
-Stateless public-document retrieval retains its legacy boundary. Conversation
-operations require the shared service credential; legacy Type B keeps its own
-credential. Remote/container-network support is not added.
+Python accepts only a `127.0.0.1` bind. A reverse proxy on the bot's network
+namespace can expose HTTPS to Backend on another domain or network. Backend
+accepts remote HTTPS origins and literal loopback HTTP, with fixed timeout/top-K.
+Every /api/v1 operation and both readiness probes require CHAT_BOT_SERVICE_KEY;
+liveness stays public. A pure ASGI boundary preserves receive/send and existing
+disconnect/drain behavior. Type B/conversation no longer own credentials or
+HTTP bypass flags. See [shared HTTP authentication](docs/http-service-auth.md).
 
 The former health-only gRPC server and entrypoint have been removed, without a
 compatibility stub. Use `/health/live` for HTTP liveness and `/health/ready` for

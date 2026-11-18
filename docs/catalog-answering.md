@@ -46,9 +46,9 @@ codes, generated request IDs, outcomes and timings, never questions/source text.
 
 ## Authoring and schemas
 
-Author language, tasks and optional retrieval metadata in their declared `artifacts/semantics/source/`, `artifacts/answers/source/` and `artifacts/retrieval/source/` inputs. See [leave recognition and ranking](leave-retrieval.md).
+Author language, tasks and optional retrieval metadata in their declared `artifacts/semantics/source/`, `artifacts/answers/source/` and `artifacts/retrieval/source/` inputs. See [cross-domain routing and evaluation](business-topics.md) and the [leave regression](leave-retrieval.md).
 The source index envelope remains version 1; its metadata selects runtime schema 2.
-Schema-1 answer catalogs/lexicons are rejected; the separate retrieval catalog uses schema 1. Deploy the code and all selected artifacts
+Schema-1 answer catalogs/lexicons are rejected; the selected retrieval catalog uses schema 2. Deploy the code and all selected artifacts
 together; runtime performs no implicit conversion or version discovery.
 
 The lexicon defines guarded concepts and aliases. The catalog defines stable task
@@ -65,11 +65,12 @@ catalog to its exact language artifact. Runtime validates structure/hash pairing
 source drift is checked per reference against current DB evidence. Corrupt artifacts
 disable policy answers, while stale evidence only withholds dependent claims.
 
-The migrated inventory has 29 packages / 530 chunks, 58 tasks and 267 concepts, including six partial leave tasks and fifteen recognition-only query concepts.
-Twenty additional procedure tasks cover Bravo, Workit and Office 365 with complete
-source-chunk quotations and `complete=false`. Existing nine complete sections
-retain their prior declarations. Optional leave registration uses targeted clarification and metadata-bound task routing; narrow existing tasks retain their behavior. The additions were source-checked by the
-implementation agent; no human review or live quality acceptance is inferred.
+The maintained inventory has 29 packages / 530 chunks, 278 tasks and 320 concepts,
+including cross-domain tasks and recognition-only topic/platform concepts. Partial
+sections retain source conditions; existing nine complete sections preserve their
+declarations. Optional routing and bounded evidence supplementation are described
+in the cross-domain guide. Additions were source-checked by the implementation
+agent; no human review or independent live quality acceptance is inferred.
 Every chunk has a disposition; `unavailable` means no maintained template binding,
 not proof that the source is absent. Held/unpublished sources remain runtime-ineligible.
 
@@ -85,7 +86,7 @@ python -m src.cli.build_artifacts check
 python -m src.cli.check_answer_catalog
 ```
 
-`impact` is readonly and reports task/unit IDs, reference positions and fixed
+`impact` is readonly and reports task/unit IDs, affected question IDs, reference positions and fixed
 states without source content. `refresh` is an explicit source write: it relinks
 only unique, byte-identical complete chunks with unchanged revision, source hash
 and bound metadata. It refreshes coverage and authoring snapshot fingerprints.

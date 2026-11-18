@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "group_id": "software.epostal",
+  "turns": [
+    {
+      "case_id": "q.software.epostal.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.3fa5c092636453f688c23632fa8ce5b2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.3fa5c092636453f688c23632fa8ce5b2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.3fa5c092636453f688c23632fa8ce5b2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.3fa5c092636453f688c23632fa8ce5b2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.005",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-admin"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-admin"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-admin"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-admin"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.010",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-admin"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.012",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-confirm"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-confirm"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-confirm"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.015",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-confirm"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.016",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.017",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-confirm"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.018",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.019",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.020",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.021",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.022",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.epostal-send"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.epostal.023",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    }
+  ]
+}

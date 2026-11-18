@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.be3059e2.5",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+    "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+    "chunk_index": 5,
+    "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+    "content_sha256": "97371c94f836fa34c39ff419489b3f32da5e5980d169deec5cd622e842d0a402",
+    "quote": "E-Workdate — duyệt bằng điện thoại: tải Power Automate của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365, vào Approvals > chọn đơn xác nhận đi trễ/về sớm > đọc chi tiết và Duyệt/Từ chối; có ô comments. Danh sách có thể chứa nhiều loại E-Office, cần chọn đúng đơn.",
+    "metadata": {
+      "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "1.0; cập nhật 18.11.2023",
+      "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+    }
+  },
+  "task_ids": [
+    "task.topic.eworkdate-mobile"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "eworkdate"
+}

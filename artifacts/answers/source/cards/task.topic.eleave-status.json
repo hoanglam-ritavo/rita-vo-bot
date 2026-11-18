@@ -1,0 +1,115 @@
+{
+  "id": "task.topic.eleave-status",
+  "label": "Thông báo trạng thái trong hướng dẫn E-Leave",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.eleave-status"
+  ],
+  "aliases": [
+    "Thông báo trạng thái trong hướng dẫn E-Leave",
+    "quy trình thông báo E-Leave"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.11",
+          "text": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 11,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+              "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.12",
+          "text": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 12,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b",
+              "quote": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.11",
+          "text": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 11,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+              "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.12",
+          "text": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 12,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b",
+              "quote": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

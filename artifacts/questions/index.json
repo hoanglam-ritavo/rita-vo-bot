@@ -513,16 +513,22 @@
       "group_id": "software.workit",
       "case_count": 92,
       "turn_count": 92
+    },
+    {
+      "path": "policy/business-expansion.json",
+      "group_id": "policy.business-expansion",
+      "case_count": 413,
+      "turn_count": 413
     }
   ],
   "totals": {
-    "groups": 20,
-    "cases": 416,
-    "turns": 433,
-    "observed_task_cards": 58,
+    "groups": 21,
+    "cases": 829,
+    "turns": 846,
+    "observed_task_cards": 278,
     "documents": 29,
     "employee_fields": 9,
-    "retrieval_routes": 6
+    "retrieval_routes": 284
   },
   "coverage": {
     "tasks": [
@@ -534,11 +540,15 @@
           "q.software.workit.002",
           "q.software.workit.003",
           "q.software.workit.004",
-          "q.software.workit.005"
+          "q.software.workit.005",
+          "q.policy.business-expansion.1b354267b0e5859e"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.1b354267b0e5859e"
           ]
         }
       },
@@ -566,11 +576,15 @@
           "q.software.outlook.002",
           "q.software.outlook.003",
           "q.software.outlook.004",
-          "q.software.outlook.005"
+          "q.software.outlook.005",
+          "q.policy.business-expansion.f4d09140340f9df8"
         ],
         "aspects": {
           "overview": [
             "q.software.outlook.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f4d09140340f9df8"
           ]
         }
       },
@@ -582,11 +596,15 @@
           "q.policy.benefits.002",
           "q.policy.benefits.003",
           "q.policy.benefits.004",
-          "q.policy.benefits.005"
+          "q.policy.benefits.005",
+          "q.policy.business-expansion.864d7d490f32910c"
         ],
         "aspects": {
           "overview": [
             "q.policy.benefits.001"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.864d7d490f32910c"
           ]
         }
       },
@@ -615,11 +633,15 @@
           "q.policy.labor-rules.003",
           "q.policy.labor-rules.004",
           "q.policy.labor-rules.005",
-          "q.mixed.policy-and-profile.001"
+          "q.mixed.policy-and-profile.001",
+          "q.policy.business-expansion.aecf5b50eab78b3e"
         ],
         "aspects": {
           "overview": [
             "q.policy.labor-rules.001"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.aecf5b50eab78b3e"
           ]
         }
       },
@@ -631,11 +653,15 @@
           "q.policy.administration.002",
           "q.policy.administration.003",
           "q.policy.administration.004",
-          "q.policy.administration.005"
+          "q.policy.administration.005",
+          "q.policy.business-expansion.9e007ab67b7fb711"
         ],
         "aspects": {
           "overview": [
             "q.policy.administration.001"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.9e007ab67b7fb711"
           ]
         }
       },
@@ -647,11 +673,19 @@
           "q.policy.administration.007",
           "q.policy.administration.008",
           "q.policy.administration.009",
-          "q.policy.administration.010"
+          "q.policy.administration.010",
+          "q.policy.business-expansion.3f5749e8c01155aa",
+          "q.policy.business-expansion.84508764e4bd5a61"
         ],
         "aspects": {
           "overview": [
             "q.policy.administration.006"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.3f5749e8c01155aa"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.84508764e4bd5a61"
           ]
         }
       },
@@ -663,11 +697,15 @@
           "q.software.epostal.002",
           "q.software.epostal.003",
           "q.software.epostal.004",
-          "q.software.epostal.005"
+          "q.software.epostal.005",
+          "q.policy.business-expansion.0ba422a034dbf8b7"
         ],
         "aspects": {
           "overview": [
             "q.software.epostal.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.0ba422a034dbf8b7"
           ]
         }
       },
@@ -679,11 +717,15 @@
           "q.policy.workplace-safety.012",
           "q.policy.workplace-safety.013",
           "q.policy.workplace-safety.014",
-          "q.policy.workplace-safety.015"
+          "q.policy.workplace-safety.015",
+          "q.policy.business-expansion.4220fad1ae392c30"
         ],
         "aspects": {
           "overview": [
             "q.policy.workplace-safety.011"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.4220fad1ae392c30"
           ]
         }
       },
@@ -695,11 +737,15 @@
           "q.policy.labor-rules.007",
           "q.policy.labor-rules.008",
           "q.policy.labor-rules.009",
-          "q.policy.labor-rules.010"
+          "q.policy.labor-rules.010",
+          "q.policy.business-expansion.7deca3094153ba99"
         ],
         "aspects": {
           "overview": [
             "q.policy.labor-rules.006"
+          ],
+          "amount": [
+            "q.policy.business-expansion.7deca3094153ba99"
           ]
         }
       },
@@ -711,11 +757,15 @@
           "q.software.workit.007",
           "q.software.workit.008",
           "q.software.workit.009",
-          "q.software.workit.010"
+          "q.software.workit.010",
+          "q.policy.business-expansion.01154f74eed7c2ed"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.006"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.01154f74eed7c2ed"
           ]
         }
       },
@@ -727,11 +777,15 @@
           "q.software.bravo.002",
           "q.software.bravo.003",
           "q.software.bravo.004",
-          "q.software.bravo.005"
+          "q.software.bravo.005",
+          "q.policy.business-expansion.fe5a16bc5268f55d"
         ],
         "aspects": {
           "overview": [
             "q.software.bravo.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.fe5a16bc5268f55d"
           ]
         }
       },
@@ -743,11 +797,15 @@
           "q.software.eleave.002",
           "q.software.eleave.003",
           "q.software.eleave.004",
-          "q.software.eleave.005"
+          "q.software.eleave.005",
+          "q.policy.business-expansion.5ec0acd1555e38bf"
         ],
         "aspects": {
           "overview": [
             "q.software.eleave.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.5ec0acd1555e38bf"
           ]
         }
       },
@@ -760,11 +818,15 @@
           "q.policy.benefits.008",
           "q.policy.benefits.009",
           "q.policy.benefits.010",
-          "q.mixed.policy-and-profile.003"
+          "q.mixed.policy-and-profile.003",
+          "q.policy.business-expansion.db9658871fa4fb7a"
         ],
         "aspects": {
           "overview": [
             "q.policy.benefits.006"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.db9658871fa4fb7a"
           ]
         }
       },
@@ -792,11 +854,15 @@
           "q.software.workit.012",
           "q.software.workit.013",
           "q.software.workit.014",
-          "q.software.workit.015"
+          "q.software.workit.015",
+          "q.policy.business-expansion.58d042c6baaa2c89"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.011"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.58d042c6baaa2c89"
           ]
         }
       },
@@ -808,11 +874,15 @@
           "q.software.workit.017",
           "q.software.workit.018",
           "q.software.workit.019",
-          "q.software.workit.020"
+          "q.software.workit.020",
+          "q.policy.business-expansion.bce6204a81a7fc37"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.016"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.bce6204a81a7fc37"
           ]
         }
       },
@@ -840,11 +910,19 @@
           "q.policy.labor-rules.017",
           "q.policy.labor-rules.018",
           "q.policy.labor-rules.019",
-          "q.policy.labor-rules.020"
+          "q.policy.labor-rules.020",
+          "q.policy.business-expansion.ec389d6a7e01d957",
+          "q.policy.business-expansion.8e773d2f2c03283f"
         ],
         "aspects": {
           "overview": [
             "q.policy.labor-rules.016"
+          ],
+          "amount": [
+            "q.policy.business-expansion.ec389d6a7e01d957"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.8e773d2f2c03283f"
           ]
         }
       },
@@ -901,11 +979,15 @@
           "q.software.eworkdate.002",
           "q.software.eworkdate.003",
           "q.software.eworkdate.004",
-          "q.software.eworkdate.005"
+          "q.software.eworkdate.005",
+          "q.policy.business-expansion.fe3a2048fbc862b3"
         ],
         "aspects": {
           "overview": [
             "q.software.eworkdate.001"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.fe3a2048fbc862b3"
           ]
         }
       },
@@ -917,11 +999,15 @@
           "q.software.workit.027",
           "q.software.workit.028",
           "q.software.workit.029",
-          "q.software.workit.030"
+          "q.software.workit.030",
+          "q.policy.business-expansion.21ace09e15a35cdf"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.026"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.21ace09e15a35cdf"
           ]
         }
       },
@@ -981,11 +1067,15 @@
           "q.policy.administration.012",
           "q.policy.administration.013",
           "q.policy.administration.014",
-          "q.policy.administration.015"
+          "q.policy.administration.015",
+          "q.policy.business-expansion.5a89e976694e5159"
         ],
         "aspects": {
           "overview": [
             "q.policy.administration.011"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.5a89e976694e5159"
           ]
         }
       },
@@ -1042,11 +1132,19 @@
           "q.software.workit.032",
           "q.software.workit.033",
           "q.software.workit.034",
-          "q.software.workit.035"
+          "q.software.workit.035",
+          "q.policy.business-expansion.b6def5415a1f0aa3",
+          "q.policy.business-expansion.704159616ffa2682"
         ],
         "aspects": {
           "overview": [
             "q.software.workit.031"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.b6def5415a1f0aa3"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.704159616ffa2682"
           ]
         }
       },
@@ -1270,11 +1368,15 @@
           "q.policy.labor-rules.022",
           "q.policy.labor-rules.023",
           "q.policy.labor-rules.024",
-          "q.policy.labor-rules.025"
+          "q.policy.labor-rules.025",
+          "q.policy.business-expansion.03441e0b877e850a"
         ],
         "aspects": {
           "overview": [
             "q.policy.labor-rules.021"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.03441e0b877e850a"
           ]
         }
       },
@@ -1645,6 +1747,3322 @@
           ],
           "procedure": [
             "q.software.workit.091"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.worktime.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.worktime.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.4ea2afe702d1e6bc"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4ea2afe702d1e6bc"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.overtime.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.overtime.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.0b39db433a69ae6f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.0b39db433a69ae6f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.overtime-exempt.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.overtime-exempt.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.683a7df41308dbfa"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.683a7df41308dbfa"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.overtime-emergency.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.overtime-emergency.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.11ffc49c166ee0e3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.11ffc49c166ee0e3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.breaks.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.breaks.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.d22e982f027de05d"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d22e982f027de05d"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.holidays.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.holidays.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.4f91e0f8c093bfda"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4f91e0f8c093bfda"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.annual-schedule.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.annual-schedule.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.122c87efac921de4"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.122c87efac921de4"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.personal-leave.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.personal-leave.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.24b79941ab2c1916"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.24b79941ab2c1916"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.maternity-policy.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.maternity-policy.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.193edeb32740c6fa"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.193edeb32740c6fa"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.own-sickness-bhxh.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.own-sickness-bhxh.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.07baa72225d34c6c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.07baa72225d34c6c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.child-sickness-bhxh.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.child-sickness-bhxh.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.861c010680857d74"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.861c010680857d74"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.paternity.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.paternity.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.3a71e3c2388bd53c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.3a71e3c2388bd53c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.leave-approval.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.leave-approval.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.f48174af926d38c0"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.f48174af926d38c0"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.resignation.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.resignation.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.43d7a8348bf131a1",
+          "q.policy.business-expansion.50fea666b0ed6696"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.43d7a8348bf131a1"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.50fea666b0ed6696"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.resignation-exception.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.resignation-exception.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.7232ee59fb330a38"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7232ee59fb330a38"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.handover.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.handover.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.52e1f330196cb473",
+          "q.policy.business-expansion.1d6ea69cb0d4c6e6"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.52e1f330196cb473"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.1d6ea69cb0d4c6e6"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.severance.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.severance.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.4b5204064ac849a5",
+          "q.policy.business-expansion.cbff43f193c41cfa",
+          "q.policy.business-expansion.2df6c93cbb02a241"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4b5204064ac849a5"
+          ],
+          "amount": [
+            "q.policy.business-expansion.cbff43f193c41cfa"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.2df6c93cbb02a241"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.settlement.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.settlement.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.df7a5ec76ce95fa7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.df7a5ec76ce95fa7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.salary.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.salary.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.8192c6fb5f8ffd87",
+          "q.policy.business-expansion.c4ae2db1203a4533",
+          "q.policy.business-expansion.e157a9894aae8e1a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8192c6fb5f8ffd87"
+          ],
+          "amount": [
+            "q.policy.business-expansion.c4ae2db1203a4533"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.e157a9894aae8e1a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.allowances.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.allowances.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.6ecbc20d2923b8a4",
+          "q.policy.business-expansion.658bba989dbcec1f",
+          "q.policy.business-expansion.77fce5d8b6f32b94"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.6ecbc20d2923b8a4"
+          ],
+          "amount": [
+            "q.policy.business-expansion.658bba989dbcec1f"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.77fce5d8b6f32b94"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.bonus.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.bonus.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.49792cc2972f070f",
+          "q.policy.business-expansion.563aaca561d82f6e",
+          "q.policy.business-expansion.82c98aa6ee42755e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.49792cc2972f070f"
+          ],
+          "amount": [
+            "q.policy.business-expansion.563aaca561d82f6e"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.82c98aa6ee42755e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.insurance.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.insurance.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.38882bdb0c720661"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.38882bdb0c720661"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.conduct.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.conduct.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.9a21468b5afe3db8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9a21468b5afe3db8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.visitors.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.visitors.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.8681fd0e94a63bc8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8681fd0e94a63bc8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.media-authority.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.media-authority.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.e188527c97c21055"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e188527c97c21055"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.meeting-room-registration.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.meeting-room-registration.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.8ba7bcf27417e78c",
+          "q.policy.business-expansion.a5215f4a1ba0179f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8ba7bcf27417e78c"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.a5215f4a1ba0179f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.entry.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.entry.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.cac2fa207f00aaab"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.cac2fa207f00aaab"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.it-security.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.it-security.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.ffe726670042b709"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ffe726670042b709"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.office-equipment-consent.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.office-equipment-consent.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.97ea50bb84528bb8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.97ea50bb84528bb8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.forklift-safety-inspection.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.forklift-safety-inspection.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.b40c6df627eca3ae"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b40c6df627eca3ae"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.chemical-solvent-purpose.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.chemical-solvent-purpose.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.a21d2ecb378998f1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a21d2ecb378998f1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.hygiene.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.hygiene.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.469236678679c775"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.469236678679c775"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.harassment.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.harassment.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.5e4967a394bc8457"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5e4967a394bc8457"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.harassment-report.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.harassment-report.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.5a9ac4a8d77cb97a",
+          "q.policy.business-expansion.978e3048049844f9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5a9ac4a8d77cb97a"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.978e3048049844f9"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.asset-protection.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.asset-protection.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.100d73f228a6c69e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.100d73f228a6c69e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.confidentiality.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.confidentiality.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.69558d561c9bc79d"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.69558d561c9bc79d"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.transfer.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.transfer.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.8bfeba67c78dc0aa"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8bfeba67c78dc0aa"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.discipline.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.discipline.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.d441de4ea8cf856e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d441de4ea8cf856e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.dismissal.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.dismissal.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.c5116d6e5a3f1df2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c5116d6e5a3f1df2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.discipline-process.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.discipline-process.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.94115a507a7ee285",
+          "q.policy.business-expansion.48883d1951773fef"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.94115a507a7ee285"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.48883d1951773fef"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.suspension.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.suspension.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.ca26d3c5ca0838dc"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ca26d3c5ca0838dc"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.discipline-expiry.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.discipline-expiry.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.df4ddb3a94233e74"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.df4ddb3a94233e74"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.complaint.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.complaint.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.b54cd9546d7272f7",
+          "q.policy.business-expansion.d03b06e89200ec9c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b54cd9546d7272f7"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.d03b06e89200ec9c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.damages.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.damages.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.5f8b8a257c868a3b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5f8b8a257c868a3b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.damages-process.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.damages-process.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.62966f8dc6a96e66",
+          "q.policy.business-expansion.d83333ee42db0de4"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.62966f8dc6a96e66"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.d83333ee42db0de4"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.personnel-file.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.personnel-file.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.db1d72b5c6861f77",
+          "q.policy.business-expansion.baee9a8f36512bca"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.db1d72b5c6861f77"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.baee9a8f36512bca"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.probation.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.probation.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.13808caa92f08de8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.13808caa92f08de8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.contract.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.contract.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.01460fbe4c00aff0"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.01460fbe4c00aff0"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.employer-termination.7f1f2cf6",
+        "source_file": "artifacts/answers/source/cards/task.business.employer-termination.7f1f2cf6.json",
+        "case_ids": [
+          "q.policy.business-expansion.75a58a6833922dc3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.75a58a6833922dc3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.overtime-rest-deduction.06a4bc95",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.overtime-rest-deduction.06a4bc95.json",
+        "case_ids": [
+          "q.policy.business-expansion.d19250ec975c9a49"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d19250ec975c9a49"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.overtime-driver.06a4bc95",
+        "source_file": "artifacts/answers/source/cards/task.business.overtime-driver.06a4bc95.json",
+        "case_ids": [
+          "q.policy.business-expansion.00d59b0e2cdb3971"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.00d59b0e2cdb3971"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.bereavement-employee.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.bereavement-employee.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.15ea0af128b37a2e",
+          "q.policy.business-expansion.251629e3c6576398",
+          "q.policy.business-expansion.bc3c7ea333ee9731"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.15ea0af128b37a2e"
+          ],
+          "amount": [
+            "q.policy.business-expansion.251629e3c6576398"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.bc3c7ea333ee9731"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.bereavement-close-family.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.bereavement-close-family.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.7bb5c05913c02fcb",
+          "q.policy.business-expansion.e17b000c9f9141db",
+          "q.policy.business-expansion.d7bab77b77535e87"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7bb5c05913c02fcb"
+          ],
+          "amount": [
+            "q.policy.business-expansion.e17b000c9f9141db"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.d7bab77b77535e87"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.branch.bereavement-relatives.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.branch.bereavement-relatives.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.bfa4602c93e4584b",
+          "q.policy.business-expansion.f7ada648f335ab01",
+          "q.policy.business-expansion.560abf298c8cde69"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.bfa4602c93e4584b"
+          ],
+          "amount": [
+            "q.policy.business-expansion.f7ada648f335ab01"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.560abf298c8cde69"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.inpatient-company-support.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.inpatient-company-support.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.69a2665b8478427a",
+          "q.policy.business-expansion.f38f3d1ca940c2cf",
+          "q.policy.business-expansion.4541fd2c12ebfc1f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.69a2665b8478427a"
+          ],
+          "amount": [
+            "q.policy.business-expansion.f38f3d1ca940c2cf"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.4541fd2c12ebfc1f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.outpatient-company-support.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.outpatient-company-support.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.989432bff50bdd6c",
+          "q.policy.business-expansion.2a10d4bfc173a74d",
+          "q.policy.business-expansion.1b153c2a3c947618"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.989432bff50bdd6c"
+          ],
+          "amount": [
+            "q.policy.business-expansion.2a10d4bfc173a74d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.1b153c2a3c947618"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.benefit-children.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.benefit-children.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.97fd86018df9526b",
+          "q.policy.business-expansion.ae4a980af846fe8f",
+          "q.policy.business-expansion.a8e9ccfc3edaa6e8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.97fd86018df9526b"
+          ],
+          "amount": [
+            "q.policy.business-expansion.ae4a980af846fe8f"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.a8e9ccfc3edaa6e8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.benefit-holiday.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.benefit-holiday.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.6f658bb745682a45",
+          "q.policy.business-expansion.f083b2421f8ba90d",
+          "q.policy.business-expansion.7c4dc42b574b5bac"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.6f658bb745682a45"
+          ],
+          "amount": [
+            "q.policy.business-expansion.f083b2421f8ba90d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.7c4dc42b574b5bac"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.benefit-tenure.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.benefit-tenure.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.84a2f9b4c922fa53",
+          "q.policy.business-expansion.5dcffb612e507bf5",
+          "q.policy.business-expansion.2e9a5c2851ad7db5"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.84a2f9b4c922fa53"
+          ],
+          "amount": [
+            "q.policy.business-expansion.5dcffb612e507bf5"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.2e9a5c2851ad7db5"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.benefit-payment.d1ed5f3f",
+        "source_file": "artifacts/answers/source/cards/task.business.benefit-payment.d1ed5f3f.json",
+        "case_ids": [
+          "q.policy.business-expansion.441aa206ebbea975",
+          "q.policy.business-expansion.a78807b07520b192",
+          "q.policy.business-expansion.ca2d00d3aac2a247"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.441aa206ebbea975"
+          ],
+          "amount": [
+            "q.policy.business-expansion.a78807b07520b192"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.ca2d00d3aac2a247"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.referral-rates.9b8dd80f",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.referral-rates.9b8dd80f.json",
+        "case_ids": [
+          "q.policy.business-expansion.d8891933b326fc08",
+          "q.policy.business-expansion.e0adc603635ae631",
+          "q.policy.business-expansion.30d7c2b118defb5f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d8891933b326fc08"
+          ],
+          "amount": [
+            "q.policy.business-expansion.e0adc603635ae631"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.30d7c2b118defb5f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.referral-payment.9b8dd80f",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.referral-payment.9b8dd80f.json",
+        "case_ids": [
+          "q.policy.business-expansion.defa01865f3dddb8",
+          "q.policy.business-expansion.5b786b63da431a7d",
+          "q.policy.business-expansion.0c1999f8c51a1768"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.defa01865f3dddb8"
+          ],
+          "amount": [
+            "q.policy.business-expansion.5b786b63da431a7d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.0c1999f8c51a1768"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-management.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-management.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.d6cfa10b34843c59"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d6cfa10b34843c59"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-blank.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-blank.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.155d36dddbb96268"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.155d36dddbb96268"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-replacement.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-replacement.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.2bc0388b2f26b1a0"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2bc0388b2f26b1a0"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-technique.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-technique.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.85c41f80159655f9",
+          "q.policy.business-expansion.dfbce112f87408e8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.85c41f80159655f9"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.dfbce112f87408e8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-hanging.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-hanging.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.a44b606bafbe71b7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a44b606bafbe71b7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-overlap.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-overlap.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.2a2e90678cd4fd97"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2a2e90678cd4fd97"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.seal-authority.293575cf",
+        "source_file": "artifacts/answers/source/cards/task.business.seal-authority.293575cf.json",
+        "case_ids": [
+          "q.policy.business-expansion.44b74d488bcd63ef"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.44b74d488bcd63ef"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.sealing.52ff7a79",
+        "source_file": "artifacts/answers/source/cards/task.business.sealing.52ff7a79.json",
+        "case_ids": [
+          "q.policy.business-expansion.39b8ec6ea1f53b3f",
+          "q.policy.business-expansion.f9faddcec587a5e4"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.39b8ec6ea1f53b3f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f9faddcec587a5e4"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.asset-disposal.c7065069",
+        "source_file": "artifacts/answers/source/cards/task.business.asset-disposal.c7065069.json",
+        "case_ids": [
+          "q.policy.business-expansion.7a61aa5be68d1538",
+          "q.policy.business-expansion.794e09d3bd0335c7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7a61aa5be68d1538"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.794e09d3bd0335c7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.asset-disposal-approval.c7065069",
+        "source_file": "artifacts/answers/source/cards/task.business.asset-disposal-approval.c7065069.json",
+        "case_ids": [
+          "q.policy.business-expansion.c82897a9efc51b12",
+          "q.policy.business-expansion.3167c112847c9385"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c82897a9efc51b12"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.3167c112847c9385"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.asset-disposal-records.c7065069",
+        "source_file": "artifacts/answers/source/cards/task.business.asset-disposal-records.c7065069.json",
+        "case_ids": [
+          "q.policy.business-expansion.824b30ff630454b9",
+          "q.policy.business-expansion.abf67030ca94da2e",
+          "q.policy.business-expansion.e1c3edaeedee182e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.824b30ff630454b9"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.abf67030ca94da2e"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.e1c3edaeedee182e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.uniform.b020eea1",
+        "source_file": "artifacts/answers/source/cards/task.business.uniform.b020eea1.json",
+        "case_ids": [
+          "q.policy.business-expansion.68be98b12ff36e2e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.68be98b12ff36e2e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.badge.b020eea1",
+        "source_file": "artifacts/answers/source/cards/task.business.badge.b020eea1.json",
+        "case_ids": [
+          "q.policy.business-expansion.3722909d6aed4646"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.3722909d6aed4646"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.clothes.b020eea1",
+        "source_file": "artifacts/answers/source/cards/task.business.clothes.b020eea1.json",
+        "case_ids": [
+          "q.policy.business-expansion.51caef1d1becaa68"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.51caef1d1becaa68"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.conduct.b020eea1",
+        "source_file": "artifacts/answers/source/cards/task.business.conduct.b020eea1.json",
+        "case_ids": [
+          "q.policy.business-expansion.82dd0b721f29ccae"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.82dd0b721f29ccae"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-use.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-use.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.22ab9fd46cc36268"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.22ab9fd46cc36268"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-dispatch.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-dispatch.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.f8560ecbf477aa7a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.f8560ecbf477aa7a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-duties.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-duties.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.864a224722538fc3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.864a224722538fc3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-log.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-log.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.0999cfff0bee675c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.0999cfff0bee675c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-maintenance.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-maintenance.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.47d7ed54852ce840",
+          "q.policy.business-expansion.21020db7107b6bda"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.47d7ed54852ce840"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.21020db7107b6bda"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-fuel.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-fuel.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.1487c3c952002cb5",
+          "q.policy.business-expansion.6d101731dc973f87",
+          "q.policy.business-expansion.6c6dd9a327aed6b2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.1487c3c952002cb5"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.6d101731dc973f87"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.6c6dd9a327aed6b2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.vehicle-tolls.b114fe60",
+        "source_file": "artifacts/answers/source/cards/task.business.vehicle-tolls.b114fe60.json",
+        "case_ids": [
+          "q.policy.business-expansion.a808844d10454c05"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a808844d10454c05"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.security-vendor.8640ee34",
+        "source_file": "artifacts/answers/source/cards/task.business.security-vendor.8640ee34.json",
+        "case_ids": [
+          "q.policy.business-expansion.e2408c96818b953d"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e2408c96818b953d"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.security-personnel.8640ee34",
+        "source_file": "artifacts/answers/source/cards/task.business.security-personnel.8640ee34.json",
+        "case_ids": [
+          "q.policy.business-expansion.35f31c7f29c3a367"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.35f31c7f29c3a367"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.security-duties.8640ee34",
+        "source_file": "artifacts/answers/source/cards/task.business.security-duties.8640ee34.json",
+        "case_ids": [
+          "q.policy.business-expansion.8c5ca2bd44333854"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8c5ca2bd44333854"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.security-coordination.8640ee34",
+        "source_file": "artifacts/answers/source/cards/task.business.security-coordination.8640ee34.json",
+        "case_ids": [
+          "q.policy.business-expansion.7e114665f9607d20"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7e114665f9607d20"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.security-violation.8640ee34",
+        "source_file": "artifacts/answers/source/cards/task.business.security-violation.8640ee34.json",
+        "case_ids": [
+          "q.policy.business-expansion.5c242f5609ccb0e6"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5c242f5609ccb0e6"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-entry.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-entry.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.09d43c5f2626ec75"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.09d43c5f2626ec75"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.elevator.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.elevator.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.e049967b4abe80e3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e049967b4abe80e3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.aircon.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.aircon.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.b14bf90f56713c39"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b14bf90f56713c39"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-light.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-light.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.626643ba9ea16a23"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.626643ba9ea16a23"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.power-failure.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.power-failure.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.bdcba77e59127f23"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.bdcba77e59127f23"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-assets.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-assets.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.a273610186801bf8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a273610186801bf8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-hygiene.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-hygiene.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.ddf8381c81177db7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ddf8381c81177db7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.parking.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.parking.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.aa3ebac1baf84739"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.aa3ebac1baf84739"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.fire-safety.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.fire-safety.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.66266351657cafa1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.66266351657cafa1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-emergency.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-emergency.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.9106662e4cefd1eb"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9106662e4cefd1eb"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.building-duties.95b9cbfe",
+        "source_file": "artifacts/answers/source/cards/task.business.building-duties.95b9cbfe.json",
+        "case_ids": [
+          "q.policy.business-expansion.e5872f59823eebcd"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e5872f59823eebcd"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.ethics.7523b7f7",
+        "source_file": "artifacts/answers/source/cards/task.business.ethics.7523b7f7.json",
+        "case_ids": [
+          "q.policy.business-expansion.018f6f5e7c397ba9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.018f6f5e7c397ba9"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.policy.orientation-record.7523b7f7",
+        "source_file": "artifacts/answers/source/cards/task.business.policy.orientation-record.7523b7f7.json",
+        "case_ids": [
+          "q.policy.business-expansion.e362f05a4888a29d"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e362f05a4888a29d"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.forgot-clock.c9973704",
+        "source_file": "artifacts/answers/source/cards/task.business.forgot-clock.c9973704.json",
+        "case_ids": [
+          "q.policy.business-expansion.7ddd0d18562ff01f",
+          "q.policy.business-expansion.3146e16986996b68"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7ddd0d18562ff01f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.3146e16986996b68"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.shift.c9973704",
+        "source_file": "artifacts/answers/source/cards/task.business.shift.c9973704.json",
+        "case_ids": [
+          "q.policy.business-expansion.7191b0ef1380a8b2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7191b0ef1380a8b2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.clock-exempt.c9973704",
+        "source_file": "artifacts/answers/source/cards/task.business.clock-exempt.c9973704.json",
+        "case_ids": [
+          "q.policy.business-expansion.8393c9e30bb1aa2c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8393c9e30bb1aa2c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.attendance-deductions.c9973704",
+        "source_file": "artifacts/answers/source/cards/task.business.attendance-deductions.c9973704.json",
+        "case_ids": [
+          "q.policy.business-expansion.7f727ef2ce4751bb"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7f727ef2ce4751bb"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.attendance-discipline.c9973704",
+        "source_file": "artifacts/answers/source/cards/task.business.attendance-discipline.c9973704.json",
+        "case_ids": [
+          "q.policy.business-expansion.ad4f5412239f2cf6"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ad4f5412239f2cf6"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-groups.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-groups.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.72736a4f87b489ce"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.72736a4f87b489ce"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-cost.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-cost.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.c95ae5a79ef0e1ff",
+          "q.policy.business-expansion.65aa076481513f63",
+          "q.policy.business-expansion.677fb68e3d5d1dad"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c95ae5a79ef0e1ff"
+          ],
+          "amount": [
+            "q.policy.business-expansion.65aa076481513f63"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.677fb68e3d5d1dad"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-lodging.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-lodging.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.99ac1cf960e23023",
+          "q.policy.business-expansion.f82de4c83cd94642",
+          "q.policy.business-expansion.a47aff3559c28b2f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.99ac1cf960e23023"
+          ],
+          "amount": [
+            "q.policy.business-expansion.f82de4c83cd94642"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.a47aff3559c28b2f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-advance.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-advance.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.111d2f9c71ae6660"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.111d2f9c71ae6660"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-allowance.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-allowance.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.1f21ba27391c9a61",
+          "q.policy.business-expansion.8fb8f0a54c5f6433",
+          "q.policy.business-expansion.773c69c2ea5af144"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.1f21ba27391c9a61"
+          ],
+          "amount": [
+            "q.policy.business-expansion.8fb8f0a54c5f6433"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.773c69c2ea5af144"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-cancel.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-cancel.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.aad434c984fb1d1a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.aad434c984fb1d1a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-booking.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-booking.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.de1263de3f3e2268"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.de1263de3f3e2268"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-entertainment.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-entertainment.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.8ffcb992fb432874",
+          "q.policy.business-expansion.f9363560b0ad2fb9",
+          "q.policy.business-expansion.bff68ff1f24716f1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8ffcb992fb432874"
+          ],
+          "amount": [
+            "q.policy.business-expansion.f9363560b0ad2fb9"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.bff68ff1f24716f1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-request.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-request.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.27e23b0db0602867",
+          "q.policy.business-expansion.c3951e4798684df7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.27e23b0db0602867"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c3951e4798684df7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-settlement.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-settlement.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.544d338af719bb82",
+          "q.policy.business-expansion.44767c35a0adb3f3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.544d338af719bb82"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.44767c35a0adb3f3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-invoices.1c42626a",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-invoices.1c42626a.json",
+        "case_ids": [
+          "q.policy.business-expansion.8623000cf91b63e4",
+          "q.policy.business-expansion.cd729f5e48f5688b",
+          "q.policy.business-expansion.d9aca2ba11ea9dfc"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8623000cf91b63e4"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.cd729f5e48f5688b"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.d9aca2ba11ea9dfc"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-groups.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-groups.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.2d418e7d1aa4f9f1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2d418e7d1aa4f9f1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-cost.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-cost.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.5c25bfbced04ad0d",
+          "q.policy.business-expansion.2876b8b0ddac3055",
+          "q.policy.business-expansion.3c5e554597ba49b7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5c25bfbced04ad0d"
+          ],
+          "amount": [
+            "q.policy.business-expansion.2876b8b0ddac3055"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.3c5e554597ba49b7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-lodging.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-lodging.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.7da9aee52efc7a2b",
+          "q.policy.business-expansion.c4a0685c72a6a3ce",
+          "q.policy.business-expansion.39e49030b08cb9da"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7da9aee52efc7a2b"
+          ],
+          "amount": [
+            "q.policy.business-expansion.c4a0685c72a6a3ce"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.39e49030b08cb9da"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-advance.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-advance.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.228dd90c92d83adb"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.228dd90c92d83adb"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-allowance.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-allowance.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.4d98caec568a7a6d",
+          "q.policy.business-expansion.0947c0343f8fe3fc",
+          "q.policy.business-expansion.eb1a5d89a36a0b51"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4d98caec568a7a6d"
+          ],
+          "amount": [
+            "q.policy.business-expansion.0947c0343f8fe3fc"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.eb1a5d89a36a0b51"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-cancel.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-cancel.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.3bedfea6c1854247"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.3bedfea6c1854247"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-booking.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-booking.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.528bd24992242a95"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.528bd24992242a95"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-entertainment.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-entertainment.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.5baf6b4816fe9186",
+          "q.policy.business-expansion.750883110e7b0666",
+          "q.policy.business-expansion.73bacf0f5381921e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5baf6b4816fe9186"
+          ],
+          "amount": [
+            "q.policy.business-expansion.750883110e7b0666"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.73bacf0f5381921e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-request.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-request.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.f03d11fb7a65aaaa",
+          "q.policy.business-expansion.d3b27785b6d4849b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.f03d11fb7a65aaaa"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.d3b27785b6d4849b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-settlement.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-settlement.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.bb10c5da57cd37e5",
+          "q.policy.business-expansion.d0769c998f975e9a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.bb10c5da57cd37e5"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.d0769c998f975e9a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.travel-invoices.91ae6b2d",
+        "source_file": "artifacts/answers/source/cards/task.business.travel-invoices.91ae6b2d.json",
+        "case_ids": [
+          "q.policy.business-expansion.36ba9e8ae6e22280",
+          "q.policy.business-expansion.c3c7195e48cf5312",
+          "q.policy.business-expansion.72f7ab89446eba71"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.36ba9e8ae6e22280"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c3c7195e48cf5312"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.72f7ab89446eba71"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-signature.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-signature.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.0d30d18174591bda",
+          "q.policy.business-expansion.8c79880ebb5d2dc2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.0d30d18174591bda"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.8c79880ebb5d2dc2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.signature-image.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.signature-image.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.7d3c71b81cf139d4",
+          "q.policy.business-expansion.ab7b7d367b5f37e4"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7d3c71b81cf139d4"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.ab7b7d367b5f37e4"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-profile.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-profile.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.7c09a076a6908237",
+          "q.policy.business-expansion.799b7bdb1cb39113"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7c09a076a6908237"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.799b7bdb1cb39113"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.contracts-view.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.contracts-view.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.b506a42d2bfc3f13",
+          "q.policy.business-expansion.6c9ff5a078c9bc92"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b506a42d2bfc3f13"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.6c9ff5a078c9bc92"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-salary.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-salary.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.e2a7d20039e2c3d8",
+          "q.policy.business-expansion.aa27e5031a7a5f86"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e2a7d20039e2c3d8"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.aa27e5031a7a5f86"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-attendance.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-attendance.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.3bd8e47e6205872b",
+          "q.policy.business-expansion.57557b4c1cc79661"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.3bd8e47e6205872b"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.57557b4c1cc79661"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-clock-fix.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-clock-fix.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.d25cc17298571d46",
+          "q.policy.business-expansion.135e475c64a146a9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d25cc17298571d46"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.135e475c64a146a9"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.clock-reasons.bcc9e137",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.clock-reasons.bcc9e137.json",
+        "case_ids": [
+          "q.policy.business-expansion.7bed4af8411a5a1f",
+          "q.policy.business-expansion.1fb587b08cae91c2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7bed4af8411a5a1f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.1fb587b08cae91c2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-install.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-install.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.983d9f20eca418fc",
+          "q.policy.business-expansion.93dd94dc93136c1c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.983d9f20eca418fc"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.93dd94dc93136c1c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-password.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-password.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.ae3e3b6a74cb38de",
+          "q.policy.business-expansion.d906ec6b0e7b660a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ae3e3b6a74cb38de"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.d906ec6b0e7b660a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-missing-menu.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-missing-menu.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.72f10f4984538b9d",
+          "q.policy.business-expansion.51bcd834c74aa246"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.72f10f4984538b9d"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.51bcd834c74aa246"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-manager-hr.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-manager-hr.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.45f3ddc85359d691",
+          "q.policy.business-expansion.e720e3f20e7b92d1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.45f3ddc85359d691"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.e720e3f20e7b92d1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-icons.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-icons.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.e9ea8648f7b6becf",
+          "q.policy.business-expansion.38cd9f85ddce0248"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e9ea8648f7b6becf"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.38cd9f85ddce0248"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.mobile-history.2cb00d36",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.mobile-history.2cb00d36.json",
+        "case_ids": [
+          "q.policy.business-expansion.9f7322fb955a1cea",
+          "q.policy.business-expansion.3099b785b7808521"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9f7322fb955a1cea"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.3099b785b7808521"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.task-child.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.task-child.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.17708aa4f1fc6983",
+          "q.policy.business-expansion.4d9b2babf2f228a9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.17708aa4f1fc6983"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.4d9b2babf2f228a9"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.task-views.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.task-views.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.e27850601cd60a92",
+          "q.policy.business-expansion.ee2a022af726467f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e27850601cd60a92"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.ee2a022af726467f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-extension.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-extension.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.306054399ddaa091",
+          "q.policy.business-expansion.25c68fd86627e9f4"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.306054399ddaa091"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.25c68fd86627e9f4"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-project.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-project.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.9abef0b5a196f207",
+          "q.policy.business-expansion.527e423f33768c30"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9abef0b5a196f207"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.527e423f33768c30"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.project-item.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.project-item.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.2b0cf510524d5e0e",
+          "q.policy.business-expansion.a050222790a2356e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2b0cf510524d5e0e"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.a050222790a2356e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.project-task.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.project-task.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.d55f2d968b7847fd",
+          "q.policy.business-expansion.0a21fa6b485c74e6"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d55f2d968b7847fd"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.0a21fa6b485c74e6"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-supply.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-supply.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.ee65a510a6865625",
+          "q.policy.business-expansion.4924aee040c99cf3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ee65a510a6865625"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.4924aee040c99cf3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.supply-approval.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.supply-approval.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.7ee79d97fb2d9cce",
+          "q.policy.business-expansion.08c9663593f63f98"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.7ee79d97fb2d9cce"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.08c9663593f63f98"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-purchase.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-purchase.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.040a89b554d4e191",
+          "q.policy.business-expansion.3f7cf39659e18262"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.040a89b554d4e191"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.3f7cf39659e18262"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.purchase-edit.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.purchase-edit.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.1f781c596febc0aa",
+          "q.policy.business-expansion.6bb4250b6fde6353"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.1f781c596febc0aa"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.6bb4250b6fde6353"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-po.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-po.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.44b03326daf15979",
+          "q.policy.business-expansion.5b5cd4d5be45b5cf"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.44b03326daf15979"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.5b5cd4d5be45b5cf"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-payment.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-payment.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.86cb5185cc714d0b",
+          "q.policy.business-expansion.df5409f372291c47"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.86cb5185cc714d0b"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.df5409f372291c47"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.payment-progress.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.payment-progress.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.4955fa1c61df6d64",
+          "q.policy.business-expansion.419ae4a0a9995d9f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4955fa1c61df6d64"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.419ae4a0a9995d9f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-advance.88c4a90d",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-advance.88c4a90d.json",
+        "case_ids": [
+          "q.policy.business-expansion.dfa8a0093a0888ac",
+          "q.policy.business-expansion.ec62ef3fd6a0e791"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.dfa8a0093a0888ac"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.ec62ef3fd6a0e791"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-late.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-late.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.064194ada6965c93",
+          "q.policy.business-expansion.533a021308f49623"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.064194ada6965c93"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.533a021308f49623"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.workit-late-arrival.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.workit-late-arrival.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.0b5a5b722b33b8af",
+          "q.policy.business-expansion.9f787fe0072fcf1b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.0b5a5b722b33b8af"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.9f787fe0072fcf1b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.workit-early-departure.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.workit-early-departure.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.dd432c72bd88b138",
+          "q.policy.business-expansion.b8c4813d726ff737"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.dd432c72bd88b138"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.b8c4813d726ff737"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-trip.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-trip.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.d8ebae9b135b041e",
+          "q.policy.business-expansion.5bc4f43a8b7eb989"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d8ebae9b135b041e"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.5bc4f43a8b7eb989"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-car.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-car.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.2b6b58a31f6a05a1",
+          "q.policy.business-expansion.1f608cb5b6b2c02e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2b6b58a31f6a05a1"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.1f608cb5b6b2c02e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-room.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-room.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.cb074fcfb1c2566c",
+          "q.policy.business-expansion.62a5078304d0e991"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.cb074fcfb1c2566c"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.62a5078304d0e991"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-meal.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-meal.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.c38024ea86756277",
+          "q.policy.business-expansion.8343bf18de4fcf36"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c38024ea86756277"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.8343bf18de4fcf36"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.workit-meal-scope.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.workit-meal-scope.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.05f4d8ee7bf5b60a",
+          "q.policy.business-expansion.62ce94c7b4df1d5a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.05f4d8ee7bf5b60a"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.62ce94c7b4df1d5a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.workit-leave-approval.d906cfac",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.workit-leave-approval.d906cfac.json",
+        "case_ids": [
+          "q.policy.business-expansion.6509bf7c1bf9048d",
+          "q.policy.business-expansion.6156d5f126a3499e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.6509bf7c1bf9048d"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.6156d5f126a3499e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-handover.ac98d5af",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-handover.ac98d5af.json",
+        "case_ids": [
+          "q.policy.business-expansion.2eeca1c83a86e632",
+          "q.policy.business-expansion.280071a5054f76f2",
+          "q.policy.business-expansion.dd6f137175a2d191"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.2eeca1c83a86e632"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.280071a5054f76f2"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.dd6f137175a2d191"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.handover-form-scope.ac98d5af",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.handover-form-scope.ac98d5af.json",
+        "case_ids": [
+          "q.policy.business-expansion.b1cf25a3e1bcb3b4",
+          "q.policy.business-expansion.30369483939f1a67",
+          "q.policy.business-expansion.8cdbfd9c489464f1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b1cf25a3e1bcb3b4"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.30369483939f1a67"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.8cdbfd9c489464f1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.maternity-registration.ac98d5af",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.maternity-registration.ac98d5af.json",
+        "case_ids": [
+          "q.policy.business-expansion.0b4d6a36b08c2772",
+          "q.policy.business-expansion.e0263ce431ec9fe7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.0b4d6a36b08c2772"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.e0263ce431ec9fe7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.systems.workit-news.c3c03611",
+        "source_file": "artifacts/answers/source/cards/task.business.systems.workit-news.c3c03611.json",
+        "case_ids": [
+          "q.policy.business-expansion.073361e81e779ba6",
+          "q.policy.business-expansion.951b82cf566c80e7"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.073361e81e779ba6"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.951b82cf566c80e7"
+          ]
+        }
+      },
+      {
+        "task_id": "task.business.workit-directory.c3c03611",
+        "source_file": "artifacts/answers/source/cards/task.business.workit-directory.c3c03611.json",
+        "case_ids": [
+          "q.policy.business-expansion.99e958ce9a180b96",
+          "q.policy.business-expansion.c020326426bce6e3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.99e958ce9a180b96"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c020326426bce6e3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.mobile-counters",
+        "source_file": "artifacts/answers/source/cards/task.topic.mobile-counters.json",
+        "case_ids": [
+          "q.policy.business-expansion.9e41cb4c4adf19ff",
+          "q.policy.business-expansion.9f009e27c200a063"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9e41cb4c4adf19ff"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.9f009e27c200a063"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.bravo-warning",
+        "source_file": "artifacts/answers/source/cards/task.topic.bravo-warning.json",
+        "case_ids": [
+          "q.policy.business-expansion.646029e673722366",
+          "q.policy.business-expansion.0e1a77095ef01aa0"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.646029e673722366"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.0e1a77095ef01aa0"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.manager-desk",
+        "source_file": "artifacts/answers/source/cards/task.topic.manager-desk.json",
+        "case_ids": [
+          "q.policy.business-expansion.c794f3c19a766784",
+          "q.policy.business-expansion.fba554b7641c5c62"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c794f3c19a766784"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.fba554b7641c5c62"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eleave-delegate",
+        "source_file": "artifacts/answers/source/cards/task.topic.eleave-delegate.json",
+        "case_ids": [
+          "q.policy.business-expansion.4de5c2cdf6d1ad43",
+          "q.policy.business-expansion.f7de5415286fa4ae"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4de5c2cdf6d1ad43"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f7de5415286fa4ae"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eleave-approval",
+        "source_file": "artifacts/answers/source/cards/task.topic.eleave-approval.json",
+        "case_ids": [
+          "q.policy.business-expansion.907a1c4109a20ab6",
+          "q.policy.business-expansion.3df0e4c6c654adee"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.907a1c4109a20ab6"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.3df0e4c6c654adee"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eleave-cancel",
+        "source_file": "artifacts/answers/source/cards/task.topic.eleave-cancel.json",
+        "case_ids": [
+          "q.policy.business-expansion.4a5f9be73c3b574d",
+          "q.policy.business-expansion.bda34f62c0b93a57"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4a5f9be73c3b574d"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.bda34f62c0b93a57"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eleave-email",
+        "source_file": "artifacts/answers/source/cards/task.topic.eleave-email.json",
+        "case_ids": [
+          "q.policy.business-expansion.660799a74dc539ec",
+          "q.policy.business-expansion.2cedb034b404776b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.660799a74dc539ec"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.2cedb034b404776b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eleave-status",
+        "source_file": "artifacts/answers/source/cards/task.topic.eleave-status.json",
+        "case_ids": [
+          "q.policy.business-expansion.fda85b5c03cd544f",
+          "q.policy.business-expansion.27d9bc443125fc52"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.fda85b5c03cd544f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.27d9bc443125fc52"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.labor-scope",
+        "source_file": "artifacts/answers/source/cards/task.topic.labor-scope.json",
+        "case_ids": [
+          "q.policy.business-expansion.84031cc4e820c901",
+          "q.policy.business-expansion.7d63ceb59c627edc"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.84031cc4e820c901"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.7d63ceb59c627edc"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.annual-entitlement",
+        "source_file": "artifacts/answers/source/cards/task.topic.annual-entitlement.json",
+        "case_ids": [
+          "q.policy.business-expansion.feac50efa1729565",
+          "q.policy.business-expansion.7e603100a7cf0fbf",
+          "q.policy.business-expansion.2becce557ffd73d1"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.feac50efa1729565"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.7e603100a7cf0fbf"
+          ],
+          "amount": [
+            "q.policy.business-expansion.2becce557ffd73d1"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.labor-health-benefits",
+        "source_file": "artifacts/answers/source/cards/task.topic.labor-health-benefits.json",
+        "case_ids": [
+          "q.policy.business-expansion.14dffa5d9ff26472",
+          "q.policy.business-expansion.dbb5db6427e7b4e3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.14dffa5d9ff26472"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.dbb5db6427e7b4e3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.labor-family-benefits",
+        "source_file": "artifacts/answers/source/cards/task.topic.labor-family-benefits.json",
+        "case_ids": [
+          "q.policy.business-expansion.75da272d05a0b267",
+          "q.policy.business-expansion.57838f8920daf60e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.75da272d05a0b267"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.57838f8920daf60e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.labor-health-examination",
+        "source_file": "artifacts/answers/source/cards/task.topic.labor-health-examination.json",
+        "case_ids": [
+          "q.policy.business-expansion.aa8e876b91d5429d",
+          "q.policy.business-expansion.70c15aad7a04dec5"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.aa8e876b91d5429d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.70c15aad7a04dec5"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.contract-end",
+        "source_file": "artifacts/answers/source/cards/task.topic.contract-end.json",
+        "case_ids": [
+          "q.policy.business-expansion.1551050afcdc5632",
+          "q.policy.business-expansion.f62ceea773458d29"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.1551050afcdc5632"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.f62ceea773458d29"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.security-forms",
+        "source_file": "artifacts/answers/source/cards/task.topic.security-forms.json",
+        "case_ids": [
+          "q.policy.business-expansion.5a167aae1eada6a0",
+          "q.policy.business-expansion.cc46c8170b1fff7c",
+          "q.policy.business-expansion.a98564350d3145ea"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5a167aae1eada6a0"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.cc46c8170b1fff7c"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.a98564350d3145ea"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.task-complete",
+        "source_file": "artifacts/answers/source/cards/task.topic.task-complete.json",
+        "case_ids": [
+          "q.policy.business-expansion.86fa1a8b25b2b179",
+          "q.policy.business-expansion.0c755b501e47499a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.86fa1a8b25b2b179"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.0c755b501e47499a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.task-owner",
+        "source_file": "artifacts/answers/source/cards/task.topic.task-owner.json",
+        "case_ids": [
+          "q.policy.business-expansion.16a4e7fba33d29c2",
+          "q.policy.business-expansion.c05a1eeb0847746e"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.16a4e7fba33d29c2"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c05a1eeb0847746e"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.building-common",
+        "source_file": "artifacts/answers/source/cards/task.topic.building-common.json",
+        "case_ids": [
+          "q.policy.business-expansion.4a7d3d2f957e1e48",
+          "q.policy.business-expansion.d974754efcccefda"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.4a7d3d2f957e1e48"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.d974754efcccefda"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.chairman-room",
+        "source_file": "artifacts/answers/source/cards/task.topic.chairman-room.json",
+        "case_ids": [
+          "q.policy.business-expansion.de6e47eec3fb0841",
+          "q.policy.business-expansion.8b5aa1ada99e22e9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.de6e47eec3fb0841"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.8b5aa1ada99e22e9"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.building-security",
+        "source_file": "artifacts/answers/source/cards/task.topic.building-security.json",
+        "case_ids": [
+          "q.policy.business-expansion.e46cff3f6e5bf86d",
+          "q.policy.business-expansion.fdc894d2b93253cc"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e46cff3f6e5bf86d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.fdc894d2b93253cc"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.referral-implementation",
+        "source_file": "artifacts/answers/source/cards/task.topic.referral-implementation.json",
+        "case_ids": [
+          "q.policy.business-expansion.20efa6c8f8bdfb80",
+          "q.policy.business-expansion.ce65bc03044b4ea0"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.20efa6c8f8bdfb80"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.ce65bc03044b4ea0"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.resign-submit",
+        "source_file": "artifacts/answers/source/cards/task.topic.resign-submit.json",
+        "case_ids": [
+          "q.policy.business-expansion.209ceb090e9250bf",
+          "q.policy.business-expansion.bcd913afe8f2c3f2"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.209ceb090e9250bf"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.bcd913afe8f2c3f2"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.resign-approve",
+        "source_file": "artifacts/answers/source/cards/task.topic.resign-approve.json",
+        "case_ids": [
+          "q.policy.business-expansion.ef760c315d661279",
+          "q.policy.business-expansion.1f0a86d01a109e21"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ef760c315d661279"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.1f0a86d01a109e21"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.uniform-violation",
+        "source_file": "artifacts/answers/source/cards/task.topic.uniform-violation.json",
+        "case_ids": [
+          "q.policy.business-expansion.f056ace5a2558d60",
+          "q.policy.business-expansion.0d9d69b16160aa84"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.f056ace5a2558d60"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.0d9d69b16160aa84"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.vehicle-advance",
+        "source_file": "artifacts/answers/source/cards/task.topic.vehicle-advance.json",
+        "case_ids": [
+          "q.policy.business-expansion.68b2f294624a696e",
+          "q.policy.business-expansion.2db6275161be48bd",
+          "q.policy.business-expansion.564df64e2f7a5fb5"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.68b2f294624a696e"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.2db6275161be48bd"
+          ],
+          "amount": [
+            "q.policy.business-expansion.564df64e2f7a5fb5"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.vehicle-proposal",
+        "source_file": "artifacts/answers/source/cards/task.topic.vehicle-proposal.json",
+        "case_ids": [
+          "q.policy.business-expansion.9256804a7af671f8",
+          "q.policy.business-expansion.39f5dc2ddb5c5b3b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.9256804a7af671f8"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.39f5dc2ddb5c5b3b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.vehicle-forms",
+        "source_file": "artifacts/answers/source/cards/task.topic.vehicle-forms.json",
+        "case_ids": [
+          "q.policy.business-expansion.b02bb6b53adaa358",
+          "q.policy.business-expansion.38caeebac8e1a361",
+          "q.policy.business-expansion.0850676fd517ff2c"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.b02bb6b53adaa358"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.38caeebac8e1a361"
+          ],
+          "paperwork": [
+            "q.policy.business-expansion.0850676fd517ff2c"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.vehicle-scope",
+        "source_file": "artifacts/answers/source/cards/task.topic.vehicle-scope.json",
+        "case_ids": [
+          "q.policy.business-expansion.de43ed25d2302dc4",
+          "q.policy.business-expansion.e4be71ae44fd5997"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.de43ed25d2302dc4"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.e4be71ae44fd5997"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-home",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-home.json",
+        "case_ids": [
+          "q.policy.business-expansion.43e8277e17350392",
+          "q.policy.business-expansion.fd871b595b200f25"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.43e8277e17350392"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.fd871b595b200f25"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-approval-buttons",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-approval-buttons.json",
+        "case_ids": [
+          "q.policy.business-expansion.a4bc2cef46861edb",
+          "q.policy.business-expansion.c4e83f87c7392baa"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a4bc2cef46861edb"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c4e83f87c7392baa"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-avatar",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-avatar.json",
+        "case_ids": [
+          "q.policy.business-expansion.eb5f3213862883ff",
+          "q.policy.business-expansion.04d95f9aae1ee85a"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.eb5f3213862883ff"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.04d95f9aae1ee85a"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-organization",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-organization.json",
+        "case_ids": [
+          "q.policy.business-expansion.5f2278907f76b4cc",
+          "q.policy.business-expansion.decdfa4b122da969"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5f2278907f76b4cc"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.decdfa4b122da969"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-history",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-history.json",
+        "case_ids": [
+          "q.policy.business-expansion.5cec1f8595c6e7d5",
+          "q.policy.business-expansion.c8d50c3f04a7bde8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.5cec1f8595c6e7d5"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.c8d50c3f04a7bde8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-family",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-family.json",
+        "case_ids": [
+          "q.policy.business-expansion.01444752350b4ddc",
+          "q.policy.business-expansion.b6fa04276dca7013"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.01444752350b4ddc"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.b6fa04276dca7013"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-rewards",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-rewards.json",
+        "case_ids": [
+          "q.policy.business-expansion.999b40f37b5afa3d",
+          "q.policy.business-expansion.f55905ecec9cd37b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.999b40f37b5afa3d"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f55905ecec9cd37b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-equipment",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-equipment.json",
+        "case_ids": [
+          "q.policy.business-expansion.40f925b033edbc6f",
+          "q.policy.business-expansion.39a798ae87a8f7d8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.40f925b033edbc6f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.39a798ae87a8f7d8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.workit-insurance",
+        "source_file": "artifacts/answers/source/cards/task.topic.workit-insurance.json",
+        "case_ids": [
+          "q.policy.business-expansion.c03b939aa09278fa",
+          "q.policy.business-expansion.67d9115e0196e15b"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c03b939aa09278fa"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.67d9115e0196e15b"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eworkdate-mobile",
+        "source_file": "artifacts/answers/source/cards/task.topic.eworkdate-mobile.json",
+        "case_ids": [
+          "q.policy.business-expansion.8a7fb05795fb37a3",
+          "q.policy.business-expansion.260403b6883c4d92"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8a7fb05795fb37a3"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.260403b6883c4d92"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eworkdate-status",
+        "source_file": "artifacts/answers/source/cards/task.topic.eworkdate-status.json",
+        "case_ids": [
+          "q.policy.business-expansion.1706e534b7635f45",
+          "q.policy.business-expansion.e571251cee56be37"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.1706e534b7635f45"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.e571251cee56be37"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.eworkdate-missing-email",
+        "source_file": "artifacts/answers/source/cards/task.topic.eworkdate-missing-email.json",
+        "case_ids": [
+          "q.policy.business-expansion.e779f33186967eea",
+          "q.policy.business-expansion.941b445a2dcfe8c3"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.e779f33186967eea"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.941b445a2dcfe8c3"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.attendance-external",
+        "source_file": "artifacts/answers/source/cards/task.topic.attendance-external.json",
+        "case_ids": [
+          "q.policy.business-expansion.8125295146d87543",
+          "q.policy.business-expansion.df395116b3033f80"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8125295146d87543"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.df395116b3033f80"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.attendance-responsibility",
+        "source_file": "artifacts/answers/source/cards/task.topic.attendance-responsibility.json",
+        "case_ids": [
+          "q.policy.business-expansion.eda417aa0d8a2ee6",
+          "q.policy.business-expansion.7e00fa9c31c1ecc8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.eda417aa0d8a2ee6"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.7e00fa9c31c1ecc8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.benefits-scope-definition",
+        "source_file": "artifacts/answers/source/cards/task.topic.benefits-scope-definition.json",
+        "case_ids": [
+          "q.policy.business-expansion.a28862d180fcecb3",
+          "q.policy.business-expansion.bf2a33979aa6b54f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.a28862d180fcecb3"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.bf2a33979aa6b54f"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.benefits-inventory",
+        "source_file": "artifacts/answers/source/cards/task.topic.benefits-inventory.json",
+        "case_ids": [
+          "q.policy.business-expansion.786a28d6ca1b0a9d",
+          "q.policy.business-expansion.77937cc3295246f8"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.786a28d6ca1b0a9d"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.77937cc3295246f8"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.stationery-track",
+        "source_file": "artifacts/answers/source/cards/task.topic.stationery-track.json",
+        "case_ids": [
+          "q.policy.business-expansion.ac7b4c0d09143cae",
+          "q.policy.business-expansion.f1406882f0bb4cfb"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ac7b4c0d09143cae"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f1406882f0bb4cfb"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.resign-flow",
+        "source_file": "artifacts/answers/source/cards/task.topic.resign-flow.json",
+        "case_ids": [
+          "q.policy.business-expansion.c7a426d9592357e9",
+          "q.policy.business-expansion.0e12ebcc93be5693"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.c7a426d9592357e9"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.0e12ebcc93be5693"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.epostal-mobile",
+        "source_file": "artifacts/answers/source/cards/task.topic.epostal-mobile.json",
+        "case_ids": [
+          "q.policy.business-expansion.d004299315ba3b9d",
+          "q.policy.business-expansion.f1d3931c2532f793"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d004299315ba3b9d"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.f1d3931c2532f793"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.epostal-reminder",
+        "source_file": "artifacts/answers/source/cards/task.topic.epostal-reminder.json",
+        "case_ids": [
+          "q.policy.business-expansion.d6391b1e97fca160",
+          "q.policy.business-expansion.89b7fc5a170b4dbd"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.d6391b1e97fca160"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.89b7fc5a170b4dbd"
+          ]
+        }
+      },
+      {
+        "task_id": "task.topic.epostal-email",
+        "source_file": "artifacts/answers/source/cards/task.topic.epostal-email.json",
+        "case_ids": [
+          "q.policy.business-expansion.ac247cd769e1b6c1",
+          "q.policy.business-expansion.7ca1fb13367c1a0f"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.ac247cd769e1b6c1"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.7ca1fb13367c1a0f"
           ]
         }
       }
@@ -2398,5 +5816,36 @@
     "Question scenarios have not been executed through an API, model, database or test runner. No automatic grading or live quality evaluation is established by authoring or Git-policy checks.",
     "Runtime recognition of paraphrases, spelling variants, safety prompts and ambiguity scenarios is unverified; expectations are review criteria, not claims of passing behavior.",
     "The Git allowlist now permits README.md, index.json and direct JSON children of the six question groups. The inventory checker only permits indexed group files as nonruntime sources; it does not grade cases or add them to runtime manifests. Root-level reports, backup extensions and unknown/nested paths remain ignored; an unlisted group JSON is rejected once tracked. No staging, commit or push is performed automatically."
-  ]
+  ],
+  "oracles": [
+    "oracles/boundaries.ambiguity.json",
+    "oracles/boundaries.evidence-availability.json",
+    "oracles/boundaries.privacy-and-injection.json",
+    "oracles/boundaries.unsupported.json",
+    "oracles/conversation.context-and-followups.json",
+    "oracles/employee.self-work-profile.json",
+    "oracles/mixed.policy-and-profile.json",
+    "oracles/policy.administration.json",
+    "oracles/policy.benefits.json",
+    "oracles/policy.labor-rules.json",
+    "oracles/policy.leave.json",
+    "oracles/policy.source-guidance.json",
+    "oracles/policy.travel.json",
+    "oracles/policy.workplace-safety.json",
+    "oracles/software.bravo.json",
+    "oracles/software.eleave.json",
+    "oracles/software.epostal.json",
+    "oracles/software.eworkdate.json",
+    "oracles/software.outlook.json",
+    "oracles/software.workit.json",
+    "oracles/policy.business-expansion.json"
+  ],
+  "evaluation": {
+    "oracle_schema_version": 1,
+    "mode": "source-fixture-http-and-reducer",
+    "independent_acceptance": false,
+    "baseline_note": "Original baseline preserved. Implementation changes, including src/retrieval/policy.py drift, are recorded in evaluation input hashes rather than silently repinning historical evidence.",
+    "original_cases": 416,
+    "original_turns": 433
+  }
 }

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "group_id": "mixed.policy-and-profile",
+  "turns": [
+    {
+      "case_id": "q.mixed.policy-and-profile.001",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.2612d9edbba852749f08364f291225c2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.mixed.policy-and-profile.002",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "official_date"
+      ],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.mixed.policy-and-profile.003",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.650da36176db543abc92c94366984975"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "department_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "missing_policy"
+    },
+    {
+      "case_id": "q.mixed.policy-and-profile.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "employee_unavailable"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.88c4a90d.18",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+    "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+    "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+    "chunk_index": 18,
+    "content_sha256": "76211439f77f17fe6992836e7c24503835377e00216f2fd4fce83c6232d114d7",
+    "quote": "Workit — sửa/xóa đề nghị tạm ứng: chọn phiếu, nhấn icon sửa, cập nhật thông tin và Lưu; muốn xóa chọn phiếu rồi nhấn thùng rác. Chỉ sửa hoặc xóa phiếu chưa qua bước phê duyệt nào.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-12/4/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.workit-advance.88c4a90d"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

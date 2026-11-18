@@ -1,0 +1,116 @@
+{
+  "id": "task.business.workit-extension.88c4a90d",
+  "source_type": "type_a",
+  "label": "xin gia hạn công việc Workit",
+  "concept_ids": [
+    "workit-extension"
+  ],
+  "aliases": [
+    "xin gia hạn công việc Workit",
+    "đề nghị gia hạn công việc Workit",
+    "xin kéo dài thời hạn công việc Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.4",
+          "text": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 4,
+              "content_sha256": "bab978b973925ddcde5d860437d1eb153dead6284cbe85de4d769a4afc6af6b1",
+              "quote": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.5",
+          "text": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 5,
+              "content_sha256": "7f238bd9732f9b59fe552e8fbcdd89599266d296eb4ac9556f1d39aab27392bc",
+              "quote": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.4",
+          "text": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 4,
+              "content_sha256": "bab978b973925ddcde5d860437d1eb153dead6284cbe85de4d769a4afc6af6b1",
+              "quote": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.88c4a90d.5",
+          "text": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "chunk_index": 5,
+              "content_sha256": "7f238bd9732f9b59fe552e8fbcdd89599266d296eb4ac9556f1d39aab27392bc",
+              "quote": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+}

@@ -4,6 +4,7 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock
 
 from fastapi.testclient import TestClient
+from fastapi import FastAPI
 import pytest
 
 from src.api.app import create_app
@@ -72,3 +73,15 @@ def test_shared_key_preserves_bytes_and_is_absent_from_repr():
     key = ' fictional-service-key-with-whitespace '
     settings = Settings(Path('unused'), 'a' * 40, service_key=key)
     assert settings.service_key == key and key not in repr(settings)
+
+
+def test_mount_prefix_cannot_bypass_business_authentication():
+    current = owner()
+    child = create_app(current.settings, service_factory=lambda _: current)
+    child.state.retrieval_service = current
+    parent = FastAPI()
+    parent.mount('/bot', child)
+    with TestClient(parent) as client:
+        assert client.post('/bot/api/v1/retrieve', json={}).status_code == 401
+        assert client.post('/bot/api/v1/retrieve', json={}, headers=SERVICE_HEADERS).status_code == 422
+    current.execute.assert_not_awaited()

@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.b114fe60.34",
+  "family": "vehicles",
+  "role": "policy",
+  "operation": "policy",
+  "ref": {
+    "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+    "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+    "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+    "chunk_index": 34,
+    "content_sha256": "59253cd8c815c1a9907bdfe3b215fcdfa69e4bc515b49dc94341fc1afc3ff6ec",
+    "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.2. Thanh toán hàng tháng\n- Dựa trên bảng định mức xăng dầu, bộ phận quản lý, điều xe sẽ chịu trách nhiệm thực hiện thủ tục tạm ứng tiền xăng dầu và thanh toán phí xăng dầu với P. KT\n- Số tiền thanh toán xăng dầu sẽ được tính dựa trên công thức sau:\nGTB = HD/LHD; L = (K x D)/100; TD = GTB x L\n- Trong đó:\n  - HD: Tổng giá trị hóa đơn xăng dầu đã đổ trong kì\n  - LHD: Tổng số lít xăng dầu theo hóa đơn\n  - GTB: Giá xăng dầu (lít) trung bình\n  - K: số Km sử dụng trong kì\n  - D: Định mức xăng dầu được duyệt\n  - L: Tổng số lít xăng dầu tiêu thụ\n  - TD: Tổng tiền dầu thực tính trong kì",
+    "metadata": {
+      "title": "Quy định sử dụng xe của Tập đoàn",
+      "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+      "effective_from": "2023-04-07",
+      "effective_to": null,
+      "version_label": "HCNS-QT02 — 01",
+      "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.vehicle-fuel.b114fe60"
+  ],
+  "aspects": [
+    "overview",
+    "paperwork",
+    "procedure"
+  ]
+}

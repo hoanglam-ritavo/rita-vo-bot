@@ -1,0 +1,31 @@
+{
+  "id": "rank.business.88c4a90d.7",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+    "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+    "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+    "chunk_index": 7,
+    "content_sha256": "68dac94fccdcf43850dea342dc9156282ce76414119680d7a1dd716a61be07e5",
+    "quote": "Workit — thao tác trong màn hình Hồ sơ dự án: chọn dự án cần cập nhật, nhấn Thêm tài liệu, nhập thông tin tài liệu, tệp và quyền truy cập rồi Lưu/F8. Các quyền trên màn hình gồm Xem/Tải/Chia sẻ, không mặc định mọi người đều xem được. Đoạn này chỉ mô tả thao tác tại màn hình, không xác lập đường dẫn menu để mở màn hình đó.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-12/4/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.systems.project-task.88c4a90d",
+    "task.business.workit-project.88c4a90d"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

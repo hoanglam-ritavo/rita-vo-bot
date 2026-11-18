@@ -1,0 +1,71 @@
+{
+  "id": "task.topic.eworkdate-status",
+  "label": "Nhắc duyệt và kết quả E-Workdate theo tài liệu",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.eworkdate-status"
+  ],
+  "aliases": [
+    "Nhắc duyệt và kết quả E-Workdate theo tài liệu",
+    "thông báo kết quả E-Workdate"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.be3059e2.6",
+          "text": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+          "refs": [
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 6,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "406172125844c139959419d33f4b4002506e92b71c0223e289bc3ce30f7a1e09",
+              "quote": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.be3059e2.6",
+          "text": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+          "refs": [
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 6,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "406172125844c139959419d33f4b4002506e92b71c0223e289bc3ce30f7a1e09",
+              "quote": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

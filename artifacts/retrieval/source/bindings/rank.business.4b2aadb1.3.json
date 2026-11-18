@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.4b2aadb1.3",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+    "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+    "chunk_index": 3,
+    "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+    "content_sha256": "cf6705290a75f2fe92bd6f1c087b00a1eafec114d091c421f8ccdd783341156d",
+    "quote": "Workit — phiếu chưa đúng hoặc cần bổ sung: quản lý dùng Trả lại hoặc Từ chối tùy phân quyền hệ thống. Khi Trả lại, nhập ý kiến, chọn một trong các bước đã duyệt để trả về và bấm Trả lại. Từ chối là thao tác riêng; quyền hiển thị/sử dụng phụ thuộc phân quyền.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+      "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-return"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

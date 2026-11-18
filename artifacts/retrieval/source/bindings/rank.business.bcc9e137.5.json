@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.bcc9e137.5",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+    "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+    "chunk_index": 5,
+    "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+    "content_sha256": "cdb565b280945baa756f6cf391b2e8f40cb5295e6c54fcf63ba17892485af337",
+    "quote": "Workit — nút phê duyệt: Duyệt xác nhận đề nghị; Bỏ duyệt hủy thao tác đã duyệt; Trả lại quay về bước cần duyệt lại trước đó; Từ chối không chấp nhận đề nghị và hủy các bước sau; Bỏ từ chối hủy thao tác từ chối trước đó. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem file đính kèm, quy trình xem các bước phê duyệt.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+      "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.topic.workit-approval-buttons"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

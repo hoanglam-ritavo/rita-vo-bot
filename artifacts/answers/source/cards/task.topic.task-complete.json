@@ -1,0 +1,72 @@
+{
+  "id": "task.topic.task-complete",
+  "label": "Hoàn tất công việc Workit",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.task-complete"
+  ],
+  "aliases": [
+    "Hoàn tất công việc Workit",
+    "bỏ hoàn tất công việc Workit",
+    "đánh dấu hoàn tất công việc Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.2",
+          "text": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 2,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "9439d48f81ee1c729f574dd293865f78ea6f63bae1a134d1b6055dc380b15eff",
+              "quote": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.88c4a90d.2",
+          "text": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 2,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "9439d48f81ee1c729f574dd293865f78ea6f63bae1a134d1b6055dc380b15eff",
+              "quote": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

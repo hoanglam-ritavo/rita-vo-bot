@@ -15,7 +15,11 @@ class ServiceAuthenticationMiddleware:
         self.app = app
 
     async def __call__(self, scope, receive, send):
-        if scope['type'] == 'http' and protected(scope['path']):
+        path = scope.get('path', '')
+        root = scope.get('root_path', '')
+        if root and (path == root or path.startswith(root + '/')):
+            path = path[len(root):]
+        if scope['type'] == 'http' and protected(path):
             owner = getattr(scope['app'].state, 'retrieval_service', None)
             expected = getattr(getattr(owner, 'settings', None), 'service_key', None)
             supplied = Headers(scope=scope).getlist('X-Rita-Service-Key')

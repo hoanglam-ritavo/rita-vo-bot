@@ -1,0 +1,115 @@
+{
+  "id": "task.topic.resign-flow",
+  "label": "Luồng xét nghỉ việc Workit trong hướng dẫn",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.resign-flow"
+  ],
+  "aliases": [
+    "Luồng xét nghỉ việc Workit trong hướng dẫn",
+    "các bước ký phiếu xét nghỉ việc Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.d906cfac.9",
+          "text": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 9,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f",
+              "quote": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.d906cfac.10",
+          "text": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 10,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db",
+              "quote": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.d906cfac.9",
+          "text": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 9,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f",
+              "quote": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.d906cfac.10",
+          "text": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 10,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db",
+              "quote": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

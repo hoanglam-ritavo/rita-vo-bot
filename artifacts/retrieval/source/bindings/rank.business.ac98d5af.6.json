@@ -1,0 +1,32 @@
+{
+  "id": "rank.business.ac98d5af.6",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+    "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+    "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+    "chunk_index": 6,
+    "content_sha256": "47c1768fda23ecd28b5f9e8418bfa3dd1b366c200f886da694cfcd09d3f6a35d",
+    "quote": "Workit — các mục bàn giao trong trang 1/3 mẫu Biên bản quyết toán và bàn giao công việc được minh họa: tài sản/công cụ dụng cụ ghi tên/mã số, đơn vị tính, số lượng, tình trạng, thông tin biên bản bàn giao ban đầu (số/ngày), người nhận ký. Công việc ghi nội dung, tình hình thực hiện, cá nhân/phòng ban/bộ phận liên quan nếu có và người nhận ký. Hướng dẫn không hiển thị hai trang còn lại của mẫu; đây không phải danh sách đầy đủ mọi trường trong toàn mẫu.",
+    "metadata": {
+      "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+      "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": null,
+      "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.systems.handover-form-scope.ac98d5af",
+    "task.business.workit-handover.ac98d5af"
+  ],
+  "aspects": [
+    "overview",
+    "paperwork",
+    "procedure"
+  ],
+  "system": "workit"
+}

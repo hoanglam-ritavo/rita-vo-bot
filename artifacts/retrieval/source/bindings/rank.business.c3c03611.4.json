@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.c3c03611.4",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+    "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+    "chunk_index": 4,
+    "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+    "content_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175",
+    "quote": "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-incoming"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.6dae224a.3",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+    "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+    "chunk_index": 3,
+    "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+    "content_sha256": "578df91d609f8cfe21ea2fd0e337e9ff685a99ea2dc1bc9f599a854117ce2019",
+    "quote": "E-Booking — HC Admin thay đổi/xóa đặt phòng: Calendar > kiểm tra lịch đặt > chuột phải lịch > Delete > Yes > Edit the response before sending > soạn và gửi email người tổ chức, thông báo đổi phòng/tạo lịch mới. Quyền quản lý này dành HC Admin; FAQ cũng nêu IT có quyền xóa và phải thông báo nhân viên.",
+    "metadata": {
+      "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "1.0; cập nhật 30.09.2023",
+      "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+    }
+  },
+  "task_ids": [
+    "task.outlook-admin-room"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "outlook"
+}

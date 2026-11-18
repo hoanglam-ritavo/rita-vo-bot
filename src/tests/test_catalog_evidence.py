@@ -17,6 +17,7 @@ from src.tests.test_artifact_authoring import authored
 def test_retired_environment_values_are_ignored_and_never_logged(tmp_path, monkeypatch, caplog):
     from src.api import config
     monkeypatch.setattr(config, 'REPOSITORY_ROOT', tmp_path)
+    monkeypatch.setenv('CHAT_BOT_SERVICE_KEY', 'fictional-service-key')
     (tmp_path/'.env').write_text(
         'SEMANTIC_MODE=off\nANSWER_ENABLED=false\nTYPE_B_ENABLED=false\nRERANK_ENABLED=false\n'
         'E5_MODEL_REVISION='+'a'*40+'\n'+''.join(

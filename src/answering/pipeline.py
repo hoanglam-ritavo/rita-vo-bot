@@ -36,11 +36,16 @@ def checked_relevance(result):
 
 
 def requested_aspects(question):
+    from src.retrieval.language import positive_question
+    from src.type_b.tasks import normalized, phrase
+    query = normalized(positive_question(question))
     terms = {'amount': ('bao nhiêu tiền', 'mức hỗ trợ', 'mức thưởng', 'bao nhiêu', 'số tiền'),
              'conditions': ('điều kiện', 'áp dụng cho', 'đối tượng'),
              'paperwork': ('giấy tờ', 'hồ sơ', 'giấy gì'),
              'procedure': ('cách', 'thủ tục', 'các bước', 'làm thế nào')}
-    return [key for key, phrases in terms.items() if any(phrase_matches(p, question) for p in phrases)] or ['overview']
+    terms['procedure'] += ('làm sao',)
+    aspects = [key for key, phrases in terms.items() if any(phrase(query, normalized(p)) for p in phrases)]
+    return aspects or (['procedure'] if any(phrase(query, p) for p in ('quy trinh', 'dang ky')) else ['overview'])
 
 
 def matches_reference(ref, match):
@@ -53,6 +58,8 @@ def matches_reference(ref, match):
 
 
 def select_cards(question, catalog, lexicon, policy=None):
+    from src.retrieval.language import positive_question
+    question = positive_question(question)
     question = query_variants(question)[-1]
     concepts = matching_concepts(lexicon, question)
     cards = [c for c in catalog.cards
@@ -72,7 +79,8 @@ def select_cards(question, catalog, lexicon, policy=None):
         complex_request = True
     # An exclusion in the second clause must not hide another requested beneficiary.
     clause_cards = set()
-    for clause in re.split(r'\bvà\b|;', question, flags=re.IGNORECASE):
+    clauses = re.split(r'\bvà\b|;', question, flags=re.IGNORECASE)
+    for clause in clauses if len(clauses) > 1 else []:
         clause_concepts = matching_concepts(lexicon, clause)
         clause_cards.update(c.id for c in catalog.cards
             if (any(phrase_matches(p, clause) for p in c.aliases)
@@ -113,7 +121,9 @@ def render(question, result, catalog, lexicon, policy=None):
         resolution = resolve_policy(question, catalog, lexicon, policy)
         if resolution is not None and resolution.state in ('clarify','unsupported'):
             row.update(status='needs_clarification' if resolution.state=='clarify' else 'insufficient_evidence',
-                       reason='leave_needs_clarification' if resolution.state=='clarify' else 'leave_task_unsupported',
+                       reason=(('leave_needs_clarification' if resolution.state=='clarify' else 'leave_task_unsupported')
+                               if policy.analyze(question).involves_leave else
+                               ('task_needs_clarification' if resolution.state=='clarify' else 'task_unsupported')),
                        limitations=[resolution.message])
             return row
     cards, ambiguous = select_cards(question, catalog, lexicon, None if is_document_lookup(question) else policy)
@@ -163,7 +173,10 @@ def render(question, result, catalog, lexicon, policy=None):
         if claims:
             if len(claims) > 12:
                 complete = False
-            row.update(status='answered' if complete else 'partial', claims=claims[:12], sources=sources,
+            # Partial broad topics stay concise; every displayed unit retains
+            # its own conditions and citations. Never shorten a complete result
+            # while continuing to label it complete.
+            row.update(status='answered' if complete else 'partial', claims=claims[:12 if complete else 3], sources=sources,
                        reason=None if complete else 'incomplete_template_evidence', limitations=[] if complete else [
                            'Mình mới xác định được phần dưới đây từ các đoạn được cung cấp; chưa đủ thông tin cho toàn bộ yêu cầu.'])
             return row

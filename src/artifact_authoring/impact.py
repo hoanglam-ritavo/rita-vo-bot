@@ -57,8 +57,21 @@ def inspect(root=REPOSITORY_ROOT):
         rows.append({'task_id': task_id, 'unit_id': unit_id, 'aspect': aspect,
                      'reference': index, 'state': state})
     recheck(observed)
+    affected = {row['task_id'] for row in rows if row['state'] != 'unchanged'}
+    if len(raw) == 3:
+        for binding in decode_json(raw[2])['bindings']:
+            if binding['id'] in affected:
+                affected.update(binding.get('task_ids', []))
+    questions = []
+    question_index = root / 'artifacts/questions/index.json'
+    if question_index.is_file() and decode_json(question_index.read_bytes()).get('oracles'):
+        from src.evaluation.questions import load_dataset
+        _, oracles, _ = load_dataset(root)
+        questions = sorted({oracle.case_id for oracle in oracles.values()
+                            if affected.intersection([*oracle.task_ids_any, *oracle.forbidden_task_ids])})
     return {'schema_version': 1, 'package_fingerprint': snapshot['package_fingerprint'],
-            'summary': dict(Counter(row['state'] for row in rows)), 'references': rows}, updates, snapshot, observed
+            'summary': dict(Counter(row['state'] for row in rows)), 'references': rows,
+            'affected_tasks': sorted(affected), 'affected_cases': questions}, updates, snapshot, observed
 
 
 def refresh(root=REPOSITORY_ROOT):

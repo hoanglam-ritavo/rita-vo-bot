@@ -140,7 +140,7 @@ class EmployeeOrigin(StrictModel):
 
 
 class EmployeeEvidence(StrictModel):
-    status: Literal['found', 'not_found', 'needs_clarification', 'unsupported']
+    status: Literal['found', 'not_found', 'needs_clarification', 'unsupported', 'unavailable']
     facts: list[EmployeeFact]
     source: EmployeeOrigin | None
     reason: str | None

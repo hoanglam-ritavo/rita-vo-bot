@@ -90,6 +90,8 @@ pytest-cache-files-*/
 !/artifacts/questions/conversation/*.json
 !/artifacts/questions/boundaries/
 !/artifacts/questions/boundaries/*.json
+!/artifacts/questions/oracles/
+!/artifacts/questions/oracles/*.json
 /artifacts/answers/**
 !/artifacts/answers/catalog.json
 !/artifacts/answers/manifest.json

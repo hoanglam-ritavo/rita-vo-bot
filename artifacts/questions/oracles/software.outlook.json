@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "group_id": "software.outlook",
+  "turns": [
+    {
+      "case_id": "q.software.outlook.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.0fa1b0d52a645ec9bb269436017a938d"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.0fa1b0d52a645ec9bb269436017a938d"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.0fa1b0d52a645ec9bb269436017a938d"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.0fa1b0d52a645ec9bb269436017a938d"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.005",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.010",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.012",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.015",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.016",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.017",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.018",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.019",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.020",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.021",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.022",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.023",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.024",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-delete"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.025",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-delete"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.026",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-delete"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.027",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-delete"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.028",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.outlook.029",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-delete"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.ac98d5af.8",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+    "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+    "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+    "chunk_index": 8,
+    "content_sha256": "89ac22568845149949556c5024ef196f9df22ed7bbd3e8959379ae134aafd109",
+    "quote": "Workit — khai báo phiếu nghỉ thai sản: đăng nhập https://office.ritavo.com > Quy trình số > Nghỉ phép > Thêm (F2). Chọn Loại nghỉ phép: Nghỉ thai sản (S1, Maternity). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Đoạn này chỉ mô tả khai báo phiếu, không phải toàn bộ hồ sơ hoặc quy trình bàn giao thai sản; không nêu mức trợ cấp hay số ngày hưởng chế độ.",
+    "metadata": {
+      "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+      "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": null,
+      "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.systems.maternity-registration.ac98d5af"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

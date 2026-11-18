@@ -220,8 +220,11 @@ class RetrievalService:
                 raise RetrievalError('query_embedding_failed', 2) from None
             from .storage import search
             try:
-                count = 30 if self._reranker else top_k
+                references = self.policy.references(question)
+                count = 30 if self._reranker or references else top_k
                 kwargs = {'extra_vectors': extra} if extra else {}
+                if references:
+                    kwargs['references'] = references
                 result = await search(vector, self.model_revision, self._fingerprint, count, **kwargs)
             except Exception:
                 raise RetrievalError('database_search_failed', 2) from None

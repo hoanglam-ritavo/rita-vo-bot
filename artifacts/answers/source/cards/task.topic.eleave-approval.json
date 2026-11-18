@@ -1,0 +1,205 @@
+{
+  "id": "task.topic.eleave-approval",
+  "label": "Duyệt đơn E-Leave",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.eleave-approval"
+  ],
+  "aliases": [
+    "Duyệt đơn E-Leave",
+    "duyệt đơn E-Leave lần đầu",
+    "duyệt E-Leave trên điện thoại",
+    "duyệt E-Leave qua Teams"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.4",
+          "text": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 4,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "5980938a43dabbb54fbc1f5adb5cfc44816db91a638de90c8f593697dd9fe490",
+              "quote": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.5",
+          "text": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 5,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "d611911227d53a2f07ff4c68606915ea11115259a156ececa39f9b65f1596ffa",
+              "quote": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.6",
+          "text": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 6,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "b289834c166c65a64c097edd300f21ffaf1df8822f7ad0f9a3200e1308193078",
+              "quote": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.7",
+          "text": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 7,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc",
+              "quote": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.4",
+          "text": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 4,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "5980938a43dabbb54fbc1f5adb5cfc44816db91a638de90c8f593697dd9fe490",
+              "quote": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.5",
+          "text": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 5,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "d611911227d53a2f07ff4c68606915ea11115259a156ececa39f9b65f1596ffa",
+              "quote": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.6",
+          "text": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 6,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "b289834c166c65a64c097edd300f21ffaf1df8822f7ad0f9a3200e1308193078",
+              "quote": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.7d4d2428.7",
+          "text": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 7,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc",
+              "quote": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -43,6 +43,28 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Shared HTTP service authentication - 2026-11-18
+
+All HTTP business endpoints and readiness probes now use CHAT_BOT_SERVICE_KEY.
+Conversation/answer/Type B switches remain separate; TYPE_B_SERVICE_KEY is retired.
+Python still binds loopback; remote Backend access uses HTTPS through a separate
+proxy. See [service authentication](docs/http-service-auth.md). Private `.env`,
+corpus/model bytes, migrations and running services were not changed by this task.
+Post-edit non-integration regression passed **986 tests**, with **1 skipped** and
+**56 integration tests deselected**. The final mount-prefix auth hardening then
+passed **75 focused auth/answer tests**, including disconnect/timeout draining.
+Starlette/AnyIO reports its existing deprecation warning. All HTTP fixtures use
+fictional credentials and isolate the developer's private `.env`; no live DB or
+model-quality acceptance is claimed. An earlier full run had one configuration
+fixture missing the newly required key, corrected without removing its assertions.
+The initial HTTP middleware implementation failed the disconnect regression and
+was replaced with pure ASGI middleware; that regression remains enabled.
+
+Successful runs used the Python 3.14 repository virtual environment and fresh
+`.tmp` test/cache directories outside the existing sandbox permission restriction.
+No proxy, public-domain smoke test or service restart was run. Current verification
+reflects executed working-tree snapshots; concurrent catalog/source work was kept.
+
 ### Questions and Retrieval Git policy - 2026-11-18
 
 The Git allowlist now exposes the question source dataset and the Retrieval
@@ -1265,7 +1287,7 @@ The response contains `status` (`matches_found`, `no_eligible_documents`, `no_ma
 
 This is a breaking replacement: `POST /api/v1/ask` no longer exists and returns 404. Clients must use the new route and response. Old `ANSWER_TOP_K` and `OLLAMA_*` settings are unused; configure `RETRIEVAL_TOP_K` instead. Removing the project dependency does not uninstall software or delete model weights on the machine.
 
-Use the supplied entrypoint: it binds only to loopback (default `127.0.0.1:8000`) with one worker and no reload on the psycopg-compatible Windows loop. Type A retains its existing caller behavior; personnel context requires the trusted backend service key and backend user authorization described in [Type B](docs/type-b-http.md). Startup loads/fingerprints E5 once on CPU and checks the database. Startup logs separate model initialization and total startup durations. One request owns retrieval/context processing at a time; competitors receive 429. The overall deadline is 120 seconds. Cancellation waits for an in-progress embedding worker to finish safely before releasing the busy state, so timeout responses and shutdown may exceed the nominal deadline.
+Use the supplied one-worker loopback entrypoint on the psycopg-compatible Windows loop. Every HTTP deployment requires CHAT_BOT_SERVICE_KEY, including Type A without conversation/HRM. All /api/v1 routes and readiness probes require that shared header; Backend still authorizes user/HRM access. See [service authentication](docs/http-service-auth.md) and [Type B](docs/type-b-http.md). Startup loads E5/checks DB; one inference owns the busy gate and competitors receive 429. The 120-second deadline still drains active workers before release, so cancellation/shutdown may exceed it.
 
 `/health/live` reports HTTP availability. `/health/ready` checks initialized model state and database connectivity, not publication completeness, model compatibility with every stored run or semantic quality. Shutdown drains active work and closes E5, the optional reranker and the shared database. Imports create no runtime connections. Questions and document contents are not logged or retained as history.
 
@@ -1312,7 +1334,7 @@ Use these HTTP probes (substitute the configured port when needed):
 
 ```powershell
 Invoke-RestMethod -Uri http://127.0.0.1:8000/health/live -TimeoutSec 5
-Invoke-RestMethod -Uri http://127.0.0.1:8000/health/ready -TimeoutSec 20
+Invoke-RestMethod -Uri http://127.0.0.1:8000/health/ready -Headers @{ 'X-Rita-Service-Key' = $env:CHAT_BOT_SERVICE_KEY } -TimeoutSec 20
 ```
 
 Liveness reports HTTP availability. Readiness checks initialized retrieval/model
@@ -1321,7 +1343,7 @@ retrieval quality or publication completeness. Allow startup time for local mode
 loading and the database check before enforcing probes.
 
 For deployments that require answers, also call
-`GET http://127.0.0.1:8000/health/answer` with a 20-second client timeout. It returns
+`GET http://127.0.0.1:8000/health/answer` with the service-key header and a 20-second client timeout. It returns
 200 with `{"status":"ready","reason":null}` only when answer initialization and
 retrieval/database readiness pass; disabled answers or unavailable dependencies
 return 503 with a fixed reason. This probe does not run a question, reload a
@@ -1348,13 +1370,13 @@ and provisioned. Confirm the retired process is stopped and monitor startup
 failures, response latency and HTTP 429/503/504. On regression, restore the previous
 application artifact and launcher; no data rollback is needed.
 
-Keep the API on `127.0.0.1`, without opening it to a network. Backend and bot must
-share the machine/network namespace; separate container networks or machines
-require a separately scoped connectivity/security change. The backend's current
-default and maximum timeout is 60 seconds, versus the bot's 120-second deadline.
+Keep Python on `127.0.0.1`. A reverse proxy sharing the bot's network namespace
+can expose authenticated HTTPS to a remote Backend; see
+[shared HTTP authentication](docs/http-service-auth.md). Backend timeout is a
+fixed 60 seconds versus the bot's 120-second deadline.
 A caller timeout/disconnect does not guarantee immediate retrieval cancellation;
-this existing behavior and the single-request busy limit are unchanged. No
-backend, portal or HRM-source integration changes are required for this cleanup.
+this existing behavior and the single-request busy limit are unchanged. Backend
+and other HTTP clients must send the shared key; portal and HRM-source logic are unchanged.
 
 ## Database configuration and behavior
 

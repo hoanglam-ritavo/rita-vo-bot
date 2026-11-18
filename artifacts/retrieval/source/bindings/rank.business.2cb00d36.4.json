@@ -1,0 +1,31 @@
+{
+  "id": "rank.business.2cb00d36.4",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+    "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+    "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+    "chunk_index": 4,
+    "content_sha256": "aba1519e4bd77a049a2077fcf91f487da60e423d8b7976029343783f6c27b23f",
+    "quote": "Workit Mobile — kiểm tra phiếu: vào chức năng > Chờ duyệt; menu ba chấm > Xem/Sửa để xem nội dung, hoặc Xem chi tiết. Các biểu tượng ở phiếu lần lượt là bình luận/tin nhắn, tệp đính kèm, quy trình phê duyệt. Hướng dẫn giải thích màu đen không có file/tin nhắn, xanh đã hoàn thành, đỏ chưa hoàn thành.",
+    "metadata": {
+      "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+      "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.68369c60f81557c5b42fab416cfad7e1",
+    "task.business.systems.mobile-icons.2cb00d36"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

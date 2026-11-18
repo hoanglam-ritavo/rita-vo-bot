@@ -1,0 +1,204 @@
+{
+  "id": "task.business.vehicle-maintenance.b114fe60",
+  "source_type": "type_a",
+  "label": "bảo dưỡng và sửa chữa xe",
+  "concept_ids": [
+    "vehicle-maintenance"
+  ],
+  "aliases": [
+    "bảo dưỡng và sửa chữa xe",
+    "bảo dưỡng, sửa chữa xe",
+    "sửa chữa và bảo dưỡng xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.b114fe60.13",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.b) Sổ theo dõi bảo dưỡng, sửa chữa xe: P. HCNS & nhân viên tài xế mỗi xe ghi chép tình trạng bảo dưỡng, sửa chữa xe, cập nhập thường xuyên và đầy đủ thông tin của các lần sửa chữa. Đây là cơ sở để Ban lãnh đạo xét duyệt các trường hợp sửa chữa phát sinh/ định kỳ về sau.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 13,
+              "content_sha256": "513cf6be16795c3d140b9f365b46c49afa7815746ba137abac2ad353614bdb3d",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.b) Sổ theo dõi bảo dưỡng, sửa chữa xe: P. HCNS & nhân viên tài xế mỗi xe ghi chép tình trạng bảo dưỡng, sửa chữa xe, cập nhập thường xuyên và đầy đủ thông tin của các lần sửa chữa. Đây là cơ sở để Ban lãnh đạo xét duyệt các trường hợp sửa chữa phát sinh/ định kỳ về sau.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.14",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.c) Phiếu đề xuất bảo dưỡng, sửa chữa xe: Trong trường hợp xe cần bảo dưỡng, sửa chữa, xe có nguy cơ rủi ro cần kiểm tra, sửa chữa, thay lốp, bảo dưỡng định kì... thì nhân viên tài xế lập phiếu đề xuất sửa chữa gửi P. HCNS xác nhận và thực hiện theo Điều 8 tại Quy định này.\nd) Biên bản bàn giao: P. HCNS lập biên bản bàn giao khi giao, nhận xe với nhân viên tài xế. Ghi nhận thông tin, hình ảnh bàn giao tài sản, CCDC, tình trạng xe với nhân viên tài xế. Bên cạnh đó, căn cứ số Km lúc bàn giao để thanh toán xăng dầu.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 14,
+              "content_sha256": "202443b3aefd42456e6f8d2188146983ae404276ad79c64dc1acc44ffe0f570f",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.c) Phiếu đề xuất bảo dưỡng, sửa chữa xe: Trong trường hợp xe cần bảo dưỡng, sửa chữa, xe có nguy cơ rủi ro cần kiểm tra, sửa chữa, thay lốp, bảo dưỡng định kì... thì nhân viên tài xế lập phiếu đề xuất sửa chữa gửi P. HCNS xác nhận và thực hiện theo Điều 8 tại Quy định này.\nd) Biên bản bàn giao: P. HCNS lập biên bản bàn giao khi giao, nhận xe với nhân viên tài xế. Ghi nhận thông tin, hình ảnh bàn giao tài sản, CCDC, tình trạng xe với nhân viên tài xế. Bên cạnh đó, căn cứ số Km lúc bàn giao để thanh toán xăng dầu.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.31",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8. Quy trình sửa chữa xe Tập đoàn\nTrong quá trình sử dụng xe, nhân viên tài xế phải lưu ý đề xuất bảo dưỡng, sửa chữa xe (xe đến hạn bảo trì, các loại hư tổn của xe) đảm bảo xe luôn sẵn sàng để phục vụ.\nNhân viên tài xế cập nhập tình trạng bảo trì, bảo dưỡng, sửa chữa xe và chi phí vào sổ theo dõi sửa chữa xe mẫu HCNS-QT02-S02 chuyển P.HCNS xác nhận sau sửa chữa.\n1. Đối với xe sử dụng tại Tp. Hồ Chí Minh\na) Khi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Bộ phận sửa chữa xe nội bộ để liên hệ kiểm tra và sửa chữa.\nb) Trường hợp cần đưa xe đến Hãng để sửa chữa, nhân viên kỹ thuật sẽ ký xác nhận vào phiếu HCNS-QT02-DXSC01, nhân viên tài xế đưa xe đến Hãng kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 31,
+              "content_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8. Quy trình sửa chữa xe Tập đoàn\nTrong quá trình sử dụng xe, nhân viên tài xế phải lưu ý đề xuất bảo dưỡng, sửa chữa xe (xe đến hạn bảo trì, các loại hư tổn của xe) đảm bảo xe luôn sẵn sàng để phục vụ.\nNhân viên tài xế cập nhập tình trạng bảo trì, bảo dưỡng, sửa chữa xe và chi phí vào sổ theo dõi sửa chữa xe mẫu HCNS-QT02-S02 chuyển P.HCNS xác nhận sau sửa chữa.\n1. Đối với xe sử dụng tại Tp. Hồ Chí Minh\na) Khi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Bộ phận sửa chữa xe nội bộ để liên hệ kiểm tra và sửa chữa.\nb) Trường hợp cần đưa xe đến Hãng để sửa chữa, nhân viên kỹ thuật sẽ ký xác nhận vào phiếu HCNS-QT02-DXSC01, nhân viên tài xế đưa xe đến Hãng kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.32",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8.2. Đối với xe sử dụng tại các tỉnh khác\nKhi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Hãng tiến hành kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 32,
+              "content_sha256": "3709fc4cec82c667dfd2062990ac167e4bfdba47262b5c02cd4ea1cabd7529b5",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8.2. Đối với xe sử dụng tại các tỉnh khác\nKhi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Hãng tiến hành kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.b114fe60.13",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.b) Sổ theo dõi bảo dưỡng, sửa chữa xe: P. HCNS & nhân viên tài xế mỗi xe ghi chép tình trạng bảo dưỡng, sửa chữa xe, cập nhập thường xuyên và đầy đủ thông tin của các lần sửa chữa. Đây là cơ sở để Ban lãnh đạo xét duyệt các trường hợp sửa chữa phát sinh/ định kỳ về sau.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 13,
+              "content_sha256": "513cf6be16795c3d140b9f365b46c49afa7815746ba137abac2ad353614bdb3d",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.b) Sổ theo dõi bảo dưỡng, sửa chữa xe: P. HCNS & nhân viên tài xế mỗi xe ghi chép tình trạng bảo dưỡng, sửa chữa xe, cập nhập thường xuyên và đầy đủ thông tin của các lần sửa chữa. Đây là cơ sở để Ban lãnh đạo xét duyệt các trường hợp sửa chữa phát sinh/ định kỳ về sau.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.14",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.c) Phiếu đề xuất bảo dưỡng, sửa chữa xe: Trong trường hợp xe cần bảo dưỡng, sửa chữa, xe có nguy cơ rủi ro cần kiểm tra, sửa chữa, thay lốp, bảo dưỡng định kì... thì nhân viên tài xế lập phiếu đề xuất sửa chữa gửi P. HCNS xác nhận và thực hiện theo Điều 8 tại Quy định này.\nd) Biên bản bàn giao: P. HCNS lập biên bản bàn giao khi giao, nhận xe với nhân viên tài xế. Ghi nhận thông tin, hình ảnh bàn giao tài sản, CCDC, tình trạng xe với nhân viên tài xế. Bên cạnh đó, căn cứ số Km lúc bàn giao để thanh toán xăng dầu.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 14,
+              "content_sha256": "202443b3aefd42456e6f8d2188146983ae404276ad79c64dc1acc44ffe0f570f",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.c) Phiếu đề xuất bảo dưỡng, sửa chữa xe: Trong trường hợp xe cần bảo dưỡng, sửa chữa, xe có nguy cơ rủi ro cần kiểm tra, sửa chữa, thay lốp, bảo dưỡng định kì... thì nhân viên tài xế lập phiếu đề xuất sửa chữa gửi P. HCNS xác nhận và thực hiện theo Điều 8 tại Quy định này.\nd) Biên bản bàn giao: P. HCNS lập biên bản bàn giao khi giao, nhận xe với nhân viên tài xế. Ghi nhận thông tin, hình ảnh bàn giao tài sản, CCDC, tình trạng xe với nhân viên tài xế. Bên cạnh đó, căn cứ số Km lúc bàn giao để thanh toán xăng dầu.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.31",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8. Quy trình sửa chữa xe Tập đoàn\nTrong quá trình sử dụng xe, nhân viên tài xế phải lưu ý đề xuất bảo dưỡng, sửa chữa xe (xe đến hạn bảo trì, các loại hư tổn của xe) đảm bảo xe luôn sẵn sàng để phục vụ.\nNhân viên tài xế cập nhập tình trạng bảo trì, bảo dưỡng, sửa chữa xe và chi phí vào sổ theo dõi sửa chữa xe mẫu HCNS-QT02-S02 chuyển P.HCNS xác nhận sau sửa chữa.\n1. Đối với xe sử dụng tại Tp. Hồ Chí Minh\na) Khi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Bộ phận sửa chữa xe nội bộ để liên hệ kiểm tra và sửa chữa.\nb) Trường hợp cần đưa xe đến Hãng để sửa chữa, nhân viên kỹ thuật sẽ ký xác nhận vào phiếu HCNS-QT02-DXSC01, nhân viên tài xế đưa xe đến Hãng kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 31,
+              "content_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8. Quy trình sửa chữa xe Tập đoàn\nTrong quá trình sử dụng xe, nhân viên tài xế phải lưu ý đề xuất bảo dưỡng, sửa chữa xe (xe đến hạn bảo trì, các loại hư tổn của xe) đảm bảo xe luôn sẵn sàng để phục vụ.\nNhân viên tài xế cập nhập tình trạng bảo trì, bảo dưỡng, sửa chữa xe và chi phí vào sổ theo dõi sửa chữa xe mẫu HCNS-QT02-S02 chuyển P.HCNS xác nhận sau sửa chữa.\n1. Đối với xe sử dụng tại Tp. Hồ Chí Minh\na) Khi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Bộ phận sửa chữa xe nội bộ để liên hệ kiểm tra và sửa chữa.\nb) Trường hợp cần đưa xe đến Hãng để sửa chữa, nhân viên kỹ thuật sẽ ký xác nhận vào phiếu HCNS-QT02-DXSC01, nhân viên tài xế đưa xe đến Hãng kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.business.b114fe60.32",
+          "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8.2. Đối với xe sử dụng tại các tỉnh khác\nKhi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Hãng tiến hành kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 32,
+              "content_sha256": "3709fc4cec82c667dfd2062990ac167e4bfdba47262b5c02cd4ea1cabd7529b5",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 8.2. Đối với xe sử dụng tại các tỉnh khác\nKhi xe cần bảo trì, bảo dưỡng, sửa chữa,… nhân viên tài xế lập phiếu đề xuất sửa chữa mẫu HCNS-QT02-DXSC01 chuyển P. HCNS ký xác nhận, nhân viên tài xế đưa xe đến Hãng tiến hành kiểm tra, báo giá và làm đề xuất theo “Quy trình mua hàng Phòng Procurement”.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+}

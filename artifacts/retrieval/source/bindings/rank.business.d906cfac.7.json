@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.d906cfac.7",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+    "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+    "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+    "chunk_index": 7,
+    "content_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29",
+    "quote": "Workit — đặt xe công tác cho cá nhân/phòng ban tại chi nhánh, showroom, kho vận: Quy trình số > Xe công tác > Thêm. Chọn xe, tài xế, thời gian từ ngày/giờ đến ngày/giờ, nơi đi/nơi đến, tổng người đi; chọn danh sách người đi chính, đi cùng hoặc để biết rồi Lưu. Tìm/lọc danh sách nhân viên khi chọn. Có ghi chú và đính kèm. Hành chính quản lý xe văn phòng; bộ phận kinh doanh quản lý xe kinh doanh. Danh sách xem dạng lưới hoặc ngày.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+      "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.workit-car.d906cfac"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

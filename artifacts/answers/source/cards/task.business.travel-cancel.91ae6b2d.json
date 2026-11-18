@@ -1,0 +1,46 @@
+{
+  "id": "task.business.travel-cancel.91ae6b2d",
+  "source_type": "type_a",
+  "label": "hủy chuyến công tác",
+  "concept_ids": [
+    "travel-cancel"
+  ],
+  "aliases": [
+    "hủy chuyến công tác",
+    "huỷ chuyến công tác",
+    "hủy chuyến đi công tác",
+    "huỷ chuyến đi công tác"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.91ae6b2d.20",
+          "text": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.14. Trường hợp CBNV hủy chuyến đi thì phải chịu trách nhiệm thanh toán 100% chi phí mua hoặc đổi trả vé máy bay, vé tàu, xe... mà Công ty đã thanh toán ngoại trừ trường hợp bất khả kháng như ốm đau, tai nạn, nhà có tang...",
+          "refs": [
+            {
+              "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+              "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+              "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+              "chunk_index": 20,
+              "content_sha256": "e3b86558c46db2aa4be20033ace2d9fe47c7df7038848de1eb1cc1b6f6e693fc",
+              "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.14. Trường hợp CBNV hủy chuyến đi thì phải chịu trách nhiệm thanh toán 100% chi phí mua hoặc đổi trả vé máy bay, vé tàu, xe... mà Công ty đã thanh toán ngoại trừ trường hợp bất khả kháng như ốm đau, tai nạn, nhà có tang...",
+              "metadata": {
+                "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "02/QĐ-01-BM01; soát xét 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+}

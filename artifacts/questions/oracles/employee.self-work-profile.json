@@ -1,0 +1,548 @@
+{
+  "schema_version": 1,
+  "group_id": "employee.self-work-profile",
+  "turns": [
+    {
+      "case_id": "q.employee.self-work-profile.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.003",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_name"
+      ],
+      "null_fields": [
+        "employee_name"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.004",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_code"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_code"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.006",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "employee_code"
+      ],
+      "null_fields": [
+        "employee_code"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.008",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.009",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title"
+      ],
+      "null_fields": [
+        "job_title"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.010",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "department_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.011",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "department_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.012",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "department_name"
+      ],
+      "null_fields": [
+        "department_name"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.013",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "manager_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.014",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "manager_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.015",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "manager_name"
+      ],
+      "null_fields": [
+        "manager_name"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.016",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.017",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.018",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_date"
+      ],
+      "null_fields": [
+        "probation_date"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.019",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_end_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.020",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_end_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.021",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "probation_end_date"
+      ],
+      "null_fields": [
+        "probation_end_date"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.022",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "official_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.023",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "official_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.024",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "official_date"
+      ],
+      "null_fields": [
+        "official_date"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.025",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "resignation_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.026",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "resignation_date"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.027",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "resignation_date"
+      ],
+      "null_fields": [
+        "resignation_date"
+      ],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.028",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [
+        "job_title",
+        "department_name"
+      ],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.029",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.030",
+      "turn": 0,
+      "statuses": [
+        "employee_source_unavailable"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "employee_unavailable",
+      "http_status": 503
+    },
+    {
+      "case_id": "q.employee.self-work-profile.031",
+      "turn": 0,
+      "statuses": [
+        "type_b_disabled"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "feature_disabled",
+      "http_status": 503
+    }
+  ]
+}

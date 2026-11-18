@@ -9,8 +9,8 @@ background synchronization is introduced.
 
 ## Trusted caller and configuration
 
-TYPE_B_ENABLED=false is the default. Enable only with a nonblank private
-TYPE_B_SERVICE_KEY, a separately provisioned SELECT-only HRM_DATABASE_URL,
+TYPE_B_ENABLED=false is the default. HTTP always requires CHAT_BOT_SERVICE_KEY;
+TYPE_B_SERVICE_KEY is retired. Enable the source with a separately provisioned SELECT-only HRM_DATABASE_URL,
 optional HRM_DATABASE_SCHEMA (default public), and API restart. HTTP retains its
 existing .env-before-process precedence and loopback-only bind.
 
@@ -19,7 +19,8 @@ hrm_user_id from that user's local odooId, and send
 `X-Rita-Service-Key: <SERVICE_KEY>`. The key authenticates the calling service, not
 the end user's right to read arbitrary personnel. Never expose it to browsers or
 accept a browser-selected ID without backend authorization. Backend/portal changes,
-public end-user authentication, TLS and remote binds are outside this change.
+public end-user authentication and direct remote Python binds remain outside the
+source adapter. See [shared HTTP authentication and HTTPS](http-service-auth.md).
 
 Both POST endpoints accept:
 
@@ -31,7 +32,7 @@ hrm_user_id is employee_sso_store.user_id (backend odooId), not employee_id,
 account_id or an internal UUID. It is optional/null without employee context;
 supplied values must be integers 1..2**53-1, not bool, string or float. employee_id
 is not an accepted alias. top_k limits documents only. Names/emails do not resolve
-identity. A supplied ID requires the service header before routing, even for A.
+identity. All HTTP business requests require the shared header, including A without an ID.
 B/mixed without an ID requires authentication, then returns 422
 hrm_user_id_required. Missing/wrong key returns 401 service_authentication_required
 without an employee query. Disabled Type B plus an ID returns 503 type_b_disabled.

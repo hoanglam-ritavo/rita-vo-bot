@@ -1,0 +1,1988 @@
+{
+  "schema_version": 1,
+  "group_id": "software.workit",
+  "turns": [
+    {
+      "case_id": "q.software.workit.001",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.002",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.003",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.004",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.005",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.006",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.007",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.008",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.009",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.010",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.011",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.68369c60f81557c5b42fab416cfad7e1"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.012",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.68369c60f81557c5b42fab416cfad7e1"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.013",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.68369c60f81557c5b42fab416cfad7e1"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.014",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.68369c60f81557c5b42fab416cfad7e1"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.015",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.016",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.017",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.018",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.019",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.020",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.021",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.022",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.023",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.024",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.025",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.026",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.027",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.028",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.029",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.030",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.031",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bde3f581823256b483a01d2ce3b9926e"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.032",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bde3f581823256b483a01d2ce3b9926e"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.033",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bde3f581823256b483a01d2ce3b9926e"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.034",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bde3f581823256b483a01d2ce3b9926e"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.035",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.bde3f581823256b483a01d2ce3b9926e"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.036",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.037",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.038",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.039",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.040",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.041",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.042",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.043",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.044",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.045",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.046",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.047",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.048",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.049",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.050",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.051",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.052",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.053",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.054",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.055",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.056",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.057",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.058",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.059",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.060",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.061",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.062",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.063",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.064",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.065",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.066",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.workit-incoming"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.067",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.068",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.069",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.070",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.071",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.072",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.073",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.074",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.075",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.076",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.077",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.078",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.workit-return"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.079",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.080",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.081",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.082",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.083",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.084",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.085",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.086",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.087",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.088",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.089",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.090",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "none",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.091",
+      "turn": 0,
+      "statuses": [
+        "partial",
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "forbidden_task_ids": [],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "required",
+      "fixture": "current"
+    },
+    {
+      "case_id": "q.software.workit.092",
+      "turn": 0,
+      "statuses": [
+        "answered",
+        "partial",
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "task_ids_any": [],
+      "forbidden_task_ids": [
+        "task.bde3f581823256b483a01d2ce3b9926e",
+        "task.leave.eleave.annual"
+      ],
+      "required_source_groups": [],
+      "forbidden_documents": [],
+      "employee_fields": [],
+      "null_fields": [],
+      "claims": "any",
+      "fixture": "current"
+    }
+  ]
+}

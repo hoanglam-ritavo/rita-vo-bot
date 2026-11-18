@@ -1,0 +1,31 @@
+{
+  "id": "rank.business.ac98d5af.3",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+    "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+    "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+    "chunk_index": 3,
+    "content_sha256": "ab87c2525a669c3edc9831e076e9ade91d0dc23e614cf4f96d51321c115b0969",
+    "quote": "Workit — II.2, lập Biên bản bàn giao khi nghỉ việc, sau khi Phiếu xét nghỉ việc đã ký duyệt xong: tải phiếu đã ký qua biểu tượng kẹp giấy. Vào Quy trình tác nghiệp (Ticket), thêm mới, nhập BBBG để chọn đúng [HCNS] Hoàn tất BBBG – MN hoặc [HCNS] Hoàn tất BBBG – MB. Bắt buộc tải 2 file: Phiếu xét nghỉ việc đã ký và Biên bản bàn giao theo mẫu công ty dạng PDF. Bấm Lưu & đóng (F8).",
+    "metadata": {
+      "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+      "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": null,
+      "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.workit-handover.ac98d5af"
+  ],
+  "aspects": [
+    "overview",
+    "paperwork",
+    "procedure"
+  ],
+  "system": "workit"
+}

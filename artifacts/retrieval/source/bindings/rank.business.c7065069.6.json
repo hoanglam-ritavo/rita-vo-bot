@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.c7065069.6",
+  "family": "administration",
+  "role": "policy",
+  "operation": "policy",
+  "ref": {
+    "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+    "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+    "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+    "chunk_index": 6,
+    "content_sha256": "7916499d5bb3ebfeb4f44890bf7657ee5ff7660eef16a93fd13e550a62b75da1",
+    "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ)\n+ Phòng HCNS lập đội đánh giá tình trạng TS-CCDC/PL gồm HCNS, KSNB, bộ phận chuyên môn, tiến hành đến tại địa điểm có TS-CCDC/PL cần thanh lý để xem xét (theo mẫu Biên bản thống kê TS-CCDC/PL):\n- Đề xuất phòng ban có phù hợp hay không?\n- Đưa phương án đề xuất sửa chữa/ thay thế/ thanh lý/ hủy bỏ\n+ Sau đó, KSNB gửi thông tin biên bản này qua email, đầy đủ các nội dung về danh sách TS-CCDC/PL (Mã hàng (nếu có) - tên hàng - số lượng/ định lượng...)\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.",
+    "metadata": {
+      "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+      "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "01/23",
+      "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.asset-disposal-approval.c7065069",
+    "task.business.asset-disposal.c7065069"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

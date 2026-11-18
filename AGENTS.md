@@ -33,6 +33,8 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Data and future chatbot behavior
 
+- All /api/v1 routes and readiness probes require the shared CHAT_BOT_SERVICE_KEY at the pure ASGI boundary, even when conversation/Type B are off. TYPE_B_SERVICE_KEY is retired without fallback. Keep liveness minimal/public, Python loopback-only, and remote access behind verified HTTPS; preserve disconnect/draining and never add a coordinator auth bypass. See [HTTP authentication](docs/http-service-auth.md).
+
 - Opt-in conversations now persist bot-owned turns/messages/checkpoints; Backend owns room authorization and durable purge retries. Preserve single-process ownership, stable message IDs, explicit retry, context version checks, atomic completion and tombstone blocking. Cache is disposable; history/user text is not evidence. No LLM, automatic inference replay or personal eligibility decisions. See [conversations](docs/conversations.md).
 
 - Treat `assets/`, rename manifests, journals, and `rename-history/` as source material. Do not rename, rewrite, or regenerate them as incidental cleanup.

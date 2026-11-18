@@ -125,7 +125,9 @@ def test_order_uses_topic_role_and_system_without_rewriting_raw_logits(policy):
     assert policy.reorder('Tôi muốn tìm mạng máy tính',matches) == raw
     assert policy.reorder('Xin nghỉ việc 2 hôm',matches) == raw
     assert policy.reorder('Xin thôi việc',matches) == raw
-    assert policy.reorder('Đăng ký đi trễ Workit',matches) == raw
+    # Cross-domain expansion now recognizes attendance too; the exact fictional
+    # attendance reference is preferred without changing any model scores.
+    assert policy.reorder('Đăng ký đi trễ Workit',matches)[0]['chunk_id'] == 'fictional-3'
 
 
 @pytest.mark.parametrize('field,value', [('content','Changed fictional condition'),('source_sha256','b'*64),
@@ -221,7 +223,7 @@ def test_known_existing_eleave_fields_task_keeps_its_contract(policy):
     selected,now_ambiguous=select_cards('Trường bắt buộc E-Leave',catalog,lexicon,policy)
     assert not ambiguous and not now_ambiguous
     assert [c.id for c in selected]==[c.id for c in baseline]
-    assert policy.resolve('Tạo phiếu nghỉ việc Workit').state=='not_applicable'
+    assert policy.resolve('Tạo phiếu nghỉ việc Workit').task_id=='task.bde3f581823256b483a01d2ce3b9926e'
 
 
 def fake_runtime(policy, monkeypatch):
@@ -303,7 +305,7 @@ def add_retrieval_sources(root, policy):
         rows=[]
         if collection=='families':rows=[dict(id='leave',concept_ids=[concept])]
         if collection=='bindings':
-            b=policy.catalog.bindings[0].model_dump();b.update(id='fictional',ref=first);rows=[b]
+            b=policy.catalog.bindings[0].model_dump();b.update(id='fictional',ref=first,task_ids=[answer['cards'][0]['id']]);rows=[b]
         if collection=='routes':rows=[dict(id='fictional',subtype='annual',operation='request',system='workit',task_id=answer['cards'][0]['id'])]
         index[collection]=[]
         for row in rows:

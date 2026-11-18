@@ -1,0 +1,30 @@
+{
+  "id": "rank.business.bcc9e137.20",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+    "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+    "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+    "chunk_index": 20,
+    "content_sha256": "04d0c62e2d3a4d5729b0681329e7824444410663815add3866c6691a48de1eaa",
+    "quote": "Workit — theo dõi phiếu bổ sung công: tab Đang xử lý chờ quản lý phê duyệt; phiếu đỏ chưa hoàn thành, xanh đã hoàn thành. Biểu tượng quy trình xem các bước Đăng ký Quên chấm công > Duyệt Quên chấm công > Thông báo nhân sự. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem đính kèm; có nút sửa/xóa dữ liệu đang chọn. Nhân sự cập nhật công sau khi quản lý phê duyệt.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+      "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.workit-clock-fix.bcc9e137"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ],
+  "system": "workit"
+}

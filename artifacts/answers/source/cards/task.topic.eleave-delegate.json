@@ -1,0 +1,71 @@
+{
+  "id": "task.topic.eleave-delegate",
+  "label": "Ủy quyền gửi đơn E-Leave",
+  "source_type": "type_a",
+  "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
+  "concept_ids": [
+    "query.topic.eleave-delegate"
+  ],
+  "aliases": [
+    "Ủy quyền gửi đơn E-Leave",
+    "gửi đơn E-Leave thay người không có email"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.2",
+          "text": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 2,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "61c6e305c168766ae1745279b00c5158dd8d2ffbff5940f3495e89f2ef81a7bc",
+              "quote": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.7d4d2428.2",
+          "text": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 2,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "61c6e305c168766ae1745279b00c5158dd8d2ffbff5940f3495e89f2ef81a7bc",
+              "quote": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "task.business.systems.mobile-missing-menu.2cb00d36",
+  "source_type": "type_a",
+  "label": "chức năng không có trên Workit Mobile",
+  "concept_ids": [
+    "systems.mobile-missing-menu"
+  ],
+  "aliases": [
+    "chức năng không có trên Workit Mobile"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.2cb00d36.1",
+          "text": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "chunk_index": 1,
+              "content_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108",
+              "quote": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.business.2cb00d36.1",
+          "text": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "chunk_index": 1,
+              "content_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108",
+              "quote": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+}

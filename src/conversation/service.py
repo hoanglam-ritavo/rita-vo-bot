@@ -86,10 +86,11 @@ class ConversationService:
             if not accepted:
                 return turn
             state = await self.context(request)
+            policy = getattr(getattr(self.owner, 'retrieval', None), 'policy', None)
             if self.identity_stamp is None:
-                self.identity_stamp = identity(self.owner.answers.catalog, self.owner.answers.lexicon)
+                self.identity_stamp = identity(self.owner.answers.catalog, self.owner.answers.lexicon, policy)
             question, delta = reduce_question(request.text, state,
-                self.owner.answers.catalog, self.owner.answers.lexicon, identity_stamp=self.identity_stamp)
+                self.owner.answers.catalog, self.owner.answers.lexicon, identity_stamp=self.identity_stamp, policy=policy)
             # The shared HTTP boundary already authenticated the service caller.
             result = await self.owner.context.execute(question, request.top_k,
                 request.hrm_user_id if self.owner.settings.type_b.enabled else None,

@@ -1,0 +1,29 @@
+{
+  "id": "rank.business.c7065069.8",
+  "family": "administration",
+  "role": "policy",
+  "operation": "policy",
+  "ref": {
+    "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+    "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+    "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+    "chunk_index": 8,
+    "content_sha256": "b7b52b986ffa14b9306182c6e93a40f9998ccde272c35b6e669ca762517f8116",
+    "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 5: Giám sát/ xử lý sau phê duyệt; Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho\n* Trường hợp thanh lý:\n- Căn cứ theo phê duyệt BOD, HCNS kết hợp KSNB, phòng ban có nhu cầu thanh lý, kế toán thu tiền, BVDV giám sát quá trình xử lý.\n- Ghi nhận thông tin số lượng, khối lượng và mã TS-CCDC (nếu có) hoặc thông tin phế liệu thanh lý, giá trị tiền thu hồi về sau thanh lý (theo mẫu Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho).\n- Kế toán thu tiền trực tiếp, sau quá trình thanh lý và nộp về tài khoản công ty.\n* Trường hợp hủy, đổ bỏ: Thực hiện các bước tương tự như trường hợp thanh lý\n- Các biên bản ký nhận (Họ và tên) đầy đủ thông tin như form mẫu là căn cứ để BVDV kiểm soát khi xuất kho.\nTrách nhiệm: HCNS; KSNB; Phòng ban có nhu cầu thanh lý; Kế toán thu tiền; BVDV.\nV. NỘI DUNG QUY TRÌNH:\n5.1. Quy định chung:\n- Khi có TS-CCDC/PL cần xử lý (thanh lý, thay thế, hủy bỏ…), các phòng ban phải thực hiện theo quy trình này. Các trường hợp tự ý điều chuyển, di dời, thanh lý…không theo quy định này sẽ xử lý theo nội quy Công ty\n- Tất cả việc nhập/xuất các TS-CCDC/PL này phải có các chứng từ khi điều chuyển ra khỏi Công ty, nếu không có đầy đủ các chứng từ hoặc biên bản phê duyệt từ BOD của công ty, BVDV đình chỉ và ngăn chặn không cho xuất/nhập và thông tin đến BAN và phòng HCNS.\n- Toàn bộ quá trình xuất phải được thực hiện dưới khu vực camera.",
+    "metadata": {
+      "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+      "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "01/23",
+      "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.asset-disposal.c7065069"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

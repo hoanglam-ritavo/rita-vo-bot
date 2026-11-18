@@ -2,6 +2,8 @@
 from datetime import timedelta
 from src.business_calendar import business_today
 from uuid import UUID
+import hashlib
+import json
 import pytest
 from sqlalchemy import select, delete
 from src.database import session_scope, close_database
@@ -68,6 +70,23 @@ def test_public_search(empty_catalog_db, tmp_path, monkeypatch, change, expected
             fingerprint = publication.model_fingerprint(model)
             found = await search(query, 'a'*40, fingerprint, 5)
             assert found['status'] == expected
+            from src.answering.catalog import Reference, METADATA
+            second = json.loads((package / 'chunks.json').read_bytes())['chunks'][1]['content']
+            ref = Reference(document_id=record['document_id'], revision_id=record['revision_id'],
+                chunk_index=1, source_sha256=record['sha256'], content_sha256=hashlib.sha256(second.encode()).hexdigest(),
+                quote=second, metadata={key: record.get(key) for key in METADATA})
+            if change == 'boundary_dates':
+                ref.metadata.update(effective_from=business_today().isoformat(), effective_to=business_today().isoformat())
+            augmented = await search(query, 'a'*40, fingerprint, 1, references=[ref])
+            assert augmented['status'] == expected
+            if expected == 'matches_found':
+                assert [m['chunk_index'] for m in augmented['matches']] == [1, 0]
+                assert augmented['matches'][0]['cosine_distance'] == pytest.approx(1)
+                stale = ref.model_copy(update={'content_sha256': 'f'*64})
+                unchanged = await search(query, 'a'*40, fingerprint, 1, references=[stale])
+                assert [m['chunk_index'] for m in unchanged['matches']] == [0]
+            else:
+                assert augmented['matches'] == []
             expanded = await search(query, 'a'*40, fingerprint, 5,
                                     extra_vectors=[[0., 1.] + [0.]*382])
             assert expanded['status'] == expected
