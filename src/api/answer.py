@@ -80,15 +80,15 @@ class AnswerService:
     async def close(self):
         self._set_state('stopped', 'dependency_unavailable')
 
-    async def document_evidence(self, text, top_k, *, contextual=False):
+    async def document_evidence(self, text, top_k, *, contextual=False, analysis=None):
         if not self.available:
             raise ApiError('answer_unavailable')
-        return await evidence_result(text, self.owner.retrieval, self.catalog, self.lexicon, top_k, contextual=contextual)
+        return await evidence_result(text, self.owner.retrieval, self.catalog, self.lexicon, top_k, contextual=contextual, analysis=analysis)
 
-    def render_documents(self, text, result, started, elapsed, *, contextual=False):
+    def render_documents(self, text, result, started, elapsed, *, contextual=False, analysis=None):
         if not self.available:
             raise ApiError('answer_unavailable')
-        row = render(text, result, self.catalog, self.lexicon, getattr(self.owner.retrieval, 'policy', None), contextual=contextual)
+        row = render(text, result, self.catalog, self.lexicon, getattr(self.owner.retrieval, 'policy', None), contextual=contextual, analysis=analysis)
         return format_answer({**row, 'retrieval_seconds': elapsed}, started)
 
     async def answer(self, text, top_k):

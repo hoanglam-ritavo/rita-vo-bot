@@ -2,6 +2,7 @@
 import hashlib
 import re
 import time
+import logging
 from src.retrieval.semantics import matching_concepts, phrase_matches
 from src.retrieval.reranking import query_variants
 
@@ -9,6 +10,7 @@ FIELDS = ('content', 'title', 'applicability', 'effective_from', 'effective_to',
 ORIGINS = ('chunk_id', 'revision_id', 'document_id', 'run_id', 'source_path', 'source_spans')
 EMPTY = 'Chưa tìm được bằng chứng phù hợp trong các đoạn được cung cấp. Bạn vui lòng nói rõ nội dung cần tìm.'
 EXCERPTS = 'Mình tìm thấy các đoạn có thể liên quan dưới đây. Đây là trích đoạn tham khảo, chưa phải kết luận cho trường hợp của bạn.'
+logger = logging.getLogger(__name__)
 
 
 def evidence_sources(matches):
@@ -93,7 +95,8 @@ def select_cards(question, catalog, lexicon, policy=None, *, contextual=False):
         if resolution is not None and resolution.state == 'task':
             return [c for c in catalog.cards if c.id == resolution.task_id], complex_request
         if resolution is not None and resolution.state in ('clarify','unsupported'):
-            return [], resolution.state == 'clarify'
+            candidates = getattr(resolution, 'candidates', ())
+            return [c for c in catalog.cards if c.id in candidates], resolution.state == 'clarify'
     return cards, len(cards) > 1 or len(clause_cards) > 1 or complex_request
 
 
@@ -114,7 +117,7 @@ def is_document_lookup(question):
         'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
 
 
-def render(question, result, catalog, lexicon, policy=None, *, contextual=False):
+def render(question, result, catalog, lexicon, policy=None, *, contextual=False, analysis=None):
     relevance = checked_relevance(result)
     row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
            'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
@@ -127,11 +130,6 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False)
                                ('task_needs_clarification' if resolution.state=='clarify' else 'task_unsupported')),
                        limitations=[resolution.message])
             return row
-    cards, ambiguous = select_cards(question, catalog, lexicon, None if is_document_lookup(question) else policy, contextual=contextual)
-    if ambiguous:
-        row.update(status='needs_clarification', reason='needs_clarification', limitations=[
-            'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
-        return row
     if is_document_lookup(question):
         sources = evidence_sources(result['matches'])
         claims = [{'text': source['content'], 'citations': [{'source_id': key, 'quote': source['content']}]}
@@ -140,7 +138,14 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False)
                    intro=EXCERPTS if claims else '', reason='document_lookup', limitations=[
                        'Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ.'])
         return row
+    cards, ambiguous = ((analysis.cards, analysis.ambiguous) if analysis is not None else
+        select_cards(question, catalog, lexicon, policy, contextual=contextual))
+    if ambiguous:
+        row.update(status='needs_clarification', reason='needs_clarification', limitations=[
+            'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
+        return row
     if not cards:
+        logger.info('document_answer state=not_requested reason=task_unavailable')
         row.update(reason='task_unavailable', limitations=[
             'Mình chưa xác định được tác vụ phù hợp. Bạn hãy nêu rõ chủ đề và thông tin cần hỏi; '
             'nếu muốn tìm nguồn, hãy yêu cầu tìm tài liệu.'])
@@ -153,6 +158,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False)
         for aspect in aspects:
             section = card.sections.get(aspect)
             if section is None:
+                logger.info('document_answer state=incomplete reason=section_missing')
                 complete = False
                 continue
             complete = complete and section.complete
@@ -161,6 +167,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False)
                 for ref in unit.refs:
                     match = next((m for m in result['matches'] if matches_reference(ref, m)), None)
                     if match is None:
+                        logger.info('document_answer state=incomplete reason=reference_unavailable')
                         break
                     source_id = next(key for key, source in sources.items()
                                      if any(origin['chunk_id'] == match['chunk_id'] for origin in source['origins']))
@@ -186,23 +193,28 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False)
     return row
 
 
-async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, contextual=False):
+async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, contextual=False, analysis=None):
     from src.retrieval.service import validate_request
     from src.retrieval.reranking import relevance
     question = validate_request(question, top_k)
     if is_document_lookup(question):
+        logger.info('document_evidence state=requested mode=lookup')
         result = await retrieval.retrieve(question, top_k=top_k)
         if result['status'] == 'model_mismatch':
             raise ValueError('model_mismatch')
         return result
     policy = getattr(retrieval, 'policy', None)
-    cards, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=contextual)
+    cards, ambiguous = ((analysis.cards, analysis.ambiguous) if analysis is not None else
+        select_cards(question, catalog, lexicon, policy, contextual=contextual))
     if ambiguous:
+        logger.info('document_evidence state=not_requested reason=ambiguous_request')
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
     refs = [ref for card in cards for aspect in requested_aspects(query_variants(question)[-1])
             for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
     if not refs:
+        logger.info('document_evidence state=not_requested reason=%s', 'task_unavailable' if not cards else 'section_missing')
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
+    logger.info('document_evidence state=requested mode=references')
     return await retrieval.read_evidence(refs)
 
 

@@ -5,12 +5,12 @@ import re
 from zoneinfo import ZoneInfo
 import string
 
-from .context_spec import ContextSpec, GROUPS
+from .context_spec import ContextSpec
 from .context_contracts import Application, MissingInput
 from .calculations import calculate
 from .slots import parse_inputs, SLOT_LABELS
-from .pipeline import select_cards
-from src.type_b.tasks import TASKS, normalized, phrase, route_question
+from .planning import RequestAnalysis, analyze_question
+from src.type_b.tasks import normalized, phrase
 
 LABELS = {
     'employee_name': 'Họ tên', 'employee_code': 'Mã nhân viên', 'job_title': 'Chức danh',
@@ -39,36 +39,28 @@ class ContextPlan:
     unsupported_person: bool = False
     hypothetical: bool = False
     clarification: str | None = None
+    analysis: RequestAnalysis | None = None
 
 
 def prepare(question, catalog=None, lexicon=None, policy=None):
     query = normalized(question)
     hypothetical = any(phrase(query, term) for term in ('gia su', 'gia dinh rang', 'neu toi'))
-    # Never turn a named subject into the authenticated employee.
-    other = bool(re.search(r'\b(?:ho so|chuc danh|phong ban|ngay chinh thuc|ngay nghi viec|quan ly truc tiep|email) cua (?!(?:toi|minh|ban than|cong ty|tap doan|quan ly(?: truc tiep)? cua toi)\b)', query)) or any(
-        phrase(query, term) for term in ('dong nghiep', 'nguoi khac'))
+    analysis = analyze_question(question, catalog, lexicon, policy)
+    other = analysis.unsupported_person
     self_request = any(phrase(query, term) for term in PERSONAL)
-    direct = tuple(task.field for task in TASKS if self_request and any(phrase(query, alias) for alias in task.aliases))
-    if query in ('toi la ai', 'toi ten gi'):
-        direct = ('employee_name',)
-    if self_request and any(phrase(query, term) for term in ('email quan ly', 'email cua quan ly')):
-        direct = ('manager_email',)
-    cards, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=True) if catalog and lexicon else ([], False)
+    direct = analysis.direct_fields
+    cards, ambiguous = analysis.cards, analysis.ambiguous
     card = cards[0] if len(cards) == 1 and not ambiguous else None
     spec = getattr(card, 'context', None) or ContextSpec(note='No contextual requirements for this task.')
-    # A work-date/name lookup must not inherit a policy task merely sharing a noun.
-    policy_request = any(phrase(query, term) for term in ('chinh sach','quy dinh','thu tuc','dieu kien','huong dan','phuc loi','ho tro','soan','don','quy trinh'))
-    if direct and not policy_request:
-        card, spec = None, ContextSpec(note='Explicit employee fact lookup; no policy application requested.')
     generic = any(phrase(query, term) for term in ('chi quy dinh chung', 'khong dung ho so', 'chi trich dan'))
-    if generic or other or (spec.mode in ('branch', 'calculation') and not self_request):
+    if generic or other or analysis.document_lookup or analysis.clarification or (spec.mode in ('branch', 'calculation') and not self_request):
         spec = ContextSpec(note='The request does not require individual application.')
     # Clauses asking work facts may accompany a document task; both are composed later.
     if other:
         direct = ()
-    clarification = ('Bạn muốn dùng ngày bắt đầu thử việc, kết thúc thử việc hay ngày chính thức?' if
-                     route_question(question).reason == 'ambiguous_employment_date' else None)
-    return ContextPlan(question, card, spec, direct, other, hypothetical, clarification)
+    if analysis.clarification:
+        direct = ()
+    return ContextPlan(question, card, spec, direct, other, hypothetical, analysis.clarification, analysis)
 
 
 def requirements(plan):

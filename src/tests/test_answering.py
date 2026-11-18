@@ -511,7 +511,9 @@ def test_answer_processing_failure_has_safe_correlated_log_and_releases_slot(sam
     owner = service(sample)
     owner.retrieval.retrieve.side_effect = RuntimeError('PRIVATE_EVIDENCE credentials question')
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
+        # Keep the privacy canary in the recognized clause: an extra unresolved
+        # clause now correctly asks for clarification before touching evidence.
+        response = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu PRIVATE_QUESTION?'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable'
         assert not owner.busy and owner._idle.is_set() and owner.answers.available

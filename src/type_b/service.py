@@ -30,15 +30,26 @@ class ContextCoordinator:
             self.employee = employee_service if employee_service is not None else EmployeeSourceService()
             self.source_error_type = EmployeeSourceError
         self.available = False
+        self._next_source_check = 0.0
+        self._source_check_lock = asyncio.Lock()
 
     async def start(self):
-        if self.employee is not None:
+        await self.check_source()
+
+    async def check_source(self):
+        if not self.settings.enabled or self.employee is None or self.available or time.monotonic() < self._next_source_check or self._source_check_lock.locked():
+            return
+        async with self._source_check_lock:
+            self._next_source_check = time.monotonic() + 30
             try:
                 async with asyncio.timeout(15):
                     await self.employee.check_source()
                 self.available = True
+                logger.info('employee_context state=ready')
             except Exception:
                 logger.warning('employee_context state=unavailable')
+            finally:
+                self._next_source_check = time.monotonic() + 30
 
     async def close(self):
         self.available = False
@@ -66,23 +77,44 @@ class ContextCoordinator:
                 plan = prepare(text, answers.catalog, answers.lexicon, policy)
                 if answer and not answers.available and not plan.direct_fields:
                     raise ApiError('answer_unavailable')
+                if plan.unsupported_person or plan.clarification:
+                    status = 'unsupported' if plan.unsupported_person else 'needs_clarification'
+                    message = ('Chỉ sử dụng hồ sơ của người đang đăng nhập; không tra nhân viên khác từ tên hoặc email.'
+                               if plan.unsupported_person else plan.clarification)
+                    logger.info('request_plan state=%s reason=%s', status,
+                                'other_subject' if plan.unsupported_person else
+                                'unresolved_request' if plan.analysis.unresolved else 'ambiguous_request')
+                    elapsed = time.perf_counter() - started
+                    relevance = Relevance(status='no_candidates', warnings=['document_retrieval_not_requested'])
+                    if not answer:
+                        return UnifiedRetrievalResponse(status=status, document_status=None, matches=[],
+                            fallback_reason=None, relevance=relevance, timings=Timings(
+                                retrieval_seconds=0., total_seconds=elapsed))
+                    return UnifiedAnswerResponse(status=status, answer=message, claims=[], sources=[],
+                        limitations=[message], fallback_reason='other_employee_unsupported' if plan.unsupported_person else plan.analysis.clarification_reason,
+                        relevance=relevance, timings=AnswerTimings(retrieval_seconds=0., generation_seconds=0.,
+                            verification_seconds=0., total_seconds=elapsed))
                 fields, manager = requirements(plan)
                 snapshot, context_state = None, 'not_needed'
                 if fields or manager:
                     context_state = 'disabled' if not self.settings.enabled else 'unavailable'
-                    if self.available:
+                    await self.check_source()
+                    if self.settings.enabled and self.available:
                         try:
                             snapshot = await self.employee.read_context(hrm_user_id, fields, manager=manager)
                             context_state = 'applied' if snapshot is not None else 'not_found'
                         except self.source_error_type:
+                            self.available = False
+                            self._next_source_check = time.monotonic() + 30
                             context_state = 'unavailable'
+                            logger.warning('employee_context state=unavailable')
                 document, raw = None, None
                 direct_only = bool(plan.direct_fields) and plan.card is None
                 if not direct_only:
                     if answer and answers.available:
-                        raw = await answers.document_evidence(text, top_k, contextual=True)
+                        raw = await answers.document_evidence(text, top_k, contextual=True, analysis=plan.analysis)
                         document = answers.render_documents(text, raw, started,
-                            time.perf_counter()-started, contextual=True)
+                            time.perf_counter()-started, contextual=True, analysis=plan.analysis)
                     elif not answer:
                         prepared = await self.owner.retrieval.prepare_query(text, top_k)
                         raw = await self.owner.retrieval.retrieve_prepared(prepared, top_k)

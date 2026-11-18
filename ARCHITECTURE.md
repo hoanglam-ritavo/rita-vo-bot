@@ -1,5 +1,37 @@
 # Rita Bot Architecture
 
+## Request planning and completeness
+
+`src/answering/planning.py` analyzes document lookup, clause-local personnel
+subjects, direct fields, task candidates and unresolved clauses. Contextual
+composition and the HTTP coordinator consume that analysis; evidence selection
+and rendering receive the same selected tasks. Unknown companion requests or
+unclear subjects ask for clarification before any personnel/evidence read.
+Recognized mixed requests retain both the policy and explicit employee fields.
+Named third-party profile requests never fall back to the authenticated subject.
+
+Explicit document lookup bypasses task ambiguity and never implicitly reads
+personnel fields mentioned in an instruction. Ordinary policy answers still
+require exact eligible authored references, without a vector fallback on unknown
+tasks. Generic childbirth wording has two declared policy candidates, rather
+than an implicit company-benefit default. Numbered or exact-label conversation
+choices retain the requested aspects. Reducer identity/schema 4 invalidates old
+derived context only; stored schema-2 results remain intact.
+
+Employee-source startup/read failures allow a bounded recheck on subsequent
+requests needing personnel data: one check at a time, at least 30 seconds between
+checks, with a 15-second check deadline. Disabled sources are never rechecked.
+This does not replay an answer or make personnel availability a prerequisite
+for document-only readiness. Fixed-code logs distinguish planning, requested
+evidence, missing sections/references and dependency failures, without content.
+
+Conversation answer/retry requests have a 120-second cancellation deadline
+including reservation, context and completion. Conversation transactions apply
+local 5-second lock and 15-second statement timeouts; shared database defaults
+are unchanged. Cancellation still drains owned work and finalization. Inspect
+the existing message after uncertain outcomes; replay/idempotency and purge
+tombstones remain authoritative. See [contextual answers](docs/contextual-answers.md).
+
 ## Shared memory cache
 
 `src/helper/cache.py` provides `CacheManager` over the pinned

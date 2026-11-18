@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/retrieval/catalog.json",
-    "sha256": "528c33e3c5a767874ca43784caeabc03aa58ec4018507c5ccff2075dbfa81670",
-    "size_bytes": 975279
+    "sha256": "a66220f24667b7edc6178cc2bae7f72cfb0b8899c29a5c6c31af538dba99faa2",
+    "size_bytes": 975606
   },
   "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
   "bindings": 446,
@@ -38,6 +38,26 @@
       "cases": 832,
       "turns": 849,
       "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "7ae3187102eeed07a81c12004d6c91291e48b30ac94cbb2b85e1346447cfed8c"
+    },
+    "paraphrases": {
+      "cases": 12,
+      "passed": 12,
+      "independent_acceptance": false,
+      "report_sha256": "68d17ec7e0d4a6d675d08a7fcd2fea0d19a6f42643bd973d0723f345059bdeb0"
+    },
+    "readonly": "Not run for this request-planning revision.",
+    "scope": "Unchanged source-fixture oracles and targeted paraphrases only; no live HRM/model/database, migration, publication or deployment validation."
+  },
+  "historical_pre_request_planning_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
       "report_sha256": "3e9a96fb9d5734b12b57740a1ac787fad6637cceaea2f139bda4cac6e203981b",
       "database_verified": false
     },
@@ -56,6 +76,14 @@
         "baseline": "Same augmented pool before metadata ordering; not an old-code or vector-only baseline"
       }
     },
-    "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted."
+    "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted.",
+    "catalog_sha256": "528c33e3c5a767874ca43784caeabc03aa58ec4018507c5ccff2075dbfa81670"
+  },
+  "request_planning": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "reducer_schema_version": 4,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
   }
 }

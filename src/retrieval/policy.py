@@ -264,6 +264,7 @@ class RetrievalPolicy:
                                            binding.ref.chunk_index), []).append(binding)
             self._generic = [r for r in catalog.routes if r.aliases or r.concept_ids]
             self.fingerprint = hashlib.sha256(raw).hexdigest()
+            logger.info('retrieval_policy state=ready')
         except Exception:
             self.close()
             logger.warning('retrieval_policy state=unavailable')

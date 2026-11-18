@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_sha256": "dedea70b463358318ab6b315757599b447dffa2f1b03f8087db0e2aaf2c6ce0b",
+  "catalog_sha256": "f6eb665f69844b0e167e119baca26423c636f5fe4e6134e968757f461f3a7c7b",
   "provenance": "Cross-domain source-bound tasks; partial sections retain source conditions. Implementation-agent source review only.",
   "runtime_release_accepted": false,
   "retrieval_acceptance": "Unassessed candidates; task claims require exact current eligible DB evidence.",
@@ -30,10 +30,16 @@
       "passed": 849,
       "failed": 0,
       "database_verified": false,
-      "report_sha256": "75526b288aab8ea4c21ec43c5eb3874f97e6dd74ecf11a279dc165287c36e234"
+      "report_sha256": "7ae3187102eeed07a81c12004d6c91291e48b30ac94cbb2b85e1346447cfed8c"
     },
-    "readonly": "Not rerun for this contextual revision; earlier snapshot retained separately.",
-    "scope": "Source-fixture HTTP/reducer and reconciled contextual shape/value oracles; not independent business acceptance or deployment validation."
+    "paraphrases": {
+      "cases": 12,
+      "passed": 12,
+      "independent_acceptance": false,
+      "report_sha256": "68d17ec7e0d4a6d675d08a7fcd2fea0d19a6f42643bd973d0723f345059bdeb0"
+    },
+    "readonly": "Not run for this request-planning revision.",
+    "scope": "Unchanged source-fixture oracles and targeted paraphrases only; no live HRM/model/database, migration, publication or deployment validation."
   },
   "contextual_authoring": {
     "date": "2026-11-18",
@@ -74,5 +80,27 @@
       }
     },
     "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted."
+  },
+  "historical_pre_request_planning_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "75526b288aab8ea4c21ec43c5eb3874f97e6dd74ecf11a279dc165287c36e234"
+    },
+    "readonly": "Not rerun for this contextual revision; earlier snapshot retained separately.",
+    "scope": "Source-fixture HTTP/reducer and reconciled contextual shape/value oracles; not independent business acceptance or deployment validation.",
+    "catalog_sha256": "dedea70b463358318ab6b315757599b447dffa2f1b03f8087db0e2aaf2c6ce0b"
+  },
+  "request_planning": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "reducer_schema_version": 4,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
   }
 }

@@ -1,11 +1,20 @@
 """Short transactions serialized by room, including absent-room and purge races."""
 import hashlib
 import json
+from contextlib import asynccontextmanager
 from sqlalchemy import select, text, update, delete
 from src.database import session_scope
 from src.database.models.conversation import Conversation, ChatTurn, ChatMessage
 from src.api.contracts import ApiError
 from .contracts import TurnResponse
+
+
+@asynccontextmanager
+async def conversation_scope():
+    async with session_scope() as db:
+        await db.execute(text("SET LOCAL lock_timeout = '5s'"))
+        await db.execute(text("SET LOCAL statement_timeout = '15s'"))
+        yield db
 
 
 def fingerprint(payload):
@@ -37,13 +46,13 @@ async def room(db, room_id, owner_id, *, create=False):
 
 class ConversationStore:
     async def recover(self):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             await db.execute(update(ChatTurn).where(ChatTurn.state == 'PROCESSING').values(
                 state='INTERRUPTED', error_code='process_interrupted'))
 
     async def begin(self, request, *, retry=False):
         payload = request.model_dump()
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             current = await room(db, request.room_id, request.user_id, create=True)
             turn = await db.get(ChatTurn, (request.room_id, request.message_id))
             if turn is not None:
@@ -76,7 +85,7 @@ class ConversationStore:
             return response(turn), True
 
     async def context(self, room_id, owner_id):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             current = await room(db, room_id, owner_id)
             deltas = list(await db.scalars(select(ChatTurn.context_delta).where(
                 ChatTurn.room_id == room_id, ChatTurn.state == 'COMPLETED',
@@ -84,11 +93,11 @@ class ConversationStore:
             return current.version, current.checkpoint, deltas
 
     async def version(self, room_id, owner_id):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             return (await room(db, room_id, owner_id)).version
 
     async def finish(self, request, attempt, result, delta):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             current = await room(db, request.room_id, request.user_id)
             turn = await db.get(ChatTurn, (request.room_id, request.message_id))
             if turn is None or turn.state != 'PROCESSING' or turn.attempt != attempt or current.version != turn.context_version:
@@ -104,14 +113,14 @@ class ConversationStore:
             return response(turn)
 
     async def fail(self, request, attempt, state, code):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             await lock_room(db, request.room_id)
             turn = await db.get(ChatTurn, (request.room_id, request.message_id))
             if turn is not None and turn.state == 'PROCESSING' and turn.attempt == attempt:
                 turn.state, turn.error_code = state, code
 
     async def get_turn(self, room_id, owner_id, message_id, *, payload=False):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             await room(db, room_id, owner_id)
             turn = await db.get(ChatTurn, (room_id, message_id))
             if turn is None:
@@ -119,7 +128,7 @@ class ConversationStore:
             return turn.payload if payload else response(turn)
 
     async def messages(self, room_id, owner_id, after=0, limit=20):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             current = await room(db, room_id, owner_id, create=True)
             rows = list(await db.scalars(select(ChatTurn).where(ChatTurn.room_id == room_id,
                 ChatTurn.sequence > after).order_by(ChatTurn.sequence).limit(limit + 1)))
@@ -135,7 +144,7 @@ class ConversationStore:
                     'context_version': current.version}
 
     async def purge(self, room_id, owner_id):
-        async with session_scope() as db:
+        async with conversation_scope() as db:
             await lock_room(db, room_id)
             current = await db.get(Conversation, room_id)
             if current is None:

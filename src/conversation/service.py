@@ -8,6 +8,7 @@ from .context import reduce_question, compact, identity
 
 logger = logging.getLogger(__name__)
 NAMESPACE = 'conversation-context-v2'
+DEADLINE_SECONDS = 120
 
 
 class ConversationService:
@@ -60,6 +61,14 @@ class ConversationService:
         return state
 
     async def answer(self, request, *, retry=False):
+        try:
+            async with asyncio.timeout(DEADLINE_SECONDS) as deadline:
+                return await self._answer(request, retry=retry, deadline=deadline)
+        except TimeoutError:
+            logger.warning('conversation_deadline state=expired')
+            raise ApiError('answer_timeout', 504) from None
+
+    async def _answer(self, request, *, retry=False, deadline=None):
         if self.stopping:
             raise ApiError('conversation_unavailable')
         # The gate is synchronous on the owning event loop. It covers durable
@@ -81,10 +90,12 @@ class ConversationService:
         self.task = asyncio.current_task()
         accepted = False
         turn = None
+        stage = 'reservation'
         try:
             turn, accepted = await self.store.begin(request, retry=retry)
             if not accepted:
                 return turn
+            stage = 'context'
             state = await self.context(request)
             policy = getattr(getattr(self.owner, 'retrieval', None), 'policy', None)
             if self.identity_stamp is None:
@@ -92,6 +103,7 @@ class ConversationService:
             question, delta = reduce_question(request.text, state,
                 self.owner.answers.catalog, self.owner.answers.lexicon, identity_stamp=self.identity_stamp, policy=policy)
             # The shared HTTP boundary already authenticated the service caller.
+            stage = 'answer'
             result = await self.owner.context.execute(question, request.top_k,
                 request.hrm_user_id,
                 answer=True)
@@ -99,7 +111,9 @@ class ConversationService:
             if len(json.dumps(value, ensure_ascii=False).encode()) > 1_800_000:
                 raise ApiError('answer_response_too_large')
             delta = compact(delta, value)
+            stage = 'commit'
             turn = await self.store.finish(request, turn.attempt, value, delta)
+            stage = 'post_commit'
             await self.cached('set', self.key(request.room_id, request.user_id),
                               {'version': turn.context_version, 'state': delta})
             try:
@@ -109,9 +123,12 @@ class ConversationService:
                 raise
             return turn
         except BaseException as error:
+            if deadline is not None and deadline.expired():
+                logger.warning('conversation_deadline stage=%s', stage)
             if accepted and turn is not None:
-                state = 'CANCELLED' if isinstance(error, asyncio.CancelledError) else 'FAILED'
-                code = error.code if isinstance(error, ApiError) else 'conversation_failed'
+                timed_out = deadline is not None and deadline.expired()
+                state = 'CANCELLED' if isinstance(error, asyncio.CancelledError) and not timed_out else 'FAILED'
+                code = 'answer_timeout' if timed_out else error.code if isinstance(error, ApiError) else 'conversation_failed'
                 try:
                     await drain(asyncio.create_task(self.store.fail(request, turn.attempt, state, code)))
                 except Exception:
@@ -124,10 +141,17 @@ class ConversationService:
             self.task = None
 
     async def retry(self, room_id, message_id, identity):
+        try:
+            async with asyncio.timeout(DEADLINE_SECONDS) as deadline:
+                return await self._retry(room_id, message_id, identity, deadline)
+        except TimeoutError:
+            raise ApiError('answer_timeout', 504) from None
+
+    async def _retry(self, room_id, message_id, identity, deadline):
         payload = await self.store.get_turn(room_id, identity.user_id, message_id, payload=True)
         if payload['hrm_user_id'] != identity.hrm_user_id:
             raise ApiError('identity_context_conflict', 409)
-        return await self.answer(ConversationRequest.model_validate(payload), retry=True)
+        return await self._answer(ConversationRequest.model_validate(payload), retry=True, deadline=deadline)
 
     async def purge(self, room_id, user_id):
         await self.store.purge(room_id, user_id)

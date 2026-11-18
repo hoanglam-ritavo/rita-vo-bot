@@ -110,7 +110,7 @@ or employee facts as authoritative context. Identity includes reducer version,
 answer/lexical catalogs and retrieval fingerprint; changes invalidate inherited
 task state without rewriting completed turns. This needs no JSONB/table migration.
 
-The app-owned memory helper uses namespace `conversation-context-v1`, owner/room
+The app-owned memory helper uses namespace `conversation-context-v2`, owner/room
 keys, its existing 300-second TTL and a 48 KiB context payload budget. A small DB
 version read validates every cache hit. Stale/missing entries rebuild; cache
 failures do not undo a committed answer. Current document eligibility/revisions
@@ -145,7 +145,7 @@ tables or tombstones. See [current verification](../README.md#current-verificati
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified
-schema 2 evidence graph; reducer schema 3 and cache namespace v2 keep task-bound
+schema 2 evidence graph; reducer schema 4 and cache namespace v2 keep task-bound
 user assertions without caching employee facts. Labelled follow-ups only fill
 pending slots, remain unverified and trigger fresh personnel reads. See
 [contextual answers and compatible development rollout](contextual-answers.md).

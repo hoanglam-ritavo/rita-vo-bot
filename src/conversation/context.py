@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 from src.answering.pipeline import select_cards
+from src.answering.planning import analyze_question
 from src.type_b.tasks import normalized, TASKS, route_question
 
 ASPECTS = {
@@ -19,14 +20,14 @@ PHRASES = {'paperwork': 'hồ sơ giấy tờ', 'amount': 'bao nhiêu tiền',
 def identity(catalog, lexicon, policy=None):
     if catalog is None or lexicon is None:
         return 'unavailable'
-    return hashlib.sha256(json.dumps([3, catalog.model_dump(), lexicon, getattr(policy, 'fingerprint', None)], sort_keys=True,
+    return hashlib.sha256(json.dumps([4, catalog.model_dump(), lexicon, getattr(policy, 'fingerprint', None)], sort_keys=True,
                                     ensure_ascii=False).encode()).hexdigest()
 
 
 def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
     stamp = identity_stamp if identity_stamp is not None else identity(catalog, lexicon, policy)
-    old = previous if previous.get('schema') == 3 and previous.get('identity') == stamp else {}
-    state = {'schema': 3, 'identity': stamp, 'task_id': None, 'candidates': [],
+    old = previous if previous.get('schema') == 4 and previous.get('identity') == stamp else {}
+    state = {'schema': 4, 'identity': stamp, 'task_id': None, 'candidates': [],
              'pending': None, 'aspect': None, 'recent': old.get('recent', [])[-3:] + [text]}
     from src.answering.slots import parse_inputs, SLOT_LABELS
     inputs = parse_inputs(text)
@@ -63,6 +64,20 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
     if catalog is None or lexicon is None:
         return text, state
     by_id = {card.id: card for card in catalog.cards}
+    candidates = [by_id[key] for key in old.get('candidates', []) if key in by_id]
+    chosen = [card for index, card in enumerate(candidates, 1) if query in {
+        str(index), normalized(card.label), normalized(card.id), *(normalized(alias) for alias in card.aliases)}]
+    if len(chosen) == 1:
+        selected = chosen[0]
+        aspects = old.get('requested_aspects', ['overview'])
+        resolved = selected.aliases[0]
+        suffix = ' '.join(PHRASES[key] for key in aspects if key in PHRASES and key != 'overview')
+        if suffix:
+            resolved += ' ' + suffix
+        state.update(task_id=selected.id, task_question=resolved)
+        return resolved, state
+    if candidates and (query.isdigit() or query in ('khong biet', 'chua ro', 'chon lai')) and old.get('pending_question'):
+        return old['pending_question'], {**old, 'recent': state['recent']}
     aspect = next((key for key, aliases in ASPECTS.items() if followup in aliases), None)
     card = by_id.get(old.get('task_id'))
     if aspect and card is not None:
@@ -79,9 +94,12 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
                 text = completed
         resolution = policy.resolve(text)
         if resolution.state in ('clarify', 'unsupported'):
+            analysis = analyze_question(text, catalog, lexicon, policy)
             state.update(pending='slots' if resolution.missing_slots else 'task',
-                         pending_question=text[:2000], candidates=list(resolution.candidates),
+                         pending_question=text[:2000], candidates=[card.id for card in analysis.cards],
                          missing_slots=list(resolution.missing_slots))
+            from src.answering.pipeline import requested_aspects
+            state['requested_aspects'] = requested_aspects(text)
             query = policy.analyze(text)
             state['slots'] = {key: {'value': getattr(query, key), 'origin': 'user_text'}
                               for key in ('subtype', 'system', 'days', 'sessions', 'granularity')
@@ -94,15 +112,12 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
                               for key in ('subtype', 'system', 'days', 'sessions', 'granularity')
                               if getattr(query, key) is not None}
             return text, state
-    candidates = [by_id[key] for key in old.get('candidates', []) if key in by_id]
-    chosen = [card for card in candidates if query in {normalized(card.label), normalized(card.id),
-                                                     *(normalized(alias) for alias in card.aliases)}]
-    if len(chosen) == 1:
-        state.update(task_id=chosen[0].id)
-        return chosen[0].aliases[0], state
-    cards, ambiguous = select_cards(text, catalog, lexicon, contextual=True)
+    analysis = analyze_question(text, catalog, lexicon, policy)
+    cards, ambiguous = analysis.cards, analysis.ambiguous
     if ambiguous:
-        state.update(candidates=[card.id for card in cards][:5], pending='task')
+        state.update(candidates=[card.id for card in cards][:5], pending='task', pending_question=text[:2000])
+        from src.answering.pipeline import requested_aspects
+        state['requested_aspects'] = requested_aspects(text)
     elif len(cards) == 1:
         state.update(task_id=cards[0].id, task_question=text[:2000])
     return text, state

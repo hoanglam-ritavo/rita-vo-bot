@@ -101,15 +101,31 @@ remains unassessed, independent of employee lookup.
 
 ## Conversations and rollout
 
-Reducer schema 3/cache namespace v2 stores bounded user-input slots, task identity
+Reducer schema 4/cache namespace v2 stores bounded user-input slots, task identity
 and document references. Each turn re-reads personnel facts. History and assertions
 are not authoritative evidence. See [conversations](conversations.md).
 
-Deploy compatible bot and Backend before portal. This is a coordinated contract
-replacement; old stored results are incompatible. Stop development services and
-reset development chat before use. Rollback uses a compatible code/catalog/client
-set and the same treatment of incompatible development conversations. No production
-erasure or startup reset is authorized.
+For the original schema-1 to schema-2 contract replacement, deploy compatible bot
+and Backend before portal; incompatible old development results require the
+explicit stopped-service reset below. No production erasure or startup reset is
+authorized. The subsequent request-planning update retains schema 2: deploy code
+and its generated catalogs together after draining the previous worker, without
+resetting schema-2 history or running migrations. Derived reducer context is
+invalidated by its identity; stored answers and message fingerprints are retained.
+Rollback must use a compatible code/catalog set.
+
+The shared request analysis keeps profile subjects local to their clauses and
+does not discard a recognized policy from a mixed question. Unresolved requests
+ask for clarification before HRM reads. Explicit document lookup does not require
+a unique task and never authorizes a personnel read. Neutral childbirth-policy
+wording asks which declared policy is intended; numbered/exact-label choices keep
+the original requested aspects. No candidate score certifies an answer.
+
+HRM availability can recover through a serialized check on a later personnel
+request (15-second deadline, at least 30 seconds between checks). Disabled HRM
+is not checked. No automatic answer replay occurs. Conversation-wide deadlines
+and transaction-local lock/statement limits are described in the
+[architecture](../ARCHITECTURE.md#request-planning-and-completeness).
 
 ```powershell
 # Explicit local development targets; never copy private URLs into docs/logs.

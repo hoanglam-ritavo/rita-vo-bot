@@ -53,6 +53,50 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Request planning, identity and recovery - 2026-11-18
+
+On `91669f7` plus this working tree, shared deterministic request analysis
+preserves recognized policy/profile combinations, rejects third-party profile
+substitution and asks about unresolved companion requests before personnel reads.
+Explicit document lookup stays separate from profile access and task ambiguity.
+Childbirth-policy clarification and numbered choices retain requested aspects.
+Schema-2 HTTP and stored results are unchanged; reducer schema 4 invalidates only
+derived context. See [request planning architecture](ARCHITECTURE.md#request-planning-and-completeness)
+and [compatible rollout](docs/contextual-answers.md#conversations-and-rollout).
+
+HRM checks can recover after startup/read failures with serialized, bounded
+rechecks; disabled HRM never retries. Answer/retry deadlines include conversation
+storage, with transaction-local lock/statement limits and existing cancellation,
+idempotency and purge protection. Deploy code and generated catalogs as one set
+after draining the old worker; no migration or schema-2 conversation reset is
+required. No running service was restarted by this change.
+
+Final non-integration regression passed **1,057 tests**, with **1 skipped and
+57 integration tests deselected**; the existing Starlette/AnyIO deprecation
+warning remains. The preceding focused run passed **141 tests**; the final full
+run includes subsequent coverage of authored conjunctions and labelled inputs.
+The unchanged source-fixture question oracles passed **849/849 turns in 832
+cases**, and a separate targeted paraphrase/numbered-choice check passed **12/12**.
+These are exposed implementation regressions, not independent business acceptance.
+Reports remain private under `.tmp/answer-plan-questions-03.json` and
+`.tmp/answer-plan-paraphrases-01.json`. Artifact build/check, catalog validation
+(279 tasks/29 documents/530 chunks), impact (1,346 unchanged references) and the
+runtime inventory (22 files) passed. Historical manifest results were retained;
+current hashes bind the regenerated catalogs and manifests without changing models.
+
+Earlier attempts encountered sandbox access errors and caught over-conservative
+clause splitting; those attempts are not passing evidence. The final evaluator
+keeps its original oracles. The processing-failure privacy test retains its
+assertions with the canary inside the recognized clause, so it exercises the
+failure path rather than the new clarification guard. Successful tests used the
+repository Python environment and fresh extended-length `.tmp` paths without
+changing permissions or deleting existing temporary trees.
+
+No live HRM/model/database validation, disposable-DB integration, publication,
+migration, conversation reset, service restart or deployment was performed.
+Transaction settings were verified at the mocked boundary; live lock/commit
+behavior remains an integration check. Older entries describe their own snapshots.
+
 ### Unified contextual answers - 2026-11-18
 
 This working tree replaces the A/B/mixed HTTP variants with schema 2 unified

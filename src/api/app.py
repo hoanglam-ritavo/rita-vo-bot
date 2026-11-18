@@ -90,6 +90,12 @@ def create_app(settings=None, *, service_factory=ApiService):
         }.get(exc.status_code, 'Không thể xử lý yêu cầu lúc này. Vui lòng thử lại sau.')
         if exc.code == 'hrm_user_id_required':
             message = 'Cần tham chiếu hrm_user_id do backend xác thực để tra cứu thông tin công việc.'
+        elif exc.status_code == 404:
+            message = 'Phòng hoặc lượt hội thoại không khả dụng. Hãy tải lại danh sách phòng; phòng đã xóa không thể khôi phục bằng cách gửi lại.'
+        elif exc.status_code == 409:
+            message = 'Thông tin hội thoại đã thay đổi hoặc mã tin nhắn đã được dùng với nội dung khác. Hãy đồng bộ hội thoại trước khi gửi lại.'
+        elif exc.status_code == 504:
+            message = 'Yêu cầu vượt thời gian xử lý. Với hội thoại, hãy kiểm tra trạng thái tin nhắn trước khi thử lại cùng mã và nội dung.'
         return JSONResponse(status_code=exc.status_code, headers={'Cache-Control': 'no-store'},
                             content={'error': {'code': exc.code, 'message': message}})
 

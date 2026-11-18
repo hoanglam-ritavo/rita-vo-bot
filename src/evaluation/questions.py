@@ -201,7 +201,7 @@ async def run_fixture(root=REPOSITORY_ROOT):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
                      'src/conversation/context.py', 'src/type_b/tasks.py', 'src/type_b/service.py',
-                     'src/answering/contextual.py', 'src/answering/context_spec.py',
+                     'src/answering/contextual.py', 'src/answering/planning.py', 'src/answering/context_spec.py',
                      'src/answering/context_contracts.py', 'src/answering/calculations.py',
                      'src/answering/slots.py', 'src/api/contracts.py',
                      'src/type_b/employee_store/service.py', 'src/type_b/employee_store/normalization.py',
