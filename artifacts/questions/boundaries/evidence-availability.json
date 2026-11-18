@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "group_id": "boundaries.evidence-availability",
+  "description": "Authored question scenarios for boundaries / evidence-availability. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.boundaries.evidence-availability.001",
+      "title": "Chưa xuất bản",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Catalog có task nhưng tài liệu liên quan chưa được xuất bản vào DB."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn cần hồ sơ gì?",
+          "expectation": "Báo thiếu bằng chứng hiện hành; không lấy file trên đĩa hoặc lịch sử làm câu trả lời."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.002",
+      "title": "Nguồn bị rút",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Bằng chứng cho task đã bị rút hoặc không còn active/current."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn được hỗ trợ bao nhiêu tiền?",
+          "expectation": "Không dùng bằng chứng đã bị rút; nêu giới hạn nguồn hiện hành."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.003",
+      "title": "Nội dung thay đổi",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nội dung hoặc revision hiện hành không còn khớp tham chiếu của task."
+      ],
+      "turns": [
+        {
+          "text": "Điều kiện hỗ trợ nhân viên kết hôn là gì?",
+          "expectation": "Không tự sửa liên kết hay dùng trích dẫn cũ để trả lời điều kiện."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.004",
+      "title": "Mất quyền nguồn",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn liên quan không còn được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn cần giấy tờ gì?",
+          "expectation": "Không lộ nội dung nguồn; không đồng nhất mất quyền với việc chính sách không tồn tại."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.005",
+      "title": "Một phần bằng chứng",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Chỉ một số đơn vị bằng chứng còn hợp lệ."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Chỉ nêu các ý độc lập có đủ bằng chứng và giữ kết quả một phần."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.006",
+      "title": "Task khác không bị ảnh hưởng",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Bằng chứng kết hôn bị stale; toàn bộ bằng chứng hỗ trợ sinh con vẫn hợp lệ."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên nữ sinh con cần giấy tờ gì?",
+          "expectation": "Không vô hiệu tác vụ sinh con chỉ vì nguồn của tác vụ khác thay đổi."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.007",
+      "title": "Xung đột nguồn",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Có tài liệu công tác phí cùng chủ đề nhưng chưa xác định quan hệ hiệu lực."
+      ],
+      "turns": [
+        {
+          "text": "Hai tài liệu công tác phí khác nhau thì tôi theo bản nào?",
+          "expectation": "Nêu vấn đề chưa xác định; không tự chọn theo tên file hoặc đoán văn bản mới hơn."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.008",
+      "title": "Không tìm thấy",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Không có bằng chứng hợp lệ cho yêu cầu cụ thể."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có hỗ trợ nuôi thú cưng không?",
+          "expectation": "Nêu chưa có bằng chứng; không suy ra công ty chắc chắn không có chính sách."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.009",
+      "title": "Tìm tài liệu rõ ràng",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Có tài liệu nghỉ phép hợp lệ trong phạm vi truy cập; retrieval sẵn sàng."
+      ],
+      "turns": [
+        {
+          "text": "Tìm tài liệu hướng dẫn E-Leave về nghỉ theo buổi.",
+          "expectation": "Có thể trả trích đoạn có nguồn, ghi rõ một phần và chưa đánh giá độ đầy đủ; không coi top-K là câu trả lời đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.010",
+      "title": "Không yêu cầu trích đoạn",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Không nhận diện được task cho yêu cầu; retrieval có ứng viên gần nghĩa."
+      ],
+      "turns": [
+        {
+          "text": "Có chính sách trợ cấp mua kính thiên văn không?",
+          "expectation": "Không trả trích đoạn gần nghĩa thay câu trả lời; giữ thiếu bằng chứng/làm rõ."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.evidence-availability.011",
+      "title": "Catalog không sẵn sàng",
+      "tags": [
+        "evidence-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Catalog trả lời không khởi tạo được."
+      ],
+      "turns": [
+        {
+          "text": "Điều kiện hỗ trợ nhân viên kết hôn là gì?",
+          "expectation": "Nêu không sẵn sàng hoặc giới hạn nguồn; không tạo chính sách để thay thế."
+        }
+      ]
+    }
+  ]
+}

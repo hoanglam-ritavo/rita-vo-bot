@@ -88,7 +88,7 @@ class AnswerService:
     def render_documents(self, text, result, started, elapsed):
         if not self.available:
             raise ApiError('answer_unavailable')
-        row = render(text, result, self.catalog, self.lexicon)
+        row = render(text, result, self.catalog, self.lexicon, getattr(self.owner.retrieval, 'policy', None))
         return format_answer({**row, 'retrieval_seconds': elapsed}, started)
 
     async def answer(self, text, top_k):

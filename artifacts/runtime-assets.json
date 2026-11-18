@@ -113,27 +113,39 @@
     },
     {
       "path": "artifacts/semantics/lexicon.json",
-      "size_bytes": 75555,
-      "sha256": "b28480541a5ff46ce9f14fd701fa5d0ce611e55d04e4b5568dbb6bd138da2925",
+      "size_bytes": 80533,
+      "sha256": "1495be25994cecc5055a77d3fcf95a4fc0ba4c250c8bb4c5c88d9f0be52f5612",
       "group": "semantics"
     },
     {
       "path": "artifacts/semantics/manifest.json",
-      "size_bytes": 2457,
-      "sha256": "3e8643d0a9db800a43c91857b63528fced67b8986404dc16110258b1893d57ef",
+      "size_bytes": 2523,
+      "sha256": "ecbfcd2fdb913e5617b704809f485f6ac7e465a396669fd929f811c09e9d56aa",
       "group": "semantics"
     },
     {
       "path": "artifacts/answers/catalog.json",
-      "size_bytes": 340462,
-      "sha256": "7a31a4a921fdf79172df9fedfb656511fb568f77f73034cc957fc64fd51e583c",
+      "size_bytes": 409141,
+      "sha256": "7406b76977c7220c61a963e0ecc40b55cfd3093142bffdc12423ad93fe44c6e6",
       "group": "answers"
     },
     {
       "path": "artifacts/answers/manifest.json",
-      "size_bytes": 545,
-      "sha256": "8ded06090fbecc7794a0c52601e851a05100af5c4301d69e3f4bf4bae8387491",
+      "size_bytes": 590,
+      "sha256": "44dd702dd9997367c8bdd6e15cd23f2778cc3709b162d39a728dba73c7312582",
       "group": "answers"
+    },
+    {
+      "path": "artifacts/retrieval/catalog.json",
+      "group": "retrieval",
+      "size_bytes": 57474,
+      "sha256": "608425183b652bb8ce1a68c65638c41eb0b61be70eb997772fae6d6a89ece69d"
+    },
+    {
+      "path": "artifacts/retrieval/manifest.json",
+      "group": "retrieval",
+      "size_bytes": 821,
+      "sha256": "c019c29d5d67c420f0cee6bb92c487a379cc1e072f222280f8d7c5e6d091c2f5"
     }
   ]
 }

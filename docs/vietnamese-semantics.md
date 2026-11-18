@@ -6,7 +6,7 @@ supports deterministic task selection; it never grants document/personnel access
 There is no learned intent assistance or corpus-bound relevance profile.
 
 The current source inventory contains 29 packages / 530 chunks. The lexicon has
-252 concepts: 232 inherited concepts plus 20 source-checked procedure concepts
+267 concepts: 232 inherited concepts, 20 source-checked procedure concepts and 15 bounded recognition-only query concepts
 for Bravo, Workit and Office 365. Prior reviewed language content is retained.
 The new concepts were checked against the complete source chunks by the
 implementation agent; no human approval or live quality acceptance is inferred.
@@ -34,3 +34,11 @@ aggregation or personal entitlement decisions are introduced.
 Follow [catalog source updates](catalog-answering.md#updating-chunks) and test
 paraphrases, abbreviations, negation, different subjects, ambiguous overlaps,
 out-of-scope questions and content/revision drift. Keep private cases under `.tmp`.
+
+## Recognition-only concepts
+
+The optional boolean `recognition_only` defaults false in schema 2. Leave-query
+family/type/platform/operation terms marked true are used by the separate retrieval
+policy, not phrase-expansion rules or their alias-conflict accounting. Day/session
+normalization retains the original text and does not calculate calendar/workday dates.
+See [leave recognition](leave-retrieval.md).

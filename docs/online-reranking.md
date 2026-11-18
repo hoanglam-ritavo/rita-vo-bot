@@ -37,8 +37,8 @@ use 512-token windows with 64-token overlap and the maximum raw logit.
 No content or conditions are silently truncated to fit the reranker.
 Questions leaving at most 64 passage tokens are rejected with 422.
 
-Return at most top-K (1–20) candidates, ordered by reranker score, original-query
-cosine distance and chunk ID. Without reranking, use vector order. Nonempty
+Return at most top-K (1–20). Before top-K, the optional [leave policy](leave-retrieval.md) can stably reorder source-matched buckets without changing scores. Baseline ordering uses reranker score, original-query
+cosine distance and chunk ID. Without reranking, use vector order within the existing top-K pool. Callers preserve server order; raw logits are not the final sort key when metadata applies. Nonempty
 results are unassessed, with `relevance_not_assessed` and
 `evidence_completeness_not_assessed`. Logits are not confidence probabilities.
 Empty outcomes retain `no_candidates` / `no_eligible_documents`; there is no

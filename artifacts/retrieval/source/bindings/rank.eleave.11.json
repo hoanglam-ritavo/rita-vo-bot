@@ -1,0 +1,25 @@
+{
+  "id": "rank.eleave.11",
+  "family": "leave",
+  "role": "special_case",
+  "operation": "support",
+  "system": "eleave",
+  "subtype": null,
+  "duration_ranges": [],
+  "ref": {
+    "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+    "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+    "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+    "chunk_index": 11,
+    "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+    "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+    "metadata": {
+      "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+      "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+      "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+    }
+  }
+}

@@ -1,0 +1,969 @@
+{
+  "schema_version": 1,
+  "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
+  "lexicon_sha256": "1495be25994cecc5055a77d3fcf95a4fc0ba4c250c8bb4c5c88d9f0be52f5612",
+  "families": [
+    {
+      "id": "leave",
+      "concept_ids": [
+        "query.leave",
+        "query.system.eleave"
+      ]
+    },
+    {
+      "id": "resignation",
+      "concept_ids": [
+        "query.resignation"
+      ]
+    },
+    {
+      "id": "attendance",
+      "concept_ids": [
+        "query.attendance"
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "workit",
+      "concept_ids": [
+        "query.system.workit"
+      ]
+    },
+    {
+      "id": "eleave",
+      "concept_ids": [
+        "query.system.eleave"
+      ]
+    }
+  ],
+  "subtypes": [
+    {
+      "id": "annual",
+      "concept_ids": [
+        "query.leave.annual"
+      ]
+    },
+    {
+      "id": "unpaid",
+      "concept_ids": [
+        "query.leave.unpaid"
+      ]
+    },
+    {
+      "id": "maternity",
+      "concept_ids": [
+        "query.leave.maternity"
+      ]
+    },
+    {
+      "id": "sick",
+      "concept_ids": [
+        "query.leave.sick"
+      ]
+    },
+    {
+      "id": "personal",
+      "concept_ids": [
+        "query.leave.personal"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "request",
+      "concept_ids": [
+        "query.operation.request"
+      ]
+    },
+    {
+      "id": "policy",
+      "concept_ids": [
+        "query.operation.policy"
+      ]
+    },
+    {
+      "id": "approval",
+      "concept_ids": [
+        "query.operation.approval"
+      ]
+    },
+    {
+      "id": "cancel",
+      "concept_ids": [
+        "query.operation.cancel"
+      ]
+    },
+    {
+      "id": "support",
+      "concept_ids": [
+        "query.operation.support"
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "id": "rank.eleave.0",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 0,
+        "content_sha256": "3bb1b7b7ec157981bed12fde19e21c2fec09d929aed0b0464eb2b4689e268db4",
+        "quote": "E-Leave (Office 365), phiên bản 1.0, cập nhật 08.09.2023 — nhân viên xin nghỉ phép online qua https://forms.office.com/r/chBGKrWhb2 hoặc quét QR bằng điện thoại. Điền công ty, khu vực Miền Bắc/Miền Nam, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, từ/đến ngày (dd/MM/yyyy), buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ phép. Chức vụ và ủy quyền gửi đơn không bắt buộc; có thể thêm Email CC. Người gửi nhận email đã gửi đơn, rồi email kết quả khi cấp trên duyệt/từ chối.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.1",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 1,
+        "content_sha256": "945d19747ec5b3e4e6711778307d879c42b2cc773904cd5e9dca1d44b52b2a85",
+        "quote": "E-Leave — các trường bắt buộc của đơn nghỉ phép: Công ty; Khu vực (Miền Bắc/Miền Nam); Mã nhân viên do HCNS cung cấp; Họ tên người nghỉ; Email nhận kết quả; Số điện thoại; Từ ngày và Đến ngày theo dd/MM/yyyy; Nghỉ theo buổi (Cả ngày/Buổi sáng/Buổi chiều); Lý do; Email quản lý có quyền duyệt/từ chối; Loại nghỉ phép. Chức vụ không bắt buộc. Nguồn nói có 3 loại nghỉ phép nhưng không liệt kê đầy đủ tên của cả 3 loại.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.2",
+      "family": "leave",
+      "role": "special_case",
+      "operation": "request",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 2,
+        "content_sha256": "61c6e305c168766ae1745279b00c5158dd8d2ffbff5940f3495e89f2ef81a7bc",
+        "quote": "E-Leave — làm đơn thay người không có email: chọn tùy chọn Ủy quyền gửi đơn nghỉ phép (không bắt buộc). Người đại diện phải nhập đúng Mã nhân viên và Tên nhân viên của người cần nghỉ để HCNS nhận đúng thông tin. Email CC nhập những người cần được thông báo, phân cách nhiều email bằng dấu chấm phẩy (;). Có thể dùng email cá nhân để làm đơn nhưng phải nhập đúng email người có thẩm quyền duyệt.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.3",
+      "family": "leave",
+      "role": "session_case",
+      "operation": "request",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 3,
+        "content_sha256": "5ab8837d4a0be7cbcabe5198d478c9cbb12bab77bf4ff4e089e4dace901c0a85",
+        "quote": "E-Leave — nghỉ theo buổi: nếu muốn nghỉ chiều thứ 6 và sáng thứ 7, hướng dẫn yêu cầu làm 2 đơn. Nếu là nhân viên hành chính muốn nghỉ sáng thứ 2 và sáng thứ 3, có thể làm 1 đơn và chọn Buổi sáng. Trường buổi nghỉ có lựa chọn Cả ngày, Buổi sáng hoặc Buổi chiều.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.4",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "approval",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 4,
+        "content_sha256": "5980938a43dabbb54fbc1f5adb5cfc44816db91a638de90c8f593697dd9fe490",
+        "quote": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.5",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "approval",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 5,
+        "content_sha256": "d611911227d53a2f07ff4c68606915ea11115259a156ececa39f9b65f1596ffa",
+        "quote": "E-Leave — người quản lý duyệt từ Outlook trên máy tính, điện thoại hoặc tablet: hệ thống gửi email khi thông tin đơn được nhập chính xác, hoàn tất. Mở thông báo, chọn Duyệt hoặc Từ chối; ghi lý do từ chối trong Comments. Lần đầu làm theo luồng xác thực email Rita Võ trên Power Automate.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.6",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "approval",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 6,
+        "content_sha256": "b289834c166c65a64c097edd300f21ffaf1df8822f7ad0f9a3200e1308193078",
+        "quote": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.7",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "approval",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 7,
+        "content_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc",
+        "quote": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.8",
+      "family": "leave",
+      "role": "special_case",
+      "operation": "cancel",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 8,
+        "content_sha256": "7cf1af230a7b0126d743a2194e9601868b0920a62507505067dd7a573e741bed",
+        "quote": "E-Leave — muốn thay đổi/hủy kế hoạch nghỉ: hướng dẫn giai đoạn 1 chỉ cho nhân viên vào MS Form tạo đơn, không cho tự hủy. Nếu đơn chưa duyệt, liên hệ cấp trên yêu cầu hủy đơn online. Nguồn này không hướng dẫn cách hủy đơn đã duyệt.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.9",
+      "family": "leave",
+      "role": "special_case",
+      "operation": "support",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 9,
+        "content_sha256": "a0bda4331a23660d89796e0c3dd7dcf074fd3f8f5e904cfa254130ea07f7824b",
+        "quote": "E-Leave — không nhận được email đơn nghỉ phép: có thể do gửi mail/mạng chậm, đợi 10–20 phút. Nếu sau 9h sáng hôm sau vẫn không có email phản hồi, liên hệ KSNB IT System qua ksnb_it.system@ritavo.com theo tài liệu. Khi không quét được QR, kiểm tra chức năng camera, dùng ứng dụng quét QR/Zalo hoặc dùng đường link https://forms.office.com/r/chBGKrWhb2.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.10",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "approval",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 10,
+        "content_sha256": "202a8ac258b68a699afc871a220fbdec8ec10e9f48463f3f17513bd32c85dece",
+        "quote": "E-Leave — xử lý email nhắc duyệt: người duyệt sử dụng Outlook hoặc ứng dụng Power Automate để duyệt hoặc từ chối đơn nghỉ phép. Đoạn này không xác lập thời điểm hoặc tần suất gửi email nhắc.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.11",
+      "family": "leave",
+      "role": "special_case",
+      "operation": "support",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 11,
+        "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+        "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eleave.12",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "eleave",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "chunk_index": 12,
+        "content_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b",
+        "quote": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+        "metadata": {
+          "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+          "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.workit.request",
+      "family": "leave",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 3,
+        "content_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3",
+        "quote": "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.workit.types",
+      "family": "leave",
+      "role": "special_case",
+      "operation": "request",
+      "system": "workit",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 4,
+        "content_sha256": "1e4c621126dc49f7c0fadad82c77071efa179adc9aeb2ce2d1064653463cae1c",
+        "quote": "Workit — loại nghỉ trên phiếu Nghỉ phép: P Nghỉ phép (Annual); CD Nghỉ chế độ (làm cha, cưới hỏi, tang chế); K Nghỉ không hưởng lương; KL Nghỉ không xin phép; O1 Nghỉ ốm dài ngày không lương; S1 Nghỉ thai sản. Khi đăng ký nghỉ thai sản, chọn S1 và khai lý do, từ ngày/đến ngày, hình thức Sáng/Chiều/Nguyên ngày rồi lưu. Danh mục phần mềm không tự xác lập điều kiện hưởng chế độ. Màn hình hiển thị tổng số phép còn lại, số phép được sử dụng; số trong ảnh chỉ là minh họa.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.workit.attendance",
+      "family": "attendance",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 5,
+        "content_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712",
+        "quote": "Workit — đăng ký đi trễ/về sớm: Quy trình số > Đi trễ/Về sớm > Thêm/F2. Chọn loại Lý do cá nhân hoặc Lý do công việc, nhập lý do, thêm dòng, chọn ngày. Đến trễ nhập ô Giờ đến trễ; về sớm nhập ô Giờ về sớm; nhập diễn giải và Lưu/F8. Có đính kèm. Hệ thống lấy quản lý trực tiếp của người lập phiếu: Đăng ký > Duyệt Đi trễ/Về sớm > Thông báo nhân sự; theo dõi trạng thái ở các tab.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.8",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "annual",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 8,
+        "content_sha256": "688908e0e141cc37e932cb56a4524e4d55145d850b369c7b338c88ec3a04f10c",
+        "quote": "Nội quy lao động — Điều 9.1,3,4: làm đủ 12 tháng được 12 ngày làm việc phép năm hưởng nguyên lương; chưa đủ thì tính tỷ lệ thời gian làm việc. Mỗi 5 năm liên tục thêm 1 ngày phép. Nguồn không cho nghỉ phép năm trong thời gian học nghề, thử việc hoặc tham gia khóa huấn luyện; cần phân biệt quyền sử dụng với thời gian được tính tích lũy phép.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.9",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "annual",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 9,
+        "content_sha256": "8e09d2b1362976a674b25020576e6d6825fd89c195bb4cd94523b9dea85261d5",
+        "quote": "Nội quy lao động — Điều 9.2: thời gian tính phép gồm học nghề/tập nghề/thử việc nếu tiếp tục làm; nghỉ riêng có lương; nghỉ không lương được đồng ý tối đa 1 tháng cộng dồn/năm; tai nạn lao động/bệnh nghề nghiệp tối đa 6 tháng; ốm đau tối đa 2 tháng/năm; nghỉ thai sản BHXH; nhiệm vụ đại diện lao động theo luật; ngừng/nghỉ không do lỗi; đình chỉ sau được kết luận không vi phạm hoặc không bị kỷ luật. Nghỉ thai sản thuộc thời gian được tính phép theo nguồn.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.10",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "annual",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 10,
+        "content_sha256": "ba569e2e1e2a735fd82936ffa9c0af84d67d186714d282414d81108443ecd08e",
+        "quote": "Nội quy lao động — Điều 9.5–9: lập kế hoạch phép và gửi đơn quản lý; công ty tham khảo ý kiến, thông báo lịch, có thể sắp xếp lại khi cao điểm và cấn phép cho nghỉ nối lễ/Tết. Chuyển tối đa 7 ngày phép cũ sang quý I; sau 31/3 xóa phần cũ còn lại, không trả/đền bù. Đoạn này không quy định thanh toán phép khi chấm dứt hợp đồng.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.11",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "personal",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 11,
+        "content_sha256": "3f5bac6e06d8a10eb46fb3b890dbbe626ac337919904eded803b6d23525633f1",
+        "quote": "Nội quy lao động — Điều 10.1: nghỉ riêng nguyên lương và phải thông báo công ty/quản lý trực tiếp. Bản thân kết hôn: 3 ngày; con ruột/con nuôi kết hôn: 1 ngày; bố mẹ ruột/nuôi của mình hoặc vợ/chồng, vợ/chồng, con ruột/nuôi qua đời: 3 ngày. Nam có vợ sinh: 1 ngày theo khoản 1, khác chế độ BHXH khoản 2. Nữ hành kinh: 30 phút/ngày, không quá 3 ngày/tháng; nuôi con dưới 12 tháng: 60 phút/ngày trong giờ làm.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.12",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "maternity",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 12,
+        "content_sha256": "582417a898797b51ca057e91a3c761a8f1da1044205fb46f7f1fdb20717ae9db",
+        "quote": "Nội quy lao động — Điều 10.2.a, chế độ BHXH khi sinh con: nguồn yêu cầu đóng đủ 6 tháng trong 12 tháng trước sinh; nếu đã đóng đủ 12 tháng và phải nghỉ dưỡng thai theo chỉ định cơ sở có thẩm quyền thì đủ 3 tháng trong 12 tháng trước sinh. Nghỉ trước/sau sinh tổng 6 tháng, trước sinh tối đa 2 tháng; sinh đôi trở lên mỗi con từ con thứ hai thêm 1 tháng. BHXH chi trả theo quy định. Đây là nội dung tài liệu, tách biệt khoản hỗ trợ sinh con của công ty.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.13",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "sick",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 13,
+        "content_sha256": "b34905823a9a2c2f1a0857bf83f589fe7233242cef1279173f4aebccb6c9457a",
+        "quote": "Nội quy lao động — Điều 10.2.b,c,f: nghỉ bệnh có chứng nhận nghỉ hưởng BHXH từ nơi điều trị được BHXH chấp thuận thì hưởng trợ cấp theo số ngày quy định, không trừ phép năm. Nghỉ chăm con ốm cần giấy chứng nhận được BHXH công nhận để nhận trợ cấp. Các trường hợp cụ thể khác dẫn chiếu quy định liên quan; tài liệu không xác định mức tiền cho từng hồ sơ.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.14",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "maternity",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 14,
+        "content_sha256": "3c1683651e1478a0d66de50ded4fb48db9168106759975e7b720800210981759",
+        "quote": "Nội quy lao động — Điều 10.2.d,e: nam đang tham gia BHXH khi vợ sinh thường nghỉ 5 ngày; phẫu thuật hoặc con dưới 32 tuần: 7; sinh đôi: 10, từ sinh ba thêm 3 ngày mỗi con; sinh đôi trở lên phải phẫu thuật: 14. Theo nguồn, nghỉ trong 30 ngày đầu từ ngày vợ sinh. Đây là chế độ BHXH, không tự cộng với 1 ngày công ty ở khoản 1 nếu chưa làm rõ cách áp dụng.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.15",
+      "family": "leave",
+      "role": "policy",
+      "operation": "policy",
+      "system": null,
+      "subtype": "unpaid",
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 15,
+        "content_sha256": "9828effefc077fcf22a141b55958fb673f0acec2928f6ac273a6579d306055bc",
+        "quote": "Nội quy lao động — Điều 11: nghỉ không lương cần quản lý chấp thuận. Nguồn nêu 1 ngày khi cha/mẹ kết hôn, anh/chị/em ruột kết hôn hoặc ông/bà nội ngoại, anh/chị/em ruột mất; trường hợp hết/chưa có phép hoặc bệnh/tai nạn vượt quy định/thiếu chứng từ; hoặc theo thỏa thuận. Sau thai sản có thể xin thêm tối đa 2 tháng nếu công ty đồng ý, không lương/trợ cấp. Tự nghỉ chưa được chấp thuận có thể bị kỷ luật và không trả lương.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.16",
+      "family": "leave",
+      "role": "general_procedure",
+      "operation": "request",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [
+        {
+          "minimum": 1,
+          "maximum": 3
+        },
+        {
+          "minimum": 4,
+          "maximum": 7
+        },
+        {
+          "minimum": 8,
+          "maximum": null
+        }
+      ],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 16,
+        "content_sha256": "84dcd3fa5b6c26b3e4fe308e3bba60fd0c343ac7c765b2318354e9ab68ab3a2a",
+        "quote": "Nội quy lao động — Điều 12, thủ tục xin nghỉ phép: xin nghỉ bằng đơn gửi công ty/quản lý, có thể qua phần mềm/web. Nghỉ 1–3 ngày: gửi trước 3 ngày làm việc; 4–7 ngày: trước 6 ngày làm việc; hơn 7 ngày: trước 12 ngày làm việc. Đột xuất do bệnh/sự cố: gọi quản lý và Nhân sự trước giờ làm, muộn nhất 1 giờ sau bắt đầu, rồi nộp đơn khi trở lại. Nghỉ bệnh có thể nhờ người thân báo, bổ sung chứng nhận hợp lệ. Tự nghỉ khi chưa xong thủ tục/chưa được đồng ý có thể bị kỷ luật, không trả lương. Quản lý trực tiếp ký duyệt nhân viên; TGĐ duyệt Trưởng phòng, Phó/Giám đốc, Phó TGĐ; Chủ tịch HĐTV duyệt TGĐ. Quản lý từ Phó phòng trở lên đã được duyệt còn báo email/SMS Ban TGĐ và Chủ tịch trước nghỉ. Nhân sự lưu hồ sơ.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.17",
+      "family": "leave",
+      "role": "policy",
+      "operation": "approval",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 17,
+        "content_sha256": "cbe7650039252a24e74a2fc8b4c3ea02946c46ff5be04088ded0a40e692cd4e0",
+        "quote": "Nội quy lao động — Điều 12.6: quản lý trực tiếp duyệt phép nhân viên trực thuộc; TGĐ duyệt cấp Trưởng phòng, Phó/Giám đốc và Phó TGĐ; Chủ tịch HĐTV duyệt TGĐ. Quản lý từ Phó phòng trở lên đã được duyệt còn phải báo email/SMS Ban TGĐ và Chủ tịch HĐTV trước nghỉ. Nhân sự lưu hồ sơ. Đây là vai trò phê duyệt, không xác định tên quản lý hiện tại của một nhân viên.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.policy.resignation",
+      "family": "resignation",
+      "role": "general_procedure",
+      "operation": "request",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "chunk_index": 18,
+        "content_sha256": "84801b75902cc36c1e3c21783b68b91581b1f77f1f61ed315ebdb56f9a81e10b",
+        "quote": "Nội quy lao động — Điều 39.1 và 40.1, thủ tục xin nghỉ việc: muốn nghỉ việc/chấm dứt hợp đồng theo phía người lao động, làm đơn gửi Trưởng bộ phận trước ngày dự định ít nhất 45 ngày với hợp đồng không xác định thời hạn; 30 ngày với hợp đồng 12–36 tháng; 3 ngày làm việc với thời vụ hoặc hợp đồng dưới 12 tháng. Khoản 2 có ngoại lệ không cần báo trước; đây không phải quy trình sa thải do vi phạm. Khi nghỉ, bàn giao công việc, thiết bị, tài liệu, hàng hóa, chứng từ, chìa khóa, đồng phục, bảng tên cho quản lý trực tiếp hoặc Nhân sự. Xác nhận/biên bản hoàn tất bàn giao làm căn cứ quyết định chấm dứt và giải quyết quyền lợi; thiếu bàn giao thì lập kiểm kê, báo TGĐ. Không dùng tài liệu gây hại công ty; chi phí đào tạo theo cam kết/hợp đồng. Nghỉ trái pháp luật/vi phạm báo trước có nghĩa vụ bồi thường và không trợ cấp thôi việc theo nguồn.",
+        "metadata": {
+          "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+          "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.workit.resignation",
+      "family": "resignation",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 0,
+        "content_sha256": "f84cc24babc29b3d1b63a76ce462b32a4c0669ce27c9c635b23a40a8e1a818f6",
+        "quote": "Workit — thủ tục xin thôi việc: Người nghỉ việc lập Phiếu xét nghỉ việc tại office.ritavo.com > Quy trình số, lưu rồi bấm Duyệt và chọn quản lý để trình ký. Khi phiếu đã ký duyệt xong, tải file đã ký; vào Quy trình tác nghiệp (Ticket), tạo [HCNS] Hoàn tất BBBG – MN hoặc MB đúng khu vực. Đính kèm file Phiếu xét nghỉ việc đã ký và biên bản bàn giao mẫu công ty dạng PDF; Lưu & đóng. Sau khi HCNS xác nhận, chuyển người nhận bàn giao ký xác nhận, thực hiện ký số nếu quy trình yêu cầu và đợi kết quả. Đây là quy trình hồ sơ trong hướng dẫn, không quy định thời hạn báo trước.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.eworkdate",
+      "family": "attendance",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+        "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+        "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+        "chunk_index": 0,
+        "content_sha256": "79dbf942c225e11af1cd6741dcfaeef6dc5040c46b66c2f1ca916d8f9aeeab4d",
+        "quote": "E-Workdate 1.0, cập nhật 18.11.2023 — đơn xác nhận đi trễ/về sớm online trên Office 365 của Rita Võ. Người dùng gửi MS Form/QR, hệ thống lưu SharePoint và gửi email cho cấp trên duyệt, cập nhật trạng thái; HR xuất Excel. Đây là thủ tục xác nhận đi trễ/về sớm, không phải đơn nghỉ phép năm.",
+        "metadata": {
+          "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 18.11.2023",
+          "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.attendance.9",
+      "family": "attendance",
+      "role": "special_case",
+      "operation": "policy",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+        "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+        "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+        "chunk_index": 9,
+        "content_sha256": "36462fd3694be63ccd6bd66816a4285da2689ebebbbd447ecd70f63ff777007d",
+        "quote": "Quy định chấm công — 02/2023/TB-HCNS\nV.5. Đối với trường hợp CBNV đi trễ/về sớm trên 120 phút và thuộc trường hợp không vi phạm, bắt buộc chuyển sang xin nghỉ phép năm (còn phép tính phép, hết phép trừ lương - theo mẫu xác nhận ngày công).\nV. QUY ĐỊNH PHẠT\nCăn cứ vào dữ liệu chấm công từ máy chấm công, Phòng HCNS chấm công tính lương và quy định các hình thức vi phạm và phạt như sau:\n1. Các trường hợp được xem là KHÔNG VI PHẠM:\n- Đi trễ/về sớm vì lý do xử lý công việc (liên quan đến công việc Tập đoàn) và được sự chấp thuận của quản lý\n- CBNV quên chấm công vân tay hoặc đi trễ/về sớm vì lý do cá nhân có xin phép và được sự chấp thuận của quản lý trong phạm vi 03 lần/tháng.",
+        "metadata": {
+          "title": "Thông báo quy định chấm công",
+          "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+          "effective_from": "2023-04-01",
+          "effective_to": null,
+          "version_label": "02/2023/TB-HCNS",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.attendance.10",
+      "family": "attendance",
+      "role": "special_case",
+      "operation": "policy",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+        "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+        "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+        "chunk_index": 10,
+        "content_sha256": "84d1e0ac98ba63d051d7d0432bad0808cf7cb376a4a6f8f0157477d24dba9519",
+        "quote": "Quy định chấm công — 02/2023/TB-HCNS\nV.6. Đối với trường hợp quên chấm công vân tay hoặc đi trễ/về sớm vượt quá 03 lần/tháng, thì CBNV được chọn 01 trong 02 hình thức trừ như sau:\n- Hình thức 1: Chuyển sang xin nghỉ phép năm (mức trừ tối thiểu 0.5 ngày phép), nếu hết phép bắt buộc chuyển sang trừ theo hình thức 2.\n- Hình thức 2: Trừ theo “Bảng quy định trừ lương đi trễ về sớm”.\n- Trong trường hợp chọn hình thức 2, CBNV sẽ bị coi như 01 lần vi phạm (cứ 03 lần vi phạm cộng dồn trong năm sẽ bị lập 01 biên bản)\nBảng quy định trừ lương khi đi trễ/về sớm\nThời gian đi trễ từ phút–đến phút | Trừ công (phút) | Trừ công (ngày)\n1–15 | 60 | 0.13\n16–30 | 120 | 0.25\n31–60 | 180 | 0.38\n61–120 | 240 | 0.5",
+        "metadata": {
+          "title": "Thông báo quy định chấm công",
+          "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+          "effective_from": "2023-04-01",
+          "effective_to": null,
+          "version_label": "02/2023/TB-HCNS",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+        }
+      }
+    },
+    {
+      "id": "rank.attendance.11",
+      "family": "attendance",
+      "role": "special_case",
+      "operation": "policy",
+      "system": null,
+      "subtype": null,
+      "duration_ranges": [],
+      "ref": {
+        "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+        "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+        "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+        "chunk_index": 11,
+        "content_sha256": "bd8713c68352fa6012ff34ba4d8046f02ddbba2527dbe368d22f3499aa354eef",
+        "quote": "Quy định chấm công — 02/2023/TB-HCNS\nV.3. Đối với các trường hợp Vi phạm: cứ 03 lần vi phạm cộng dồn trong năm sẽ bị lập 01 biên bản\nHình thức xử phạt vi phạm kỷ luật về quy định chấm công như sau:\n- Biên bản vi phạm lần 1: nhắc nhở lần 1.\n- Biên bản vi phạm lần 2: nhắc nhở lần 2.\n- Biên bản vi phạm lần 3: kéo dài thời hạn nâng lương 06 tháng và không xét thưởng lương tháng 13.\n- Biên bản vi phạm lần 4: chấm dứt hợp đồng lao động.\nLưu ý: Tất cả các biểu mẫu, đơn nghỉ phép…. đều phải có xác nhận của cấp quản lý",
+        "metadata": {
+          "title": "Thông báo quy định chấm công",
+          "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+          "effective_from": "2023-04-01",
+          "effective_to": null,
+          "version_label": "02/2023/TB-HCNS",
+          "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+        }
+      }
+    }
+  ],
+  "routes": [
+    {
+      "id": "leave.workit.annual",
+      "subtype": "annual",
+      "operation": "request",
+      "system": "workit",
+      "granularity": null,
+      "task_id": "task.leave.workit.annual"
+    },
+    {
+      "id": "leave.workit.unpaid",
+      "subtype": "unpaid",
+      "operation": "request",
+      "system": "workit",
+      "granularity": null,
+      "task_id": "task.leave.workit.unpaid"
+    },
+    {
+      "id": "leave.eleave.annual",
+      "subtype": "annual",
+      "operation": "request",
+      "system": "eleave",
+      "granularity": null,
+      "task_id": "task.leave.eleave.annual"
+    },
+    {
+      "id": "leave.eleave.sessions",
+      "subtype": "annual",
+      "operation": "request",
+      "system": "eleave",
+      "granularity": "session",
+      "task_id": "task.leave.eleave.sessions"
+    },
+    {
+      "id": "leave.policy.annual",
+      "subtype": "annual",
+      "operation": "policy",
+      "system": null,
+      "granularity": null,
+      "task_id": "task.leave.policy.annual"
+    },
+    {
+      "id": "leave.policy.unpaid",
+      "subtype": "unpaid",
+      "operation": "policy",
+      "system": null,
+      "granularity": null,
+      "task_id": "task.leave.policy.unpaid"
+    }
+  ]
+}

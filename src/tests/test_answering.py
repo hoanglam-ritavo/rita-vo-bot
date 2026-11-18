@@ -1,4 +1,5 @@
 """Source-bound template and HTTP regressions with fictional evidence only."""
+from src.tests.http_fixtures import SERVICE_KEY, SERVICE_HEADERS, http_service_environment
 import asyncio
 from copy import deepcopy
 from dataclasses import replace
@@ -124,7 +125,7 @@ def test_excerpts_are_verbatim_bounded_and_keep_provenance(sample):
 
 
 def service(sample):
-    owner=ApiService(Settings(Path('unused'),'a'*40),retrieval=SimpleNamespace(
+    owner=ApiService(Settings(Path('unused'),'a'*40, service_key=SERVICE_KEY),retrieval=SimpleNamespace(
         start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result)),
         database_check=AsyncMock(),database_close=AsyncMock())
     owner.retrieval.read_evidence = owner.retrieval.retrieve
@@ -145,7 +146,7 @@ def test_http_wire_sources_no_qwen_and_default_query(sample,top_k,monkeypatch,ca
     owner=service(sample)
     owner.settings=replace(owner.settings,top_k=7)
     owner.answers.settings=owner.settings
-    with TestClient(create_app(owner.settings,service_factory=lambda _:owner)) as client:
+    with TestClient(create_app(owner.settings,service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
         body={'text':'Sinh con được bao nhiêu?'}
         if top_k: body['top_k']=top_k
         response=client.post('/api/v1/answer',json=body)
@@ -254,7 +255,7 @@ async def http_answer(app, incoming, watchers):
     await app({'type': 'http', 'asgi': {'version': '3.0'}, 'http_version': '1.1',
                'method': 'POST', 'scheme': 'http', 'path': '/api/v1/answer',
                'raw_path': b'/api/v1/answer', 'query_string': b'',
-               'headers': [(b'content-type', b'application/json')],
+               'headers': [(b'content-type', b'application/json'), (b'x-rita-service-key', SERVICE_KEY.encode())],
                'client': ('127.0.0.1', 1234), 'server': ('test', 80), 'root_path': ''},
               receive, send)
     status = next(m['status'] for m in messages if m['type'] == 'http.response.start')
@@ -300,7 +301,7 @@ def test_http_answer_drains_worker_and_watcher_before_releasing_busy(sample, mon
                 await cancelled.wait()
                 assert owner.busy and not owner._idle.is_set() and not task.done()
                 async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app),
-                                            base_url='http://test') as client:
+                                            base_url='http://test', headers=SERVICE_HEADERS) as client:
                     assert (await client.get('/health/live')).status_code == 200
                     assert (await client.get('/health/ready')).status_code == 200
                     assert (await client.post('/api/v1/retrieve', json={'text': 'Second'})).status_code == 429
@@ -396,7 +397,7 @@ def test_http_catalog_failure_isolated_from_retrieval_and_health(sample, monkeyp
                              semantic=SemanticSettings('expand', Path('fictional')))
     owner.answers.settings = owner.settings
     sample.result['matches'][0].update(cosine_distance=.1, author_id=None, role=None)
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         assert client.get('/health/live').status_code == 200
         assert client.get('/health/ready').status_code == 200
         health = client.get('/health/answer')
@@ -433,7 +434,7 @@ def test_answer_health_startup_states_and_safe_logs(sample, monkeypatch, caplog,
                              semantic=SemanticSettings() if mode == 'semantic_off' else
                              SemanticSettings('expand', Path('PRIVATE_PATH')))
     owner.answers.settings = owner.settings
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         response = client.get('/health/answer')
         assert response.status_code == (503 if expected_reason else 200)
         assert response.json() == {'status': 'unavailable' if expected_reason else 'ready',
@@ -462,7 +463,7 @@ def test_answer_health_startup_states_and_safe_logs(sample, monkeypatch, caplog,
 @pytest.mark.parametrize('failure', ['database', 'model', 'stopped', 'closed'])
 def test_answer_health_dependency_failures_do_not_expose_details(sample, failure, caplog):
     owner = service(sample)
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         if failure == 'database':
             owner.database_check.side_effect = RuntimeError('PRIVATE_CONNECTION')
         elif failure == 'model':
@@ -488,7 +489,7 @@ def test_answer_health_remains_available_while_request_owns_busy_slot(sample, mo
     owner.settings = replace(owner.settings, answer=AnswerSettings(enabled=True),
                              semantic=SemanticSettings('expand', Path('fictional')))
     owner.answers.settings = owner.settings
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         owner.busy = True
         owner._idle.clear()
         try:
@@ -508,7 +509,7 @@ def test_answer_processing_failure_has_safe_correlated_log_and_releases_slot(sam
     caplog.set_level(logging.INFO)
     owner = service(sample)
     owner.retrieval.retrieve.side_effect = RuntimeError('PRIVATE_EVIDENCE credentials question')
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable'
@@ -542,7 +543,7 @@ def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sampl
         owners.append(owner)
         return owner
 
-    with TestClient(create_app(service_factory=factory)) as client:
+    with TestClient(create_app(service_factory=factory), headers=SERVICE_HEADERS) as client:
         assert owners[0].settings.answer.enabled
         assert owners[0].settings.semantic.mode == 'expand'
         assert client.get('/health/ready').status_code == 200

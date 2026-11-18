@@ -17,6 +17,7 @@ def main(argv=None):
     command = commands.add_parser('import')
     command.add_argument('--lexicon', required=True, type=Path)
     command.add_argument('--catalog', required=True, type=Path)
+    command.add_argument('--retrieval', type=Path, help='Optional source-bound retrieval catalog for a three-artifact import.')
     command.add_argument('--output', required=True, type=Path,
                          help='New directory below repository .tmp; never current sources.')
     args = parser.parse_args(argv)
@@ -25,7 +26,7 @@ def main(argv=None):
             from src.artifact_authoring.impact import inspect, refresh
             result = inspect()[0] if args.command == 'impact' else refresh()
         else:
-            result = (import_pair(args.lexicon, args.catalog, args.output) if args.command == 'import'
+            result = (import_pair(args.lexicon, args.catalog, args.output, retrieval_path=args.retrieval) if args.command == 'import'
                       else build(check=args.command == 'check'))
         print(json.dumps(result))
         return 0

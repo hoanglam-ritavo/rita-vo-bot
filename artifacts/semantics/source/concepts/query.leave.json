@@ -1,0 +1,19 @@
+{
+  "id": "query.leave",
+  "canonical": "đăng ký nghỉ",
+  "aliases": [
+    "nghỉ",
+    "xin nghỉ",
+    "đăng ký nghỉ",
+    "làm đơn nghỉ",
+    "gửi đơn nghỉ",
+    "nghỉ việc riêng"
+  ],
+  "requires_any": [],
+  "excludes_any": [
+    "nghỉ ngơi",
+    "nghỉ hưu",
+    "nghỉ lễ"
+  ],
+  "recognition_only": true
+}

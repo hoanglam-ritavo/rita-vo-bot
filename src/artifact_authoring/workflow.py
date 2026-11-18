@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 
 from src.paths import REPOSITORY_ROOT
-from .sources import (GROUPS, SourceError, assemble, checked, decode, encode,
+from .sources import (GROUPS, SourceError, active_groups, assemble, checked, decode, encode,
                       identifier, recheck)
 
 
@@ -15,18 +15,23 @@ def validate_pair(raw, root):
     if len(raw[0]) > 8_000_000 or len(raw[1]) > 16_000_000:
         raise SourceError('answer_artifact_too_large')
     lexicon = validate_artifact(decode(raw[0]))
-    validate_catalog(decode(raw[1]), lexicon, sha_bytes(raw[0]),
-                     corpus_snapshot(Path(root) / 'chunks'), root=root)
+    answers = validate_catalog(decode(raw[1]), lexicon, sha_bytes(raw[0]),
+                               corpus_snapshot(Path(root) / 'chunks'), root=root)
+    if len(raw) == 3:
+        from src.retrieval.policy import validate_catalog as validate_policy
+        if len(raw[2]) > 8_000_000:
+            raise SourceError('retrieval_artifact_too_large')
+        validate_policy(decode(raw[2]), lexicon, sha_bytes(raw[0]), answers)
 
 
 def build(root=REPOSITORY_ROOT, *, check=False):
     root = Path(root).absolute()
     raw, observed = assemble(root)
     validate_pair(raw, root)
-    outputs = [checked(root / 'artifacts' / group / spec[0]) for group, spec in GROUPS.items()]
+    outputs = [checked(root / 'artifacts' / group / GROUPS[group][0]) for group in active_groups(root)]
     before = [path.read_bytes() if path.exists() else None for path in outputs]
     recheck(observed)
-    changed = [i for i in range(2) if before[i] != raw[i]]
+    changed = [i for i in range(len(raw)) if before[i] != raw[i]]
     if check:
         if changed:
             raise SourceError('generated_artifact_outdated')
@@ -52,7 +57,7 @@ def build(root=REPOSITORY_ROOT, *, check=False):
     return {'status': 'built', 'changed_files': len(changed)}
 
 
-def import_pair(lexicon_path, catalog_path, output, root=REPOSITORY_ROOT):
+def import_pair(lexicon_path, catalog_path, output, root=REPOSITORY_ROOT, *, retrieval_path=None):
     """Write only a new private tree, never promote candidates into current sources."""
     if '..' in Path(output).parts:
         raise SourceError('new_private_output_required')
@@ -62,6 +67,8 @@ def import_pair(lexicon_path, catalog_path, output, root=REPOSITORY_ROOT):
             or output == private or output.exists()):
         raise SourceError('new_private_output_required')
     paths = [checked(lexicon_path), checked(catalog_path)]
+    if retrieval_path is not None:
+        paths.append(checked(retrieval_path))
     raw = tuple(path.read_bytes() for path in paths)
     validate_pair(raw, root)
     payloads = {}
@@ -96,6 +103,8 @@ def import_pair(lexicon_path, catalog_path, output, root=REPOSITORY_ROOT):
     recheck(observed)
     expected = [decode(value) for value in raw]
     expected[1]['lexicon_sha256'] = decode(assembled[1])['lexicon_sha256']
+    if len(expected) == 3:
+        expected[2]['lexicon_sha256'] = decode(assembled[2])['lexicon_sha256']
     if any(decode(a) != b for a, b in zip(assembled, expected)):
         raise SourceError('import_roundtrip_mismatch')
     return {'status': 'imported', 'source_files': len(payloads)}

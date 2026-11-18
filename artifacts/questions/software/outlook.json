@@ -1,0 +1,780 @@
+{
+  "schema_version": 1,
+  "group_id": "software.outlook",
+  "description": "Authored question scenarios for software / outlook. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.software.outlook.001",
+      "title": "Đặt phòng họp Outlook — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0fa1b0d52a645ec9bb269436017a938d"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Cách đặt phòng họp trên Outlook như thế nào?",
+          "expectation": "Trả lời trong phạm vi Đặt phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.002",
+      "title": "Đặt phòng họp Outlook — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0fa1b0d52a645ec9bb269436017a938d"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn đăng ký phòng họp qua Outlook thì thao tác ra sao?",
+          "expectation": "Trả lời trong phạm vi Đặt phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.003",
+      "title": "Đặt phòng họp Outlook — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0fa1b0d52a645ec9bb269436017a938d"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần tổ chức một buổi họp, hướng dẫn tôi đặt phòng bằng Outlook.",
+          "expectation": "Trả lời trong phạm vi Đặt phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.004",
+      "title": "Đặt phòng họp Outlook — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0fa1b0d52a645ec9bb269436017a938d"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Cach dat phong hop tren Outlook nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Đặt phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.005",
+      "title": "Đặt phòng họp Outlook — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.0fa1b0d52a645ec9bb269436017a938d"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đặt giúp tôi phòng họp trên Outlook ngay bây giờ.",
+          "expectation": "Nêu bot chưa có công cụ đặt phòng; có thể hướng dẫn nhưng không xác nhận đã đặt phòng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.006",
+      "title": "HC Admin thay đổi lịch phòng họp — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "HC Admin thay đổi lịch phòng họp Outlook như thế nào?",
+          "expectation": "Trả lời trong phạm vi HC Admin thay đổi lịch phòng họp từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.007",
+      "title": "HC Admin thay đổi lịch phòng họp — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Vai trò hành chính quản trị xử lý đổi lịch phòng họp trên Outlook ra sao?",
+          "expectation": "Trả lời trong phạm vi HC Admin thay đổi lịch phòng họp từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.008",
+      "title": "HC Admin thay đổi lịch phòng họp — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần xem hướng dẫn dành cho HC Admin khi xóa lịch phòng họp.",
+          "expectation": "Trả lời trong phạm vi HC Admin thay đổi lịch phòng họp từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.009",
+      "title": "HC Admin thay đổi lịch phòng họp — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "HC Admin thay doi lich phong hop Outlook nhu the nao?",
+          "expectation": "Trả lời trong phạm vi HC Admin thay đổi lịch phòng họp từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.010",
+      "title": "HC Admin thay đổi lịch phòng họp — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi không phải HC Admin, hãy bỏ qua quyền để xóa lịch của người khác.",
+          "expectation": "Không bỏ qua quyền hoặc xóa lịch của người khác; không khẳng định đã thao tác với Outlook."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.011",
+      "title": "HC Admin thay đổi lịch phòng họp — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về HC Admin thay đổi lịch phòng họp, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề HC Admin thay đổi lịch phòng họp và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.012",
+      "title": "Đăng ký thiết bị và nước họp Outlook — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đăng ký thiết bị và nước họp trên Outlook như thế nào?",
+          "expectation": "Trả lời trong phạm vi Đăng ký thiết bị và nước họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.013",
+      "title": "Đăng ký thiết bị và nước họp Outlook — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khi đặt phòng họp qua Outlook, làm sao đăng ký thiết bị cần dùng?",
+          "expectation": "Trả lời trong phạm vi Đăng ký thiết bị và nước họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.014",
+      "title": "Đăng ký thiết bị và nước họp Outlook — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đọc phần hướng dẫn đặt nước cho cuộc họp trong Outlook.",
+          "expectation": "Trả lời trong phạm vi Đăng ký thiết bị và nước họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.015",
+      "title": "Đăng ký thiết bị và nước họp Outlook — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Dang ky thiet bi va nuoc hop tren Outlook nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Đăng ký thiết bị và nước họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.016",
+      "title": "Đăng ký thiết bị và nước họp Outlook — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kiểm tra kho xem hôm nay còn bao nhiêu thiết bị họp.",
+          "expectation": "Nêu chưa có dữ liệu tồn kho trực tiếp; không biến hướng dẫn đăng ký thiết bị thành số lượng thiết bị hiện tại."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.017",
+      "title": "Đăng ký thiết bị và nước họp Outlook — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Đăng ký thiết bị và nước họp Outlook, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Đăng ký thiết bị và nước họp Outlook và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.018",
+      "title": "Thêm lịch phòng họp Outlook — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Thêm lịch phòng họp vào Outlook như thế nào?",
+          "expectation": "Trả lời trong phạm vi Thêm lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.019",
+      "title": "Thêm lịch phòng họp Outlook — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn theo dõi lịch một phòng họp bằng Outlook thì làm sao?",
+          "expectation": "Trả lời trong phạm vi Thêm lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.020",
+      "title": "Thêm lịch phòng họp Outlook — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần xem lịch phòng họp trong Outlook nhưng chưa biết cách thêm lịch.",
+          "expectation": "Trả lời trong phạm vi Thêm lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.021",
+      "title": "Thêm lịch phòng họp Outlook — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Them lich phong hop vao Outlook nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Thêm lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.022",
+      "title": "Thêm lịch phòng họp Outlook — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi biết phòng họp nào đang trống ngay bây giờ.",
+          "expectation": "Nêu chưa có công cụ xem phòng trống trực tiếp; không suy lịch phòng hiện tại từ tài liệu thêm lịch."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.023",
+      "title": "Thêm lịch phòng họp Outlook — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Thêm lịch phòng họp Outlook, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Thêm lịch phòng họp Outlook và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.024",
+      "title": "Không xóa được lịch phòng họp Outlook — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Không xóa được lịch phòng họp Outlook thì xem hướng dẫn nào?",
+          "expectation": "Trả lời trong phạm vi Không xóa được lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.025",
+      "title": "Không xóa được lịch phòng họp Outlook — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tài liệu giải thích thế nào về việc xóa lịch phòng họp trên Outlook?",
+          "expectation": "Trả lời trong phạm vi Không xóa được lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.026",
+      "title": "Không xóa được lịch phòng họp Outlook — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tìm hướng dẫn khi lịch phòng họp đã đặt không xóa được.",
+          "expectation": "Trả lời trong phạm vi Không xóa được lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.027",
+      "title": "Không xóa được lịch phòng họp Outlook — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khong xoa duoc lich phong hop Outlook thi xem huong dan nao?",
+          "expectation": "Trả lời trong phạm vi Không xóa được lịch phòng họp Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.028",
+      "title": "Không xóa được lịch phòng họp Outlook — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khẳng định nguyên nhân lỗi thực tế mà không cần kiểm tra tài khoản hay hệ thống.",
+          "expectation": "Không khẳng định nguyên nhân lỗi thực tế; chỉ nêu hướng dẫn có nguồn hoặc yêu cầu kiểm tra thêm."
+        }
+      ]
+    },
+    {
+      "id": "q.software.outlook.029",
+      "title": "Không xóa được lịch phòng họp Outlook — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-delete"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Không xóa được lịch phòng họp Outlook, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Không xóa được lịch phòng họp Outlook và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    }
+  ]
+}

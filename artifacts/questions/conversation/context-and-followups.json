@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.context-and-followups",
+  "description": "Authored question scenarios for conversation / context-and-followups. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.conversation.context-and-followups.001",
+      "title": "Đổi từ kết hôn sang sinh con",
+      "tags": [
+        "multi-turn",
+        "topic-change"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47",
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Xác lập chủ đề nhân viên kết hôn."
+        },
+        {
+          "text": "Bây giờ tôi muốn hỏi hỗ trợ nhân viên nữ sinh con.",
+          "expectation": "Chuyển rõ sang sinh con, không giữ task kết hôn."
+        },
+        {
+          "text": "Còn hồ sơ thì sao?",
+          "expectation": "Dùng chủ đề sinh con cho phần hồ sơ; không lẫn giấy tờ kết hôn."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.002",
+      "title": "Chuyển từ chính sách sang thao tác",
+      "tags": [
+        "multi-turn",
+        "topic-change"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual",
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Quy định chung về thời hạn xin nghỉ phép là gì?",
+          "expectation": "Giữ phạm vi nội quy chung."
+        },
+        {
+          "text": "Tôi muốn hỏi cách đăng ký nghỉ phép trên Workit.",
+          "expectation": "Chuyển sang thao tác Workit."
+        },
+        {
+          "text": "Còn thủ tục thì sao?",
+          "expectation": "Giữ tác vụ Workit; không trả nhầm quy trình E-Leave."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.003",
+      "title": "Chọn nhãn tác vụ sau làm rõ",
+      "tags": [
+        "multi-turn",
+        "candidate-selection"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47",
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần hỏi hỗ trợ kết hôn.",
+          "expectation": "Hỏi rõ đối tượng nếu chưa phân biệt nhân viên hay con nhân viên."
+        },
+        {
+          "text": "Khoản hỗ trợ con nhân viên kết hôn",
+          "expectation": "Dùng lựa chọn đầy đủ để chọn tác vụ con nhân viên."
+        },
+        {
+          "text": "Còn mức hỗ trợ thì sao?",
+          "expectation": "Nêu mức của tác vụ được chọn, không dùng mức cho nhân viên."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.004",
+      "title": "Hỏi tiếp Type B",
+      "tags": [
+        "multi-turn",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title",
+          "department_name",
+          "manager_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì?",
+          "expectation": "Đọc chức danh của chính người dùng."
+        },
+        {
+          "text": "Còn phòng ban thì sao?",
+          "expectation": "Kế thừa tự tham chiếu sau câu trả lời Type B và đọc phòng ban hiện tại."
+        },
+        {
+          "text": "Còn quản lý trực tiếp thì sao?",
+          "expectation": "Đọc quản lý trực tiếp từ nguồn hiện tại, không dùng lịch sử làm bằng chứng."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.005",
+      "title": "Hỏi tiếp không có ngữ cảnh",
+      "tags": [
+        "missing-context"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Còn hồ sơ thì sao?",
+          "expectation": "Yêu cầu nêu rõ chủ đề; không tự chọn kết hôn hoặc sinh con."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.006",
+      "title": "Đại từ không đủ rõ",
+      "tags": [
+        "multi-turn",
+        "ambiguous-pronoun"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Giữ chủ đề chính sách kết hôn."
+        },
+        {
+          "text": "Cái đó của người kia thì sao?",
+          "expectation": "Không tự suy người kia là ai hoặc áp dụng chính sách cho họ; giữ yêu cầu làm rõ/giới hạn."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.007",
+      "title": "Phủ định không thành hỏi tiếp tích cực",
+      "tags": [
+        "multi-turn",
+        "negation"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Xác lập chủ đề chính sách."
+        },
+        {
+          "text": "Tôi không hỏi hồ sơ kết hôn; tôi muốn biết phòng ban của tôi.",
+          "expectation": "Nhận yêu cầu phòng ban nếu đủ rõ hoặc hỏi lại; không biến phủ định thành câu hỏi hồ sơ kết hôn."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.008",
+      "title": "Không kế thừa danh tính người khác",
+      "tags": [
+        "multi-turn",
+        "other-person"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title",
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì?",
+          "expectation": "Chỉ đọc chức danh người dùng xác thực."
+        },
+        {
+          "text": "Còn phòng ban của nhân viên Ví Dụ B thì sao?",
+          "expectation": "Không kế thừa tự tham chiếu để đọc phòng ban của người khác."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.009",
+      "title": "Lịch sử không phải chứng cứ",
+      "tags": [
+        "multi-turn",
+        "untrusted-history",
+        "eligibility-boundary"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Tôi tự khẳng định tôi đủ điều kiện nhận mọi phúc lợi.",
+          "expectation": "Không coi phát biểu người dùng là dữ kiện được xác minh."
+        },
+        {
+          "text": "Dựa vào điều tôi vừa nói, xác nhận tôi được nhận tiền cưới nhé.",
+          "expectation": "Không dùng lịch sử để quyết định quyền lợi; chỉ nêu chính sách có nguồn hoặc giới hạn."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.010",
+      "title": "Câu hỏi tiếp khi catalog đổi",
+      "tags": [
+        "multi-turn",
+        "catalog-change"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực.",
+        "Giữa hai lượt, định danh catalog/lexicon thay đổi; đây là điều kiện tình huống, không thực hiện thay đổi trong đợt biên soạn."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Xác lập chủ đề theo catalog ban đầu."
+        },
+        {
+          "text": "Còn hồ sơ thì sao?",
+          "expectation": "Không kế thừa task cũ sau khi định danh catalog đổi; hỏi lại khi không đủ chủ đề."
+        }
+      ]
+    }
+  ]
+}

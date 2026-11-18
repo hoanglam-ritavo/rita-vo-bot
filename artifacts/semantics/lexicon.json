@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "reviewed": true,
-  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred.",
+  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred. 2026-11-18: bounded leave-query recognition rules source-checked by implementation agent; recognition-only concepts never rewrite retrieval questions. No human acceptance inferred.",
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
   "concepts": [
     {
@@ -3246,6 +3246,212 @@
       "styles": [
         "procedure"
       ]
+    },
+    {
+      "id": "query.leave",
+      "canonical": "đăng ký nghỉ",
+      "aliases": [
+        "nghỉ",
+        "xin nghỉ",
+        "đăng ký nghỉ",
+        "làm đơn nghỉ",
+        "gửi đơn nghỉ",
+        "nghỉ việc riêng"
+      ],
+      "requires_any": [],
+      "excludes_any": [
+        "nghỉ ngơi",
+        "nghỉ hưu",
+        "nghỉ lễ"
+      ],
+      "recognition_only": true
+    },
+    {
+      "id": "query.resignation",
+      "canonical": "thôi việc",
+      "aliases": [
+        "thôi việc",
+        "nghỉ việc",
+        "chấm dứt hợp đồng",
+        "nghỉ hẳn",
+        "phiếu nghỉ việc",
+        "phiếu xét nghỉ việc",
+        "hồ sơ nghỉ việc",
+        "thủ tục nghỉ việc",
+        "khai báo nghỉ việc"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.attendance",
+      "canonical": "đi trễ về sớm",
+      "aliases": [
+        "đi trễ",
+        "về sớm",
+        "đến muộn",
+        "đến trễ"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.workit",
+      "canonical": "Workit",
+      "aliases": [
+        "Workit",
+        "Work it"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.system.eleave",
+      "canonical": "E-Leave",
+      "aliases": [
+        "E-Leave",
+        "ELeave",
+        "E Leave"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.leave.annual",
+      "canonical": "nghỉ phép năm",
+      "aliases": [
+        "nghỉ phép",
+        "phép năm",
+        "nghỉ thường niên"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.leave.unpaid",
+      "canonical": "nghỉ không hưởng lương",
+      "aliases": [
+        "nghỉ không lương",
+        "nghỉ phép không lương",
+        "không hưởng lương",
+        "không lương"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.leave.maternity",
+      "canonical": "nghỉ thai sản",
+      "aliases": [
+        "nghỉ thai sản",
+        "nghỉ sinh con"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.leave.sick",
+      "canonical": "nghỉ bệnh",
+      "aliases": [
+        "nghỉ bệnh",
+        "nghỉ ốm"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.leave.personal",
+      "canonical": "nghỉ việc riêng",
+      "aliases": [
+        "nghỉ việc riêng",
+        "nghỉ chế độ"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.operation.request",
+      "canonical": "đăng ký",
+      "aliases": [
+        "đăng ký",
+        "xin nghỉ",
+        "gửi đơn",
+        "làm đơn",
+        "thủ tục",
+        "làm sao",
+        "cách",
+        "các bước",
+        "làm thế nào"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.operation.policy",
+      "canonical": "quy định",
+      "aliases": [
+        "quy định",
+        "báo trước",
+        "gửi trước",
+        "thời hạn",
+        "trước mấy ngày",
+        "trước bao lâu",
+        "điều kiện"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.operation.approval",
+      "canonical": "duyệt đơn",
+      "aliases": [
+        "ai duyệt",
+        "người duyệt",
+        "thẩm quyền duyệt",
+        "duyệt đơn",
+        "phê duyệt",
+        "ký duyệt"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.operation.cancel",
+      "canonical": "hủy đơn",
+      "aliases": [
+        "hủy đơn",
+        "huỷ đơn",
+        "đổi đơn",
+        "thay đổi đơn",
+        "hủy nghỉ"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
+    },
+    {
+      "id": "query.operation.support",
+      "canonical": "lỗi gửi đơn",
+      "aliases": [
+        "lỗi gửi đơn",
+        "không nhận được email",
+        "không quét được QR"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "recognition_only": true
     }
   ]
 }

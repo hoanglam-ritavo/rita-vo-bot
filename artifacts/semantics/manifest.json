@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/semantics/lexicon.json",
-    "sha256": "b28480541a5ff46ce9f14fd701fa5d0ce611e55d04e4b5568dbb6bd138da2925",
-    "size_bytes": 75555
+    "sha256": "1495be25994cecc5055a77d3fcf95a4fc0ba4c250c8bb4c5c88d9f0be52f5612",
+    "size_bytes": 80533
   },
   "status": "schema_v2_source_checked_quality_evaluation_pending",
   "source_reviewed": true,
@@ -13,9 +13,10 @@
   "base_artifact_sha256": "1d9375d36fb20a2b23036b88752de4b1e3b0ffd3f2e19f7af8a8c3673340f236",
   "changes": {
     "runtime_schema_version": 2,
-    "concepts": 252,
+    "concepts": 267,
     "new_procedure_concepts": 20,
-    "prior_language_rules_preserved": true
+    "prior_language_rules_preserved": true,
+    "recognition_only_concepts": 15
   },
   "provenance": {
     "approved_inventory_sha256": "857f9572d5c843b8cacc3eef3dc8cb643310eaa1ab834f607f887574fc76dfbc",
@@ -46,8 +47,8 @@
     "dataset_sha256": null
   },
   "runtime_configuration_changed": true,
-  "new_content_review": "Implementation-agent source check; no human review/quality acceptance inferred.",
+  "new_content_review": "Procedure and leave-recognition additions source-checked by implementation agent. Recognition-only concepts never rewrite queries. No human acceptance inferred.",
   "source_binding_summary": {
-    "unchanged": 81
+    "unchanged": 111
   }
 }

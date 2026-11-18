@@ -3,7 +3,7 @@
   "metadata": {
     "schema_version": 2,
     "reviewed": true,
-    "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred.",
+    "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred. 2026-11-18: bounded leave-query recognition rules source-checked by implementation agent; recognition-only concepts never rewrite retrieval questions. No human acceptance inferred.",
     "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef"
   },
   "concepts": [
@@ -258,6 +258,21 @@
     "concepts/procedure.epostal-confirm.json",
     "concepts/procedure.workit-download.json",
     "concepts/procedure.workit-sharing.json",
-    "concepts/procedure.workit-incoming.json"
+    "concepts/procedure.workit-incoming.json",
+    "concepts/query.leave.json",
+    "concepts/query.resignation.json",
+    "concepts/query.attendance.json",
+    "concepts/query.system.workit.json",
+    "concepts/query.system.eleave.json",
+    "concepts/query.leave.annual.json",
+    "concepts/query.leave.unpaid.json",
+    "concepts/query.leave.maternity.json",
+    "concepts/query.leave.sick.json",
+    "concepts/query.leave.personal.json",
+    "concepts/query.operation.request.json",
+    "concepts/query.operation.policy.json",
+    "concepts/query.operation.approval.json",
+    "concepts/query.operation.cancel.json",
+    "concepts/query.operation.support.json"
   ]
 }

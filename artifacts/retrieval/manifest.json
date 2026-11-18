@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "artifact": {
+    "path": "artifacts/retrieval/catalog.json",
+    "sha256": "608425183b652bb8ce1a68c65638c41eb0b61be70eb997772fae6d6a89ece69d",
+    "size_bytes": 57474
+  },
+  "lexicon_sha256": "1495be25994cecc5055a77d3fcf95a4fc0ba4c250c8bb4c5c88d9f0be52f5612",
+  "bindings": 32,
+  "routes": 6,
+  "provenance": "Leave metadata and routes source-checked by implementation agent. No human or independent quality acceptance inferred.",
+  "runtime_release_accepted": false,
+  "source_binding_summary": {
+    "unchanged": 32
+  },
+  "regression": {
+    "cases": 7,
+    "before_expected_first": 4,
+    "after_expected_first": 7,
+    "ordering_p95_ms": 1.312099862843752,
+    "report_sha256": "81b20ebcfcdecde8b557e7ac12b7f5bf9d603fbe13e2e375d3be5cfd7c7eacc3",
+    "independent_acceptance": false
+  }
+}

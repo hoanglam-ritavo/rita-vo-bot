@@ -1,4 +1,5 @@
 """Synthetic expansion safety and public orchestration; no real models/publications."""
+from src.tests.http_fixtures import SERVICE_KEY, SERVICE_HEADERS, http_service_environment
 import json
 from copy import deepcopy
 from types import SimpleNamespace
@@ -200,9 +201,9 @@ def test_http_keeps_wire_contract_and_hides_expansion(tmp_path, monkeypatch):
     from src.api.service import ApiService
     service, model, search, score = install_runtime(monkeypatch, tmp_path)
     settings = Settings(model_path=tmp_path, model_revision='a' * 40,
-        rerank=service.rerank_settings, semantic=service._semantic.settings)
+        rerank=service.rerank_settings, semantic=service._semantic.settings, service_key=SERVICE_KEY)
     api = ApiService(settings, retrieval=service, database_check=AsyncMock(), database_close=AsyncMock())
-    with TestClient(create_app(settings, service_factory=lambda _: api)) as client:
+    with TestClient(create_app(settings, service_factory=lambda _: api), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json={'text': 'đi muộn', 'top_k': 5})
         assert response.status_code == 200
         data = response.json()

@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "group_id": "software.epostal",
+  "description": "Authored question scenarios for software / epostal. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.software.epostal.001",
+      "title": "Nhận thư E-Postal — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3fa5c092636453f688c23632fa8ce5b2"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhận thư bằng E-Postal như thế nào?",
+          "expectation": "Trả lời trong phạm vi Nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.002",
+      "title": "Nhận thư E-Postal — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3fa5c092636453f688c23632fa8ce5b2"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn ghi nhận nhận thư trên E-Postal thì thao tác ra sao?",
+          "expectation": "Trả lời trong phạm vi Nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.003",
+      "title": "Nhận thư E-Postal — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3fa5c092636453f688c23632fa8ce5b2"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi vừa nhận bưu phẩm và muốn xem hướng dẫn QR Receiving.",
+          "expectation": "Trả lời trong phạm vi Nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.004",
+      "title": "Nhận thư E-Postal — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3fa5c092636453f688c23632fa8ce5b2"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhan thu bang E-Postal nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.005",
+      "title": "Nhận thư E-Postal — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.3fa5c092636453f688c23632fa8ce5b2"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tra cứu bưu phẩm của tôi hiện đang ở đâu.",
+          "expectation": "Không bịa trạng thái bưu phẩm; hướng dẫn nhận thư không phải công cụ theo dõi vận chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.006",
+      "title": "Hành chính ghi nhận thư E-Postal — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Hành chính ghi nhận thư trên E-Postal như thế nào?",
+          "expectation": "Trả lời trong phạm vi Hành chính ghi nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.007",
+      "title": "Hành chính ghi nhận thư E-Postal — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên hành chính dùng PhoneList E-Postal theo hướng dẫn nào?",
+          "expectation": "Trả lời trong phạm vi Hành chính ghi nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.008",
+      "title": "Hành chính ghi nhận thư E-Postal — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần đọc cách ghi nhận thư đến với vai trò hành chính trên E-Postal.",
+          "expectation": "Trả lời trong phạm vi Hành chính ghi nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.009",
+      "title": "Hành chính ghi nhận thư E-Postal — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Hanh chinh ghi nhan thu tren E-Postal nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Hành chính ghi nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.010",
+      "title": "Hành chính ghi nhận thư E-Postal — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xuất danh bạ và thông tin liên hệ của toàn bộ người nhận thư.",
+          "expectation": "Không xuất danh bạ hay thông tin người nhận; hướng dẫn PhoneList không cấp quyền đọc danh sách nhân sự."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.011",
+      "title": "Hành chính ghi nhận thư E-Postal — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Hành chính ghi nhận thư E-Postal, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Hành chính ghi nhận thư E-Postal và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.012",
+      "title": "Xác nhận nhận thư E-Postal — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Xác nhận nhận thư trên E-Postal như thế nào?",
+          "expectation": "Trả lời trong phạm vi Xác nhận nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.013",
+      "title": "Xác nhận nhận thư E-Postal — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn ghi nhận đã nhận bưu phẩm bằng E-Postal thì làm sao?",
+          "expectation": "Trả lời trong phạm vi Xác nhận nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.014",
+      "title": "Xác nhận nhận thư E-Postal — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem các lựa chọn xác nhận hoặc từ chối nhận thư E-Postal.",
+          "expectation": "Trả lời trong phạm vi Xác nhận nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.015",
+      "title": "Xác nhận nhận thư E-Postal — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Xac nhan nhan thu tren E-Postal nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Xác nhận nhận thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.016",
+      "title": "Xác nhận nhận thư E-Postal — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tự xác nhận tôi đã nhận bưu phẩm dù tôi chưa nhận.",
+          "expectation": "Không xác nhận nhận bưu phẩm thay người dùng hoặc bịa đã thực hiện thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.017",
+      "title": "Xác nhận nhận thư E-Postal — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-confirm"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Xác nhận nhận thư E-Postal, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Xác nhận nhận thư E-Postal và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.018",
+      "title": "Gửi thư E-Postal — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Gửi thư bằng E-Postal như thế nào?",
+          "expectation": "Trả lời trong phạm vi Gửi thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.019",
+      "title": "Gửi thư E-Postal — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Hướng dẫn thao tác QR Sending trên E-Postal ở đâu?",
+          "expectation": "Trả lời trong phạm vi Gửi thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.020",
+      "title": "Gửi thư E-Postal — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần gửi bưu phẩm và muốn xem hướng dẫn thao tác E-Postal.",
+          "expectation": "Trả lời trong phạm vi Gửi thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.021",
+      "title": "Gửi thư E-Postal — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Gui thu bang E-Postal nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Gửi thư E-Postal từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.022",
+      "title": "Gửi thư E-Postal — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi nhận thư E-Postal, không phải gửi thư.",
+          "expectation": "Nhận yêu cầu nhận thư đã nêu rõ; không dùng các bước QR Sending của gửi thư để trả lời."
+        }
+      ]
+    },
+    {
+      "id": "q.software.epostal.023",
+      "title": "Gửi thư E-Postal — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Gửi thư E-Postal, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Gửi thư E-Postal và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    }
+  ]
+}

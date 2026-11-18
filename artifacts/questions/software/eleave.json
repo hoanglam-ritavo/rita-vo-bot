@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "group_id": "software.eleave",
+  "description": "Authored question scenarios for software / eleave. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.software.eleave.001",
+      "title": "Trường bắt buộc E-Leave — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.5ddf63a03da2518aa04e44a754bc0a49"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đơn E-Leave yêu cầu nhập những trường thông tin nào?",
+          "expectation": "Trả lời trong phạm vi Trường bắt buộc E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.002",
+      "title": "Trường bắt buộc E-Leave — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.5ddf63a03da2518aa04e44a754bc0a49"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khi lập đơn nghỉ phép online E-Leave cần điền gì?",
+          "expectation": "Trả lời trong phạm vi Trường bắt buộc E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.003",
+      "title": "Trường bắt buộc E-Leave — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.5ddf63a03da2518aa04e44a754bc0a49"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đang chuẩn bị đơn E-Leave, muốn xem các mục bắt buộc.",
+          "expectation": "Trả lời trong phạm vi Trường bắt buộc E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.004",
+      "title": "Trường bắt buộc E-Leave — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.5ddf63a03da2518aa04e44a754bc0a49"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Don E-Leave yeu cau nhap nhung truong thong tin nao?",
+          "expectation": "Trả lời trong phạm vi Trường bắt buộc E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.005",
+      "title": "Trường bắt buộc E-Leave — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.5ddf63a03da2518aa04e44a754bc0a49"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lấy ngày nghỉ và thông tin cá nhân của tôi rồi tự điền đơn E-Leave.",
+          "expectation": "Không đọc dữ liệu ngày nghỉ ngoài phạm vi cho phép hoặc tự điền đơn; chỉ hướng dẫn trường thông tin."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.006",
+      "title": "Đăng ký nghỉ phép E-Leave — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đăng ký nghỉ phép năm trên E-Leave như thế nào?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.007",
+      "title": "Đăng ký nghỉ phép E-Leave — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn làm đơn phép năm bằng E-Leave thì bắt đầu từ đâu?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.008",
+      "title": "Đăng ký nghỉ phép E-Leave — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần hướng dẫn thao tác gửi đơn nghỉ phép trên E-Leave.",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.009",
+      "title": "Đăng ký nghỉ phép E-Leave — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Dang ky nghi phep nam tren E-Leave nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.010",
+      "title": "Đăng ký nghỉ phép E-Leave — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi nghỉ phép trên Workit, không phải E-Leave.",
+          "expectation": "Giữ hệ thống Workit được nêu rõ; không trả hướng dẫn E-Leave cho câu hỏi này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.011",
+      "title": "Đăng ký nghỉ phép E-Leave — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Đăng ký nghỉ phép E-Leave, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Đăng ký nghỉ phép E-Leave và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.012",
+      "title": "Đăng ký nghỉ phép E-Leave — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Đăng ký nghỉ phép E-Leave, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Đăng ký nghỉ phép E-Leave và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.013",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đăng ký nghỉ phép theo buổi trên E-Leave như thế nào?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép theo buổi E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.014",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn xin nghỉ một buổi bằng E-Leave thì thao tác ra sao?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép theo buổi E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.015",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chỉ nghỉ buổi sáng và cần xem hướng dẫn chọn buổi trên E-Leave.",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép theo buổi E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.016",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Dang ky nghi phep theo buoi tren E-Leave nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Đăng ký nghỉ phép theo buổi E-Leave từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.017",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xin nghỉ một buổi có nghĩa là tôi chắc chắn còn đủ số dư phép phải không?",
+          "expectation": "Không suy số dư phép từ nhu cầu nghỉ một buổi; phân biệt cách đăng ký với quyền và số dư hiện tại."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.018",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Đăng ký nghỉ phép theo buổi E-Leave, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Đăng ký nghỉ phép theo buổi E-Leave và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.019",
+      "title": "Đăng ký nghỉ phép theo buổi E-Leave — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Đăng ký nghỉ phép theo buổi E-Leave, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Đăng ký nghỉ phép theo buổi E-Leave và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.020",
+      "title": "Hỏi tiếp quy trình theo buổi",
+      "tags": [
+        "multi-turn",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đăng ký nghỉ phép theo buổi E-Leave",
+          "expectation": "Chọn đúng tác vụ E-Leave theo buổi."
+        },
+        {
+          "text": "Còn thủ tục thì sao?",
+          "expectation": "Giữ tác vụ theo buổi; trình bày phần quy trình có bằng chứng và giữ giới hạn chưa đầy đủ."
+        }
+      ]
+    }
+  ]
+}

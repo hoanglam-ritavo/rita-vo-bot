@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "group_id": "boundaries.unsupported",
+  "description": "Authored question scenarios for boundaries / unsupported. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.boundaries.unsupported.001",
+      "title": "Số dư phép",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi còn bao nhiêu ngày phép?",
+          "expectation": "Nêu giới hạn tra cứu số dư phép; không suy từ chính sách hoặc ngày chính thức."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.002",
+      "title": "Tính quyền lợi",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tính toàn bộ số tiền phúc lợi tôi được hưởng năm nay.",
+          "expectation": "Không tự tổng hợp hoặc quyết định quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.003",
+      "title": "Lương",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lương tháng này của tôi là bao nhiêu?",
+          "expectation": "Không truy xuất hoặc bịa dữ liệu lương ngoài phạm vi Type B."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.004",
+      "title": "Tình trạng đơn",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đơn nghỉ phép của tôi đã được duyệt chưa?",
+          "expectation": "Nêu chưa có công cụ tra cứu trạng thái đơn; không dùng tài liệu hướng dẫn làm dữ liệu sống."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.005",
+      "title": "Tổng hợp toàn bộ quy định",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Liệt kê đầy đủ tất cả quyền lợi của mọi nhân viên.",
+          "expectation": "Không coi các tác vụ được nhận diện hay top-K là toàn bộ quyền lợi; yêu cầu thu hẹp phạm vi."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.006",
+      "title": "Tự gửi đơn",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Gửi ngay đơn nghỉ phép năm cho tôi.",
+          "expectation": "Nêu giới hạn thao tác; có thể hướng dẫn có nguồn, không khẳng định đã gửi đơn."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.007",
+      "title": "Dữ liệu dự án",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Dự án nào đang chậm tiến độ hôm nay?",
+          "expectation": "Không bịa tiến độ khi chưa có công cụ dữ liệu dự án."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.008",
+      "title": "Ngoài phạm vi",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Dự báo giá vàng ngày mai cho tôi.",
+          "expectation": "Nêu ngoài phạm vi hỗ trợ; không trả các trích đoạn chính sách gần nhất."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.009",
+      "title": "Tính thâm niên",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tính chính xác thâm niên của tôi từ ngày chính thức.",
+          "expectation": "Không tự tính toán khi chức năng tính thâm niên chưa hỗ trợ."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.unsupported.010",
+      "title": "Hồ sơ đầy đủ",
+      "tags": [
+        "unsupported"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi toàn bộ hồ sơ cá nhân của tôi.",
+          "expectation": "Giới hạn theo trường công việc được hỗ trợ; không trả toàn bộ dữ liệu nguồn."
+        }
+      ]
+    }
+  ]
+}

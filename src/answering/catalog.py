@@ -63,7 +63,7 @@ class Catalog(Strict):
     coverage: list[Coverage]
 
 
-def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOSITORY_ROOT):
+def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOSITORY_ROOT, validate_coverage=True):
     catalog = Catalog.model_validate(data)
     if catalog.lexicon_sha256 != lexicon_sha256:
         raise ValueError('answer_catalog_identity_mismatch')
@@ -89,7 +89,7 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
                     used.add(key)
     coverage = {(c.document_id, c.chunk_index): c for c in catalog.coverage}
     expected = {(c['document_id'], c['chunk_index']) for c in snapshot['chunks']} if snapshot is not None else None
-    if (len(coverage) != len(catalog.coverage) or (expected is not None and set(coverage) != expected)
+    if validate_coverage and (len(coverage) != len(catalog.coverage) or (expected is not None and set(coverage) != expected)
             or any((row.disposition == 'template') != (key in used) for key, row in coverage.items())):
         raise ValueError('incomplete_answer_inventory')
     return catalog

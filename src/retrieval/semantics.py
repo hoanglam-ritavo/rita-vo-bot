@@ -62,7 +62,8 @@ def validate_artifact(data, *, require_reviewed=True):
     required = {'id', 'canonical', 'aliases', 'requires_any', 'excludes_any'}
     for concept in data['concepts']:
         if (not isinstance(concept, dict) or not required <= set(concept)
-                or set(concept) - required - {'styles'}
+                or set(concept) - required - {'styles', 'recognition_only'}
+                or type(concept.get('recognition_only', False)) is not bool
                 or not isinstance(concept['id'], str)
                 or re.fullmatch('[A-Za-z0-9._-]{1,100}', concept['id']) is None
                 or concept['id'] in ids
@@ -97,11 +98,12 @@ def matching_concepts(data, question):
 
 def _rules(data):
     targets = {}
-    for concept in data['concepts']:
+    concepts = [c for c in data['concepts'] if not c.get('recognition_only', False)]
+    for concept in concepts:
         for alias in concept['aliases']:
             targets.setdefault(normalized(alias).casefold(), set()).add(normalized(concept['canonical']).casefold())
     rules = []
-    for concept in data['concepts']:
+    for concept in concepts:
         canonical = normalized(concept['canonical'])
         for alias in concept['aliases']:
             alias = normalized(alias)

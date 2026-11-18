@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "schema_version": 1,
+    "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef"
+  },
+  "families": [
+    "families/leave.json",
+    "families/resignation.json",
+    "families/attendance.json"
+  ],
+  "systems": [
+    "systems/workit.json",
+    "systems/eleave.json"
+  ],
+  "subtypes": [
+    "subtypes/annual.json",
+    "subtypes/unpaid.json",
+    "subtypes/maternity.json",
+    "subtypes/sick.json",
+    "subtypes/personal.json"
+  ],
+  "operations": [
+    "operations/request.json",
+    "operations/policy.json",
+    "operations/approval.json",
+    "operations/cancel.json",
+    "operations/support.json"
+  ],
+  "bindings": [
+    "bindings/rank.eleave.0.json",
+    "bindings/rank.eleave.1.json",
+    "bindings/rank.eleave.2.json",
+    "bindings/rank.eleave.3.json",
+    "bindings/rank.eleave.4.json",
+    "bindings/rank.eleave.5.json",
+    "bindings/rank.eleave.6.json",
+    "bindings/rank.eleave.7.json",
+    "bindings/rank.eleave.8.json",
+    "bindings/rank.eleave.9.json",
+    "bindings/rank.eleave.10.json",
+    "bindings/rank.eleave.11.json",
+    "bindings/rank.eleave.12.json",
+    "bindings/rank.workit.request.json",
+    "bindings/rank.workit.types.json",
+    "bindings/rank.workit.attendance.json",
+    "bindings/rank.policy.8.json",
+    "bindings/rank.policy.9.json",
+    "bindings/rank.policy.10.json",
+    "bindings/rank.policy.11.json",
+    "bindings/rank.policy.12.json",
+    "bindings/rank.policy.13.json",
+    "bindings/rank.policy.14.json",
+    "bindings/rank.policy.15.json",
+    "bindings/rank.policy.16.json",
+    "bindings/rank.policy.17.json",
+    "bindings/rank.policy.resignation.json",
+    "bindings/rank.workit.resignation.json",
+    "bindings/rank.eworkdate.json",
+    "bindings/rank.attendance.9.json",
+    "bindings/rank.attendance.10.json",
+    "bindings/rank.attendance.11.json"
+  ],
+  "routes": [
+    "routes/leave.workit.annual.json",
+    "routes/leave.workit.unpaid.json",
+    "routes/leave.eleave.annual.json",
+    "routes/leave.eleave.sessions.json",
+    "routes/leave.policy.annual.json",
+    "routes/leave.policy.unpaid.json"
+  ]
+}

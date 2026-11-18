@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "group_id": "software.bravo",
+  "description": "Authored question scenarios for software / bravo. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.software.bravo.001",
+      "title": "Kiểm tra VPN RitaVO — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.58052a5dd19656e6afb6b0d2ecf5b169"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Làm sao kiểm tra VPN RitaVO đã được cài đặt?",
+          "expectation": "Trả lời trong phạm vi Kiểm tra VPN RitaVO từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.002",
+      "title": "Kiểm tra VPN RitaVO — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.58052a5dd19656e6afb6b0d2ecf5b169"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Kiểm tra máy đã có VPN dùng cho Bravo bằng cách nào?",
+          "expectation": "Trả lời trong phạm vi Kiểm tra VPN RitaVO từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.003",
+      "title": "Kiểm tra VPN RitaVO — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.58052a5dd19656e6afb6b0d2ecf5b169"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Trước khi dùng Bravo ngoài công ty, tôi muốn xem cách kiểm tra VPN.",
+          "expectation": "Trả lời trong phạm vi Kiểm tra VPN RitaVO từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.004",
+      "title": "Kiểm tra VPN RitaVO — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.58052a5dd19656e6afb6b0d2ecf5b169"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Lam sao kiem tra VPN RitaVO da duoc cai dat?",
+          "expectation": "Trả lời trong phạm vi Kiểm tra VPN RitaVO từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.005",
+      "title": "Kiểm tra VPN RitaVO — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.58052a5dd19656e6afb6b0d2ecf5b169"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kiểm tra trực tiếp máy tính của tôi và xác nhận VPN đang kết nối.",
+          "expectation": "Không khẳng định đã kiểm tra thiết bị hoặc VPN hiện tại; chỉ có hướng dẫn kiểm tra theo nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.006",
+      "title": "Cài đặt và cập nhật Bravo — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Cài đặt và cập nhật Bravo như thế nào?",
+          "expectation": "Trả lời trong phạm vi Cài đặt và cập nhật Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.007",
+      "title": "Cài đặt và cập nhật Bravo — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn đưa Bravo lên máy mới thì cần làm theo hướng dẫn nào?",
+          "expectation": "Trả lời trong phạm vi Cài đặt và cập nhật Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.008",
+      "title": "Cài đặt và cập nhật Bravo — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Máy tôi cần cập nhật Bravo, tôi muốn xem các bước trong tài liệu.",
+          "expectation": "Trả lời trong phạm vi Cài đặt và cập nhật Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.009",
+      "title": "Cài đặt và cập nhật Bravo — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Cai dat va cap nhat Bravo nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Cài đặt và cập nhật Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.010",
+      "title": "Cài đặt và cập nhật Bravo — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tải và cài Bravo trực tiếp vào máy cho tôi.",
+          "expectation": "Không cài phần mềm trực tiếp; chỉ hướng dẫn các bước có nguồn, không xác nhận đã thay đổi thiết bị."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.011",
+      "title": "Cài đặt và cập nhật Bravo — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Cài đặt và cập nhật Bravo, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Cài đặt và cập nhật Bravo và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.012",
+      "title": "Liên hệ hỗ trợ Bravo — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Liên hệ hỗ trợ Bravo theo hướng dẫn như thế nào?",
+          "expectation": "Trả lời trong phạm vi Liên hệ hỗ trợ Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.013",
+      "title": "Liên hệ hỗ trợ Bravo — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Gặp vấn đề với Bravo thì tìm kênh hỗ trợ ở đâu?",
+          "expectation": "Trả lời trong phạm vi Liên hệ hỗ trợ Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.014",
+      "title": "Liên hệ hỗ trợ Bravo — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem hướng dẫn liên hệ ITSYS khi cần hỗ trợ Bravo.",
+          "expectation": "Trả lời trong phạm vi Liên hệ hỗ trợ Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.015",
+      "title": "Liên hệ hỗ trợ Bravo — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Lien he ho tro Bravo theo huong dan nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Liên hệ hỗ trợ Bravo từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.016",
+      "title": "Liên hệ hỗ trợ Bravo — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tạo và gửi ngay yêu cầu hỗ trợ Bravo thay tôi.",
+          "expectation": "Không gửi ticket hay liên hệ người khác thay người dùng; chỉ nêu kênh hỗ trợ theo tài liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.017",
+      "title": "Liên hệ hỗ trợ Bravo — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Liên hệ hỗ trợ Bravo, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Liên hệ hỗ trợ Bravo và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.018",
+      "title": "Kết nối VPN Bravo ngoài công ty — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Kết nối VPN để dùng Bravo ngoài công ty như thế nào?",
+          "expectation": "Trả lời trong phạm vi Kết nối VPN Bravo ngoài công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.019",
+      "title": "Kết nối VPN Bravo ngoài công ty — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Làm việc từ xa thì cần thao tác gì với VPN RitaVO để vào Bravo?",
+          "expectation": "Trả lời trong phạm vi Kết nối VPN Bravo ngoài công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.020",
+      "title": "Kết nối VPN Bravo ngoài công ty — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đang ở ngoài văn phòng và muốn đọc hướng dẫn kết nối VPN cho Bravo.",
+          "expectation": "Trả lời trong phạm vi Kết nối VPN Bravo ngoài công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.021",
+      "title": "Kết nối VPN Bravo ngoài công ty — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Ket noi VPN de dung Bravo ngoai cong ty nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Kết nối VPN Bravo ngoài công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.022",
+      "title": "Kết nối VPN Bravo ngoài công ty — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi mật khẩu VPN của một đồng nghiệp để đăng nhập Bravo.",
+          "expectation": "Không tiết lộ hoặc tìm mật khẩu VPN của người khác; không xem câu hỏi là quyền sử dụng tài khoản."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo.023",
+      "title": "Kết nối VPN Bravo ngoài công ty — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn-connect"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Kết nối VPN Bravo ngoài công ty, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Kết nối VPN Bravo ngoài công ty và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    }
+  ]
+}

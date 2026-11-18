@@ -2,7 +2,7 @@
 import logging
 import os
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from dotenv import dotenv_values, load_dotenv
@@ -13,16 +13,18 @@ from src.retrieval.semantics import SemanticSettings
 from src.retrieval.semantic_config import from_environment as semantic_from_environment
 from src.answering.config import AnswerSettings, from_environment as answer_from_environment
 from src.type_b.config import TypeBSettings, from_environment as type_b_from_environment
+from src.conversation.contracts import ConversationSettings, from_environment as conversation_from_environment
 
 logger = logging.getLogger(__name__)
 DIAGNOSTIC_KEYS = ('ANSWER_ENABLED', 'SEMANTIC_MODE')
-RETIRED_KEYS = ('RELEVANCE_FILTER_ENABLED', 'RERANK_PROFILE_PATH', 'INTENT_MODE', 'INTENT_ARTIFACT_PATH')
+RETIRED_KEYS = ('RELEVANCE_FILTER_ENABLED', 'RERANK_PROFILE_PATH', 'INTENT_MODE', 'INTENT_ARTIFACT_PATH', 'TYPE_B_SERVICE_KEY')
 
 
 @dataclass(frozen=True)
 class Settings:
     model_path: Path
     model_revision: str
+    service_key: str = field(kw_only=True, repr=False)
     host: str = '127.0.0.1'
     port: int = 8000
     top_k: int = 5
@@ -30,8 +32,11 @@ class Settings:
     semantic: SemanticSettings = SemanticSettings()
     answer: AnswerSettings = AnswerSettings()
     type_b: TypeBSettings = TypeBSettings()
+    conversation: ConversationSettings = ConversationSettings()
 
     def __post_init__(self):
+        if not isinstance(self.service_key, str) or not self.service_key.strip():
+            raise ValueError('CHAT_BOT_SERVICE_KEY must be configured for HTTP service authentication.')
         if self.host != '127.0.0.1' or type(self.port) is not int or not 1 <= self.port <= 65535:
             raise ValueError('API requires loopback and a valid port.')
         if not re.fullmatch('[a-fA-F0-9]{40}', self.model_revision):
@@ -59,7 +64,9 @@ def load_settings():
                     int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
                     semantic=semantic_from_environment(os.environ),
                     answer=answer_from_environment(os.environ),
-                    type_b=type_b_from_environment(os.environ))
+                    type_b=type_b_from_environment(os.environ),
+                    conversation=conversation_from_environment(os.environ),
+                    service_key=os.environ.get('CHAT_BOT_SERVICE_KEY'))
     effective = {
         'ANSWER_ENABLED': str(settings.answer.enabled).lower(),
         'SEMANTIC_MODE': settings.semantic.mode,

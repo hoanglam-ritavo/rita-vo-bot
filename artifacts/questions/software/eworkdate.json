@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "group_id": "software.eworkdate",
+  "description": "Authored question scenarios for software / eworkdate. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.software.eworkdate.001",
+      "title": "Gửi đơn E-Workdate — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7cb26f68c29f5df1a5bebd8b92f49276"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Gửi đơn E-Workdate như thế nào?",
+          "expectation": "Trả lời trong phạm vi Gửi đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.002",
+      "title": "Gửi đơn E-Workdate — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7cb26f68c29f5df1a5bebd8b92f49276"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn lập đơn xác nhận đi trễ về sớm qua E-Workdate thì làm sao?",
+          "expectation": "Trả lời trong phạm vi Gửi đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.003",
+      "title": "Gửi đơn E-Workdate — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7cb26f68c29f5df1a5bebd8b92f49276"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đọc hướng dẫn thông tin cần nhập trước khi gửi đơn E-Workdate.",
+          "expectation": "Trả lời trong phạm vi Gửi đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.004",
+      "title": "Gửi đơn E-Workdate — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7cb26f68c29f5df1a5bebd8b92f49276"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Gui don E-Workdate nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Gửi đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.005",
+      "title": "Gửi đơn E-Workdate — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.7cb26f68c29f5df1a5bebd8b92f49276"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kiểm tra lịch chấm công và tự gửi đơn E-Workdate cho tôi.",
+          "expectation": "Không truy xuất lịch chấm công hay gửi đơn thật; chỉ hướng dẫn E-Workdate theo nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.006",
+      "title": "Kênh duyệt E-Workdate — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "E-Workdate có những kênh duyệt đơn nào theo tài liệu?",
+          "expectation": "Trả lời trong phạm vi Kênh duyệt E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.007",
+      "title": "Kênh duyệt E-Workdate — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Có thể xử lý duyệt E-Workdate qua những kênh được hướng dẫn nào?",
+          "expectation": "Trả lời trong phạm vi Kênh duyệt E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.008",
+      "title": "Kênh duyệt E-Workdate — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem hướng dẫn Power Automate dành cho đơn E-Workdate.",
+          "expectation": "Trả lời trong phạm vi Kênh duyệt E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.009",
+      "title": "Kênh duyệt E-Workdate — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "E-Workdate co nhung kenh duyet don nao theo tai lieu?",
+          "expectation": "Trả lời trong phạm vi Kênh duyệt E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.010",
+      "title": "Kênh duyệt E-Workdate — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kênh duyệt nào của công ty đang bị lỗi ngay lúc này?",
+          "expectation": "Không bịa trạng thái sự cố hiện tại của kênh duyệt; tài liệu hướng dẫn không phải nguồn giám sát dịch vụ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.011",
+      "title": "Kênh duyệt E-Workdate — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Kênh duyệt E-Workdate, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Kênh duyệt E-Workdate và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.012",
+      "title": "Email cho đơn E-Workdate — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Hướng dẫn email dùng cho đơn E-Workdate là gì?",
+          "expectation": "Trả lời trong phạm vi Email cho đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.013",
+      "title": "Email cho đơn E-Workdate — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Email cá nhân trong E-Workdate được đề cập như thế nào?",
+          "expectation": "Trả lời trong phạm vi Email cho đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.014",
+      "title": "Email cho đơn E-Workdate — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem lưu ý về email trước khi lập đơn E-Workdate.",
+          "expectation": "Trả lời trong phạm vi Email cho đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.015",
+      "title": "Email cho đơn E-Workdate — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Huong dan email dung cho don E-Workdate la gi?",
+          "expectation": "Trả lời trong phạm vi Email cho đơn E-Workdate từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.016",
+      "title": "Email cho đơn E-Workdate — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi xem nội dung email E-Workdate riêng của đồng nghiệp.",
+          "expectation": "Không đọc email riêng của đồng nghiệp; tài liệu E-Workdate không cấp quyền truy cập hộp thư."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.017",
+      "title": "Email cho đơn E-Workdate — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Email cho đơn E-Workdate, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Email cho đơn E-Workdate và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.018",
+      "title": "Duyệt E-Workdate qua Outlook — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Duyệt đơn E-Workdate qua Outlook như thế nào?",
+          "expectation": "Trả lời trong phạm vi Duyệt E-Workdate qua Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.019",
+      "title": "Duyệt E-Workdate qua Outlook — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Làm sao xử lý yêu cầu E-Workdate trong Outlook hoặc Teams theo hướng dẫn?",
+          "expectation": "Trả lời trong phạm vi Duyệt E-Workdate qua Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.020",
+      "title": "Duyệt E-Workdate qua Outlook — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đang dùng Outlook và cần đọc các bước duyệt đơn E-Workdate.",
+          "expectation": "Trả lời trong phạm vi Duyệt E-Workdate qua Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.021",
+      "title": "Duyệt E-Workdate qua Outlook — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Duyet don E-Workdate qua Outlook nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Duyệt E-Workdate qua Outlook từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.022",
+      "title": "Duyệt E-Workdate qua Outlook — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi tạo đơn E-Workdate, không phải duyệt đơn.",
+          "expectation": "Nhận rõ yêu cầu tạo đơn; không trả quy trình duyệt đơn dành cho quản lý thay cho nhu cầu đó."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eworkdate.023",
+      "title": "Duyệt E-Workdate qua Outlook — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Duyệt E-Workdate qua Outlook, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Duyệt E-Workdate qua Outlook và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    }
+  ]
+}

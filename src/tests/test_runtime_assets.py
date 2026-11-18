@@ -148,10 +148,11 @@ def test_bad_json_and_duplicate_keys_are_content_safe(inventory):
         assert 'PRIVATE_INVALID_JSON' not in json.dumps(result)
 
 
-def test_tracked_policy_and_optional_artifact_pair(inventory):
+@pytest.mark.parametrize('group', ['answers', 'retrieval'])
+def test_tracked_policy_and_optional_artifact_pair(inventory, group):
     root, data = inventory
     # An ignored root-level cache is harmless until somebody force-adds it.
-    (root / '.gitignore').write_text('models/.cache/\n')
+    (root / '.gitignore').write_bytes((assets.ROOT / '.gitignore').read_bytes())
     cache = root / 'models/.cache/download.metadata'
     cache.parent.mkdir()
     cache.write_text('fictional cache')
@@ -159,7 +160,7 @@ def test_tracked_policy_and_optional_artifact_pair(inventory):
     git(root, 'add', '-f', 'models/.cache/download.metadata')
     assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
     git(root, 'rm', '--cached', 'models/.cache/download.metadata')
-    parent = root / 'artifacts/answers'
+    parent = root / 'artifacts' / group
     parent.mkdir(parents=True)
     for name in ('catalog.json', 'manifest.json'):
         path = parent / name
@@ -168,7 +169,7 @@ def test_tracked_policy_and_optional_artifact_pair(inventory):
         git(root, 'add', path.relative_to(root).as_posix())
         assert 'tracked_asset_not_in_manifest' in error_codes(assets.verify(root)[0])
         data['assets'].append({'path': path.relative_to(root).as_posix(), 'size_bytes': len(raw),
-                              'sha256': hashlib.sha256(raw).hexdigest(), 'group': 'answers'})
+                              'sha256': hashlib.sha256(raw).hexdigest(), 'group': group})
     write_manifest(root, data)
     assert assets.verify(root)[1] == 0  # Integrity only, not acceptance validation.
     data['assets'].pop()
@@ -197,6 +198,12 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
     paths += ['artifacts/semantics/source/index.json', 'artifacts/semantics/source/concepts/fictional.json',
               'artifacts/answers/source/index.json', 'artifacts/answers/source/cards/fictional.json',
               'artifacts/answers/source/coverage/fictional.json']
+    paths += ['artifacts/retrieval/catalog.json', 'artifacts/retrieval/manifest.json',
+              'artifacts/retrieval/source/index.json', 'artifacts/questions/README.md',
+              'artifacts/questions/index.json']
+    paths += ['artifacts/retrieval/source/' + collection + '/fictional.json'
+              for collection in ('families', 'systems', 'subtypes', 'operations', 'bindings', 'routes')]
+    paths += ['artifacts/questions/' + group + '/fictional.json' for group in assets.QUESTION_GROUPS]
     for path in paths:
         result = git(root, 'check-ignore', '--no-index', path, check=False)
         assert result.returncode == 1, (path, result.stdout, result.stderr)
@@ -213,6 +220,15 @@ def test_real_allowlist_attributes_and_lfs_checkout(inventory):
                  'artifacts/answers/source/report.json', 'artifacts/semantics/source/concepts/private.txt',
                  'artifacts/answers/v1/catalog.json', 'artifacts/semantics/v2/lexicon.json',
                  'artifacts/rerank/v1/manifest.json', 'artifacts/intent/v1/accepted-artifact.json']:
+        assert git(root, 'check-ignore', '--no-index', path, check=False).returncode == 0, path
+    for path in ['artifacts/questions/report.json', 'artifacts/questions/report.log',
+                 'artifacts/questions/policy/leave.json.bak', 'artifacts/questions/policy/private.txt',
+                 'artifacts/questions/policy/nested/leave.json', 'artifacts/questions/unknown/case.json',
+                 'artifacts/questions/v1/index.json', 'artifacts/retrieval/report.json',
+                 'artifacts/retrieval/catalog.json.bak', 'artifacts/retrieval/source/report.json',
+                 'artifacts/retrieval/source/routes/private.txt',
+                 'artifacts/retrieval/source/routes/nested/route.json',
+                 'artifacts/retrieval/source/unknown/route.json', 'artifacts/retrieval/v1/catalog.json']:
         assert git(root, 'check-ignore', '--no-index', path, check=False).returncode == 0, path
     # Stage and re-checkout tiny fictional files through real LFS and autocrlf.
     git(root, 'lfs', 'install', '--local', '--skip-smudge')
@@ -251,9 +267,11 @@ def test_committed_inventory_matches_runtime_pins_without_loading_models():
             if e['group'] == 'reranker'} == ARTIFACTS
 
 
-@pytest.mark.parametrize('group,collection', [('semantics', 'concepts'), ('answers', 'cards')])
+@pytest.mark.parametrize('group,collection', [('semantics', 'concepts'), ('answers', 'cards'),
+                                            ('retrieval', 'routes')])
 def test_exact_authoring_declarations_are_separate_from_runtime_inventory(inventory, group, collection):
     root, data = inventory
+    (root / '.gitignore').write_bytes((assets.ROOT / '.gitignore').read_bytes())
     directory = root / 'artifacts' / group / 'source'
     (directory / collection).mkdir(parents=True)
     metadata = dict(schema_version=1, package_fingerprint='fictional')
@@ -262,10 +280,12 @@ def test_exact_authoring_declarations_are_separate_from_runtime_inventory(invent
     index = dict(schema_version=1, metadata=metadata, **{collection: [collection + '/fictional.json']})
     if group == 'answers':
         index['coverage'] = []
+    if group == 'retrieval':
+        index.update({key: [] for key in ('families', 'systems', 'subtypes', 'operations', 'bindings')})
     (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
     record = directory / collection / 'fictional.json'
     record.write_bytes(b'{"id":"fictional"}')
-    git(root, 'add', '-f', str(directory.relative_to(root)))
+    git(root, 'add', str(directory.relative_to(root)))
     result, code = assets.verify(root)
     assert code == 0 and result['files'] == len(data['assets'])
     (directory / 'extra.json').write_bytes(b'{}')
@@ -288,3 +308,129 @@ def test_versioned_inventory_and_force_added_paths_rejected(inventory, group, na
         'sha256': hashlib.sha256(b'{}').hexdigest(), 'size_bytes': 2})
     write_manifest(root, data)
     assert 'invalid_asset_entry' in error_codes(assets.verify(root)[0])
+
+
+@pytest.fixture
+def question_tree(inventory):
+    root, _ = inventory
+    (root / '.gitignore').write_bytes((assets.ROOT / '.gitignore').read_bytes())
+    directory = root / assets.QUESTIONS
+    (directory / 'policy').mkdir(parents=True)
+    (directory / 'README.md').write_text('Fictional question sources.\n', encoding='utf-8')
+    index = {'schema_version': 1, 'files': [{'path': 'policy/fictional.json'}]}
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    # Content is deliberately not a question schema: this checker enforces paths only.
+    (directory / 'policy/fictional.json').write_text('{}\n', encoding='utf-8')
+    git(root, 'add', assets.QUESTIONS)
+    return root, directory, index
+
+
+def test_indexed_questions_are_read_only_nonruntime_sources(question_tree):
+    root, directory, _ = question_tree
+    before = {p: p.read_bytes() for p in directory.rglob('*') if p.is_file()}
+    manifest = (root / assets.MANIFEST).read_bytes()
+    assert assets.verify(root) == ({'files': 16, 'errors': []}, 0)
+    assert assets.question_sources(root, assets.git_files(root)) == {
+        assets.QUESTIONS + '/README.md', assets.QUESTIONS + '/index.json',
+        assets.QUESTIONS + '/policy/fictional.json'}
+    assert all(p.read_bytes() == raw for p, raw in before.items())
+    assert (root / assets.MANIFEST).read_bytes() == manifest
+
+
+@pytest.mark.parametrize('raw', [
+    'FICTIONAL_PRIVATE_INVALID_JSON', '{"schema_version":1,"schema_version":1,"files":[]}',
+    'null', '[]', '{"schema_version":true,"files":[]}', '{"schema_version":2,"files":[]}',
+    '{"schema_version":1}', '{"schema_version":1,"files":{}}',
+    '{"schema_version":1,"files":[],"extra":NaN}',
+])
+def test_question_index_errors_are_content_safe(question_tree, raw):
+    root, directory, _ = question_tree
+    (directory / 'index.json').write_text(raw, encoding='utf-8')
+    result, code = assets.verify(root)
+    assert code == 1 and 'invalid_question_index' in error_codes(result)
+    assert 'FICTIONAL_PRIVATE_INVALID_JSON' not in json.dumps(result)
+
+
+@pytest.mark.parametrize('entry', [
+    'policy/fictional.json', {}, {'path': None}, {'path': '/private.json'},
+    {'path': 'C:/private.json'}, {'path': '../private.json'},
+    {'path': 'policy/../private.json'}, {'path': 'policy\\private.json'},
+    {'path': 'policy//private.json'}, {'path': 'policy/name:stream.json'},
+    {'path': 'unknown/private.json'}, {'path': 'policy/nested/private.json'},
+    {'path': 'policy/private.txt'}, {'path': 'policy/.json'},
+])
+def test_invalid_question_declarations_fail_before_reading(question_tree, entry):
+    root, directory, index = question_tree
+    index['files'] = [entry]
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    result, code = assets.verify(root)
+    assert code == 1 and 'invalid_question_path' in error_codes(result)
+
+
+@pytest.mark.parametrize('path', ['policy/fictional.json', 'policy/FICTIONAL.json'])
+def test_duplicate_question_declarations_are_case_insensitive(question_tree, path):
+    root, directory, index = question_tree
+    index['files'].append({'path': path})
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    assert 'duplicate_question_path' in error_codes(assets.verify(root)[0])
+
+
+@pytest.mark.parametrize('relative', ['index.json', 'README.md', 'policy/fictional.json'])
+def test_missing_question_files_cannot_be_hidden_by_unstaged_deletion(question_tree, relative):
+    root, directory, _ = question_tree
+    (directory / relative).unlink()
+    result, code = assets.verify(root)
+    assert code == 1 and 'question_file_missing_or_nonregular' in error_codes(result)
+
+
+def test_missing_tracked_question_tree_is_not_optional(question_tree):
+    root, directory, _ = question_tree
+    for relative in ['policy/fictional.json', 'index.json', 'README.md']:
+        (directory / relative).unlink()
+    (directory / 'policy').rmdir()
+    directory.rmdir()
+    assert 'question_file_missing_or_nonregular' in error_codes(assets.verify(root)[0])
+
+
+@pytest.mark.parametrize('relative', ['policy/extra.json', 'report.json',
+                                     'policy/private.txt', 'policy/nested/private.json'])
+def test_force_added_unlisted_question_files_are_rejected(question_tree, relative):
+    root, directory, _ = question_tree
+    path = directory / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text('FICTIONAL_PRIVATE_CONTENT', encoding='utf-8')
+    assert assets.verify(root)[1] == 0  # Untracked files do not enter the Git allowance.
+    git(root, 'add', '-f', path.relative_to(root).as_posix())
+    result, code = assets.verify(root)
+    assert code == 1 and {'path': path.relative_to(root).as_posix(),
+                         'code': 'tracked_path_not_allowed'} in result['errors']
+    assert 'FICTIONAL_PRIVATE_CONTENT' not in json.dumps(result)
+
+
+@pytest.mark.parametrize('relative', ['', 'index.json', 'README.md', 'policy', 'policy/fictional.json'])
+def test_question_reparse_points_are_rejected_before_reading(question_tree, monkeypatch, relative):
+    root, directory, _ = question_tree
+    target = directory / relative
+    original = Path.lstat
+    class Reparse:
+        st_mode = 0
+        st_file_attributes = 0x400
+    def lstat(path, *args, **kwargs):
+        return Reparse() if path == target else original(path, *args, **kwargs)
+    monkeypatch.setattr(Path, 'lstat', lstat)
+    result, code = assets.verify(root)
+    assert code == 1 and 'linked_path' in error_codes(result)
+
+
+def test_unreadable_question_index_has_fixed_diagnostic(question_tree, monkeypatch):
+    root, directory, _ = question_tree
+    target = directory / 'index.json'
+    original = Path.read_bytes
+    def read(path):
+        if path == target:
+            raise PermissionError('FICTIONAL_PRIVATE_ERROR')
+        return original(path)
+    monkeypatch.setattr(Path, 'read_bytes', read)
+    result, code = assets.verify(root)
+    assert code == 1 and 'question_sources_unavailable' in error_codes(result)
+    assert 'FICTIONAL_PRIVATE_ERROR' not in json.dumps(result)

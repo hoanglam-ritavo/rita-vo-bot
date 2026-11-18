@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "group_id": "mixed.policy-and-profile",
+  "description": "Authored question scenarios for mixed / policy-and-profile. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.mixed.policy-and-profile.001",
+      "title": "Quy định tăng ca và chức danh",
+      "tags": [
+        "mixed"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì và chính sách quy định điều kiện tổ chức tăng ca thế nào?",
+          "expectation": "Tách chức danh từ nguồn HRM và quy định từ tài liệu; không suy rằng chức danh này được duyệt tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.002",
+      "title": "Ngày chính thức và phúc lợi",
+      "tags": [
+        "mixed",
+        "eligibility-boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Ngày chính thức của tôi là ngày nào và điều kiện hỗ trợ nhân viên kết hôn là gì?",
+          "expectation": "Tách ngày chính thức và điều kiện chính sách; không tính thâm niên hay kết luận đủ điều kiện hưởng hỗ trợ."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.003",
+      "title": "Thiếu chính sách nhưng có dữ kiện",
+      "tags": [
+        "mixed",
+        "missing-evidence"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Bằng chứng chính sách không đủ hoặc không còn hợp lệ."
+      ],
+      "turns": [
+        {
+          "text": "Phòng ban của tôi là gì và phạm vi chính sách phúc lợi ra sao?",
+          "expectation": "Giữ phần phòng ban được nguồn HRM chứng minh; báo rõ thiếu bằng chứng chính sách, không ghép thành kết luận quyền lợi."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.004",
+      "title": "Có chính sách nhưng thiếu HRM",
+      "tags": [
+        "mixed",
+        "source-unavailable"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật nhưng nguồn HRM không khả dụng."
+      ],
+      "turns": [
+        {
+          "text": "Ngày chính thức của tôi là ngày nào và điều kiện hỗ trợ nhân viên kết hôn là gì?",
+          "expectation": "Không bịa ngày chính thức; giữ riêng phần chính sách có bằng chứng, không kết luận điều kiện của cá nhân."
+        }
+      ]
+    }
+  ]
+}

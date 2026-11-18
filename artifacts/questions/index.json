@@ -1,0 +1,2402 @@
+{
+  "schema_version": 1,
+  "dataset_id": "rita-vo-bot.questions",
+  "authored_on": "2026-11-18",
+  "status": "authored-not-executed",
+  "baseline": {
+    "git_revision": "540badc17495795ebb0e731f927c167ece4dd014",
+    "working_tree": "Dirty working tree with existing tracked and untracked work; file hashes identify the read authoring snapshot, not a release.",
+    "inputs": [
+      {
+        "path": "artifacts/answers/source/cards/task.099a04fe8a01519dab8098c73c2b1b74.json",
+        "sha256": "42e76190c085acba24e3dbc046711616aee51e9bedada91abc49095b711a5177"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.0df4b30f4eb95c3aa3d8f7773b7811e6.json",
+        "sha256": "bac30499309436a287854bdc9c05a03eb9757895e7517bff010ae8403cd80df6"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.0fa1b0d52a645ec9bb269436017a938d.json",
+        "sha256": "06f152e02d1856ae1194e4bf610f675565d079c8dd7421152ac85b523f28ef32"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.1b7c07495171540ea103b6a529742c3f.json",
+        "sha256": "dcc34e9e190663891d68540d4f7730f02bfa12c47ae93856b6cf793770b3367f"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.222263534455596c808866a1bd7034d1.json",
+        "sha256": "df6ffce4ee69113d9d3084f6bfceb1bfeb67eb5779cd59d895b09b7db4f828ff"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.2612d9edbba852749f08364f291225c2.json",
+        "sha256": "b9feec7c2d723b7b44c7f59012f20ebf3815cf83c7980086e5d547dbb038882c"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.2817ef8493305b9694b025de57828b7e.json",
+        "sha256": "c1d32d4e97c6cb0fe3a5b0c7074286c13bd15445137370b01502d5c2e4dcb150"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.2992a4bccab159009ecc3964ed738250.json",
+        "sha256": "81467c2904e6456b9b884f9406dc7b744c21969ab2f7a5dd89c63bba4fc2af7a"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.3fa5c092636453f688c23632fa8ce5b2.json",
+        "sha256": "dc90efc7aea25b025ff3d6c98de098ffcd87ddff4dd5d14ec10cdc6485df35a3"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.3ff5d4c2375c5ad5aead201af766a8ec.json",
+        "sha256": "928f0d1fd010a096e2e2c272ebf80984f2f40b7f5eb8fd830591a22e09d3a993"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.4265441c1c3659d9820562d4cc983175.json",
+        "sha256": "dcccc955f3edb473f677159eeef98a2271b72db2920fcb8860cf1c5d29e0ccd5"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.5370844d82725638822c191c4a255ed0.json",
+        "sha256": "a8235c6af2437e99d03ae60b7448f79f1d3e154326102e1ec731ec9504af22a4"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.58052a5dd19656e6afb6b0d2ecf5b169.json",
+        "sha256": "322e402fa4fbeb6cc589feb131da2878370ae087ef3246ae386b60ee35f1bc54"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.5ddf63a03da2518aa04e44a754bc0a49.json",
+        "sha256": "3dc7e160a1c9d43d91b673307c5812c098297a8b21d023808e81bc3166afc9a6"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.650da36176db543abc92c94366984975.json",
+        "sha256": "acce088772f62dc635d0ef6b71fd7e08772fa2d2049a8719419ca16b1fd3b4f0"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.6800aeec977b5a068e63273a1e25740e.json",
+        "sha256": "a531e37f1d6fefe4cd2a172a75d8575082650b80bfee00e36e7e4e5a33890933"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.68369c60f81557c5b42fab416cfad7e1.json",
+        "sha256": "7ba8aefd45afc2cdeb195a634cee85004fae7dc1427f1c10d38cf513cd252a92"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.6e89f057fc975e36ad65e4579eed86f2.json",
+        "sha256": "36fd722dedf4c52139d32f27c880e73b21d08c4a209e885bbcf658e781cd3031"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.71b81f225392502f8201c9e7c655bf8a.json",
+        "sha256": "368db05413977e4d7c8c34eb189676298d4ed5689d549ec74141ef6bb07749fb"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.792d05c266bb5e23a5e8c27d873f20e7.json",
+        "sha256": "eaceb31a9a1c81c85520aa7165ec6c815c5fb46b02adebd3c064f49c2e13988f"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.7b0f47d9f7ff5af59e6314f7207d0d47.json",
+        "sha256": "44ca98ca56ba582e11e7ce3c6c1759bfbe735c5dc7cb954715347438c3ee5785"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.7cb26f68c29f5df1a5bebd8b92f49276.json",
+        "sha256": "c2face4a43c577de75d47f3f5efcf7427cf527c03df2f7a38eb3c84246ba15c1"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.a06219c735de572caabd8b6511fa0973.json",
+        "sha256": "5f7d577fdcaa9e11e3722951945a8744f22c2780abd0c4587f0b86dd95b5bf75"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.a3ab6cf5c32c573baa9cb59a4444a1f6.json",
+        "sha256": "d5e951c67feadccc9f01643fb97dd392fc725a85d2d8286318f10f9fae29f3cc"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.a72145f055c156218f5de9b26f60d4fb.json",
+        "sha256": "a79f7bedeb8cf0088c821560fb0dd40f6fef3c1433143f3aac511971dbc13a02"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.b08cc7a243b550ccb77ad1bdc285ef8b.json",
+        "sha256": "72ac6db5bc0e6f358abc7c44800771f441b8bc4890d0bdc1dd3781833c6a6985"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.b9848e43b75a589da0fd7322e28c3a70.json",
+        "sha256": "b377d00e93ba0d667a5e134b3d05ccb83fd8bf4195eacbdbe5f363915a1350b6"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bb6f8ccbd1cc56a0833026eaff50d0e8.json",
+        "sha256": "261b8087d1b97705656820b035116ae39db8022ffdc2294c81833e4db05f5ce8"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bcde0d3e54aa504c8056eb8779471c57.json",
+        "sha256": "b70d95ab3c833aab3ccfc98f0147a89f131e09bce77044d6270932b7e5735dda"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bde3f581823256b483a01d2ce3b9926e.json",
+        "sha256": "227741f03cc0e82ed8b185592384131126b623d36fd3853596d1bc244bcbc07a"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bravo-install.json",
+        "sha256": "c32953522cd01530b2e4b696fdf031639930b8b2326b6f1d4cc9abc6d06e0b62"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bravo-support.json",
+        "sha256": "6afe6a57d1864ec2b77210329ede919b044ee30f056e47d0ce2ef196f3f79c96"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.bravo-vpn-connect.json",
+        "sha256": "0fc8524d48451c32293f0cbda703d80ddb8cbf32ca271218e0ecf0c119655c9c"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.e4bbd3d6a6ad522ea9a7f9b9c499bd83.json",
+        "sha256": "5eb2fa38e293e256fc8c953a00781267146ff26669ebaf2742163f02cbbc794a"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.epostal-admin.json",
+        "sha256": "e06b34dc16c3cd5baef8aeffd6c23232ce1de0e7241a83cbd597748583b0a4f7"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.epostal-confirm.json",
+        "sha256": "741a07226358d741692f3837a5db3b16eed1d828a43f53bb56dd55b818a53487"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.epostal-send.json",
+        "sha256": "3e8388f0944ce7b3d916ff95516c56b77ebea303641d653a05265d616405a078"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.eworkdate-channels.json",
+        "sha256": "b1fe7f7afaaf8122cd3ed21d1071cf322eefdb2525f34789e78e5d3076ce323c"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.eworkdate-email.json",
+        "sha256": "16444a883b4898201b4c379f993c96b90308b3b89012d5953b0e55421cf43f6d"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.eworkdate-outlook.json",
+        "sha256": "e0a3501bb4847af4cd479fface343e8d4118e6bb300190a418faf78a38537d39"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.f54e92fd0ba25e278d11f722c94354bf.json",
+        "sha256": "2613dfe5738b633f84c9267e7b7e0c82bb3fe6324c38e998b34ae5eb4bb461a3"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.eleave.annual.json",
+        "sha256": "0ae1c6eae83fae689d0fccea0363ea92bc548c4cbb084802fd3adba9c4aafb87"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.eleave.sessions.json",
+        "sha256": "27ef7e30cb143310936ca46f3a56ea96435d2bef90503be28cd01e3d84a9cdf9"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.policy.annual.json",
+        "sha256": "061037e00335496275b7d01439738bd49477791718bc4576a6d1d4ed01f7d5fa"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.policy.unpaid.json",
+        "sha256": "7491c54284645953bcf932dc9694bb1293ada40c364e8b20c2ed9cca56fcd134"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.workit.annual.json",
+        "sha256": "a9f5055406267e352f2d4b95072dea3aa5a686e25bc2ecdbcb0db022be49ad27"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.leave.workit.unpaid.json",
+        "sha256": "ab76a0b8cd7e8b8149c80686913f0241de5fcde03fcbf0e95f35cfc063036512"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.outlook-admin-room.json",
+        "sha256": "82a087de7e2d0ab0f93c747e51fa8f51c411cf21c905e46950c33a5c985f27ce"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.outlook-equipment.json",
+        "sha256": "d4b9b317d9a00084f30fce24b3888e8b85ebb3196cc8e69cda26e7d5ab684a46"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.outlook-room-calendar.json",
+        "sha256": "869923b43612a6221a5e44c7b29d4cbaa8e35bb0c04bf95b607600e9f27f053a"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.outlook-room-delete.json",
+        "sha256": "ccd8db4c18025c6001e0bc2696116e14bb92a1839054f1ef39a53e7528b3778e"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-approve.json",
+        "sha256": "cb73b93f42ce57793c44f5febcb7a7ba6ac43a9328e381a7bb56a40fbf5e7f4d"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-download.json",
+        "sha256": "ee0b7592dc450234767605b734363831d8e5868b286582cc66a285937d88b868"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-incoming.json",
+        "sha256": "b03a1b3cb51d412ea7929ff906a35d60fbc762db88a8b443932c4a41f2e5da99"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-password.json",
+        "sha256": "55deb498ca9352e54a4d7e3ad4bec7b997c79326d3b65d457cf23f64cd61f1d4"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-return.json",
+        "sha256": "619bdcb0a5b0891eba85c91e56a6259da5bc8b7946f0b0006ab5fe54735f73ae"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-sharing.json",
+        "sha256": "f87e72dff68b41efe23d2ba34188b419a1f27103061dc7b386c40a59f3d15759"
+      },
+      {
+        "path": "artifacts/answers/source/cards/task.workit-shortcuts.json",
+        "sha256": "238da065c6af237172f3558363a9c9a1cb8dd73cc53d30ea7654041d2ea1cf53"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.eleave.annual.json",
+        "sha256": "ab0723a03618896e856768d0740264813b4d7fffef412c0fa4449dff1e8357ed"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.eleave.sessions.json",
+        "sha256": "16f9895600c2ace64583c02845ac23dc9a2a0b6848629150e216f5db75309cc9"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.policy.annual.json",
+        "sha256": "17662f540e1d817a093de646a2cd2ecb82dcff01de1d9a3b102374a858a79cfb"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.policy.unpaid.json",
+        "sha256": "3a07222a3a80b274333c230b08e027b9a076701c4e56d0db3692a30f5add4444"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.workit.annual.json",
+        "sha256": "904b606deef63dc9b2960534766d05b634c40e5419fc4147a45026cdc5607c97"
+      },
+      {
+        "path": "artifacts/retrieval/source/routes/leave.workit.unpaid.json",
+        "sha256": "b2e9458f7ca985949e4fbc4325c691ef16ff5ea652c2c6a031ef037ac4f325de"
+      },
+      {
+        "path": "chunks/06a4bc95-5d83-40a2-bb67-4dd6676945de/metadata.json",
+        "sha256": "35c100f4cbbaf633d29bdd0300b602616b738701d9dcc749b1dd192bd96b11dd"
+      },
+      {
+        "path": "chunks/130dbf93-cbc9-4aa1-86bd-6a00486919b6/metadata.json",
+        "sha256": "04b5c57ad6285233d47e4e6af71489ca719c886a55ba7b066dbc326af34ee149"
+      },
+      {
+        "path": "chunks/1c42626a-099e-463f-8097-4b64afe29bac/metadata.json",
+        "sha256": "35b8690e78f378da1f2270a82da1f3fd352e5d6fb7a4bbe30d2ab8b97f4081cc"
+      },
+      {
+        "path": "chunks/293575cf-576e-4cc5-a906-67c8000b20bb/metadata.json",
+        "sha256": "8c34cfe7e1d718495d0037e9496f972bec470c40b6307e5a6241a5da4afb92f9"
+      },
+      {
+        "path": "chunks/2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4/metadata.json",
+        "sha256": "f4f3b8d717fbe00e330cb7c362b3542a16027c9c6f26cd29498282cc25b4f355"
+      },
+      {
+        "path": "chunks/3ed6866d-f10f-4c3e-82d6-d35fd18eff90/metadata.json",
+        "sha256": "ddb00069f9ba761e9353fbf26b5a3119a1605f8ed5ac64b159193f63cfec95c8"
+      },
+      {
+        "path": "chunks/4b2aadb1-286d-4988-adf0-6d5d8e10f949/metadata.json",
+        "sha256": "684879f7b29984e6e133a82dc31f2a0625723ef8ae130d5b99d9152f94dbc179"
+      },
+      {
+        "path": "chunks/52ff7a79-3f8b-495a-9c8d-638ab883b77d/metadata.json",
+        "sha256": "89d3a019f5ad480fd30e93f13d4f4beb32ec5fa80f3d09a16873534debeec3af"
+      },
+      {
+        "path": "chunks/57cc6d6b-64eb-4c61-a462-3e961e68044d/metadata.json",
+        "sha256": "b70fbd3579a039289b4c4bd52348bbb08f6a1d5aca6d90a818ee71ba38a91665"
+      },
+      {
+        "path": "chunks/6dae224a-0c75-41c3-a057-5d9530de769c/metadata.json",
+        "sha256": "5f2fc6255d90c5a991a24fcacc2351043448a915eeb6eea23bcf69b3d9dc2674"
+      },
+      {
+        "path": "chunks/7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a/metadata.json",
+        "sha256": "92b17eae871231d9a049108b2e2657c1a6a4ce531764a948115bca2f95cb61f9"
+      },
+      {
+        "path": "chunks/7d4d2428-52c1-48f3-82ac-1e044e6927ab/metadata.json",
+        "sha256": "eccec933c3f2338e67acfd0c6b7c4eded064fc512c2491c89101ed7a1b07b4dd"
+      },
+      {
+        "path": "chunks/7f1f2cf6-e181-42a8-8caf-f9429094e661/metadata.json",
+        "sha256": "183e11c17907e7889588833bb20c03b8148315e44df0545ccbd6f417d12c9346"
+      },
+      {
+        "path": "chunks/8640ee34-0c09-4ea9-ac5b-397222cea5f3/metadata.json",
+        "sha256": "c642af0ebfc6bbf2ead9e521c0914166ad108d114f613ea1e34f0d26f6163d5b"
+      },
+      {
+        "path": "chunks/88c4a90d-4a80-41a1-becf-f7221b2a36e4/metadata.json",
+        "sha256": "3c1f6bcfed0712f1d67da9c90c414ebd332d2256da22f6af00ccf0732f0b7e35"
+      },
+      {
+        "path": "chunks/91ae6b2d-ec63-4463-bafc-d9c8370fa722/metadata.json",
+        "sha256": "6412d5df6d81fdd0aa630b59b2678e242d92a574909f7c9cae825211e47ace18"
+      },
+      {
+        "path": "chunks/95b9cbfe-3d5b-4032-9411-1feb48553c79/metadata.json",
+        "sha256": "03fd242778b244cc6c6e69d49dae9fd844e7626664680ef624003695eba909cf"
+      },
+      {
+        "path": "chunks/9b8dd80f-855a-4033-ae37-f9e1c95fee2d/metadata.json",
+        "sha256": "6441ae04b631d736c92e07fc795901e48b89917c8830cec16fea5315e1c6052a"
+      },
+      {
+        "path": "chunks/ac98d5af-37dd-4187-a3cc-735ae2a7033c/metadata.json",
+        "sha256": "6da82cdfac48762b04a5343230c779ce54ae57350729e582650e41ba5d8333c3"
+      },
+      {
+        "path": "chunks/b020eea1-3bed-43a3-b18d-359c7a236e95/metadata.json",
+        "sha256": "6cf0d0900d2213e4ff66feeaa6c458367f7e8fd8c5274fc4ee976f5487e1e4dd"
+      },
+      {
+        "path": "chunks/b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa/metadata.json",
+        "sha256": "62c83ee9065726135d3992f5d4deadd095e4c17d250ef18da3c8af99dc86fb27"
+      },
+      {
+        "path": "chunks/bcc9e137-9dfe-479e-91a2-409ba042553f/metadata.json",
+        "sha256": "d943a99f9bd8d6d791e8a380007886bd982bbd342878c3a702f47de4a949c381"
+      },
+      {
+        "path": "chunks/be3059e2-4e94-49bf-8d32-4f98eb0af9e2/metadata.json",
+        "sha256": "4e770e7627b639f2db0e36b6ee4f9911e3b0c547c8f46205dbf1f31b4a069abc"
+      },
+      {
+        "path": "chunks/c3c03611-432b-41e8-ba37-87ec92f105f7/metadata.json",
+        "sha256": "a3a5cae8bd4735c73d072341339ae6a14adfedfe4ffa1f1c2cfbd7b8c90f1119"
+      },
+      {
+        "path": "chunks/c7065069-38ac-4ccd-9720-43c6d5ecbdfb/metadata.json",
+        "sha256": "7d9f0d350f5f97482da183ff599eb9a923d687c0aa60ce33773be8b411014435"
+      },
+      {
+        "path": "chunks/c9973704-0f00-4562-9320-132befb6d1c1/metadata.json",
+        "sha256": "537b75b3813012e91a997f25f280e5d36bce9a89ea4c043578c543478182b178"
+      },
+      {
+        "path": "chunks/d1ed5f3f-57ed-465d-a080-97c4a39efd8d/metadata.json",
+        "sha256": "c858342b413bb329a0bb73bd0c49ea8bf4c95fc4c77f1b73fac8829dd4745e4c"
+      },
+      {
+        "path": "chunks/d906cfac-afda-498d-bb6c-bdfb08f9e2b5/metadata.json",
+        "sha256": "1179d943b2c64023dee0cf9085706d513e2a7e10bbe78210be9dc50d6974a271"
+      },
+      {
+        "path": "chunks/d95b8527-786e-4ce7-b404-a52691da8e1c/metadata.json",
+        "sha256": "a422e498a8667881eb7a0cb5bfbbdad1cf6cfdfc4febd33e6927971f2c1279b6"
+      },
+      {
+        "path": "src/type_b/tasks.py",
+        "sha256": "ca58a5f11cc876767a6ba10443d9a4a6ba96045ee3de2718762d9ae6a7766570"
+      },
+      {
+        "path": "src/conversation/context.py",
+        "sha256": "95016e8cc0bf3303fe632d39cf297f9795d908bc7ddd9695ad271878764a434d"
+      },
+      {
+        "path": "src/retrieval/policy.py",
+        "sha256": "3d2ec3c37f1131b8fcbe1553867b3fe2263d48ec71082b1fc8c3b6306d8d2968"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "boundaries/ambiguity.json",
+      "group_id": "boundaries.ambiguity",
+      "case_count": 6,
+      "turn_count": 6
+    },
+    {
+      "path": "boundaries/evidence-availability.json",
+      "group_id": "boundaries.evidence-availability",
+      "case_count": 11,
+      "turn_count": 11
+    },
+    {
+      "path": "boundaries/privacy-and-injection.json",
+      "group_id": "boundaries.privacy-and-injection",
+      "case_count": 9,
+      "turn_count": 9
+    },
+    {
+      "path": "boundaries/unsupported.json",
+      "group_id": "boundaries.unsupported",
+      "case_count": 10,
+      "turn_count": 10
+    },
+    {
+      "path": "conversation/context-and-followups.json",
+      "group_id": "conversation.context-and-followups",
+      "case_count": 10,
+      "turn_count": 23
+    },
+    {
+      "path": "employee/self-work-profile.json",
+      "group_id": "employee.self-work-profile",
+      "case_count": 31,
+      "turn_count": 31
+    },
+    {
+      "path": "mixed/policy-and-profile.json",
+      "group_id": "mixed.policy-and-profile",
+      "case_count": 4,
+      "turn_count": 4
+    },
+    {
+      "path": "policy/administration.json",
+      "group_id": "policy.administration",
+      "case_count": 15,
+      "turn_count": 15
+    },
+    {
+      "path": "policy/benefits.json",
+      "group_id": "policy.benefits",
+      "case_count": 36,
+      "turn_count": 39
+    },
+    {
+      "path": "policy/labor-rules.json",
+      "group_id": "policy.labor-rules",
+      "case_count": 25,
+      "turn_count": 25
+    },
+    {
+      "path": "policy/leave.json",
+      "group_id": "policy.leave",
+      "case_count": 14,
+      "turn_count": 14
+    },
+    {
+      "path": "policy/source-guidance.json",
+      "group_id": "policy.source-guidance",
+      "case_count": 5,
+      "turn_count": 5
+    },
+    {
+      "path": "policy/travel.json",
+      "group_id": "policy.travel",
+      "case_count": 15,
+      "turn_count": 15
+    },
+    {
+      "path": "policy/workplace-safety.json",
+      "group_id": "policy.workplace-safety",
+      "case_count": 15,
+      "turn_count": 15
+    },
+    {
+      "path": "software/bravo.json",
+      "group_id": "software.bravo",
+      "case_count": 23,
+      "turn_count": 23
+    },
+    {
+      "path": "software/eleave.json",
+      "group_id": "software.eleave",
+      "case_count": 20,
+      "turn_count": 21
+    },
+    {
+      "path": "software/epostal.json",
+      "group_id": "software.epostal",
+      "case_count": 23,
+      "turn_count": 23
+    },
+    {
+      "path": "software/eworkdate.json",
+      "group_id": "software.eworkdate",
+      "case_count": 23,
+      "turn_count": 23
+    },
+    {
+      "path": "software/outlook.json",
+      "group_id": "software.outlook",
+      "case_count": 29,
+      "turn_count": 29
+    },
+    {
+      "path": "software/workit.json",
+      "group_id": "software.workit",
+      "case_count": 92,
+      "turn_count": 92
+    }
+  ],
+  "totals": {
+    "groups": 20,
+    "cases": 416,
+    "turns": 433,
+    "observed_task_cards": 58,
+    "documents": 29,
+    "employee_fields": 9,
+    "retrieval_routes": 6
+  },
+  "coverage": {
+    "tasks": [
+      {
+        "task_id": "task.099a04fe8a01519dab8098c73c2b1b74",
+        "source_file": "artifacts/answers/source/cards/task.099a04fe8a01519dab8098c73c2b1b74.json",
+        "case_ids": [
+          "q.software.workit.001",
+          "q.software.workit.002",
+          "q.software.workit.003",
+          "q.software.workit.004",
+          "q.software.workit.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.0df4b30f4eb95c3aa3d8f7773b7811e6",
+        "source_file": "artifacts/answers/source/cards/task.0df4b30f4eb95c3aa3d8f7773b7811e6.json",
+        "case_ids": [
+          "q.policy.workplace-safety.001",
+          "q.policy.workplace-safety.002",
+          "q.policy.workplace-safety.003",
+          "q.policy.workplace-safety.004",
+          "q.policy.workplace-safety.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.workplace-safety.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.0fa1b0d52a645ec9bb269436017a938d",
+        "source_file": "artifacts/answers/source/cards/task.0fa1b0d52a645ec9bb269436017a938d.json",
+        "case_ids": [
+          "q.software.outlook.001",
+          "q.software.outlook.002",
+          "q.software.outlook.003",
+          "q.software.outlook.004",
+          "q.software.outlook.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.outlook.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.1b7c07495171540ea103b6a529742c3f",
+        "source_file": "artifacts/answers/source/cards/task.1b7c07495171540ea103b6a529742c3f.json",
+        "case_ids": [
+          "q.policy.benefits.001",
+          "q.policy.benefits.002",
+          "q.policy.benefits.003",
+          "q.policy.benefits.004",
+          "q.policy.benefits.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.benefits.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.222263534455596c808866a1bd7034d1",
+        "source_file": "artifacts/answers/source/cards/task.222263534455596c808866a1bd7034d1.json",
+        "case_ids": [
+          "q.policy.workplace-safety.006",
+          "q.policy.workplace-safety.007",
+          "q.policy.workplace-safety.008",
+          "q.policy.workplace-safety.009",
+          "q.policy.workplace-safety.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.workplace-safety.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.2612d9edbba852749f08364f291225c2",
+        "source_file": "artifacts/answers/source/cards/task.2612d9edbba852749f08364f291225c2.json",
+        "case_ids": [
+          "q.policy.labor-rules.001",
+          "q.policy.labor-rules.002",
+          "q.policy.labor-rules.003",
+          "q.policy.labor-rules.004",
+          "q.policy.labor-rules.005",
+          "q.mixed.policy-and-profile.001"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.labor-rules.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.2817ef8493305b9694b025de57828b7e",
+        "source_file": "artifacts/answers/source/cards/task.2817ef8493305b9694b025de57828b7e.json",
+        "case_ids": [
+          "q.policy.administration.001",
+          "q.policy.administration.002",
+          "q.policy.administration.003",
+          "q.policy.administration.004",
+          "q.policy.administration.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.administration.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.2992a4bccab159009ecc3964ed738250",
+        "source_file": "artifacts/answers/source/cards/task.2992a4bccab159009ecc3964ed738250.json",
+        "case_ids": [
+          "q.policy.administration.006",
+          "q.policy.administration.007",
+          "q.policy.administration.008",
+          "q.policy.administration.009",
+          "q.policy.administration.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.administration.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.3fa5c092636453f688c23632fa8ce5b2",
+        "source_file": "artifacts/answers/source/cards/task.3fa5c092636453f688c23632fa8ce5b2.json",
+        "case_ids": [
+          "q.software.epostal.001",
+          "q.software.epostal.002",
+          "q.software.epostal.003",
+          "q.software.epostal.004",
+          "q.software.epostal.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.epostal.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.3ff5d4c2375c5ad5aead201af766a8ec",
+        "source_file": "artifacts/answers/source/cards/task.3ff5d4c2375c5ad5aead201af766a8ec.json",
+        "case_ids": [
+          "q.policy.workplace-safety.011",
+          "q.policy.workplace-safety.012",
+          "q.policy.workplace-safety.013",
+          "q.policy.workplace-safety.014",
+          "q.policy.workplace-safety.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.workplace-safety.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.4265441c1c3659d9820562d4cc983175",
+        "source_file": "artifacts/answers/source/cards/task.4265441c1c3659d9820562d4cc983175.json",
+        "case_ids": [
+          "q.policy.labor-rules.006",
+          "q.policy.labor-rules.007",
+          "q.policy.labor-rules.008",
+          "q.policy.labor-rules.009",
+          "q.policy.labor-rules.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.labor-rules.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.5370844d82725638822c191c4a255ed0",
+        "source_file": "artifacts/answers/source/cards/task.5370844d82725638822c191c4a255ed0.json",
+        "case_ids": [
+          "q.software.workit.006",
+          "q.software.workit.007",
+          "q.software.workit.008",
+          "q.software.workit.009",
+          "q.software.workit.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "source_file": "artifacts/answers/source/cards/task.58052a5dd19656e6afb6b0d2ecf5b169.json",
+        "case_ids": [
+          "q.software.bravo.001",
+          "q.software.bravo.002",
+          "q.software.bravo.003",
+          "q.software.bravo.004",
+          "q.software.bravo.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.5ddf63a03da2518aa04e44a754bc0a49",
+        "source_file": "artifacts/answers/source/cards/task.5ddf63a03da2518aa04e44a754bc0a49.json",
+        "case_ids": [
+          "q.software.eleave.001",
+          "q.software.eleave.002",
+          "q.software.eleave.003",
+          "q.software.eleave.004",
+          "q.software.eleave.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eleave.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.650da36176db543abc92c94366984975",
+        "source_file": "artifacts/answers/source/cards/task.650da36176db543abc92c94366984975.json",
+        "case_ids": [
+          "q.policy.benefits.006",
+          "q.policy.benefits.007",
+          "q.policy.benefits.008",
+          "q.policy.benefits.009",
+          "q.policy.benefits.010",
+          "q.mixed.policy-and-profile.003"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.benefits.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.6800aeec977b5a068e63273a1e25740e",
+        "source_file": "artifacts/answers/source/cards/task.6800aeec977b5a068e63273a1e25740e.json",
+        "case_ids": [
+          "q.policy.labor-rules.011",
+          "q.policy.labor-rules.012",
+          "q.policy.labor-rules.013",
+          "q.policy.labor-rules.014",
+          "q.policy.labor-rules.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.labor-rules.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.68369c60f81557c5b42fab416cfad7e1",
+        "source_file": "artifacts/answers/source/cards/task.68369c60f81557c5b42fab416cfad7e1.json",
+        "case_ids": [
+          "q.software.workit.011",
+          "q.software.workit.012",
+          "q.software.workit.013",
+          "q.software.workit.014",
+          "q.software.workit.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.6e89f057fc975e36ad65e4579eed86f2",
+        "source_file": "artifacts/answers/source/cards/task.6e89f057fc975e36ad65e4579eed86f2.json",
+        "case_ids": [
+          "q.software.workit.016",
+          "q.software.workit.017",
+          "q.software.workit.018",
+          "q.software.workit.019",
+          "q.software.workit.020"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.016"
+          ]
+        }
+      },
+      {
+        "task_id": "task.71b81f225392502f8201c9e7c655bf8a",
+        "source_file": "artifacts/answers/source/cards/task.71b81f225392502f8201c9e7c655bf8a.json",
+        "case_ids": [
+          "q.software.workit.021",
+          "q.software.workit.022",
+          "q.software.workit.023",
+          "q.software.workit.024",
+          "q.software.workit.025"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.021"
+          ]
+        }
+      },
+      {
+        "task_id": "task.792d05c266bb5e23a5e8c27d873f20e7",
+        "source_file": "artifacts/answers/source/cards/task.792d05c266bb5e23a5e8c27d873f20e7.json",
+        "case_ids": [
+          "q.policy.labor-rules.016",
+          "q.policy.labor-rules.017",
+          "q.policy.labor-rules.018",
+          "q.policy.labor-rules.019",
+          "q.policy.labor-rules.020"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.labor-rules.016"
+          ]
+        }
+      },
+      {
+        "task_id": "task.7b0f47d9f7ff5af59e6314f7207d0d47",
+        "source_file": "artifacts/answers/source/cards/task.7b0f47d9f7ff5af59e6314f7207d0d47.json",
+        "case_ids": [
+          "q.policy.benefits.011",
+          "q.policy.benefits.012",
+          "q.policy.benefits.013",
+          "q.policy.benefits.014",
+          "q.policy.benefits.015",
+          "q.policy.benefits.016",
+          "q.policy.benefits.017",
+          "q.policy.benefits.018",
+          "q.policy.benefits.035",
+          "q.mixed.policy-and-profile.002",
+          "q.mixed.policy-and-profile.004",
+          "q.conversation.context-and-followups.001",
+          "q.conversation.context-and-followups.003",
+          "q.conversation.context-and-followups.006",
+          "q.conversation.context-and-followups.007",
+          "q.conversation.context-and-followups.009",
+          "q.conversation.context-and-followups.010",
+          "q.boundaries.evidence-availability.001",
+          "q.boundaries.evidence-availability.002",
+          "q.boundaries.evidence-availability.003",
+          "q.boundaries.evidence-availability.004",
+          "q.boundaries.evidence-availability.005",
+          "q.boundaries.evidence-availability.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.benefits.011"
+          ],
+          "amount": [
+            "q.policy.benefits.016"
+          ],
+          "conditions": [
+            "q.policy.benefits.017",
+            "q.policy.benefits.035"
+          ],
+          "paperwork": [
+            "q.policy.benefits.018",
+            "q.policy.benefits.035"
+          ]
+        }
+      },
+      {
+        "task_id": "task.7cb26f68c29f5df1a5bebd8b92f49276",
+        "source_file": "artifacts/answers/source/cards/task.7cb26f68c29f5df1a5bebd8b92f49276.json",
+        "case_ids": [
+          "q.software.eworkdate.001",
+          "q.software.eworkdate.002",
+          "q.software.eworkdate.003",
+          "q.software.eworkdate.004",
+          "q.software.eworkdate.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eworkdate.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.a06219c735de572caabd8b6511fa0973",
+        "source_file": "artifacts/answers/source/cards/task.a06219c735de572caabd8b6511fa0973.json",
+        "case_ids": [
+          "q.software.workit.026",
+          "q.software.workit.027",
+          "q.software.workit.028",
+          "q.software.workit.029",
+          "q.software.workit.030"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.026"
+          ]
+        }
+      },
+      {
+        "task_id": "task.a3ab6cf5c32c573baa9cb59a4444a1f6",
+        "source_file": "artifacts/answers/source/cards/task.a3ab6cf5c32c573baa9cb59a4444a1f6.json",
+        "case_ids": [
+          "q.policy.travel.001",
+          "q.policy.travel.002",
+          "q.policy.travel.003",
+          "q.policy.travel.004",
+          "q.policy.travel.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.travel.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.a72145f055c156218f5de9b26f60d4fb",
+        "source_file": "artifacts/answers/source/cards/task.a72145f055c156218f5de9b26f60d4fb.json",
+        "case_ids": [
+          "q.policy.source-guidance.001",
+          "q.policy.source-guidance.002",
+          "q.policy.source-guidance.003",
+          "q.policy.source-guidance.004",
+          "q.policy.source-guidance.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.source-guidance.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.b08cc7a243b550ccb77ad1bdc285ef8b",
+        "source_file": "artifacts/answers/source/cards/task.b08cc7a243b550ccb77ad1bdc285ef8b.json",
+        "case_ids": [
+          "q.policy.travel.006",
+          "q.policy.travel.007",
+          "q.policy.travel.008",
+          "q.policy.travel.009",
+          "q.policy.travel.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.travel.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.b9848e43b75a589da0fd7322e28c3a70",
+        "source_file": "artifacts/answers/source/cards/task.b9848e43b75a589da0fd7322e28c3a70.json",
+        "case_ids": [
+          "q.policy.administration.011",
+          "q.policy.administration.012",
+          "q.policy.administration.013",
+          "q.policy.administration.014",
+          "q.policy.administration.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.administration.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bb6f8ccbd1cc56a0833026eaff50d0e8",
+        "source_file": "artifacts/answers/source/cards/task.bb6f8ccbd1cc56a0833026eaff50d0e8.json",
+        "case_ids": [
+          "q.policy.benefits.019",
+          "q.policy.benefits.020",
+          "q.policy.benefits.021",
+          "q.policy.benefits.022",
+          "q.policy.benefits.023",
+          "q.policy.benefits.024",
+          "q.policy.benefits.025",
+          "q.policy.benefits.026",
+          "q.conversation.context-and-followups.003"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.benefits.019"
+          ],
+          "amount": [
+            "q.policy.benefits.024"
+          ],
+          "conditions": [
+            "q.policy.benefits.025"
+          ],
+          "paperwork": [
+            "q.policy.benefits.026"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bcde0d3e54aa504c8056eb8779471c57",
+        "source_file": "artifacts/answers/source/cards/task.bcde0d3e54aa504c8056eb8779471c57.json",
+        "case_ids": [
+          "q.policy.travel.011",
+          "q.policy.travel.012",
+          "q.policy.travel.013",
+          "q.policy.travel.014",
+          "q.policy.travel.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.travel.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bde3f581823256b483a01d2ce3b9926e",
+        "source_file": "artifacts/answers/source/cards/task.bde3f581823256b483a01d2ce3b9926e.json",
+        "case_ids": [
+          "q.software.workit.031",
+          "q.software.workit.032",
+          "q.software.workit.033",
+          "q.software.workit.034",
+          "q.software.workit.035"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.031"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-install",
+        "source_file": "artifacts/answers/source/cards/task.bravo-install.json",
+        "case_ids": [
+          "q.software.bravo.006",
+          "q.software.bravo.007",
+          "q.software.bravo.008",
+          "q.software.bravo.009",
+          "q.software.bravo.010",
+          "q.software.bravo.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo.006"
+          ],
+          "procedure": [
+            "q.software.bravo.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-support",
+        "source_file": "artifacts/answers/source/cards/task.bravo-support.json",
+        "case_ids": [
+          "q.software.bravo.012",
+          "q.software.bravo.013",
+          "q.software.bravo.014",
+          "q.software.bravo.015",
+          "q.software.bravo.016",
+          "q.software.bravo.017"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo.012"
+          ],
+          "procedure": [
+            "q.software.bravo.017"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn-connect",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn-connect.json",
+        "case_ids": [
+          "q.software.bravo.018",
+          "q.software.bravo.019",
+          "q.software.bravo.020",
+          "q.software.bravo.021",
+          "q.software.bravo.022",
+          "q.software.bravo.023"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo.018"
+          ],
+          "procedure": [
+            "q.software.bravo.023"
+          ]
+        }
+      },
+      {
+        "task_id": "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83",
+        "source_file": "artifacts/answers/source/cards/task.e4bbd3d6a6ad522ea9a7f9b9c499bd83.json",
+        "case_ids": [
+          "q.policy.benefits.027",
+          "q.policy.benefits.028",
+          "q.policy.benefits.029",
+          "q.policy.benefits.030",
+          "q.policy.benefits.031",
+          "q.policy.benefits.032",
+          "q.policy.benefits.033",
+          "q.policy.benefits.034",
+          "q.policy.benefits.036",
+          "q.conversation.context-and-followups.001",
+          "q.boundaries.evidence-availability.006"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.benefits.027"
+          ],
+          "amount": [
+            "q.policy.benefits.032",
+            "q.policy.benefits.036"
+          ],
+          "conditions": [
+            "q.policy.benefits.033"
+          ],
+          "paperwork": [
+            "q.policy.benefits.034"
+          ]
+        }
+      },
+      {
+        "task_id": "task.epostal-admin",
+        "source_file": "artifacts/answers/source/cards/task.epostal-admin.json",
+        "case_ids": [
+          "q.software.epostal.006",
+          "q.software.epostal.007",
+          "q.software.epostal.008",
+          "q.software.epostal.009",
+          "q.software.epostal.010",
+          "q.software.epostal.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.epostal.006"
+          ],
+          "procedure": [
+            "q.software.epostal.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.epostal-confirm",
+        "source_file": "artifacts/answers/source/cards/task.epostal-confirm.json",
+        "case_ids": [
+          "q.software.epostal.012",
+          "q.software.epostal.013",
+          "q.software.epostal.014",
+          "q.software.epostal.015",
+          "q.software.epostal.016",
+          "q.software.epostal.017"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.epostal.012"
+          ],
+          "procedure": [
+            "q.software.epostal.017"
+          ]
+        }
+      },
+      {
+        "task_id": "task.epostal-send",
+        "source_file": "artifacts/answers/source/cards/task.epostal-send.json",
+        "case_ids": [
+          "q.software.epostal.018",
+          "q.software.epostal.019",
+          "q.software.epostal.020",
+          "q.software.epostal.021",
+          "q.software.epostal.022",
+          "q.software.epostal.023"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.epostal.018"
+          ],
+          "procedure": [
+            "q.software.epostal.023"
+          ]
+        }
+      },
+      {
+        "task_id": "task.eworkdate-channels",
+        "source_file": "artifacts/answers/source/cards/task.eworkdate-channels.json",
+        "case_ids": [
+          "q.software.eworkdate.006",
+          "q.software.eworkdate.007",
+          "q.software.eworkdate.008",
+          "q.software.eworkdate.009",
+          "q.software.eworkdate.010",
+          "q.software.eworkdate.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eworkdate.006"
+          ],
+          "procedure": [
+            "q.software.eworkdate.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.eworkdate-email",
+        "source_file": "artifacts/answers/source/cards/task.eworkdate-email.json",
+        "case_ids": [
+          "q.software.eworkdate.012",
+          "q.software.eworkdate.013",
+          "q.software.eworkdate.014",
+          "q.software.eworkdate.015",
+          "q.software.eworkdate.016",
+          "q.software.eworkdate.017"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eworkdate.012"
+          ],
+          "procedure": [
+            "q.software.eworkdate.017"
+          ]
+        }
+      },
+      {
+        "task_id": "task.eworkdate-outlook",
+        "source_file": "artifacts/answers/source/cards/task.eworkdate-outlook.json",
+        "case_ids": [
+          "q.software.eworkdate.018",
+          "q.software.eworkdate.019",
+          "q.software.eworkdate.020",
+          "q.software.eworkdate.021",
+          "q.software.eworkdate.022",
+          "q.software.eworkdate.023"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eworkdate.018"
+          ],
+          "procedure": [
+            "q.software.eworkdate.023"
+          ]
+        }
+      },
+      {
+        "task_id": "task.f54e92fd0ba25e278d11f722c94354bf",
+        "source_file": "artifacts/answers/source/cards/task.f54e92fd0ba25e278d11f722c94354bf.json",
+        "case_ids": [
+          "q.policy.labor-rules.021",
+          "q.policy.labor-rules.022",
+          "q.policy.labor-rules.023",
+          "q.policy.labor-rules.024",
+          "q.policy.labor-rules.025"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.labor-rules.021"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.eleave.annual",
+        "source_file": "artifacts/answers/source/cards/task.leave.eleave.annual.json",
+        "case_ids": [
+          "q.software.eleave.006",
+          "q.software.eleave.007",
+          "q.software.eleave.008",
+          "q.software.eleave.009",
+          "q.software.eleave.010",
+          "q.software.eleave.011",
+          "q.software.eleave.012"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eleave.006"
+          ],
+          "procedure": [
+            "q.software.eleave.011"
+          ],
+          "conditions": [
+            "q.software.eleave.012"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.eleave.sessions",
+        "source_file": "artifacts/answers/source/cards/task.leave.eleave.sessions.json",
+        "case_ids": [
+          "q.software.eleave.013",
+          "q.software.eleave.014",
+          "q.software.eleave.015",
+          "q.software.eleave.016",
+          "q.software.eleave.017",
+          "q.software.eleave.018",
+          "q.software.eleave.019",
+          "q.software.eleave.020",
+          "q.boundaries.evidence-availability.009"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.eleave.013"
+          ],
+          "procedure": [
+            "q.software.eleave.018",
+            "q.software.eleave.020"
+          ],
+          "conditions": [
+            "q.software.eleave.019"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.policy.annual",
+        "source_file": "artifacts/answers/source/cards/task.leave.policy.annual.json",
+        "case_ids": [
+          "q.policy.leave.001",
+          "q.policy.leave.002",
+          "q.policy.leave.003",
+          "q.policy.leave.004",
+          "q.policy.leave.005",
+          "q.policy.leave.006",
+          "q.policy.leave.007",
+          "q.conversation.context-and-followups.002"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.leave.001"
+          ],
+          "procedure": [
+            "q.policy.leave.006"
+          ],
+          "conditions": [
+            "q.policy.leave.007"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.policy.unpaid",
+        "source_file": "artifacts/answers/source/cards/task.leave.policy.unpaid.json",
+        "case_ids": [
+          "q.policy.leave.008",
+          "q.policy.leave.009",
+          "q.policy.leave.010",
+          "q.policy.leave.011",
+          "q.policy.leave.012",
+          "q.policy.leave.013",
+          "q.policy.leave.014"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.leave.008"
+          ],
+          "procedure": [
+            "q.policy.leave.013"
+          ],
+          "conditions": [
+            "q.policy.leave.014"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.workit.annual",
+        "source_file": "artifacts/answers/source/cards/task.leave.workit.annual.json",
+        "case_ids": [
+          "q.software.workit.036",
+          "q.software.workit.037",
+          "q.software.workit.038",
+          "q.software.workit.039",
+          "q.software.workit.040",
+          "q.software.workit.041",
+          "q.software.workit.042",
+          "q.software.workit.092",
+          "q.conversation.context-and-followups.002"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.036"
+          ],
+          "procedure": [
+            "q.software.workit.041"
+          ],
+          "conditions": [
+            "q.software.workit.042"
+          ]
+        }
+      },
+      {
+        "task_id": "task.leave.workit.unpaid",
+        "source_file": "artifacts/answers/source/cards/task.leave.workit.unpaid.json",
+        "case_ids": [
+          "q.software.workit.043",
+          "q.software.workit.044",
+          "q.software.workit.045",
+          "q.software.workit.046",
+          "q.software.workit.047",
+          "q.software.workit.048",
+          "q.software.workit.049"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.043"
+          ],
+          "procedure": [
+            "q.software.workit.048"
+          ],
+          "conditions": [
+            "q.software.workit.049"
+          ]
+        }
+      },
+      {
+        "task_id": "task.outlook-admin-room",
+        "source_file": "artifacts/answers/source/cards/task.outlook-admin-room.json",
+        "case_ids": [
+          "q.software.outlook.006",
+          "q.software.outlook.007",
+          "q.software.outlook.008",
+          "q.software.outlook.009",
+          "q.software.outlook.010",
+          "q.software.outlook.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.outlook.006"
+          ],
+          "procedure": [
+            "q.software.outlook.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.outlook-equipment",
+        "source_file": "artifacts/answers/source/cards/task.outlook-equipment.json",
+        "case_ids": [
+          "q.software.outlook.012",
+          "q.software.outlook.013",
+          "q.software.outlook.014",
+          "q.software.outlook.015",
+          "q.software.outlook.016",
+          "q.software.outlook.017"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.outlook.012"
+          ],
+          "procedure": [
+            "q.software.outlook.017"
+          ]
+        }
+      },
+      {
+        "task_id": "task.outlook-room-calendar",
+        "source_file": "artifacts/answers/source/cards/task.outlook-room-calendar.json",
+        "case_ids": [
+          "q.software.outlook.018",
+          "q.software.outlook.019",
+          "q.software.outlook.020",
+          "q.software.outlook.021",
+          "q.software.outlook.022",
+          "q.software.outlook.023"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.outlook.018"
+          ],
+          "procedure": [
+            "q.software.outlook.023"
+          ]
+        }
+      },
+      {
+        "task_id": "task.outlook-room-delete",
+        "source_file": "artifacts/answers/source/cards/task.outlook-room-delete.json",
+        "case_ids": [
+          "q.software.outlook.024",
+          "q.software.outlook.025",
+          "q.software.outlook.026",
+          "q.software.outlook.027",
+          "q.software.outlook.028",
+          "q.software.outlook.029"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.outlook.024"
+          ],
+          "procedure": [
+            "q.software.outlook.029"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-approve",
+        "source_file": "artifacts/answers/source/cards/task.workit-approve.json",
+        "case_ids": [
+          "q.software.workit.050",
+          "q.software.workit.051",
+          "q.software.workit.052",
+          "q.software.workit.053",
+          "q.software.workit.054",
+          "q.software.workit.055"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.050"
+          ],
+          "procedure": [
+            "q.software.workit.055"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-download",
+        "source_file": "artifacts/answers/source/cards/task.workit-download.json",
+        "case_ids": [
+          "q.software.workit.056",
+          "q.software.workit.057",
+          "q.software.workit.058",
+          "q.software.workit.059",
+          "q.software.workit.060",
+          "q.software.workit.061"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.056"
+          ],
+          "procedure": [
+            "q.software.workit.061"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-incoming",
+        "source_file": "artifacts/answers/source/cards/task.workit-incoming.json",
+        "case_ids": [
+          "q.software.workit.062",
+          "q.software.workit.063",
+          "q.software.workit.064",
+          "q.software.workit.065",
+          "q.software.workit.066",
+          "q.software.workit.067"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.062"
+          ],
+          "procedure": [
+            "q.software.workit.067"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-password",
+        "source_file": "artifacts/answers/source/cards/task.workit-password.json",
+        "case_ids": [
+          "q.software.workit.068",
+          "q.software.workit.069",
+          "q.software.workit.070",
+          "q.software.workit.071",
+          "q.software.workit.072",
+          "q.software.workit.073"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.068"
+          ],
+          "procedure": [
+            "q.software.workit.073"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-return",
+        "source_file": "artifacts/answers/source/cards/task.workit-return.json",
+        "case_ids": [
+          "q.software.workit.074",
+          "q.software.workit.075",
+          "q.software.workit.076",
+          "q.software.workit.077",
+          "q.software.workit.078",
+          "q.software.workit.079"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.074"
+          ],
+          "procedure": [
+            "q.software.workit.079"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-sharing",
+        "source_file": "artifacts/answers/source/cards/task.workit-sharing.json",
+        "case_ids": [
+          "q.software.workit.080",
+          "q.software.workit.081",
+          "q.software.workit.082",
+          "q.software.workit.083",
+          "q.software.workit.084",
+          "q.software.workit.085"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.080"
+          ],
+          "procedure": [
+            "q.software.workit.085"
+          ]
+        }
+      },
+      {
+        "task_id": "task.workit-shortcuts",
+        "source_file": "artifacts/answers/source/cards/task.workit-shortcuts.json",
+        "case_ids": [
+          "q.software.workit.086",
+          "q.software.workit.087",
+          "q.software.workit.088",
+          "q.software.workit.089",
+          "q.software.workit.090",
+          "q.software.workit.091"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.workit.086"
+          ],
+          "procedure": [
+            "q.software.workit.091"
+          ]
+        }
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+        "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.labor-rules.006",
+          "q.policy.labor-rules.007",
+          "q.policy.labor-rules.008",
+          "q.policy.labor-rules.009",
+          "q.policy.labor-rules.010"
+        ]
+      },
+      {
+        "document_id": "130dbf93-cbc9-4aa1-86bd-6a00486919b6",
+        "revision_id": "e12a6fc4-9d4b-40a2-b386-8343e2da5194",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.source-guidance.001",
+          "q.policy.source-guidance.002",
+          "q.policy.source-guidance.003",
+          "q.policy.source-guidance.004",
+          "q.policy.source-guidance.005"
+        ]
+      },
+      {
+        "document_id": "1c42626a-099e-463f-8097-4b64afe29bac",
+        "revision_id": "606eca44-b15c-4b7c-ae02-e80e7e05353c",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.travel.001",
+          "q.policy.travel.002",
+          "q.policy.travel.003",
+          "q.policy.travel.004",
+          "q.policy.travel.005"
+        ]
+      },
+      {
+        "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+        "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.administration.001",
+          "q.policy.administration.002",
+          "q.policy.administration.003",
+          "q.policy.administration.004",
+          "q.policy.administration.005"
+        ]
+      },
+      {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.011",
+          "q.software.workit.012",
+          "q.software.workit.013",
+          "q.software.workit.014",
+          "q.software.workit.015"
+        ]
+      },
+      {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.bravo.001",
+          "q.software.bravo.002",
+          "q.software.bravo.003",
+          "q.software.bravo.004",
+          "q.software.bravo.005",
+          "q.software.bravo.006",
+          "q.software.bravo.007",
+          "q.software.bravo.008",
+          "q.software.bravo.009",
+          "q.software.bravo.010",
+          "q.software.bravo.011",
+          "q.software.bravo.012",
+          "q.software.bravo.013",
+          "q.software.bravo.014",
+          "q.software.bravo.015",
+          "q.software.bravo.016",
+          "q.software.bravo.017",
+          "q.software.bravo.018",
+          "q.software.bravo.019",
+          "q.software.bravo.020",
+          "q.software.bravo.021",
+          "q.software.bravo.022",
+          "q.software.bravo.023"
+        ]
+      },
+      {
+        "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.026",
+          "q.software.workit.027",
+          "q.software.workit.028",
+          "q.software.workit.029",
+          "q.software.workit.030",
+          "q.software.workit.050",
+          "q.software.workit.051",
+          "q.software.workit.052",
+          "q.software.workit.053",
+          "q.software.workit.054",
+          "q.software.workit.055",
+          "q.software.workit.074",
+          "q.software.workit.075",
+          "q.software.workit.076",
+          "q.software.workit.077",
+          "q.software.workit.078",
+          "q.software.workit.079"
+        ]
+      },
+      {
+        "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+        "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.workplace-safety.011",
+          "q.policy.workplace-safety.012",
+          "q.policy.workplace-safety.013",
+          "q.policy.workplace-safety.014",
+          "q.policy.workplace-safety.015"
+        ]
+      },
+      {
+        "document_id": "57cc6d6b-64eb-4c61-a462-3e961e68044d",
+        "revision_id": "8c87c663-47cd-44ff-9ecb-a3717796ccfa",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.travel.006",
+          "q.policy.travel.007",
+          "q.policy.travel.008",
+          "q.policy.travel.009",
+          "q.policy.travel.010"
+        ]
+      },
+      {
+        "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+        "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.outlook.001",
+          "q.software.outlook.002",
+          "q.software.outlook.003",
+          "q.software.outlook.004",
+          "q.software.outlook.005",
+          "q.software.outlook.006",
+          "q.software.outlook.007",
+          "q.software.outlook.008",
+          "q.software.outlook.009",
+          "q.software.outlook.010",
+          "q.software.outlook.011",
+          "q.software.outlook.012",
+          "q.software.outlook.013",
+          "q.software.outlook.014",
+          "q.software.outlook.015",
+          "q.software.outlook.016",
+          "q.software.outlook.017",
+          "q.software.outlook.018",
+          "q.software.outlook.019",
+          "q.software.outlook.020",
+          "q.software.outlook.021",
+          "q.software.outlook.022",
+          "q.software.outlook.023",
+          "q.software.outlook.024",
+          "q.software.outlook.025",
+          "q.software.outlook.026",
+          "q.software.outlook.027",
+          "q.software.outlook.028",
+          "q.software.outlook.029"
+        ]
+      },
+      {
+        "document_id": "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+        "revision_id": "3e269d18-abf8-4909-a38e-85c64890171c",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.labor-rules.011",
+          "q.policy.labor-rules.012",
+          "q.policy.labor-rules.013",
+          "q.policy.labor-rules.014",
+          "q.policy.labor-rules.015"
+        ]
+      },
+      {
+        "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.eleave.001",
+          "q.software.eleave.002",
+          "q.software.eleave.003",
+          "q.software.eleave.004",
+          "q.software.eleave.005",
+          "q.software.eleave.006",
+          "q.software.eleave.007",
+          "q.software.eleave.008",
+          "q.software.eleave.009",
+          "q.software.eleave.010",
+          "q.software.eleave.011",
+          "q.software.eleave.012",
+          "q.software.eleave.013",
+          "q.software.eleave.014",
+          "q.software.eleave.015",
+          "q.software.eleave.016",
+          "q.software.eleave.017",
+          "q.software.eleave.018",
+          "q.software.eleave.019",
+          "q.software.eleave.020",
+          "q.boundaries.evidence-availability.009"
+        ]
+      },
+      {
+        "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.043",
+          "q.software.workit.044",
+          "q.software.workit.045",
+          "q.software.workit.046",
+          "q.software.workit.047",
+          "q.software.workit.048",
+          "q.software.workit.049",
+          "q.policy.labor-rules.001",
+          "q.policy.labor-rules.002",
+          "q.policy.labor-rules.003",
+          "q.policy.labor-rules.004",
+          "q.policy.labor-rules.005",
+          "q.policy.leave.001",
+          "q.policy.leave.002",
+          "q.policy.leave.003",
+          "q.policy.leave.004",
+          "q.policy.leave.005",
+          "q.policy.leave.006",
+          "q.policy.leave.007",
+          "q.policy.leave.008",
+          "q.policy.leave.009",
+          "q.policy.leave.010",
+          "q.policy.leave.011",
+          "q.policy.leave.012",
+          "q.policy.leave.013",
+          "q.policy.leave.014",
+          "q.mixed.policy-and-profile.001",
+          "q.conversation.context-and-followups.002"
+        ]
+      },
+      {
+        "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+        "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.workplace-safety.006",
+          "q.policy.workplace-safety.007",
+          "q.policy.workplace-safety.008",
+          "q.policy.workplace-safety.009",
+          "q.policy.workplace-safety.010"
+        ]
+      },
+      {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.016",
+          "q.software.workit.017",
+          "q.software.workit.018",
+          "q.software.workit.019",
+          "q.software.workit.020"
+        ]
+      },
+      {
+        "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+        "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.travel.011",
+          "q.policy.travel.012",
+          "q.policy.travel.013",
+          "q.policy.travel.014",
+          "q.policy.travel.015"
+        ]
+      },
+      {
+        "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+        "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.workplace-safety.001",
+          "q.policy.workplace-safety.002",
+          "q.policy.workplace-safety.003",
+          "q.policy.workplace-safety.004",
+          "q.policy.workplace-safety.005"
+        ]
+      },
+      {
+        "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+        "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.benefits.001",
+          "q.policy.benefits.002",
+          "q.policy.benefits.003",
+          "q.policy.benefits.004",
+          "q.policy.benefits.005"
+        ]
+      },
+      {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.031",
+          "q.software.workit.032",
+          "q.software.workit.033",
+          "q.software.workit.034",
+          "q.software.workit.035"
+        ]
+      },
+      {
+        "document_id": "b020eea1-3bed-43a3-b18d-359c7a236e95",
+        "revision_id": "d0a29e84-fed8-4bfb-a5ca-c9fc8b65c78e",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.labor-rules.016",
+          "q.policy.labor-rules.017",
+          "q.policy.labor-rules.018",
+          "q.policy.labor-rules.019",
+          "q.policy.labor-rules.020"
+        ]
+      },
+      {
+        "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+        "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.administration.011",
+          "q.policy.administration.012",
+          "q.policy.administration.013",
+          "q.policy.administration.014",
+          "q.policy.administration.015"
+        ]
+      },
+      {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.001",
+          "q.software.workit.002",
+          "q.software.workit.003",
+          "q.software.workit.004",
+          "q.software.workit.005",
+          "q.software.workit.068",
+          "q.software.workit.069",
+          "q.software.workit.070",
+          "q.software.workit.071",
+          "q.software.workit.072",
+          "q.software.workit.073",
+          "q.software.workit.086",
+          "q.software.workit.087",
+          "q.software.workit.088",
+          "q.software.workit.089",
+          "q.software.workit.090",
+          "q.software.workit.091"
+        ]
+      },
+      {
+        "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+        "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.eworkdate.001",
+          "q.software.eworkdate.002",
+          "q.software.eworkdate.003",
+          "q.software.eworkdate.004",
+          "q.software.eworkdate.005",
+          "q.software.eworkdate.006",
+          "q.software.eworkdate.007",
+          "q.software.eworkdate.008",
+          "q.software.eworkdate.009",
+          "q.software.eworkdate.010",
+          "q.software.eworkdate.011",
+          "q.software.eworkdate.012",
+          "q.software.eworkdate.013",
+          "q.software.eworkdate.014",
+          "q.software.eworkdate.015",
+          "q.software.eworkdate.016",
+          "q.software.eworkdate.017",
+          "q.software.eworkdate.018",
+          "q.software.eworkdate.019",
+          "q.software.eworkdate.020",
+          "q.software.eworkdate.021",
+          "q.software.eworkdate.022",
+          "q.software.eworkdate.023"
+        ]
+      },
+      {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.021",
+          "q.software.workit.022",
+          "q.software.workit.023",
+          "q.software.workit.024",
+          "q.software.workit.025",
+          "q.software.workit.056",
+          "q.software.workit.057",
+          "q.software.workit.058",
+          "q.software.workit.059",
+          "q.software.workit.060",
+          "q.software.workit.061",
+          "q.software.workit.062",
+          "q.software.workit.063",
+          "q.software.workit.064",
+          "q.software.workit.065",
+          "q.software.workit.066",
+          "q.software.workit.067",
+          "q.software.workit.080",
+          "q.software.workit.081",
+          "q.software.workit.082",
+          "q.software.workit.083",
+          "q.software.workit.084",
+          "q.software.workit.085"
+        ]
+      },
+      {
+        "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+        "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.administration.006",
+          "q.policy.administration.007",
+          "q.policy.administration.008",
+          "q.policy.administration.009",
+          "q.policy.administration.010"
+        ]
+      },
+      {
+        "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+        "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.labor-rules.021",
+          "q.policy.labor-rules.022",
+          "q.policy.labor-rules.023",
+          "q.policy.labor-rules.024",
+          "q.policy.labor-rules.025"
+        ]
+      },
+      {
+        "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+        "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.policy.benefits.006",
+          "q.policy.benefits.007",
+          "q.policy.benefits.008",
+          "q.policy.benefits.009",
+          "q.policy.benefits.010",
+          "q.policy.benefits.011",
+          "q.policy.benefits.012",
+          "q.policy.benefits.013",
+          "q.policy.benefits.014",
+          "q.policy.benefits.015",
+          "q.policy.benefits.016",
+          "q.policy.benefits.017",
+          "q.policy.benefits.018",
+          "q.policy.benefits.019",
+          "q.policy.benefits.020",
+          "q.policy.benefits.021",
+          "q.policy.benefits.022",
+          "q.policy.benefits.023",
+          "q.policy.benefits.024",
+          "q.policy.benefits.025",
+          "q.policy.benefits.026",
+          "q.policy.benefits.027",
+          "q.policy.benefits.028",
+          "q.policy.benefits.029",
+          "q.policy.benefits.030",
+          "q.policy.benefits.031",
+          "q.policy.benefits.032",
+          "q.policy.benefits.033",
+          "q.policy.benefits.034",
+          "q.policy.benefits.035",
+          "q.policy.benefits.036",
+          "q.mixed.policy-and-profile.002",
+          "q.mixed.policy-and-profile.003",
+          "q.mixed.policy-and-profile.004",
+          "q.conversation.context-and-followups.001",
+          "q.conversation.context-and-followups.003",
+          "q.conversation.context-and-followups.006",
+          "q.conversation.context-and-followups.007",
+          "q.conversation.context-and-followups.009",
+          "q.conversation.context-and-followups.010",
+          "q.boundaries.evidence-availability.001",
+          "q.boundaries.evidence-availability.002",
+          "q.boundaries.evidence-availability.003",
+          "q.boundaries.evidence-availability.004",
+          "q.boundaries.evidence-availability.005",
+          "q.boundaries.evidence-availability.006",
+          "q.boundaries.evidence-availability.011"
+        ]
+      },
+      {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.workit.006",
+          "q.software.workit.007",
+          "q.software.workit.008",
+          "q.software.workit.009",
+          "q.software.workit.010",
+          "q.software.workit.036",
+          "q.software.workit.037",
+          "q.software.workit.038",
+          "q.software.workit.039",
+          "q.software.workit.040",
+          "q.software.workit.041",
+          "q.software.workit.042",
+          "q.software.workit.043",
+          "q.software.workit.044",
+          "q.software.workit.045",
+          "q.software.workit.046",
+          "q.software.workit.047",
+          "q.software.workit.048",
+          "q.software.workit.049",
+          "q.software.workit.092",
+          "q.conversation.context-and-followups.002"
+        ]
+      },
+      {
+        "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+        "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+        "indexing_decision": "include",
+        "case_ids": [
+          "q.software.epostal.001",
+          "q.software.epostal.002",
+          "q.software.epostal.003",
+          "q.software.epostal.004",
+          "q.software.epostal.005",
+          "q.software.epostal.006",
+          "q.software.epostal.007",
+          "q.software.epostal.008",
+          "q.software.epostal.009",
+          "q.software.epostal.010",
+          "q.software.epostal.011",
+          "q.software.epostal.012",
+          "q.software.epostal.013",
+          "q.software.epostal.014",
+          "q.software.epostal.015",
+          "q.software.epostal.016",
+          "q.software.epostal.017",
+          "q.software.epostal.018",
+          "q.software.epostal.019",
+          "q.software.epostal.020",
+          "q.software.epostal.021",
+          "q.software.epostal.022",
+          "q.software.epostal.023"
+        ]
+      }
+    ],
+    "employee_fields": [
+      {
+        "field": "employee_name",
+        "case_ids": [
+          "q.employee.self-work-profile.001",
+          "q.employee.self-work-profile.002",
+          "q.employee.self-work-profile.003"
+        ]
+      },
+      {
+        "field": "employee_code",
+        "case_ids": [
+          "q.employee.self-work-profile.004",
+          "q.employee.self-work-profile.005",
+          "q.employee.self-work-profile.006"
+        ]
+      },
+      {
+        "field": "job_title",
+        "case_ids": [
+          "q.employee.self-work-profile.007",
+          "q.employee.self-work-profile.008",
+          "q.employee.self-work-profile.009",
+          "q.employee.self-work-profile.028",
+          "q.mixed.policy-and-profile.001",
+          "q.conversation.context-and-followups.004",
+          "q.conversation.context-and-followups.008"
+        ]
+      },
+      {
+        "field": "department_name",
+        "case_ids": [
+          "q.employee.self-work-profile.010",
+          "q.employee.self-work-profile.011",
+          "q.employee.self-work-profile.012",
+          "q.employee.self-work-profile.028",
+          "q.employee.self-work-profile.031",
+          "q.mixed.policy-and-profile.003",
+          "q.conversation.context-and-followups.004",
+          "q.conversation.context-and-followups.007",
+          "q.conversation.context-and-followups.008"
+        ]
+      },
+      {
+        "field": "manager_name",
+        "case_ids": [
+          "q.employee.self-work-profile.013",
+          "q.employee.self-work-profile.014",
+          "q.employee.self-work-profile.015",
+          "q.employee.self-work-profile.030",
+          "q.conversation.context-and-followups.004"
+        ]
+      },
+      {
+        "field": "probation_date",
+        "case_ids": [
+          "q.employee.self-work-profile.016",
+          "q.employee.self-work-profile.017",
+          "q.employee.self-work-profile.018",
+          "q.employee.self-work-profile.029"
+        ]
+      },
+      {
+        "field": "probation_end_date",
+        "case_ids": [
+          "q.employee.self-work-profile.019",
+          "q.employee.self-work-profile.020",
+          "q.employee.self-work-profile.021"
+        ]
+      },
+      {
+        "field": "official_date",
+        "case_ids": [
+          "q.employee.self-work-profile.022",
+          "q.employee.self-work-profile.023",
+          "q.employee.self-work-profile.024",
+          "q.employee.self-work-profile.029",
+          "q.mixed.policy-and-profile.002",
+          "q.mixed.policy-and-profile.004"
+        ]
+      },
+      {
+        "field": "resignation_date",
+        "case_ids": [
+          "q.employee.self-work-profile.025",
+          "q.employee.self-work-profile.026",
+          "q.employee.self-work-profile.027"
+        ]
+      }
+    ],
+    "retrieval_routes": [
+      {
+        "route_id": "leave.eleave.annual",
+        "task_id": "task.leave.eleave.annual",
+        "case_ids": [
+          "q.software.eleave.006",
+          "q.software.eleave.007",
+          "q.software.eleave.008",
+          "q.software.eleave.009",
+          "q.software.eleave.010",
+          "q.software.eleave.011",
+          "q.software.eleave.012"
+        ]
+      },
+      {
+        "route_id": "leave.eleave.sessions",
+        "task_id": "task.leave.eleave.sessions",
+        "case_ids": [
+          "q.software.eleave.013",
+          "q.software.eleave.014",
+          "q.software.eleave.015",
+          "q.software.eleave.016",
+          "q.software.eleave.017",
+          "q.software.eleave.018",
+          "q.software.eleave.019",
+          "q.software.eleave.020",
+          "q.boundaries.evidence-availability.009"
+        ]
+      },
+      {
+        "route_id": "leave.policy.annual",
+        "task_id": "task.leave.policy.annual",
+        "case_ids": [
+          "q.policy.leave.001",
+          "q.policy.leave.002",
+          "q.policy.leave.003",
+          "q.policy.leave.004",
+          "q.policy.leave.005",
+          "q.policy.leave.006",
+          "q.policy.leave.007",
+          "q.conversation.context-and-followups.002"
+        ]
+      },
+      {
+        "route_id": "leave.policy.unpaid",
+        "task_id": "task.leave.policy.unpaid",
+        "case_ids": [
+          "q.policy.leave.008",
+          "q.policy.leave.009",
+          "q.policy.leave.010",
+          "q.policy.leave.011",
+          "q.policy.leave.012",
+          "q.policy.leave.013",
+          "q.policy.leave.014"
+        ]
+      },
+      {
+        "route_id": "leave.workit.annual",
+        "task_id": "task.leave.workit.annual",
+        "case_ids": [
+          "q.software.workit.036",
+          "q.software.workit.037",
+          "q.software.workit.038",
+          "q.software.workit.039",
+          "q.software.workit.040",
+          "q.software.workit.041",
+          "q.software.workit.042",
+          "q.software.workit.092",
+          "q.conversation.context-and-followups.002"
+        ]
+      },
+      {
+        "route_id": "leave.workit.unpaid",
+        "task_id": "task.leave.workit.unpaid",
+        "case_ids": [
+          "q.software.workit.043",
+          "q.software.workit.044",
+          "q.software.workit.045",
+          "q.software.workit.046",
+          "q.software.workit.047",
+          "q.software.workit.048",
+          "q.software.workit.049"
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "At initial question authoring, working-tree source indexes and runtime retrieval catalog could not be read due to filesystem permissions. Coverage used all 58 readable on-disk answer cards and six readable route files; declaration membership and runtime assembly were not verified in that authoring step.",
+    "Coverage means authored questions reference a task/aspect/document, not complete source-chunk, alias or policy coverage. Source content, applicability and publication must be independently reviewed before any execution acceptance.",
+    "Question scenarios have not been executed through an API, model, database or test runner. No automatic grading or live quality evaluation is established by authoring or Git-policy checks.",
+    "Runtime recognition of paraphrases, spelling variants, safety prompts and ambiguity scenarios is unverified; expectations are review criteria, not claims of passing behavior.",
+    "The Git allowlist now permits README.md, index.json and direct JSON children of the six question groups. The inventory checker only permits indexed group files as nonruntime sources; it does not grade cases or add them to runtime manifests. Root-level reports, backup extensions and unknown/nested paths remain ignored; an unlisted group JSON is rejected once tracked. No staging, commit or push is performed automatically."
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.workplace-safety",
+  "description": "Authored question scenarios for policy / workplace-safety. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.workplace-safety.001",
+      "title": "An toàn tại tòa nhà Tây Đô — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0df4b30f4eb95c3aa3d8f7773b7811e6"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định an toàn tại tòa nhà Tây Đô gồm những nội dung nào?",
+          "expectation": "Trả lời trong phạm vi An toàn tại tòa nhà Tây Đô từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.002",
+      "title": "An toàn tại tòa nhà Tây Đô — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0df4b30f4eb95c3aa3d8f7773b7811e6"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khi làm việc ở tòa nhà Tây Đô cần chú ý gì về an toàn?",
+          "expectation": "Trả lời trong phạm vi An toàn tại tòa nhà Tây Đô từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.003",
+      "title": "An toàn tại tòa nhà Tây Đô — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0df4b30f4eb95c3aa3d8f7773b7811e6"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi lần đầu đến văn phòng Tây Đô, cần xem quy định an toàn nào?",
+          "expectation": "Trả lời trong phạm vi An toàn tại tòa nhà Tây Đô từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.004",
+      "title": "An toàn tại tòa nhà Tây Đô — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0df4b30f4eb95c3aa3d8f7773b7811e6"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy dinh an toan tai toa nha Tay Do gom nhung noi dung nao?",
+          "expectation": "Trả lời trong phạm vi An toàn tại tòa nhà Tây Đô từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.005",
+      "title": "An toàn tại tòa nhà Tây Đô — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.0df4b30f4eb95c3aa3d8f7773b7811e6"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định an toàn Tây Đô có áp dụng cho mọi tòa nhà khác không?",
+          "expectation": "Giữ phạm vi tòa nhà Tây Đô; không tự áp dụng quy định này cho tòa nhà khác khi chưa có nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.006",
+      "title": "Thay đổi nhân sự bảo vệ — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.222263534455596c808866a1bd7034d1"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định thay đổi nhân sự bảo vệ như thế nào?",
+          "expectation": "Trả lời trong phạm vi Thay đổi nhân sự bảo vệ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.007",
+      "title": "Thay đổi nhân sự bảo vệ — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.222263534455596c808866a1bd7034d1"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Cần lưu ý gì khi thay người trực bảo vệ?",
+          "expectation": "Trả lời trong phạm vi Thay đổi nhân sự bảo vệ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.008",
+      "title": "Thay đổi nhân sự bảo vệ — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.222263534455596c808866a1bd7034d1"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nếu bảo vệ bỏ vị trí thì cần tra cứu quy định nào?",
+          "expectation": "Trả lời trong phạm vi Thay đổi nhân sự bảo vệ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.009",
+      "title": "Thay đổi nhân sự bảo vệ — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.222263534455596c808866a1bd7034d1"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy dinh thay doi nhan su bao ve nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Thay đổi nhân sự bảo vệ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.010",
+      "title": "Thay đổi nhân sự bảo vệ — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.222263534455596c808866a1bd7034d1"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi biết danh sách bảo vệ đang trực ngay lúc này.",
+          "expectation": "Nêu không có nguồn trực tiếp về ca trực; không tạo danh sách nhân sự bảo vệ hiện tại từ quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.011",
+      "title": "Niêm phong khi hết giờ — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3ff5d4c2375c5ad5aead201af766a8ec"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khi hết giờ làm việc cần niêm phong cửa như thế nào?",
+          "expectation": "Trả lời trong phạm vi Niêm phong khi hết giờ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.012",
+      "title": "Niêm phong khi hết giờ — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3ff5d4c2375c5ad5aead201af766a8ec"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định dán giấy niêm phong cuối ngày là gì?",
+          "expectation": "Trả lời trong phạm vi Niêm phong khi hết giờ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.013",
+      "title": "Niêm phong khi hết giờ — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3ff5d4c2375c5ad5aead201af766a8ec"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi được giao đóng cửa cuối ngày, cần đọc hướng dẫn niêm phong nào?",
+          "expectation": "Trả lời trong phạm vi Niêm phong khi hết giờ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.014",
+      "title": "Niêm phong khi hết giờ — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.3ff5d4c2375c5ad5aead201af766a8ec"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khi het gio lam viec can niem phong cua nhu the nao?",
+          "expectation": "Trả lời trong phạm vi Niêm phong khi hết giờ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.workplace-safety.015",
+      "title": "Niêm phong khi hết giờ — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.3ff5d4c2375c5ad5aead201af766a8ec"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xác nhận giúp tôi cửa kho hiện đã niêm phong an toàn.",
+          "expectation": "Không xác nhận trạng thái cửa kho hiện tại từ tài liệu hướng dẫn niêm phong."
+        }
+      ]
+    }
+  ]
+}

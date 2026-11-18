@@ -1,4 +1,5 @@
 """Synthetic HTTP lifecycle and retrieval contracts; no database/model needed."""
+from src.tests.http_fixtures import SERVICE_KEY, SERVICE_HEADERS, http_service_environment
 import asyncio
 import logging
 import os
@@ -23,7 +24,7 @@ from src.retrieval import storage
 
 
 def settings(**changes):
-    return Settings(**(dict(model_path=Path('unused'), model_revision='a' * 40) | changes))
+    return Settings(**(dict(model_path=Path('unused'), model_revision='a' * 40, service_key=SERVICE_KEY) | changes))
 
 
 def match():
@@ -44,7 +45,7 @@ def service(**changes):
 
 def test_http_contract_lifecycle_defaults_and_removed_route():
     svc = service(top_k=7)
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         assert client.get('/health/live').status_code == client.get('/health/ready').status_code == 200
         assert client.post('/api/v1/ask', json={'text': 'Question'}).status_code == 404
         schema = client.get('/openapi.json').json()
@@ -71,7 +72,7 @@ def test_http_contract_lifecycle_defaults_and_removed_route():
     *[{'text': 'ok', 'top_k': value} for value in (0, 21, True, '5', 1.5, None)]])
 def test_invalid_requests(body, caplog):
     svc = service()
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json=body)
         assert response.status_code == 422
         assert response.json()['error']['code'] == 'invalid_request'
@@ -83,7 +84,7 @@ def test_invalid_requests(body, caplog):
 def test_empty_and_mismatch(status):
     svc = service()
     svc.retrieval.retrieve.return_value = {'status': status, 'matches': [], 'fallback_reason': 'no_candidates' if status == 'no_matches' else 'no_eligible_documents'}
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json={'text': 'Question'})
     assert response.status_code == (503 if status == 'model_mismatch' else 200)
     assert response.json().get('status', response.json().get('error', {}).get('code')) == status
@@ -98,7 +99,7 @@ def test_empty_and_mismatch(status):
 def test_safe_failures(error, status, code, caplog):
     svc = service()
     svc.retrieval.retrieve.side_effect = error
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json={'text': 'private question'})
     assert response.status_code == status and response.json()['error']['code'] == code
     assert 'secret' not in response.text + caplog.text
@@ -111,7 +112,7 @@ def test_partial_startup_cleanup(stage):
     target = svc.retrieval.start if stage == 'model' else svc.database_check
     target.side_effect = RuntimeError('private diagnostic')
     with pytest.raises(RuntimeError, match='API lifecycle failed'):
-        with TestClient(create_app(svc.settings, service_factory=lambda _: svc)):
+        with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS):
             pass
     svc.retrieval.close.assert_awaited_once()
     svc.database_close.assert_awaited_once()
@@ -168,7 +169,7 @@ def test_worker_drains_before_releasing_busy_and_health_stays_live(monkeypatch, 
             assert not task.done() and svc.busy
             app = create_app(svc.settings)
             app.state.retrieval_service = svc
-            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test') as client:
+            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test', headers=SERVICE_HEADERS) as client:
                 assert (await client.get('/health/live')).status_code == 200
                 assert (await client.get('/health/ready')).status_code == 200
                 assert (await client.post('/api/v1/retrieve', json={'text': 'Second'})).status_code == 429
@@ -252,7 +253,7 @@ def test_accepted_relevance_preserves_provenance_and_reports_raw_score():
     svc.retrieval.retrieve.return_value = dict(status='matches_found', matches=[source], fallback_reason=None,
         relevance={'status': 'relevant_candidates', 'warnings': ['evidence_completeness_not_assessed']},
         rerank_seconds=.25)
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json={'text': 'A synthetic unrelated question'})
         assert response.status_code == 200
         body = response.json()
@@ -269,7 +270,7 @@ def test_accepted_relevance_preserves_provenance_and_reports_raw_score():
 def test_fallback_http_contract(reason):
     svc = service()
     svc.retrieval.retrieve.return_value = dict(status='no_matches', matches=[], fallback_reason=reason)
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         schema = client.get('/openapi.json').json()['components']['schemas']['RetrievalResponse']
         assert 'fallback_reason' in schema['required']
         response = client.post('/api/v1/retrieve', json={'text': 'Question', 'top_k': 5})
@@ -281,7 +282,7 @@ def test_fallback_http_contract(reason):
 def test_inconsistent_service_response_is_not_empty_evidence():
     svc = service()
     svc.retrieval.retrieve.return_value['fallback_reason'] = 'relevance_unavailable'
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 503
 
 
@@ -373,7 +374,7 @@ def test_http_independent_filter_and_rerank_with_real_service(monkeypatch, reran
             dict(match(), chunk_id=f'chunk-{i}', chunk_index=i, cosine_distance=i / 10) for i in range(3)])
     monkeypatch.setattr(storage, 'search', AsyncMock(side_effect=search))
     svc = ApiService(settings(rerank=RerankSettings(enabled=rerank_enabled)), database_check=AsyncMock(), database_close=AsyncMock())
-    with TestClient(create_app(svc.settings, service_factory=lambda _: svc)) as client:
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         response = client.post('/api/v1/retrieve', json=dict(text='Fictional policy?', top_k=2))
         assert response.status_code == 200
         result = response.json()

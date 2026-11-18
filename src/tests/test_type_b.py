@@ -1,4 +1,5 @@
 """Fictional HRM HTTP contracts and ownership; no .env, database or model access."""
+from src.tests.http_fixtures import SERVICE_KEY, SERVICE_HEADERS, http_service_environment
 import asyncio
 from dataclasses import replace
 from pathlib import Path
@@ -56,8 +57,8 @@ def service(*, enabled=True, hint=None, personnel=None):
         prepare_query=AsyncMock(side_effect=lambda text, top_k: SimpleNamespace(question=text, hint=hint or UNKNOWN)))
     employee = SimpleNamespace(check_source=AsyncMock(), close=AsyncMock(),
         find_by_user_id=AsyncMock(return_value=personnel if personnel is not None else profile()))
-    settings = Settings(Path('unused'), 'a'*40, type_b=TypeBSettings(enabled, KEY if enabled else None),
-                        answer=AnswerSettings(enabled=True))
+    settings = Settings(Path('unused'), 'a'*40, type_b=TypeBSettings(enabled),
+                        answer=AnswerSettings(enabled=True), service_key=SERVICE_KEY)
     owner = ApiService(settings, retrieval=retrieval, employee_service=employee,
                        database_check=AsyncMock(), database_close=AsyncMock())
     return owner, employee
@@ -184,9 +185,9 @@ def test_source_failures_never_fall_back_to_policy(endpoint, error, status, capl
 def test_type_a_preserves_shape_without_reading_employee_even_with_reference():
     owner, employee = service()
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        for body, headers in [({'text': 'Chính sách nghỉ phép là gì?'}, {}),
+        for body, headers in [({'text': 'Chính sách nghỉ phép là gì?'}, HEADERS),
                               ({'text': 'Chính sách nghỉ phép là gì?', 'hrm_user_id': 7}, HEADERS),
-                              ({'text': 'Chính sách nghỉ phép là gì?', 'hrm_user_id': None}, {})]:
+                              ({'text': 'Chính sách nghỉ phép là gì?', 'hrm_user_id': None}, HEADERS)]:
             result = client.post('/api/v1/retrieve', json=body, headers=headers)
             assert result.status_code == 200
             assert set(result.json()) == {'status', 'matches', 'fallback_reason', 'relevance', 'timings'}
@@ -268,11 +269,11 @@ def test_policy_and_named_subjects_are_not_treated_as_self_values(question, sour
 def test_http_configuration_loads_type_b_without_logging_the_key(monkeypatch, tmp_path, caplog):
     from src.api import config
     monkeypatch.setattr(config, 'REPOSITORY_ROOT', tmp_path)
-    (tmp_path / '.env').write_text(f'TYPE_B_ENABLED=true\nTYPE_B_SERVICE_KEY={KEY}\n', encoding='utf-8')
+    (tmp_path / '.env').write_text(f'TYPE_B_ENABLED=true\nCHAT_BOT_SERVICE_KEY={KEY}\n', encoding='utf-8')
     monkeypatch.setenv('TYPE_B_ENABLED', 'false')
     monkeypatch.setenv('TYPE_B_SERVICE_KEY', 'different-fictional-key')
     settings = config.load_settings()
-    assert settings.type_b.enabled and settings.type_b.service_key == KEY
+    assert settings.type_b.enabled and settings.service_key == KEY
     assert KEY not in caplog.text + repr(settings)
 
 
@@ -292,7 +293,7 @@ def test_request_deadline_releases_slot_without_retry(monkeypatch):
         await owner.start()
         monkeypatch.setattr(module, 'DEADLINE_SECONDS', 0.02)
         with pytest.raises(ApiError, match='retrieval_timeout'):
-            await owner.execute(QUESTION, 5, 7, KEY)
+            await owner.execute(QUESTION, 5, 7)
         assert finished.is_set() and not owner.busy and owner._idle.is_set()
         employee.find_by_user_id.assert_awaited_once()
         await owner.close()
@@ -313,7 +314,7 @@ def test_failed_hrm_preflight_keeps_type_a_available_and_closes_pool():
     owner, employee = service()
     employee.check_source.side_effect = RuntimeError('restricted-marker')
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        assert client.post('/api/v1/retrieve', json={'text': 'Chính sách nghỉ phép?'}).status_code == 200
+        assert client.post('/api/v1/retrieve', json={'text': 'Chính sách nghỉ phép?'}, headers=HEADERS).status_code == 200
         result = client.post('/api/v1/retrieve', json=dict(text=QUESTION, hrm_user_id=7), headers=HEADERS)
         assert result.status_code == 503
     employee.find_by_user_id.assert_not_awaited()
@@ -323,10 +324,9 @@ def test_failed_hrm_preflight_keeps_type_a_available_and_closes_pool():
 def test_feature_settings_are_strict_and_secret_repr_is_safe():
     assert not TypeBSettings().enabled
     assert KEY not in repr(from_environment({'TYPE_B_ENABLED': 'true', 'TYPE_B_SERVICE_KEY': KEY}))
-    for values in ({'TYPE_B_ENABLED': 'yes'}, {'TYPE_B_ENABLED': 'true'},
-                   {'TYPE_B_ENABLED': 'true', 'TYPE_B_SERVICE_KEY': ' '}):
-        with pytest.raises(ValueError):
-            from_environment(values)
+    assert from_environment({'TYPE_B_ENABLED': 'true', 'TYPE_B_SERVICE_KEY': ' '}).enabled
+    with pytest.raises(ValueError):
+        from_environment({'TYPE_B_ENABLED': 'yes'})
 
 
 def test_original_embedding_reused_without_changing_type_a_storage_or_fingerprints(monkeypatch):
@@ -363,13 +363,13 @@ def test_cancellation_and_shutdown_keep_ownership_through_source_cleanup():
                 await release.wait()
         employee.find_by_user_id.side_effect = read
         await owner.start()
-        task = asyncio.create_task(owner.execute(QUESTION, 5, 7, KEY))
+        task = asyncio.create_task(owner.execute(QUESTION, 5, 7))
         await entered.wait()
         task.cancel()
         await asyncio.sleep(0)
         assert owner.busy
         with pytest.raises(ApiError, match='busy'):
-            await owner.execute(QUESTION, 5, 7, KEY)
+            await owner.execute(QUESTION, 5, 7)
         closing = asyncio.create_task(owner.close())
         await asyncio.sleep(0)
         assert not closing.done()

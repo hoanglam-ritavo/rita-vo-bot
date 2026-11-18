@@ -152,6 +152,7 @@ def _records(rows):
             'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
             'document_id': str(revision.document_id), 'revision_id': str(revision.id),
             'content': chunk.content, 'cosine_distance': float(score), 'title': revision.title,
+            'source_sha256': revision.sha256,
             'author_id': chunk.author_id, 'role': chunk.role,
             'source_path': revision.source_path, 'version_label': revision.version_label,
             'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,

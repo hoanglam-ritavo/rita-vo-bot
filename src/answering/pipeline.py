@@ -52,7 +52,7 @@ def matches_reference(ref, match):
             and all(match.get(key) == value for key, value in ref.metadata.items()))
 
 
-def select_cards(question, catalog, lexicon):
+def select_cards(question, catalog, lexicon, policy=None):
     question = query_variants(question)[-1]
     concepts = matching_concepts(lexicon, question)
     cards = [c for c in catalog.cards
@@ -79,7 +79,25 @@ def select_cards(question, catalog, lexicon):
                 or bool(set(c.concept_ids) & clause_concepts))
             and (not c.requires_any or any(phrase_matches(p, clause) for p in c.requires_any))
             and not any(phrase_matches(p, clause) for p in c.excludes_any))
+    if policy is not None:
+        resolution = resolve_policy(question, catalog, lexicon, policy)
+        if resolution is not None and resolution.state == 'task':
+            return [c for c in catalog.cards if c.id == resolution.task_id], complex_request
+        if resolution is not None and resolution.state in ('clarify','unsupported'):
+            return [], resolution.state == 'clarify'
     return cards, len(cards) > 1 or len(clause_cards) > 1 or complex_request
+
+
+def resolve_policy(question, catalog, lexicon, policy):
+    resolution = policy.resolve(question)
+    if resolution.state in ('clarify','unsupported') and not policy.analyze(question).ambiguous:
+        # A known narrow task (e.g. E-Leave mandatory fields) does not need
+        # registration-only slots. Preserve that existing explicit contract.
+        cards, ambiguous = select_cards(question, catalog, lexicon)
+        routed = {r.task_id for r in policy.catalog.routes} if policy.catalog is not None else set()
+        if len(cards)==1 and not ambiguous and cards[0].id not in routed:
+            return None
+    return resolution
 
 
 def is_document_lookup(question):
@@ -87,11 +105,18 @@ def is_document_lookup(question):
         'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
 
 
-def render(question, result, catalog, lexicon):
+def render(question, result, catalog, lexicon, policy=None):
     relevance = checked_relevance(result)
     row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
            'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
-    cards, ambiguous = select_cards(question, catalog, lexicon)
+    if policy is not None and not is_document_lookup(question):
+        resolution = resolve_policy(question, catalog, lexicon, policy)
+        if resolution is not None and resolution.state in ('clarify','unsupported'):
+            row.update(status='needs_clarification' if resolution.state=='clarify' else 'insufficient_evidence',
+                       reason='leave_needs_clarification' if resolution.state=='clarify' else 'leave_task_unsupported',
+                       limitations=[resolution.message])
+            return row
+    cards, ambiguous = select_cards(question, catalog, lexicon, None if is_document_lookup(question) else policy)
     if ambiguous:
         row.update(status='needs_clarification', reason='needs_clarification', limitations=[
             'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
@@ -151,14 +176,15 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5):
     from src.retrieval.service import validate_request
     from src.retrieval.reranking import relevance
     question = validate_request(question, top_k)
-    cards, ambiguous = select_cards(question, catalog, lexicon)
-    if ambiguous:
-        return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
     if is_document_lookup(question):
         result = await retrieval.retrieve(question, top_k=top_k)
         if result['status'] == 'model_mismatch':
             raise ValueError('model_mismatch')
         return result
+    policy = getattr(retrieval, 'policy', None)
+    cards, ambiguous = select_cards(question, catalog, lexicon, policy)
+    if ambiguous:
+        return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
     refs = [ref for card in cards for aspect in requested_aspects(query_variants(question)[-1])
             for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
     if not refs:
@@ -169,6 +195,6 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5):
 async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5):
     started = time.perf_counter()
     result = await evidence_result(question, retrieval, catalog, lexicon, top_k)
-    row = render(question, result, catalog, lexicon)
+    row = render(question, result, catalog, lexicon, getattr(retrieval, 'policy', None))
     return {**row, 'retrieval_seconds': time.perf_counter() - started,
             'generation_seconds': 0.0, 'verification_seconds': 0.0}

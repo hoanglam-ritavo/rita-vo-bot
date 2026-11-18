@@ -50,7 +50,7 @@ def query_input(model, question):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None, rerank=None, semantic=None):
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None, semantic=None, policy=None):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
         self.device = device
@@ -63,6 +63,8 @@ class RetrievalService:
         self._reranker = None
         self._prepared_owner = object()
         self._semantic = SemanticExpander(semantic or SemanticSettings())
+        from .policy import RetrievalPolicy, DEFAULT_LEXICON
+        self.policy = policy or RetrievalPolicy(lexicon_path=self._semantic.settings.artifact_path or DEFAULT_LEXICON)
         if self._semantic.settings.mode == 'expand' and not self.rerank_settings.enabled:
             raise ValueError('semantic_requires_reranker')
 
@@ -105,6 +107,7 @@ class RetrievalService:
                     await self._worker(self._semantic.start)
                 except ValueError as exc:
                     raise RetrievalError(str(exc), 2) from None
+                await self._worker(self.policy.start)
                 self._model, self._fingerprint = await self._worker(self._load)
                 if self.rerank_settings.enabled:
                     self._reranker = OnnxReranker(self.rerank_settings)
@@ -247,20 +250,26 @@ class RetrievalService:
                 logger.info('reranking_finished candidates=%d windows=%d seconds=%.3f',
                             len(candidates), windows, result['rerank_seconds'])
             result['reranker_fingerprint'] = self._reranker.fingerprint if self._reranker else None
+            started = time.perf_counter()
+            result['matches'] = self.policy.reorder(question, candidates)
+            logger.info('retrieval_policy_sort candidates=%d seconds=%.6f', len(candidates), time.perf_counter()-started)
+            # Internal source hashes validate hints, not public response fields.
+            for match in candidates:
+                match.pop('source_sha256', None)
             if assessment:
                 finalize_candidates(result, top_k)
                 result.pop('candidate_order', None)
                 logger.info('retrieval_finished status=%s reason=%s candidates=%d retained=%d',
                             result['status'], result['fallback_reason'], len(candidates), len(result['matches']))
             else:
-                result['matches'] = candidates
-                result['relevance'] = relevance(candidates)
+                result['relevance'] = relevance(result['matches'])
             result['notice'] = 'Unassessed source candidates; not an answer or completeness guarantee.'
             return result
 
     def _clear_runtime(self):
         self._prepared_owner = object()
         self._semantic.close()
+        self.policy.close()
         if self._reranker:
             self._reranker.close()
             self._reranker = None

@@ -1,0 +1,791 @@
+{
+  "schema_version": 1,
+  "group_id": "employee.self-work-profile",
+  "description": "Authored question scenarios for employee / self-work-profile. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.employee.self-work-profile.001",
+      "title": "Họ tên — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Họ tên của tôi là gì?",
+          "expectation": "Đọc đúng trường employee_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.002",
+      "title": "Họ tên — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Cho tôi biết tên của tôi trong dữ liệu công việc.",
+          "expectation": "Đọc đúng trường employee_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.003",
+      "title": "Họ tên — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường employee_name trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Họ tên của tôi là gì?",
+          "expectation": "Giữ giá trị chưa có của trường employee_name; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.004",
+      "title": "Mã nhân viên — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_code"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Mã nhân viên của tôi là gì?",
+          "expectation": "Đọc đúng trường employee_code của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.005",
+      "title": "Mã nhân viên — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_code"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn biết mã số nhân viên của tôi.",
+          "expectation": "Đọc đúng trường employee_code của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.006",
+      "title": "Mã nhân viên — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "employee_code"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường employee_code trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Mã nhân viên của tôi là gì?",
+          "expectation": "Giữ giá trị chưa có của trường employee_code; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.007",
+      "title": "Chức danh — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì?",
+          "expectation": "Đọc đúng trường job_title của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.008",
+      "title": "Chức danh — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Cho tôi biết vị trí công việc của tôi.",
+          "expectation": "Đọc đúng trường job_title của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.009",
+      "title": "Chức danh — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường job_title trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì?",
+          "expectation": "Giữ giá trị chưa có của trường job_title; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.010",
+      "title": "Phòng ban — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Phòng ban của tôi là gì?",
+          "expectation": "Đọc đúng trường department_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.011",
+      "title": "Phòng ban — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi thuộc đơn vị công tác nào?",
+          "expectation": "Đọc đúng trường department_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.012",
+      "title": "Phòng ban — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường department_name trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Phòng ban của tôi là gì?",
+          "expectation": "Giữ giá trị chưa có của trường department_name; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.013",
+      "title": "Quản lý trực tiếp — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "manager_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp của tôi là ai?",
+          "expectation": "Đọc đúng trường manager_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.014",
+      "title": "Quản lý trực tiếp — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "manager_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn biết cấp trên trực tiếp của tôi.",
+          "expectation": "Đọc đúng trường manager_name của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.015",
+      "title": "Quản lý trực tiếp — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "manager_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường manager_name trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp của tôi là ai?",
+          "expectation": "Giữ giá trị chưa có của trường manager_name; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.016",
+      "title": "Ngày bắt đầu thử việc — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Ngày bắt đầu thử việc của tôi là ngày nào?",
+          "expectation": "Đọc đúng trường probation_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.017",
+      "title": "Ngày bắt đầu thử việc — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi bắt đầu thử việc từ ngày nào?",
+          "expectation": "Đọc đúng trường probation_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.018",
+      "title": "Ngày bắt đầu thử việc — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường probation_date trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Ngày bắt đầu thử việc của tôi là ngày nào?",
+          "expectation": "Giữ giá trị chưa có của trường probation_date; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.019",
+      "title": "Ngày kết thúc thử việc — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_end_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Ngày kết thúc thử việc của tôi là ngày nào?",
+          "expectation": "Đọc đúng trường probation_end_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.020",
+      "title": "Ngày kết thúc thử việc — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_end_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi hết thử việc ngày nào?",
+          "expectation": "Đọc đúng trường probation_end_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.021",
+      "title": "Ngày kết thúc thử việc — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_end_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường probation_end_date trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Ngày kết thúc thử việc của tôi là ngày nào?",
+          "expectation": "Giữ giá trị chưa có của trường probation_end_date; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.022",
+      "title": "Ngày chính thức — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Ngày chính thức của tôi là ngày nào?",
+          "expectation": "Đọc đúng trường official_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.023",
+      "title": "Ngày chính thức — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi vào làm chính thức từ ngày nào?",
+          "expectation": "Đọc đúng trường official_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.024",
+      "title": "Ngày chính thức — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường official_date trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Ngày chính thức của tôi là ngày nào?",
+          "expectation": "Giữ giá trị chưa có của trường official_date; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.025",
+      "title": "Ngày nghỉ việc — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "resignation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Ngày nghỉ việc của tôi là ngày nào?",
+          "expectation": "Đọc đúng trường resignation_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.026",
+      "title": "Ngày nghỉ việc — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "resignation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn biết ngày thôi việc của tôi.",
+          "expectation": "Đọc đúng trường resignation_date của chính người dùng được backend xác thực; không suy từ tên/email, không lộ trường không được hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.027",
+      "title": "Ngày nghỉ việc — dữ liệu null",
+      "tags": [
+        "null",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "resignation_date"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Trường resignation_date trong hồ sơ giả lập có giá trị null."
+      ],
+      "turns": [
+        {
+          "text": "Ngày nghỉ việc của tôi là ngày nào?",
+          "expectation": "Giữ giá trị chưa có của trường resignation_date; không tự điền hoặc suy từ trường ngày/trường công việc khác."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.028",
+      "title": "Nhiều trường công việc",
+      "tags": [
+        "multiple-fields",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title",
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh và phòng ban của tôi là gì?",
+          "expectation": "Chỉ trả hai trường được yêu cầu, không trả toàn bộ hồ sơ."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.029",
+      "title": "Ngày vào làm chưa rõ",
+      "tags": [
+        "ambiguous",
+        "type-b"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "probation_date",
+          "official_date"
+        ]
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ngày vào làm của tôi là ngày nào?",
+          "expectation": "Hỏi rõ ngày bắt đầu thử việc hay ngày chính thức; không chọn một ngày thay người dùng."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.030",
+      "title": "Nguồn nhân sự ngắt kết nối",
+      "tags": [
+        "source-unavailable",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "manager_name"
+        ]
+      },
+      "preconditions": [
+        "Type B bật nhưng nguồn HRM không sẵn sàng; người dùng đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp của tôi là ai?",
+          "expectation": "Báo nguồn thông tin công việc không khả dụng; không bịa quản lý hoặc lấy lại dữ liệu cũ làm dữ kiện hiện tại."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.031",
+      "title": "Type B tắt",
+      "tags": [
+        "feature-disabled",
+        "type-b"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "department_name"
+        ]
+      },
+      "preconditions": [
+        "Type B bị tắt."
+      ],
+      "turns": [
+        {
+          "text": "Phòng ban của tôi là gì?",
+          "expectation": "Nêu giới hạn nguồn thông tin cá nhân; không thay bằng câu trả lời từ tài liệu chính sách."
+        }
+      ]
+    }
+  ]
+}

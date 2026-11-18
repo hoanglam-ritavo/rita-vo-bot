@@ -7,7 +7,7 @@ import stat
 import subprocess
 from pathlib import Path, PureWindowsPath
 
-from src.artifact_authoring.sources import SourceError, declared_sources
+from src.artifact_authoring.sources import SourceError, decode, declared_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'artifacts/runtime-assets.json'
@@ -20,7 +20,9 @@ RERANK_FILES = frozenset({
     'config.json', 'model_quint8_avx2.onnx', 'sentencepiece.bpe.model',
     'special_tokens_map.json', 'tokenizer.json', 'tokenizer_config.json',
 })
-ARTIFACT_FILES = {'answers': 'catalog.json', 'semantics': 'lexicon.json'}
+ARTIFACT_FILES = {'answers': 'catalog.json', 'semantics': 'lexicon.json', 'retrieval': 'catalog.json'}
+QUESTIONS = 'artifacts/questions'
+QUESTION_GROUPS = frozenset({'policy', 'software', 'employee', 'mixed', 'conversation', 'boundaries'})
 HEX = re.compile(r'[0-9a-f]{64}')
 
 
@@ -146,9 +148,49 @@ def git_files(root):
         tracked = set(result.stdout.decode('utf-8').rstrip('\0').split('\0')) - {''}
         # Verify the working tree, including deliberate unstaged source removals.
         # Missing selected runtime assets still fail the manifest checks above.
-        return {path for path in tracked if (root / path).exists() or (root / path).is_symlink()}
+        return {path for path in tracked if path.startswith(QUESTIONS + '/')
+                or (root / path).exists() or (root / path).is_symlink()}
     except (OSError, subprocess.CalledProcessError, UnicodeError):
         raise InventoryError('git_inventory_unavailable') from None
+
+
+def question_sources(root, tracked):
+    """Allow indexed question sources without making them runtime assets or tests."""
+    directory = checked_path(root, QUESTIONS)
+    if not directory.exists() and not any(path.startswith(QUESTIONS + '/') for path in tracked):
+        return set()
+
+    def regular(relative):
+        path = checked_path(root, relative)
+        if not path.is_file():
+            raise InventoryError('question_file_missing_or_nonregular')
+        return path
+
+    index_path = regular(QUESTIONS + '/index.json')
+    try:
+        index = decode(index_path.read_bytes())
+    except SourceError:
+        raise InventoryError('invalid_question_index') from None
+    if (not isinstance(index, dict) or type(index.get('schema_version')) is not int
+            or index['schema_version'] != 1 or not isinstance(index.get('files'), list)):
+        raise InventoryError('invalid_question_index')
+    regular(QUESTIONS + '/README.md')
+    allowed = {QUESTIONS + '/index.json', QUESTIONS + '/README.md'}
+    seen = set()
+    for entry in index['files']:
+        relative = entry.get('path') if isinstance(entry, dict) else None
+        if not safe_path(relative):
+            raise InventoryError('invalid_question_path')
+        parts = relative.split('/')
+        if (len(parts) != 2 or parts[0] not in QUESTION_GROUPS
+                or not parts[1].endswith('.json') or parts[1] == '.json'):
+            raise InventoryError('invalid_question_path')
+        if relative.casefold() in seen:
+            raise InventoryError('duplicate_question_path')
+        seen.add(relative.casefold())
+        regular(QUESTIONS + '/' + relative)
+        allowed.add(QUESTIONS + '/' + relative)
+    return allowed
 
 
 def verify(root=ROOT, manifest=MANIFEST):
@@ -195,7 +237,14 @@ def verify(root=ROOT, manifest=MANIFEST):
         except (SourceError, OSError):
             source_paths = set()
             errors.append({'path': 'artifacts', 'code': 'invalid_artifact_sources'})
-        for path in sorted(git_files(root) - expected - source_paths - {MANIFEST}):
+        tracked = git_files(root)
+        try:
+            question_paths = question_sources(root, tracked)
+        except (InventoryError, OSError) as exc:
+            question_paths = set()
+            errors.append({'path': QUESTIONS, 'code': str(exc) if isinstance(exc, InventoryError)
+                           else 'question_sources_unavailable'})
+        for path in sorted(tracked - expected - source_paths - question_paths - {MANIFEST}):
             code = 'tracked_asset_not_in_manifest' if group_for(path, e5_root) else 'tracked_path_not_allowed'
             errors.append({'path': path, 'code': code})
         return {'files': len(data['assets']), 'errors': errors}, 1 if errors else 0

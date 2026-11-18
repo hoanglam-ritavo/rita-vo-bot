@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.travel",
+  "description": "Authored question scenarios for policy / travel. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.travel.001",
+      "title": "Phạm vi quy định công tác phí — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+        ],
+        "document_ids": [
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Phạm vi quy định công tác phí trong tài liệu này là gì?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.002",
+      "title": "Phạm vi quy định công tác phí — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+        ],
+        "document_ids": [
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Những đối tượng nào được đề cập trong quy định chi phí công tác?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.003",
+      "title": "Phạm vi quy định công tác phí — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+        ],
+        "document_ids": [
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần tìm đúng quy định công tác phí trước khi xem điều kiện áp dụng.",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.004",
+      "title": "Phạm vi quy định công tác phí — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+        ],
+        "document_ids": [
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Pham vi quy dinh cong tac phi trong tai lieu nay la gi?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.005",
+      "title": "Phạm vi quy định công tác phí — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+        ],
+        "document_ids": [
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có hai tài liệu công tác phí, cứ chọn bản có tên mới hơn làm đúng nhé.",
+          "expectation": "Không chọn hiệu lực chính sách từ tên file; làm rõ tài liệu và quan hệ áp dụng trước khi trả lời."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.006",
+      "title": "Phụ lục phòng đôi và phòng ba — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b08cc7a243b550ccb77ad1bdc285ef8b"
+        ],
+        "document_ids": [
+          "57cc6d6b-64eb-4c61-a462-3e961e68044d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Phụ lục công tác phí nói gì về phòng đôi và phòng ba?",
+          "expectation": "Trả lời trong phạm vi Phụ lục phòng đôi và phòng ba từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.007",
+      "title": "Phụ lục phòng đôi và phòng ba — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b08cc7a243b550ccb77ad1bdc285ef8b"
+        ],
+        "document_ids": [
+          "57cc6d6b-64eb-4c61-a462-3e961e68044d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem nội dung bổ sung về loại phòng khi đi công tác.",
+          "expectation": "Trả lời trong phạm vi Phụ lục phòng đôi và phòng ba từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.008",
+      "title": "Phụ lục phòng đôi và phòng ba — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b08cc7a243b550ccb77ad1bdc285ef8b"
+        ],
+        "document_ids": [
+          "57cc6d6b-64eb-4c61-a462-3e961e68044d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần tìm phần phụ lục liên quan đến phòng hai người và ba người.",
+          "expectation": "Trả lời trong phạm vi Phụ lục phòng đôi và phòng ba từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.009",
+      "title": "Phụ lục phòng đôi và phòng ba — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b08cc7a243b550ccb77ad1bdc285ef8b"
+        ],
+        "document_ids": [
+          "57cc6d6b-64eb-4c61-a462-3e961e68044d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Phu luc cong tac phi noi gi ve phong doi va phong ba?",
+          "expectation": "Trả lời trong phạm vi Phụ lục phòng đôi và phòng ba từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.010",
+      "title": "Phụ lục phòng đôi và phòng ba — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b08cc7a243b550ccb77ad1bdc285ef8b"
+        ],
+        "document_ids": [
+          "57cc6d6b-64eb-4c61-a462-3e961e68044d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tự kết luận phụ lục thay thế toàn bộ quy định công tác phí trước đó.",
+          "expectation": "Không suy phụ lục thay thế toàn bộ quy định gốc; chỉ diễn giải quan hệ và phạm vi có nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.011",
+      "title": "Phạm vi quy định công tác phí — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bcde0d3e54aa504c8056eb8779471c57"
+        ],
+        "document_ids": [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Đối tượng công tác phí được quy định ra sao trong tài liệu?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.012",
+      "title": "Phạm vi quy định công tác phí — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bcde0d3e54aa504c8056eb8779471c57"
+        ],
+        "document_ids": [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định công tác phí này có phạm vi áp dụng như thế nào?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.013",
+      "title": "Phạm vi quy định công tác phí — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bcde0d3e54aa504c8056eb8779471c57"
+        ],
+        "document_ids": [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần đối chiếu phạm vi của các tài liệu cùng tên về công tác phí.",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.014",
+      "title": "Phạm vi quy định công tác phí — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bcde0d3e54aa504c8056eb8779471c57"
+        ],
+        "document_ids": [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Doi tuong cong tac phi duoc quy dinh ra sao trong tai lieu?",
+          "expectation": "Làm rõ tài liệu công tác phí cần tra cứu nếu chưa phân biệt được hai nguồn cùng tên; chỉ nêu phạm vi của nguồn được xác định, không tự chọn ưu tiên hoặc coi overview là đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.travel.015",
+      "title": "Phạm vi quy định công tác phí — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bcde0d3e54aa504c8056eb8779471c57"
+        ],
+        "document_ids": [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hai tài liệu cùng tên chắc chắn có nội dung và hiệu lực giống nhau phải không?",
+          "expectation": "Không coi hai tài liệu cùng tên là cùng hiệu lực hoặc cùng nội dung; yêu cầu phân biệt nguồn."
+        }
+      ]
+    }
+  ]
+}

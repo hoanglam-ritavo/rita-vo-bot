@@ -1,7 +1,6 @@
 """HTTP-owned A/B coordination. All personnel facts come from the readonly source."""
 import asyncio
 from datetime import datetime, timezone
-import hmac
 import logging
 import time
 from uuid import uuid4
@@ -49,19 +48,11 @@ class TypeBCoordinator:
         if self.employee is not None:
             await self.employee.close()
 
-    def _authenticate(self, supplied):
-        expected = self.settings.service_key
-        if (not isinstance(supplied, str) or expected is None or
-                not hmac.compare_digest(supplied.encode('utf-8'), expected.encode('utf-8'))):
-            raise ApiError('service_authentication_required', 401)
-
-    async def execute(self, text, top_k, hrm_user_id=None, service_key=None, *, answer=False):
+    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False):
         if not self.settings.enabled:
             if hrm_user_id is not None:
                 raise ApiError('type_b_disabled')
             return await (self.owner.answers.answer(text, top_k) if answer else self.owner.retrieve(text, top_k))
-        if hrm_user_id is not None:
-            self._authenticate(service_key)
         if not self.owner.started:
             raise ApiError('not_ready')
         if answer and not self.owner.settings.answer.enabled:
@@ -84,7 +75,6 @@ class TypeBCoordinator:
                     response = (self.owner.answers.render_documents(text, documents, started, elapsed) if answer
                                 else self.owner.retrieval_response(documents, started, elapsed))
                 else:
-                    self._authenticate(service_key)
                     if hrm_user_id is None:
                         raise ApiError('hrm_user_id_required', 422)
                     evidence = await self._employee_evidence(route, hrm_user_id)

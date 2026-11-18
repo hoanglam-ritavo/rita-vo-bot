@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "group_id": "boundaries.ambiguity",
+  "description": "Authored question scenarios for boundaries / ambiguity. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.boundaries.ambiguity.001",
+      "title": "Chưa rõ chế độ",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi hỏi chế độ.",
+          "expectation": "Hỏi rõ loại chế độ và nội dung cần biết; không chọn ngẫu nhiên một chính sách."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.ambiguity.002",
+      "title": "Chưa rõ hệ thống nghỉ phép",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm đơn nghỉ phép như thế nào?",
+          "expectation": "Làm rõ người dùng hỏi quy định chung hay thao tác trên hệ thống nào khi chưa đủ thông tin."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.ambiguity.003",
+      "title": "Nhiều loại nghỉ",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi muốn hỏi nghỉ phép năm và nghỉ không lương cùng lúc.",
+          "expectation": "Làm rõ hoặc tách nhu cầu; không ghép hai loại nghỉ thành một thủ tục duy nhất."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.ambiguity.004",
+      "title": "Nhiều nghiệp vụ",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hướng dẫn tôi đặt phòng Outlook và gửi thư E-Postal.",
+          "expectation": "Không dùng một task để trả lời cả hai nghiệp vụ; giữ làm rõ/giới hạn đa tác vụ."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.ambiguity.005",
+      "title": "Thiếu đối tượng hỗ trợ",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kết hôn được hỗ trợ bao nhiêu?",
+          "expectation": "Hỏi rõ nhân viên kết hôn hay con nhân viên kết hôn trước khi nêu mức."
+        }
+      ]
+    },
+    {
+      "id": "q.boundaries.ambiguity.006",
+      "title": "Không có thông tin câu hỏi",
+      "tags": [
+        "ambiguous"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần hỏi cái này.",
+          "expectation": "Yêu cầu nêu nội dung cụ thể; không tự đoán từ tài liệu gần nhất."
+        }
+      ]
+    }
+  ]
+}

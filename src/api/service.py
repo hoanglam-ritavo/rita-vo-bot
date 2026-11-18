@@ -64,8 +64,8 @@ class ApiService:
                 finally:
                     await self.database_close()
 
-    async def execute(self, text, top_k, hrm_user_id=None, service_key=None, *, answer=False):
-        return await self.context.execute(text, top_k, hrm_user_id, service_key, answer=answer)
+    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False):
+        return await self.context.execute(text, top_k, hrm_user_id, answer=answer)
 
     def retrieval_response(self, result, started, elapsed):
         matches = [{key: value for key, value in match.items() if key in Match.model_fields}

@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.leave",
+  "description": "Authored question scenarios for policy / leave. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.leave.001",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định chung về thời hạn và thủ tục xin nghỉ phép là gì?",
+          "expectation": "Trả lời trong phạm vi Thời hạn và thủ tục nghỉ phép chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.002",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Muốn xin phép năm thì cần xem yêu cầu báo trước và quy trình nào?",
+          "expectation": "Trả lời trong phạm vi Thời hạn và thủ tục nghỉ phép chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.003",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần đọc nội quy xin nghỉ phép, chưa hỏi thao tác trên phần mềm.",
+          "expectation": "Trả lời trong phạm vi Thời hạn và thủ tục nghỉ phép chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.004",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy dinh chung ve thoi han va thu tuc xin nghi phep la gi?",
+          "expectation": "Trả lời trong phạm vi Thời hạn và thủ tục nghỉ phép chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.005",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi muốn biết ngày nghỉ việc chính thức của tôi, không phải quy định nghỉ phép.",
+          "expectation": "Nhận yêu cầu ngày nghỉ việc cá nhân; chỉ dùng trường resignation_date khi backend xác thực và Type B sẵn sàng, không trả quy định nghỉ phép."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.006",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Thời hạn và thủ tục nghỉ phép chung, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Thời hạn và thủ tục nghỉ phép chung và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.007",
+      "title": "Thời hạn và thủ tục nghỉ phép chung — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Thời hạn và thủ tục nghỉ phép chung, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Thời hạn và thủ tục nghỉ phép chung và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.008",
+      "title": "Điều kiện xin nghỉ không lương chung — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Điều kiện xin nghỉ không hưởng lương theo nội quy là gì?",
+          "expectation": "Trả lời trong phạm vi Điều kiện xin nghỉ không lương chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.009",
+      "title": "Điều kiện xin nghỉ không lương chung — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định chung yêu cầu gì khi xin nghỉ không lương?",
+          "expectation": "Trả lời trong phạm vi Điều kiện xin nghỉ không lương chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.010",
+      "title": "Điều kiện xin nghỉ không lương chung — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tra cứu thủ tục nghỉ không lương trước khi tìm hướng dẫn phần mềm.",
+          "expectation": "Trả lời trong phạm vi Điều kiện xin nghỉ không lương chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.011",
+      "title": "Điều kiện xin nghỉ không lương chung — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Dieu kien xin nghi khong huong luong theo noi quy la gi?",
+          "expectation": "Trả lời trong phạm vi Điều kiện xin nghỉ không lương chung từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.012",
+      "title": "Điều kiện xin nghỉ không lương chung — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi nghỉ phép có lương, không phải nghỉ không lương.",
+          "expectation": "Giữ loại nghỉ có lương; không dùng điều kiện nghỉ không lương làm quy định nghỉ phép có lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.013",
+      "title": "Điều kiện xin nghỉ không lương chung — quy trình",
+      "tags": [
+        "aspect:procedure",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Điều kiện xin nghỉ không lương chung, các bước thực hiện là gì?",
+          "expectation": "Nêu các bước thực hiện cho đúng chủ đề Điều kiện xin nghỉ không lương chung và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.leave.014",
+      "title": "Điều kiện xin nghỉ không lương chung — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Điều kiện xin nghỉ không lương chung, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Điều kiện xin nghỉ không lương chung và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
+        }
+      ]
+    }
+  ]
+}

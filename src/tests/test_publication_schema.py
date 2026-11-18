@@ -40,10 +40,15 @@ def test_explicit_baseline_sql_matches_model_tables_and_additive_guards():
     guards = importlib.import_module('src.database.migrations.versions.c7d92e6a104b_publication_guards')
     with Operations.context(context):
         guards.upgrade()
+    conversations = importlib.import_module('src.database.migrations.versions.d8e031c72b19_conversations')
+    with Operations.context(context):
+        conversations.upgrade()
     sql = output.getvalue()
     assert 'DROP TABLE' not in sql
     assert 'DROP EXTENSION' not in sql
     assert 'revision_identity_immutable' in sql and 'metadata_audit_append_only' in sql
+    assert 'CREATE UNIQUE INDEX uq_chat_turns_room_processing' in sql
+    assert 'CREATE INDEX ix_chat_turns_room_context' in sql
     for table in Base.metadata.sorted_tables:
         expected = str(CreateTable(table).compile(dialect=dialect())).strip()
         actual = re.search(r'CREATE TABLE ' + table.name + r' \((.*?)\n\);', sql, re.S)
@@ -52,7 +57,7 @@ def test_explicit_baseline_sql_matches_model_tables_and_additive_guards():
         declarations = lambda body: sorted(' '.join(line.strip().rstrip(',').split())
                                            for line in body.strip().splitlines())
         assert declarations(expected.split('(', 1)[1].rsplit(')', 1)[0]) == declarations(actual[1])
-    assert len(Base.metadata.tables) == 14
+    assert len(Base.metadata.tables) == 17
     assert {'started_at', 'finished_at', 'error_code'}.isdisjoint(IngestionRun.__table__.columns.keys())
     for key in ('model_name', 'model_revision', 'embedding_dimensions', 'created_at'):
         assert not IngestionRun.__table__.c[key].nullable

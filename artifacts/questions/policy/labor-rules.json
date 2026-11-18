@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.labor-rules",
+  "description": "Authored question scenarios for policy / labor-rules. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.labor-rules.001",
+      "title": "Điều kiện tổ chức tăng ca — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Điều kiện tổ chức tăng ca theo nội quy là gì?",
+          "expectation": "Trả lời trong phạm vi Điều kiện tổ chức tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.002",
+      "title": "Điều kiện tổ chức tăng ca — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Công ty quy định thế nào về việc tổ chức làm thêm giờ?",
+          "expectation": "Trả lời trong phạm vi Điều kiện tổ chức tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.003",
+      "title": "Điều kiện tổ chức tăng ca — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Bộ phận dự định tăng ca, cần xem những điều kiện nào trước?",
+          "expectation": "Trả lời trong phạm vi Điều kiện tổ chức tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.004",
+      "title": "Điều kiện tổ chức tăng ca — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Dieu kien to chuc tang ca theo noi quy la gi?",
+          "expectation": "Trả lời trong phạm vi Điều kiện tổ chức tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.005",
+      "title": "Điều kiện tổ chức tăng ca — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đã làm thêm hôm qua, tính chính xác tiền tăng ca cho tôi.",
+          "expectation": "Nêu giới hạn tính tiền tăng ca cá nhân; không lấy điều kiện tổ chức tăng ca làm dữ liệu tính lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.006",
+      "title": "Thời gian bắt đầu tính tăng ca — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.4265441c1c3659d9820562d4cc983175"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian bắt đầu tính tăng ca được quy định thế nào?",
+          "expectation": "Trả lời trong phạm vi Thời gian bắt đầu tính tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.007",
+      "title": "Thời gian bắt đầu tính tăng ca — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.4265441c1c3659d9820562d4cc983175"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tăng ca bắt đầu được tính từ thời điểm nào theo tài liệu?",
+          "expectation": "Trả lời trong phạm vi Thời gian bắt đầu tính tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.008",
+      "title": "Thời gian bắt đầu tính tăng ca — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.4265441c1c3659d9820562d4cc983175"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tra cứu căn cứ xác định mốc bắt đầu tính giờ tăng ca.",
+          "expectation": "Trả lời trong phạm vi Thời gian bắt đầu tính tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.009",
+      "title": "Thời gian bắt đầu tính tăng ca — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.4265441c1c3659d9820562d4cc983175"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Thoi gian bat dau tinh tang ca duoc quy dinh the nao?",
+          "expectation": "Trả lời trong phạm vi Thời gian bắt đầu tính tăng ca từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.010",
+      "title": "Thời gian bắt đầu tính tăng ca — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.4265441c1c3659d9820562d4cc983175"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi về muộn hôm qua, hãy tính số giờ tăng ca thực tế của tôi.",
+          "expectation": "Không tính giờ làm thêm thực tế từ câu tự khai về muộn; phân biệt quy định mốc giờ với dữ liệu chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.011",
+      "title": "Đạo đức trong nội bộ công ty — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.6800aeec977b5a068e63273a1e25740e"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tiêu chuẩn đạo đức trong nội bộ công ty quy định những gì?",
+          "expectation": "Trả lời trong phạm vi Đạo đức trong nội bộ công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.012",
+      "title": "Đạo đức trong nội bộ công ty — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.6800aeec977b5a068e63273a1e25740e"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Có hướng dẫn nào về văn hóa ứng xử giữa đồng nghiệp không?",
+          "expectation": "Trả lời trong phạm vi Đạo đức trong nội bộ công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.013",
+      "title": "Đạo đức trong nội bộ công ty — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.6800aeec977b5a068e63273a1e25740e"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mới vào công ty và muốn tìm quy định ứng xử nội bộ.",
+          "expectation": "Trả lời trong phạm vi Đạo đức trong nội bộ công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.014",
+      "title": "Đạo đức trong nội bộ công ty — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.6800aeec977b5a068e63273a1e25740e"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tieu chuan dao duc trong noi bo cong ty quy dinh nhung gi?",
+          "expectation": "Trả lời trong phạm vi Đạo đức trong nội bộ công ty từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.015",
+      "title": "Đạo đức trong nội bộ công ty — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.6800aeec977b5a068e63273a1e25740e"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hãy kết luận đồng nghiệp của tôi đã vi phạm đạo đức dù chưa có chứng cứ.",
+          "expectation": "Không quy kết cá nhân vi phạm khi chưa có dữ kiện xác minh; phân biệt tiêu chuẩn với kết luận vụ việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.016",
+      "title": "Đồng phục khối hỗ trợ — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.792d05c266bb5e23a5e8c27d873f20e7"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định đồng phục dành cho khối hỗ trợ là gì?",
+          "expectation": "Trả lời trong phạm vi Đồng phục khối hỗ trợ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.017",
+      "title": "Đồng phục khối hỗ trợ — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.792d05c266bb5e23a5e8c27d873f20e7"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Khối hỗ trợ được hướng dẫn thế nào về trang phục công sở?",
+          "expectation": "Trả lời trong phạm vi Đồng phục khối hỗ trợ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.018",
+      "title": "Đồng phục khối hỗ trợ — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.792d05c266bb5e23a5e8c27d873f20e7"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem quy định cấp phát đồng phục cho khối hỗ trợ.",
+          "expectation": "Trả lời trong phạm vi Đồng phục khối hỗ trợ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.019",
+      "title": "Đồng phục khối hỗ trợ — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.792d05c266bb5e23a5e8c27d873f20e7"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy dinh dong phuc danh cho khoi ho tro la gi?",
+          "expectation": "Trả lời trong phạm vi Đồng phục khối hỗ trợ từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.020",
+      "title": "Đồng phục khối hỗ trợ — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.792d05c266bb5e23a5e8c27d873f20e7"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Áp dụng nguyên quy định khối hỗ trợ cho tất cả vị trí khác được không?",
+          "expectation": "Không suy rộng quy định đồng phục khối hỗ trợ sang mọi vị trí khác; cần nguồn áp dụng tương ứng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.021",
+      "title": "Đối tượng chấm công — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.f54e92fd0ba25e278d11f722c94354bf"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Thông báo chấm công áp dụng cho những đối tượng nào?",
+          "expectation": "Trả lời trong phạm vi Đối tượng chấm công từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.022",
+      "title": "Đối tượng chấm công — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.f54e92fd0ba25e278d11f722c94354bf"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhóm nhân viên nào thuộc phạm vi quy định chấm công?",
+          "expectation": "Trả lời trong phạm vi Đối tượng chấm công từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.023",
+      "title": "Đối tượng chấm công — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.f54e92fd0ba25e278d11f722c94354bf"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đọc phạm vi áp dụng của thông báo chấm công.",
+          "expectation": "Trả lời trong phạm vi Đối tượng chấm công từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.024",
+      "title": "Đối tượng chấm công — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.f54e92fd0ba25e278d11f722c94354bf"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Thong bao cham cong ap dung cho nhung doi tuong nao?",
+          "expectation": "Trả lời trong phạm vi Đối tượng chấm công từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-rules.025",
+      "title": "Đối tượng chấm công — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.f54e92fd0ba25e278d11f722c94354bf"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cho tôi bảng chấm công cá nhân của tháng này.",
+          "expectation": "Nêu chưa hỗ trợ tra cứu bảng chấm công cá nhân; không suy dữ liệu sống từ phạm vi thông báo."
+        }
+      ]
+    }
+  ]
+}

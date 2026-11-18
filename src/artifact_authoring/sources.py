@@ -7,9 +7,11 @@ import stat
 
 
 GROUPS = {'semantics': ('lexicon.json', ('concepts',)),
-          'answers': ('catalog.json', ('cards', 'coverage'))}
+          'answers': ('catalog.json', ('cards', 'coverage')),
+          'retrieval': ('catalog.json', ('families','systems','subtypes','operations','bindings','routes'))}
 METADATA = {'semantics': {'schema_version', 'reviewed', 'review_notes', 'package_fingerprint'},
-            'answers': {'schema_version', 'package_fingerprint'}}
+            'answers': {'schema_version', 'package_fingerprint'},
+            'retrieval': {'schema_version', 'package_fingerprint'}}
 ID = re.compile(r'[A-Za-z0-9._-]{1,100}')
 
 
@@ -136,14 +138,23 @@ def recheck(observed):
         raise SourceError('source_changed')
 
 
+def active_groups(root):
+    return [group for group in GROUPS if group != 'retrieval'
+            or (Path(root) / 'artifacts' / group / 'source').exists()]
+
+
 def assemble(root):
-    lexicon, left = read_group(root, 'semantics')
-    catalog, right = read_group(root, 'answers')
-    lexical = encode(lexicon)
-    catalog = {**{key: catalog[key] for key in catalog if key not in ('cards', 'coverage')},
-               'lexicon_sha256': hashlib.sha256(lexical).hexdigest(),
-               'cards': catalog['cards'], 'coverage': catalog['coverage']}
-    return (lexical, encode(catalog, crlf=True)), {**left, **right}
+    outputs, observed = [], {}
+    for group in active_groups(root):
+        data, captured = read_group(root, group)
+        observed.update(captured)
+        if group != 'semantics':
+            collections = GROUPS[group][1]
+            data = {**{key: data[key] for key in data if key not in collections},
+                    'lexicon_sha256': hashlib.sha256(outputs[0]).hexdigest(),
+                    **{key: data[key] for key in collections}}
+        outputs.append(encode(data, crlf=group=='answers'))
+    return tuple(outputs), observed
 
 
 def declared_sources(root):

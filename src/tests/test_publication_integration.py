@@ -1,4 +1,5 @@
 """Publication transactions against the dedicated disposable PostgreSQL database only."""
+from src.tests.http_fixtures import SERVICE_KEY, SERVICE_HEADERS, http_service_environment
 from uuid import UUID
 import pytest
 from sqlalchemy import select, func, event, Text
@@ -398,13 +399,13 @@ def test_http_retrieval_ignores_inactive_and_superseded_publications(tmp_path, l
             set_metadata(package, access_groups=['public'])
             third = await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
             assert third['reused_chunk_count'] == 2 and third['encoded_chunk_count'] == 0
-            settings = Settings(local_model, 'a'*40, relevance_filter_enabled=False)
+            settings = Settings(local_model, 'a'*40, relevance_filter_enabled=False, service_key=SERVICE_KEY)
             retrieval = RetrievalService(model_path=local_model, model_revision='a'*40,
                                           relevance_filter_enabled=False)
             monkeypatch.setattr(retrieval, '_load', lambda: (fake_model, service.model_fingerprint(local_model)))
             app = create_app(settings, service_factory=lambda config: ApiService(config, retrieval=retrieval))
             async with app.router.lifespan_context(app):
-                async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test') as client:
+                async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test', headers=SERVICE_HEADERS) as client:
                     response = await client.post('/api/v1/retrieve', json={'text': 'Synthetic policy', 'top_k': 20})
                     assert response.status_code == 200
                     data = response.json()

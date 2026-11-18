@@ -17,10 +17,37 @@ LFS pointers, missing/corrupt files, unlisted tracked assets and undeclared auth
 files fail verification. Model fingerprints must remain byte-identical across hosts.
 Do not edit models or remove installed transitive dependencies as incidental cleanup.
 
+## Git policy for questions and retrieval
+
+Both directories are eligible for ordinary Git tracking through a narrow
+`.gitignore` allowlist. Retrieval permits `catalog.json`, `manifest.json`,
+`source/index.json` and direct JSON children of the declared `families`, `systems`,
+`subtypes`, `operations`, `bindings` and `routes` collections. Its generated pair
+remains subject to the existing runtime inventory and source build/check rules.
+
+Questions permits `README.md`, `index.json` and direct JSON children of `policy`,
+`software`, `employee`, `mixed`, `conversation` and `boundaries`. The inventory
+checker accepts only the README/index and group files declared in the question
+index. It checks index schema version 1, the files list, safe unique paths and
+regular-file presence; linked/reparse paths, malformed indexes, missing files and
+tracked undeclared files fail with fixed diagnostics. A checkout without Questions
+is supported; deleting a tracked question tree does not bypass its checks.
+
+Question files are authored nonruntime sources: they do not belong in the runtime
+manifest, change model/catalog fingerprints or enter the artifact builder. This
+path/index check does not validate case content, coverage, behavior or acceptance.
+See [question format and maintenance](../artifacts/questions/README.md).
+
+Root-level reports, logs, backup extensions and unknown/nested paths remain
+ignored. Direct group/collection JSON files still require declaration by their
+owning index; the filename allowlist alone does not authorize a report as source.
+Keep private evaluation material under `.tmp/`; do not force-add it. Git
+eligibility does not stage files, commit them or push a release.
+
 ## Split source authoring
 
 Author concepts in `artifacts/semantics/source/` and tasks/evidence/coverage in
-`artifacts/answers/source/`. The source index envelope is schema 1; runtime metadata
+`artifacts/answers/source/`; optional leave ordering metadata lives under `artifacts/retrieval/source/`. The builder supports two or three groups. The source index envelope is schema 1; answer/lexicon runtime metadata
 is schema 2. Declared small JSON inputs assemble deterministically into the selected
 lexicon/catalog; the catalog binds the generated lexical SHA-256.
 
@@ -35,12 +62,12 @@ python -m src.cli.check_answer_catalog
 `impact` is readonly. `refresh` updates only safe mechanical links and coverage;
 content/context/revision changes remain review-required. Build changes runtime JSON,
 check compares bytes, and neither updates acceptance or publishes DB data.
-`import --lexicon <path> --catalog <path> --output .tmp/<new-directory>` writes a
+`import --lexicon <path> --catalog <path> [--retrieval <path>] --output .tmp/<new-directory>` writes a
 new private authoring tree, never promotes it. See [full reconciliation rules](catalog-answering.md#updating-chunks).
 
 ## Release, recovery and rollback
 
-Release code, lexicon/catalog, provenance manifests and runtime inventory together
+Release code, lexicon/answer catalog, optional retrieval catalog, provenance manifests and runtime inventory together
 from an isolated checkout. Update hashes/sizes after an intentional build and keep
 review/quality acceptance truthful. Store private cases/reports and backups outside
 tracked runtime assets. The local `.tmp` workspace is disposable research storage,
@@ -58,3 +85,5 @@ successful impact/build/check before release; files are replaced individually.
 Retired. No intent artifact or relevance profile is provisioned or trained. Retired
 env keys inherited from launchers are ignored with name-only warnings. Use
 [catalog verification](catalog-answering.md#verification-and-release) instead.
+
+See [leave ranking](leave-retrieval.md) for the schema-1 retrieval artifact, stale-binding behavior and readonly comparison utility.

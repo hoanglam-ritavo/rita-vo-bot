@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.administration",
+  "description": "Authored question scenarios for policy / administration. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.administration.001",
+      "title": "Đối tượng quản lý con dấu — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2817ef8493305b9694b025de57828b7e"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy chế quản lý con dấu áp dụng cho những đối tượng nào?",
+          "expectation": "Trả lời trong phạm vi Đối tượng quản lý con dấu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.002",
+      "title": "Đối tượng quản lý con dấu — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2817ef8493305b9694b025de57828b7e"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Ai thuộc phạm vi quy định sử dụng con dấu của công ty?",
+          "expectation": "Trả lời trong phạm vi Đối tượng quản lý con dấu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.003",
+      "title": "Đối tượng quản lý con dấu — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2817ef8493305b9694b025de57828b7e"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem phạm vi trách nhiệm trong quy chế quản lý con dấu.",
+          "expectation": "Trả lời trong phạm vi Đối tượng quản lý con dấu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.004",
+      "title": "Đối tượng quản lý con dấu — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2817ef8493305b9694b025de57828b7e"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy che quan ly con dau ap dung cho nhung doi tuong nao?",
+          "expectation": "Trả lời trong phạm vi Đối tượng quản lý con dấu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.005",
+      "title": "Đối tượng quản lý con dấu — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.2817ef8493305b9694b025de57828b7e"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tự đóng dấu và phê duyệt văn bản này giúp tôi.",
+          "expectation": "Không đóng dấu hay phê duyệt văn bản; phân biệt hướng dẫn quy chế với thao tác được thực hiện."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.006",
+      "title": "Phạm vi thanh lý tài sản — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2992a4bccab159009ecc3964ed738250"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy trình thanh lý tài sản áp dụng cho trường hợp nào?",
+          "expectation": "Trả lời trong phạm vi Phạm vi thanh lý tài sản từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.007",
+      "title": "Phạm vi thanh lý tài sản — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2992a4bccab159009ecc3964ed738250"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Những loại tài sản nào thuộc phạm vi quy trình thanh lý?",
+          "expectation": "Trả lời trong phạm vi Phạm vi thanh lý tài sản từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.008",
+      "title": "Phạm vi thanh lý tài sản — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2992a4bccab159009ecc3964ed738250"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Bộ phận có công cụ không còn sử dụng, cần xem phạm vi quy trình nào?",
+          "expectation": "Trả lời trong phạm vi Phạm vi thanh lý tài sản từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.009",
+      "title": "Phạm vi thanh lý tài sản — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2992a4bccab159009ecc3964ed738250"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy trinh thanh ly tai san ap dung cho truong hop nao?",
+          "expectation": "Trả lời trong phạm vi Phạm vi thanh lý tài sản từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.010",
+      "title": "Phạm vi thanh lý tài sản — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.2992a4bccab159009ecc3964ed738250"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Định giá và thanh lý ngay chiếc máy tính của tôi.",
+          "expectation": "Không định giá hay thực hiện thanh lý tài sản; chỉ có thể nêu phạm vi quy trình có nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.011",
+      "title": "Đối tượng sử dụng xe — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b9848e43b75a589da0fd7322e28c3a70"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định sử dụng xe của Tập đoàn áp dụng cho những đối tượng nào?",
+          "expectation": "Trả lời trong phạm vi Đối tượng sử dụng xe từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.012",
+      "title": "Đối tượng sử dụng xe — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b9848e43b75a589da0fd7322e28c3a70"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhóm nào thuộc phạm vi quy định sử dụng xe công ty?",
+          "expectation": "Trả lời trong phạm vi Đối tượng sử dụng xe từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.013",
+      "title": "Đối tượng sử dụng xe — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b9848e43b75a589da0fd7322e28c3a70"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tra cứu đối tượng được đề cập trong quy định sử dụng xe.",
+          "expectation": "Trả lời trong phạm vi Đối tượng sử dụng xe từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.014",
+      "title": "Đối tượng sử dụng xe — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.b9848e43b75a589da0fd7322e28c3a70"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy dinh su dung xe cua Tap doan ap dung cho nhung doi tuong nao?",
+          "expectation": "Trả lời trong phạm vi Đối tượng sử dụng xe từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration.015",
+      "title": "Đối tượng sử dụng xe — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.b9848e43b75a589da0fd7322e28c3a70"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đặt ngay xe và tài xế cho tôi chiều nay.",
+          "expectation": "Không đặt xe hay tài xế; không khẳng định yêu cầu đặt xe đã được tiếp nhận hoặc thực hiện."
+        }
+      ]
+    }
+  ]
+}

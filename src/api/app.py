@@ -13,6 +13,10 @@ from .contracts import RetrievalResponse, AnswerResponse, AnswerHealthResponse, 
 from .contracts import ContextRetrievalResponse, ContextAnswerResponse
 from .answer import drain
 from .service import ApiService
+from src.conversation.contracts import ConversationRequest, TurnResponse
+from src.conversation.service import ConversationService
+from src.conversation.routes import register_routes
+from .security import ServiceAuthenticationMiddleware
 
 logger = logging.getLogger(__name__)
 
@@ -47,21 +51,33 @@ def create_app(settings=None, *, service_factory=ApiService):
             service = service_factory(settings or load_settings())
             app.state.retrieval_service = service
             await service.start()
+            if hasattr(service, 'settings') and hasattr(service.settings, 'conversation'):
+                conversations = ConversationService(service, cache)
+                app.state.conversation_service = conversations
+                await conversations.start()
             yield
         except Exception:
             raise RuntimeError('API lifecycle failed; check local model and database configuration.') from None
         finally:
             try:
                 try:
-                    if service is not None:
-                        await service.close()
+                    try:
+                        if hasattr(app.state, 'conversation_service'):
+                            await app.state.conversation_service.close()
+                    finally:
+                        if service is not None:
+                            await service.close()
                 except Exception:
                     raise RuntimeError('API shutdown failed.') from None
             finally:
                 await cache.close()
                 del app.state.cache_manager
+                if hasattr(app.state, 'conversation_service'):
+                    del app.state.conversation_service
 
     app = FastAPI(title='Rita local document retrieval', lifespan=lifespan)
+    app.add_middleware(ServiceAuthenticationMiddleware)
+    register_routes(app)
 
     @app.exception_handler(ApiError)
     async def retrieval_error(request, exc):
@@ -95,31 +111,40 @@ def create_app(settings=None, *, service_factory=ApiService):
         504: {'description': 'Retrieval or dependency timed out.'},
     })
     async def retrieve(body: RetrieveRequest, request: Request, response: Response,
-                       service_key: str | None = Header(default=None, alias='X-Rita-Service-Key',
+                       service_key: str = Header(alias='X-Rita-Service-Key',
                            description='Internal service credential; never a user authorization token.')):
         service = request.app.state.retrieval_service
         top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
-        result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id,
-            service_key))
+        result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id))
         if body.hrm_user_id is not None or isinstance(result, ContextRetrievalResponse):
             response.headers['Cache-Control'] = 'no-store'
         return result
 
-    @app.post('/api/v1/answer', response_model=AnswerResponse | ContextAnswerResponse,
+    @app.post('/api/v1/answer', response_model=TurnResponse | AnswerResponse | ContextAnswerResponse,
               description='Opt-in source-bound Semantic + template answers, with explicit excerpt fallback. '
                           'Optional hrm_user_id supports readonly work-profile facts through a trusted backend. '
-                          'No generative model, conversation history or individual policy eligibility decisions.',
+                          'Optional authenticated conversation fields enable durable turns and structured context. '
+                          'No generative model or individual policy eligibility decisions.',
               responses={401: {'description': 'Trusted service authentication required.'},
+                         202: {'model': TurnResponse, 'description': 'The same durable message is processing.'},
+                         404: {'description': 'Conversation or turn unavailable.'},
+                         409: {'description': 'Message identity or context version conflict.'},
                          422: {'description': 'Invalid request or required HRM reference missing.'}, 429: {'description': 'Service busy.'},
                          503: {'description': 'Answering disabled, catalog incompatible or dependencies unavailable.'},
                          504: {'description': 'Answer deadline exceeded.'}})
-    async def answer(body: RetrieveRequest, request: Request, response: Response,
-                     service_key: str | None = Header(default=None, alias='X-Rita-Service-Key',
+    async def answer(body: ConversationRequest | RetrieveRequest, request: Request, response: Response,
+                     service_key: str = Header(alias='X-Rita-Service-Key',
                          description='Internal service credential; never a user authorization token.')):
         service = request.app.state.retrieval_service
+        if isinstance(body, ConversationRequest):
+            conversations = request.app.state.conversation_service
+            conversations.require_enabled()
+            response.headers['Cache-Control'] = 'no-store'
+            result = await execute_until_disconnect(request, conversations.answer(body))
+            response.status_code = 202 if result.state == 'PROCESSING' else 200
+            return result
         top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
-        result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id,
-            service_key, answer=True))
+        result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id, answer=True))
         if body.hrm_user_id is not None or isinstance(result, ContextAnswerResponse):
             response.headers['Cache-Control'] = 'no-store'
         return result
@@ -129,14 +154,16 @@ def create_app(settings=None, *, service_factory=ApiService):
         return {'status': 'alive'}
 
     @app.get('/health/ready')
-    async def ready(request: Request):
+    async def ready(request: Request, service_key: str = Header(alias='X-Rita-Service-Key',
+                    description='Required service credential.')):
         await request.app.state.retrieval_service.ready()
         return {'status': 'ready', 'notice': 'Availability only; retrieval quality and dataset completeness are not verified.'}
 
     @app.get('/health/answer', response_model=AnswerHealthResponse,
              description='Answer initialization and dependency availability only; not answer quality or completeness.',
              responses={503: {'model': AnswerHealthResponse, 'description': 'Answering or dependencies unavailable.'}})
-    async def answer_ready(request: Request):
+    async def answer_ready(request: Request, service_key: str = Header(alias='X-Rita-Service-Key',
+                           description='Required service credential.')):
         reason = await request.app.state.retrieval_service.answer_readiness()
         body = AnswerHealthResponse(status='unavailable' if reason else 'ready', reason=reason)
         return JSONResponse(status_code=503 if reason else 200, content=body.model_dump())

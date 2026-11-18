@@ -46,9 +46,9 @@ codes, generated request IDs, outcomes and timings, never questions/source text.
 
 ## Authoring and schemas
 
-Author only in `artifacts/semantics/source/` and `artifacts/answers/source/`.
+Author language, tasks and optional retrieval metadata in their declared `artifacts/semantics/source/`, `artifacts/answers/source/` and `artifacts/retrieval/source/` inputs. See [leave recognition and ranking](leave-retrieval.md).
 The source index envelope remains version 1; its metadata selects runtime schema 2.
-Schema-1 runtime catalogs/lexicons are rejected. Deploy the code and both artifacts
+Schema-1 answer catalogs/lexicons are rejected; the separate retrieval catalog uses schema 1. Deploy the code and all selected artifacts
 together; runtime performs no implicit conversion or version discovery.
 
 The lexicon defines guarded concepts and aliases. The catalog defines stable task
@@ -65,10 +65,10 @@ catalog to its exact language artifact. Runtime validates structure/hash pairing
 source drift is checked per reference against current DB evidence. Corrupt artifacts
 disable policy answers, while stale evidence only withholds dependent claims.
 
-The migrated inventory has 29 packages / 530 chunks, 52 tasks and 252 concepts.
+The migrated inventory has 29 packages / 530 chunks, 58 tasks and 267 concepts, including six partial leave tasks and fifteen recognition-only query concepts.
 Twenty additional procedure tasks cover Bravo, Workit and Office 365 with complete
 source-chunk quotations and `complete=false`. Existing nine complete sections
-retain their prior declarations. The additions were source-checked by the
+retain their prior declarations. Optional leave registration uses targeted clarification and metadata-bound task routing; narrow existing tasks retain their behavior. The additions were source-checked by the
 implementation agent; no human review or live quality acceptance is inferred.
 Every chunk has a disposition; `unavailable` means no maintained template binding,
 not proof that the source is absent. Held/unpublished sources remain runtime-ineligible.

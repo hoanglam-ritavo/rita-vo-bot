@@ -24,8 +24,32 @@ authorize access or prevent duplicate business processing. Consumers must not
 call the manager from worker threads or reuse it across event loops. Close is
 idempotent; subsequent operations fail. Services can receive the app-owned
 instance explicitly in later work; no current answer/retrieval/Type B consumer
-uses it. Message storage, checkpoints, session context and restoration remain
-future work, independently of this cache infrastructure.
+uses it directly. The separate conversation coordinator receives the app-owned
+instance for structured context; see [durable conversations](docs/conversations.md).
+
+## Durable conversation orchestration
+
+`src/conversation` owns strict wire contracts, authenticated internal routes,
+deterministic context reduction and short SQLAlchemy storage transactions.
+`src/database/models/conversation.py` registers three chat tables; additive
+revision `d8e031c72b19` follows the publication guards. Room identity/authorization
+and a durable purge outbox belong to Backend, without cross-database FKs.
+The existing `/api/v1/answer` accepts either legacy stateless input or complete
+authenticated conversation identity. History/turn/retry/purge routes are separate.
+
+Turn reservations precede inference; atomic completion persists answer, assistant
+message, context delta/version and every-eighth-turn checkpoint before caching.
+Room advisory locks serialize absent-room/purge and completion races. Startup
+marks abandoned processing attempts interrupted; shutdown cancels/drains owned
+conversation work before closing engine/database resources. One stopped/drained
+old process and one replacement are required. No background inference resumes.
+
+Current database version validates cache hits. Misses rebuild from checkpoint
+and completed deltas; reducer/catalog identity prevents stale task inheritance.
+Only exact bounded follow-ups inherit context. Every new answer rechecks source
+evidence; history and user assertions are not authoritative facts. Purge clears
+messages/context/owner and retains only an empty deleted room tombstone.
+See [contracts, limitations and rollout](docs/conversations.md).
 
 ## Readonly HRM source foundation
 
@@ -94,11 +118,19 @@ outputs remain tracked; source changes require build/check and separately
 reviewed provenance/inventory reconciliation, not automatic acceptance.
 See [authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
+`artifacts/questions` is a separate authored question dataset, with no runtime
+consumer or test-runner integration. The inventory checker validates its index
+and exact allowed paths independently of runtime manifests and artifact assembly;
+it does not grade questions or validate their behavioral expectations. Questions
+and Retrieval use narrow Git allowlists; Retrieval retains its existing generated
+pair/source declarations. See [Git policy](docs/runtime-artifacts.md#git-policy-for-questions-and-retrieval)
+and [question maintenance](artifacts/questions/README.md).
+
 ## Implemented storage and ingestion
 
 The schema chain is the applied `bce4184a7f51` baseline followed by additive `c7d92e6a104b` publication guards. The latter preserves tables/data and restores timestamp, immutable revision identity and append-only audit triggers. Fresh baseline installation requires vector provisioning first; older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
 
-Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog, vector and structured-evidence tables with explicit Alembic migrations. Engines remain lazy; entrypoint imports do not connect to the database. Public-document retrieval function/CLI and local HTTP source retrieval are implemented. E5-small runs directly in Python; policy-template answering is separately catalog-gated. Opt-in HTTP work-profile Type B evidence uses its independent readonly connection and trusted-service boundary; conversation history and broader operational tools remain planned. Real-model retrieval quality is not established by synthetic tests.
+Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog/vector/structured evidence and separate conversation tables with explicit migrations. Engines remain lazy; entrypoint imports do not connect to the database. E5-small retrieval and source-bound templates are implemented. Type B uses its independent readonly connection. Opt-in conversations persist history and structured context; broader operational tools remain future work. Synthetic tests do not establish real-model quality.
 
 Source documents stay in `assets/`. `src.paths` anchors Git-trackable current packages at `chunks/<document_id>/`. Metadata is the sole owner of source identity, including revision_id; the directory name is document_id. Source-path uniqueness is checked case-insensitively. Git stores committed package history, while each checkout has only the current package. Per-document OS locks protect reads against replacement; staging, recovery markers and displaced packages live under ignored `.tmp/`. An interrupted replacement blocks reads until explicit recovery. Locks coordinate Python commands, not external editors; stop editing while validation/publication runs. Each complete package contains three consistently versioned v2 or v3 JSON files (metadata, extraction and chunks) and unchanged source bytes. Initialization may leave an incomplete package until the agent authors extraction/chunks. Historical `indexing_chunks/` is never scanned or merged.
 
@@ -134,13 +166,23 @@ HTTP through FastAPI is the only implemented service transport. The backend call
 `POST /api/v1/retrieve`; the separately gated `POST /api/v1/answer` remains opt-in.
 The API and backend must share the same machine/network namespace: the bot accepts
 only a `127.0.0.1` bind, and the backend accepts only a loopback HTTP origin.
-There is no service authentication or remote/container-network support.
+Stateless public-document retrieval retains its legacy boundary. Conversation
+operations require the shared service credential; legacy Type B keeps its own
+credential. Remote/container-network support is not added.
 
 The former health-only gRPC server and entrypoint have been removed, without a
 compatibility stub. Use `/health/live` for HTTP liveness and `/health/ready` for
 initialized retrieval/model state and database connectivity. Readiness does not
 certify answer-catalog availability, retrieval quality or corpus completeness.
 See [HTTP operation and rollout](README.md#http-service-operation-and-rollout).
+
+## Leave recognition and source-bound ordering
+
+`src/retrieval/policy.py` loads the optional source-bound retrieval catalog independently of answer enablement. Lexicon concept IDs drive bounded family/type/platform/operation recognition and day/session extraction; recognition-only concepts never participate in E5 phrase expansion. An identified leave request stably reorders the existing eligible pool before top-K using validated source bindings, role/platform and authored ranges. Unknown/stale metadata is neutral; explicit other families follow matching candidates. Explicit non-leave queries preserve baseline order. Raw logits are unchanged and relevance remains unassessed.
+
+`src/answering/pipeline.py` consumes the same policy for targeted missing-slot clarification and task selection. Known narrow legacy tasks retain their contracts, supported specified requests read exact current DB references, and unsupported branches do not substitute another system. No balances or personal eligibility are inferred. The storage adapter supplies source hashes internally and retrieval removes them before all public serialization. HTTP/CLI schemas are unchanged.
+
+`src/artifact_authoring` now builds/imports two or three groups. The retrieval source index declares families, systems, subtypes, operations, bindings and routes; build binds its lexicon hash, impact/refresh checks ranking and answer references together. Missing/invalid optional catalogs degrade to baseline retrieval without a new env switch. See [contract, benchmark and limits](docs/leave-retrieval.md). This task does not modify conversation storage or cache lifecycles.
 
 ## Implemented public-document retrieval
 
@@ -185,7 +227,7 @@ Current deterministic policy answering lives in `src.answering`: schema-v2 catal
 
 An unambiguous task reads its declared evidence directly from current eligible DB publications, independently of top-K. Claims require every reference; partial evidence can yield independently supported partial claims. Unknown tasks expose no nearest excerpts. Explicit document lookups can return labeled unassessed excerpts. Multi-task, unsupported personal eligibility, aggregate and ambiguous questions ask for clarification. This changes the old top-K-only evidence policy intentionally.
 
-Type B uses the deterministic bounded self-reference task registry and readonly employee adapter; no classifier hints remain. Mixed results separate policy and facts without deciding eligibility. Broader tools, cross-employee lookup, conversation memory, automatic aggregates and generative answers remain future work.
+Type B uses the bounded self-reference registry and readonly employee adapter. Mixed results separate policy and facts without deciding eligibility. Structured conversation memory is independently opt-in; broader tools, cross-employee lookup, automatic aggregates and generative answers remain future work.
 
 `src.artifact_authoring.impact` reports dependency-local drift and relinks only unique byte-identical evidence with unchanged revision/source/context. Build/check generates compatible artifacts. Content/revision changes require targeted review, not fingerprint edits or training. See [authoring/release](docs/catalog-answering.md).
 
@@ -212,7 +254,7 @@ Source update/reconciliation is owned by `src.artifact_authoring.impact`; determ
 
 Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous requests, and unanswerable questions. Measure retrieval quality and answer grounding separately, alongside latency and resource use. Phase 1 must not claim live personnel/project knowledge before Phase 2 exists.
 
-FastAPI, local E5/ONNX runtimes, ranking configuration and quantitative offline gates are implemented; their existence does not establish production acceptance. Production sizing, authenticated HTTP service integration and extended answering remain future work. The current 14-table application schema, including run-owned structured evidence, and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
+FastAPI, local E5/ONNX runtimes and source-bound templates are implemented; their existence does not establish production acceptance. Authenticated conversation integration is opt-in; production sizing and live rollout acceptance remain outstanding. The current 17-table schema (14 source/evidence tables plus three chat tables) and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
 
 ## Verification boundaries
 

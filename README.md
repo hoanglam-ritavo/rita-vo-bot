@@ -1,6 +1,6 @@
 # Rita Bot
 
-Implemented: Python database foundation, agent-authored multi-format chunk packages, structural validation, transactional PostgreSQL publication, public-document retrieval through a function/CLI and local FastAPI. E5-small runs directly in Python; document retrieval returns source chunks. A separate opt-in Semantic + template answer API uses source-bound catalog entries and explicit excerpt/clarification fallbacks, with no generative model. Unfiltered responses retain unassessed relevance metadata and do not establish acceptance. Optional trusted-backend Type B work-profile evidence is available through the two HTTP endpoints; conversation history and broader operational tools remain planned.
+Implemented: Python database foundation, package-owned ingestion/publication and local FastAPI retrieval/answer services. E5-small and optional ONNX reranking return unassessed source candidates; template answers require exact eligible evidence. Optional trusted-backend Type B provides bounded work-profile evidence. Opt-in [durable conversations](docs/conversations.md) add message storage, structured follow-ups and cache/checkpoint recovery without a generative model. Broader operational tools and personal eligibility decisions remain unsupported.
 
 An opt-in [readonly employee source](docs/employee-source.md) now supplies a separate
 PostgreSQL connection, explicit 64-field employee_sso_store repository, immutable
@@ -27,7 +27,7 @@ Before publication, use `python -m src.cli.preflight_documents --package <packag
 
 Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. The old intent/scoring kits are retired; their history remains in Git and private datasets/runs/ZIPs stay untouched under `.tmp`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
-The current schema head is `c7d92e6a104b`, an additive guard migration after the provisioned `bce4184a7f51` baseline. Existing databases at that baseline upgrade without rebuilding tables. Fresh databases require the `vector` extension before the baseline creates its 14 tables. Older `0001` through `0006` histories are not automatically converted. See [database design](docs/database-design.md) for provisioning and [corpus publication](docs/corpus-publication.md) for validate/preflight/dry-run/publication and verification.
+The current schema head is `d8e031c72b19`: three conversation tables after the `c7d92e6a104b` guards and provisioned 14-table `bce4184a7f51` baseline (17 tables total). Upgrades are explicit and additive. Fresh databases require `vector` before the baseline. Older `0001`–`0006` histories are not automatically converted. See [database design](docs/database-design.md), [conversation provisioning](docs/conversations.md#enablement-and-storage) and [corpus publication](docs/corpus-publication.md).
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
@@ -42,6 +42,69 @@ before catalog/inventory release checks. Runtime still reads the same monolithic
 files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 ## Current verification status
+
+### Questions and Retrieval Git policy - 2026-11-18
+
+The Git allowlist now exposes the question source dataset and the Retrieval
+catalog/manifest and declared source collections. The inventory checker permits
+only indexed question paths outside runtime assets; it does not execute or grade
+the cases. See [Git policy and limits](docs/runtime-artifacts.md#git-policy-for-questions-and-retrieval)
+and [question sources](artifacts/questions/README.md). Existing unrelated working-tree
+changes are preserved; no artifact regeneration, staging, commit or push is part
+of this change.
+
+Post-edit validation at `540badc` plus the existing working tree passed **93
+tests** in the runtime-inventory/Git-policy and artifact-authoring suites.
+`python -m src.cli.build_artifacts check` returned current with zero changed
+files; runtime inventory verification passed for **22 files**. Data checks also
+passed for **416 question cases / 433 turns**, including JSON/IDs, counts, paths,
+duplicate scenarios and coverage links. Scoped whitespace and new documentation
+links were checked.
+
+The initial sandbox run could not access pytest fixture directories and some
+catalog/index files. The successful checks ran outside that restriction, using
+the repository virtual environment and a fresh extended-length `.tmp` basetemp;
+no permissions or artifact bytes were changed to obtain a pass. No full application
+suite, integration DB, model inference, bot scenario execution or deployment was
+performed. Git staging/commits in tests occurred only in fictional temporary
+repositories, not in this working checkout.
+
+### Leave recognition and source-bound ordering - 2026-11-18
+
+The optional retrieval catalog adds bounded leave-query recognition and source-bound stable ordering after the reranker and before top-K. The original two-day question now promotes the general leave procedure; `/answer` asks for leave type/platform instead of returning `task_unavailable`. Six partial source-bound tasks and fifteen recognition-only concepts bring the inventory to 58 tasks / 267 concepts, with 32 ranking bindings. Recognition-only phrases do not rewrite retrieval queries. No chunks, vectors, DB schema, employee access, public response shape or runtime env switches were changed by this task. See [behavior, source updates and limits](docs/leave-retrieval.md).
+
+Final post-edit non-integration regression: **912 passed, 1 skipped, 56 deselected** at `540badc` plus the leave working tree, with the existing Starlette/AnyIO deprecation warning. The focused final leave suite passed **55 tests**, including serialized HTTP/CLI and specified-task evidence. The full run includes concurrent conversation work, which was preserved. Windows checks used an extended-length `.tmp` root. Integration tests were not executed against a disposable DB.
+
+Readonly real-corpus evaluation improved expected-first ordering from **4/7 to 7/7** exposed cases; warm ordering p95 was **1.31 ms** (100 measurements after 10 warmups). The reported question changed from E-Leave's session example first to the general leave procedure first. A readonly answer probe returned targeted clarification for the original question and source-backed partial answers for five specified branches at top-K 1. Private metadata-only reports are under `.tmp/leave-retrieval-20261118/`; these results are not independent human quality acceptance. No migration, publication, service restart or deployment was performed. Final build/check, catalog validation, all **143** source bindings, runtime inventory (**22 files**) and Markdown paths passed. CRLF-aware diff inspection found no whitespace errors.
+
+
+### Durable conversations - 2026-11-18
+
+Backend/bot implementation adds owner-scoped room APIs, durable turns/messages,
+structured context/cache recovery and purge/tombstones. New features default
+off; portal, private `.env`, live services and published corpus were not changed.
+Post-edit bot non-integration regression passed **857 tests**, with **1 skipped**
+and **56 integration tests deselected** (before the final self-reference guard
+and immutable catalog-identity optimization). The subsequent focused
+conversation/HTTP/lifecycle/Type B regression passed **143 tests** after those
+changes. Starlette/AnyIO reports its existing deprecation warning. The optional
+conversation PostgreSQL fixture was **skipped** because
+`TEST_CONVERSATION_DATABASE_URL` was not configured; no live transaction,
+locking, migration execution or end-to-end answer quality is claimed.
+
+Validation used the Python 3.14 repository virtual environment. The full and
+focused runs used fresh named `.tmp` basetemps/cache directories outside the
+sandbox's existing pytest permission restriction. Earlier attempts caught an
+import-time SQLAlchemy regression and the old 14-table schema assertion; both
+were corrected while retaining import isolation and full 17-table DDL checks.
+Existing unrelated source/catalog/artifact work continued concurrently and was
+preserved. This records the executed snapshots, not acceptance of those changes.
+See [operation, migration and limits](docs/conversations.md).
+
+Final schema/context checks passed **37 tests**, including both new turn indexes
+and the immutable migration-to-model comparison. Scoped diff whitespace passed;
+an unrestricted diff check hit a permission error on a concurrently edited
+catalog artifact, which was left untouched.
 
 ### Shared memory cache helper - 2026-11-18
 
@@ -1377,8 +1440,9 @@ payloads and entry count, not total process RAM.
 The cache is shared within one app/process only, is lost on restart and is not
 shared with Backend or other workers. It must be called from its owning event
 loop, not worker threads. Use PostgreSQL persistence in future features that
-need recovery. This helper does not yet cache `/answer`, retrieval, HRM data or
-conversation context, and supplies no automatic compaction or restoration.
+need recovery. The [conversation coordinator](docs/conversations.md) now uses
+this helper for structured context; it supplies compaction/restoration separately.
+Retrieval results, full answer responses and HRM facts are not cached.
 
 ## Testing
 

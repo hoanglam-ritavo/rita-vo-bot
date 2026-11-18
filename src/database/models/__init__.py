@@ -10,7 +10,8 @@ from .evidence import EvidenceScope, EvidenceItem, EvidenceValue, ScopeItem, Sco
 
 from .publication_attempt import PublicationAttempt
 from .metadata_audit import MetadataAudit
+from .conversation import Conversation, ChatTurn, ChatMessage
 
 __all__ = ['Document', 'DocumentRevision', 'DocumentAccessRule', 'DocumentRelation', 'IngestionRun', 'DocumentChunk', 'Timestamps',
            'EvidenceScope', 'EvidenceItem', 'EvidenceValue', 'ScopeItem', 'ScopeChunk', 'ItemChunk',
-           'PublicationAttempt', 'MetadataAudit']
+           'PublicationAttempt', 'MetadataAudit', 'Conversation', 'ChatTurn', 'ChatMessage']

@@ -1,0 +1,984 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.benefits",
+  "description": "Authored question scenarios for policy / benefits. Expectations describe source-bound behavior, not observed results.",
+  "cases": [
+    {
+      "id": "q.policy.benefits.001",
+      "title": "Đối tượng thưởng giới thiệu — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.1b7c07495171540ea103b6a529742c3f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Những đối tượng nào thuộc phạm vi thưởng giới thiệu nhân viên mới?",
+          "expectation": "Trả lời trong phạm vi Đối tượng thưởng giới thiệu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.002",
+      "title": "Đối tượng thưởng giới thiệu — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.1b7c07495171540ea103b6a529742c3f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Ai được tham gia chính sách thưởng giới thiệu người vào công ty?",
+          "expectation": "Trả lời trong phạm vi Đối tượng thưởng giới thiệu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.003",
+      "title": "Đối tượng thưởng giới thiệu — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.1b7c07495171540ea103b6a529742c3f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Trước khi giới thiệu ứng viên, tôi muốn biết chính sách áp dụng cho nhóm nào.",
+          "expectation": "Trả lời trong phạm vi Đối tượng thưởng giới thiệu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.004",
+      "title": "Đối tượng thưởng giới thiệu — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.1b7c07495171540ea103b6a529742c3f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhung doi tuong nao thuoc pham vi thuong gioi thieu nhan vien moi?",
+          "expectation": "Trả lời trong phạm vi Đối tượng thưởng giới thiệu từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.005",
+      "title": "Đối tượng thưởng giới thiệu — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.1b7c07495171540ea103b6a529742c3f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi giới thiệu một người rồi, khẳng định giúp tôi chắc chắn được thưởng.",
+          "expectation": "Không kết luận cá nhân chắc chắn được thưởng từ lời tự khai; chỉ nêu phạm vi chính sách có nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.006",
+      "title": "Phạm vi chính sách phúc lợi — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Chính sách phúc lợi áp dụng cho những đối tượng nào?",
+          "expectation": "Trả lời trong phạm vi Phạm vi chính sách phúc lợi từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.007",
+      "title": "Phạm vi chính sách phúc lợi — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Phạm vi áp dụng của quyết định về phúc lợi là gì?",
+          "expectation": "Trả lời trong phạm vi Phạm vi chính sách phúc lợi từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.008",
+      "title": "Phạm vi chính sách phúc lợi — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn hiểu nhóm người được đề cập trong chính sách phúc lợi.",
+          "expectation": "Trả lời trong phạm vi Phạm vi chính sách phúc lợi từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.009",
+      "title": "Phạm vi chính sách phúc lợi — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Chinh sach phuc loi ap dung cho nhung doi tuong nao?",
+          "expectation": "Trả lời trong phạm vi Phạm vi chính sách phúc lợi từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.010",
+      "title": "Phạm vi chính sách phúc lợi — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.650da36176db543abc92c94366984975"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khẳng định tôi được hưởng tất cả phúc lợi của công ty.",
+          "expectation": "Không kết luận người dùng được hưởng mọi phúc lợi; giữ phạm vi và điều kiện theo từng nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.011",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có khoản hỗ trợ nào theo chính sách?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.012",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Chính sách quy định gì về tiền cưới dành cho nhân viên?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.013",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đang tìm quy định hỗ trợ khi chính nhân viên tổ chức kết hôn.",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.014",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhan vien ket hon co khoan ho tro nao theo chinh sach?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.015",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi hỗ trợ con nhân viên kết hôn, không phải bản thân nhân viên.",
+          "expectation": "Nhận rõ đối tượng con nhân viên; không dùng mức, điều kiện hay giấy tờ của chính nhân viên kết hôn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.016",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — mức hỗ trợ",
+      "tags": [
+        "aspect:amount",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên kết hôn, mức hỗ trợ là gì?",
+          "expectation": "Nêu mức hỗ trợ cho đúng chủ đề Khoản hỗ trợ nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.017",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên kết hôn, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Khoản hỗ trợ nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.018",
+      "title": "Khoản hỗ trợ nhân viên kết hôn — hồ sơ",
+      "tags": [
+        "aspect:paperwork",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên kết hôn, hồ sơ, giấy tờ cần chuẩn bị là gì?",
+          "expectation": "Nêu hồ sơ, giấy tờ cần chuẩn bị cho đúng chủ đề Khoản hỗ trợ nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.019",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Con nhân viên kết hôn có khoản hỗ trợ nào theo chính sách?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ con nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.020",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Quy định tiền cưới dành cho con của nhân viên là gì?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ con nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.021",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tra cứu hỗ trợ khi con nhân viên lập gia đình.",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ con nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.022",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Con nhan vien ket hon co khoan ho tro nao theo chinh sach?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ con nhân viên kết hôn từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.023",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi bản thân nhân viên kết hôn, không phải con nhân viên.",
+          "expectation": "Nhận rõ đối tượng bản thân nhân viên; không dùng nội dung hỗ trợ con nhân viên kết hôn để trả lời."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.024",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — mức hỗ trợ",
+      "tags": [
+        "aspect:amount",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ con nhân viên kết hôn, mức hỗ trợ là gì?",
+          "expectation": "Nêu mức hỗ trợ cho đúng chủ đề Khoản hỗ trợ con nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.025",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ con nhân viên kết hôn, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Khoản hỗ trợ con nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.026",
+      "title": "Khoản hỗ trợ con nhân viên kết hôn — hồ sơ",
+      "tags": [
+        "aspect:paperwork",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ con nhân viên kết hôn, hồ sơ, giấy tờ cần chuẩn bị là gì?",
+          "expectation": "Nêu hồ sơ, giấy tờ cần chuẩn bị cho đúng chủ đề Khoản hỗ trợ con nhân viên kết hôn và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.027",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — câu trực tiếp",
+      "tags": [
+        "direct",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên nữ sinh con có khoản hỗ trợ nào theo chính sách?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên nữ sinh con từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.028",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — diễn đạt khác",
+      "tags": [
+        "paraphrase",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Công ty quy định thế nào về hỗ trợ sinh con cho nhân viên nữ?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên nữ sinh con từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.029",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — tình huống",
+      "tags": [
+        "situational",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đọc quy định phúc lợi dành cho trường hợp nhân viên nữ sinh con.",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên nữ sinh con từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.030",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — không dấu",
+      "tags": [
+        "no-diacritics",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhan vien nu sinh con co khoan ho tro nao theo chinh sach?",
+          "expectation": "Trả lời trong phạm vi Khoản hỗ trợ nhân viên nữ sinh con từ bằng chứng hợp lệ; giữ điều kiện và nguồn dẫn. Giữ kết quả ở mức phần được chứng minh; overview đang khai báo chưa đầy đủ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.031",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — phân biệt phạm vi",
+      "tags": [
+        "boundary",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi hỏi khoản hỗ trợ sinh con, không phải thủ tục nộp đơn nghỉ thai sản.",
+          "expectation": "Giữ chủ đề khoản phúc lợi sinh con; không trả quy trình nộp đơn thai sản thay cho chính sách hỗ trợ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.032",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — mức hỗ trợ",
+      "tags": [
+        "aspect:amount",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên nữ sinh con, mức hỗ trợ là gì?",
+          "expectation": "Nêu mức hỗ trợ cho đúng chủ đề Khoản hỗ trợ nhân viên nữ sinh con và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.033",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — điều kiện",
+      "tags": [
+        "aspect:conditions",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên nữ sinh con, điều kiện áp dụng là gì?",
+          "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Khoản hỗ trợ nhân viên nữ sinh con và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.034",
+      "title": "Khoản hỗ trợ nhân viên nữ sinh con — hồ sơ",
+      "tags": [
+        "aspect:paperwork",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật."
+      ],
+      "turns": [
+        {
+          "text": "Về Khoản hỗ trợ nhân viên nữ sinh con, hồ sơ, giấy tờ cần chuẩn bị là gì?",
+          "expectation": "Nêu hồ sơ, giấy tờ cần chuẩn bị cho đúng chủ đề Khoản hỗ trợ nhân viên nữ sinh con và dẫn nguồn; giữ điều kiện, ngoại lệ, không kết luận quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.035",
+      "title": "Hỏi tiếp về hỗ trợ nhân viên kết hôn",
+      "tags": [
+        "multi-turn",
+        "aspect:paperwork",
+        "aspect:conditions"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; các lượt thuộc cùng một hội thoại mới."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên kết hôn có hỗ trợ gì?",
+          "expectation": "Giữ phạm vi nhân viên kết hôn; overview chưa đầy đủ."
+        },
+        {
+          "text": "Còn hồ sơ thì sao?",
+          "expectation": "Dùng lại chủ đề nhân viên kết hôn để trả lời phần hồ sơ có nguồn."
+        },
+        {
+          "text": "Còn điều kiện thì sao?",
+          "expectation": "Tiếp tục đúng chủ đề và nêu điều kiện có nguồn, không quyết định quyền lợi cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.benefits.036",
+      "title": "Hỏi tiếp khoản hỗ trợ sinh con",
+      "tags": [
+        "multi-turn",
+        "aspect:amount"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên nữ sinh con có hỗ trợ gì?",
+          "expectation": "Nêu phần chính sách có bằng chứng, không coi overview là đầy đủ."
+        },
+        {
+          "text": "Còn mức hỗ trợ thì sao?",
+          "expectation": "Dùng lại chủ đề sinh con và chỉ nêu mức hỗ trợ theo nguồn hiện hành."
+        }
+      ]
+    }
+  ]
+}
