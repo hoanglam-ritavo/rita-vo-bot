@@ -26,8 +26,6 @@ LABELS = {
     'bank_account_number': 'Số tài khoản ngân hàng', 'bank_account_name': 'Tên chủ tài khoản',
     'bank_name': 'Ngân hàng', 'bank_branch': 'Chi nhánh ngân hàng',
 }
-PERSONAL = ('cua toi', 'cua minh', 'toi co duoc', 'truong hop cua toi', 'giup toi', 'cho toi',
-            'toi', 'minh', 'toi muon', 'toi xin', 'toi da', 'toi dang', 'soan', 'dien san', 'ban nhap')
 
 
 @dataclass(frozen=True)
@@ -42,17 +40,18 @@ class ContextPlan:
     analysis: RequestAnalysis | None = None
 
 
-def prepare(question, catalog=None, lexicon=None, policy=None):
+def prepare(question, catalog=None, lexicon=None, policy=None, *, analysis=None):
+    analysis = analysis or analyze_question(question, catalog, lexicon, policy)
+    question = analysis.question or question
     query = normalized(question)
     hypothetical = any(phrase(query, term) for term in ('gia su', 'gia dinh rang', 'neu toi'))
-    analysis = analyze_question(question, catalog, lexicon, policy)
     other = analysis.unsupported_person
-    self_request = any(phrase(query, term) for term in PERSONAL)
+    self_request = analysis.personal_request
     direct = analysis.direct_fields
     cards, ambiguous = analysis.cards, analysis.ambiguous
     card = cards[0] if len(cards) == 1 and not ambiguous else None
     spec = getattr(card, 'context', None) or ContextSpec(note='No contextual requirements for this task.')
-    generic = any(phrase(query, term) for term in ('chi quy dinh chung', 'khong dung ho so', 'chi trich dan'))
+    generic = analysis.general_guidance or any(phrase(query, term) for term in ('chi quy dinh chung', 'khong dung ho so', 'chi trich dan'))
     if generic or other or analysis.document_lookup or analysis.clarification or (spec.mode in ('branch', 'calculation') and not self_request):
         spec = ContextSpec(note='The request does not require individual application.')
     # Clauses asking work facts may accompany a document task; both are composed later.
@@ -195,7 +194,7 @@ def compose(plan, snapshot, state, evidence, claims, *, calculate_values=True):
     # Conditions requiring operational/historical data remain explicit inputs, not inferred flags.
     if plan.spec.mode in ('branch', 'calculation'):
         application.mode = 'hypothetical' if plan.hypothetical else 'conditional'
-        inputs = parse_inputs(plan.question)
+        inputs = dict(plan.analysis.user_inputs) if plan.analysis is not None else parse_inputs(plan.question)
         for slot, value in inputs.items():
             if slot in plan.spec.prompts:
                 key = f'U{sum(item["kind"] == "user_input" for item in evidence)+1}'
@@ -218,14 +217,14 @@ def compose(plan, snapshot, state, evidence, claims, *, calculate_values=True):
         application.state = 'partial'
         limitations.append('Chưa xác định duy nhất được liên kết quản lý; không tự chọn người duyệt thay thế.')
     if any(phrase(query, term) for term in ('tham nien', 'bao lau', 'bao nhieu ngay', 'bao nhieu thang')):
-        if not explicit_dates(plan.question) and not phrase(query, 'hom nay'):
+        if not explicit_dates(plan.question) and not dict(plan.analysis.user_inputs if plan.analysis else ()).get('as_of') and not phrase(query, 'hom nay'):
             application.state = 'partial'
             application.missing_inputs.append(MissingInput(slot='as_of', prompt='Ngày xét: bạn muốn tính đến ngày nào?'))
             limitations.append('Cần ngày xét cụ thể để tính khoảng thời gian từ mốc hồ sơ.')
         if phrase(query, 'tham nien'):
             application.state = 'partial'
             limitations.append('Chưa xác nhận mốc và quy tắc thâm niên của chính sách; không mặc định ngày chính thức là thâm niên hưởng chế độ.')
-    dates = explicit_dates(plan.question)
+    dates = explicit_dates(dict(plan.analysis.user_inputs if plan.analysis else ()).get('as_of', '')) or explicit_dates(plan.question)
     date_field = plan.spec.date_field
     operation = plan.spec.operation
     # Explicit work-date arithmetic is distinct from policy tenure or leave balances.

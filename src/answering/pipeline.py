@@ -44,7 +44,7 @@ def requested_aspects(question):
     terms = {'amount': ('bao nhiêu tiền', 'mức hỗ trợ', 'mức thưởng', 'bao nhiêu', 'số tiền'),
              'conditions': ('điều kiện', 'áp dụng cho', 'đối tượng'),
              'paperwork': ('giấy tờ', 'hồ sơ', 'giấy gì'),
-             'procedure': ('cách', 'thủ tục', 'các bước', 'làm thế nào')}
+             'procedure': ('cách', 'thủ tục', 'các bước', 'làm thế nào', 'cần làm gì', 'phải làm gì')}
     terms['procedure'] += ('làm sao',)
     aspects = [key for key, phrases in terms.items() if any(phrase(query, normalized(p)) for p in phrases)]
     return aspects or (['procedure'] if any(phrase(query, p) for p in ('quy trinh', 'dang ky')) else ['overview'])
@@ -118,19 +118,21 @@ def is_document_lookup(question):
 
 
 def render(question, result, catalog, lexicon, policy=None, *, contextual=False, analysis=None):
+    if analysis is None:
+        from .planning import analyze_question
+        analysis = analyze_question(question, catalog, lexicon, policy)
     relevance = checked_relevance(result)
     row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
            'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
-    if policy is not None and not is_document_lookup(question):
-        resolution = resolve_policy(question, catalog, lexicon, policy)
-        if resolution is not None and resolution.state in ('clarify','unsupported'):
-            row.update(status='needs_clarification' if resolution.state=='clarify' else 'insufficient_evidence',
-                       reason=(('leave_needs_clarification' if resolution.state=='clarify' else 'leave_task_unsupported')
-                               if policy.analyze(question).involves_leave else
-                               ('task_needs_clarification' if resolution.state=='clarify' else 'task_unsupported')),
-                       limitations=[resolution.message])
-            return row
-    if is_document_lookup(question):
+    if analysis.unsupported_person or analysis.clarification:
+        row.update(status='unsupported' if analysis.unsupported_person else 'needs_clarification',
+            reason='other_employee_unsupported' if analysis.unsupported_person else analysis.clarification_reason,
+            limitations=['Chỉ sử dụng hồ sơ của người đang đăng nhập.' if analysis.unsupported_person else analysis.clarification])
+        return row
+    if analysis is not None and analysis.document_message:
+        row.update(reason=analysis.document_reason, limitations=[analysis.document_message])
+        return row
+    if analysis.document_lookup:
         sources = evidence_sources(result['matches'])
         claims = [{'text': source['content'], 'citations': [{'source_id': key, 'quote': source['content']}]}
                   for key, source in sources.items() if 0 < len(source['content']) <= 2000][:12]
@@ -138,8 +140,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                    intro=EXCERPTS if claims else '', reason='document_lookup', limitations=[
                        'Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ.'])
         return row
-    cards, ambiguous = ((analysis.cards, analysis.ambiguous) if analysis is not None else
-        select_cards(question, catalog, lexicon, policy, contextual=contextual))
+    cards, ambiguous = analysis.cards, analysis.ambiguous
     if ambiguous:
         row.update(status='needs_clarification', reason='needs_clarification', limitations=[
             'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
@@ -153,7 +154,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
     sources = evidence_sources(result['matches'])
     if len(cards) == 1:
         card = cards[0]
-        aspects = requested_aspects(query_variants(question)[-1])
+        aspects = analysis.aspects
         claims, complete = [], True
         for aspect in aspects:
             section = card.sections.get(aspect)
@@ -197,19 +198,23 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, con
     from src.retrieval.service import validate_request
     from src.retrieval.reranking import relevance
     question = validate_request(question, top_k)
-    if is_document_lookup(question):
+    if analysis is None:
+        from .planning import analyze_question
+        analysis = analyze_question(question, catalog, lexicon, getattr(retrieval, 'policy', None))
+    if analysis.clarification or analysis.unsupported_person or analysis.document_message:
+        return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
+    if analysis.document_lookup:
         logger.info('document_evidence state=requested mode=lookup')
-        result = await retrieval.retrieve(question, top_k=top_k)
+        result = await retrieval.retrieve(analysis.document_question or question, top_k=top_k)
         if result['status'] == 'model_mismatch':
             raise ValueError('model_mismatch')
         return result
-    policy = getattr(retrieval, 'policy', None)
-    cards, ambiguous = ((analysis.cards, analysis.ambiguous) if analysis is not None else
-        select_cards(question, catalog, lexicon, policy, contextual=contextual))
+    cards, ambiguous = analysis.cards, analysis.ambiguous
     if ambiguous:
         logger.info('document_evidence state=not_requested reason=ambiguous_request')
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
-    refs = [ref for card in cards for aspect in requested_aspects(query_variants(question)[-1])
+    aspects = analysis.aspects
+    refs = [ref for card in cards for aspect in aspects
             for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
     if not refs:
         logger.info('document_evidence state=not_requested reason=%s', 'task_unavailable' if not cards else 'section_missing')
@@ -218,9 +223,12 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, con
     return await retrieval.read_evidence(refs)
 
 
-async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5):
+async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5, analysis=None):
     started = time.perf_counter()
-    result = await evidence_result(question, retrieval, catalog, lexicon, top_k)
-    row = render(question, result, catalog, lexicon, getattr(retrieval, 'policy', None))
+    if analysis is None:
+        from .planning import analyze_question
+        analysis = analyze_question(question, catalog, lexicon, getattr(retrieval, 'policy', None))
+    result = await evidence_result(question, retrieval, catalog, lexicon, top_k, analysis=analysis)
+    row = render(question, result, catalog, lexicon, getattr(retrieval, 'policy', None), analysis=analysis)
     return {**row, 'retrieval_seconds': time.perf_counter() - started,
             'generation_seconds': 0.0, 'verification_seconds': 0.0}

@@ -99,7 +99,12 @@ field follow-ups reuse self-reference only after an applied/partial employee con
 resolve arbitrary pronouns or turn negated/third-person/eligibility requests
 into positive policy queries. Unclear requests keep the existing clarification
 or unsupported outcomes. Original messages remain stored separately from the
-interpreted query.
+structured request. Task/source choices and slot replies update that request
+without rewriting the original message. Numbered choices preserve self-reference,
+dates and assertions; aspect follow-ups replace the requested aspect by default.
+Unrecognized pending replies (including "I do not know") keep the pending request.
+Explicit cancellation and recognized topic changes end it. The same plan is used
+for contextual reads, evidence selection and rendering.
 
 Completed turns carry a context delta snapshot. Every eighth completion saves a
 checkpoint; a cache miss rebuilds from that checkpoint and newer completed
@@ -145,7 +150,7 @@ tables or tombstones. See [current verification](../README.md#current-verificati
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified
-schema 2 evidence graph; reducer schema 4 and cache namespace v2 keep task-bound
+schema 2 evidence graph; reducer schema 5 and cache namespace v2 keep task-bound
 user assertions without caching employee facts. Labelled follow-ups only fill
 pending slots, remain unverified and trigger fresh personnel reads. See
 [contextual answers and compatible development rollout](contextual-answers.md).

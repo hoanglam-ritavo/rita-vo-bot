@@ -23,6 +23,8 @@ from src.type_b.employee_store.errors import EmployeeSourceError
     ('Chức danh của Lan là gì và phòng ban của tôi?', 'unsupported'),
     ('Chức danh của tôi là gì và số dư phép còn bao nhiêu?', 'needs_clarification'),
     ('Chức danh của tôi kèm yêu cầu chưa rõ?', 'needs_clarification'),
+    ('Cho tôi biết chức danh với số dư phép của tôi', 'needs_clarification'),
+    ('Chức danh và lương của tôi là gì?', 'needs_clarification'),
     ('Tôi không muốn xem mã nhân viên', 'needs_clarification'),
     ('Sinh con được bao nhiêu và yêu cầu chưa rõ?', 'needs_clarification'),
 ])
@@ -115,7 +117,9 @@ def test_numbered_selection_preserves_aspect_and_rejects_unrelated_input(sample)
     assert pending['requested_aspects'] == ['paperwork']
     question, selected = reduce_question('2', pending, catalog, sample.lexicon)
     assert selected['task_id'] == second.id
-    assert question == 'quyền lợi B hồ sơ giấy tờ'
+    assert question == 'Hồ sơ sự kiện chung?'
+    assert selected['request']['selected_task'] == second.id
+    assert selected['request']['aspects'] == ['paperwork']
     question, state = reduce_question('không chọn quyền lợi B', pending, catalog, sample.lexicon)
     assert question == 'không chọn quyền lợi B' and state['task_id'] is None
     question, state = reduce_question('9', pending, catalog, sample.lexicon)

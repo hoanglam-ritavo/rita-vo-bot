@@ -188,7 +188,8 @@ async def run_fixture(root=REPOSITORY_ROOT):
     from src.answering.catalog import load_catalog
     from src.answering.config import AnswerSettings
     from src.answering.pipeline import select_cards
-    from src.conversation.context import reduce_question, compact
+    from src.conversation.context import plan_turn, compact
+    from functools import partial
     from src.type_b.employee_store.fields import PROFILE_FIELDS
     from src.type_b.employee_store.normalization import normalize_profile
     from src.retrieval.policy import RetrievalPolicy
@@ -238,6 +239,7 @@ async def run_fixture(root=REPOSITORY_ROOT):
             employee_service=SimpleNamespace(read_context=read_context))
         owner.started = owner.answers.available = owner.context.available = True
         owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+        execute = owner.context.execute
         state = {}
         app = create_app(owner.settings, service_factory=lambda _: owner)
         app.state.retrieval_service = owner
@@ -252,8 +254,13 @@ async def run_fixture(root=REPOSITORY_ROOT):
                 for field in oracle.null_fields:
                     fields[field] = None
                 stamp = 'changed-evaluation-context' if oracle.fixture == 'catalog_changed' else None
-                question, state = reduce_question(turn['text'], state, catalog, lexicon, policy=policy, identity_stamp=stamp)
-                selected, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=True)
+                analysis, state = plan_turn(turn['text'], state, catalog, lexicon, policy=policy, identity_stamp=stamp)
+                question = analysis.question
+                owner.context.execute = partial(execute, analysis=analysis)
+                selected, ambiguous = analysis.cards, analysis.ambiguous
+                if analysis.document_lookup:
+                    # Lookup task labels annotate fixture recall only, never authorize a template answer.
+                    selected, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=True)
                 body = {'text': question, 'hrm_user_id': 7, 'top_k': 5}
                 if oracle.fixture == 'feature_disabled':
                     # Model the documented disabled HTTP guard, not fake facts.

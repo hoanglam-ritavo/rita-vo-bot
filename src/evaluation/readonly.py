@@ -15,7 +15,7 @@ async def run_readonly(root, *, retrieval_limit=40):
     from src.api.answer import format_answer
     from src.answering.catalog import load_catalog
     from src.answering.pipeline import evaluate_question, select_cards, requested_aspects, matches_reference
-    from src.conversation.context import reduce_question, compact
+    from src.conversation.context import plan_turn, compact
     from src.database import close_database
     from src.retrieval import RetrievalService
     from src.type_b.tasks import route_question
@@ -61,9 +61,10 @@ async def run_readonly(root, *, retrieval_limit=40):
                         or 'mixed' in case['tags'] or 'type-b' in case['tags']):
                     rows.append({**key, 'state': 'deferred', 'reason': 'requires_isolated_fixture'})
                     continue
-                question, state = reduce_question(turn['text'], state, catalog, lexicon, policy=service.policy)
-                cards, ambiguous = select_cards(question, catalog, lexicon, service.policy)
-                refs = [ref for card in cards for aspect in requested_aspects(question)
+                analysis, state = plan_turn(turn['text'], state, catalog, lexicon, policy=service.policy)
+                question = analysis.question
+                cards, ambiguous = analysis.cards, analysis.ambiguous
+                refs = [ref for card in cards for aspect in analysis.aspects
                         for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
                 if oracle.claims == 'required' and refs:
                     evidence = await service.read_evidence(refs)
@@ -71,7 +72,7 @@ async def run_readonly(root, *, retrieval_limit=40):
                         rows.append({**key, 'state': 'deferred', 'reason': 'eligible_publication_missing_or_changed'})
                         continue
                 started = time.perf_counter()
-                rendered = await evaluate_question(question, service, catalog, lexicon)
+                rendered = await evaluate_question(question, service, catalog, lexicon, analysis=analysis)
                 response = format_answer(rendered, started).model_dump(mode='json')
                 failures = check_turn(oracle, 200, response, [] if ambiguous else [c.id for c in cards])
                 state = compact(state, response)

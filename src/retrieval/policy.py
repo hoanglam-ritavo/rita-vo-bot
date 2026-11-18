@@ -1,5 +1,5 @@
 """Source-bound task hints, not learned relevance or answer authorization."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import logging
 from pathlib import Path
@@ -42,6 +42,8 @@ def spans(text, phrase):
 class Rule(Strict):
     id: str = Field(pattern=r'^[a-z0-9.-]{1,100}$')
     concept_ids: list[str] = Field(min_length=1)
+    platform_terms: list[str] = Field(default_factory=list, max_length=40)
+    execution_terms: list[str] = Field(default_factory=list, max_length=40)
 
 
 class DurationRange(Strict):
@@ -109,6 +111,9 @@ class Catalog(Strict):
             rows = getattr(self, name)
             if len({r.id for r in rows}) != len(rows):
                 raise ValueError('duplicate_policy_id')
+        for rule in [*self.families, *self.systems, *self.subtypes, *self.operations]:
+            if any(not term.strip() or len(term) > 240 for term in rule.platform_terms + rule.execution_terms):
+                raise ValueError('invalid_platform_term')
         addresses = [(b.ref.document_id, b.ref.revision_id, b.ref.chunk_index, b.family,
                       tuple(b.task_ids), tuple(b.aspects)) for b in self.bindings]
         routes = [(r.family, r.subtype, r.operation, r.system, r.granularity)
@@ -170,6 +175,7 @@ class Query:
     granularity: str = 'day'
     ambiguous: bool = False
     involves_leave: bool = False
+    platform_requested: bool = False
 
 
 @dataclass(frozen=True)
@@ -301,19 +307,28 @@ class RetrievalPolicy:
         # "xin nghỉ" wording. Conflicting non-request operations ask for detail.
         explicit = operations-{'request'}
         ambiguous = ambiguous or len(explicit)>1
+        platform_requested = bool(systems) or any(spans(text, term) for rule in self.catalog.families
+            if rule.id in families for term in rule.platform_terms)
         return Query(next(iter(families)) if len(families)==1 else None,
                      next(iter(subtypes)) if len(subtypes)==1 else None,
                      next(iter(systems)) if len(systems)==1 else None,
                      next(iter(explicit)) if len(explicit)==1 else 'request',
-                     days,sessions,granularity,ambiguous,'leave' in families or unclear_resignation)
+                     days,sessions,granularity,ambiguous,'leave' in families or unclear_resignation,platform_requested)
 
-    def resolve(self, question):
-        generic = self.resolve_generic(question)
+    def resolve(self, question, *, slots=None):
+        if self.catalog is not None:
+            query = self.analyze(question)
+            if any(spans(folded(question), term) for rule in self.catalog.families
+                   if rule.id == query.family for term in rule.execution_terms):
+                return Resolution('clarify', message='Mình chỉ tra cứu và hướng dẫn, không gửi hoặc phê duyệt thay bạn. Bạn muốn xem quy định hay các bước thực hiện?')
+        if slots and self.analyze(question).involves_leave:
+            return self.resolve_leave(question, slots=slots)
+        generic = self.resolve_generic(question, slots=slots)
         if generic.state != 'not_applicable':
             return generic
         return self.resolve_leave(question)
 
-    def resolve_generic(self, question):
+    def resolve_generic(self, question, *, slots=None):
         if self.catalog is None:
             return Resolution()
         from .language import positive_question
@@ -369,6 +384,8 @@ class RetrievalPolicy:
                               candidates=tuple(sorted(routes)))
         route = next(iter(routes.values()))
         query = self.analyze(question)
+        if slots:
+            query = replace(query, **{key: value for key, value in slots.items() if key in ('system', 'subtype')})
         if route.family == 'leave' and (len({hit[2] for hit in rule_matches(text, self.catalog.subtypes, self.concepts)}) > 1
                                         or duration(text)[3]):
             return Resolution('clarify', message='Bạn hãy nêu riêng loại nghỉ và khoảng thời gian cần hỏi.',
@@ -378,8 +395,13 @@ class RetrievalPolicy:
             return Resolution('clarify', message=route.prompt, candidates=(route.task_id,), missing_slots=missing)
         return Resolution('task', route.task_id)
 
-    def resolve_leave(self, question):
+    def resolve_leave(self, question, *, slots=None):
         query = self.analyze(question)
+        if slots:
+            query = replace(query, **{key: value for key, value in slots.items() if key in ('system', 'subtype')})
+        # General guidance does not depend on choosing a software platform.
+        if query.operation == 'request' and query.system is None and not query.platform_requested:
+            query = replace(query, operation='policy')
         if not query.involves_leave:
             return Resolution()
         if query.ambiguous:

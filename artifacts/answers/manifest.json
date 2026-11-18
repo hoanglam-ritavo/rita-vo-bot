@@ -30,16 +30,25 @@
       "passed": 849,
       "failed": 0,
       "database_verified": false,
-      "report_sha256": "7ae3187102eeed07a81c12004d6c91291e48b30ac94cbb2b85e1346447cfed8c"
+      "report_sha256": "9d55e41abfa9fd5c9f02cacb7d0b5620205230a01e9a2819c6ae59b8f55647e8"
     },
     "paraphrases": {
-      "cases": 12,
-      "passed": 12,
+      "cases": 14,
+      "passed": 14,
       "independent_acceptance": false,
-      "report_sha256": "68d17ec7e0d4a6d675d08a7fcd2fea0d19a6f42643bd973d0723f345059bdeb0"
+      "report_sha256": "05cd1ec37773ace47ddaec0e99413c571ffcf0e2ade7ee2ac51fb1f2922b1afa"
     },
-    "readonly": "Not run for this request-planning revision.",
-    "scope": "Unchanged source-fixture oracles and targeted paraphrases only; no live HRM/model/database, migration, publication or deployment validation."
+    "non_integration": {
+      "passed": 1088,
+      "skipped": 1,
+      "integration_deselected": 57
+    },
+    "oracle_reconciliation": [
+      "q.boundaries.ambiguity.002",
+      "q.policy.leave.012"
+    ],
+    "readonly": "Not run for this structured-conversation revision.",
+    "scope": "Fictional HTTP/durable-memory regressions and source-fixture plans; not live HRM/model/database, publication, deployment or independent business acceptance."
   },
   "contextual_authoring": {
     "date": "2026-11-18",
@@ -97,6 +106,42 @@
     "catalog_sha256": "dedea70b463358318ab6b315757599b447dffa2f1b03f8087db0e2aaf2c6ce0b"
   },
   "request_planning": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "reducer_schema_version": 5,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
+  },
+  "historical_pre_structured_turn_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "d75d79075633f8efa614a692c822cdaccdef89a73322376a8b89163b2a2eac28"
+    },
+    "paraphrases": {
+      "cases": 12,
+      "passed": 12,
+      "independent_acceptance": false,
+      "report_sha256": "ee330cfe07776579aa05a6b2985a6bcc19b9358290b72fa96bc3395f13111779"
+    },
+    "readonly": "Not run for this request-planning revision.",
+    "scope": "Unchanged source-fixture oracles and targeted paraphrases only; no live HRM/model/database, migration, publication or deployment validation.",
+    "catalog_sha256": "f6eb665f69844b0e167e119baca26423c636f5fe4e6134e968757f461f3a7c7b"
+  },
+  "structured_conversations": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "context_schema_version": 5,
+    "general_guidance_first": true,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
+  },
+  "historical_request_planning": {
     "date": "2026-11-18",
     "response_schema_version": 2,
     "reducer_schema_version": 4,

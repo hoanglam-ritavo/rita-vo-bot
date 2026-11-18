@@ -5,22 +5,36 @@
 `src/answering/planning.py` analyzes document lookup, clause-local personnel
 subjects, direct fields, task candidates and unresolved clauses. Contextual
 composition and the HTTP coordinator consume that analysis; evidence selection
-and rendering receive the same selected tasks. Unknown companion requests or
+and rendering receive the same selected tasks, aspects and document subquery.
+`plan_turn` resolves continuations as structured updates to the original request:
+task/source choices, platform/type slots, user assertions and active aspects.
+It does not concatenate a reply into prose for a second routing pass. The HTTP
+coordinator receives the resulting plan directly. Unknown companion requests or
 unclear subjects ask for clarification before any personnel/evidence read.
 Recognized mixed requests retain both the policy and explicit employee fields.
 Named third-party profile requests never fall back to the authenticated subject.
 
 Explicit document lookup bypasses task ambiguity and never implicitly reads
-personnel fields mentioned in an instruction. Ordinary policy answers still
+personnel fields mentioned in an instruction. A separately requested self-profile
+lookup in the same message is retained and executed only when every part is clear.
+General guidance selects a source-bound general route first; registry-owned
+platform terms or an explicit system select software instructions. Ordinary policy answers still
 require exact eligible authored references, without a vector fallback on unknown
 tasks. Generic childbirth wording has two declared policy candidates, rather
 than an implicit company-benefit default. Numbered or exact-label conversation
-choices retain the requested aspects. Reducer identity/schema 4 invalidates old
-derived context only; stored schema-2 results remain intact.
+choices retain the original subject, dates, assertions and aspects. Aspect-only
+follow-ups replace the active aspect unless the user explicitly requests an
+addition. Pending requests survive unrecognized replies until resolved, cancelled
+or replaced by a recognized new topic. Ambiguous unaccented owners such as
+"Minh/minh" require clarification; accent folding never establishes identity.
+Reducer identity/schema 5 invalidates old derived context only; short replies to
+an incompatible context ask for a complete restatement. Stored schema-2 results
+and message fingerprints remain intact.
 
-Employee-source startup/read failures allow a bounded recheck on subsequent
+Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between
-checks, with a 15-second check deadline. Disabled sources are never rechecked.
+checks, with a 15-second check deadline. Record validation/conflict failures remain
+local to that request and never disable reads for another employee. Disabled sources are never rechecked.
 This does not replay an answer or make personnel availability a prerequisite
 for document-only readiness. Fixed-code logs distinguish planning, requested
 evidence, missing sections/references and dependency failures, without content.

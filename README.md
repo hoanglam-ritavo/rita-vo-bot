@@ -53,9 +53,58 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Structured conversation plans - 2026-11-18
+
+On `179b330` plus this working tree, conversation continuations update a bounded
+structured request instead of concatenating replies into new query prose. The
+same plan reaches personnel reads, evidence selection and rendering. Pending
+requests survive unclear replies; choices keep the original subject/dates/assertions;
+aspect follow-ups replace the active aspect unless an addition is explicit.
+General leave guidance precedes software selection; explicit software requests
+use registry-owned platform terms. Mixed document/profile requests retain both
+parts, ambiguous names never establish self identity, and record-specific HRM
+errors no longer disable another employee's reads. See
+[request planning architecture](ARCHITECTURE.md#request-planning-and-completeness).
+
+HTTP and stored answers remain schema 2; internal context is schema 5. Deploy
+code and generated catalogs together after draining the old worker. Old derived
+context may require the complete question again, without deleting history or
+regenerating saved answers. No migration, schema-2 reset or Backend/portal change
+is required. Existing working-tree changes and the user's `mock/` data were preserved.
+
+Final non-integration regression passed **1,088 tests**, with **1 skipped and
+57 integration tests deselected**, retaining the existing Starlette/AnyIO warning.
+The new HTTP conversation suite uses fictional evidence and durable memory,
+covering punctuation/platform replies, pending preservation, cache rebuild/replay,
+task choices, subject/date retention, aspect replacement, mixed lookup, record
+failure isolation and limited work-date facts without policy-tenure certification.
+The frozen source-fixture runner passed **849/849 turns in 832 cases**; a separate
+paraphrase/continuation check passed **14/14**. Reports are private under
+`.tmp/structured-turn-questions-06.json` and `.tmp/structured-turn-paraphrases-02.json`.
+These exposed regressions are not independent business acceptance.
+
+Artifact build/check, catalog validation (279 tasks/29 documents/530 chunks),
+source impact (1,346 unchanged references) and runtime inventory (22 files)
+passed. Current manifests bind the frozen reports/catalogs and retain the prior
+regression snapshots; model bytes and evidence bindings remain unchanged.
+
+Exactly two general-guidance case expectations were reconciled with the user's
+selected behavior, strengthening source/claim assertions and retaining exclusions;
+see [question sources](artifacts/questions/README.md). Other oracles remain intact.
+Initial runs caught compatibility, clause/subject and fixture-path regressions;
+only the final runs above are passing evidence. Successful checks used the
+repository Python environment and separate extended-length `.tmp/` directories,
+without permission changes or cleanup of existing temporary trees.
+
+No live HRM/model/database validation, disposable-DB integration, publication,
+migration, conversation reset, service restart or deployment was performed.
+The running deployment and live transaction behavior remain unverified. Earlier
+entries below describe their own snapshots.
+
 ### Request planning, identity and recovery - 2026-11-18
 
-On `91669f7` plus this working tree, shared deterministic request analysis
+At implementation commit `179b330` (based on `91669f7`), plus the final
+documentation/manifest updates in this working tree, shared request analysis
 preserves recognized policy/profile combinations, rejects third-party profile
 substitution and asks about unresolved companion requests before personnel reads.
 Explicit document lookup stays separate from profile access and task ambiguity.
@@ -71,18 +120,21 @@ idempotency and purge protection. Deploy code and generated catalogs as one set
 after draining the old worker; no migration or schema-2 conversation reset is
 required. No running service was restarted by this change.
 
-Final non-integration regression passed **1,057 tests**, with **1 skipped and
+Final non-integration regression passed **1,059 tests**, with **1 skipped and
 57 integration tests deselected**; the existing Starlette/AnyIO deprecation
 warning remains. The preceding focused run passed **141 tests**; the final full
-run includes subsequent coverage of authored conjunctions and labelled inputs.
+run includes subsequent coverage of authored conjunctions, labelled inputs and
+manager-subject/projection boundaries.
 The unchanged source-fixture question oracles passed **849/849 turns in 832
 cases**, and a separate targeted paraphrase/numbered-choice check passed **12/12**.
 These are exposed implementation regressions, not independent business acceptance.
-Reports remain private under `.tmp/answer-plan-questions-03.json` and
-`.tmp/answer-plan-paraphrases-01.json`. Artifact build/check, catalog validation
+Reports remain private under `.tmp/answer-plan-questions-04.json` and
+`.tmp/answer-plan-paraphrases-02.json`. Artifact build/check, catalog validation
 (279 tasks/29 documents/530 chunks), impact (1,346 unchanged references) and the
 runtime inventory (22 files) passed. Historical manifest results were retained;
 current hashes bind the regenerated catalogs and manifests without changing models.
+New documentation targets/anchors and CRLF-aware whitespace checks passed;
+generated runtime CRLF bytes remain builder-owned.
 
 Earlier attempts encountered sandbox access errors and caught over-conservative
 clause splitting; those attempts are not passing evidence. The final evaluator

@@ -272,20 +272,24 @@
       "case_id": "q.policy.leave.012",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence",
-        "unsupported"
+        "partial"
       ],
-      "task_ids_any": [],
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
       "forbidden_task_ids": [
         "task.leave.policy.unpaid",
         "task.leave.workit.unpaid"
       ],
-      "required_source_groups": [],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
       "forbidden_documents": [],
       "employee_fields": [],
       "null_fields": [],
-      "claims": "none",
+      "claims": "required",
       "fixture": "current",
       "expected_values": {}
     },

@@ -1,180 +1,167 @@
-"""Conservative, deterministic conversation reduction; history is not evidence."""
+"""Structured conversation continuations; user text is never evidence or identity."""
+from dataclasses import replace
 import hashlib
 import json
-import re
-from src.answering.pipeline import select_cards
-from src.answering.planning import analyze_question
-from src.type_b.tasks import normalized, TASKS, route_question
 
+from src.answering.planning import analyze_question
+from src.answering.slots import parse_inputs
+from src.type_b.tasks import TASKS, normalized
+
+SCHEMA = 5
 ASPECTS = {
     'paperwork': ('ho so', 'giay to', 'can giay to gi', 'can ho so gi', 'ho so gom nhung gi'),
     'amount': ('muc ho tro', 'muc thuong', 'bao nhieu tien', 'muc ho tro bao nhieu'),
     'conditions': ('dieu kien', 'dieu kien ap dung', 'ap dung cho ai'),
-    'procedure': ('thu tuc', 'quy trinh', 'cac buoc', 'lam the nao'),
+    'procedure': ('thu tuc', 'quy trinh', 'cac buoc', 'lam the nao', 'can lam gi', 'phai lam gi'),
     'overview': ('tong quan',),
 }
-PHRASES = {'paperwork': 'hồ sơ giấy tờ', 'amount': 'bao nhiêu tiền',
-           'conditions': 'điều kiện', 'procedure': 'thủ tục', 'overview': 'tổng quan'}
 
 
 def identity(catalog, lexicon, policy=None):
     if catalog is None or lexicon is None:
         return 'unavailable'
-    return hashlib.sha256(json.dumps([4, catalog.model_dump(), lexicon, getattr(policy, 'fingerprint', None)], sort_keys=True,
-                                    ensure_ascii=False).encode()).hexdigest()
+    return hashlib.sha256(json.dumps([SCHEMA, catalog.model_dump(), lexicon,
+        getattr(policy, 'fingerprint', None)], sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
 
-def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
+def slot_update(text, policy):
+    """Only named, bounded platform/type replies may update an existing request."""
+    if policy is None or policy.catalog is None:
+        return None
+    from src.retrieval.policy import folded, rule_matches
+    query = folded(text)
+    hits = {name: rule_matches(query, getattr(policy.catalog, name), policy.concepts)
+            for name in ('subtypes', 'systems')}
+    remaining = list(query)
+    updates = {}
+    for name, rows in hits.items():
+        ids = {row[2] for row in rows}
+        if len(ids) > 1:
+            return None
+        if ids:
+            updates['system' if name == 'systems' else 'subtype'] = next(iter(ids))
+        for start, end, _ in rows:
+            remaining[start:end] = ' ' * (end-start)
+    words = set(normalized(''.join(remaining)).split())
+    if not updates or not words <= {'tren', 'toi', 'minh', 'dung', 'dang', 'hien', 'tai',
+            'su', 'la', 'va', 'loai', 'he', 'thong', 'nghi', 'muon', 'xin'}:
+        return None
+    return updates
+
+
+def _state(analysis, request, recent, stamp):
+    ready = not analysis.clarification and not analysis.unsupported_person
+    task = analysis.cards[0].id if ready and len(analysis.cards) == 1 and not analysis.ambiguous else None
+    pending = ('slots' if analysis.missing_slots else 'task' if analysis.ambiguous else
+               'request' if analysis.clarification else 'unsupported' if analysis.document_message else None)
+    return dict(schema=SCHEMA, identity=stamp, request=request, task_id=task,
+        candidates=[card.id for card in analysis.cards][:5] if analysis.ambiguous else [],
+        requested_aspects=list(analysis.aspects), pending=pending,
+        pending_question=analysis.question if pending else None,
+        task_question=analysis.question if task else None,
+        missing_slots=list(analysis.missing_slots), recent=recent,
+        self_reference=bool(analysis.direct_fields),
+        user_inputs={key: {'value': value, 'origin': 'user_input'} for key, value in analysis.user_inputs})
+
+
+def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
     stamp = identity_stamp if identity_stamp is not None else identity(catalog, lexicon, policy)
-    old = previous if previous.get('schema') == 4 and previous.get('identity') == stamp else {}
-    state = {'schema': 4, 'identity': stamp, 'task_id': None, 'candidates': [],
-             'pending': None, 'aspect': None, 'recent': old.get('recent', [])[-3:] + [text]}
-    from src.answering.slots import parse_inputs, SLOT_LABELS
-    inputs = parse_inputs(text)
-    if inputs:
-        state['user_inputs'] = {key: {'value': value, 'origin': 'user_input'} for key, value in inputs.items()}
-    wanted = set(old.get('pending_inputs', []))
-    if inputs and set(inputs) <= wanted and old.get('task_question'):
-        previous_inputs = old.get('user_inputs', {})
-        merged = {**previous_inputs, **{key: {'value': value, 'origin': 'user_input'} for key, value in inputs.items()}}
-        state['user_inputs'] = merged
-        base = old['task_question'].split(';')[0]
-        combined = base + '; ' + '; '.join(f'{SLOT_LABELS[key]}: {item["value"]}' for key, item in merged.items())
-        if len(combined) > 2000:
-            return text, state
-        text = combined
-        state['task_question'] = base
-    route = route_question(text)
-    state['self_reference'] = bool(route.fields) or route.reason == 'ambiguous_employment_date'
+    compatible = previous.get('schema') == SCHEMA and previous.get('identity') == stamp
+    old = previous if compatible else {}
+    recent = old.get('recent', [])[-3:] + [text]
     query = normalized(text)
-    # Only exact bounded follow-ups can inherit a topic. Never rewrite negation,
-    # named subjects or personal eligibility clauses into a positive policy query.
-    followup = query
-    for prefix in ('con ', 've '):
-        if followup.startswith(prefix):
-            followup = followup[len(prefix):]
-    for suffix in (' thi sao', ' the nao'):
-        if followup.endswith(suffix):
-            followup = followup[:-len(suffix)]
-    if old.get('profile_self'):
-        tasks = [task for task in TASKS if followup in task.aliases]
-        if len(tasks) == 1:
-            state['self_reference'] = True
-            return followup + ' của tôi', state
-    if catalog is None or lexicon is None:
-        return text, state
-    by_id = {card.id: card for card in catalog.cards}
+    request = dict(question=text, slots={}, user_inputs=parse_inputs(text))
+    prior = old.get('request')
+    continuation = False
+    if query in ('huy cau hoi', 'huy yeu cau', 'bo qua cau hoi nay', 'khong hoi nua'):
+        analysis = replace(analyze_question(text, catalog, lexicon, policy),
+            clarification='Đã bỏ yêu cầu đang chờ. Bạn muốn hỏi nội dung nào tiếp theo?')
+        state = _state(analysis, request, recent, stamp)
+        state.update(pending=None, request=None)
+        return analysis, state
+    by_id = {card.id: card for card in catalog.cards} if catalog is not None else {}
     candidates = [by_id[key] for key in old.get('candidates', []) if key in by_id]
     chosen = [card for index, card in enumerate(candidates, 1) if query in {
         str(index), normalized(card.label), normalized(card.id), *(normalized(alias) for alias in card.aliases)}]
-    if len(chosen) == 1:
-        selected = chosen[0]
-        aspects = old.get('requested_aspects', ['overview'])
-        resolved = selected.aliases[0]
-        suffix = ' '.join(PHRASES[key] for key in aspects if key in PHRASES and key != 'overview')
-        if suffix:
-            resolved += ' ' + suffix
-        state.update(task_id=selected.id, task_question=resolved)
-        return resolved, state
-    if candidates and (query.isdigit() or query in ('khong biet', 'chua ro', 'chon lai')) and old.get('pending_question'):
-        return old['pending_question'], {**old, 'recent': state['recent']}
-    aspect = next((key for key, aliases in ASPECTS.items() if followup in aliases), None)
-    card = by_id.get(old.get('task_id'))
-    if aspect and card is not None:
-        state.update(task_id=card.id, aspect=aspect)
-        base = old.get('task_question', card.aliases[0])
-        state['task_question'] = base
-        return base + ' ' + PHRASES[aspect], state
-    if policy is not None and policy.catalog is not None:
-        # Consume only bounded slot answers/source choices, never arbitrary prose.
-        base = old.get('pending_question') or old.get('task_question')
-        if base:
-            completed = complete_slots(text, base, old, policy)
-            if completed is not None:
-                text = completed
-        resolution = policy.resolve(text)
-        if resolution.state in ('clarify', 'unsupported'):
-            analysis = analyze_question(text, catalog, lexicon, policy)
-            state.update(pending='slots' if resolution.missing_slots else 'task',
-                         pending_question=text[:2000], candidates=[card.id for card in analysis.cards],
-                         missing_slots=list(resolution.missing_slots))
-            from src.answering.pipeline import requested_aspects
-            state['requested_aspects'] = requested_aspects(text)
-            query = policy.analyze(text)
-            state['slots'] = {key: {'value': getattr(query, key), 'origin': 'user_text'}
-                              for key in ('subtype', 'system', 'days', 'sessions', 'granularity')
-                              if getattr(query, key) is not None}
-            return text, state
-        if resolution.state == 'task':
-            state.update(task_id=resolution.task_id, task_question=text[:2000])
-            query = policy.analyze(text)
-            state['slots'] = {key: {'value': getattr(query, key), 'origin': 'user_text'}
-                              for key in ('subtype', 'system', 'days', 'sessions', 'granularity')
-                              if getattr(query, key) is not None}
-            return text, state
-    analysis = analyze_question(text, catalog, lexicon, policy)
-    cards, ambiguous = analysis.cards, analysis.ambiguous
-    if ambiguous:
-        state.update(candidates=[card.id for card in cards][:5], pending='task', pending_question=text[:2000])
-        from src.answering.pipeline import requested_aspects
-        state['requested_aspects'] = requested_aspects(text)
-    elif len(cards) == 1:
-        state.update(task_id=cards[0].id, task_question=text[:2000])
-    return text, state
+    if prior and len(chosen) == 1:
+        request = {**prior, 'selected_task': chosen[0].id}
+        continuation = True
+    elif prior:
+        inputs = parse_inputs(text)
+        followup = query
+        add_aspect = followup.startswith('them ')
+        for prefix in ('con ', 've ', 'them '):
+            if followup.startswith(prefix):
+                followup = followup[len(prefix):]
+        for suffix in (' thi sao', ' the nao'):
+            if followup.endswith(suffix):
+                followup = followup[:-len(suffix)]
+        aspect = next((key for key, aliases in ASPECTS.items() if followup in aliases), None)
+        updates = slot_update(text, policy)
+        sources = {ref.document_id for card in candidates for section in getattr(card, 'sections', {}).values()
+                   for unit in section.units for ref in unit.refs}
+        if text.strip().lower() in sources:
+            request = {**prior, 'source_id': text.strip().lower()}
+            continuation = True
+        elif inputs and set(inputs) <= (set(old.get('pending_inputs', [])) | set(prior.get('user_inputs', {}))):
+            request = {**prior, 'user_inputs': {**prior.get('user_inputs', {}), **inputs}}
+            continuation = True
+        elif aspect and old.get('task_id'):
+            aspects = list(dict.fromkeys([*prior.get('aspects', []), aspect])) if add_aspect else [aspect]
+            request = {**prior, 'selected_task': old['task_id'], 'aspects': aspects}
+            continuation = True
+        elif updates:
+            request = {**prior, 'slots': {**prior.get('slots', {}), **updates}}
+            request.pop('selected_task', None)
+            continuation = True
+    profile_query = query
+    for prefix in ('con ', 've '):
+        if profile_query.startswith(prefix):
+            profile_query = profile_query[len(prefix):]
+    for suffix in (' thi sao', ' the nao'):
+        if profile_query.endswith(suffix):
+            profile_query = profile_query[:-len(suffix)]
+    if not continuation and old.get('profile_self') and any(profile_query in task.aliases for task in TASKS):
+        request['self_reference'] = True
+    analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
+    retained = False
+    if not continuation and prior and (old.get('pending') or old.get('pending_inputs')) and not (
+            analysis.parts or analysis.unsupported_person):
+        request = dict(prior)
+        retained = True
+        analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
+        prompts = old.get('pending_prompts', [])
+        if not analysis.clarification:
+            analysis = replace(analysis, clarification='Mình vẫn cần làm rõ yêu cầu trước đó. ' +
+                (' '.join(prompts) if prompts else 'Bạn hãy chọn nội dung hoặc cung cấp thông tin đang được hỏi.'))
+    if previous and not compatible and not (analysis.cards or analysis.direct_fields or analysis.document_lookup):
+        analysis = replace(analysis, clarification='Ngữ cảnh hội thoại đã thay đổi phiên bản. Bạn hãy nêu lại câu hỏi đầy đủ.',
+                           clarification_reason='context_needs_restatement')
+    request['aspects'] = list(analysis.aspects)
+    state = _state(analysis, request, recent, stamp)
+    if retained and old.get('pending_inputs'):
+        state.update(pending='inputs', pending_inputs=old['pending_inputs'], pending_prompts=old.get('pending_prompts', []))
+    return analysis, state
 
 
-def complete_slots(text, base, old, policy):
-    from src.retrieval.policy import folded, rule_matches
-    query = folded(text)
-    if old.get('candidates'):
-        sources = {b.ref.document_id for b in policy.catalog.bindings
-                   if set(b.task_ids).intersection(old['candidates'])}
-        if query in {folded(doc) for doc in sources}:
-            return base + ' ' + text
-    hits = {name: rule_matches(query, getattr(policy.catalog, name), policy.concepts)
-            for name in ('subtypes', 'systems')}
-    # Never inherit negation, a new business topic or an unrecognized clause.
-    remaining = list(query)
-    for rows in hits.values():
-        for start, end, _ in rows:
-            remaining[start:end] = ' ' * (end-start)
-    if not any(hits.values()) or not set(''.join(remaining).split()) <= {
-            'tren', 'toi', 'dung', 'la', 'va', 'loai', 'he', 'thong', 'nghi', 'muon', 'xin'}:
-        return None
-    prior = folded(base)
-    removed = []
-    for name, rows in hits.items():
-        if len({row[2] for row in rows}) > 1:
-            return None
-        if rows:
-            removed.extend(rule_matches(prior, getattr(policy.catalog, name), policy.concepts))
-    chars = list(prior)
-    for start, end, _ in removed:
-        chars[start:end] = ' ' * (end-start)
-    result = ' '.join(''.join(chars).split()) + ' ' + text
-    old_family = policy.analyze(base).family
-    if old_family and policy.analyze(result).family is None:
-        rule = next((row for row in policy.catalog.families if row.id == old_family), None)
-        if rule:
-            result += ' ' + policy.concepts[rule.concept_ids[0]]['canonical']
-    # Folding slot text must not destroy an explicitly selected source UUID.
-    for document_id in re.findall(r'\b[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}\b', base):
-        if document_id not in result:
-            result += ' ' + document_id
-    return result
+def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
+    """Compatibility reader: executing callers must consume plan_turn's plan."""
+    analysis, state = plan_turn(text, previous, catalog, lexicon, identity_stamp=identity_stamp, policy=policy)
+    return analysis.question, state
 
 
 def compact(state, result):
     state = dict(state)
     state['outcome'] = result['status']
     state['profile_self'] = state.get('self_reference', False) and result.get('application', {}).get('state') in ('applied', 'partial')
-    state['pending_inputs'] = [item['slot'] for item in result.get('application', {}).get('missing_inputs', [])]
-    if state['pending_inputs'] and not state.get('task_question'):
-        state['task_question'] = state['recent'][-1][:2000]
-    state['evidence_refs'] = [
-        {key: origin[key] for key in ('document_id', 'revision_id', 'chunk_id') if key in origin}
+    missing = result.get('application', {}).get('missing_inputs', [])
+    if missing or result['status'] != 'needs_clarification':
+        state['pending_inputs'] = [item['slot'] for item in missing]
+        state['pending_prompts'] = [item['prompt'] for item in missing]
+    if missing:
+        state['pending'] = 'inputs'
+    state['evidence_refs'] = [{key: origin[key] for key in ('document_id', 'revision_id', 'chunk_id') if key in origin}
         for source in result.get('sources', []) for origin in source.get('origins', [])][:60]
-    # Never cache employee facts or assistant prose as an authoritative source.
     while len(json.dumps(state, ensure_ascii=False).encode()) > 48 * 1024 and state['recent']:
         state['recent'].pop(0)
     return state

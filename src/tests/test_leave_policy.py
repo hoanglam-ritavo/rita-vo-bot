@@ -72,7 +72,9 @@ def test_clarification_is_specific_and_retains_two_days(policy):
     assert r.message == ('Bạn muốn đăng ký nghỉ phép hay nghỉ không lương trong 2 ngày? '
                          'Bạn đang dùng Workit hay E-Leave để gửi đơn?')
     r = policy.resolve('Xin nghỉ phép 2 ngày')
-    assert 'Workit hay E-Leave' in r.message and '2 ngày' in r.message
+    assert r.state == 'task' and r.task_id == 'task.leave.policy.annual'
+    r = policy.resolve('Thao tác trên phần mềm để xin nghỉ phép 2 ngày')
+    assert r.state == 'clarify' and 'Workit hay E-Leave' in r.message and '2 ngày' in r.message
     assert 'hay nghỉ không lương' not in r.message
 
 
@@ -109,13 +111,13 @@ def test_conflicting_inpatient_sources_require_an_explicit_source(policy):
 
 
 def test_slot_changes_preserve_leave_topic_and_do_not_invent_platform_support(policy):
-    from src.conversation.context import reduce_question
+    from src.conversation.context import plan_turn
     catalog,lexicon=load_catalog(REPOSITORY_ROOT/'artifacts/answers/catalog.json',REPOSITORY_ROOT/'artifacts/semantics/lexicon.json')
-    _,state=reduce_question('Đăng ký nghỉ phép Workit',{},catalog,lexicon,policy=policy)
-    question,state=reduce_question('không lương',state,catalog,lexicon,policy=policy)
-    assert policy.resolve(question).task_id==state['task_id']=='task.leave.workit.unpaid'
-    question,state=reduce_question('E-Leave',state,catalog,lexicon,policy=policy)
-    assert policy.resolve(question).state=='unsupported' and state['task_id'] is None
+    _,state=plan_turn('Đăng ký nghỉ phép Workit',{},catalog,lexicon,policy=policy)
+    analysis,state=plan_turn('không lương',state,catalog,lexicon,policy=policy)
+    assert analysis.cards[0].id==state['task_id']=='task.leave.workit.unpaid'
+    analysis,state=plan_turn('E-Leave',state,catalog,lexicon,policy=policy)
+    assert analysis.document_reason=='leave_task_unsupported' and state['task_id'] is None
 
 
 def fictional_candidates(policy):

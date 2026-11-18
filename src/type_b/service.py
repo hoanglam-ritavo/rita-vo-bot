@@ -56,7 +56,7 @@ class ContextCoordinator:
         if self.employee is not None:
             await self.employee.close()
 
-    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False):
+    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None):
         if type(hrm_user_id) is not int or not 0 < hrm_user_id <= 2**53-1:
             raise ApiError('hrm_user_id_required', 422)
         if not self.owner.started:
@@ -74,7 +74,8 @@ class ContextCoordinator:
                 validate_request(text, top_k)
                 answers = self.owner.answers
                 policy = getattr(self.owner.retrieval, 'policy', None)
-                plan = prepare(text, answers.catalog, answers.lexicon, policy)
+                plan = prepare(text, answers.catalog, answers.lexicon, policy, analysis=analysis)
+                text = plan.question
                 if answer and not answers.available and not plan.direct_fields:
                     raise ApiError('answer_unavailable')
                 if plan.unsupported_person or plan.clarification:
@@ -103,20 +104,23 @@ class ContextCoordinator:
                         try:
                             snapshot = await self.employee.read_context(hrm_user_id, fields, manager=manager)
                             context_state = 'applied' if snapshot is not None else 'not_found'
-                        except self.source_error_type:
-                            self.available = False
-                            self._next_source_check = time.monotonic() + 30
+                        except self.source_error_type as error:
+                            from .employee_store.errors import EmployeeValidationError
+                            if not isinstance(error, EmployeeValidationError):
+                                self.available = False
+                                self._next_source_check = time.monotonic() + 30
                             context_state = 'unavailable'
-                            logger.warning('employee_context state=unavailable')
+                            logger.warning('employee_context state=unavailable scope=%s',
+                                           'record' if isinstance(error, EmployeeValidationError) else 'source')
                 document, raw = None, None
-                direct_only = bool(plan.direct_fields) and plan.card is None
+                direct_only = bool(plan.direct_fields) and plan.card is None and not plan.analysis.document_lookup
                 if not direct_only:
                     if answer and answers.available:
                         raw = await answers.document_evidence(text, top_k, contextual=True, analysis=plan.analysis)
                         document = answers.render_documents(text, raw, started,
                             time.perf_counter()-started, contextual=True, analysis=plan.analysis)
                     elif not answer:
-                        prepared = await self.owner.retrieval.prepare_query(text, top_k)
+                        prepared = await self.owner.retrieval.prepare_query(plan.analysis.document_question or text, top_k)
                         raw = await self.owner.retrieval.retrieve_prepared(prepared, top_k)
                         if raw['status'] == 'model_mismatch':
                             raise ApiError('model_mismatch')

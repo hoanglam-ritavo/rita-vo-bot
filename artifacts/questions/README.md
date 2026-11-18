@@ -6,6 +6,15 @@ It is not a runtime artifact, answer catalog, training set or quality receipt.
 Serving does not consume these files. See
 [execution and limits](../../docs/business-topics.md#authoring-evaluation-and-release).
 
+The structured-conversation revision passes the request-local plan through the
+fixture HTTP coordinator instead of concatenating follow-up text and routing it
+again. Lookup task labels remain fixture recall annotations, not template-answer
+authorization. The user-selected general-guidance-first policy reconciles only
+`q.boundaries.ambiguity.002` and `q.policy.leave.012`: both now require a partial
+answer with the general leave source and claims, retain privacy/negative-task
+exclusions and are conditional on eligible source evidence. Other oracles remain
+unchanged. This reconciliation is not live or independent business acceptance.
+
 Start with [index.json](index.json) to find groups, counts and coverage links.
 Each group file is a standalone JSON object. There is no combined string list,
 generated runtime copy or version directory. Git should preserve future history.

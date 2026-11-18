@@ -13,7 +13,7 @@ from src.api.app import create_app
 from src.api.config import Settings
 from src.api.contracts import ApiError
 from src.conversation.contracts import ConversationRequest, ConversationSettings, RetryRequest, TurnResponse, from_environment
-from src.conversation.context import reduce_question, compact
+from src.conversation.context import reduce_question, compact, plan_turn
 from src.conversation.service import ConversationService
 from src.helper.cache import CacheManager
 from pathlib import Path
@@ -42,7 +42,7 @@ def test_conservative_followups_clarification_and_topic_switch():
     cat, lex = catalog(), {'concepts': []}
     _, first = reduce_question('sinh con', {}, cat, lex)
     question, state = reduce_question('Còn hồ sơ thì sao?', first, cat, lex)
-    assert question == 'sinh con hồ sơ giấy tờ'
+    assert question == 'sinh con' and state['request']['aspects'] == ['paperwork']
     assert state['task_id'] == 'birth'
     question, changed = reduce_question('kết hôn', state, cat, lex)
     assert question == 'kết hôn' and changed['task_id'] == 'marriage'
@@ -52,7 +52,8 @@ def test_conservative_followups_clarification_and_topic_switch():
     _, ambiguous = reduce_question('sinh con và kết hôn', first, cat, lex)
     assert ambiguous['pending'] == 'task' and len(ambiguous['candidates']) == 2
     question, selected = reduce_question('kết hôn', ambiguous, cat, lex)
-    assert selected['task_id'] == 'marriage' and question == 'kết hôn'
+    assert selected['task_id'] == 'marriage' and question == 'sinh con và kết hôn'
+    assert selected['request']['selected_task'] == 'marriage'
     changed_catalog = catalog()
     changed_catalog.model_dump = lambda: {'revision': 2}
     question, _ = reduce_question('hồ sơ', first, changed_catalog, lex)
@@ -64,8 +65,8 @@ def test_context_does_not_promote_employee_facts_or_assistant_text():
     _, state = reduce_question('phòng ban của tôi', {}, cat, lex)
     value = result() | {'application': {'state': 'applied'}, 'evidence': ['private']}
     state = compact(state, value)
-    question, _ = reduce_question('còn quản lý trực tiếp thì sao?', state, cat, lex)
-    assert 'của tôi' in question
+    analysis, _ = plan_turn('còn quản lý trực tiếp thì sao?', state, cat, lex)
+    assert analysis.direct_fields == ('manager_name',) and not analysis.clarification
     assert 'private' not in str(state) and 'Fictional clarification' not in str(state)
     _, unclear = reduce_question('phòng ban', {}, cat, lex)
     unclear = compact(unclear, result() | {'application': {'state': 'not_needed'}})

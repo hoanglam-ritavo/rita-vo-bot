@@ -4,7 +4,7 @@ import logging
 from src.api.contracts import ApiError
 from src.api.answer import drain
 from .contracts import ConversationRequest
-from .context import reduce_question, compact, identity
+from .context import plan_turn, compact, identity
 
 logger = logging.getLogger(__name__)
 NAMESPACE = 'conversation-context-v2'
@@ -100,13 +100,13 @@ class ConversationService:
             policy = getattr(getattr(self.owner, 'retrieval', None), 'policy', None)
             if self.identity_stamp is None:
                 self.identity_stamp = identity(self.owner.answers.catalog, self.owner.answers.lexicon, policy)
-            question, delta = reduce_question(request.text, state,
+            analysis, delta = plan_turn(request.text, state,
                 self.owner.answers.catalog, self.owner.answers.lexicon, identity_stamp=self.identity_stamp, policy=policy)
             # The shared HTTP boundary already authenticated the service caller.
             stage = 'answer'
-            result = await self.owner.context.execute(question, request.top_k,
+            result = await self.owner.context.execute(request.text, request.top_k,
                 request.hrm_user_id,
-                answer=True)
+                answer=True, analysis=analysis)
             value = result.model_dump(mode='json')
             if len(json.dumps(value, ensure_ascii=False).encode()) > 1_800_000:
                 raise ApiError('answer_response_too_large')

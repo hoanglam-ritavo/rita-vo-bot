@@ -29,17 +29,23 @@
       "tags": [
         "ambiguous"
       ],
-      "support": "implemented",
+      "support": "conditional",
       "references": {
-        "task_ids": [],
-        "document_ids": [],
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
         "employee_fields": []
       },
-      "preconditions": [],
+      "preconditions": [
+        "Có bằng chứng hiện hành hợp lệ cho quy trình nghỉ phép chung."
+      ],
       "turns": [
         {
           "text": "Làm đơn nghỉ phép như thế nào?",
-          "expectation": "Làm rõ người dùng hỏi quy định chung hay thao tác trên hệ thống nào khi chưa đủ thông tin."
+          "expectation": "Trả phần quy trình nghỉ phép chung có nguồn, không bắt chọn phần mềm; giữ trạng thái partial vì mẫu nguồn chưa đầy đủ, không đọc hồ sơ cá nhân và không chọn nghỉ không lương."
         }
       ]
     },
