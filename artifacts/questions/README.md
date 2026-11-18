@@ -1,9 +1,10 @@
 # Rita VO Bot question sources
 
 This directory contains authored Vietnamese questions and short behavioral
-expectations. It is source material for a later testing workflow, not a runtime
-artifact, executable test suite, answer catalog, training set or quality receipt.
-No application code consumes these files in this change.
+expectations, with separate per-turn oracles for the explicit offline runner.
+It is not a runtime artifact, answer catalog, training set or quality receipt.
+Serving does not consume these files. See
+[execution and limits](../../docs/business-topics.md#authoring-evaluation-and-release).
 
 Start with [index.json](index.json) to find groups, counts and coverage links.
 Each group file is a standalone JSON object. There is no combined string list,
@@ -19,6 +20,7 @@ generated runtime copy or version directory. Git should preserve future history.
 | `mixed/` | Questions combining policy evidence and self work-profile facts |
 | `conversation/` | Cross-topic context, candidate selection and context inheritance boundaries |
 | `boundaries/` | Ambiguity, unsupported requests, privacy/injection and evidence availability |
+| `oracles/` | Per-turn assertions and isolated fixture choices; not runtime data |
 
 A question has one primary home. A leave policy belongs under `policy/leave`;
 creating a leave request in Workit belongs under `software/workit`. Follow-ups
@@ -113,7 +115,26 @@ and IDs, check paths and nonempty turns/expectations, resolve all coverage links
 and recompute counts. Check that each observed task retains its required question
 family and each aspect/employee field has coverage. Review duplicate full cases
 and ensure every scenario has a distinct purpose. Read the final scope of changes.
-These are data-authoring checks only; no test runner is supplied here.
+These checks validate authoring structure. The separate
+`python -m src.cli.evaluate_questions --output .tmp/<new-report>.json` runner
+executes HTTP/reducer fixtures; add `--readonly` for real Type A checks. Neither
+mode grants quality acceptance. The original snapshot below is historical.
+
+## Current executable coverage
+
+The current set contains **829 cases / 846 turns in 21 groups** and 21 oracle
+files. Original 416 cases and their prose/IDs are preserved. Additional direct
+wiring and aspect cases cover 278 tasks; source-label alternatives use explicit
+source IDs where needed. These additions are wiring regressions, not independent
+paraphrase coverage or a claim that all possible business questions are supported.
+The original input snapshot remains historical; evaluator hashes identify actual
+selected catalog and question/oracle bytes.
+
+Oracles use case ID and zero-based turn, declaring allowed statuses,
+required/forbidden tasks and sources, claims, requested fields/nulls, fictional
+values and fixture conditions. Case reference arrays are not automatically
+citation assertions. Source-failure simulation never applies to an application DB.
+Reports stay in `.tmp`; fixtures do not measure vector recall or prove publication.
 
 ## Initial inventory and limits — 2026-11-18
 
@@ -144,15 +165,15 @@ be the sole independent quality acceptance set.
 
 ## Git policy
 
-The repository allowlist permits this README, the index and direct JSON children
-of the six group folders above. Eligible files appear in ordinary `git status`
+The repository allowlist permits this README, the index and declared direct JSON
+children of the six question folders and the oracle folder. Files appear in ordinary `git status`
 and can be added without force. Root-level reports, backup extensions, other file
 types and nested or unknown folders remain ignored. An unlisted JSON file inside
 an allowed group is still rejected by the checker once tracked; do not use that
 filename allowance to add reports or private material.
 
 The runtime inventory checker separately accepts only this README, the index and
-group files declared by the index. It validates schema version 1, the files list,
+group/oracle files declared by the index. It validates schema version 1, their lists,
 unique safe paths and regular-file presence, including rejecting linked paths.
 It does not inspect case content, coverage links or behavior. Do not add these
 sources to the runtime manifest or artifact builder. See the owning

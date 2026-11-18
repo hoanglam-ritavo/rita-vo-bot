@@ -337,6 +337,19 @@ def test_indexed_questions_are_read_only_nonruntime_sources(question_tree):
     assert (root / assets.MANIFEST).read_bytes() == manifest
 
 
+def test_indexed_oracles_are_sources_and_undeclared_oracles_are_rejected(question_tree):
+    root, directory, index = question_tree
+    (directory / 'oracles').mkdir()
+    (directory / 'oracles/fictional.json').write_text('{}\n', encoding='utf-8')
+    index['oracles'] = ['oracles/fictional.json']
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    git(root, 'add', assets.QUESTIONS)
+    assert assets.verify(root)[1] == 0
+    index['oracles'] = []
+    (directory / 'index.json').write_text(json.dumps(index), encoding='utf-8')
+    assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
+
+
 @pytest.mark.parametrize('raw', [
     'FICTIONAL_PRIVATE_INVALID_JSON', '{"schema_version":1,"schema_version":1,"files":[]}',
     'null', '[]', '{"schema_version":true,"files":[]}', '{"schema_version":2,"files":[]}',

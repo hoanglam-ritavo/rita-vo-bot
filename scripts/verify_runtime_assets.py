@@ -172,7 +172,8 @@ def question_sources(root, tracked):
     except SourceError:
         raise InventoryError('invalid_question_index') from None
     if (not isinstance(index, dict) or type(index.get('schema_version')) is not int
-            or index['schema_version'] != 1 or not isinstance(index.get('files'), list)):
+            or index['schema_version'] != 1 or not isinstance(index.get('files'), list)
+            or not isinstance(index.get('oracles', []), list)):
         raise InventoryError('invalid_question_index')
     regular(QUESTIONS + '/README.md')
     allowed = {QUESTIONS + '/index.json', QUESTIONS + '/README.md'}

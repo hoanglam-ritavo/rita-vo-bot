@@ -34,6 +34,7 @@ def load_dataset(root=REPOSITORY_ROOT):
     directory = checked(root / 'artifacts/questions')
     index = decode((directory / 'index.json').read_bytes())
     cases, oracles, inputs = [], {}, {}
+    inputs['artifacts/questions/index.json'] = hashlib.sha256((directory / 'index.json').read_bytes()).hexdigest()
     for entry in index['files']:
         path = checked(directory / entry['path'])
         if not path.is_relative_to(directory):
@@ -179,6 +180,10 @@ async def run_fixture(root=REPOSITORY_ROOT):
     root = Path(root)
     cases, oracles, inputs = load_dataset(root)
     for relative in ('artifacts/answers/catalog.json', 'artifacts/semantics/lexicon.json', 'artifacts/retrieval/catalog.json'):
+        inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
+    for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
+                     'src/conversation/context.py', 'src/type_b/tasks.py', 'src/type_b/service.py',
+                     'src/evaluation/questions.py'):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     catalog, lexicon = load_catalog(root / 'artifacts/answers/catalog.json', root / 'artifacts/semantics/lexicon.json')
     policy = RetrievalPolicy(root / 'artifacts/retrieval/catalog.json', root / 'artifacts/semantics/lexicon.json')

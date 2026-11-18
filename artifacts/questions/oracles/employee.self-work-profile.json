@@ -17,7 +17,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_name": "Fictional employee_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.002",
@@ -34,7 +37,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_name": "Fictional employee_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.003",
@@ -53,7 +59,10 @@
         "employee_name"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_name": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.004",
@@ -70,7 +79,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_code": "Fictional employee_code"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.005",
@@ -87,7 +99,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_code": "Fictional employee_code"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.006",
@@ -106,7 +121,10 @@
         "employee_code"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_code": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.007",
@@ -123,7 +141,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.008",
@@ -140,7 +161,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.009",
@@ -159,7 +183,10 @@
         "job_title"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.010",
@@ -176,7 +203,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "department_name": "Fictional department_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.011",
@@ -193,7 +223,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "department_name": "Fictional department_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.012",
@@ -212,7 +245,10 @@
         "department_name"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "department_name": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.013",
@@ -229,7 +265,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "manager_name": "Fictional manager_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.014",
@@ -246,7 +285,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "manager_name": "Fictional manager_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.015",
@@ -265,7 +307,10 @@
         "manager_name"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "manager_name": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.016",
@@ -282,7 +327,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.017",
@@ -299,7 +347,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.018",
@@ -318,7 +369,10 @@
         "probation_date"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_date": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.019",
@@ -335,7 +389,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_end_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.020",
@@ -352,7 +409,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_end_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.021",
@@ -371,7 +431,10 @@
         "probation_end_date"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "probation_end_date": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.022",
@@ -388,7 +451,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.023",
@@ -405,7 +471,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.024",
@@ -424,7 +493,10 @@
         "official_date"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "official_date": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.025",
@@ -441,7 +513,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "resignation_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.026",
@@ -458,7 +533,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "resignation_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.027",
@@ -477,7 +555,10 @@
         "resignation_date"
       ],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "resignation_date": null
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.028",
@@ -495,7 +576,11 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title",
+        "department_name": "Fictional department_name"
+      }
     },
     {
       "case_id": "q.employee.self-work-profile.029",
@@ -510,7 +595,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.employee.self-work-profile.030",
@@ -526,7 +612,8 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "employee_unavailable",
-      "http_status": 503
+      "http_status": 503,
+      "expected_values": {}
     },
     {
       "case_id": "q.employee.self-work-profile.031",
@@ -542,7 +629,8 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "feature_disabled",
-      "http_status": 503
+      "http_status": 503,
+      "expected_values": {}
     }
   ]
 }

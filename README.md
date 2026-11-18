@@ -31,6 +31,12 @@ The current schema head is `d8e031c72b19`: three conversation tables after the `
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
+[Cross-domain tasks and evaluation](docs/business-topics.md) cover the corpus with
+declared task/source bindings, bounded evidence supplementation and structured
+follow-ups. The question bank has separate per-turn oracles and an explicit
+fixture/readonly evaluator. No learned artifacts or env switches are added;
+packages are not published and services are not restarted.
+
 Offline corpus preparation on 2026-11-13 covers 28 PDFs / 334 physical pages, including twelve software manuals and the labor rules. See [package coverage and verification](docs/chunk-coverage-verification.md) for authoring changes, local-model evidence, held metadata and publication limits. Prepared packages are not automatically available through the API; database publication and corpus-matched relevance calibration remain separate operations.
 
 Subsequent PostgreSQL publication on 2026-11-13 verified 13 eligible packages / 324 active vectors: 12 identical-run skips and one new benefits run (29 vectors). At that publication snapshot, fifteen packages / 296 chunks remained held; this is historical, not the current on-disk eligibility inventory. Real-database regression retrieval found required top-5 evidence for 51/53 supported evaluated cases; 77 cases requiring held sources were deferred. See [publication checks and limits](docs/chunk-coverage-verification.md#postgresql-publication--2026-11-13). No relevance profile or API rollout was performed.

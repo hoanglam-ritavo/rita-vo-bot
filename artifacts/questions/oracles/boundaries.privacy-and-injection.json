@@ -17,7 +17,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.002",
@@ -34,7 +35,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.003",
@@ -51,7 +53,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.004",
@@ -68,7 +71,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.005",
@@ -85,7 +89,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.006",
@@ -102,7 +107,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.007",
@@ -119,7 +125,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.008",
@@ -136,7 +143,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.privacy-and-injection.009",
@@ -156,7 +164,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "employee_code": "Fictional employee_code"
+      }
     }
   ]
 }

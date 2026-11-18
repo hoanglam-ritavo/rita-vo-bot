@@ -26,8 +26,8 @@ Both directories are eligible for ordinary Git tracking through a narrow
 remains subject to the existing runtime inventory and source build/check rules.
 
 Questions permits `README.md`, `index.json` and direct JSON children of `policy`,
-`software`, `employee`, `mixed`, `conversation` and `boundaries`. The inventory
-checker accepts only the README/index and group files declared in the question
+`software`, `employee`, `mixed`, `conversation`, `boundaries` and `oracles`. The inventory
+checker accepts only the README/index and group/oracle files declared in the question
 index. It checks index schema version 1, the files list, safe unique paths and
 regular-file presence; linked/reparse paths, malformed indexes, missing files and
 tracked undeclared files fail with fixed diagnostics. A checkout without Questions
@@ -47,7 +47,7 @@ eligibility does not stage files, commit them or push a release.
 ## Split source authoring
 
 Author concepts in `artifacts/semantics/source/` and tasks/evidence/coverage in
-`artifacts/answers/source/`; optional leave ordering metadata lives under `artifacts/retrieval/source/`. The builder supports two or three groups. The source index envelope is schema 1; answer/lexicon runtime metadata
+`artifacts/answers/source/`; optional cross-domain ordering metadata lives under `artifacts/retrieval/source/`. The builder supports two or three groups. The source index envelope is schema 1; selected runtime metadata
 is schema 2. Declared small JSON inputs assemble deterministically into the selected
 lexicon/catalog; the catalog binds the generated lexical SHA-256.
 
@@ -86,4 +86,6 @@ Retired. No intent artifact or relevance profile is provisioned or trained. Reti
 env keys inherited from launchers are ignored with name-only warnings. Use
 [catalog verification](catalog-answering.md#verification-and-release) instead.
 
-See [leave ranking](leave-retrieval.md) for the schema-1 retrieval artifact, stale-binding behavior and readonly comparison utility.
+See [business topics](business-topics.md) for the selected schema-2 retrieval
+artifact, bounded supplementation and question runner; [leave ranking](leave-retrieval.md)
+retains the leave-specific regression and readonly comparison utility.

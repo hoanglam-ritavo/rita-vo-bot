@@ -24,8 +24,9 @@ async def run_readonly(root, *, retrieval_limit=40):
     settings = load_settings()
     service = RetrievalService(model_path=settings.model_path, model_revision=settings.model_revision,
         device='cpu', rerank=settings.rerank, semantic=settings.semantic)
-    catalog, lexicon = load_catalog(settings.answer.catalog_path, settings.semantic.artifact_path)
-    observed = {path: path.read_bytes() for path in (settings.answer.catalog_path, settings.semantic.artifact_path,
+    lexical_path = settings.semantic.artifact_path or service.policy.lexicon_path
+    catalog, lexicon = load_catalog(settings.answer.catalog_path, lexical_path)
+    observed = {path: path.read_bytes() for path in (settings.answer.catalog_path, lexical_path,
                                                    service.policy.path)}
     rows, benchmarks, sort_ms = [], [], []
     sampled = set()

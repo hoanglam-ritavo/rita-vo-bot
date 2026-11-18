@@ -102,6 +102,13 @@ Retired with learned scoring/calibration/profile promotion. E5 and raw ONNX rera
 
 ## Artifact source assembly
 
+Cross-domain routing and ordering live in `src/retrieval/policy.py`, sharing the
+lexical registry with source-bound answers. Retrieval schema 2 adds declared
+families and per-task/aspect bindings; addressed supplementation shares vector
+search transactions and eligibility. Context schema 2 retains bounded user slots
+and includes all three artifact identities. No SQL migration or personnel-field
+expansion is involved. See [cross-domain contracts and evaluation](docs/business-topics.md).
+
 `src.artifact_authoring.sources` owns the standard-library-only declared source
 layout, duplicate/path checks and deterministic assembly. The runtime inventory
 checker uses that module to permit exact authoring paths outside the runtime
@@ -111,17 +118,18 @@ the existing semantic/catalog validators against the current package snapshot;
 `src.cli.build_artifacts` is its CLI. Importing these modules performs no IO.
 
 Concepts and cards are authored by ID; coverage is authored by document ID.
-Version-1 source indexes retain metadata and ordered references. Assembly keeps
-the schema-v1 runtime interfaces, computes the catalog's lexicon byte hash and
+Version-1 source indexes retain metadata and ordered references. Assembly uses
+selected schema-2 runtime interfaces, computes the catalog's lexicon byte hash and
 preserves record/field order. Runtime never loads source indexes. Generated
 outputs remain tracked; source changes require build/check and separately
 reviewed provenance/inventory reconciliation, not automatic acceptance.
 See [authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
-`artifacts/questions` is a separate authored question dataset, with no runtime
-consumer or test-runner integration. The inventory checker validates its index
+`artifacts/questions` is a separate authored question/oracle dataset. Its explicit
+offline runner lives in `src/evaluation`, with a CLI in `src/cli`; serving never
+loads the dataset. The inventory checker validates its index
 and exact allowed paths independently of runtime manifests and artifact assembly;
-it does not grade questions or validate their behavioral expectations. Questions
+the separate runner checks per-turn contracts. Questions
 and Retrieval use narrow Git allowlists; Retrieval retains its existing generated
 pair/source declarations. See [Git policy](docs/runtime-artifacts.md#git-policy-for-questions-and-retrieval)
 and [question maintenance](artifacts/questions/README.md).

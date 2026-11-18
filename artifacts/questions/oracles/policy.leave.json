@@ -22,7 +22,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.002",
@@ -44,7 +45,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.003",
@@ -66,7 +68,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.004",
@@ -88,7 +91,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.005",
@@ -107,7 +111,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "resignation_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.policy.leave.006",
@@ -129,7 +136,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.007",
@@ -151,7 +159,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.008",
@@ -173,7 +182,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.009",
@@ -195,7 +205,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.010",
@@ -217,7 +228,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.011",
@@ -239,7 +251,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.012",
@@ -259,7 +272,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.013",
@@ -281,7 +295,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.policy.leave.014",
@@ -303,7 +318,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     }
   ]
 }

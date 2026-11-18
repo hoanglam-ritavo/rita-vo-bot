@@ -91,7 +91,10 @@ replacement; concurrent bot instances are not a supported deployment.
 
 `src/conversation` maintains a deterministic structured reducer. It supports
 exact bounded aspect follow-ups such as “Còn hồ sơ thì sao?”, explicit selection
-of a candidate task by label/alias and explicit topic changes. Bounded self-work
+of a candidate task by label/alias and explicit topic changes. Schema-2 context
+also completes bounded pending task slots and replaces explicit slot changes;
+source choices survive normalization. See [cross-domain handling](business-topics.md).
+Bounded self-work
 field follow-ups reuse self-reference only after a Type B response. It does not
 resolve arbitrary pronouns or turn negated/third-person/eligibility requests
 into positive policy queries. Unclear requests keep the existing clarification
@@ -102,8 +105,10 @@ Completed turns carry a context delta snapshot. Every eighth completion saves a
 checkpoint; a cache miss rebuilds from that checkpoint and newer completed
 deltas. Failed turns do not advance context. Context retains up to four recent
 user texts, task/candidate/aspect state, reducer/catalog identity and bounded
-evidence references. It does not store assistant prose or employee facts as
-authoritative context. Catalog identity changes invalidate inherited task state.
+evidence references and user-text slot origins. It does not store assistant prose
+or employee facts as authoritative context. Identity includes reducer version,
+answer/lexical catalogs and retrieval fingerprint; changes invalidate inherited
+task state without rewriting completed turns. This needs no JSONB/table migration.
 
 The app-owned memory helper uses namespace `conversation-context-v1`, owner/room
 keys, its existing 300-second TTL and a 48 KiB context payload budget. A small DB

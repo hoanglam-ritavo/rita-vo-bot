@@ -23,7 +23,10 @@
       ],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      }
     },
     {
       "case_id": "q.mixed.policy-and-profile.002",
@@ -46,7 +49,10 @@
       ],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.mixed.policy-and-profile.003",
@@ -65,7 +71,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "missing_policy"
+      "fixture": "missing_policy",
+      "expected_values": {
+        "department_name": "Fictional department_name"
+      }
     },
     {
       "case_id": "q.mixed.policy-and-profile.004",
@@ -86,7 +95,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "employee_unavailable"
+      "fixture": "employee_unavailable",
+      "expected_values": {}
     }
   ]
 }

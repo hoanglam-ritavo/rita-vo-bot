@@ -95,7 +95,9 @@ strict OpenAPI variants with source_type type_b/mixed and employee_evidence:
 This is fictional. observed_at is completion of the source read, not an upstream
 freshness guarantee; updated_at retains its source value/null. No person/account
 IDs or extra fields enter the response origin. Evidence status is found,
-not_found, needs_clarification or unsupported; null values remain null.
+not_found, needs_clarification, unsupported or unavailable; null values remain null.
+The additive unavailable value represents a mixed request whose personnel source
+failed while independently supported policy evidence remains available.
 
 ### Retrieve
 
@@ -125,6 +127,9 @@ snapshot. Answers separate "Thông tin hồ sơ" and "Thông tin chính sách" a
 that personal eligibility is not evaluated. Mixed never returns answered for a
 combined eligibility decision; it is partial when supported content exists. If
 the policy catalog is unavailable, facts remain visible with a policy limitation;
+if HRM fails, policy evidence remains visible with unavailable employee evidence
+and no invented employee claims. Recognized document instructions mentioning
+email, phones, family or departments do not alone request personnel reads;
 retrieve can still return document excerpts.
 
 ## Lifecycle, failure and rollout
@@ -133,7 +138,8 @@ Startup runs metadata/readonly-role preflight with a 15-second bound. HRM failur
 leaves A available; B reads return sanitized 503 employee_source_unavailable.
 Missing records are evidence outcomes, not source errors. Source timeout is 504
 employee_source_timeout; conflicts, invalid data, access/schema failures are 503.
-No automatic retry or silent fallback to policy answers occurs. Restart after
+No automatic retry occurs. Pure B errors remain errors; mixed requests explicitly
+report the failed source while preserving independent policy evidence. Restart after
 fixing a failed startup preflight. /health/ready retains Type A dependency checks;
 /health/answer reports document-template readiness, not B-only availability/quality.
 

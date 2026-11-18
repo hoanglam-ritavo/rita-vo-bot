@@ -15,6 +15,7 @@ from src.evaluation.questions import Oracle, check_turn
 from src.retrieval.policy import RetrievalPolicy, validate_catalog
 from src.retrieval.service import RetrievalService
 from src.retrieval.reranking import RerankSettings
+from src.tests.test_answering import sample
 
 
 @pytest.fixture
@@ -131,3 +132,52 @@ def test_oracles_reject_swapped_sources_nulls_and_wrong_tasks():
     value=dict(status='partial',claims=[],sources=[dict(source_id='S1',origins=[dict(document_id='private')])],
                employee_evidence=dict(facts=[dict(field='job_title',value='Invented')]))
     assert set(check_turn(oracle,200,value,['wrong']))=={'task','required_source','forbidden_source','null_field'}
+
+
+def test_contrast_does_not_strip_an_authored_negative_topic(business):
+    from src.retrieval.language import positive_question
+    text='Thông tin về không phải chấm công bằng máy.'
+    assert positive_question(text)==text
+    assert business.policy.resolve('đề nghị vật tư Workit, không phải thanh lý máy').task_id=='task.supply'
+    assert business.policy.resolve('Không đề nghị vật tư Workit').state=='clarify'
+
+
+def test_question_loader_requires_complete_per_turn_oracles_and_safe_paths(tmp_path):
+    from src.evaluation.questions import load_dataset
+    folder=tmp_path/'artifacts/questions';(folder/'policy').mkdir(parents=True);(folder/'oracles').mkdir()
+    case=dict(id='fictional',turns=[dict(text='Fictional request',expectation='Fictional expectation')])
+    (folder/'policy/fictional.json').write_bytes(encode(dict(cases=[case])))
+    (folder/'index.json').write_bytes(encode(dict(files=[dict(path='policy/fictional.json')],oracles=[])))
+    with pytest.raises(ValueError,match='incomplete_question_oracles'):load_dataset(tmp_path)
+    (folder/'oracles/fictional.json').write_bytes(encode(dict(turns=[dict(case_id='fictional',turn=0,statuses=['partial'])])))
+    index=dict(files=[dict(path='policy/fictional.json')],oracles=['oracles/fictional.json'])
+    (folder/'index.json').write_bytes(encode(index))
+    cases,oracles,_=load_dataset(tmp_path)
+    assert len(cases)==len(oracles)==1
+    index['oracles'].append('oracles/fictional.json')
+    (folder/'index.json').write_bytes(encode(index))
+    with pytest.raises(ValueError,match='duplicate_question_oracle'):load_dataset(tmp_path)
+    index['oracles']=['../private.json'];(folder/'index.json').write_bytes(encode(index))
+    with pytest.raises(ValueError,match='invalid_oracle_path'):load_dataset(tmp_path)
+
+
+def test_value_oracles_do_not_accept_swapped_fictional_employee_values():
+    o=Oracle(case_id='fictional',turn=0,statuses=['answered'],employee_fields=['job_title'],
+             expected_values={'job_title':'Fictional role'})
+    result=dict(status='answered',claims=[],sources=[],employee_evidence=dict(facts=[dict(field='job_title',value='Fictional department')]))
+    assert check_turn(o,200,result)==['employee_values']
+
+
+def test_partial_answers_are_bounded_without_truncating_complete_aspects(sample):
+    from src.answering.pipeline import render
+    from src.answering.catalog import Catalog
+    data=deepcopy(sample.data)
+    units=[dict(id='fictional.'+str(i),text='Fictional condition '+str(i),
+                refs=deepcopy(data['cards'][0]['sections']['overview']['units'][0]['refs'])) for i in range(5)]
+    data['cards'][0]['sections']['overview']['units']=units
+    data['cards'][0]['sections']['amount']['units']=units
+    cat=Catalog.model_validate(data)
+    partial=render('Sinh con',sample.result,cat,sample.lexicon)
+    assert partial['status']=='partial' and len(partial['claims'])==3
+    complete=render('Sinh con bao nhiêu?',sample.result,cat,sample.lexicon)
+    assert complete['status']=='answered' and len(complete['claims'])==5

@@ -19,7 +19,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "missing"
+      "fixture": "missing",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.002",
@@ -38,7 +39,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "withdrawn"
+      "fixture": "withdrawn",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.003",
@@ -57,7 +59,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "changed"
+      "fixture": "changed",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.004",
@@ -76,7 +79,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "denied"
+      "fixture": "denied",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.005",
@@ -97,7 +101,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "partial"
+      "fixture": "partial",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.006",
@@ -118,7 +123,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "unrelated_changed"
+      "fixture": "unrelated_changed",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.007",
@@ -135,7 +141,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.008",
@@ -152,7 +159,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.009",
@@ -171,7 +179,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.010",
@@ -188,7 +197,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.boundaries.evidence-availability.011",
@@ -204,7 +214,8 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "catalog_unavailable",
-      "http_status": 503
+      "http_status": 503,
+      "expected_values": {}
     }
   ]
 }

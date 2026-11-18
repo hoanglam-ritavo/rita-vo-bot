@@ -5,8 +5,9 @@
 The leave-query policy improves candidate ordering and registration clarification
 without an intent classifier, relevance profile, migration, re-embedding or
 publication. It covers leave requests and contrasts them with resignation and
-late arrival/early departure. Explicit non-leave questions retain their previous
-ordering. This does not decide entitlement, remaining balances or approval.
+late arrival/early departure. The mechanism now also supports
+[cross-domain tasks](business-topics.md); this page retains leave-specific rules
+and historical regression. It does not decide entitlement, balances or approval.
 
 For `làm sao để đăng ký nghỉ 2 hôm.`, retrieval recognizes a two-day leave request
 without selecting a leave type or platform. Eligible general procedure evidence
@@ -53,15 +54,16 @@ After the existing reranker, before top-K, stable buckets prioritize:
    explicit-platform requests; documented session cases for session questions.
 4. Matching authored day ranges; original reranker/vector order breaks ties.
 
-No document ID receives a hardcoded score, no raw logit is changed, and no candidate
-is injected or withheld. Sorting only sees the existing pool (30 with reranking;
-without reranking, the existing vector top-K). Relevance/eligibility remain distinct.
+No document ID receives a hardcoded score and no raw logit is changed. Resolved
+tasks may supplement the pool with bounded exact references under the cross-domain
+snapshot/eligibility contract. Unresolved leave requests only reorder their
+original pool. Relevance and eligibility remain distinct.
 Server order may therefore differ from descending raw `rerank_score`. Callers must
 preserve response order. Inference errors remain errors, not a silent model fallback.
 
 ## Artifacts and updates
 
-`artifacts/retrieval/catalog.json` is an optional schema-1 catalog with a lexicon
+`artifacts/retrieval/catalog.json` is an optional selected schema-2 catalog with a lexicon
 SHA-256, authoring snapshot fingerprint, rule collections, source bindings and task
 routes. Its declared inputs live in `artifacts/retrieval/source/`; the existing
 builder now assembles two or three groups rather than assuming exactly two.
@@ -69,7 +71,7 @@ Binding metadata includes family, role, operation, platform, optional subtype/da
 ranges and the existing exact reference contract. IDs identify records; they are
 not ranking weights. All source/range labels require source review.
 
-At startup the policy validates structure, lexical pairing, unique addresses and
+At startup the policy validates structure, lexical pairing, binding identities and
 routes. Missing/malformed/mismatched policy artifacts log only a fixed unavailable
 code and leave baseline retrieval/explicit template behavior available. No env or
 request switch is added. At sort time a binding must match current DB
@@ -87,7 +89,8 @@ runtime still validates coverage strictly. For private import, add optional
 Regenerate from source, update the artifact manifests/inventory and deploy code plus
 all selected artifacts together in an isolated checkout. A Git rollback does not
 roll back DB publication. This change does not publish, migrate or restart anything.
-Conversation and cache features have their own lifecycle and are not changed here.
+Conversation schema-2 slot handling shares the policy; storage/cache ownership
+remains governed by the conversation contract.
 
 ## Verification
 

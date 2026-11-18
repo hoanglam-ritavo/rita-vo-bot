@@ -18,7 +18,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.001",
@@ -36,7 +37,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.001",
@@ -54,7 +56,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.002",
@@ -72,7 +75,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.002",
@@ -90,7 +94,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.002",
@@ -108,7 +113,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.003",
@@ -125,7 +131,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.003",
@@ -143,7 +150,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.003",
@@ -161,7 +169,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.004",
@@ -179,7 +188,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      }
     },
     {
       "case_id": "q.conversation.context-and-followups.004",
@@ -197,7 +209,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "department_name": "Fictional department_name"
+      }
     },
     {
       "case_id": "q.conversation.context-and-followups.004",
@@ -215,7 +230,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "manager_name": "Fictional manager_name"
+      }
     },
     {
       "case_id": "q.conversation.context-and-followups.005",
@@ -232,7 +250,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.006",
@@ -250,7 +269,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.006",
@@ -267,7 +287,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.007",
@@ -285,7 +306,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.007",
@@ -304,7 +326,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.008",
@@ -322,7 +345,10 @@
       ],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      }
     },
     {
       "case_id": "q.conversation.context-and-followups.008",
@@ -339,7 +365,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.009",
@@ -356,7 +383,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.009",
@@ -373,7 +401,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.010",
@@ -391,7 +420,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "required",
-      "fixture": "current"
+      "fixture": "current",
+      "expected_values": {}
     },
     {
       "case_id": "q.conversation.context-and-followups.010",
@@ -408,7 +438,8 @@
       "employee_fields": [],
       "null_fields": [],
       "claims": "none",
-      "fixture": "catalog_changed"
+      "fixture": "catalog_changed",
+      "expected_values": {}
     }
   ]
 }
