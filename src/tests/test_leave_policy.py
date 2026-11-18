@@ -93,6 +93,31 @@ def test_eleave_does_not_invent_unlisted_leave_types(policy):
     assert policy.resolve('Hủy đơn nghỉ phép Workit').state == 'unsupported'
 
 
+def test_explicit_task_alias_does_not_hide_conflicting_leave_type(policy):
+    assert policy.resolve('Đăng ký nghỉ phép Workit và nghỉ thai sản').state == 'clarify'
+
+
+def test_conflicting_inpatient_sources_require_an_explicit_source(policy):
+    question='Hỗ trợ nằm viện của công ty'
+    resolution=policy.resolve(question)
+    assert resolution.state=='clarify' and len(resolution.candidates)==2
+    assert policy.references(question)==[]
+    benefits='d1ed5f3f-57ed-465d-a080-97c4a39efd8d'
+    labor='7f1f2cf6-e181-42a8-8caf-f9429094e661'
+    assert policy.resolve(question+' nguồn '+benefits).task_id=='task.business.policy.inpatient-company-support.d1ed5f3f'
+    assert policy.resolve(question+' nguồn '+labor).task_id=='task.topic.labor-health-benefits'
+
+
+def test_slot_changes_preserve_leave_topic_and_do_not_invent_platform_support(policy):
+    from src.conversation.context import reduce_question
+    catalog,lexicon=load_catalog(REPOSITORY_ROOT/'artifacts/answers/catalog.json',REPOSITORY_ROOT/'artifacts/semantics/lexicon.json')
+    _,state=reduce_question('Đăng ký nghỉ phép Workit',{},catalog,lexicon,policy=policy)
+    question,state=reduce_question('không lương',state,catalog,lexicon,policy=policy)
+    assert policy.resolve(question).task_id==state['task_id']=='task.leave.workit.unpaid'
+    question,state=reduce_question('E-Leave',state,catalog,lexicon,policy=policy)
+    assert policy.resolve(question).state=='unsupported' and state['task_id'] is None
+
+
 def fictional_candidates(policy):
     keys = ['rank.eleave.3','rank.policy.16','rank.workit.request',
             'rank.workit.attendance','rank.workit.resignation']

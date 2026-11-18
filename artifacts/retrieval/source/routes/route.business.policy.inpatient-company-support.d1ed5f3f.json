@@ -4,11 +4,15 @@
   "task_id": "task.business.policy.inpatient-company-support.d1ed5f3f",
   "aliases": [
     "trợ cấp nằm viện của công ty",
-    "hỗ trợ nằm viện của công ty"
+    "hỗ trợ nằm viện của công ty",
+    "hỗ trợ nằm viện",
+    "trợ cấp nằm viện"
   ],
   "concept_ids": [
     "policy.inpatient-company-support"
   ],
   "requires_any": [],
-  "excludes_any": []
+  "excludes_any": [
+    "BHXH"
+  ]
 }

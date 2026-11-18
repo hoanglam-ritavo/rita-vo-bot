@@ -4,14 +4,21 @@
   "source_type": "type_a",
   "clarification": "Các đoạn nguồn chỉ chứng minh một phần; vui lòng nêu rõ nội dung cần hỏi.",
   "concept_ids": [
-    "query.topic.labor-health-benefits"
+    "query.topic.labor-health-benefits",
+    "policy.inpatient-company-support"
   ],
   "aliases": [
     "Hỏi thăm nằm viện theo Điều 43 nội quy",
-    "hỗ trợ nằm viện theo nội quy lao động"
+    "hỗ trợ nằm viện theo nội quy lao động",
+    "trợ cấp nằm viện của công ty",
+    "hỗ trợ nằm viện của công ty",
+    "hỗ trợ nằm viện",
+    "trợ cấp nằm viện"
   ],
   "requires_any": [],
-  "excludes_any": [],
+  "excludes_any": [
+    "BHXH"
+  ],
   "sections": {
     "overview": {
       "complete": false,

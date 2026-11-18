@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/semantics/lexicon.json",
-    "sha256": "1495be25994cecc5055a77d3fcf95a4fc0ba4c250c8bb4c5c88d9f0be52f5612",
-    "size_bytes": 80533
+    "sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+    "size_bytes": 99217
   },
   "status": "schema_v2_source_checked_quality_evaluation_pending",
   "source_reviewed": true,
@@ -13,10 +13,10 @@
   "base_artifact_sha256": "1d9375d36fb20a2b23036b88752de4b1e3b0ffd3f2e19f7af8a8c3673340f236",
   "changes": {
     "runtime_schema_version": 2,
-    "concepts": 267,
+    "concepts": 320,
     "new_procedure_concepts": 20,
     "prior_language_rules_preserved": true,
-    "recognition_only_concepts": 15
+    "recognition_only_concepts": 68
   },
   "provenance": {
     "approved_inventory_sha256": "857f9572d5c843b8cacc3eef3dc8cb643310eaa1ab834f607f887574fc76dfbc",
@@ -47,8 +47,45 @@
     "dataset_sha256": null
   },
   "runtime_configuration_changed": true,
-  "new_content_review": "Procedure and leave-recognition additions source-checked by implementation agent. Recognition-only concepts never rewrite queries. No human acceptance inferred.",
+  "new_content_review": "Cross-domain concepts source-checked by implementation agent. New concepts are recognition-only. Historical lexical approval does not imply approval of these additions.",
   "source_binding_summary": {
-    "unchanged": 111
+    "unchanged": 1346
+  },
+  "cross_domain_authoring": {
+    "date": "2026-11-18",
+    "tasks": 279,
+    "packages": 29,
+    "chunks": 530,
+    "provenance": "Source/task mappings checked by implementation agent; no human policy approval or independent quality acceptance inferred.",
+    "database_publication_performed": false,
+    "learned_artifacts": false
+  },
+  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+  "observed_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "report_sha256": "3e9a96fb9d5734b12b57740a1ac787fad6637cceaea2f139bda4cac6e203981b",
+      "database_verified": false
+    },
+    "readonly": {
+      "passed": 785,
+      "failed": 0,
+      "deferred": 64,
+      "database_writes": false,
+      "report_sha256": "722beab9ae122588b36efc077ec2959f968815aec2c2eeef013814d2c6d9226d",
+      "retrieval": {
+        "samples": 40,
+        "ordering_p95_ms": 10.809500236064196,
+        "before_expected_first": 24,
+        "after_expected_first": 40,
+        "recall_at_30": 1.0,
+        "baseline": "Same augmented pool before metadata ordering; not an old-code or vector-only baseline"
+      }
+    },
+    "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted."
   }
 }

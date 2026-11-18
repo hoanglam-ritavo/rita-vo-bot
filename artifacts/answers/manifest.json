@@ -1,14 +1,51 @@
 {
   "schema_version": 1,
-  "catalog_sha256": "7406b76977c7220c61a963e0ecc40b55cfd3093142bffdc12423ad93fe44c6e6",
-  "provenance": "Prior source-bound tasks plus six partial leave tasks. Source-checked by implementation agent; no human approval or independent quality acceptance inferred.",
+  "catalog_sha256": "1a1bd69831aa5a4b3509f5b8ba7025f403131b18fc9d1f4d3993c0ceef18e00c",
+  "provenance": "Cross-domain source-bound tasks; partial sections retain source conditions. Implementation-agent source review only.",
   "runtime_release_accepted": false,
   "retrieval_acceptance": "Unassessed candidates; task claims require exact current eligible DB evidence.",
   "catalog_schema_version": 2,
-  "tasks": 58,
+  "tasks": 279,
   "new_procedure_tasks": 20,
   "source_binding_summary": {
-    "unchanged": 111
+    "unchanged": 900
   },
-  "new_leave_tasks": 6
+  "new_leave_tasks": 6,
+  "cross_domain_authoring": {
+    "date": "2026-11-18",
+    "tasks": 279,
+    "packages": 29,
+    "chunks": 530,
+    "provenance": "Source/task mappings checked by implementation agent; no human policy approval or independent quality acceptance inferred.",
+    "database_publication_performed": false,
+    "learned_artifacts": false
+  },
+  "new_business_tasks": 221,
+  "observed_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "report_sha256": "3e9a96fb9d5734b12b57740a1ac787fad6637cceaea2f139bda4cac6e203981b",
+      "database_verified": false
+    },
+    "readonly": {
+      "passed": 785,
+      "failed": 0,
+      "deferred": 64,
+      "database_writes": false,
+      "report_sha256": "722beab9ae122588b36efc077ec2959f968815aec2c2eeef013814d2c6d9226d",
+      "retrieval": {
+        "samples": 40,
+        "ordering_p95_ms": 10.809500236064196,
+        "before_expected_first": 24,
+        "after_expected_first": 40,
+        "recall_at_30": 1.0,
+        "baseline": "Same augmented pool before metadata ordering; not an old-code or vector-only baseline"
+      }
+    },
+    "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted."
+  }
 }

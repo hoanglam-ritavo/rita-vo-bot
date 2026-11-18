@@ -122,9 +122,9 @@ mode grants quality acceptance. The original snapshot below is historical.
 
 ## Current executable coverage
 
-The current set contains **829 cases / 846 turns in 21 groups** and 21 oracle
+The current set contains **832 cases / 849 turns in 21 groups** and 21 oracle
 files. Original 416 cases and their prose/IDs are preserved. Additional direct
-wiring and aspect cases cover 278 tasks; source-label alternatives use explicit
+wiring and aspect cases cover 279 tasks; source-label alternatives use explicit
 source IDs where needed. These additions are wiring regressions, not independent
 paraphrase coverage or a claim that all possible business questions are supported.
 The original input snapshot remains historical; evaluator hashes identify actual

@@ -7,10 +7,14 @@
   ],
   "aliases": [
     "trợ cấp nằm viện của công ty",
-    "hỗ trợ nằm viện của công ty"
+    "hỗ trợ nằm viện của công ty",
+    "hỗ trợ nằm viện",
+    "trợ cấp nằm viện"
   ],
   "requires_any": [],
-  "excludes_any": [],
+  "excludes_any": [
+    "BHXH"
+  ],
   "sections": {
     "overview": {
       "complete": false,

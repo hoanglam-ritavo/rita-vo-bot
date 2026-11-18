@@ -49,6 +49,41 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Cross-domain tasks and evidence - 2026-11-18
+
+Broad post-edit validation at `68b2456` plus the staged/unstaged cross-domain follow-ups
+passed **1,010 non-integration tests**, with **1 skipped / 56 deselected** and
+the existing Starlette/AnyIO deprecation warning. The run used
+`--basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\business-full-20261118-04'`
+and `-o cache_dir=.tmp/business-full-cache-04`. The subsequent dependency-report
+follow-up also passed **191 focused tests**, including related ambiguity/negative
+case discovery after a source change. Disposable PostgreSQL integration suites
+require a separate test database and were not executed.
+
+The selected set contains **279 tasks / 320 concepts**, **446 retrieval bindings /
+285 routes**, and dispositions for **530 chunks / 29 packages**: 445 maintained
+template evidence chunks and 85 explicit-lookup/context chunks. Source impact
+verified **1,346 unchanged references**, with no affected tasks/cases. Build/check,
+catalog validation, all **22 runtime assets**, question/task/aspect/route coverage
+and stable original 416 cases / 433 turns passed structural checks.
+
+The expanded **832-case / 849-turn** source-fixture HTTP/reducer evaluation passed
+**849/849**. Real Type A readonly evaluation passed **785 turns**, with **zero
+failures / 64 explicit fixture/personnel deferrals**. Its stratified **40-task**
+retrieval sample measured recall@30 **100%**, expected-first ordering **24/40
+before to 40/40 after** metadata ordering, and ordering p95 **10.81 ms**. The
+baseline is the same supplemented pool before metadata sorting, not a historical
+or vector-only baseline. Reports are private under `.tmp/business-*-final-v3-20261118.json`.
+These are exposed regressions, not independent business/quality acceptance or an SLA.
+
+Source audit corrected referral-rate, office-equipment and forklift references;
+conflicting inpatient sources now require an explicit choice. Context schema 2
+adds bounded user slots; mixed HRM failures retain independent policy evidence
+with the additive employee `unavailable` status. See [contracts and maintenance](docs/business-topics.md).
+No packages/source snapshots, model bytes, private `.env`, migrations, publication,
+personnel data or running services were changed. Earlier verification entries
+below describe their own historical snapshots.
+
 ### Shared HTTP service authentication - 2026-11-18
 
 All HTTP business endpoints and readiness probes now use CHAT_BOT_SERVICE_KEY.

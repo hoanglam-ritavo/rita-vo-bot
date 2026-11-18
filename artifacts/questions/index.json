@@ -517,18 +517,18 @@
     {
       "path": "policy/business-expansion.json",
       "group_id": "policy.business-expansion",
-      "case_count": 413,
-      "turn_count": 413
+      "case_count": 416,
+      "turn_count": 416
     }
   ],
   "totals": {
     "groups": 21,
-    "cases": 829,
-    "turns": 846,
-    "observed_task_cards": 278,
+    "cases": 832,
+    "turns": 849,
+    "observed_task_cards": 279,
     "documents": 29,
     "employee_fields": 9,
-    "retrieval_routes": 284
+    "retrieval_routes": 285
   },
   "coverage": {
     "tasks": [
@@ -2612,7 +2612,8 @@
         "case_ids": [
           "q.policy.business-expansion.d8891933b326fc08",
           "q.policy.business-expansion.e0adc603635ae631",
-          "q.policy.business-expansion.30d7c2b118defb5f"
+          "q.policy.business-expansion.30d7c2b118defb5f",
+          "q.policy.business-expansion.dd798770fbdb36a5"
         ],
         "aspects": {
           "overview": [
@@ -2623,6 +2624,9 @@
           ],
           "conditions": [
             "q.policy.business-expansion.30d7c2b118defb5f"
+          ],
+          "procedure": [
+            "q.policy.business-expansion.dd798770fbdb36a5"
           ]
         }
       },
@@ -5065,6 +5069,22 @@
             "q.policy.business-expansion.7ca1fb13367c1a0f"
           ]
         }
+      },
+      {
+        "task_id": "task.topic.workplace-safety",
+        "source_file": "artifacts/answers/source/cards/task.topic.workplace-safety.json",
+        "case_ids": [
+          "q.policy.business-expansion.8841147fa1cb8c31",
+          "q.policy.business-expansion.7e7be9cebe5b59b9"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.business-expansion.8841147fa1cb8c31"
+          ],
+          "conditions": [
+            "q.policy.business-expansion.7e7be9cebe5b59b9"
+          ]
+        }
       }
     ],
     "documents": [
@@ -5466,7 +5486,9 @@
           "q.policy.business-expansion.dbb5db6427e7b4e3",
           "q.policy.business-expansion.57838f8920daf60e",
           "q.policy.business-expansion.70c15aad7a04dec5",
-          "q.policy.business-expansion.f62ceea773458d29"
+          "q.policy.business-expansion.f62ceea773458d29",
+          "q.policy.business-expansion.8841147fa1cb8c31",
+          "q.policy.business-expansion.7e7be9cebe5b59b9"
         ]
       },
       {
@@ -5616,7 +5638,8 @@
           "q.policy.business-expansion.30d7c2b118defb5f",
           "q.policy.business-expansion.5b786b63da431a7d",
           "q.policy.business-expansion.0c1999f8c51a1768",
-          "q.policy.business-expansion.ce65bc03044b4ea0"
+          "q.policy.business-expansion.ce65bc03044b4ea0",
+          "q.policy.business-expansion.dd798770fbdb36a5"
         ]
       },
       {
@@ -7327,7 +7350,8 @@
         "case_ids": [
           "q.policy.business-expansion.d8891933b326fc08",
           "q.policy.business-expansion.e0adc603635ae631",
-          "q.policy.business-expansion.30d7c2b118defb5f"
+          "q.policy.business-expansion.30d7c2b118defb5f",
+          "q.policy.business-expansion.dd798770fbdb36a5"
         ]
       },
       {
@@ -8657,6 +8681,14 @@
         "case_ids": [
           "q.policy.business-expansion.ac247cd769e1b6c1",
           "q.policy.business-expansion.7ca1fb13367c1a0f"
+        ]
+      },
+      {
+        "route_id": "route.topic.workplace-safety",
+        "task_id": "task.topic.workplace-safety",
+        "case_ids": [
+          "q.policy.business-expansion.8841147fa1cb8c31",
+          "q.policy.business-expansion.7e7be9cebe5b59b9"
         ]
       }
     ]

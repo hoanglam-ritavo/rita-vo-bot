@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
-  "lexicon_sha256": "56a570208af653eaa98e3852fa58814e8da5a6e0060ddf6e01408927e8c376d0",
+  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
   "families": [
     {
       "id": "leave",
@@ -1285,7 +1285,9 @@
           "version_label": "1.0; cập nhật 18.11.2023",
           "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
         }
-      }
+      },
+      "task_ids": [],
+      "aspects": []
     },
     {
       "id": "rank.attendance.9",
@@ -3382,6 +3384,7 @@
       "task_ids": [
         "task.business.branch.media-authority.7f1f2cf6",
         "task.business.branch.meeting-room-registration.7f1f2cf6",
+        "task.business.branch.office-equipment-consent.7f1f2cf6",
         "task.business.visitors.7f1f2cf6"
       ],
       "aspects": [
@@ -3439,10 +3442,10 @@
         }
       },
       "task_ids": [
-        "task.business.branch.forklift-safety-inspection.7f1f2cf6",
-        "task.business.branch.office-equipment-consent.7f1f2cf6"
+        "task.topic.workplace-safety"
       ],
       "aspects": [
+        "conditions",
         "overview"
       ]
     },
@@ -3468,9 +3471,13 @@
         }
       },
       "task_ids": [
-        "task.business.branch.chemical-solvent-purpose.7f1f2cf6"
+        "task.business.branch.chemical-solvent-purpose.7f1f2cf6",
+        "task.business.branch.forklift-safety-inspection.7f1f2cf6",
+        "task.topic.labor-health-examination",
+        "task.topic.workplace-safety"
       ],
       "aspects": [
+        "conditions",
         "overview"
       ]
     },
@@ -4658,9 +4665,7 @@
         "task.business.policy.referral-rates.9b8dd80f"
       ],
       "aspects": [
-        "amount",
-        "conditions",
-        "overview"
+        "procedure"
       ]
     },
     {
@@ -4685,12 +4690,14 @@
         }
       },
       "task_ids": [
-        "task.business.policy.referral-payment.9b8dd80f"
+        "task.business.policy.referral-payment.9b8dd80f",
+        "task.business.policy.referral-rates.9b8dd80f"
       ],
       "aspects": [
         "amount",
         "conditions",
-        "overview"
+        "overview",
+        "procedure"
       ]
     },
     {
@@ -15198,13 +15205,17 @@
       "task_id": "task.business.policy.inpatient-company-support.d1ed5f3f",
       "aliases": [
         "trợ cấp nằm viện của công ty",
-        "hỗ trợ nằm viện của công ty"
+        "hỗ trợ nằm viện của công ty",
+        "hỗ trợ nằm viện",
+        "trợ cấp nằm viện"
       ],
       "concept_ids": [
         "policy.inpatient-company-support"
       ],
       "requires_any": [],
-      "excludes_any": []
+      "excludes_any": [
+        "BHXH"
+      ]
     },
     {
       "id": "route.business.policy.outpatient-company-support.d1ed5f3f",
@@ -16942,7 +16953,9 @@
       ],
       "concept_ids": [
         "query.topic.mobile-counters"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.bravo-warning",
@@ -16955,7 +16968,9 @@
       ],
       "concept_ids": [
         "query.topic.bravo-warning"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.manager-desk",
@@ -16967,7 +16982,9 @@
       ],
       "concept_ids": [
         "query.topic.manager-desk"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eleave-delegate",
@@ -16979,7 +16996,9 @@
       ],
       "concept_ids": [
         "query.topic.eleave-delegate"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eleave-approval",
@@ -16993,7 +17012,9 @@
       ],
       "concept_ids": [
         "query.topic.eleave-approval"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eleave-cancel",
@@ -17006,7 +17027,9 @@
       ],
       "concept_ids": [
         "query.topic.eleave-cancel"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eleave-email",
@@ -17019,7 +17042,9 @@
       ],
       "concept_ids": [
         "query.topic.eleave-email"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eleave-status",
@@ -17031,7 +17056,9 @@
       ],
       "concept_ids": [
         "query.topic.eleave-status"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.labor-scope",
@@ -17044,7 +17071,9 @@
       ],
       "concept_ids": [
         "query.topic.labor-scope"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.annual-entitlement",
@@ -17058,7 +17087,9 @@
       ],
       "concept_ids": [
         "query.topic.annual-entitlement"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.labor-health-benefits",
@@ -17066,10 +17097,19 @@
       "task_id": "task.topic.labor-health-benefits",
       "aliases": [
         "Hỏi thăm nằm viện theo Điều 43 nội quy",
-        "hỗ trợ nằm viện theo nội quy lao động"
+        "hỗ trợ nằm viện theo nội quy lao động",
+        "trợ cấp nằm viện của công ty",
+        "hỗ trợ nằm viện của công ty",
+        "hỗ trợ nằm viện",
+        "trợ cấp nằm viện"
       ],
       "concept_ids": [
-        "query.topic.labor-health-benefits"
+        "query.topic.labor-health-benefits",
+        "policy.inpatient-company-support"
+      ],
+      "requires_any": [],
+      "excludes_any": [
+        "BHXH"
       ]
     },
     {
@@ -17082,19 +17122,23 @@
       ],
       "concept_ids": [
         "query.topic.labor-family-benefits"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.labor-health-examination",
       "family": "benefits",
       "task_id": "task.topic.labor-health-examination",
       "aliases": [
-        "Khám sức khỏe và phúc lợi theo Điều 43 nội quy",
+        "Khám sức khỏe, phúc lợi và đào tạo theo nội quy",
         "khám sức khỏe định kỳ hằng năm cho nhân viên"
       ],
       "concept_ids": [
         "query.topic.labor-health-examination"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.contract-end",
@@ -17106,7 +17150,9 @@
       ],
       "concept_ids": [
         "query.topic.contract-end"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.security-forms",
@@ -17119,7 +17165,9 @@
       ],
       "concept_ids": [
         "query.topic.security-forms"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.task-complete",
@@ -17132,7 +17180,9 @@
       ],
       "concept_ids": [
         "query.topic.task-complete"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.task-owner",
@@ -17145,7 +17195,9 @@
       ],
       "concept_ids": [
         "query.topic.task-owner"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.building-common",
@@ -17158,7 +17210,9 @@
       ],
       "concept_ids": [
         "query.topic.building-common"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.chairman-room",
@@ -17170,7 +17224,9 @@
       ],
       "concept_ids": [
         "query.topic.chairman-room"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.building-security",
@@ -17182,7 +17238,9 @@
       ],
       "concept_ids": [
         "query.topic.building-security"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.referral-implementation",
@@ -17194,7 +17252,9 @@
       ],
       "concept_ids": [
         "query.topic.referral-implementation"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.resign-submit",
@@ -17207,7 +17267,9 @@
       ],
       "concept_ids": [
         "query.topic.resign-submit"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.resign-approve",
@@ -17219,7 +17281,9 @@
       ],
       "concept_ids": [
         "query.topic.resign-approve"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.uniform-violation",
@@ -17231,7 +17295,9 @@
       ],
       "concept_ids": [
         "query.topic.uniform-violation"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.vehicle-advance",
@@ -17244,7 +17310,9 @@
       ],
       "concept_ids": [
         "query.topic.vehicle-advance"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.vehicle-proposal",
@@ -17256,7 +17324,9 @@
       ],
       "concept_ids": [
         "query.topic.vehicle-proposal"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.vehicle-forms",
@@ -17269,7 +17339,9 @@
       ],
       "concept_ids": [
         "query.topic.vehicle-forms"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.vehicle-scope",
@@ -17281,7 +17353,9 @@
       ],
       "concept_ids": [
         "query.topic.vehicle-scope"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-home",
@@ -17293,7 +17367,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-home"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-approval-buttons",
@@ -17305,7 +17381,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-approval-buttons"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-avatar",
@@ -17317,7 +17395,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-avatar"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-organization",
@@ -17329,7 +17409,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-organization"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-history",
@@ -17341,7 +17423,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-history"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-family",
@@ -17353,7 +17437,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-family"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-rewards",
@@ -17365,7 +17451,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-rewards"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-equipment",
@@ -17377,7 +17465,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-equipment"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.workit-insurance",
@@ -17389,7 +17479,9 @@
       ],
       "concept_ids": [
         "query.topic.workit-insurance"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eworkdate-mobile",
@@ -17401,7 +17493,9 @@
       ],
       "concept_ids": [
         "query.topic.eworkdate-mobile"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eworkdate-status",
@@ -17413,7 +17507,9 @@
       ],
       "concept_ids": [
         "query.topic.eworkdate-status"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.eworkdate-missing-email",
@@ -17425,7 +17521,9 @@
       ],
       "concept_ids": [
         "query.topic.eworkdate-missing-email"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.attendance-external",
@@ -17437,7 +17535,9 @@
       ],
       "concept_ids": [
         "query.topic.attendance-external"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.attendance-responsibility",
@@ -17449,7 +17549,9 @@
       ],
       "concept_ids": [
         "query.topic.attendance-responsibility"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.benefits-scope-definition",
@@ -17461,7 +17563,9 @@
       ],
       "concept_ids": [
         "query.topic.benefits-scope-definition"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.benefits-inventory",
@@ -17473,7 +17577,9 @@
       ],
       "concept_ids": [
         "query.topic.benefits-inventory"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.stationery-track",
@@ -17485,7 +17591,9 @@
       ],
       "concept_ids": [
         "query.topic.stationery-track"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.resign-flow",
@@ -17497,7 +17605,9 @@
       ],
       "concept_ids": [
         "query.topic.resign-flow"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.epostal-mobile",
@@ -17509,7 +17619,9 @@
       ],
       "concept_ids": [
         "query.topic.epostal-mobile"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.epostal-reminder",
@@ -17521,7 +17633,9 @@
       ],
       "concept_ids": [
         "query.topic.epostal-reminder"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
     },
     {
       "id": "route.topic.epostal-email",
@@ -17534,7 +17648,24 @@
       ],
       "concept_ids": [
         "query.topic.epostal-email"
-      ]
+      ],
+      "requires_any": [],
+      "excludes_any": []
+    },
+    {
+      "id": "route.topic.workplace-safety",
+      "family": "safety",
+      "task_id": "task.topic.workplace-safety",
+      "aliases": [
+        "An toàn lao động theo nội quy",
+        "an toàn lao động",
+        "an toàn lao động"
+      ],
+      "concept_ids": [
+        "workplace-safety"
+      ],
+      "requires_any": [],
+      "excludes_any": []
     }
   ]
 }

@@ -1037,7 +1037,13 @@
         ]
       ],
       "claims": "required",
-      "expected_values": {}
+      "expected_values": {},
+      "required_numbers": [
+        300000,
+        500000,
+        1000000,
+        2000000
+      ]
     },
     {
       "case_id": "q.policy.business-expansion.defa01865f3dddb8",
@@ -4743,7 +4749,13 @@
         ]
       ],
       "claims": "required",
-      "expected_values": {}
+      "expected_values": {},
+      "required_numbers": [
+        300000,
+        500000,
+        1000000,
+        2000000
+      ]
     },
     {
       "case_id": "q.policy.business-expansion.30d7c2b118defb5f",
@@ -4760,7 +4772,13 @@
         ]
       ],
       "claims": "required",
-      "expected_values": {}
+      "expected_values": {},
+      "required_numbers": [
+        300000,
+        500000,
+        1000000,
+        2000000
+      ]
     },
     {
       "case_id": "q.policy.business-expansion.5b786b63da431a7d",
@@ -7022,6 +7040,60 @@
       ],
       "claims": "required",
       "expected_values": {}
+    },
+    {
+      "case_id": "q.policy.business-expansion.dd798770fbdb36a5",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.policy.referral-rates.9b8dd80f"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "claims": "required",
+      "required_numbers": [
+        300000,
+        500000,
+        1000000,
+        2000000
+      ]
+    },
+    {
+      "case_id": "q.policy.business-expansion.8841147fa1cb8c31",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.topic.workplace-safety"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.policy.business-expansion.7e7be9cebe5b59b9",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.topic.workplace-safety"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "claims": "required"
     }
   ]
 }

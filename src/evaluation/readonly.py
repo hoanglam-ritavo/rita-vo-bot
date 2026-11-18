@@ -34,6 +34,20 @@ async def run_readonly(root, *, retrieval_limit=40):
         await service.start()
         if service.policy.catalog is None:
             raise ValueError('evaluation_policy_unavailable')
+        # Round-robin across declared business families, not the first software
+        # cases in file order. At most one retrieval sample per selected task.
+        families = {route.task_id: route.family for route in service.policy.catalog.routes}
+        buckets = {}
+        for oracle in oracles.values():
+            if oracle.claims == 'required' and oracle.fixture == 'current':
+                for task in oracle.task_ids_any:
+                    buckets.setdefault(families.get(task, 'other'), set()).add(task)
+        buckets = {key: sorted(values) for key,values in sorted(buckets.items())}
+        sample_tasks = set()
+        while any(buckets.values()) and len(sample_tasks) < retrieval_limit:
+            for values in buckets.values():
+                if values and len(sample_tasks) < retrieval_limit:
+                    sample_tasks.add(values.pop(0))
         for case in cases:
             state = {}
             for n, turn in enumerate(case['turns']):
@@ -41,7 +55,8 @@ async def run_readonly(root, *, retrieval_limit=40):
                 key = dict(case_id=case['id'], turn=n)
                 # Fixture-only source failures and personnel are not exercised
                 # against the application DB or represented as passing checks.
-                route = route_question(turn['text'])
+                document_task = service.policy.resolve_generic(turn['text']).state == 'task'
+                route = route_question(turn['text'], document_task=document_task)
                 if (oracle.fixture != 'current' or oracle.employee_fields or route.source != 'type_a'
                         or 'mixed' in case['tags'] or 'type-b' in case['tags']):
                     rows.append({**key, 'state': 'deferred', 'reason': 'requires_isolated_fixture'})
@@ -61,8 +76,9 @@ async def run_readonly(root, *, retrieval_limit=40):
                 failures = check_turn(oracle, 200, response, [] if ambiguous else [c.id for c in cards])
                 state = compact(state, response)
                 rows.append({**key, 'state': 'failed' if failures else 'passed', 'failures': failures})
-                sample_key = (tuple(c.id for c in cards), tuple(requested_aspects(question)))
-                if oracle.claims != 'required' or not refs or sample_key in sampled or len(benchmarks) >= retrieval_limit:
+                sample_key = tuple(c.id for c in cards)
+                if (oracle.claims != 'required' or not refs or not sample_tasks.intersection(sample_key)
+                        or sample_key in sampled or len(benchmarks) >= retrieval_limit):
                     continue
                 sampled.add(sample_key)
                 captures = []

@@ -69,7 +69,9 @@ class Binding(Strict):
 
     @model_validator(mode='after')
     def source_shape(self):
-        if set(self.ref.metadata) != set(METADATA) or not self.ref.quote.strip():
+        path = self.ref.metadata.get('source_path')
+        if (set(self.ref.metadata) != set(METADATA) or not self.ref.quote.strip()
+                or not isinstance(path, str) or not path.strip()):
             raise ValueError('invalid_policy_reference')
         return self
 

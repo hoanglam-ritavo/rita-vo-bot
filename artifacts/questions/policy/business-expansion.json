@@ -1538,7 +1538,7 @@
       ],
       "turns": [
         {
-          "text": "Thông tin về trợ cấp nằm viện của công ty.",
+          "text": "Thông tin về trợ cấp nằm viện của công ty. Nguồn d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
           "expectation": "Chọn đúng tác vụ và nguồn đã chỉ định, giữ các điều kiện trong nguồn và trạng thái một phần; không suy quyền lợi cá nhân."
         }
       ]
@@ -5129,7 +5129,7 @@
     },
     {
       "id": "q.policy.business-expansion.aa8e876b91d5429d",
-      "title": "Khám sức khỏe và phúc lợi theo Điều 43 nội quy",
+      "title": "Khám sức khỏe, phúc lợi và đào tạo theo nội quy",
       "tags": [
         "direct",
         "type-a",
@@ -5150,7 +5150,7 @@
       ],
       "turns": [
         {
-          "text": "Thông tin về Khám sức khỏe và phúc lợi theo Điều 43 nội quy.",
+          "text": "Thông tin về Khám sức khỏe, phúc lợi và đào tạo theo nội quy.",
           "expectation": "Chọn đúng tác vụ và nguồn đã chỉ định, giữ các điều kiện trong nguồn và trạng thái một phần; không suy quyền lợi cá nhân."
         }
       ]
@@ -7474,7 +7474,7 @@
       ],
       "turns": [
         {
-          "text": "Về trợ cấp nằm viện của công ty, mức quy định là gì?",
+          "text": "Về trợ cấp nằm viện của công ty, mức quy định là gì? Nguồn d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
           "expectation": "Trả lời đúng khía cạnh từ nguồn được chỉ định, giữ điều kiện và trạng thái đầy đủ hoặc một phần đã khai báo."
         }
       ]
@@ -7502,7 +7502,7 @@
       ],
       "turns": [
         {
-          "text": "Về trợ cấp nằm viện của công ty, điều kiện áp dụng là gì?",
+          "text": "Về trợ cấp nằm viện của công ty, điều kiện áp dụng là gì? Nguồn d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
           "expectation": "Trả lời đúng khía cạnh từ nguồn được chỉ định, giữ điều kiện và trạng thái đầy đủ hoặc một phần đã khai báo."
         }
       ]
@@ -10449,7 +10449,7 @@
     },
     {
       "id": "q.policy.business-expansion.70c15aad7a04dec5",
-      "title": "Khám sức khỏe và phúc lợi theo Điều 43 nội quy — conditions",
+      "title": "Khám sức khỏe, phúc lợi và đào tạo theo nội quy — conditions",
       "tags": [
         "type-a",
         "aspect:conditions",
@@ -10470,7 +10470,7 @@
       ],
       "turns": [
         {
-          "text": "Về Khám sức khỏe và phúc lợi theo Điều 43 nội quy, điều kiện áp dụng là gì?",
+          "text": "Về Khám sức khỏe, phúc lợi và đào tạo theo nội quy, điều kiện áp dụng là gì?",
           "expectation": "Trả lời đúng khía cạnh từ nguồn được chỉ định, giữ điều kiện và trạng thái đầy đủ hoặc một phần đã khai báo."
         }
       ]
@@ -11564,6 +11564,90 @@
         {
           "text": "Về Xử lý email E-Postal, các bước thực hiện là gì?",
           "expectation": "Trả lời đúng khía cạnh từ nguồn được chỉ định, giữ điều kiện và trạng thái đầy đủ hoặc một phần đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.business-expansion.dd798770fbdb36a5",
+      "title": "mức thưởng giới thiệu nhân viên mới — procedure",
+      "tags": [
+        "type-a",
+        "aspect:procedure",
+        "expansion-wiring"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.policy.referral-rates.9b8dd80f"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn đã xuất bản, hợp lệ và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Về mức thưởng giới thiệu nhân viên mới, các bước thực hiện là gì?",
+          "expectation": "Trả lời đúng khía cạnh được nguồn chứng minh, giữ điều kiện và giới hạn một phần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.business-expansion.8841147fa1cb8c31",
+      "title": "An toàn lao động theo nội quy — overview",
+      "tags": [
+        "type-a",
+        "aspect:overview",
+        "expansion-wiring"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.topic.workplace-safety"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn đã xuất bản, hợp lệ và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Về An toàn lao động theo nội quy, nội dung quy định là gì?",
+          "expectation": "Trả lời đúng khía cạnh được nguồn chứng minh, giữ điều kiện và giới hạn một phần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.business-expansion.7e7be9cebe5b59b9",
+      "title": "An toàn lao động theo nội quy — conditions",
+      "tags": [
+        "type-a",
+        "aspect:conditions",
+        "expansion-wiring"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.topic.workplace-safety"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn đã xuất bản, hợp lệ và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Về An toàn lao động theo nội quy, điều kiện áp dụng là gì?",
+          "expectation": "Trả lời đúng khía cạnh được nguồn chứng minh, giữ điều kiện và giới hạn một phần."
         }
       ]
     }

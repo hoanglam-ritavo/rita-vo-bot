@@ -65,7 +65,7 @@ catalog to its exact language artifact. Runtime validates structure/hash pairing
 source drift is checked per reference against current DB evidence. Corrupt artifacts
 disable policy answers, while stale evidence only withholds dependent claims.
 
-The maintained inventory has 29 packages / 530 chunks, 278 tasks and 320 concepts,
+The maintained inventory has 29 packages / 530 chunks, 279 tasks and 320 concepts,
 including cross-domain tasks and recognition-only topic/platform concepts. Partial
 sections retain source conditions; existing nine complete sections preserve their
 declarations. Optional routing and bounded evidence supplementation are described

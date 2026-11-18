@@ -66,9 +66,11 @@ def inspect(root=REPOSITORY_ROOT):
     question_index = root / 'artifacts/questions/index.json'
     if question_index.is_file() and decode_json(question_index.read_bytes()).get('oracles'):
         from src.evaluation.questions import load_dataset
-        _, oracles, _ = load_dataset(root)
+        cases, oracles, _ = load_dataset(root)
         questions = sorted({oracle.case_id for oracle in oracles.values()
-                            if affected.intersection([*oracle.task_ids_any, *oracle.forbidden_task_ids])})
+                            if affected.intersection([*oracle.task_ids_any, *oracle.forbidden_task_ids])}
+                           | {case['id'] for case in cases
+                              if affected.intersection(case.get('references', {}).get('task_ids', []))})
     return {'schema_version': 1, 'package_fingerprint': snapshot['package_fingerprint'],
             'summary': dict(Counter(row['state'] for row in rows)), 'references': rows,
             'affected_tasks': sorted(affected), 'affected_cases': questions}, updates, snapshot, observed

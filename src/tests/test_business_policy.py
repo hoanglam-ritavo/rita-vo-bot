@@ -16,6 +16,7 @@ from src.retrieval.policy import RetrievalPolicy, validate_catalog
 from src.retrieval.service import RetrievalService
 from src.retrieval.reranking import RerankSettings
 from src.tests.test_answering import sample
+from src.tests.test_artifact_authoring import authored
 
 
 @pytest.fixture
@@ -67,6 +68,14 @@ def test_same_source_can_have_multiple_task_roles_but_conflicting_choices_stay_a
     assert p.reorder('thanh lý máy',[{'chunk_id':'unknown'},business.match])[0]==business.match
     business.catalog['routes'].append(dict(business.catalog['routes'][1],id='asset-alternative',task_id='task.other'))
     assert business.load().resolve('thanh lý máy').state=='clarify'
+
+
+def test_malformed_source_selector_cannot_select_a_task_or_crash_requests(business,tmp_path):
+    data=deepcopy(business.catalog)
+    data['bindings'][0]['ref']['metadata']['source_path']=None
+    path=tmp_path/'invalid-policy.json';path.write_bytes(encode(data))
+    policy=RetrievalPolicy(path,business.policy.lexicon_path);policy.start()
+    assert policy.catalog is None and policy.resolve('đề nghị vật tư Workit').state=='not_applicable'
 
 
 @pytest.mark.parametrize('change', ['content','revision_id','source_sha256','applicability','version_label'])
@@ -168,6 +177,15 @@ def test_value_oracles_do_not_accept_swapped_fictional_employee_values():
     assert check_turn(o,200,result)==['employee_values']
 
 
+def test_monetary_oracles_check_authored_values_without_computing_entitlement():
+    o=Oracle(case_id='fictional',turn=0,statuses=['partial'],required_numbers=[1000,2000])
+    result=dict(status='partial',claims=[dict(text='Fictional amounts: 1,000 and 2.000 credits.',
+        citations=[dict(source_id='S1',quote='Fictional source')])],sources=[dict(source_id='S1',origins=[])])
+    assert check_turn(o,200,result)==[]
+    o.required_numbers=[3000]
+    assert check_turn(o,200,result)==['required_numbers']
+
+
 def test_partial_answers_are_bounded_without_truncating_complete_aspects(sample):
     from src.answering.pipeline import render
     from src.answering.catalog import Catalog
@@ -181,3 +199,18 @@ def test_partial_answers_are_bounded_without_truncating_complete_aspects(sample)
     assert partial['status']=='partial' and len(partial['claims'])==3
     complete=render('Sinh con bao nhiêu?',sample.result,cat,sample.lexicon)
     assert complete['status']=='answered' and len(complete['claims'])==5
+
+
+def test_source_impact_retests_related_boundary_cases_without_positive_task_oracles(authored):
+    from src.artifact_authoring import impact
+    root,_,_=authored
+    folder=root/'artifacts/questions';(folder/'policy').mkdir(parents=True);(folder/'oracles').mkdir()
+    cases=[dict(id='fictional-'+key,references=dict(task_ids=[key]),
+                turns=[dict(text='Fictional boundary',expectation='Do not select a source arbitrarily')]) for key in ('a','z')]
+    (folder/'policy/boundaries.json').write_bytes(encode(dict(cases=cases)))
+    (folder/'oracles/boundaries.json').write_bytes(encode(dict(turns=[dict(case_id=c['id'],turn=0,statuses=['needs_clarification']) for c in cases])))
+    (folder/'index.json').write_bytes(encode(dict(files=[dict(path='policy/boundaries.json')],oracles=['oracles/boundaries.json'])))
+    package=next((root/'chunks').iterdir());path=package/'chunks.json';data=json.loads(path.read_bytes())
+    data['chunks'][0]['content']+=' Changed fictional source condition.';path.write_bytes(encode(data))
+    report=impact.inspect(root)[0]
+    assert report['affected_cases']==['fictional-a','fictional-z']

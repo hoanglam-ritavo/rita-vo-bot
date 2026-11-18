@@ -2,7 +2,7 @@
 
 ## Current scope
 
-The inventory covers 29 packages / 530 chunks, with 278 tasks and 320 language
+The inventory covers 29 packages / 530 chunks, with 279 tasks and 320 language
 concepts. Topics include labor/leave/attendance/overtime/termination,
 benefits/referrals, travel/expenses, administration/seals/assets/uniforms,
 vehicles, security/building rules and Workit, E-Leave, E-Workdate, E-Postal,
@@ -80,7 +80,7 @@ identical evidence under its existing guards. Meaning/revision/provenance change
 require targeted review and tests. Disk edits do not update DB publication.
 
 The question bank preserves the original 416 cases / 433 turns and adds direct
-task wiring/aspect cases: currently 829 cases / 846 turns. Separate per-turn
+task wiring/aspect cases: currently 832 cases / 849 turns. Separate per-turn
 oracles assert task/source choices, forbidden targets, requested employee fields,
 nulls and failure fixtures. Original prose/support labels remain intact.
 Expansion wiring is not an independent paraphrase holdout or business acceptance.
@@ -102,6 +102,8 @@ Readonly mode loads local configuration/models and uses real Type A SELECT-only
 paths, without personnel reads or durable turns. Personnel/failure-injection
 cases and missing/changed eligible publications are explicitly deferred. A bounded
 sample measures recall@30, evidence at top five and expected-first ordering. Its
+tasks are selected round-robin across declared business families, rather than
+taking the first software cases in file order. Its
 baseline is the same supplemented pool before metadata sorting, not old-code or
 vector-only recall. Reports contain IDs/hashes/metrics, not source/response bodies.
 Input/output reports stay under `.tmp`; existing outputs are refused.
@@ -112,3 +114,16 @@ mode issues independent quality/deployment acceptance. Release all three
 artifact/manifest pairs with code in an isolated checkout. Verify target
 publications and consumer handling of the unavailable enum before deployment.
 This implementation does not publish application data, migrate or restart services.
+
+Final verification on 2026-11-18 passed 1,010 non-integration tests and all 849
+fixture turns. Readonly Type A passed 785 turns, deferred 64 isolated/personnel
+cases and recorded no failures. Forty stratified retrieval tasks had 100% recall
+at 30 and expected-first 24/40 before to 40/40 after ordering; metadata p95 was
+10.81 ms. All 1,346 source references matched, and 22 runtime assets verified.
+Disposable-DB integration and deployment remain unexecuted. See
+[current verification](../README.md#current-verification-status) for command and limits.
+
+A subsequent dependency-report follow-up passed 191 focused tests: targeted
+source updates include related ambiguity/negative scenarios even when their
+oracles do not name a positive task. The broader run above predates that small
+offline-reporting change; serving artifacts and evaluated routing are unchanged.

@@ -3,6 +3,7 @@ from collections import Counter
 from copy import deepcopy
 import hashlib
 import json
+import re
 from pathlib import Path
 from types import SimpleNamespace
 from uuid import uuid4
@@ -25,6 +26,7 @@ class Oracle(Strict):
     employee_fields: list[str] = Field(default_factory=list)
     null_fields: list[str] = Field(default_factory=list)
     expected_values: dict[str, str | None] = Field(default_factory=dict)
+    required_numbers: list[int] = Field(default_factory=list)
     claims: str = Field(default='any', pattern='^(any|none|required)$')
     fixture: str = Field(default='current', pattern='^(current|missing|withdrawn|changed|denied|partial|unrelated_changed|catalog_unavailable|catalog_changed|employee_unavailable|feature_disabled|missing_policy)$')
 
@@ -95,6 +97,11 @@ def check_turn(oracle, status_code, result, selected=()):
     claims = result.get('claims', [])
     if oracle.claims == 'none' and claims or oracle.claims == 'required' and not claims:
         failures.append('claims')
+    text = ' '.join(claim['text'] for claim in claims)
+    observed_numbers = {int(re.sub(r'[.,]', '', token)) for token in
+                        re.findall(r'\d{1,3}(?:[.,]\d{3})+(?!\d)|\d+', text)}
+    if not set(oracle.required_numbers) <= observed_numbers:
+        failures.append('required_numbers')
     # Every policy claim must carry a quote and a returned source. This is a
     # structural invariant in addition to source/hash checks in the renderer.
     sources = {s['source_id'] for s in result.get('sources', [])}
