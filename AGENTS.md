@@ -33,6 +33,15 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Data and future chatbot behavior
 
+- `src/type_b/employee_store` exclusively owns employee_sso_store contracts, registry,
+  normalization, selection, SQL and readonly lifecycle. Do not restore the removed
+  source package or duplicate validation in consumers. Manager resolution is one-hop
+  and internal: ID first, exact code fallback only without ID, explicit ambiguity/
+  conflict/self-reference, no name/email matching. Preserve unlinked/inactive records,
+  work-only manager summaries, batch bounds and drain-before-dispose behavior.
+  HTTP consumers use declared contextual task requirements; internal access does not
+  authorize free employee searches or arbitrary profile exposure. See [employee source](docs/employee-source.md).
+
 - All /api/v1 routes and readiness probes require the shared CHAT_BOT_SERVICE_KEY at the pure ASGI boundary, even when conversation/Type B are off. TYPE_B_SERVICE_KEY is retired without fallback. Keep liveness minimal/public, Python loopback-only, and remote access behind verified HTTPS; preserve disconnect/draining and never add a coordinator auth bypass. See [HTTP authentication](docs/http-service-auth.md).
 
 - Opt-in conversations now persist bot-owned turns/messages/checkpoints; Backend owns room authorization and durable purge retries. Preserve single-process ownership, stable message IDs, explicit retry, context version checks, atomic completion and tombstone blocking. Cache is disposable; history/user text is not evidence. No LLM, automatic inference replay or personal eligibility decisions. See [conversations](docs/conversations.md).
@@ -58,3 +67,9 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 - Public retrieval/CLI return unassessed top-K candidates with explicit warnings; unknown answer tasks ask for clarification or return insufficient evidence without nearest excerpts. Retired relevance/intent env keys are ignored and logged by name only. Never reintroduce intent training/profile calibration or auto-rebind changed content. Use impact/refresh/build/check for source changes, including ranking references; preserve dependency-local stale evidence rejection, source review and truthful acceptance. See [source updates](docs/catalog-answering.md#updating-chunks).
 - Cross-domain rules belong in the declared registry, not new topic-specific runtime branches. Keep supplemented pools at 30, declared references at 10 and vector/addressed reads in the same eligible snapshot. Preserve source alternatives and schema-2 user-slot identity; history is not evidence. Run the question runner separately from unit/disposable-DB suites; fixture passes and deferred readonly cases are not live or independent acceptance. See [business topics](docs/business-topics.md).
+
+HTTP answer/retrieve requires trusted hrm_user_id and serves only schema 2 unified
+evidence. Catalog schema 3 declares contextual requirements for all tasks. Keep
+user assertions, authoritative facts and exact calculation provenance distinct;
+never infer eligibility, history or permissions from current profile fields.
+See [contextual contract and development-only reset](docs/contextual-answers.md).

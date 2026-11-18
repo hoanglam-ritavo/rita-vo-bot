@@ -57,7 +57,7 @@ def matches_reference(ref, match):
             and all(match.get(key) == value for key, value in ref.metadata.items()))
 
 
-def select_cards(question, catalog, lexicon, policy=None):
+def select_cards(question, catalog, lexicon, policy=None, *, contextual=False):
     from src.retrieval.language import positive_question
     question = positive_question(question)
     question = query_variants(question)[-1]
@@ -66,10 +66,11 @@ def select_cards(question, catalog, lexicon, policy=None):
              if (any(phrase_matches(p, question) for p in c.aliases) or bool(set(c.concept_ids) & concepts))
              and (not c.requires_any or any(phrase_matches(p, question) for p in c.requires_any))
              and not any(phrase_matches(p, question) for p in c.excludes_any)]
-    complex_request = any(phrase_matches(p, question) for p in (
-        'tổng', 'so sánh', 'bao nhiêu mục', 'bao nhiêu loại', 'tôi có được',
-        'có mấy', 'quản lý trực tiếp của tôi', 'dự án của tôi',
-        'trường hợp của tôi', 'tôi thử việc', 'không sinh con', 'không kết hôn'))
+    complex_terms = ('tổng', 'so sánh', 'bao nhiêu mục', 'bao nhiêu loại', 'có mấy')
+    if not contextual:
+        complex_terms += ('tôi có được', 'quản lý trực tiếp của tôi', 'dự án của tôi',
+                          'trường hợp của tôi', 'tôi thử việc', 'không sinh con', 'không kết hôn')
+    complex_request = any(phrase_matches(p, question) for p in complex_terms)
     # Negation outside an explicitly authored negative task must not turn a
     # positive policy/procedure into an answer about the opposite situation.
     negative = any(phrase_matches(p, question) for p in ('không', 'chưa', 'ngoại trừ'))
@@ -113,7 +114,7 @@ def is_document_lookup(question):
         'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
 
 
-def render(question, result, catalog, lexicon, policy=None):
+def render(question, result, catalog, lexicon, policy=None, *, contextual=False):
     relevance = checked_relevance(result)
     row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
            'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
@@ -126,7 +127,7 @@ def render(question, result, catalog, lexicon, policy=None):
                                ('task_needs_clarification' if resolution.state=='clarify' else 'task_unsupported')),
                        limitations=[resolution.message])
             return row
-    cards, ambiguous = select_cards(question, catalog, lexicon, None if is_document_lookup(question) else policy)
+    cards, ambiguous = select_cards(question, catalog, lexicon, None if is_document_lookup(question) else policy, contextual=contextual)
     if ambiguous:
         row.update(status='needs_clarification', reason='needs_clarification', limitations=[
             'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
@@ -185,7 +186,7 @@ def render(question, result, catalog, lexicon, policy=None):
     return row
 
 
-async def evidence_result(question, retrieval, catalog, lexicon, top_k=5):
+async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, contextual=False):
     from src.retrieval.service import validate_request
     from src.retrieval.reranking import relevance
     question = validate_request(question, top_k)
@@ -195,7 +196,7 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5):
             raise ValueError('model_mismatch')
         return result
     policy = getattr(retrieval, 'policy', None)
-    cards, ambiguous = select_cards(question, catalog, lexicon, policy)
+    cards, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=contextual)
     if ambiguous:
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
     refs = [ref for card in cards for aspect in requested_aspects(query_variants(question)[-1])

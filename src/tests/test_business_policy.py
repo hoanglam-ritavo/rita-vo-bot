@@ -139,7 +139,7 @@ def test_oracles_reject_swapped_sources_nulls_and_wrong_tasks():
         forbidden_documents=['private'],required_source_groups=[['expected']],employee_fields=['job_title'],
         null_fields=['job_title'],claims='none')
     value=dict(status='partial',claims=[],sources=[dict(source_id='S1',origins=[dict(document_id='private')])],
-               employee_evidence=dict(facts=[dict(field='job_title',value='Invented')]))
+               evidence=[dict(kind='employee',id='F1',field='job_title',value='Invented')])
     assert set(check_turn(oracle,200,value,['wrong']))=={'task','required_source','forbidden_source','null_field'}
 
 
@@ -173,14 +173,14 @@ def test_question_loader_requires_complete_per_turn_oracles_and_safe_paths(tmp_p
 def test_value_oracles_do_not_accept_swapped_fictional_employee_values():
     o=Oracle(case_id='fictional',turn=0,statuses=['answered'],employee_fields=['job_title'],
              expected_values={'job_title':'Fictional role'})
-    result=dict(status='answered',claims=[],sources=[],employee_evidence=dict(facts=[dict(field='job_title',value='Fictional department')]))
+    result=dict(status='answered',claims=[],sources=[],evidence=[dict(kind='employee',id='F1',field='job_title',value='Fictional department')])
     assert check_turn(o,200,result)==['employee_values']
 
 
 def test_monetary_oracles_check_authored_values_without_computing_entitlement():
     o=Oracle(case_id='fictional',turn=0,statuses=['partial'],required_numbers=[1000,2000])
     result=dict(status='partial',claims=[dict(text='Fictional amounts: 1,000 and 2.000 credits.',
-        citations=[dict(source_id='S1',quote='Fictional source')])],sources=[dict(source_id='S1',origins=[])])
+        evidence_refs=['D1'])],evidence=[dict(kind='document',id='D1',source_id='S1',quote='Fictional source')],sources=[dict(source_id='S1',origins=[])])
     assert check_turn(o,200,result)==[]
     o.required_numbers=[3000]
     assert check_turn(o,200,result)==['required_numbers']

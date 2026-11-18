@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "catalog_sha256": "1a1bd69831aa5a4b3509f5b8ba7025f403131b18fc9d1f4d3993c0ceef18e00c",
+  "catalog_sha256": "dedea70b463358318ab6b315757599b447dffa2f1b03f8087db0e2aaf2c6ce0b",
   "provenance": "Cross-domain source-bound tasks; partial sections retain source conditions. Implementation-agent source review only.",
   "runtime_release_accepted": false,
   "retrieval_acceptance": "Unassessed candidates; task claims require exact current eligible DB evidence.",
-  "catalog_schema_version": 2,
+  "catalog_schema_version": 3,
   "tasks": 279,
   "new_procedure_tasks": 20,
   "source_binding_summary": {
@@ -22,6 +22,33 @@
   },
   "new_business_tasks": 221,
   "observed_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "62ea5226637ace757b63c28816f2de078c38cc8735e9685d74b302916a576e05"
+    },
+    "readonly": "Not rerun for this contextual revision; earlier snapshot retained separately.",
+    "scope": "Source-fixture HTTP/reducer and reconciled contextual shape/value oracles; not independent business acceptance or deployment validation."
+  },
+  "contextual_authoring": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "required_hrm_identity": true,
+    "tasks": 279,
+    "dispositions": {
+      "none": 146,
+      "branch": 114,
+      "fill": 19
+    },
+    "policy_entitlement_inferred": false
+  },
+  "previous_catalog_regression": {
+    "catalog_sha256": "1a1bd69831aa5a4b3509f5b8ba7025f403131b18fc9d1f4d3993c0ceef18e00c",
     "date": "2026-11-18",
     "independent_acceptance": false,
     "fixture": {

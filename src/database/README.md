@@ -13,42 +13,61 @@ This guide describes the current source configuration, not the verified state of
 | Source | Responsibility |
 | --- | --- |
 | [base.py](base.py) | Defines `Base.metadata` and constraint/index naming conventions. |
-| [models/__init__.py](models/__init__.py) | Imports the 14 application ORM models so their tables are registered. |
+| [models/__init__.py](models/__init__.py) | Registers 17 application tables: 14 corpus/publication tables and 3 conversation tables. |
 | [migrations/env.py](migrations/env.py) | Imports models, configures Alembic, and runs migrations through the async engine and Windows-compatible runner. |
 | [migrations/helpers.py](migrations/helpers.py) | Supplies `target_metadata` and the table-exclusion filter. |
 | [config.py](config.py) | Loads the database URL from environment variables or the repository-root `.env`. |
 | [alembic.ini](../../alembic.ini) | Locates the migration directory. |
 
-The current head is `c7d92e6a104b`, additive guards after the applied `bce4184a7f51` baseline. Its 14 tables and upgrade boundaries are described in [database design](../../docs/database-design.md). The guard migration preserves existing data; baseline downgrade is destructive and must not run on the application database.
+The current head is `d8e031c72b19`, adding 3 conversation tables after the `c7d92e6a104b` guards and applied 14-table `bce4184a7f51` baseline (17 application tables total, excluding Alembic's version table). See [database design](../../docs/database-design.md) for corpus/publication invariants and [conversation storage](../../docs/conversations.md#enablement-and-storage) for chat provisioning. The guard migration preserves existing data; baseline downgrade is destructive and must not run on the application database.
 
 New models must inherit `src.database.Base`, live in `src/database/models/`, and be imported/exported by its `__init__.py`. Otherwise, Alembic cannot compare their tables against the database.
 
 `DATABASE_URL` configures the application connection. A nonempty `MIGRATION_DATABASE_URL` overrides it for migrations, allowing a separate account with DDL permissions; otherwise migrations use `DATABASE_URL`. Environment variables take precedence over `.env`. Both URLs must use the `postgresql+psycopg` driver. Keep credentials out of documentation and version control.
 
-The target PostgreSQL database must already exist. The server must have pgvector installed; installing the Python package is not sufficient. Before a fresh baseline, a provisioning role must run `CREATE EXTENSION IF NOT EXISTS vector`; the baseline creates vector columns before the additive guard revision executes its idempotent extension statement. If the migration account lacks permission, a DBA must provision it first. The additive downgrade preserves the shared extension.
+Database creation and server-side pgvector installation are external provisioning prerequisites. Installing the Python package or importing `Vector` does not enable the PostgreSQL extension. Follow [fresh database provisioning](#fresh-database-provisioning) before running the baseline. A provisioning role/DBA needs permission to enable the extension; the migration role needs permissions for the requested DDL, while runtime access should use application permissions rather than provisioning privileges.
 
 URL-encode usernames and passwords in all connection URLs, including `TEST_DATABASE_URL`. For a synthetic password `abc@123`, use `postgresql+psycopg://demo:abc%40123@localhost:5432/demo`; the database password remains unchanged. Keep the separating `@` before the host. Quoting a URL in `.env` does not replace URL-encoding, and a literal `%` must be encoded as `%25`. Shared validation rejects detectable unencoded `@` in the connection authority before connecting, without exposing credentials. It does not automatically repair URLs or establish that credentials are correct; `@` in query values is not treated as a password error.
 
 ## Apply existing migrations
 
-Run the following PowerShell commands from the repository root with the virtual environment activated and the intended database configured. For a newly provisioned empty database (do not convert a populated older database):
+Alembic executes pending revisions in dependency order through `down_revision`, not filename order and not just the last script. For a fresh database with no recorded revision, `upgrade head` executes the entire chain below. For an existing database on this chain, it executes only revisions after its recorded state.
 
-```powershell
-python -m alembic upgrade head
-```
+### Fresh database provisioning
 
-The current revision chain is:
+1. Create the intended empty PostgreSQL database and install pgvector on its PostgreSQL server. Do not use this procedure to convert a populated older database.
+2. Before running Alembic, have a provisioning role/DBA connect to that exact database and execute:
+
+   ```sql
+   CREATE EXTENSION IF NOT EXISTS vector;
+   ```
+
+   Enabling the extension is required in each target database, even if the migration role has permission to enable it. It is not a separate pgvector connection or a Python driver type-registration step.
+3. Activate the virtual environment, configure the intended database URL as described above, and run from the repository root:
+
+   ```powershell
+   python -m alembic upgrade head
+   ```
+
+The baseline creates `document_chunks.embedding` as `Vector(384)` before the next revision's `CREATE EXTENSION IF NOT EXISTS vector` can execute. That later statement is idempotent but cannot bootstrap a fresh database missing the extension. Without this prerequisite, the baseline fails when creating the vector column, typically with PostgreSQL `type "vector" does not exist`; Alembic stops before the guard revision. The credential-safe wrapper may instead show `DB_SCHEMA_CONFLICT` with SQLSTATE `42704`, without exposing the raw message. Do not infer that every schema-conflict error means pgvector is missing.
+
+The current revision chain is `bce4184a7f51 → c7d92e6a104b → d8e031c72b19`:
 
 | Revision | Purpose |
 | --- | --- |
 | [bce4184a7f51](migrations/versions/bce4184a7f51_describe_schema_change.py) | Immutable provisioned baseline: 14 tables, constraints and indexes; requires vector first. |
 | [c7d92e6a104b](migrations/versions/c7d92e6a104b_publication_guards.py) | Adds timestamp, immutable revision identity and append-only metadata audit functions/triggers without rewriting rows. |
+| [d8e031c72b19](migrations/versions/d8e031c72b19_conversations.py) | Adds 3 isolated conversation tables and their indexes; current head. |
 
-Alembic tracks applied revisions in `alembic_version`. Applying the current head again normally has no pending migration to execute; it does not repair arbitrary schema drift. Stop ingestion before applying the current package-schema migration, as described in the root README.
+### Existing database upgrades
+
+Inspect the intended database's recorded revision and extension prerequisite before upgrading; back it up and stop publication workers and the bot as described in [corpus operations](../../docs/corpus-publication.md) and [conversation provisioning](../../docs/conversations.md#enablement-and-storage). Then run `python -m alembic upgrade head` from the repository root with the intended migration configuration. Existing tables without compatible history require separate reconciliation, not this fresh-install procedure.
+
+Alembic tracks applied revisions in `alembic_version`. Applying the current head again normally has no pending migration to execute; it does not repair arbitrary schema drift or re-run extension creation. Do not rewrite applied revisions, reset, stamp over a mismatch, or downgrade the application database to test installation. Downgrades preserve the shared `vector` extension; conversation downgrade destroys chat data/receipts, and baseline downgrade drops corpus/publication tables. Do not drop the shared extension as cleanup.
 
 ## Change models and generate a migration
 
-1. Use a development database managed by this migration history. Before editing models, use a separate empty database to reach the existing migration head:
+1. Use a development database managed by this migration history. Before editing models, follow [fresh database provisioning](#fresh-database-provisioning) for a separate empty database, then reach the existing migration head:
 
    ```powershell
    python -m alembic upgrade head

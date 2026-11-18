@@ -105,5 +105,23 @@
       ]
     }
   },
-  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work"
+    ],
+    "manager": true,
+    "prompts": {
+      "leave_dates": "Ngày nghỉ: bạn cần áp dụng cho ngày hoặc khoảng thời gian nào?",
+      "leave_type": "Loại nghỉ: bạn chọn loại nghỉ hoặc loại xác nhận nào?",
+      "work_schedule": "Lịch làm việc: cần lịch ca/ngày làm áp dụng để tính ngày làm việc hoặc hạn gửi."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}. Quản lý liên kết trong hồ sơ: {manager_name}; email công việc: {manager_email}. Người phê duyệt thực tế còn theo phân quyền của quy trình.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [],
+    "family_summary": false
+  }
 }

@@ -65,12 +65,14 @@ messages/results. Existing JSONB columns need no migration. Reservations,
 ownership, idempotency, versions, atomic completion, checkpoints, cache recovery
 and purge/tombstones are preserved. See [conversations](conversations.md).
 
-Instructions mentioning phones/email/family/departments do not automatically
-request personnel reads. Personal requests retain the nine-field registry and
-backend-authorized identity, without name/email lookup. Mixed answers preserve
-policy evidence when HRM is unavailable, exposing no invented facts. The additive
-`employee_evidence.status=unavailable` represents that mixed-source outcome;
-pure personnel reads retain sanitized 503/504 errors. See [Type B](type-b-http.md).
+Personnel reads require declared contextual task requirements or explicit supported
+self-fact requests and Backend-authorized identity, without name/email lookup.
+Unified answers preserve policy evidence when HRM is unavailable and expose no
+invented facts. `application.state=unavailable` reports source failure; disabled
+and missing profiles remain distinct states even for a pure fact lookup. See
+[contextual answers](contextual-answers.md). Question oracles retain document,
+forbidden-source and numeric assertions while declaring the newly allowed task
+context fields; fixture passes are contract checks, not independent business approval.
 
 ## Authoring, evaluation and release
 

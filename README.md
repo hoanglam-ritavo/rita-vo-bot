@@ -4,16 +4,20 @@ Implemented: Python database foundation, package-owned ingestion/publication and
 
 An opt-in [readonly employee source](docs/employee-source.md) now supplies a separate
 PostgreSQL connection, explicit 64-field employee_sso_store repository, immutable
-contracts and service reads by user_id (one or up to 200 IDs). Configure
+contracts and service reads by user_id or employee_id (one or up to 200 IDs),
+plus bounded one-hop manager resolution. Implementation is owned by
+`src/type_b/employee_store/`; manager work summaries can include unlinked managers
+without exposing private profiles through HTTP. Configure
 `HRM_DATABASE_URL` with an externally provisioned SELECT-only role and optionally
 `HRM_DATABASE_SCHEMA` (default public); it never uses the Type A URL or Alembic.
 Run `python -m src.cli.check_employee_source` for a metadata-only preflight.
 Every relation on this connection is readonly. The opt-in
-[Type B HTTP adapter](docs/type-b-http.md) adds optional hrm_user_id to retrieve/answer,
+[Type B HTTP adapter](docs/type-b-http.md) requires trusted hrm_user_id for retrieve/answer,
 with TYPE_B_ENABLED=false by default and X-Rita-Service-Key required for employee
 context. Backend must derive the reference from its authenticated user and enforce
-access. Only nine work fields are supported; mixed responses keep policy/facts
-separate without deciding individual eligibility. No local .env is changed.
+access. Catalog requirements select relevant work, employment, manager and limited
+task-specific fields. Unified evidence preserves policy/fact provenance without
+deciding individual eligibility. See [current contract](docs/contextual-answers.md).
 
 Source documents remain in `assets/`. Git-trackable current packages live at `chunks/<document_id>/`, containing `metadata.json`, `extraction.json`, `chunks.json` and an unchanged source snapshot. Agents author transcription and semantic chunks; Python initializes packages, manages revisions, validates, embeds with an explicitly supplied local model and publishes. There is no approval step or reviewer identity. Validation checks consistency, not transcription accuracy or business correctness.
 
@@ -48,6 +52,64 @@ before catalog/inventory release checks. Runtime still reads the same monolithic
 files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 ## Current verification status
+
+### Unified contextual answers - 2026-11-18
+
+This working tree replaces the A/B/mixed HTTP variants with schema 2 unified
+evidence and requires trusted HRM identity on all answer/retrieve payloads.
+Catalog schema 3 declares all 279 task dispositions. Backend and portal must
+deploy together with the bot; old development chat requires the explicit reset
+runbook. See [contextual answers](docs/contextual-answers.md). Verification is
+being updated for this revision; older counts below describe earlier snapshots.
+
+
+### pgvector provisioning documentation - 2026-11-18
+
+Documentation-only reconciliation on working tree based on `0764a30`, preserving
+pre-existing and concurrent local changes. The [database guide](src/database/README.md#fresh-database-provisioning)
+now separates server installation, per-database extension provisioning and Alembic
+execution; current descriptions agree on head `d8e031c72b19` and 17 application
+tables (14 corpus/publication plus 3 conversation tables).
+
+Post-edit static review matched the revision chain, table counts, extension
+ordering, configuration precedence and sanitized diagnostic mapping against
+source. Migration-file SHA-256 hashes matched the pre-edit snapshot. Scoped
+`git diff --check` passed. Local Markdown link/anchor inspection found three
+unchanged references to the missing `docs/retrieval-evaluation.md#known-evaluator-reporting-gap`
+anchor (two in this README and one in ARCHITECTURE); links introduced by this
+update resolve. No migration/runtime/test/configuration files were edited by this
+task. No migration, database connection, integration test, dependency installation
+or application test suite was run; this review does not establish live PostgreSQL
+state, permissions or migration execution success. Earlier verification entries
+below describe their own snapshots.
+
+### Type B employee-store consolidation - 2026-11-18
+
+At `0764a30` plus this working tree, employee-source implementation moves into
+`src/type_b/employee_store/`, with a shared field registry, immutable contracts,
+employee-ID reads and one-hop manager summaries. The removed Python package has
+no compatibility re-exports; the preflight CLI command remains unchanged.
+HTTP request/response contracts retain optional hrm_user_id and nine exposed
+facts. No Type A personalization, source writes, migration, environment change,
+artifact regeneration or Backend/portal change accompanies this work. See
+[service contract and manager resolution](docs/employee-source.md#internal-service-interface).
+
+Final post-edit non-integration regression passed **1,046 tests**, with **1 skipped
+and 57 integration tests deselected**. Focused employee-store/Type B/retrieval HTTP
+checks passed **210 tests**, with **3 HRM integration tests skipped** because the
+disposable fixture was not configured. These results cover fictional inputs,
+query shapes, relation outcomes, cancellation/draining and import isolation;
+they do not establish live HRM schema, privileges, relation correctness or query
+performance. The existing Starlette/AnyIO deprecation warning remains.
+
+The pre-edit focused attempt encountered Windows pytest temporary-directory
+permissions and did not establish a clean baseline. Successful post-edit runs
+used the repository Python environment and fresh extended-length `.tmp` paths
+outside that restriction. The initial full regression caught an eager reader
+type import pulling SQLAlchemy into API import; this was corrected with a
+type-checking-only import, retaining the assertion, before the successful full
+rerun. Syntax, affected documentation links, removed imports and whitespace were
+also checked. No live preflight, deployment or service restart was performed.
 
 ### Cross-domain tasks and evidence - 2026-11-18
 
@@ -1291,14 +1353,16 @@ Runtime model files use durable storage under `models/embeddings/` and the exist
 
 Configuration presentation verification (2026-11-13, existing working tree): parsed `.env` values were identical before and after the comment/layout update; `.env.example` only removed the active sample profile assignment by commenting it out. Parser checks found no malformed entries or duplicate active keys. No API, database, model benchmark or application test suite was run for this documentation-only change.
 
-Fill in `DATABASE_URL` in `.env` before running:
+Before running Alembic on a fresh database, complete the [database provisioning procedure](src/database/README.md#fresh-database-provisioning): create the target database, install pgvector on the PostgreSQL server, and have a provisioning role/DBA enable `vector` in that database. This is required even if the migration account could enable it: the baseline uses vector columns before the later migration's extension statement. Installing the Python package does not enable the server extension.
+
+Fill in `DATABASE_URL` in `.env` (and optionally `MIGRATION_DATABASE_URL` for a separate DDL account) before running from the project root with the virtual environment activated:
 
 ```powershell
 python -m alembic upgrade head
 python -m src.cli.check_db
 ```
 
-PostgreSQL must already have the target database and the pgvector extension installed on the server. Installing the Python `pgvector` package does not install the server extension. If the migration account cannot enable it, ask the DBA to run `CREATE EXTENSION IF NOT EXISTS vector;` in the target database before migration.
+`upgrade head` runs all pending revisions in dependency order, not only the final script. On a fresh database missing `vector`, it fails in the baseline before the guard revision can enable the extension. See [existing database upgrades](src/database/README.md#existing-database-upgrades) for inspection, backup and worker shutdown requirements; do not reset, stamp or downgrade the application database to test this procedure.
 
 ## Local question retrieval
 

@@ -1,10 +1,10 @@
+<!-- Current answer contract: docs/contextual-answers.md -->
 # Durable structured conversations
 
 Opt-in conversations extend the existing template answer engine. No generative
 model, broker, new port, hosted service, automatic aggregates or personal
 eligibility decisions are added. Backend owns rooms and employee authorization;
-the bot owns turns, messages, checkpoints and deletion tombstones. The existing
-portal still calls stateless retrieval; this release does not change its UI.
+the bot owns turns, messages, checkpoints and deletion tombstones. The portal uses stored private rooms and the unified answer/evidence view.
 
 ## Enablement and storage
 
@@ -41,7 +41,7 @@ Conversation answer requests add all four identity/version fields together:
   "message_id": "33333333-3333-4333-8333-333333333333",
   "expected_context_version": 0,
   "text": "Fictional policy question",
-  "hrm_user_id": null,
+  "hrm_user_id": 123,
   "top_k": 5
 }
 ```
@@ -55,7 +55,7 @@ states have no result. Answer outcomes remain distinct from transport state.
 
 | Route | Input / purpose |
 | --- | --- |
-| `POST /api/v1/answer` | Complete conversation request above, or legacy stateless body |
+| `POST /api/v1/answer` | Complete conversation request above, or stateless body with required hrm_user_id |
 | `GET /api/v1/conversations/{room_id}/turns/{message_id}` | `user_id` query; inspect without inference |
 | `POST /api/v1/conversations/{room_id}/turns/{message_id}/retry` | `{user_id, hrm_user_id}`; explicit retry |
 | `GET /api/v1/conversations/{room_id}/messages` | `user_id`, `after` sequence (default 0), `limit` (20, max 50) |
@@ -95,7 +95,7 @@ of a candidate task by label/alias and explicit topic changes. Schema-2 context
 also completes bounded pending task slots and replaces explicit slot changes;
 source choices survive normalization. See [cross-domain handling](business-topics.md).
 Bounded self-work
-field follow-ups reuse self-reference only after a Type B response. It does not
+field follow-ups reuse self-reference only after an applied/partial employee context. It does not
 resolve arbitrary pronouns or turn negated/third-person/eligibility requests
 into positive policy queries. Unclear requests keep the existing clarification
 or unsupported outcomes. Original messages remain stored separately from the
@@ -141,3 +141,11 @@ designated synthetic end-to-end conversation, timeout lookup, context rebuild
 and deletion before enabling users. Roll back by disabling new conversation
 entrypoints while keeping purge credentials and worker operational; do not drop
 tables or tombstones. See [current verification](../README.md#current-verification-status).
+
+## Contextual answer revision
+
+All answer/retry bodies require a positive hrm_user_id. Results use the unified
+schema 2 evidence graph; reducer schema 3 and cache namespace v2 keep task-bound
+user assertions without caching employee facts. Labelled follow-ups only fill
+pending slots, remain unverified and trigger fresh personnel reads. See
+[contextual answers and compatible development rollout](contextual-answers.md).

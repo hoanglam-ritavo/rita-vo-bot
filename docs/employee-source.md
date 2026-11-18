@@ -1,12 +1,13 @@
 # Readonly employee source
 
-`src.employee_source` provides explicitly invoked PostgreSQL access to
+`src.type_b.employee_store` provides explicitly invoked PostgreSQL access to
 `employee_sso_store`. Its connection remains independent of the Type A database,
 Alembic and ingestion. The opt-in [Type B HTTP adapter](type-b-http.md) uses it
 for bounded work-profile evidence in retrieve/answer. The source module performs no
 authentication, authorization, user synchronization, HRM account lookup, alias
-resolution, birthday business logic or model inference. Callers must establish
-identity and access rights before any future business integration. Access to all
+resolution for authentication, birthday business logic or model inference. Exact manager-code
+resolution is internal to the one-hop manager reader; it is not a public employee search API. Callers must establish
+identity and access rights before calling this internal service, including manager lookups. Access to all
 64 properties through this internal module is not permission to expose them.
 
 ## Configuration and operation
@@ -26,22 +27,38 @@ identity and access rights before any future business integration. Access to all
   are no automatic retries, background tasks or application startup hooks.
 - Each owner must await `service.close()` in `finally`, on the same event loop,
   before closing the loop. Use `src.database.runtime.run_async` at synchronous
-  Windows entrypoints; do not nest event loops. Do not close a service while its
-  calls are active; cancel/await them first. Reuse it within one event loop only.
+  Windows entrypoints; do not nest event loops. Closing rejects new calls with `source_closed`, drains active reads and disposes
+  the pool once. Concurrent close calls share shielded cleanup; cancelling a closer
+  does not cancel active reads or disposal. A closed service cannot reopen, including
+  for empty batches. Reuse it within one event loop only.
 
-Public operations:
+## Internal service interface
+
+The implementation lives exclusively in `src/type_b/employee_store/`; the former
+Python import package has been removed. CLI command names remain unchanged.
+`EmployeeStoreReader` declares the injected reader protocol. Immutable dataclasses
+own full source profiles and manager results. Unified HTTP evidence models live in
+`src/answering/context_contracts.py`; source-authored task requirements control
+their field projection. Internal full-profile access does not grant HTTP exposure.
+
+Operations:
 
 | Operation | Result |
 | --- | --- |
 | `find_by_user_id(user_id)` | Immutable `EmployeeProfile` or `None` when absent |
 | `find_many_by_user_ids(user_ids)` | Readonly mapping of found IDs to immutable profiles |
+| `find_by_employee_id(employee_id)` | Full profile or `None`; `user_id` may be null |
+| `find_many_by_employee_ids(employee_ids)` | Readonly mapping of found employee IDs |
+| `find_manager_by_user_id(user_id)` | Immutable `ManagerResult` for the authenticated subject reference |
+| `find_managers_by_user_ids(user_ids)` | Readonly mapping with one relation result per requested user ID |
 | `check_source()` | Metadata-only `{status: 'ok', readonly: True, projection_columns: 64}` |
 | `close()` | Dispose this source's pool; does not dispose the Type A engine |
 
 IDs must be positive Python integers at most `2**53 - 1`; booleans, floats and
 strings are rejected. Batches accept list/tuple, at most 200 input entries, and
 deduplicate IDs. An empty batch does not require configuration or a connection.
-Missing IDs are omitted, not represented as errors. A malformed selected profile
+Missing IDs are omitted from profile lookup mappings. Manager mappings instead
+include `employee_not_found` for absent subjects. A malformed selected profile
 fails the entire batch. No arbitrary SQL/session interface is exported.
 
 Run `python -m src.cli.check_employee_source` for connectivity, readonly transaction,
@@ -82,8 +99,11 @@ made least-privilege merely by setting a readonly transaction.
 
 ## Selection, normalization and failures
 
-Queries explicitly project 64 columns for requested `user_id` groups. They do not
+Full-profile queries explicitly project 64 columns for requested `user_id` or
+`employee_id` groups. Manager queries use a fixed work-only projection including
+all selector rank fields, without private/family/financial/health columns. ID reads do not
 filter active, limit candidate rows or infer identity from names/emails/codes.
+The private manager resolver additionally supports exact-code fallback as described below.
 All candidates for each requested ID reach the selector:
 
 1. Newest zoned `updated_at`, comparing microseconds; null is older.
@@ -93,13 +113,15 @@ All candidates for each requested ID reach the selector:
 4. Same rank with differing full projected values is `conflicting_rows`, before
    trimming or list normalization. Never merge fields from competing rows.
 
-This matches the backend representative ordering; it does not repair duplicates
+Employee-ID reads group by the exact employee ID, with the same ordering (the
+ID tie-break is constant within that group). They do not switch to another employee
+record sharing a user ID. For user-ID reads, this matches the backend representative ordering; it does not repair duplicates
 or enforce global source uniqueness. Inactive winners remain inactive. Repeated
 employee_id across selected user groups is invalid. Every result must belong to
 the requested identity set. No profile is cached or persisted.
 
 Every projected key is required. Nullable values remain null, text is trimmed
-only at the outside, and blank text becomes null. Full department paths remain
+only at the outside, and blank text and the literal trimmed string `NULL` become null. Full department paths remain
 intact. Dates become ISO dates; updated_at retains timezone and six fractional
 digits. Numeric height/weight use Decimal without converting database Decimal to
 float. Boolean source values and legacy `'true'`/`'false'` are accepted; numeric
@@ -114,10 +136,49 @@ profiles to logs.
 Stable errors distinguish invalid_identity, invalid_batch, invalid_projection,
 invalid_data, invalid_list, invalid_timestamp, unexpected_identity,
 conflicting_rows, schema_incompatible, unsafe_database_role, readonly_required,
-source_timeout, source_access_denied, source_unavailable and source_cleanup_failed.
+source_timeout, source_access_denied, source_unavailable, source_closed and source_cleanup_failed.
 Configuration errors name settings without printing URLs. Unknown database errors
 are sanitized. Absence is never inferred from errors. No payload, raw SQL error,
 parameters or profile content is logged by this module.
+
+## Manager relation resolution
+
+Only an authorized internal caller may use this service. Reads do not establish
+end-user permission. No new HTTP route, automatic Type A enrichment, eligibility
+calculation, free search, profile cache or recursive management-tree lookup is added.
+
+`find_managers_by_user_ids` uses one readonly repeatable-read transaction and at
+most three SELECT queries for up to 200 input subjects: subjects, managers by ID,
+and manager-code candidate groups. It never performs one query per employee.
+Subjects and manager summaries use the work projection declared in `fields.py`.
+The immutable summary includes employee/user IDs, code/name, role/title,
+department path, work email/phone, active and source update timestamp. It never
+contains account ID, personal email, family, health or bank information.
+
+Resolution is deterministic:
+
+1. Select the representative subject by user ID before reading the link.
+2. With `manager_id`, read that exact employee ID. If `manager_code` is present,
+   compare the normalized case-sensitive code. A missing ID target never falls
+   back to a code or name; disagreement is `conflicting_link`.
+3. Only without an ID, use a trimmed case-sensitive manager code. Read complete
+   candidate employee-ID groups, select their representatives and recheck the
+   current code. Multiple matching employee identities are `ambiguous`.
+4. The subject's own employee ID or nonnull user ID is `self_reference`.
+   No link is `missing_link`; absent target is `manager_not_found`; absent
+   subject is `employee_not_found`. A valid relation is `found` with a summary.
+5. Unlinked managers (`user_id=null`) and inactive managers remain readable;
+   inactive is retained rather than silently replaced. Missing work email remains
+   null. No permission to approve a business request is inferred from the relation.
+
+Malformed selected rows, conflicting source rows, timeout and access failures
+remain sanitized exceptions, never absence or a partially successful batch.
+Full-profile lookups validate all 64 fields. Manager reads validate only their
+work projection; a malformed private list cannot block a work-summary read.
+
+`fields.py` owns ordered projections, PostgreSQL type compatibility, nullable
+metadata and the established cm/kg units; `normalization.py` owns value handling.
+The dictionary below owns meanings, sensitivity and remaining source uncertainties.
 
 ## Property dictionary
 
@@ -130,7 +191,9 @@ updated_at is projected as text. PostgreSQL source checks have not been run mere
 by authoring this document.
 
 Types below show the expected source category → Python output. `?` means nullable;
-the three identifiers without `?` are required by this adapter. Blank required
+the two identifiers without `?` are required by this adapter. A positive `user_id`
+is required when present; source records without an account link remain readable
+by employee ID. Blank required
 name/code text may normalize to null. All values are internal personnel data.
 Sensitivity: **I** = internal identity/work data, **P** = personal/contact,
 **R** = restricted personal/financial/health/family data. These are handling
@@ -173,13 +236,13 @@ derived business decision.
 | social_insurance_number | text? → str? | Social insurance identifier; preserve leading zeroes | R; N |
 | social_insurance_date | date/timestamp? → ISO date str? | Insurance-related date; exact milestone unconfirmed | R; U |
 | health_insurance_number | text? → str? | Health insurance identifier | R; N |
-| health_clinic | text? → str? | Source-listed healthcare facility; registration meaning unconfirmed | R; U |
+| health_clinic | text? → str? | Registered healthcare facility according to Backend dashboard mapping | R; B |
 | blood_type | text? → str? | Blood group | R; N |
-| height | numeric? → Decimal? | Height; unit unconfirmed, no conversion | R; U |
-| weight | numeric? → Decimal? | Weight; unit unconfirmed, no conversion | R; U |
+| height | numeric? → Decimal? | Height in cm according to Backend dashboard mapping; no conversion | R; B |
+| weight | numeric? → Decimal? | Weight in kg according to Backend dashboard mapping; no conversion | R; B |
 | permanent_address | text? → str? | Permanent address | R; N |
 | temporary_address | text? → str? | Temporary address | R; N |
-| emergency_contact | text? → str? | Emergency contact name/information; exact format unconfirmed | R; U |
+| emergency_contact | text? → str? | Emergency contact name according to Backend dashboard mapping | R; B |
 | emergency_address | text? → str? | Emergency contact address | R; N |
 | emergency_phone | text? → str? | Emergency contact phone | R; N |
 | notes | text? → str? | Free text; untrusted data, never instructions | R; U |
@@ -195,13 +258,13 @@ derived business decision.
 | degrees | array/JSON text? → tuple[Degree]? | Education/degree records | P; B |
 | trainings | array/JSON text? → immutable JSON tuple? | Item schema unestablished; do not invent fields | P; U |
 | families | array/JSON text? → tuple[Family]? | Family/dependent records; no benefit inference | R; B |
-| manager_id | integer? → int? | Manager source ID; employee/user target unconfirmed; no join | I; U |
+| manager_id | integer? → int? | Manager employee ID according to Backend mapping; application relation, not a verified DB foreign key | I; B |
 | manager_code | text? → str? | Manager source code | I; N |
 | manager_name | text? → str? | Manager display name; no identity resolution | I; B |
-| user_id | integer → int | Positive HRM user ID; lookup/group key; backend odooId linkage | I; B |
+| user_id | integer? → int? | Nullable positive HRM user ID; user lookup/group key; backend odooId linkage | I; B |
 | account_id | integer? → int? | Positive HRM account link in backend alias flow; not internal UUID | I; B |
 | private_email | text? → str? | Personal email | P; N |
-| contract_kind | text? → str? | Contract category code; vocabulary/rules unconfirmed | I; U |
+| contract_kind | text? → str? | Contract category text; vocabulary/rules unconfirmed | I; U |
 | private_state_id | integer? → int? | Private-address geographic ID; level/linkage unconfirmed | R; U |
 | private_state_name | text? → str? | Private-address geographic label; level unconfirmed | R; U |
 | temporary_state_id | integer? → int? | Temporary-address geographic ID; level unconfirmed | R; U |
@@ -265,7 +328,7 @@ contract is supplied. JSON nulls remain null and non-finite numbers are rejected
 
 ## Verification and disposable fixture
 
-Unit checks: `python -m pytest src/tests/test_employee_source.py -q`.
+Unit checks: `python -m pytest src/tests/test_employee_source.py src/tests/test_employee_store.py -q`.
 Regression: `python -m pytest -m 'not integration'`.
 
 Integration: `python -m pytest src/tests/test_employee_source_integration.py -q`.
@@ -291,3 +354,38 @@ never part of runtime code or preflight. Unit doubles do not establish PostgreSQ
 privilege, rollback or live-schema guarantees. Unconfigured integration is skipped,
 not passed. Source data and schema have not been verified against a live HRM
 database by this implementation task.
+
+### Additional disposable manager fixture
+
+The integration fixture owner must also seed fictional subjects 910003 through 910010
+with distinct positive employee IDs (930003 through 930010), valid work fields and all
+64 full-profile keys. Subject manager links are:
+
+| User ID | manager_id | manager_code | Expected relation |
+| --- | --- | --- | --- |
+| 910003 | 920001 | FICT-MGR | found |
+| 910004 | null | FICT-MGR | found |
+| 910005 | 929999 | FICT-MGR | manager_not_found (no fallback) |
+| 910006 | 920001 | FICT-WRONG | conflicting_link |
+| 910007 | null | FICT-DUP | ambiguous |
+| 910008 | null | FICT-OLD | manager_not_found (obsolete code) |
+| 910009 | 930009 | null | self_reference |
+| 910010 | null | null | missing_link |
+
+Manager employee 920001 has null user ID, code FICT-MGR, `active=false`, and work email `manager@example.test`. Employees 920002 and 920003
+have null user IDs and the same code FICT-DUP. Employee 920004 has two rows with
+strictly increasing zoned timestamps: old code FICT-OLD, newer code FICT-NEW.
+All manager rows carry 64 valid keys so direct employee-ID reads can be checked.
+Employee 929999 and user 910099 must be absent. Tests never provision, seed,
+modify or clean this fixture; the existing zero-target write probes remain test-only.
+
+## Context projection reader
+
+`read_context(user_id, fields, manager=False)` is internal and accepts a tuple of
+registered field names. It validates identity/projection before connection, reads
+only selected and representative-ranking fields, and resolves an optional one-hop
+manager in the same REPEATABLE READ readonly transaction. It returns immutable
+selected values plus observation/source timestamps, without exposing identity
+columns. Selection and full-profile APIs remain available for internal callers.
+The HTTP context planner selects display/calculation fields from source-authored
+requirements; see [unified context contract](contextual-answers.md).

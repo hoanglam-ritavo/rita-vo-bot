@@ -11,6 +11,7 @@ Use [catalog tasks](../docs/catalog-answering.md); private experiments remain in
 
 | File | Status / role | Purpose |
 | --- | --- | --- |
+| `author_context_cards.py` | Explicit offline task-context authoring | `python -m scripts.author_context_cards`: writes reviewed contextual dispositions in all answer source cards and source index schema 3; never edits chunks or accesses DB/model/env. Inspect source diff, then run artifact build/check and contextual regressions. Not runtime routing or policy approval. |
 | `try_retrieval.py` | Current manual utility | Run the public retrieval contract from an IDE and display Vietnamese source excerpts/timings. |
 | `benchmark_leave_retrieval.py` | Current readonly comparison | `--cases .tmp/<cases>.json --output .tmp/<new-report>.json [--top-k 5]`: compare source-bound ordering with raw baseline candidates and measure warm sort overhead; no DB writes, employee data or quality acceptance. See [contract](../docs/leave-retrieval.md#verification). |
 | `benchmark_template_answers.py` | Current read-only exposed regression | Run private Type A answer cases without a listener, model generation or acceptance claim. |

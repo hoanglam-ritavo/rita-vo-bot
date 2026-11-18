@@ -1,12 +1,10 @@
 """HTTP retrieval contracts. Source metadata comes only from storage."""
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import Field, field_validator, model_validator
 from src.answering.contracts import AnswerStatus, Claim
-
-
-class StrictModel(BaseModel):
-    model_config = ConfigDict(extra='forbid', strict=True)
+from .base import StrictModel
+from src.answering.context_contracts import EvidenceEnvelope, UnifiedClaim
 
 
 class AnswerHealthResponse(StrictModel):
@@ -17,7 +15,7 @@ class AnswerHealthResponse(StrictModel):
 
 class RetrieveRequest(StrictModel):
     text: str = Field(min_length=1, max_length=8000)
-    hrm_user_id: int | None = Field(default=None, gt=0, le=2**53 - 1,
+    hrm_user_id: int = Field(gt=0, le=2**53 - 1,
         description='HRM user_id (backend odooId), not employee_id or internal UUID. '
                     'Backend must bind this reference to its authenticated caller. Requires X-Rita-Service-Key.')
     top_k: int = Field(default=5, ge=1, le=20,
@@ -122,64 +120,21 @@ class AnswerResponse(StrictModel):
     timings: AnswerTimings
 
 
-EmployeeField = Literal['employee_name', 'employee_code', 'job_title', 'department_name',
-                        'manager_name', 'probation_date', 'probation_end_date', 'official_date', 'resignation_date']
+class UnifiedAnswerResponse(EvidenceEnvelope):
+    status: AnswerStatus
+    answer: str
+    claims: list[UnifiedClaim] = Field(max_length=12)
+    sources: list[AnswerSource]
+    limitations: list[str]
+    fallback_reason: str | None
+    relevance: Relevance
+    timings: AnswerTimings
 
 
-class EmployeeFact(StrictModel):
-    ref_id: str
-    field: EmployeeField
-    label: str
-    value: str | None
-
-
-class EmployeeOrigin(StrictModel):
-    relation: Literal['employee_sso_store'] = 'employee_sso_store'
-    observed_at: str
-    updated_at: str | None
-
-
-class EmployeeEvidence(StrictModel):
-    status: Literal['found', 'not_found', 'needs_clarification', 'unsupported', 'unavailable']
-    facts: list[EmployeeFact]
-    source: EmployeeOrigin | None
-    reason: str | None
-
-    @model_validator(mode='after')
-    def consistent_employee_evidence(self):
-        if self.status == 'found':
-            if not self.facts or self.source is None or len({f.field for f in self.facts}) != len(self.facts):
-                raise ValueError('invalid_employee_evidence')
-        elif self.facts:
-            raise ValueError('invalid_employee_evidence')
-        if len({f.ref_id for f in self.facts}) != len(self.facts):
-            raise ValueError('invalid_employee_references')
-        return self
-
-
-class ContextRetrievalResponse(StrictModel):
-    source_type: Literal['type_b', 'mixed']
+class UnifiedRetrievalResponse(EvidenceEnvelope):
     status: Literal['evidence_found', 'partial_evidence', 'no_evidence', 'needs_clarification', 'unsupported']
+    document_status: Literal['matches_found', 'no_eligible_documents', 'no_matches'] | None
     matches: list[Match]
-    employee_evidence: EmployeeEvidence
-    document_fallback_reason: FallbackReason | None
+    fallback_reason: FallbackReason | None
     relevance: Relevance
     timings: Timings
-
-
-class EmployeeClaim(StrictModel):
-    text: str
-    fact_refs: list[str] = Field(min_length=1)
-
-
-class ContextAnswerResponse(AnswerResponse):
-    source_type: Literal['type_b', 'mixed']
-    employee_evidence: EmployeeEvidence
-    employee_claims: list[EmployeeClaim]
-
-    @model_validator(mode='after')
-    def valid_employee_claims(self):
-        references = {fact.ref_id for fact in self.employee_evidence.facts}
-        if any(not set(claim.fact_refs) <= references for claim in self.employee_claims):
-            raise ValueError('invalid_employee_claim_references')
-        return self

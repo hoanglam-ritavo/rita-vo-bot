@@ -7,7 +7,7 @@ from .contracts import ConversationRequest
 from .context import reduce_question, compact, identity
 
 logger = logging.getLogger(__name__)
-NAMESPACE = 'conversation-context-v1'
+NAMESPACE = 'conversation-context-v2'
 
 
 class ConversationService:
@@ -93,7 +93,7 @@ class ConversationService:
                 self.owner.answers.catalog, self.owner.answers.lexicon, identity_stamp=self.identity_stamp, policy=policy)
             # The shared HTTP boundary already authenticated the service caller.
             result = await self.owner.context.execute(question, request.top_k,
-                request.hrm_user_id if self.owner.settings.type_b.enabled else None,
+                request.hrm_user_id,
                 answer=True)
             value = result.model_dump(mode='json')
             if len(json.dumps(value, ensure_ascii=False).encode()) > 1_800_000:

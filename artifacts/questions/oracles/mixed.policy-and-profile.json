@@ -45,7 +45,16 @@
       ],
       "forbidden_documents": [],
       "employee_fields": [
-        "official_date"
+        "contract_kind",
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "employee_type",
+        "job_title",
+        "official_date",
+        "probation_date",
+        "probation_end_date",
+        "resignation_date"
       ],
       "null_fields": [],
       "claims": "required",
@@ -67,7 +76,16 @@
       "required_source_groups": [],
       "forbidden_documents": [],
       "employee_fields": [
-        "department_name"
+        "contract_kind",
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "employee_type",
+        "job_title",
+        "official_date",
+        "probation_date",
+        "probation_end_date",
+        "resignation_date"
       ],
       "null_fields": [],
       "claims": "none",

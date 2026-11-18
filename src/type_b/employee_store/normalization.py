@@ -1,5 +1,5 @@
-"""Immutable source projection. This is not an ORM model or an authorization DTO."""
-from dataclasses import dataclass, fields
+"""Pure source validation; preserves nulls, precision and unknown enum strings."""
+from dataclasses import fields
 from datetime import date, datetime
 from decimal import Decimal
 import json
@@ -8,9 +8,9 @@ import re
 from types import MappingProxyType
 from typing import Mapping
 
+from .contracts import EmployeeProfile, ManagerSummary
+from .fields import MAX_ID, PROFILE_FIELDS, DATE_FIELDS, INTEGER_FIELDS, LIST_FIELDS
 from .errors import EmployeeValidationError
-
-MAX_ID = 2**53 - 1
 
 
 def invalid(code='invalid_data'):
@@ -49,136 +49,12 @@ def source_timestamp(value):
     return result
 
 
-@dataclass(frozen=True, repr=False)
-class WorkHistory:
-    id: str | int
-    date_start: str | None
-    date_end: str | None
-    job_title: str | None
-    transfer_type: str | None
-    work_location: str | None
-    decision_number: str | None
-    decision_date: str | None
-    decision_place: str | None
-    department_name: str | None
-    description: str | None
-    job_role_name: str | None
-    transfer_type_display: str | None
-
-
-@dataclass(frozen=True, repr=False)
-class Degree:
-    id: str | int
-    degree_type: str | None
-    major: str | None
-    school: str | None
-    level_display: str | None
-    grade_display: str | None
-    grade: str | None
-    graduation_year: str | None
-    level: str | None
-
-
-@dataclass(frozen=True, repr=False)
-class Family:
-    id: str | int
-    name: str | None
-    birthday: str | None
-    gender: str | None
-    gender_display: str | None
-    relation_type: str | None
-    relation_type_display: str | None
-    is_dependent: bool | None
-    job: str | None
-    phone: str | None
-    tax_id: str | None
-    registration_date: str | None
-    from_date: str | None
-    to_date: str | None
-
-
-@dataclass(frozen=True, repr=False)
-class EmployeeProfile:
-    id: int
-    employee_id: int
-    employee_code: str | None
-    employee_name: str | None
-    job_role_name: str | None
-    job_title: str | None
-    department_name: str | None
-    avatar_url: str | None
-    work_email: str | None
-    phone: str | None
-    active: bool | None
-    status_display: str | None
-    updated_at: str | None
-    old_employee_code: str | None
-    probation_date: str | None
-    probation_end_date: str | None
-    official_date: str | None
-    resignation_date: str | None
-    employee_type: str | None
-    employee_group: str | None
-    department_address: str | None
-    birthday: str | None
-    place_of_birth: str | None
-    hometown: str | None
-    ethnicity: str | None
-    religion: str | None
-    nationality: str | None
-    marital: str | None
-    social_insurance_number: str | None
-    social_insurance_date: str | None
-    health_insurance_number: str | None
-    health_clinic: str | None
-    blood_type: str | None
-    height: Decimal | None
-    weight: Decimal | None
-    permanent_address: str | None
-    temporary_address: str | None
-    emergency_contact: str | None
-    emergency_address: str | None
-    emergency_phone: str | None
-    notes: str | None
-    tax_id: str | None
-    identification_id: str | None
-    id_issue_date: str | None
-    id_issue_place: str | None
-    bank_account_number: str | None
-    bank_name: str | None
-    bank_branch: str | None
-    bank_account_name: str | None
-    work_history: tuple[WorkHistory, ...] | None
-    degrees: tuple[Degree, ...] | None
-    trainings: tuple[object, ...] | None
-    families: tuple[Family, ...] | None
-    manager_id: int | None
-    manager_code: str | None
-    manager_name: str | None
-    user_id: int
-    account_id: int | None
-    private_email: str | None
-    contract_kind: str | None
-    private_state_id: int | None
-    private_state_name: str | None
-    temporary_state_id: int | None
-    temporary_state_name: str | None
-
-
-PROFILE_FIELDS = tuple(item.name for item in fields(EmployeeProfile))
-DATE_FIELDS = frozenset(('probation_date', 'probation_end_date', 'official_date',
-                         'resignation_date', 'birthday', 'social_insurance_date', 'id_issue_date'))
-INTEGER_FIELDS = frozenset(('id', 'employee_id', 'user_id', 'account_id', 'manager_id',
-                            'private_state_id', 'temporary_state_id'))
-LIST_FIELDS = {'work_history': WorkHistory, 'degrees': Degree, 'families': Family, 'trainings': None}
-
-
 def text_value(value):
     if value is None:
         return None
     if not isinstance(value, str):
         invalid()
-    return value.strip() or None
+    return None if value.strip() in ('', 'NULL') else value.strip()
 
 
 def date_value(value):
@@ -252,13 +128,13 @@ def list_value(value, model):
     return tuple(result)
 
 
-def normalize_profile(row: Mapping) -> EmployeeProfile:
-    if any(name not in row for name in PROFILE_FIELDS):
+def normalize_values(row: Mapping, names) -> dict:
+    if any(name not in row for name in names):
         invalid('invalid_projection')
     result = {}
-    for name in PROFILE_FIELDS:
+    for name in names:
         value = row[name]
-        if name in ('user_id', 'employee_id'):
+        if name == 'employee_id' or name == 'user_id' and value is not None:
             result[name] = identity(value)
         elif name in INTEGER_FIELDS:
             if value is None and name != 'id':
@@ -290,4 +166,31 @@ def normalize_profile(row: Mapping) -> EmployeeProfile:
             result[name] = list_value(value, LIST_FIELDS[name])
         else:
             result[name] = text_value(value)
-    return EmployeeProfile(**result)
+    return result
+
+
+def normalize_profile(row: Mapping) -> EmployeeProfile:
+    return EmployeeProfile(**normalize_values(row, PROFILE_FIELDS))
+
+
+def normalize_manager(row: Mapping) -> ManagerSummary:
+    """Validate only the declared work summary, not unrelated private fields."""
+    result = {}
+    for item in fields(ManagerSummary):
+        name = item.name
+        if name not in row:
+            invalid('invalid_projection')
+        value = row[name]
+        if name == 'employee_id':
+            value = identity(value)
+        elif name == 'user_id':
+            value = None if value is None else identity(value)
+        elif name == 'active':
+            value = boolean_value(value)
+        elif name == 'updated_at':
+            parsed = source_timestamp(value)
+            value = parsed.isoformat(timespec='microseconds') if parsed else None
+        else:
+            value = text_value(value)
+        result[name] = value
+    return ManagerSummary(**result)

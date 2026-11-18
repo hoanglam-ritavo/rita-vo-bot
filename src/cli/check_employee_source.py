@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 from src.database.config import ConfigurationError
 from src.database.runtime import run_async
-from src.employee_source import EmployeeSourceError, EmployeeSourceService
+from src.type_b.employee_store import EmployeeSourceError, EmployeeSourceService
 from src.paths import REPOSITORY_ROOT
 
 

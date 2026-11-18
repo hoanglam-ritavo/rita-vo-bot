@@ -602,7 +602,7 @@
       "case_id": "q.employee.self-work-profile.030",
       "turn": 0,
       "statuses": [
-        "employee_source_unavailable"
+        "insufficient_evidence"
       ],
       "task_ids_any": [],
       "forbidden_task_ids": [],
@@ -612,14 +612,15 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "employee_unavailable",
-      "http_status": 503,
-      "expected_values": {}
+      "http_status": 200,
+      "expected_values": {},
+      "application_state": "unavailable"
     },
     {
       "case_id": "q.employee.self-work-profile.031",
       "turn": 0,
       "statuses": [
-        "type_b_disabled"
+        "insufficient_evidence"
       ],
       "task_ids_any": [],
       "forbidden_task_ids": [],
@@ -629,8 +630,9 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "feature_disabled",
-      "http_status": 503,
-      "expected_values": {}
+      "http_status": 200,
+      "expected_values": {},
+      "application_state": "disabled"
     }
   ]
 }

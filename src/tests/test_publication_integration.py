@@ -406,7 +406,7 @@ def test_http_retrieval_ignores_inactive_and_superseded_publications(tmp_path, l
             app = create_app(settings, service_factory=lambda config: ApiService(config, retrieval=retrieval))
             async with app.router.lifespan_context(app):
                 async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test', headers=SERVICE_HEADERS) as client:
-                    response = await client.post('/api/v1/retrieve', json={'text': 'Synthetic policy', 'top_k': 20})
+                    response = await client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Synthetic policy', 'top_k': 20})
                     assert response.status_code == 200
                     data = response.json()
                     assert data['status'] == 'matches_found'

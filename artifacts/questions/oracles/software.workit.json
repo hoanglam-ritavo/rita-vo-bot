@@ -133,7 +133,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -156,7 +161,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -179,7 +189,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -202,7 +217,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -729,7 +749,20 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "contract_kind",
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "employee_type",
+        "job_title",
+        "manager_email",
+        "manager_name",
+        "official_date",
+        "probation_date",
+        "probation_end_date",
+        "resignation_date"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -843,7 +876,14 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title",
+        "manager_email",
+        "manager_name"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -1012,7 +1052,14 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title",
+        "manager_email",
+        "manager_name"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",

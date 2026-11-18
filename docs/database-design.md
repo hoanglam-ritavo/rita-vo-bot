@@ -1,24 +1,33 @@
 # Pre-production database design
 
-The 14-table PostgreSQL schema stores v2/v3 packages, publications and evidence.
+The PostgreSQL application schema has 17 tables: 14 corpus/publication tables
+for v2/v3 packages and evidence, plus 3 isolated conversation tables.
 Provisioning does not publish documents, certify retrieval quality or authorize a
 relevance profile. HTTP contracts and package bytes remain unchanged.
 
 ## Initialization and boundaries
 
-The revision chain is `bce4184a7f51` (already provisioned baseline) followed by
-`c7d92e6a104b` (additive publication guards). Never rewrite or stamp the applied
+The revision chain is `bce4184a7f51` (already provisioned baseline),
+`c7d92e6a104b` (additive publication guards), then `d8e031c72b19` (conversation
+storage, current head). Never rewrite or stamp the applied
 baseline to install missing functions/triggers. Stop publication workers, back up
 and inspect the intended database, then run `python -m alembic upgrade head`.
 The guard revision adds functions/triggers without table replacement or row
 backfill; existing IDs, vectors, notes, receipts and timestamps are preserved.
 
-For a fresh database, a provisioning role must first execute
-`CREATE EXTENSION IF NOT EXISTS vector`. The baseline uses vector columns before
-the guard migration can run. Install pgvector on the server separately; no runtime
-download or automatic application-startup migration is provided. The guard
-revision also checks extension creation idempotently. Test fixtures provision
-this prerequisite only after checking disposable-database URL separation.
+For a fresh database, follow the [provisioning procedure](../src/database/README.md#fresh-database-provisioning)
+before Alembic. The baseline uses vector columns before the guard revision's
+idempotent extension statement can run; the chain does not bootstrap a missing
+extension. No runtime download or automatic application-startup migration is
+provided. Test fixtures provision this prerequisite only after checking
+disposable-database URL separation; their setup is not proof that bare
+`upgrade head` enables vector before the baseline.
+
+The latest revision adds conversation storage without changing corpus tables;
+see [conversation enablement and storage](conversations.md#enablement-and-storage).
+Its downgrade destroys chat data and deletion receipts. Downgrades preserve the
+shared vector extension; do not drop it or downgrade an application database to
+test fresh installation.
 
 Downgrading guards to `bce4184a7f51` removes only their four triggers and three
 functions, retaining all tables/data and vector. It disables those protections
@@ -32,6 +41,9 @@ See [corpus publication](corpus-publication.md) for backup, inventory, dry-run,
 publication and real retrieval verification.
 
 ## Data dictionary
+
+The following dictionary covers the 14 corpus/publication tables. The 3 chat
+tables are documented in [conversation storage](conversations.md#enablement-and-storage).
 
 | Table | Responsibility and constraints |
 | --- | --- |

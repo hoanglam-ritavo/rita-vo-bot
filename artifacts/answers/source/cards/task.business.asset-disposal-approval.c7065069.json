@@ -111,5 +111,22 @@
       ]
     }
   },
-  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work"
+    ],
+    "manager": false,
+    "prompts": {
+      "site": "Địa điểm áp dụng: bạn đang hỏi cho cơ sở hoặc mục tiêu nào?",
+      "authority": "Phân công hoặc ủy quyền: chức danh/đơn vị chưa chứng minh quyền thực hiện thao tác này."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [],
+    "family_summary": false
+  }
 }

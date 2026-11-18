@@ -19,15 +19,30 @@ PHRASES = {'paperwork': 'hồ sơ giấy tờ', 'amount': 'bao nhiêu tiền',
 def identity(catalog, lexicon, policy=None):
     if catalog is None or lexicon is None:
         return 'unavailable'
-    return hashlib.sha256(json.dumps([2, catalog.model_dump(), lexicon, getattr(policy, 'fingerprint', None)], sort_keys=True,
+    return hashlib.sha256(json.dumps([3, catalog.model_dump(), lexicon, getattr(policy, 'fingerprint', None)], sort_keys=True,
                                     ensure_ascii=False).encode()).hexdigest()
 
 
 def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
     stamp = identity_stamp if identity_stamp is not None else identity(catalog, lexicon, policy)
-    old = previous if previous.get('schema') == 2 and previous.get('identity') == stamp else {}
-    state = {'schema': 2, 'identity': stamp, 'task_id': None, 'candidates': [],
+    old = previous if previous.get('schema') == 3 and previous.get('identity') == stamp else {}
+    state = {'schema': 3, 'identity': stamp, 'task_id': None, 'candidates': [],
              'pending': None, 'aspect': None, 'recent': old.get('recent', [])[-3:] + [text]}
+    from src.answering.slots import parse_inputs, SLOT_LABELS
+    inputs = parse_inputs(text)
+    if inputs:
+        state['user_inputs'] = {key: {'value': value, 'origin': 'user_input'} for key, value in inputs.items()}
+    wanted = set(old.get('pending_inputs', []))
+    if inputs and set(inputs) <= wanted and old.get('task_question'):
+        previous_inputs = old.get('user_inputs', {})
+        merged = {**previous_inputs, **{key: {'value': value, 'origin': 'user_input'} for key, value in inputs.items()}}
+        state['user_inputs'] = merged
+        base = old['task_question'].split(';')[0]
+        combined = base + '; ' + '; '.join(f'{SLOT_LABELS[key]}: {item["value"]}' for key, item in merged.items())
+        if len(combined) > 2000:
+            return text, state
+        text = combined
+        state['task_question'] = base
     route = route_question(text)
     state['self_reference'] = bool(route.fields) or route.reason == 'ambiguous_employment_date'
     query = normalized(text)
@@ -40,7 +55,7 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
     for suffix in (' thi sao', ' the nao'):
         if followup.endswith(suffix):
             followup = followup[:-len(suffix)]
-    if old.get('type_b_self'):
+    if old.get('profile_self'):
         tasks = [task for task in TASKS if followup in task.aliases]
         if len(tasks) == 1:
             state['self_reference'] = True
@@ -85,7 +100,7 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
     if len(chosen) == 1:
         state.update(task_id=chosen[0].id)
         return chosen[0].aliases[0], state
-    cards, ambiguous = select_cards(text, catalog, lexicon)
+    cards, ambiguous = select_cards(text, catalog, lexicon, contextual=True)
     if ambiguous:
         state.update(candidates=[card.id for card in cards][:5], pending='task')
     elif len(cards) == 1:
@@ -137,8 +152,10 @@ def complete_slots(text, base, old, policy):
 def compact(state, result):
     state = dict(state)
     state['outcome'] = result['status']
-    if result.get('source_type') in ('type_b', 'mixed'):
-        state['type_b_self'] = state.get('self_reference', False) and result.get('employee_evidence', {}).get('status') in ('found', 'needs_clarification')
+    state['profile_self'] = state.get('self_reference', False) and result.get('application', {}).get('state') in ('applied', 'partial')
+    state['pending_inputs'] = [item['slot'] for item in result.get('application', {}).get('missing_inputs', [])]
+    if state['pending_inputs'] and not state.get('task_question'):
+        state['task_question'] = state['recent'][-1][:2000]
     state['evidence_refs'] = [
         {key: origin[key] for key in ('document_id', 'revision_id', 'chunk_id') if key in origin}
         for source in result.get('sources', []) for origin in source.get('origins', [])][:60]

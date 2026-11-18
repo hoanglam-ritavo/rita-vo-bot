@@ -12,15 +12,14 @@ from sqlalchemy.exc import OperationalError
 
 from src.database.config import ConfigurationError, validate_url
 from src.database.runtime import run_async
-from src.employee_source import EmployeeSourceService, EmployeeSourceSettings, EmployeeValidationError
-from src.employee_source.connection import ReadOnlySource
-from src.employee_source.contracts import (
-    DATE_FIELDS, INTEGER_FIELDS, LIST_FIELDS, PROFILE_FIELDS, Degree, Family, WorkHistory,
-    normalize_profile,
-)
-from src.employee_source.errors import EmployeeSourceError
-from src.employee_source.repository import EmployeeRepository
-from src.employee_source.selector import select_rows
+from src.type_b.employee_store import EmployeeSourceService, EmployeeSourceSettings, EmployeeValidationError
+from src.type_b.employee_store.connection import ReadOnlySource
+from src.type_b.employee_store.fields import DATE_FIELDS, INTEGER_FIELDS, LIST_FIELDS, PROFILE_FIELDS
+from src.type_b.employee_store.contracts import Degree, Family, WorkHistory
+from src.type_b.employee_store.normalization import normalize_profile
+from src.type_b.employee_store.errors import EmployeeSourceError
+from src.type_b.employee_store.repository import EmployeeRepository
+from src.type_b.employee_store.selector import select_rows
 
 
 def settings():
@@ -292,7 +291,7 @@ def test_lazy_independent_engine_and_configuration(monkeypatch):
     assert source._engine is None
     with pytest.raises(ConfigurationError, match='HRM_DATABASE_URL'):
         source._get_engine()
-    with patch('src.employee_source.connection.create_async_engine') as factory:
+    with patch('src.type_b.employee_store.connection.create_async_engine') as factory:
         source = ReadOnlySource(settings())
         factory.return_value.dispose = AsyncMock()
         engine = source._get_engine()
@@ -329,9 +328,9 @@ def test_import_has_no_dotenv_or_connection_side_effects():
 from unittest.mock import patch
 with patch('dotenv.load_dotenv', side_effect=AssertionError('dotenv')), \\
      patch('sqlalchemy.ext.asyncio.create_async_engine', side_effect=AssertionError('engine')):
-    import src.employee_source
+    import src.type_b.employee_store
     import src.cli.check_employee_source
-    service = src.employee_source.EmployeeSourceService()
+    service = src.type_b.employee_store.EmployeeSourceService()
 '''
     result = subprocess.run([sys.executable, '-c', code], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr

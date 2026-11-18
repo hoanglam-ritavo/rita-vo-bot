@@ -83,5 +83,22 @@
       ]
     }
   },
-  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work"
+    ],
+    "manager": false,
+    "prompts": {
+      "job_mapping": "Nhóm chức danh: cần xác nhận nhóm theo chính sách và chức vụ kiêm nhiệm nếu có.",
+      "trip_details": "Thông tin chuyến đi: cần nơi đi/đến, ngày giờ, cự ly, phương tiện và chứng từ liên quan."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [],
+    "family_summary": false
+  }
 }

@@ -65,7 +65,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
@@ -285,7 +290,12 @@
         ]
       ],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "department_name",
+        "employee_code",
+        "employee_name",
+        "job_title"
+      ],
       "null_fields": [],
       "claims": "required",
       "fixture": "current",

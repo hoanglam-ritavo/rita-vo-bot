@@ -7,6 +7,7 @@ from src.paths import REPOSITORY_ROOT
 from src.retrieval.semantics import validate_artifact
 from src.semantics.corpus import decode_json
 from .contracts import Strict
+from .context_spec import ContextSpec
 
 METADATA = ('title', 'applicability', 'effective_from', 'effective_to', 'version_label', 'source_path')
 
@@ -46,6 +47,7 @@ class Card(Strict):
     requires_any: list[str]
     excludes_any: list[str]
     sections: dict[Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure'], Section]
+    context: ContextSpec | None = None
 
 
 class Coverage(Strict):
@@ -56,7 +58,7 @@ class Coverage(Strict):
 
 
 class Catalog(Strict):
-    schema_version: Literal[2]
+    schema_version: Literal[2, 3]
     package_fingerprint: str
     lexicon_sha256: str
     cards: list[Card]
@@ -70,6 +72,8 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
     concepts = {c['id'] for c in lexicon['concepts']}
     ids, used, unit_ids = set(), set(), {}
     for card in catalog.cards:
+        if catalog.schema_version == 3 and card.context is None:
+            raise ValueError('missing_context_disposition')
         if (card.id in ids or not card.sections or not set(card.concept_ids) <= concepts
                 or any(not p.strip() or len(p) > 240 for p in card.aliases + card.requires_any + card.excludes_any)):
             raise ValueError('invalid_answer_card')

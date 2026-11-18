@@ -7,8 +7,8 @@ from sqlalchemy.exc import DBAPIError
 
 from src.database.config import validate_url
 from src.database.runtime import run_async
-from src.employee_source import EmployeeSourceService, EmployeeSourceSettings
-from src.employee_source.connection import ReadOnlySource
+from src.type_b.employee_store import EmployeeSourceService, EmployeeSourceSettings
+from src.type_b.employee_store.connection import ReadOnlySource
 
 pytestmark = pytest.mark.integration
 
@@ -42,6 +42,32 @@ def test_preprovisioned_projection_reads_and_missing(hrm_fixture_settings):
             # Fixture includes an older active and a newer inactive row for 910002.
             assert result[910002].active is False
             assert await service.find_by_user_id(910099) is None
+            employee_id = result[910001].employee_id
+            assert await service.find_by_employee_id(employee_id) == result[910001]
+            assert dict(await service.find_many_by_employee_ids([employee_id, employee_id])) == {
+                employee_id: result[910001]}
+        finally:
+            await service.close()
+    run_async(exercise())
+
+
+def test_preprovisioned_manager_relations_and_unlinked_employee(hrm_fixture_settings):
+    async def exercise():
+        service = EmployeeSourceService(hrm_fixture_settings)
+        try:
+            results = await service.find_managers_by_user_ids(list(range(910003, 910011)) + [910099])
+            expected = {
+                910003: 'found', 910004: 'found', 910005: 'manager_not_found',
+                910006: 'conflicting_link', 910007: 'ambiguous',
+                910008: 'manager_not_found', 910009: 'self_reference',
+                910010: 'missing_link', 910099: 'employee_not_found',
+            }
+            assert {uid: result.status for uid, result in results.items()} == expected
+            for uid in (910003, 910004):
+                manager = results[uid].manager
+                assert manager.employee_id == 920001 and manager.user_id is None
+                assert manager.work_email == 'manager@example.test' and manager.active is False
+            assert (await service.find_by_employee_id(920001)).user_id is None
         finally:
             await service.close()
     run_async(exercise())

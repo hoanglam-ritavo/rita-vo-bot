@@ -172,5 +172,30 @@
       ]
     }
   },
-  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần."
+  "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work",
+      "employment"
+    ],
+    "manager": false,
+    "prompts": {
+      "job_mapping": "Nhóm chức danh: cần xác nhận nhóm công việc theo bảng đồng phục.",
+      "issued_uniforms": "Lịch sử cấp phát: cần ngày nhận và số lượng thực tế nếu hỏi cấp lại hoặc bồi hoàn."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [
+      "probation_date",
+      "probation_end_date",
+      "official_date",
+      "resignation_date",
+      "employee_type",
+      "contract_kind"
+    ],
+    "family_summary": false
+  }
 }

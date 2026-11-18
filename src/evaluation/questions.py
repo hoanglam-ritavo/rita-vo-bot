@@ -26,6 +26,7 @@ class Oracle(Strict):
     employee_fields: list[str] = Field(default_factory=list)
     null_fields: list[str] = Field(default_factory=list)
     expected_values: dict[str, str | None] = Field(default_factory=dict)
+    application_state: str | None = None
     required_numbers: list[int] = Field(default_factory=list)
     claims: str = Field(default='any', pattern='^(any|none|required)$')
     fixture: str = Field(default='current', pattern='^(current|missing|withdrawn|changed|denied|partial|unrelated_changed|catalog_unavailable|catalog_changed|employee_unavailable|feature_disabled|missing_policy)$')
@@ -77,6 +78,8 @@ def check_turn(oracle, status_code, result, selected=()):
         return failures
     if result.get('status') not in oracle.statuses:
         failures.append('status')
+    if oracle.application_state is not None and result.get('application', {}).get('state') != oracle.application_state:
+        failures.append('application_state')
     if oracle.task_ids_any and not set(selected).intersection(oracle.task_ids_any):
         failures.append('task')
     if set(selected).intersection(oracle.forbidden_task_ids):
@@ -86,7 +89,7 @@ def check_turn(oracle, status_code, result, selected=()):
         failures.append('required_source')
     if docs.intersection(oracle.forbidden_documents):
         failures.append('forbidden_source')
-    facts = result.get('employee_evidence', {}).get('facts', [])
+    facts = [node for node in result.get('evidence', []) if node['kind']=='employee']
     if {f['field'] for f in facts} != set(oracle.employee_fields):
         failures.append('employee_fields')
     if any(not any(f['field'] == field and f['value'] is None for f in facts) for field in oracle.null_fields):
@@ -94,7 +97,8 @@ def check_turn(oracle, status_code, result, selected=()):
     actual_values = {f['field']: f['value'] for f in facts}
     if any(field not in actual_values or actual_values[field] != value for field,value in oracle.expected_values.items()):
         failures.append('employee_values')
-    claims = result.get('claims', [])
+    nodes = {node['id']:node for node in result.get('evidence', [])}
+    claims = [claim for claim in result.get('claims', []) if any(nodes[ref]['kind']=='document' for ref in claim['evidence_refs'])]
     if oracle.claims == 'none' and claims or oracle.claims == 'required' and not claims:
         failures.append('claims')
     text = ' '.join(claim['text'] for claim in claims)
@@ -105,8 +109,8 @@ def check_turn(oracle, status_code, result, selected=()):
     # Every policy claim must carry a quote and a returned source. This is a
     # structural invariant in addition to source/hash checks in the renderer.
     sources = {s['source_id'] for s in result.get('sources', [])}
-    if any(not c.get('citations') or any(not ref.get('quote') or ref['source_id'] not in sources
-            for ref in c['citations']) for c in claims):
+    if any(not nodes[ref].get('quote') or nodes[ref]['source_id'] not in sources
+            for claim in claims for ref in claim['evidence_refs'] if nodes[ref]['kind']=='document'):
         failures.append('citation_integrity')
     return failures
 
@@ -152,6 +156,12 @@ class FixtureRetrieval:
         return dict(status='matches_found' if rows else 'no_matches', matches=rows, relevance=relevance(rows),
                     fallback_reason=None if rows else 'no_candidates', rerank_seconds=0.)
 
+    async def prepare_query(self, question, top_k=5):
+        return question
+
+    async def retrieve_prepared(self, prepared, top_k=5):
+        return await self.retrieve(prepared, top_k)
+
 
 def fixture_records(root):
     from src.semantics.corpus import corpus_snapshot, decode_json
@@ -179,7 +189,8 @@ async def run_fixture(root=REPOSITORY_ROOT):
     from src.answering.config import AnswerSettings
     from src.answering.pipeline import select_cards
     from src.conversation.context import reduce_question, compact
-    from src.employee_source.contracts import PROFILE_FIELDS, normalize_profile
+    from src.type_b.employee_store.fields import PROFILE_FIELDS
+    from src.type_b.employee_store.normalization import normalize_profile
     from src.retrieval.policy import RetrievalPolicy
     from src.type_b.config import TypeBSettings
     from src.type_b.tasks import BY_FIELD
@@ -190,6 +201,12 @@ async def run_fixture(root=REPOSITORY_ROOT):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
                      'src/conversation/context.py', 'src/type_b/tasks.py', 'src/type_b/service.py',
+                     'src/answering/contextual.py', 'src/answering/context_spec.py',
+                     'src/answering/context_contracts.py', 'src/answering/calculations.py',
+                     'src/answering/slots.py', 'src/api/contracts.py',
+                     'src/type_b/employee_store/service.py', 'src/type_b/employee_store/normalization.py',
+                     'src/type_b/employee_store/fields.py', 'src/type_b/employee_store/selector.py',
+                     'src/type_b/employee_store/repository.py', 'src/type_b/employee_store/connection.py',
                      'src/evaluation/questions.py'):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     catalog, lexicon = load_catalog(root / 'artifacts/answers/catalog.json', root / 'artifacts/semantics/lexicon.json')
@@ -210,9 +227,15 @@ async def run_fixture(root=REPOSITORY_ROOT):
             if user_id != 7:
                 raise ValueError('unexpected_fixture_identity')
             return normalize_profile(fields)
+        async def read_context(user_id, selected, *, manager=False):
+            from types import MappingProxyType
+            from src.type_b.employee_store.contracts import EmployeeContext, ManagerResult, ManagerSummary
+            profile = await employee_read(user_id)
+            relation = ManagerResult('found', ManagerSummary(90,None,'M90',fields['manager_name'],None,None,None,'manager@example.test',None,True,None)) if manager else None
+            return EmployeeContext(MappingProxyType({field:getattr(profile,field) for field in selected}),relation,'2026-11-18T00:00:00Z',profile.updated_at)
         owner = ApiService(Settings(Path('unused'), 'a'*40, service_key='fictional-evaluation-key',
             answer=AnswerSettings(enabled=True), type_b=TypeBSettings(True)), retrieval=retrieval,
-            employee_service=SimpleNamespace(find_by_user_id=employee_read))
+            employee_service=SimpleNamespace(read_context=read_context))
         owner.started = owner.answers.available = owner.context.available = True
         owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
         state = {}
@@ -230,12 +253,13 @@ async def run_fixture(root=REPOSITORY_ROOT):
                     fields[field] = None
                 stamp = 'changed-evaluation-context' if oracle.fixture == 'catalog_changed' else None
                 question, state = reduce_question(turn['text'], state, catalog, lexicon, policy=policy, identity_stamp=stamp)
-                selected, ambiguous = select_cards(question, catalog, lexicon, policy)
+                selected, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=True)
                 body = {'text': question, 'hrm_user_id': 7, 'top_k': 5}
                 if oracle.fixture == 'feature_disabled':
                     # Model the documented disabled HTTP guard, not fake facts.
                     from dataclasses import replace
                     owner.context.settings = replace(owner.context.settings, enabled=False)
+                    owner.context.available = False
                 response = await client.post('/api/v1/answer', json=body)
                 value = response.json()
                 failures = check_turn(oracle, response.status_code, value,

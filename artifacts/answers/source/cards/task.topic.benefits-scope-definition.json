@@ -155,5 +155,31 @@
         }
       ]
     }
+  },
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work",
+      "employment"
+    ],
+    "manager": false,
+    "prompts": {
+      "as_of": "Ngày xét: cần ngày phát sinh sự kiện hoặc ngày lễ cụ thể.",
+      "contract_at_date": "Hợp đồng tại ngày xét: hồ sơ hiện tại chưa thay thế được lịch sử hợp đồng.",
+      "benefit_event": "Sự kiện hưởng chính sách: cần xác nhận sự kiện, đối tượng và chứng từ theo tài liệu."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [
+      "probation_date",
+      "probation_end_date",
+      "official_date",
+      "resignation_date",
+      "employee_type",
+      "contract_kind"
+    ],
+    "family_summary": false
   }
 }

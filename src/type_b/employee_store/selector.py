@@ -2,12 +2,11 @@
 from datetime import datetime, timezone
 from decimal import Decimal
 
-from .contracts import PROFILE_FIELDS, identity, source_timestamp
+from .fields import PROFILE_FIELDS, RANK_TEXT_FIELDS
+from .normalization import identity, source_timestamp
 from .errors import EmployeeValidationError
 
-TEXT_FIELDS = ('employee_name', 'employee_code', 'work_email', 'phone',
-               'avatar_url', 'job_title', 'department_name')
-
+TEXT_FIELDS = RANK_TEXT_FIELDS
 
 def _strict_equal(left, right):
     # JS isDeepStrictEqual distinguishes boolean from numeric JSON values.
@@ -29,10 +28,14 @@ def score(row):
         type(row.get('active')) is bool or row.get('active') in ('true', 'false'))
 
 
-def select_rows(rows, requested):
+def select_rows(rows, requested, *, key='user_id', projection=PROFILE_FIELDS):
+    if key not in ('user_id', 'employee_id'):
+        raise EmployeeValidationError('invalid_identity')
     groups = {}
     for row in rows:
-        user_id = identity(row.get('user_id'))
+        if not isinstance(row, dict):
+            raise EmployeeValidationError('invalid_projection')
+        user_id = identity(row.get(key))
         if user_id not in requested:
             raise EmployeeValidationError('unexpected_identity')
         groups.setdefault(user_id, []).append(row)
@@ -48,7 +51,7 @@ def select_rows(rows, requested):
         ranked = sorted(((rank(row), row) for row in group), key=lambda item: item[0], reverse=True)
         best_rank, best = ranked[0]
         for other_rank, other in ranked[1:]:
-            if other_rank == best_rank and any(not _strict_equal(other.get(key), best.get(key)) for key in PROFILE_FIELDS):
+            if other_rank == best_rank and any(not _strict_equal(other.get(key), best.get(key)) for key in projection):
                 raise EmployeeValidationError('conflicting_rows')
         selected.append(best)
     return selected

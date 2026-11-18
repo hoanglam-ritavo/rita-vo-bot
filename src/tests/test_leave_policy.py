@@ -267,10 +267,10 @@ def test_http_retrieve_serializes_ranked_top_k_without_internal_hash(policy,monk
                      database_check=AsyncMock(),database_close=AsyncMock())
     owner.started=True
     with TestClient(create_app(owner.settings,service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
-        response=client.post('/api/v1/retrieve',json=dict(text='Đăng ký nghỉ hai ngày',top_k=1))
+        response=client.post('/api/v1/retrieve',json=dict(text='Đăng ký nghỉ hai ngày',top_k=1, hrm_user_id=7))
     assert response.status_code==200
     body=response.json()
-    assert set(body)=={'status','matches','fallback_reason','relevance','timings'}
+    assert set(body)=={'schema_version','evidence','application','document_status','status','matches','fallback_reason','relevance','timings'}
     assert [m['chunk_id'] for m in body['matches']]==['fictional-1']
     assert body['matches'][0]['rerank_score']==-1.
     assert body['relevance']['status']=='unassessed'

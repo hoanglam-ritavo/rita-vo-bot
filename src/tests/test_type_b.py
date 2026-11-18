@@ -15,12 +15,16 @@ from src.api.contracts import ApiError
 from src.api.service import ApiService
 from src.answering.config import AnswerSettings
 from src.database.runtime import run_async
-from src.employee_source.contracts import PROFILE_FIELDS, normalize_profile
-from src.employee_source.errors import EmployeeValidationError, EmployeeSourceError
+from src.type_b.employee_store.fields import PROFILE_FIELDS
+from src.type_b.employee_store.normalization import normalize_profile
+from src.type_b.employee_store.errors import EmployeeValidationError, EmployeeSourceError
 from src.retrieval import RetrievalService, RetrievalError
 from src.retrieval import storage
 from src.type_b.config import TypeBSettings, from_environment
 from src.type_b.tasks import TASKS, route_question
+from src.type_b.employee_store.contracts import EmployeeContext, ManagerResult, ManagerSummary
+from types import MappingProxyType
+from datetime import datetime, timezone
 
 KEY = 'fictional-service-key'
 HEADERS = {'X-Rita-Service-Key': KEY}
@@ -59,211 +63,15 @@ def service(*, enabled=True, hint=None, personnel=None):
         find_by_user_id=AsyncMock(return_value=personnel if personnel is not None else profile()))
     settings = Settings(Path('unused'), 'a'*40, type_b=TypeBSettings(enabled),
                         answer=AnswerSettings(enabled=True), service_key=SERVICE_KEY)
+    async def context(user_id, fields, *, manager=False):
+        current = personnel if personnel is not None else profile()
+        relation = ManagerResult('found', ManagerSummary(90, None, 'M90', 'Test manager', None, None, None, 'manager@example.test', None, True, None)) if manager else None
+        return EmployeeContext(MappingProxyType({field:getattr(current,field) for field in fields}), relation,
+                               datetime.now(timezone.utc).isoformat(), current.updated_at)
+    employee.read_context = AsyncMock(side_effect=context)
     owner = ApiService(settings, retrieval=retrieval, employee_service=employee,
                        database_check=AsyncMock(), database_close=AsyncMock())
     return owner, employee
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-@pytest.mark.parametrize('task,question', list(zip(TASKS, [
-    'Họ tên của tôi là gì?', 'Mã nhân viên của tôi là gì?', 'Chức danh của tôi là gì?',
-    'Phòng ban của tôi là gì?', 'Quản lý trực tiếp của tôi là ai?',
-    'Ngày bắt đầu thử việc của tôi?', 'Ngày kết thúc thử việc của tôi?', QUESTION, 'Ngày nghỉ việc của tôi?',
-])))
-def test_supported_fields_by_label_value_and_no_personnel_leak(endpoint, task, question, caplog):
-    owner, employee = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        response = client.post(endpoint, json=dict(text=question, hrm_user_id=7), headers=HEADERS)
-    assert response.status_code == 200, response.text
-    assert response.headers['cache-control'] == 'no-store'
-    data = response.json()
-    assert data['source_type'] == 'type_b'
-    assert data['employee_evidence']['facts'] == [dict(ref_id='B1', field=task.field, label=task.label,
-                                                     value=getattr(profile(), task.field))]
-    assert set(data['employee_evidence']['source']) == {'relation', 'observed_at', 'updated_at'}
-    if endpoint.endswith('answer'):
-        assert data['status'] == 'answered'
-        assert data['claims'] == data['sources'] == []
-        assert data['employee_claims'][0]['fact_refs'] == ['B1']
-        if task.field == 'official_date':
-            assert '02/02/2020' in data['answer']
-    else:
-        assert data['status'] == 'evidence_found' and data['matches'] == []
-    assert 'restricted-marker' not in response.text + caplog.text
-    assert KEY not in response.text + caplog.text
-    assert question not in caplog.text
-    assert 'hrm_user_id' not in response.text
-    employee.find_by_user_id.assert_awaited_once_with(7)
-    owner.retrieval.retrieve.assert_not_awaited()
-    owner.retrieval.retrieve_prepared.assert_not_awaited()
-    employee.close.assert_awaited_once()
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-@pytest.mark.parametrize('value', [True, False, 0, -1, 1.5, '7', 2**53])
-def test_strict_reference_types(endpoint, value):
-    owner, employee = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post(endpoint, json=dict(text=QUESTION, hrm_user_id=value), headers=HEADERS)
-        assert result.status_code == 422
-        assert result.json()['error']['code'] == 'invalid_request'
-        result = client.post(endpoint, json=dict(text=QUESTION, employee_id=42), headers=HEADERS)
-        assert result.status_code == 422
-    employee.find_by_user_id.assert_not_awaited()
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-@pytest.mark.parametrize('case,status,code', [
-    ('no_key', 401, 'service_authentication_required'), ('wrong_key', 401, 'service_authentication_required'),
-    ('no_id', 422, 'hrm_user_id_required'), ('disabled', 503, 'type_b_disabled')])
-def test_caller_and_configuration_guards(endpoint, case, status, code):
-    owner, employee = service(enabled=case != 'disabled')
-    body = {'text': QUESTION} | ({} if case == 'no_id' else {'hrm_user_id': 7})
-    headers = {} if case == 'no_key' else {'X-Rita-Service-Key': 'wrong' if case == 'wrong_key' else KEY}
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post(endpoint, json=body, headers=headers)
-    assert result.status_code == status, result.text
-    assert result.json()['error']['code'] == code
-    assert result.headers['cache-control'] == 'no-store'
-    employee.find_by_user_id.assert_not_awaited()
-    if case in ('no_key', 'wrong_key', 'disabled'):
-        owner.retrieval.prepare_query.assert_not_awaited()
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-@pytest.mark.parametrize('question,reason', [
-    ('Ngày vào làm của tôi?', 'ambiguous_employment_date'),
-    ('Phòng ban của anh Nam là gì?', 'other_employee_unsupported'),
-    ('Phòng ban của tôi và số tài khoản ngân hàng của tôi?', 'employee_task_unsupported'),
-    ('Toàn bộ hồ sơ của tôi?', 'employee_task_unsupported'),
-    ('Quản lý trực tiếp là ai?', 'employee_reference_unclear'),
-    ('Phòng ban của tôi và một thông tin khác?', 'employee_task_unclear'),
-])
-def test_no_reads_for_ambiguous_or_unsupported_tasks(endpoint, question, reason):
-    owner, employee = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post(endpoint, json=dict(text=question, hrm_user_id=7), headers=HEADERS)
-    assert result.status_code == 200
-    assert result.json()['employee_evidence']['reason'] == reason
-    assert result.json()['employee_evidence']['facts'] == []
-    employee.find_by_user_id.assert_not_awaited()
-    owner.retrieval.retrieve_prepared.assert_not_awaited()
-
-
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-def test_null_missing_and_partial_are_distinct(endpoint):
-    owner, employee = service(personnel=profile(official_date=None))
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post(endpoint, json=dict(text=QUESTION, hrm_user_id=7), headers=HEADERS).json()
-        assert result['status'] == ('no_evidence' if endpoint.endswith('retrieve') else 'insufficient_evidence')
-        assert result['employee_evidence']['facts'][0]['value'] is None
-        result = client.post(endpoint, json=dict(text='Ngày chính thức và phòng ban của tôi?', hrm_user_id=7), headers=HEADERS).json()
-        assert result['status'] == ('partial_evidence' if endpoint.endswith('retrieve') else 'partial')
-        employee.find_by_user_id.return_value = None
-        result = client.post(endpoint, json=dict(text=QUESTION, hrm_user_id=7), headers=HEADERS).json()
-        assert result['employee_evidence']['status'] == 'not_found'
-        assert result['employee_evidence']['reason'] == 'employee_not_found'
-
-
-@pytest.mark.parametrize('endpoint', ENDPOINTS)
-@pytest.mark.parametrize('error,status', [
-    (EmployeeSourceError('source_timeout'), 504), (EmployeeValidationError('conflicting_rows'), 503),
-    (RuntimeError('restricted-marker'), 503)])
-def test_source_failures_never_fall_back_to_policy(endpoint, error, status, caplog):
-    owner, employee = service()
-    employee.find_by_user_id.side_effect = error
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post(endpoint, json=dict(text=QUESTION, hrm_user_id=7), headers=HEADERS)
-    assert result.status_code == status
-    assert 'restricted-marker' not in result.text + caplog.text
-    employee.find_by_user_id.assert_awaited_once()
-    owner.retrieval.retrieve_prepared.assert_not_awaited()
-
-
-def test_type_a_preserves_shape_without_reading_employee_even_with_reference():
-    owner, employee = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        for body, headers in [({'text': 'Chính sách nghỉ phép là gì?'}, HEADERS),
-                              ({'text': 'Chính sách nghỉ phép là gì?', 'hrm_user_id': 7}, HEADERS),
-                              ({'text': 'Chính sách nghỉ phép là gì?', 'hrm_user_id': None}, HEADERS)]:
-            result = client.post('/api/v1/retrieve', json=body, headers=headers)
-            assert result.status_code == 200
-            assert set(result.json()) == {'status', 'matches', 'fallback_reason', 'relevance', 'timings'}
-    employee.find_by_user_id.assert_not_awaited()
-
-
-def test_mixed_retrieval_keeps_document_and_personnel_evidence_separate():
-    owner, employee = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post('/api/v1/retrieve', json=dict(
-            text='Ngày chính thức của tôi và chính sách trợ cấp?', hrm_user_id=7), headers=HEADERS)
-    assert result.status_code == 200, result.text
-    data = result.json()
-    assert data['source_type'] == 'mixed' and data['status'] == 'evidence_found'
-    assert data['matches'][0]['content'] == 'Fictional policy evidence.'
-    assert data['employee_evidence']['facts'][0]['field'] == 'official_date'
-    owner.retrieval.retrieve_prepared.assert_awaited_once()
-    employee.find_by_user_id.assert_awaited_once()
-
-
-def test_mixed_answer_is_partial_without_catalog_and_pure_b_still_answers():
-    owner, _ = service()
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        result = client.post('/api/v1/answer', json=dict(
-            text='Ngày chính thức của tôi và chính sách trợ cấp?', hrm_user_id=7), headers=HEADERS)
-    data = result.json()
-    assert data['status'] == 'partial' and data['employee_claims']
-    assert data['claims'] == []
-    assert 'chưa có kết luận' in data['answer']
-    assert data['fallback_reason'] == 'mixed_individual_eligibility_not_evaluated'
-
-
-def test_mixed_answer_with_real_template_renderer_keeps_both_reference_kinds():
-    import hashlib
-    from src.answering.catalog import Catalog, METADATA
-    owner, _ = service()
-    match = documents()['matches'][0]
-    reference = dict(source_sha256='a'*64, document_id=match['document_id'], revision_id=match['revision_id'],
-        chunk_index=0, content_sha256=hashlib.sha256(match['content'].encode()).hexdigest(),
-        quote=match['content'], metadata={key: match[key] for key in METADATA})
-    catalog = Catalog.model_validate(dict(schema_version=2, package_fingerprint='fake', lexicon_sha256='fake',
-        cards=[dict(source_type='type_a', clarification='Fictional clarification', id='policy', label='Fictional policy', concept_ids=[], aliases=['chính sách trợ cấp'],
-            requires_any=[], excludes_any=[], sections={'overview': dict(complete=True,
-                units=[dict(id='evidence.fictional', text='Fictional policy evidence.', refs=[reference])])})], coverage=[]))
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        owner.answers.available = True
-        owner.answers.catalog = catalog
-        owner.answers.lexicon = {'concepts': []}
-        response = client.post('/api/v1/answer', json=dict(
-            text='Ngày chính thức của tôi và chính sách trợ cấp?', hrm_user_id=7), headers=HEADERS)
-    assert response.status_code == 200, response.text
-    data = response.json()
-    assert data['status'] == 'partial'
-    assert data['claims'][0]['citations'][0]['source_id'] == 'S1'
-    assert data['sources'][0]['origins'][0]['chunk_id'] == 'chunk'
-    assert data['employee_claims'][0]['fact_refs'] == ['B1']
-    assert 'Thông tin hồ sơ' in data['answer'] and 'Thông tin chính sách' in data['answer']
-    assert 'chưa có kết luận' in data['answer']
-
-
-@pytest.mark.parametrize('question,source', [
-    ('Chính sách ngày chính thức của tôi?', 'type_a'),
-    ('Phòng ban của Nguyễn Văn A, tôi muốn biết?', 'type_b'),
-    ('Phòng ban Nguyễn Minh là gì?', 'type_b'),
-    ('Tên quản lý trực tiếp của tôi là gì?', 'type_b'),
-    ('Phòng ban của tôi và chính sách của công ty?', 'mixed'),
-    ('Ngày chính thức của tôi, tôi có được trợ cấp không?', 'mixed'),
-    ('Ngày chính thức của tôi và hướng dẫn sử dụng Workit?', 'mixed'),
-])
-def test_policy_and_named_subjects_are_not_treated_as_self_values(question, source):
-    route = route_question(question)
-    assert route.source == source
-    if 'Nguyễn' in question:
-        assert not route.fields and route.reason is not None
-    if question.startswith('Tên quản lý'):
-        assert route.fields == ('manager_name',)
 
 
 def test_http_configuration_loads_type_b_without_logging_the_key(monkeypatch, tmp_path, caplog):
@@ -276,111 +84,12 @@ def test_http_configuration_loads_type_b_without_logging_the_key(monkeypatch, tm
     assert settings.type_b.enabled and settings.service_key == KEY
     assert KEY not in caplog.text + repr(settings)
 
-
-
-
-def test_request_deadline_releases_slot_without_retry(monkeypatch):
-    from src.type_b import service as module
-    async def exercise():
-        owner, employee = service()
-        finished = asyncio.Event()
-        async def read(user_id):
-            try:
-                await asyncio.Future()
-            finally:
-                finished.set()
-        employee.find_by_user_id.side_effect = read
-        await owner.start()
-        monkeypatch.setattr(module, 'DEADLINE_SECONDS', 0.02)
-        with pytest.raises(ApiError, match='retrieval_timeout'):
-            await owner.execute(QUESTION, 5, 7)
-        assert finished.is_set() and not owner.busy and owner._idle.is_set()
-        employee.find_by_user_id.assert_awaited_once()
-        await owner.close()
-    run_async(exercise())
-
-
-def test_openapi_declares_optional_reference_and_service_header():
-    schema = create_app().openapi()
-    assert 'hrm_user_id' in schema['components']['schemas']['RetrieveRequest']['properties']
-    assert 'hrm_user_id' not in schema['components']['schemas']['RetrieveRequest']['required']
-    for path in ENDPOINTS:
-        parameters = schema['paths'][path]['post']['parameters']
-        assert any(p['name'] == 'X-Rita-Service-Key' and p['in'] == 'header' for p in parameters)
-        assert 'anyOf' in schema['paths'][path]['post']['responses']['200']['content']['application/json']['schema']
-
-
-def test_failed_hrm_preflight_keeps_type_a_available_and_closes_pool():
-    owner, employee = service()
-    employee.check_source.side_effect = RuntimeError('restricted-marker')
-    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        assert client.post('/api/v1/retrieve', json={'text': 'Chính sách nghỉ phép?'}, headers=HEADERS).status_code == 200
-        result = client.post('/api/v1/retrieve', json=dict(text=QUESTION, hrm_user_id=7), headers=HEADERS)
-        assert result.status_code == 503
-    employee.find_by_user_id.assert_not_awaited()
-    employee.close.assert_awaited_once()
-
-
 def test_feature_settings_are_strict_and_secret_repr_is_safe():
     assert not TypeBSettings().enabled
     assert KEY not in repr(from_environment({'TYPE_B_ENABLED': 'true', 'TYPE_B_SERVICE_KEY': KEY}))
     assert from_environment({'TYPE_B_ENABLED': 'true', 'TYPE_B_SERVICE_KEY': ' '}).enabled
     with pytest.raises(ValueError):
         from_environment({'TYPE_B_ENABLED': 'yes'})
-
-
-def test_original_embedding_reused_without_changing_type_a_storage_or_fingerprints(monkeypatch):
-    async def exercise():
-        retrieval = RetrievalService(model_path=Path('unused'), model_revision='a'*40)
-        retrieval._model = object()
-        retrieval._fingerprint = 'model-fingerprint'
-        retrieval._encode = Mock(return_value=[1.0] + [0.0]*383)
-        search = AsyncMock(return_value=dict(status='no_matches', matches=[], corpus_fingerprint='corpus'))
-        monkeypatch.setattr(storage, 'search', search)
-        prepared = await retrieval.prepare_query('Original question', 5)
-        result = await retrieval.retrieve_prepared(prepared, 5)
-        retrieval._encode.assert_called_once_with('Original question')
-        assert result['corpus_fingerprint'] == 'corpus'
-        assert not hasattr(prepared, 'hint')
-        assert search.call_args.args[1:3] == ('a'*40, 'model-fingerprint')
-        await retrieval.close()
-        retrieval._model = object()
-        with pytest.raises(RetrievalError, match='invalid_prepared_query'):
-            await retrieval.retrieve_prepared(prepared)
-        await retrieval.close()
-    run_async(exercise())
-
-
-def test_cancellation_and_shutdown_keep_ownership_through_source_cleanup():
-    async def exercise():
-        owner, employee = service()
-        entered, release = asyncio.Event(), asyncio.Event()
-        async def read(user_id):
-            entered.set()
-            try:
-                await asyncio.Future()
-            finally:
-                await release.wait()
-        employee.find_by_user_id.side_effect = read
-        await owner.start()
-        task = asyncio.create_task(owner.execute(QUESTION, 5, 7))
-        await entered.wait()
-        task.cancel()
-        await asyncio.sleep(0)
-        assert owner.busy
-        with pytest.raises(ApiError, match='busy'):
-            await owner.execute(QUESTION, 5, 7)
-        closing = asyncio.create_task(owner.close())
-        await asyncio.sleep(0)
-        assert not closing.done()
-        release.set()
-        with pytest.raises(asyncio.CancelledError):
-            await task
-        await closing
-        assert not owner.busy
-        employee.close.assert_awaited_once()
-    run_async(exercise())
-
 
 def test_disconnect_wrapper_cancels_and_drains_operation():
     async def exercise():
@@ -394,4 +103,120 @@ def test_disconnect_wrapper_cancels_and_drains_operation():
         with pytest.raises(asyncio.CancelledError):
             await execute_until_disconnect(request, operation())
         assert completed.is_set()
+    run_async(exercise())
+
+
+@pytest.mark.parametrize('endpoint', ENDPOINTS)
+@pytest.mark.parametrize('task', TASKS)
+def test_unified_facts_by_label_value_without_private_profile(endpoint, task, caplog):
+    owner, employee = service()
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=HEADERS) as client:
+        response = client.post(endpoint, json={'text': f'{task.label} của tôi là gì?', 'hrm_user_id': 7})
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data['schema_version'] == 2 and 'source_type' not in data and 'employee_claims' not in data
+    fact = next(e for e in data['evidence'] if e['kind'] == 'employee')
+    expected = 'Test manager' if task.field == 'manager_name' else getattr(profile(), task.field)
+    assert (fact['field'], fact['label'], fact['value']) == (task.field, task.label, expected)
+    assert data['application']['state'] == 'applied'
+    if endpoint.endswith('answer'):
+        assert data['status'] == 'answered'
+        assert data['claims'][0]['evidence_refs'] == [fact['id']]
+        assert 'Thông tin hồ sơ' not in data['answer'] and 'Thông tin chính sách' not in data['answer']
+    else:
+        assert data['status'] == 'evidence_found' and data['matches'] == []
+    assert 'restricted-marker' not in response.text + caplog.text
+    assert KEY not in response.text + caplog.text and 'hrm_user_id' not in response.text
+    employee.read_context.assert_awaited_once()
+    owner.retrieval.retrieve_prepared.assert_not_awaited()
+    employee.close.assert_awaited_once()
+
+
+@pytest.mark.parametrize('endpoint', ENDPOINTS)
+@pytest.mark.parametrize('value', [None, True, False, 0, -1, 1.5, '7', 2**53])
+def test_required_strict_identity_before_reads(endpoint, value):
+    owner, employee = service()
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=HEADERS) as client:
+        for body in ({'text': QUESTION}, {'text': QUESTION, 'hrm_user_id': value}, {'text': QUESTION, 'employee_id': 42}):
+            assert client.post(endpoint, json=body).status_code == 422
+    employee.read_context.assert_not_awaited()
+
+
+@pytest.mark.parametrize('endpoint', ENDPOINTS)
+def test_service_auth_required_even_for_general_documents(endpoint):
+    owner, employee = service()
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        for headers in ({}, {'X-Rita-Service-Key':'wrong'}):
+            assert client.post(endpoint, json={'text': 'Quy định chung?', 'hrm_user_id':7}, headers=headers).status_code == 401
+    employee.read_context.assert_not_awaited()
+
+
+@pytest.mark.parametrize('error', [EmployeeSourceError('source_timeout'), EmployeeValidationError('conflicting_rows'), EmployeeSourceError('source_access_denied')])
+def test_personnel_failure_is_explicit_and_does_not_fabricate_facts(error, caplog):
+    owner, employee = service()
+    employee.read_context.side_effect = error
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=HEADERS) as client:
+        response = client.post('/api/v1/answer', json={'text': QUESTION,'hrm_user_id':7})
+    data=response.json()
+    assert data['status'] == 'insufficient_evidence' and not data['evidence']
+    assert data['application']['state'] == 'unavailable' and data['limitations']
+    employee.read_context.assert_awaited_once()
+    assert KEY not in caplog.text and 'restricted-marker' not in caplog.text
+
+
+def test_missing_profile_null_field_and_disabled_source_differ():
+    owner, employee=service(personnel=profile(official_date=None))
+    with TestClient(create_app(owner.settings, service_factory=lambda _:owner),headers=HEADERS) as client:
+        data=client.post('/api/v1/answer',json={'text':QUESTION,'hrm_user_id':7}).json()
+        assert data['evidence'][0]['value'] is None and data['application']['state']=='partial'
+        employee.read_context.side_effect=None
+        employee.read_context.return_value=None
+        data=client.post('/api/v1/answer',json={'text':QUESTION,'hrm_user_id':7}).json()
+        assert not data['evidence'] and data['application']['state']=='not_found'
+    owner,_=service(enabled=False)
+    with TestClient(create_app(owner.settings,service_factory=lambda _:owner),headers=HEADERS) as client:
+        data=client.post('/api/v1/answer',json={'text':QUESTION,'hrm_user_id':7}).json()
+        assert data['application']['state']=='disabled'
+
+
+def test_general_retrieval_keeps_order_and_has_no_unnecessary_employee_reads():
+    owner,employee=service()
+    with TestClient(create_app(owner.settings,service_factory=lambda _:owner),headers=HEADERS) as client:
+        data=client.post('/api/v1/retrieve',json={'text':'Quy định an toàn chung?','hrm_user_id':7}).json()
+    assert data['schema_version']==2 and data['status']=='evidence_found'
+    assert data['document_status']=='matches_found' and data['matches'][0]['chunk_id']=='chunk'
+    assert data['application']['state']=='not_needed' and data['evidence']==[]
+    employee.read_context.assert_not_awaited()
+    owner.retrieval.prepare_query.assert_awaited_once()
+    owner.retrieval.retrieve_prepared.assert_awaited_once()
+
+
+def test_openapi_requires_id_and_only_unified_success_schema():
+    owner,_=service()
+    schema=create_app(owner.settings).openapi()
+    assert 'hrm_user_id' in schema['components']['schemas']['RetrieveRequest']['required']
+    assert 'ContextAnswerResponse' not in schema['components']['schemas']
+    assert 'UnifiedAnswerResponse' in schema['components']['schemas']
+
+
+def test_cancellation_drains_employee_read_and_releases_request_slot():
+    async def exercise():
+        owner,employee=service()
+        owner.started=True
+        owner.context.available=True
+        entered=asyncio.Event()
+        async def blocked(*args,**kwargs):
+            entered.set()
+            await asyncio.Event().wait()
+        employee.read_context.side_effect=blocked
+        task=asyncio.create_task(owner.execute(QUESTION,5,7,answer=True))
+        await entered.wait()
+        with pytest.raises(ApiError) as error:
+            await owner.execute(QUESTION,5,7,answer=True)
+        assert error.value.status_code==429
+        task.cancel()
+        with pytest.raises(asyncio.CancelledError): await task
+        assert not owner.busy and owner._idle.is_set()
+        await owner.close()
+        employee.close.assert_awaited_once()
     run_async(exercise())

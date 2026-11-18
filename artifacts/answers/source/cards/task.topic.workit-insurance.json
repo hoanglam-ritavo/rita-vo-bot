@@ -67,5 +67,27 @@
         }
       ]
     }
+  },
+  "context": {
+    "mode": "branch",
+    "groups": [
+      "work",
+      "insurance"
+    ],
+    "manager": false,
+    "prompts": {
+      "benefit_event": "Sự kiện hưởng chính sách: số bảo hiểm/ngày tham gia không thay thế lịch sử đóng và hồ sơ được duyệt."
+    },
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [
+      "social_insurance_number",
+      "social_insurance_date",
+      "health_insurance_number",
+      "health_clinic"
+    ],
+    "family_summary": false
   }
 }

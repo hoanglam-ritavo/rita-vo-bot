@@ -52,7 +52,7 @@ class ConversationRequest(RetrieveRequest):
 
 
 class RetryRequest(Identity):
-    hrm_user_id: int | None = Field(default=None, gt=0, le=2**53 - 1)
+    hrm_user_id: int = Field(gt=0, le=2**53 - 1)
 
 
 class TurnResponse(StrictModel):

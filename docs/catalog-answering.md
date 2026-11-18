@@ -8,7 +8,9 @@ threshold profile, learned passage-scoring layer, hosted service or generator.
 E5 and the optional pinned ONNX reranker still retrieve/rank document candidates.
 Neither distance nor reranker score certifies relevance, correctness or completeness.
 
-`POST /api/v1/retrieve` and the retrieval CLI return at most top-K candidates.
+`POST /api/v1/retrieve` and the retrieval CLI return at most top-K document candidates.
+HTTP additionally uses the [unified contextual envelope](contextual-answers.md);
+the CLI retains the document-only contract.
 Nonempty results have `relevance.status=unassessed` and warnings
 `relevance_not_assessed` and `evidence_completeness_not_assessed`.
 Empty results distinguish no eligible documents from no candidates. Legacy
@@ -27,19 +29,23 @@ arbitrary publication. Missing references cannot be filled from disk or old clai
 Every claim requires all of its references. Independently supported claims may
 produce a partial answer; complete declared aspects can produce `answered`.
 This is authored scope completeness, not proof of exhaustive policy coverage.
-Ambiguous, aggregate, personal-eligibility and multi-task questions ask for
-clarification. Unknown tasks return insufficient evidence without nearest excerpts.
+Ambiguous, aggregate and multi-task questions ask for clarification. Personal
+application uses the task's declared context requirements and remains conditional
+when operational or historical evidence is missing. Unknown tasks return
+insufficient evidence without nearest excerpts.
 An explicit document request such as `tìm tài liệu` may return bounded verbatim
 excerpts, always labeled partial and unassessed. No automatic policy precedence
 or conflicting-source synthesis is implemented.
 
-Type B retains its bounded self-reference task registry and readonly adapter.
-It requires the trusted backend service key and authorized user ID, preserves
-nulls and requested-field limits, and has no classifier hints. Mixed answers
-separate policy from personnel facts without deciding personal entitlement.
-Unavailable policy templates do not block an otherwise supported Type B answer.
+Type B supplies task-bound readonly employee facts through the common coordinator.
+Every HTTP answer/retrieve requires the shared service key and authorized HRM ID.
+Unified claims reference document/employee/user-input/calculation evidence, preserving
+nulls and field limits. Unavailable policy templates do not block a supported
+employee fact lookup, and unavailable HRM does not block grounded general policy.
 
-HTTP request/response field names and existing answer statuses remain compatible.
+HTTP response schema 2 replaces the old source branches; coordinated deployment
+is required. Answer status literals remain; retrieval has unified evidence statuses
+plus a separate document_status. See [rollout](contextual-answers.md#conversations-and-rollout).
 Generation/verification times remain zero. Busy limits, deadlines, worker draining
 and safe operational failures remain in place. Operational logs contain fixed
 codes, generated request IDs, outcomes and timings, never questions/source text.
@@ -47,7 +53,7 @@ codes, generated request IDs, outcomes and timings, never questions/source text.
 ## Authoring and schemas
 
 Author language, tasks and optional retrieval metadata in their declared `artifacts/semantics/source/`, `artifacts/answers/source/` and `artifacts/retrieval/source/` inputs. See [cross-domain routing and evaluation](business-topics.md) and the [leave regression](leave-retrieval.md).
-The source index envelope remains version 1; its metadata selects runtime schema 2.
+The source index envelope remains version 1; its metadata selects answer catalog schema 3.
 Schema-1 answer catalogs/lexicons are rejected; the selected retrieval catalog uses schema 2. Deploy the code and all selected artifacts
 together; runtime performs no implicit conversion or version discovery.
 

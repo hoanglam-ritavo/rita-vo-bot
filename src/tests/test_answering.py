@@ -125,10 +125,11 @@ def test_excerpts_are_verbatim_bounded_and_keep_provenance(sample):
 
 
 def service(sample):
-    owner=ApiService(Settings(Path('unused'),'a'*40, service_key=SERVICE_KEY),retrieval=SimpleNamespace(
-        start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result)),
+    owner=ApiService(Settings(Path('unused'),'a'*40, service_key=SERVICE_KEY, answer=AnswerSettings(enabled=True)),retrieval=SimpleNamespace(
+        start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result),prepare_query=AsyncMock(side_effect=lambda text,top_k:text)),
         database_check=AsyncMock(),database_close=AsyncMock())
     owner.retrieval.read_evidence = owner.retrieval.retrieve
+    owner.retrieval.retrieve_prepared = owner.retrieval.retrieve
     owner.started=True
     owner.answers.available=True
     owner.answers.catalog,owner.answers.lexicon=sample.catalog,sample.lexicon
@@ -147,12 +148,12 @@ def test_http_wire_sources_no_qwen_and_default_query(sample,top_k,monkeypatch,ca
     owner.settings=replace(owner.settings,top_k=7)
     owner.answers.settings=owner.settings
     with TestClient(create_app(owner.settings,service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
-        body={'text':'Sinh con được bao nhiêu?'}
+        body={'hrm_user_id':7,'text':'Sinh con được bao nhiêu?'}
         if top_k: body['top_k']=top_k
         response=client.post('/api/v1/answer',json=body)
     assert response.status_code==200
     data=response.json()
-    assert data['status']=='answered' and '[S1]' in data['answer']
+    assert data['status']=='answered' and '[C1]' in data['answer']
     assert data['sources'][0]['origins'][0]['chunk_id']=='chunk'
     assert data['timings']['generation_seconds']==data['timings']['verification_seconds']==0
     assert not {'draft','verdict','confidence','request_id'} & data.keys()
@@ -239,7 +240,7 @@ def test_config_retired_keys_cannot_load_models():
 async def http_answer(app, incoming, watchers):
     """Exercise the ASGI route, including Request.is_disconnected and cleanup."""
     incoming.put_nowait({'type': 'http.request', 'body': json.dumps(
-        {'text': 'Sinh con được bao nhiêu?'}).encode('utf-8'), 'more_body': False})
+        {'text': 'Sinh con được bao nhiêu?', 'hrm_user_id': 7}).encode('utf-8'), 'more_body': False})
     messages = []
 
     async def receive():
@@ -291,7 +292,7 @@ def test_http_answer_drains_worker_and_watcher_before_releasing_busy(sample, mon
         entered, cancelled, release = hold_retrieval(owner, sample.result)
         incoming, watchers = asyncio.Queue(), set()
         if termination == 'timeout':
-            monkeypatch.setattr('src.api.answer.DEADLINE_SECONDS', .01)
+            monkeypatch.setattr('src.type_b.service.DEADLINE_SECONDS', .01)
         async with app.router.lifespan_context(app):
             task = asyncio.create_task(http_answer(app, incoming, watchers))
             try:
@@ -304,8 +305,8 @@ def test_http_answer_drains_worker_and_watcher_before_releasing_busy(sample, mon
                                             base_url='http://test', headers=SERVICE_HEADERS) as client:
                     assert (await client.get('/health/live')).status_code == 200
                     assert (await client.get('/health/ready')).status_code == 200
-                    assert (await client.post('/api/v1/retrieve', json={'text': 'Second'})).status_code == 429
-                    assert (await client.post('/api/v1/answer', json={'text': 'Second'})).status_code == 429
+                    assert (await client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Second'})).status_code == 429
+                    assert (await client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Second'})).status_code == 429
                     release.set()
                     if termination == 'disconnect':
                         with pytest.raises(asyncio.CancelledError):
@@ -316,7 +317,7 @@ def test_http_answer_drains_worker_and_watcher_before_releasing_busy(sample, mon
                     assert watchers and all(w.done() for w in watchers)
                     assert not owner.busy and owner._idle.is_set() and owner.answers.available
                     owner.retrieval.retrieve.side_effect = None
-                    response = await client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu?'})
+                    response = await client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu?'})
                     assert response.status_code == 200 and response.json()['status'] == 'answered'
             finally:
                 release.set()
@@ -403,11 +404,11 @@ def test_http_catalog_failure_isolated_from_retrieval_and_health(sample, monkeyp
         health = client.get('/health/answer')
         assert health.status_code == 503
         assert health.json() == {'status': 'unavailable', 'reason': 'answer_catalog_unavailable'}
-        response = client.post('/api/v1/answer', json={'text': 'Fictional question'})
+        response = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Fictional question'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable' and 'PRIVATE' not in response.text
         owner.retrieval.retrieve.assert_not_awaited()
-        retrieval = client.post('/api/v1/retrieve', json={'text': 'Fictional question'})
+        retrieval = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Fictional question'})
         assert retrieval.status_code == 200
         assert retrieval.json()['matches'][0]['content'] == sample.result['matches'][0]['content']
     owner.retrieval.close.assert_awaited_once()
@@ -448,7 +449,7 @@ def test_answer_health_startup_states_and_safe_logs(sample, monkeypatch, caplog,
         else:
             loader.assert_called_once()
         if expected_reason:
-            failed = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
+            failed = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
             assert failed.status_code == 503
             assert failed.json()['error']['code'] == 'answer_unavailable'
         owner.retrieval.retrieve.assert_not_awaited()
@@ -510,15 +511,15 @@ def test_answer_processing_failure_has_safe_correlated_log_and_releases_slot(sam
     owner = service(sample)
     owner.retrieval.retrieve.side_effect = RuntimeError('PRIVATE_EVIDENCE credentials question')
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
+        response = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable'
         assert not owner.busy and owner._idle.is_set() and owner.answers.available
-    record = next(r for r in caplog.records if r.message.startswith('answer_processing_failed '))
+    record = next(r for r in caplog.records if r.message.startswith('context_processing_failed '))
     assert 'exception_type=RuntimeError' in record.message
     request_id = record.message.split('request_id=')[1].split()[0]
     assert len(request_id) == 32 and all(c in '0123456789abcdef' for c in request_id)
-    assert f'answer_finished request_id={request_id} status=failed' in caplog.text
+    assert f'context_finished request_id={request_id}' in caplog.text
     assert record.exc_info is None
     assert 'PRIVATE' not in caplog.text + response.text and 'credentials' not in caplog.text
 
@@ -548,7 +549,7 @@ def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sampl
         assert owners[0].settings.semantic.mode == 'expand'
         assert client.get('/health/ready').status_code == 200
         assert client.get('/health/answer').json() == {'status': 'ready', 'reason': None}
-        response = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu?'})
+        response = client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'Sinh con được bao nhiêu?'})
         assert response.status_code == 200 and response.json()['status'] == 'answered'
         loader.assert_called_once()
     owners[0].database_close.assert_awaited_once()

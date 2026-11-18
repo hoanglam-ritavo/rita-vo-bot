@@ -6,7 +6,7 @@ import time
 from src.retrieval import RetrievalService, RetrievalError
 from .contracts import ApiError, RetrievalResponse, Timings, Match
 from .answer import AnswerService
-from src.type_b.service import TypeBCoordinator
+from src.type_b.service import ContextCoordinator
 
 logger = logging.getLogger(__name__)
 REQUEST_TIMEOUT_SECONDS = 120
@@ -26,7 +26,7 @@ class ApiService:
         self._idle = asyncio.Event()
         self._idle.set()
         self.answers = AnswerService(settings, self)
-        self.context = TypeBCoordinator(self, employee_service)
+        self.context = ContextCoordinator(self, employee_service)
 
     async def start(self):
         if self.started:

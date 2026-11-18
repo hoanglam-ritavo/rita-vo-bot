@@ -204,10 +204,10 @@ def test_http_keeps_wire_contract_and_hides_expansion(tmp_path, monkeypatch):
         rerank=service.rerank_settings, semantic=service._semantic.settings, service_key=SERVICE_KEY)
     api = ApiService(settings, retrieval=service, database_check=AsyncMock(), database_close=AsyncMock())
     with TestClient(create_app(settings, service_factory=lambda _: api), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/retrieve', json={'text': 'đi muộn', 'top_k': 5})
+        response = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'đi muộn', 'top_k': 5})
         assert response.status_code == 200
         data = response.json()
-        assert set(data) == {'status', 'matches', 'fallback_reason', 'relevance', 'timings'}
+        assert set(data) == {'schema_version','evidence','application','document_status','status', 'matches', 'fallback_reason', 'relevance', 'timings'}
         assert data['fallback_reason'] is None
         assert data['relevance']['status'] == 'unassessed'
         assert len(search.call_args.kwargs['extra_vectors']) == 1

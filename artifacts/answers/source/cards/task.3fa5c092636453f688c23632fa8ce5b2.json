@@ -70,5 +70,19 @@
     }
   },
   "source_type": "type_a",
-  "clarification": "Bạn vui lòng nêu rõ đối tượng và thông tin cần hỏi về nhận thư e-postal."
+  "clarification": "Bạn vui lòng nêu rõ đối tượng và thông tin cần hỏi về nhận thư e-postal.",
+  "context": {
+    "mode": "fill",
+    "groups": [
+      "work"
+    ],
+    "manager": false,
+    "prompts": {},
+    "template": "Khi chuẩn bị thông tin cho yêu cầu, bạn có thể dùng: {employee_name} · {employee_code} · {job_title} · {department_name}.",
+    "operation": null,
+    "date_field": null,
+    "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
+    "facts": [],
+    "family_summary": false
+  }
 }

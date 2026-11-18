@@ -53,40 +53,47 @@ See [contracts, limitations and rollout](docs/conversations.md).
 
 ## Readonly HRM source foundation
 
-`src.employee_source` owns a lazy independent PostgreSQL/psycopg connection,
+`src.type_b.employee_store` owns a lazy independent PostgreSQL/psycopg connection,
 fixed 64-column employee_sso_store repository, immutable validated contracts and
-service reads by one/batched user_id. HRM_DATABASE_URL never falls back to the
+service reads by one/batched user_id or employee_id, plus one-hop manager resolution.
+The full 64-field source model permits null user IDs for employee-ID reads;
+authenticated HTTP identity requirements and the nine exposed facts are unchanged.
+The module owns contracts, field registry, normalization, selector, repository,
+connection, errors and service; there is no separate source implementation.
+HRM_DATABASE_URL never falls back to the
 Type A database; schema defaults to public. All source relations are readonly:
 dedicated externally provisioned SELECT-only privileges, readonly connection
 defaults and REPEATABLE READ / READ ONLY transactions. No ORM/Alembic registration,
-source writes, preload, cache, alias/account access or synchronization is added.
+source writes, preload, cache, authentication-alias/account access or synchronization is added.
 The backend's microsecond timestamp/completeness/employee_id selector is ported,
 including inactive winners and conflict failures before normalization.
 
-The source module remains an internal data-access foundation. The opt-in
-src/type_b HTTP coordinator now uses it for bounded self work-profile evidence;
-backend retains end-user authentication and authorization. The
-check_employee_source CLI checks metadata/readonly capabilities
-without returning personnel. See [employee source](docs/employee-source.md) for
-the full property dictionary, lifecycle, role prerequisites, semantic unknowns,
-errors and preprovisioned disposable test contract.
+Manager reads select subjects and targets in one readonly snapshot, using a work-only
+projection and at most three queries per batch. Exact manager employee ID wins;
+code is a case-sensitive fallback only without ID, with full candidate groups and
+representative-code rechecks. Missing, ambiguous, conflicting and self-referencing
+links have explicit results; source failures remain errors. Inactive/unlinked
+managers retain those properties. Manager relation does not establish approval
+authority. Closing rejects new work, drains existing calls and disposes once.
+Context requirements, evidence contracts and source-bound composition live under
+`src/answering/`; the request coordinator lives in `src/type_b/service.py`.
+Backend retains end-user authorization. The employee source remains internal and
+readonly. See [employee source](docs/employee-source.md) for the property registry.
 
 ## Type B HTTP coordination
 
-Both endpoints accept optional hrm_user_id (HRM user_id/backend odooId), not
-employee_id. TYPE_B_ENABLED defaults false; a supplied reference or B/mixed route
-requires X-Rita-Service-Key. Backend must bind the ID to an authorized authenticated
-user. A shared coordinator matches
-versioned bounded work tasks, reads the readonly employee service and/or retrieves
-policy documents. It exposes only requested work fields, preserves null/missing/error
-outcomes and never resolves identity by name/email. There is no learned source-hint observer; the deterministic work-task registry owns routing. Retrieval requests may reuse one prepared E5 vector; template answers use direct evidence reads.
+One task pipeline resolves documents and the minimum declared personnel projection.
+Every HTTP answer/retrieve requires a trusted Backend-derived hrm_user_id. Catalog
+schema 3 declares a contextual disposition for each task. Response schema 2 has
+one evidence graph for documents, employee facts, user inputs and calculations;
+no A/B/mixed response branch remains. Missing HRM never fabricates facts or blocks
+otherwise grounded policy. Exact date intervals are distinguished from policy
+entitlement. Manager lookup shares the subject's readonly transaction.
 
-Type A wire responses stay unchanged; B/mixed have strict evidence/claim variants.
-Database facts never become document chunks or fabricated quotations. B-only answer
-templates work without the policy catalog; mixed separates facts/policy and does
-not infer personal entitlement. Request ownership, 429, deadline, cancellation and
-shutdown draining cover both sources. API owns/closes its HRM pool; HRM preflight
-failure leaves Type A available. See [HTTP contract and rollout](docs/type-b-http.md).
+Reducer schema 3 stores bounded user assertions and task references, never cached
+employee authority; cache namespace v2 isolates old checkpoints. Portal renders
+one answer/evidence view. See [contextual contract, limits and development chat
+reset](docs/contextual-answers.md). The reset is an explicit CLI, not startup work.
 
 ## Command ownership
 
@@ -136,7 +143,7 @@ and [question maintenance](artifacts/questions/README.md).
 
 ## Implemented storage and ingestion
 
-The schema chain is the applied `bce4184a7f51` baseline followed by additive `c7d92e6a104b` publication guards. The latter preserves tables/data and restores timestamp, immutable revision identity and append-only audit triggers. Fresh baseline installation requires vector provisioning first; older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the 14-table data dictionary, invariant ownership, execution receipts, metadata audit and initialization boundaries.
+The schema chain is the applied `bce4184a7f51` baseline, additive `c7d92e6a104b` publication guards, then `d8e031c72b19` conversation storage (current head). There are 17 application tables: 14 corpus/publication tables and 3 conversation tables. The guards preserve tables/data and restore timestamp, immutable revision identity and append-only audit triggers. Alembic executes pending revisions in dependency order; fresh baseline installation requires vector provisioning before the baseline, not at the later guard revision. Follow the [database provisioning procedure](src/database/README.md#fresh-database-provisioning); older migration histories need separate reconciliation. See [database design](docs/database-design.md) for the corpus data dictionary, invariant ownership, execution receipts and metadata audit, and [conversation storage](docs/conversations.md#enablement-and-storage) for chat provisioning.
 
 Python 3.14, async SQLAlchemy/psycopg and PostgreSQL/pgvector provide Type A catalog/vector/structured evidence and separate conversation tables with explicit migrations. Engines remain lazy; entrypoint imports do not connect to the database. E5-small retrieval and source-bound templates are implemented. Type B uses its independent readonly connection. Opt-in conversations persist history and structured context; broader operational tools remain future work. Synthetic tests do not establish real-model quality.
 
@@ -237,7 +244,7 @@ Current deterministic policy answering lives in `src.answering`: schema-v2 catal
 
 An unambiguous task reads its declared evidence directly from current eligible DB publications, independently of top-K. Claims require every reference; partial evidence can yield independently supported partial claims. Unknown tasks expose no nearest excerpts. Explicit document lookups can return labeled unassessed excerpts. Multi-task, unsupported personal eligibility, aggregate and ambiguous questions ask for clarification. This changes the old top-K-only evidence policy intentionally.
 
-Type B uses the bounded self-reference registry and readonly employee adapter. Mixed results separate policy and facts without deciding eligibility. Structured conversation memory is independently opt-in; broader tools, cross-employee lookup, automatic aggregates and generative answers remain future work.
+Type B uses the bounded self-reference registry and readonly employee adapter. Unified evidence preserves policy/fact provenance without deciding eligibility. Structured conversation memory is independently opt-in; broader tools, cross-employee lookup, automatic aggregates and generative answers remain future work.
 
 `src.artifact_authoring.impact` reports dependency-local drift and relinks only unique byte-identical evidence with unchanged revision/source/context. Build/check generates compatible artifacts. Content/revision changes require targeted review, not fingerprint edits or training. See [authoring/release](docs/catalog-answering.md).
 

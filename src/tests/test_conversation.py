@@ -21,7 +21,7 @@ from pathlib import Path
 
 def request(**changes):
     return ConversationRequest.model_validate(dict(user_id=str(uuid4()), room_id=str(uuid4()),
-        message_id=str(uuid4()), text='fictional', expected_context_version=0, top_k=5) | changes)
+        message_id=str(uuid4()), hrm_user_id=7, text='fictional', expected_context_version=0, top_k=5) | changes)
 
 
 def catalog():
@@ -62,14 +62,13 @@ def test_conservative_followups_clarification_and_topic_switch():
 def test_context_does_not_promote_employee_facts_or_assistant_text():
     cat, lex = catalog(), {'concepts': []}
     _, state = reduce_question('phòng ban của tôi', {}, cat, lex)
-    value = result() | {'source_type': 'type_b', 'employee_evidence': {'status': 'found', 'facts': ['private']}}
+    value = result() | {'application': {'state': 'applied'}, 'evidence': ['private']}
     state = compact(state, value)
     question, _ = reduce_question('còn quản lý trực tiếp thì sao?', state, cat, lex)
     assert 'của tôi' in question
     assert 'private' not in str(state) and 'Fictional clarification' not in str(state)
     _, unclear = reduce_question('phòng ban', {}, cat, lex)
-    unclear = compact(unclear, result() | {'source_type': 'type_b',
-        'employee_evidence': {'status': 'needs_clarification'}})
+    unclear = compact(unclear, result() | {'application': {'state': 'not_needed'}})
     question, _ = reduce_question('quản lý trực tiếp', unclear, cat, lex)
     assert question == 'quản lý trực tiếp'
     for _ in range(10):
@@ -116,7 +115,7 @@ def test_service_commits_before_cache_and_replays_without_inference():
         value = await svc.answer(req)
         assert value.state == 'COMPLETED'
         store.finish.assert_awaited_once()
-        assert (await cache.get(svc.key(req.room_id, req.user_id), namespace='conversation-context-v1'))['version'] == 1
+        assert (await cache.get(svc.key(req.room_id, req.user_id), namespace='conversation-context-v2'))['version'] == 1
         store.begin.return_value = (value, False)
         assert await svc.answer(req) == value
         owner.context.execute.assert_awaited_once()
@@ -164,7 +163,7 @@ def test_deleted_during_completion_evicts_late_cache():
         svc = ConversationService(owner, cache, store)
         with pytest.raises(ApiError):
             await svc.answer(req)
-        assert await cache.get(svc.key(req.room_id, req.user_id), namespace='conversation-context-v1') is None
+        assert await cache.get(svc.key(req.room_id, req.user_id), namespace='conversation-context-v2') is None
         await cache.close()
     asyncio.run(scenario())
 
@@ -181,7 +180,7 @@ def test_http_requires_full_identity_key_and_preserves_stateless():
             svc.answer = AsyncMock(return_value=TurnResponse(room_id=req.room_id, message_id=req.message_id,
                 sequence=1, state='PROCESSING', attempt=1, context_version=0))
             assert client.post('/api/v1/answer', json=req.model_dump()).status_code == 401
-            assert client.post('/api/v1/answer', json={'text': 'x', 'room_id': req.room_id}, headers=SERVICE_HEADERS).status_code == 422
+            assert client.post('/api/v1/answer', json={'hrm_user_id': 7, 'text': 'x', 'room_id': req.room_id}, headers=SERVICE_HEADERS).status_code == 422
             response = client.post('/api/v1/answer', json=req.model_dump(), headers=SERVICE_HEADERS)
             assert response.status_code == 202 and response.headers['cache-control'] == 'no-store'
             svc.answer.assert_awaited_once()

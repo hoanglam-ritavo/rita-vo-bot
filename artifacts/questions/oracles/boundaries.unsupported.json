@@ -150,19 +150,21 @@
       "case_id": "q.boundaries.unsupported.009",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence",
-        "unsupported"
+        "partial"
       ],
       "task_ids_any": [],
       "forbidden_task_ids": [],
       "required_source_groups": [],
       "forbidden_documents": [],
-      "employee_fields": [],
+      "employee_fields": [
+        "official_date"
+      ],
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
     },
     {
       "case_id": "q.boundaries.unsupported.010",

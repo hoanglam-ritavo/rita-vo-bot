@@ -1,7 +1,7 @@
 """Fixed SELECT-only queries. The connection is private to the source module."""
 from sqlalchemy import bindparam, text
 
-from .contracts import DATE_FIELDS, INTEGER_FIELDS, LIST_FIELDS, PROFILE_FIELDS
+from .fields import DATE_FIELDS, PROFILE_FIELDS, WORK_FIELDS, FIELD_REGISTRY, RELATION
 from .errors import EmployeeSourceError
 from src.database.config import ConfigurationError
 import re
@@ -11,17 +11,37 @@ class EmployeeRepository:
     def __init__(self, schema: str):
         if not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]{0,62}', schema):
             raise ConfigurationError('HRM_DATABASE_SCHEMA must be a simple PostgreSQL identifier.')
-        self._relation = f'"{schema}"."employee_sso_store"'
+        self._relation = f'"{schema}"."{RELATION}"'
         self._schema = schema
 
-    async def _read_by_ids(self, connection, ids):
-        projection = ', '.join(
+    def _projection(self, fields):
+        return ', '.join(
             f"to_char(\"{name}\", 'YYYY-MM-DD') AS \"{name}\"" if name in DATE_FIELDS else
             '"updated_at"::text AS "updated_at"' if name == 'updated_at' else f'"{name}"'
-            for name in PROFILE_FIELDS)
-        query = text(f'SELECT {projection} FROM {self._relation} WHERE "user_id" IN :ids')
+            for name in fields)
+
+    async def _read_by_ids(self, connection, ids, *, key='user_id', work_only=False, fields=None):
+        if key not in ('user_id', 'employee_id'):
+            raise ValueError('invalid_lookup_key')
+        fields = fields if fields is not None else WORK_FIELDS if work_only else PROFILE_FIELDS
+        if not set(fields) <= set(FIELD_REGISTRY):
+            raise ValueError('invalid_projection')
+        query = text(f'SELECT {self._projection(fields)} FROM {self._relation} WHERE "{key}" IN :ids')
         query = query.bindparams(bindparam('ids', expanding=True))
         result = await connection.execute(query, {'ids': tuple(ids)})
+        return [dict(row) for row in result.mappings()]
+
+    async def _read_code_candidates(self, connection, codes):
+        # Fetch whole employee groups; a matching obsolete code must not become current.
+        query = text(f'''SELECT {self._projection(WORK_FIELDS)} FROM {self._relation}
+            WHERE "employee_id" IN (
+                SELECT "employee_id" FROM {self._relation}
+                WHERE btrim("employee_code", :whitespace) IN :codes
+            )''').bindparams(bindparam('codes', expanding=True))
+        # Match Python str.strip(), also used by normalization, without lowercasing.
+        whitespace = '\t\n\v\f\r\x1c\x1d\x1e\x1f \x85\xa0\u1680' + ''.join(
+            chr(value) for value in range(0x2000, 0x200b)) + '\u2028\u2029\u202f\u205f\u3000'
+        result = await connection.execute(query, {'codes': tuple(codes), 'whitespace': whitespace})
         return [dict(row) for row in result.mappings()]
 
     async def _check(self, connection):
@@ -31,13 +51,7 @@ class EmployeeRepository:
         '''), {'schema': self._schema})
         columns = dict(result.tuples())
         for name in PROFILE_FIELDS:
-            allowed = ({'int2', 'int4', 'int8'} if name in INTEGER_FIELDS else
-                       {'date', 'timestamp', 'timestamptz'} if name in DATE_FIELDS else
-                       {'timestamptz'} if name == 'updated_at' else
-                       {'bool'} if name == 'active' else
-                       {'numeric', 'float4', 'float8', 'int2', 'int4', 'int8'} if name in ('height', 'weight') else
-                       {'json', 'jsonb', 'text', 'varchar'} if name in LIST_FIELDS else
-                       {'text', 'varchar', 'bpchar'})
+            allowed = FIELD_REGISTRY[name].postgres_types
             if columns.get(name) not in allowed:
                 raise EmployeeSourceError('schema_incompatible')
         # Inspect effective role capabilities, including memberships usable with SET ROLE.

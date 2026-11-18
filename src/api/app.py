@@ -9,8 +9,7 @@ from fastapi.responses import JSONResponse
 from src.helper.cache import CacheManager
 
 from .config import load_settings
-from .contracts import RetrievalResponse, AnswerResponse, AnswerHealthResponse, ApiError, RetrieveRequest
-from .contracts import ContextRetrievalResponse, ContextAnswerResponse
+from .contracts import RetrievalResponse, AnswerResponse, AnswerHealthResponse, ApiError, RetrieveRequest, UnifiedAnswerResponse, UnifiedRetrievalResponse
 from .answer import drain
 from .service import ApiService
 from src.conversation.contracts import ConversationRequest, TurnResponse
@@ -97,12 +96,12 @@ def create_app(settings=None, *, service_factory=ApiService):
     @app.exception_handler(RequestValidationError)
     async def input_error(request, exc):
         # Do not echo the submitted text in validation errors.
-        return JSONResponse(status_code=422, headers={'Cache-Control': 'no-store'}, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20; hrm_user_id là số nguyên dương hoặc null.'}})
+        return JSONResponse(status_code=422, headers={'Cache-Control': 'no-store'}, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20; hrm_user_id bắt buộc là số nguyên dương.'}})
 
-    @app.post('/api/v1/retrieve', response_model=RetrievalResponse | ContextRetrievalResponse,
+    @app.post('/api/v1/retrieve', response_model=UnifiedRetrievalResponse,
         description='Retrieve at most top_k unassessed source candidates. '
                     'scores and relevance metadata do not certify confidence or complete evidence. '
-                    'Optional hrm_user_id enables readonly work-profile evidence when Type B is configured; '
+                    'Required hrm_user_id enables readonly work-profile evidence when Type B is configured; '
                     'requires X-Rita-Service-Key and backend authorization.', responses={
         401: {'description': 'Trusted service authentication required for personnel context.'},
         422: {'description': 'Invalid text, top-K or model token limit exceeded.'},
@@ -116,13 +115,13 @@ def create_app(settings=None, *, service_factory=ApiService):
         service = request.app.state.retrieval_service
         top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
         result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id))
-        if body.hrm_user_id is not None or isinstance(result, ContextRetrievalResponse):
+        if body.hrm_user_id is not None:
             response.headers['Cache-Control'] = 'no-store'
         return result
 
-    @app.post('/api/v1/answer', response_model=TurnResponse | AnswerResponse | ContextAnswerResponse,
+    @app.post('/api/v1/answer', response_model=TurnResponse | UnifiedAnswerResponse,
               description='Opt-in source-bound Semantic + template answers, with explicit excerpt fallback. '
-                          'Optional hrm_user_id supports readonly work-profile facts through a trusted backend. '
+                          'Required hrm_user_id supports readonly work-profile facts through a trusted backend. '
                           'Optional authenticated conversation fields enable durable turns and structured context. '
                           'No generative model or individual policy eligibility decisions.',
               responses={401: {'description': 'Trusted service authentication required.'},
@@ -145,7 +144,7 @@ def create_app(settings=None, *, service_factory=ApiService):
             return result
         top_k = body.top_k if 'top_k' in body.model_fields_set else service.settings.top_k
         result = await execute_until_disconnect(request, service.execute(body.text, top_k, body.hrm_user_id, answer=True))
-        if body.hrm_user_id is not None or isinstance(result, ContextAnswerResponse):
+        if body.hrm_user_id is not None:
             response.headers['Cache-Control'] = 'no-store'
         return result
 

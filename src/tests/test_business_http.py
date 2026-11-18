@@ -18,9 +18,10 @@ def test_mixed_answer_keeps_policy_when_hrm_is_unavailable(sample):
         assert response.status_code == 200
         value = response.json()
         assert value['status'] == 'partial' and value['claims']
-        assert value['employee_evidence'] == dict(status='unavailable',facts=[],source=None,reason='employee_source_unavailable')
-        assert not value['employee_claims']
+        assert value['application']['state'] == 'unavailable'
+        assert all(e['kind']=='document' for e in value['evidence'])
         assert value['sources'] and value['limitations']
         pure = client.post('/api/v1/answer', json={'text': 'Chức danh của tôi là gì?', 'hrm_user_id': 7})
-        assert pure.status_code == 503 and pure.json()['error']['code'] == 'employee_source_unavailable'
-    employee.find_by_user_id.assert_not_awaited()
+        assert pure.status_code == 200 and pure.json()['application']['state']=='unavailable'
+        assert pure.json()['status']=='insufficient_evidence' and not pure.json()['evidence']
+    employee.read_context.assert_not_awaited()

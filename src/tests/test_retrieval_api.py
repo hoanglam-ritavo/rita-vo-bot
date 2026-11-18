@@ -39,6 +39,8 @@ def service(**changes):
     retrieval = AsyncMock()
     retrieval.started = True
     retrieval.retrieve.return_value = {'status': 'matches_found', 'matches': [match()], 'fallback_reason': None}
+    retrieval.prepare_query.side_effect = lambda text, top_k: text
+    retrieval.retrieve_prepared = retrieval.retrieve
     return ApiService(settings(**changes), retrieval=retrieval,
                       database_check=AsyncMock(), database_close=AsyncMock())
 
@@ -47,20 +49,20 @@ def test_http_contract_lifecycle_defaults_and_removed_route():
     svc = service(top_k=7)
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
         assert client.get('/health/live').status_code == client.get('/health/ready').status_code == 200
-        assert client.post('/api/v1/ask', json={'text': 'Question'}).status_code == 404
+        assert client.post('/api/v1/ask', json={'hrm_user_id': 7, 'text': 'Question'}).status_code == 404
         schema = client.get('/openapi.json').json()
         assert '/api/v1/ask' not in schema['paths']
         assert 'rerank_score' in schema['components']['schemas']['Match']['properties']
-        assert 'relevance' in schema['components']['schemas']['RetrievalResponse']['properties']
-        result = client.post('/api/v1/retrieve', json={'text': '  Question  '})
+        assert 'relevance' in schema['components']['schemas']['UnifiedRetrievalResponse']['properties']
+        result = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': '  Question  '})
         assert result.status_code == 200
         data = result.json()
-        assert set(data) == {'status', 'matches', 'timings', 'relevance', 'fallback_reason'}
+        assert set(data) == {'schema_version', 'evidence', 'application', 'document_status', 'status', 'matches', 'timings', 'relevance', 'fallback_reason'}
         assert data['matches'] == [match() | {'rerank_score': None}]
         assert data['relevance'] == {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}
         assert set(data['timings']) == {'retrieval_seconds', 'total_seconds', 'rerank_seconds'}
         svc.retrieval.retrieve.assert_awaited_with('Question', 7)
-        assert client.post('/api/v1/retrieve', json={'text': 'Second', 'top_k': 20}).status_code == 200
+        assert client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Second', 'top_k': 20}).status_code == 200
         svc.retrieval.retrieve.assert_awaited_with('Second', 20)
         svc.retrieval.start.assert_awaited_once()
     svc.retrieval.close.assert_awaited_once()
@@ -85,9 +87,9 @@ def test_empty_and_mismatch(status):
     svc = service()
     svc.retrieval.retrieve.return_value = {'status': status, 'matches': [], 'fallback_reason': 'no_candidates' if status == 'no_matches' else 'no_eligible_documents'}
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/retrieve', json={'text': 'Question'})
+        response = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Question'})
     assert response.status_code == (503 if status == 'model_mismatch' else 200)
-    assert response.json().get('status', response.json().get('error', {}).get('code')) == status
+    assert response.json().get('status', response.json().get('error', {}).get('code')) == ('model_mismatch' if status == 'model_mismatch' else 'no_evidence')
 
 
 @pytest.mark.parametrize('error,status,code', [
@@ -100,7 +102,7 @@ def test_safe_failures(error, status, code, caplog):
     svc = service()
     svc.retrieval.retrieve.side_effect = error
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/retrieve', json={'text': 'private question'})
+        response = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'private question'})
     assert response.status_code == status and response.json()['error']['code'] == code
     assert 'secret' not in response.text + caplog.text
     assert 'private question' not in caplog.text
@@ -172,7 +174,7 @@ def test_worker_drains_before_releasing_busy_and_health_stays_live(monkeypatch, 
             async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url='http://test', headers=SERVICE_HEADERS) as client:
                 assert (await client.get('/health/live')).status_code == 200
                 assert (await client.get('/health/ready')).status_code == 200
-                assert (await client.post('/api/v1/retrieve', json={'text': 'Second'})).status_code == 429
+                assert (await client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Second'})).status_code == 429
             closing = asyncio.create_task(svc.close())
             await asyncio.sleep(0)
             assert not closing.done()
@@ -254,14 +256,14 @@ def test_accepted_relevance_preserves_provenance_and_reports_raw_score():
         relevance={'status': 'relevant_candidates', 'warnings': ['evidence_completeness_not_assessed']},
         rerank_seconds=.25)
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/retrieve', json={'text': 'A synthetic unrelated question'})
+        response = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'A synthetic unrelated question'})
         assert response.status_code == 200
         body = response.json()
         assert body['matches'] == [source]
         assert body['relevance']['status'] == 'relevant_candidates'
         assert body['timings']['rerank_seconds'] == .25
         svc.retrieval.retrieve.side_effect = RetrievalError('reranking_failed', 2)
-        failure = client.post('/api/v1/retrieve', json={'text': 'Another synthetic question'})
+        failure = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Another synthetic question'})
         assert failure.status_code == 503
         assert failure.json()['error']['code'] == 'reranking_failed'
 
@@ -271,9 +273,9 @@ def test_fallback_http_contract(reason):
     svc = service()
     svc.retrieval.retrieve.return_value = dict(status='no_matches', matches=[], fallback_reason=reason)
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        schema = client.get('/openapi.json').json()['components']['schemas']['RetrievalResponse']
+        schema = client.get('/openapi.json').json()['components']['schemas']['UnifiedRetrievalResponse']
         assert 'fallback_reason' in schema['required']
-        response = client.post('/api/v1/retrieve', json={'text': 'Question', 'top_k': 5})
+        response = client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Question', 'top_k': 5})
         assert response.status_code == 200
         assert response.json()['matches'] == []
         assert response.json()['fallback_reason'] == reason
@@ -283,7 +285,7 @@ def test_inconsistent_service_response_is_not_empty_evidence():
     svc = service()
     svc.retrieval.retrieve.return_value['fallback_reason'] = 'relevance_unavailable'
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        assert client.post('/api/v1/retrieve', json={'text': 'Question'}).status_code == 503
+        assert client.post('/api/v1/retrieve', json={'hrm_user_id': 7, 'text': 'Question'}).status_code == 503
 
 
 
@@ -375,13 +377,13 @@ def test_http_independent_filter_and_rerank_with_real_service(monkeypatch, reran
     monkeypatch.setattr(storage, 'search', AsyncMock(side_effect=search))
     svc = ApiService(settings(rerank=RerankSettings(enabled=rerank_enabled)), database_check=AsyncMock(), database_close=AsyncMock())
     with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
-        response = client.post('/api/v1/retrieve', json=dict(text='Fictional policy?', top_k=2))
+        response = client.post('/api/v1/retrieve', json=dict(text='Fictional policy?', top_k=2, hrm_user_id=7))
         assert response.status_code == 200
         result = response.json()
         expected = ['chunk-1', 'chunk-2'] if rerank_enabled else ['chunk-0', 'chunk-1']
         assert [m['chunk_id'] for m in result['matches']] == expected
         assert result['fallback_reason'] == (None if expected else 'relevance_unavailable')
-        assert result['status'] == ('matches_found' if expected else 'no_matches')
+        assert result['status'] == ('evidence_found' if expected else 'no_evidence')
         assert 'candidate_order' not in result and 'reranker_fingerprint' not in result
         assert result['relevance'] == dict(status='unassessed', warnings=[
             'evidence_completeness_not_assessed', 'relevance_not_assessed'])
