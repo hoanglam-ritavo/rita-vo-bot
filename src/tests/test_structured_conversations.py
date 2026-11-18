@@ -229,3 +229,109 @@ def test_completed_plan_is_not_rerouted_by_evidence_or_renderer(sample, monkeypa
     raw = asyncio.run(evidence_result(plan.question, owner.retrieval, sample.catalog, sample.lexicon, analysis=plan))
     rendered = render(plan.question, raw, sample.catalog, sample.lexicon, analysis=plan)
     assert rendered['status'] == 'answered' and rendered['claims']
+
+
+@pytest.mark.parametrize('reply', ['nghỉ không lương nhé', 'tôi chọn nghỉ không lương',
+    'nghỉ không lương 2 ngày', 'Loại nghỉ: nghỉ không lương'])
+def test_natural_slot_reply_keeps_original_procedure(routing, reply):
+    cat, lex, policy = routing
+    original = 'tôi muốn xin nghỉ 2 ngày cần làm thủ tục gì'
+    _, state = plan_turn(original, {}, cat, lex, policy=policy)
+    plan, state = plan_turn(reply, state, cat, lex, policy=policy)
+    assert plan.question == original and plan.aspects == ('procedure',)
+    assert plan.cards[0].id == 'task.leave.policy.unpaid'
+    assert state['request']['slots']['days'] == 2
+    assert state['request']['slots']['subtype'] == 'unpaid'
+
+
+@pytest.mark.parametrize('followup', ['làm thủ tục xin nghỉ ở đâu.', 'nộp ở đâu?', 'gửi đơn ở đâu'])
+def test_submission_followup_asks_only_platform_then_routes(routing, followup):
+    cat, lex, policy = routing
+    original = 'tôi muốn xin nghỉ 2 ngày cần làm thủ tục gì'
+    _, state = plan_turn(original, {}, cat, lex, policy=policy)
+    _, state = plan_turn('nghỉ không lương', state, cat, lex, policy=policy)
+    plan, state = plan_turn(followup, state, cat, lex, policy=policy)
+    assert plan.missing_slots == ('system',) and plan.clarification
+    assert 'nghỉ phép hay' not in plan.clarification and '2 ngày' in plan.clarification
+    plan, state = plan_turn('hướng dẫn trên Workit', state, cat, lex, policy=policy)
+    assert plan.cards[0].id == 'task.leave.workit.unpaid' and plan.aspects == ('procedure',)
+    assert plan.question == original
+    assert requirements(prepare(original, cat, lex, policy, analysis=plan)) == ((), False)
+    plan, state = plan_turn('đổi thành 3 ngày', state, cat, lex, policy=policy)
+    assert state['request']['slots']['days'] == 3
+    assert state['request']['slots']['subtype'] == 'unpaid'
+    assert state['request']['slots']['system'] == 'workit'
+    assert plan.cards[0].id == 'task.leave.workit.unpaid'
+
+
+def test_continuation_conflicts_new_topic_and_unsupported_platform(routing):
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi muốn xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
+    conflict, kept = plan_turn('đổi thành 3 ngày hoặc 4 ngày', state, cat, lex, policy=policy)
+    assert conflict.clarification and kept['request']['slots']['days'] == 2
+    conflict, kept = plan_turn('Workit hoặc E-Leave', state, cat, lex, policy=policy)
+    assert conflict.clarification and not kept['request']['slots'].get('system')
+    plan, _ = plan_turn('hướng dẫn trên E-Leave', state, cat, lex, policy=policy)
+    assert plan.document_message and not plan.cards
+    changed, fresh = plan_turn('Chức danh của tôi là gì?', state, cat, lex, policy=policy)
+    assert changed.direct_fields == ('job_title',) and not fresh['request']['slots'].get('subtype')
+    for unsafe in ('hướng dẫn trên Workit và xem số dư phép của tôi', 'hồ sơ của Lan'):
+        plan, _ = plan_turn(unsafe, state, cat, lex, policy=policy)
+        assert plan.question == unsafe
+        assert plan.clarification or plan.unsupported_person
+
+
+def test_context_v5_migrates_only_identical_bindings(routing):
+    from src.conversation.context import identity
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
+    legacy = {**state, 'schema':5, 'identity':identity(cat, lex, policy, schema=5)}
+    plan, current = plan_turn('Workit', legacy, cat, lex, policy=policy)
+    assert current['schema'] == 6 and plan.cards[0].id == 'task.leave.workit.unpaid'
+    plan, _ = plan_turn('Workit', {**legacy, 'identity':'changed'}, cat, lex, policy=policy)
+    assert plan.clarification_reason == 'context_needs_restatement'
+
+
+def test_http_leave_chain_cache_recovery_and_replay(sample, routing, monkeypatch):
+    cat, lex, policy = routing
+    owner = service(sample)
+    sections = {'overview':sample.catalog.cards[0].sections['amount'],
+                'procedure':sample.catalog.cards[0].sections['amount']}
+    owner.answers.catalog = cat.model_copy(update={'cards':[card.model_copy(update={'sections':sections}) for card in cat.cards]})
+    owner.answers.lexicon = lex
+    owner.retrieval.policy = policy
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True), type_b=TypeBSettings(True))
+    employee = SimpleNamespace(read_context=AsyncMock(), check_source=AsyncMock(), close=AsyncMock())
+    owner.context = ContextCoordinator(owner, employee)
+    owner.context.available = True
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda:store)
+    room, actor = str(uuid4()), str(uuid4())
+    def body(text):
+        return dict(user_id=actor, hrm_user_id=7, room_id=room, message_id=str(uuid4()),
+            expected_context_version=store.version_number, text=text, top_k=5)
+    with TestClient(create_app(owner.settings, service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
+        for text, expected in [('tôi muốn xin nghỉ 2 ngày cần làm thủ tục gì','needs_clarification'),
+                ('nghỉ không lương nhé','answered'), ('làm thủ tục xin nghỉ ở đâu.','needs_clarification'),
+                ('hướng dẫn trên Workit','answered'), ('đổi thành 3 ngày','answered')]:
+            payload = body(text)
+            response = client.post('/api/v1/answer', json=payload)
+            assert response.status_code == 200
+            assert response.json()['result']['status'] == expected
+            client.portal.call(lambda:client.app.state.cache_manager.clear(namespace='conversation-context-v2'))
+        assert store.delta['request']['slots']['days'] == 3
+        assert store.delta['request']['slots']['subtype'] == 'unpaid'
+        reads = owner.retrieval.read_evidence.await_count
+        assert client.post('/api/v1/answer', json=payload).json() == response.json()
+        assert owner.retrieval.read_evidence.await_count == reads
+    employee.read_context.assert_not_awaited()
+
+
+def test_document_limits_stay_separate_from_answer(sample):
+    owner = service(sample)
+    with TestClient(create_app(owner.settings, service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
+        result = client.post('/api/v1/answer', json={'hrm_user_id':7,'text':'Sinh con'}).json()
+        assert result['status'] == 'partial' and result['claims'] and result['limitations']
+        assert all(value not in result['answer'] for value in result['limitations'])
+        owner.retrieval.policy.catalog = None
+        assert client.get('/health/answer').json() == {'status':'unavailable','reason':'dependency_unavailable'}

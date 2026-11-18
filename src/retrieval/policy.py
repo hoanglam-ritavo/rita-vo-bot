@@ -321,12 +321,33 @@ class RetrievalPolicy:
             if any(spans(folded(question), term) for rule in self.catalog.families
                    if rule.id == query.family for term in rule.execution_terms):
                 return Resolution('clarify', message='Mình chỉ tra cứu và hướng dẫn, không gửi hoặc phê duyệt thay bạn. Bạn muốn xem quy định hay các bước thực hiện?')
-        if slots and self.analyze(question).involves_leave:
+        if slots and self.analyze(question).involves_leave and (
+                slots.get('intent') or any(key in slots and slots[key] != getattr(self.analyze(question), key)
+                                          for key in ('subtype', 'system', 'days', 'sessions'))):
             return self.resolve_leave(question, slots=slots)
         generic = self.resolve_generic(question, slots=slots)
         if generic.state != 'not_applicable':
             return generic
-        return self.resolve_leave(question)
+        return self.resolve_leave(question, slots=slots)
+
+    @staticmethod
+    def apply_slots(query, slots):
+        if not slots:
+            return query
+        query = replace(query, **{key: value for key, value in slots.items()
+            if key in ('system', 'subtype', 'days', 'sessions', 'granularity')})
+        intent = slots.get('intent')
+        if intent in ('submission', 'procedure'):
+            query = replace(query, operation='request', platform_requested=True)
+        elif intent == 'policy':
+            query = replace(query, operation='policy', platform_requested=False)
+        elif slots.get('system'):
+            query = replace(query, platform_requested=True)
+        return query
+
+    def structured_family(self, family):
+        return bool(self.catalog and any(route.family == family and not route.aliases and not route.concept_ids
+                                        for route in self.catalog.routes))
 
     def resolve_generic(self, question, *, slots=None):
         if self.catalog is None:
@@ -384,8 +405,7 @@ class RetrievalPolicy:
                               candidates=tuple(sorted(routes)))
         route = next(iter(routes.values()))
         query = self.analyze(question)
-        if slots:
-            query = replace(query, **{key: value for key, value in slots.items() if key in ('system', 'subtype')})
+        query = self.apply_slots(query, slots)
         if route.family == 'leave' and (len({hit[2] for hit in rule_matches(text, self.catalog.subtypes, self.concepts)}) > 1
                                         or duration(text)[3]):
             return Resolution('clarify', message='Bạn hãy nêu riêng loại nghỉ và khoảng thời gian cần hỏi.',
@@ -397,8 +417,7 @@ class RetrievalPolicy:
 
     def resolve_leave(self, question, *, slots=None):
         query = self.analyze(question)
-        if slots:
-            query = replace(query, **{key: value for key, value in slots.items() if key in ('system', 'subtype')})
+        query = self.apply_slots(query, slots)
         # General guidance does not depend on choosing a software platform.
         if query.operation == 'request' and query.system is None and not query.platform_requested:
             query = replace(query, operation='policy')

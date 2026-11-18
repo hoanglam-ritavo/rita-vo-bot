@@ -124,9 +124,15 @@ def test_excerpts_are_verbatim_bounded_and_keep_provenance(sample):
     assert len(duplicate)==1 and len(duplicate['S1']['origins'])==2
 
 
+def empty_policy():
+    from src.retrieval.policy import Query, Resolution
+    return SimpleNamespace(catalog=SimpleNamespace(routes=[], families=[], systems=[], subtypes=[]),
+        concepts={}, fingerprint=None, resolve=lambda *a, **k: Resolution(), analyze=lambda *a: Query())
+
+
 def service(sample):
     owner=ApiService(Settings(Path('unused'),'a'*40, service_key=SERVICE_KEY, answer=AnswerSettings(enabled=True)),retrieval=SimpleNamespace(
-        start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result),prepare_query=AsyncMock(side_effect=lambda text,top_k:text)),
+        start=AsyncMock(),close=AsyncMock(),started=True,policy=empty_policy(),retrieve=AsyncMock(return_value=sample.result),prepare_query=AsyncMock(side_effect=lambda text,top_k:text)),
         database_check=AsyncMock(),database_close=AsyncMock())
     owner.retrieval.read_evidence = owner.retrieval.retrieve
     owner.retrieval.retrieve_prepared = owner.retrieval.retrieve
@@ -541,7 +547,7 @@ def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sampl
 
     def factory(settings):
         owner = ApiService(settings, retrieval=SimpleNamespace(start=AsyncMock(), close=AsyncMock(),
-                           started=True, retrieve=AsyncMock(return_value=sample.result), read_evidence=AsyncMock(return_value=sample.result)),
+                           started=True, policy=empty_policy(), retrieve=AsyncMock(return_value=sample.result), read_evidence=AsyncMock(return_value=sample.result)),
                            database_check=AsyncMock(), database_close=AsyncMock())
         owners.append(owner)
         return owner

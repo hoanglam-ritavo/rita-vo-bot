@@ -156,19 +156,28 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         card = cards[0]
         aspects = analysis.aspects
         claims, complete = [], True
+        limitations, reasons = [], set()
         for aspect in aspects:
             section = card.sections.get(aspect)
             if section is None:
                 logger.info('document_answer state=incomplete reason=section_missing')
                 complete = False
+                reasons.add('section_missing')
+                limitations.append('Chưa có hướng dẫn có nguồn cho phần thông tin bạn yêu cầu.')
                 continue
             complete = complete and section.complete
+            if not section.complete:
+                reasons.add('section_incomplete')
+                limitations.extend(section.limitations or [
+                    'Nguồn hiện có chỉ hỗ trợ một phần nội dung này; chưa đủ để hướng dẫn toàn bộ yêu cầu.'])
             for unit in section.units:
                 citations = []
                 for ref in unit.refs:
                     match = next((m for m in result['matches'] if matches_reference(ref, m)), None)
                     if match is None:
                         logger.info('document_answer state=incomplete reason=reference_unavailable')
+                        reasons.add('reference_unavailable')
+                        limitations.append('Một phần căn cứ hiện hành không còn khả dụng; chưa thể xác nhận đầy đủ hướng dẫn.')
                         break
                     source_id = next(key for key, source in sources.items()
                                      if any(origin['chunk_id'] == match['chunk_id'] for origin in source['origins']))
@@ -182,12 +191,19 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         if claims:
             if len(claims) > 12:
                 complete = False
+                reasons.add('output_bounded')
+            if not complete and len(claims) > 3:
+                reasons.add('output_bounded')
+                limitations.append('Lượt này chỉ hiển thị một phần nội dung; bạn có thể hỏi riêng từng phần để xem tiếp.')
             # Partial broad topics stay concise; every displayed unit retains
             # its own conditions and citations. Never shorten a complete result
             # while continuing to label it complete.
+            logger.info('document_answer complete=%s section_missing=%s section_incomplete=%s reference_unavailable=%s bounded=%s',
+                        complete, 'section_missing' in reasons, 'section_incomplete' in reasons,
+                        'reference_unavailable' in reasons, 'output_bounded' in reasons)
             row.update(status='answered' if complete else 'partial', claims=claims[:12 if complete else 3], sources=sources,
-                       reason=None if complete else 'incomplete_template_evidence', limitations=[] if complete else [
-                           'Mình mới xác định được phần dưới đây từ các đoạn được cung cấp; chưa đủ thông tin cho toàn bộ yêu cầu.'])
+                       reason=None if complete else 'incomplete_template_evidence',
+                       limitations=[] if complete else list(dict.fromkeys(limitations)))
             return row
     row.update(reason='template_evidence_missing', limitations=[cards[0].clarification,
         'Chưa đủ bằng chứng hiện hành để trả lời theo mẫu.'])

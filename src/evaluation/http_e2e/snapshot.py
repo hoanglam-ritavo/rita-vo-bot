@@ -3,8 +3,6 @@ from collections import defaultdict
 from datetime import date, datetime, timezone
 from pathlib import Path
 import hashlib
-import json
-import re
 
 from .config import EvaluationError, digest
 
@@ -49,13 +47,13 @@ def representatives(rows, key='user_id'):
     return chosen
 
 
-def employee_facts(row, rows):
+def employee_facts(row, rows, selected=None):
     from src.answering.context_contracts import EmployeeField
     from typing import get_args
     allowed = get_args(EmployeeField)
     facts = {k: display(row.get(k)) for k in allowed if k not in ('manager_name', 'manager_email')}
     manager = None
-    selected = representatives(rows, 'employee_id')
+    selected = representatives(rows, 'employee_id') if selected is None else selected
     if row.get('manager_id') is not None:
         manager = selected.get(row['manager_id'])
     elif row.get('manager_code'):
@@ -77,11 +75,23 @@ def build_bindings(scenarios, snapshot):
     """Choose before HTTP; private values never enter public result records."""
     rows = snapshot['employees']
     selected = representatives(rows)
-    profiles = [(uid, r, employee_facts(r, rows)) for uid, r in sorted(selected.items())]
+    managers = representatives(rows, 'employee_id')
+    profiles = [(uid, r, employee_facts(r, rows, managers)) for uid, r in sorted(selected.items())]
     records = {}
     base = next((uid for uid, _, _ in profiles), None)
     if base is None:
         raise EvaluationError('no_test_identity')
+    roles = {}
+    for name, predicate in {
+        'complete_work': lambda r, v: all(v.get(k) for k in ('employee_name','employee_code','job_title','department_name')),
+        'inactive': lambda r, v: r.get('active') is False and v.get('job_title') is not None,
+        'duplicate_user': lambda r, v: v.get('employee_code') is not None and sum(x['user_id'] == r['user_id'] for x in rows) > 1,
+        'manager': lambda r, v: v['manager_name'] is not None,
+    }.items():
+        roles[name] = next((uid for uid, r, v in profiles if predicate(r, v)), None)
+    existing = {r['user_id'] for r in rows}
+    missing = max([x for x in existing if x is not None] + [0]) + 1
+    roles['not_found'] = missing if missing <= 2**53-1 else next((x for x in range(1, len(existing)+2) if x not in existing), None)
     for s in scenarios:
         if s.reason:
             continue
@@ -92,6 +102,14 @@ def build_bindings(scenarios, snapshot):
         entry = {'role': 'self:' + digest([sorted(fields), sorted(nulls)])[:12],
                  'hrm_user_id': base, 'expected_values': {}, 'null_fields': sorted(nulls),
                  'state': 'ready', 'reason': None}
+        role = next((t.split(':', 1)[1] for t in s.tags if t.startswith('role:')), None)
+        if role:
+            entry['role'] = role
+            choices = [item for item in choices if item[0] == roles.get(role)]
+            if role == 'not_found':
+                entry['hrm_user_id'] = roles[role]
+            elif not choices:
+                entry.update(state='blocked', reason='profile_role_missing')
         if fields:
             if not choices:
                 entry.update(state='blocked', reason='profile_role_missing')
@@ -105,17 +123,6 @@ def build_bindings(scenarios, snapshot):
         if bundles and not any(set(bundle) <= set(snapshot['valid_references']) for bundle in bundles):
             entry.update(state='blocked', reason='policy_reference_missing')
         records[s.key] = entry
-    roles = {}
-    for name, predicate in {
-        'complete_work': lambda r: all(display(r.get(k)) for k in ('employee_name', 'employee_code', 'job_title', 'department_name')),
-        'inactive': lambda r: r.get('active') is False,
-        'duplicate_user': lambda r: sum(x['user_id'] == r['user_id'] for x in rows) > 1,
-        'manager': lambda r: employee_facts(r, rows)['manager_name'] is not None,
-    }.items():
-        roles[name] = next((uid for uid, r, _ in profiles if predicate(r)), None)
-    existing = {r['user_id'] for r in rows}
-    missing = max([x for x in existing if x is not None] + [0]) + 1
-    roles['not_found'] = missing if missing <= 2**53-1 else next((x for x in range(1, len(existing)+2) if x not in existing), None)
     return records, roles
 
 
@@ -153,7 +160,7 @@ async def read_snapshot(config, scenarios, catalog, root):
     from sqlalchemy.ext.asyncio import create_async_engine
     from src.database.config import validate_url
     from src.type_b.employee_store import EmployeeSourceService, EmployeeSourceSettings
-    from src.type_b.employee_store.fields import FIELD_REGISTRY, RANK_TEXT_FIELDS, WORK_FIELDS
+    from src.type_b.employee_store.fields import FIELD_REGISTRY, WORK_FIELDS
     from src.type_b.employee_store.connection import ReadOnlySource
     from src.type_b.employee_store.repository import EmployeeRepository
     from src.artifact_authoring.sources import decode, checked
@@ -172,11 +179,15 @@ async def read_snapshot(config, scenarios, catalog, root):
         projection = EmployeeRepository(config.schema)._projection(names)
         async with source._read_scope() as connection:
             # Only needed work/context fields; one REPEATABLE READ snapshot.
-            result = await connection.execute(text(f'SELECT {projection} FROM "{config.schema}"."employee_sso_store" ORDER BY employee_id, user_id'))
+            result = await connection.execute(text(f'SELECT {projection} FROM "{config.schema}"."employee_sso_store" ORDER BY employee_id, user_id, updated_at, id LIMIT 10001'))
             rows = [dict(row) for row in result.mappings()]
+            if len(rows) > 10000:
+                raise EvaluationError('employee_survey_too_large')
     finally:
-        await service.close()
-        await source.close()
+        try:
+            await service.close()
+        finally:
+            await source.close()
 
     refs, requirements = reference_inventory(scenarios, catalog)
     manifest = decode(checked(Path(root) / 'artifacts/runtime-assets.json').read_bytes())
@@ -190,7 +201,8 @@ async def read_snapshot(config, scenarios, catalog, root):
     query = text('''SELECT r.document_id::text, r.id::text AS revision_id, r.sha256,
         r.title, r.source_path, r.applicability, r.version_label,
         r.effective_from::text, r.effective_to::text, c.chunk_index, c.content,
-        c.id::text AS chunk_id, i.id::text AS run_id
+        c.id::text AS chunk_id, i.id::text AS run_id, c.author_id, c.role,
+        c.source_location->'spans' AS source_spans
         FROM document_chunks c JOIN ingestion_runs i ON i.id = c.run_id
         JOIN document_revisions r ON r.id = i.revision_id
         WHERE i.status = 'succeeded' AND i.is_active AND r.is_catalog_current
@@ -235,4 +247,6 @@ async def read_snapshot(config, scenarios, catalog, root):
                 'business_day': today, 'target': digest([config.hrm_url, config.schema, config.corpus_url])}
     return {'employees': rows, 'documents': sorted({r['document_id'] for r in corpus}),
             'valid_references': sorted(valid), 'task_requirements': requirements,
-            'fingerprint': digest(identity), 'business_day': today}
+            'fingerprint': digest(identity), 'business_day': today,
+            'corpus_records': {r['chunk_id']: {k:v for k,v in r.items() if k not in ('content','sha256')} |
+                {'content_hash': hashlib.sha256(r['content'].encode()).hexdigest()} for r in corpus}}

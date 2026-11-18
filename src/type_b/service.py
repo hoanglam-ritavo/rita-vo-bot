@@ -173,7 +173,8 @@ class ContextCoordinator:
                 if not claims and not limitations:
                     limitations.append('Chưa xác định được bằng chứng hoặc tác vụ phù hợp; bạn hãy nêu rõ yêu cầu.')
                 return UnifiedAnswerResponse(status=status,
-                    answer='\n\n'.join([f'{claim["text"]} [{claim["id"]}]' for claim in claims] + list(dict.fromkeys(limitations))),
+                    answer='\n\n'.join([f'{claim["text"]} [{claim["id"]}]' for claim in claims]
+                        if claims else list(dict.fromkeys(limitations))),
                     claims=claims, sources=[source for source in document.sources if source.source_id in {item['source_id'] for item in evidence if item['kind']=='document'}] if document else [], evidence=evidence,
                     application=application, limitations=list(dict.fromkeys(limitations)),
                     fallback_reason=document.fallback_reason if document else None, relevance=relevance,

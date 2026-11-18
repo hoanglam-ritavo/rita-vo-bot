@@ -35,8 +35,9 @@ def base_url(value):
 def private_path(root, value):
     from src.artifact_authoring.sources import checked
     path = Path(value)
-    path = checked(path if path.is_absolute() else Path(root) / path)
-    if not path.is_relative_to(Path(root).absolute() / '.tmp'):
+    path = checked(path if path.is_absolute() else Path(root) / path).resolve()
+    private_root = checked(Path(root).absolute() / '.tmp').resolve()
+    if path == private_root or not path.is_relative_to(private_root):
         raise EvaluationError('private_path_required')
     return path
 

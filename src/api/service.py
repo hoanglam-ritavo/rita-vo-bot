@@ -84,6 +84,8 @@ class ApiService:
             return 'dependency_unavailable'
         if not self.answers.available:
             return self.answers.reason
+        if getattr(getattr(self.retrieval, 'policy', None), 'catalog', None) is None:
+            return 'dependency_unavailable'
         return None
 
     async def retrieve(self, text, top_k=None):

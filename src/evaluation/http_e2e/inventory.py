@@ -58,6 +58,20 @@ def build_inventory(cases, oracles):
             scenarios.append(Scenario('protocol.' + name, 'protocol', endpoint,
                 'Chức danh của tôi là gì?', {'http_status': status, 'error_code': code},
                 protocol=name))
+    for role, fields, question in [
+        ('complete_work', ['employee_name','employee_code','job_title','department_name'],
+         'Họ tên, mã nhân viên, chức danh và phòng ban của tôi là gì?'),
+        ('inactive', ['job_title'], 'Chức danh của tôi là gì?'),
+        ('duplicate_user', ['employee_code'], 'Mã nhân viên của tôi là gì?'),
+        ('manager', ['manager_name'], 'Quản lý trực tiếp của tôi là ai?'),
+        ('not_found', [], 'Chức danh của tôi là gì?'),
+    ]:
+        for endpoint in ENDPOINTS:
+            scenarios.append(Scenario('hrm.role.' + role, 'hrm.roles', endpoint, question,
+                {'http_status': 200, 'statuses': ['insufficient_evidence'] if role == 'not_found' else ['answered'],
+                 'employee_fields': fields, 'fixture': 'current', 'claims': 'none',
+                 'application_state': 'not_found' if role == 'not_found' else 'applied'},
+                tags=('role:' + role,)))
     return scenarios
 
 
@@ -65,6 +79,7 @@ def load_inventory(root):
     from src.evaluation.questions import load_dataset
     from src.artifact_authoring.sources import checked, decode
     import hashlib
+    root = Path(root).absolute()
     cases, oracles, inputs = load_dataset(root)
     # Catalog data are read locally; never initialize a policy/model/service.
     path = checked(Path(root) / 'artifacts/answers/catalog.json')
@@ -75,7 +90,9 @@ def load_inventory(root):
                      'artifacts/runtime-assets.json'):
         inputs[relative] = hashlib.sha256(checked(Path(root) / relative).read_bytes()).hexdigest()
     for path in sorted((Path(__file__).parent).glob('*.py')):
-        inputs[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+        inputs['src/evaluation/http_e2e/' + path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    cli = Path(__file__).resolve().parents[2] / 'cli/evaluate_http_e2e.py'
+    inputs['src/cli/evaluate_http_e2e.py'] = hashlib.sha256(cli.read_bytes()).hexdigest()
     return build_inventory(cases, oracles), inputs, catalog
 
 
@@ -92,6 +109,8 @@ def public_inventory(scenarios, inputs):
 
 def retrieval_rule(scenario):
     o = scenario.oracle
+    if o.get('application_state') == 'not_found':
+        return 'null_profile'
     if o.get('required_source_groups'):
         return 'documents'
     if o.get('null_fields') and set(o.get('null_fields', [])) == set(o.get('employee_fields', [])):

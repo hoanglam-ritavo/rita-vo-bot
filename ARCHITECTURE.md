@@ -1,5 +1,19 @@
 # Rita Bot Architecture
 
+## External stateless HTTP evaluation
+
+`src/evaluation/http_e2e` implements an explicit external-client harness for a
+manually started bot; it does not participate in serving. Its CLI separates local
+inventory, future SELECT-only HRM/corpus binding preparation and future sequential
+socket HTTP execution. Endpoint-specific oracles reuse question-bank expectations
+without mutating them; per-profile values and publication prerequisites are frozen
+before requests. Conversations and controlled source failures are reported outside
+the stateless scope, not silently split or marked passed. Source fingerprint
+rechecks, health gating and private reports protect interpretation of results.
+Runtime configuration, models, migrations and service processes are unchanged.
+Only fictional local harness regressions have run; see the [E2E specification](docs/http-e2e.md)
+and [current verification](README.md#current-verification-status).
+
 ## Request planning and completeness
 
 `src/answering/planning.py` analyzes document lookup, clause-local personnel

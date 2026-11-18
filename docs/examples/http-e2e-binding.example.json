@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "mode": "external-http-private-binding",
+  "target_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+  "inputs": {},
+  "snapshot_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+  "business_day": "2026-11-18",
+  "bindings": {
+    "q.example.profile.001:answer": {
+      "role": "complete_work",
+      "hrm_user_id": 900001,
+      "expected_values": {
+        "job_title": "Fictional test analyst"
+      },
+      "null_fields": [],
+      "state": "ready",
+      "reason": null
+    }
+  },
+  "roles": {
+    "complete_work": 900001,
+    "inactive": null,
+    "duplicate_user": null,
+    "manager": null,
+    "not_found": 900099
+  },
+  "corpus_records": {}
+}

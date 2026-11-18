@@ -4969,6 +4969,9 @@
                 }
               ]
             }
+          ],
+          "limitations": [
+            "Hướng dẫn tạo phiếu không xác nhận bạn được duyệt nghỉ; cần chấp thuận theo quy trình và phân quyền áp dụng."
           ]
         },
         "procedure": {
@@ -5034,6 +5037,9 @@
                 }
               ]
             }
+          ],
+          "limitations": [
+            "Hướng dẫn tạo phiếu không xác nhận bạn được duyệt nghỉ; cần chấp thuận theo quy trình và phân quyền áp dụng."
           ]
         },
         "conditions": {
@@ -5585,8 +5591,8 @@
           "complete": false,
           "units": [
             {
-              "id": "evidence.leave.unpaid.conditions",
-              "text": "Nội quy lao động — Điều 11: nghỉ không lương cần quản lý chấp thuận. Nguồn nêu 1 ngày khi cha/mẹ kết hôn, anh/chị/em ruột kết hôn hoặc ông/bà nội ngoại, anh/chị/em ruột mất; trường hợp hết/chưa có phép hoặc bệnh/tai nạn vượt quy định/thiếu chứng từ; hoặc theo thỏa thuận. Sau thai sản có thể xin thêm tối đa 2 tháng nếu công ty đồng ý, không lương/trợ cấp. Tự nghỉ chưa được chấp thuận có thể bị kỷ luật và không trả lương.",
+              "id": "evidence.leave.policy.unpaid.procedure",
+              "text": "Nghỉ không lương cần quản lý chấp thuận. Tự nghỉ khi chưa được chấp thuận có thể bị kỷ luật và không trả lương.",
               "refs": [
                 {
                   "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
@@ -5606,6 +5612,9 @@
                 }
               ]
             }
+          ],
+          "limitations": [
+            "Đoạn này chỉ xác nhận yêu cầu chấp thuận, chưa hướng dẫn nơi tạo đơn hoặc các bước trên phần mềm. Bạn có thể hỏi nơi thực hiện thủ tục."
           ]
         },
         "conditions": {

@@ -53,6 +53,32 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### External stateless HTTP E2E harness construction - 2026-11-18
+
+The new [external HTTP harness](docs/http-e2e.md) constructs question-bank and
+protocol scenarios for both core endpoints of a manually started bot. Inventory
+is local-only; prepare/run are explicit future operations with readonly sources,
+reviewed private bindings, health gating and endpoint-specific assertions.
+No application serving behavior, question oracles, artifact bytes or private
+configuration were changed by this task. Existing working-tree changes were
+preserved. Live execution belongs to a separate plan.
+
+Post-edit local construction checks at `109b042` plus this working tree passed
+**49 tests** in the new harness and adjacent answer-evaluation suites, with the
+existing Starlette/AnyIO deprecation warning. These tests use fictional HTTP and
+SQL connections. The inventory CLI compiled **1,696 checks** from 832 bank cases:
+**1,650 pending** and **46 not applicable**, not E2E passes. Its private output is
+`.tmp/http-e2e-construction-inventory-20261118.json`; input hashes identify that
+compilation snapshot rather than a deployment. New documentation paths/anchors,
+example JSON, syntax and scoped whitespace were checked.
+
+Validation used the repository Python environment and fresh extended-length
+`.tmp` test directories outside the sandbox's known fixture/read restrictions.
+No full application regression, live HTTP, HRM/corpus DB access, model startup,
+seed/reset, migration, service restart or real E2E execution was performed.
+Neither `prepare` nor `run` was invoked against live dependencies; these await
+the separate execution plan. No staging, commit or push was performed by this task.
+
 ### Structured conversation plans - 2026-11-18
 
 On `179b330` plus this working tree, conversation continuations update a bounded

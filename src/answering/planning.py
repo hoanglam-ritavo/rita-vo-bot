@@ -212,5 +212,4 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
         parts=parts, personal_request=personal_request,
         general_guidance=bool(catalog and lexicon and policy is not None and policy.analyze(question).involves_leave and
-            not policy.analyze(question).platform_requested and not request.get('slots', {}).get('system') and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

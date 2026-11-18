@@ -35,6 +35,7 @@ class Unit(Strict):
 class Section(Strict):
     complete: bool
     units: list[Unit] = Field(min_length=1, max_length=12)
+    limitations: list[str] = Field(default_factory=list, max_length=8)
 
 
 class Card(Strict):
@@ -79,6 +80,8 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
             raise ValueError('invalid_answer_card')
         ids.add(card.id)
         for section in card.sections.values():
+            if any(not value.strip() or len(value) > 2000 for value in section.limitations):
+                raise ValueError('invalid_section_limitation')
             for unit in section.units:
                 if unit.id in unit_ids and unit_ids[unit.id] != unit.model_dump():
                     raise ValueError('conflicting_evidence_unit')
