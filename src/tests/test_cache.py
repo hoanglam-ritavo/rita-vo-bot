@@ -1,5 +1,6 @@
 """Application memory cache contracts, with synthetic data and a controlled clock."""
 import asyncio
+import logging
 from types import SimpleNamespace
 
 import pytest
@@ -181,3 +182,17 @@ def test_concurrent_operations_close_and_loop_ownership():
 def test_accessor_requires_initialized_app():
     with pytest.raises(RuntimeError, match='not initialized'):
         get_cache_manager(SimpleNamespace(app=SimpleNamespace(state=SimpleNamespace())))
+
+
+def test_debug_logs_do_not_contain_caller_data(caplog):
+    async def scenario():
+        cache = CacheManager()
+        await cache.set('fictional-private-key', {'text': 'fictional-private-value'},
+                        namespace='fictional-private-namespace')
+        await cache.get('fictional-private-key', namespace='fictional-private-namespace')
+        await cache.delete('fictional-private-key', namespace='fictional-private-namespace')
+        await cache.clear(namespace='fictional-private-namespace')
+        await cache.close()
+    with caplog.at_level(logging.DEBUG, logger='aiocache'):
+        asyncio.run(scenario())
+    assert 'fictional-private' not in caplog.text

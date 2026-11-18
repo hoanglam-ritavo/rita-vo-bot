@@ -1,5 +1,32 @@
 # Rita Bot Architecture
 
+## Shared memory cache
+
+`src/helper/cache.py` provides `CacheManager` over the pinned
+`aiocache.SimpleMemoryCache`, without a global alias registry. FastAPI lifespan
+creates a fresh instance per app startup, exposes it at `app.state.cache_manager`
+and clears/closes it on exit, including service factory/start/close failures.
+The accessor `get_cache_manager(request)` resolves the current app only and
+rejects missing/closed managers. No import-time cache, port or external service
+is created. New lifespans and separate app instances never reuse entries.
+
+The helper owns monotonic TTL and LRU metadata together, disabling backend timer
+callbacks so expiry cannot leave orphaned metadata. Each operation reclaims
+expired entries; no background cleanup task runs. Strict JSON serialization
+separates caller values from stored values. Backend keys hash the unambiguous
+namespace/key encoding to avoid exposing caller keys in aiocache debug logs;
+namespace clearing uses exact manager-owned metadata, not backend prefix clear.
+See [API, defaults and usage](README.md#shared-memory-cache).
+
+An async lock serializes individual operations within one event loop. It does
+not make a get/modify/set sequence a transaction, coordinate worker processes,
+authorize access or prevent duplicate business processing. Consumers must not
+call the manager from worker threads or reuse it across event loops. Close is
+idempotent; subsequent operations fail. Services can receive the app-owned
+instance explicitly in later work; no current answer/retrieval/Type B consumer
+uses it. Message storage, checkpoints, session context and restoration remain
+future work, independently of this cache infrastructure.
+
 ## Readonly HRM source foundation
 
 `src.employee_source` owns a lazy independent PostgreSQL/psycopg connection,

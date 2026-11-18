@@ -5,7 +5,8 @@ import os
 import tempfile
 
 from src.paths import REPOSITORY_ROOT
-from src.answering.catalog import METADATA
+from src.answering.catalog import METADATA, validate_catalog, sha_bytes
+from src.retrieval.semantics import validate_artifact
 from src.semantics.corpus import corpus_snapshot, decode_json
 from .sources import assemble, checked, encode, recheck, SourceError
 
@@ -14,6 +15,7 @@ def inspect(root=REPOSITORY_ROOT):
     root = Path(root).absolute()
     raw, observed = assemble(root)
     catalog = decode_json(raw[1])
+    validate_catalog(catalog, validate_artifact(decode_json(raw[0])), sha_bytes(raw[0]))
     snapshot = corpus_snapshot(root / 'chunks')
     packages = {p['document_id']: p for p in snapshot['packages']}
     metadata = {doc: decode_json((root / 'chunks' / doc / 'metadata.json').read_bytes()) for doc in packages}
@@ -73,10 +75,6 @@ def refresh(root=REPOSITORY_ROOT):
         value = encode(card)
         if value != observed[path]:
             changed[path] = value
-    old_coverage = {}
-    for relative in index['coverage']:
-        for row in decode_json(observed[index_path.parent / relative]):
-            old_coverage[(row['document_id'], row['chunk_index'])] = row
     grouped = {}
     for chunk in snapshot['chunks']:
         key = (chunk['document_id'], chunk['chunk_index'])

@@ -43,12 +43,39 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Shared memory cache helper - 2026-11-18
+
+The application now owns an async JSON memory cache; see
+[cache usage and limits](#shared-memory-cache). This change does not activate
+answer, retrieval, HRM or conversation caching. Validation used Python 3.14.10
+and the repository virtual environment with pinned aiocache 0.12.3, against the
+working tree at `2344fa0` plus the cache debug-log hardening and documentation.
+Existing unrelated working-tree edits were preserved.
+
+Post-edit focused helper/lifecycle/HTTP checks passed **90 tests** before the
+additional debug-log regression. The subsequent full non-integration run,
+including that regression, passed **847 tests**, with **1 skipped** and
+**55 integration tests deselected**. Both successful runs reported the existing
+Starlette/AnyIO deprecation warning. The initial sandboxed focused run had
+**82 passed / 8 setup errors** because of pytest temporary-directory permissions;
+it is not a passing run. Successful reruns used separate fresh `.tmp` basetemps
+and cache directories outside that sandbox restriction, without changing old
+directories or permissions. Full command:
+
+```powershell
+.\env\Scripts\python.exe -B -m pytest -m 'not integration' -q --tb=short --basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\cache-helper-full-20261118-01' -o cache_dir=.tmp/cache-helper-full-cache-20261118-01
+```
+
+Use a fresh basetemp when repeating. No integration database, model startup,
+live backend, service restart, migration or conversation feature was exercised.
+Diff whitespace and the new documentation paths/anchors were checked.
+
 
 ### Catalog tasks and linked evidence - 2026-11-18
 
-Working tree based on `b84680e`. The runtime now uses schema-v2 task/evidence catalogs with direct eligible DB reference reads; intent/profile training, calibration and Colab kits are removed. Retrieval HTTP/CLI return unassessed candidates. Twenty source-checked procedure tasks and concepts extend the inventory to 52 tasks / 252 concepts, with dispositions for 29 packages / 530 chunks. Source coverage is not answer completeness or human quality acceptance. See [current operation and limitations](docs/catalog-answering.md).
+Implementation started at `b84680e`; the current checkpoint is `2344fa0` with local follow-ups. The runtime now uses schema-v2 task/evidence catalogs with direct eligible DB reference reads; intent/profile training, calibration and Colab kits are removed. Retrieval HTTP/CLI return unassessed candidates. Twenty source-checked procedure tasks and concepts extend the inventory to 52 tasks / 252 concepts, with dispositions for 29 packages / 530 chunks. Source coverage is not answer completeness or human quality acceptance. See [current operation and limitations](docs/catalog-answering.md).
 
-Post-edit validation is being finalized; final results are recorded here before handoff. No application DB publication, service restart or live answer-quality acceptance is performed.
+Post-edit validation at `2344fa0` plus local follow-ups: **847 passed, 1 skipped, 55 deselected** in the non-integration suite using an extended-length `.tmp` root on Windows; one existing Starlette/AnyIO deprecation warning. The run includes concurrent cache-helper work, which is outside this task and remains preserved. The final affected suites also passed (187 tests before the last structure-only cleanup). Artifact build/check, catalog validation, 81 unchanged source bindings, runtime inventory (20 files), local pinned ONNX smoke (one fictional passage), local Markdown paths and CRLF-aware diff checks passed. Integration tests collected, but were not executed because no disposable test DB URL is configured. No application DB publication, service restart, target DB compatibility or live answer-quality acceptance is claimed. Earlier ordinary-path runs hit Windows MAX_PATH/setup limits; the final extended-path run resolved them.
 
 All subsequent dated verification entries are historical snapshots; removed commands, retired gates and earlier runtime contracts below do not describe the current implementation.
 
@@ -1305,6 +1332,53 @@ python -m alembic revision --autogenerate -m "description"
 ```
 
 Review the generated migration before applying it with `python -m alembic upgrade head`. The migration template supports `Vector`. Autogeneration skips reflected tables outside application metadata; intentional removal of an application table requires an explicit, reviewed drop migration.
+
+## Shared memory cache
+
+Install the pinned `aiocache==0.12.3` through `requirements.txt` in the repository
+virtual environment. The helper creates no network service, port, database table
+or environment setting. FastAPI lifespan owns one `CacheManager` at
+`app.state.cache_manager`; consumers resolve it with
+`src.helper.cache.get_cache_manager(request)` (also usable with `Depends`), or
+receive that instance explicitly in their constructor. Importing the helper does
+not create a cache instance. See [architecture](ARCHITECTURE.md#shared-memory-cache)
+for ownership and concurrency boundaries.
+
+```python
+from src.helper.cache import get_cache_manager
+
+async def example(request):
+    cache = get_cache_manager(request)
+    await cache.set("example", {"label": "Fictional example"}, namespace="demo")
+    return await cache.get("example", namespace="demo")
+```
+
+The async API is `get(key, *, namespace, default=None)`,
+`set(key, value, *, namespace, ttl=None)`, `delete(key, *, namespace)`,
+`clear(*, namespace)` and `close()`. Delete returns whether a live entry existed;
+set/clear/close return no value. Missing entries return the supplied default;
+cached JSON null remains null even when a different default is supplied.
+Keys and namespaces must be nonblank strings and remain distinct. Clear only
+affects the exact namespace. Values must be JSON data with string object keys,
+finite numbers and valid UTF-8 strings; tuples, ORM objects and arbitrary Python
+instances are rejected. Values are serialized on write and decoded on read, so
+caller mutations cannot change cached data. Do not cache credentials.
+
+Defaults are a 300-second TTL, 1,024 entries across all namespaces and a maximum
+64 KiB UTF-8 JSON value. Constructor overrides are available; no `.env` change
+is required. TTL is in seconds, must be positive and finite, and begins on set;
+reads do not extend it. `ttl=None` uses the default. Invalid data/limits raise
+`ValueError`; an oversized write does not replace or evict existing values.
+Operations reclaim expired data, then writes evict the least recently used
+entry when full. Expiration is lazy, with no periodic task: an idle cache can
+retain expired data until the next operation or close. Limits bound serialized
+payloads and entry count, not total process RAM.
+
+The cache is shared within one app/process only, is lost on restart and is not
+shared with Backend or other workers. It must be called from its owning event
+loop, not worker threads. Use PostgreSQL persistence in future features that
+need recovery. This helper does not yet cache `/answer`, retrieval, HRM data or
+conversation context, and supplies no automatic compaction or restoration.
 
 ## Testing
 

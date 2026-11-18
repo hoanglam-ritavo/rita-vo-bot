@@ -7,6 +7,7 @@ task, global registry, database connection or network service is created.
 import asyncio
 from collections import OrderedDict
 import json
+import hashlib
 import math
 import time
 from aiocache import SimpleMemoryCache
@@ -83,7 +84,9 @@ class CacheManager:
         cls._namespace(namespace)
         if not isinstance(key, str) or not key.strip():
             raise ValueError('Cache key must be a nonempty string.')
-        return json.dumps([namespace, key], ensure_ascii=True, separators=(',', ':'))
+        encoded = json.dumps([namespace, key], ensure_ascii=True, separators=(',', ':'))
+        # aiocache debug logs include backend keys; keep caller data out of them.
+        return hashlib.sha256(encoded.encode('ascii')).hexdigest()
 
     async def _remove(self, key):
         await self._backend.delete(key)

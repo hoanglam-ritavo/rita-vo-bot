@@ -88,7 +88,8 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
                         raise ValueError('invalid_answer_reference')
                     used.add(key)
     coverage = {(c.document_id, c.chunk_index): c for c in catalog.coverage}
-    if (len(coverage) != len(catalog.coverage) or (snapshot is not None and set(coverage) != {(c['document_id'], c['chunk_index']) for c in snapshot['chunks']})
+    expected = {(c['document_id'], c['chunk_index']) for c in snapshot['chunks']} if snapshot is not None else None
+    if (len(coverage) != len(catalog.coverage) or (expected is not None and set(coverage) != expected)
             or any((row.disposition == 'template') != (key in used) for key, row in coverage.items())):
         raise ValueError('incomplete_answer_inventory')
     return catalog
