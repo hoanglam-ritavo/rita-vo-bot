@@ -59,8 +59,25 @@ This working tree replaces the A/B/mixed HTTP variants with schema 2 unified
 evidence and requires trusted HRM identity on all answer/retrieve payloads.
 Catalog schema 3 declares all 279 task dispositions. Backend and portal must
 deploy together with the bot; old development chat requires the explicit reset
-runbook. See [contextual answers](docs/contextual-answers.md). Verification is
-being updated for this revision; older counts below describe earlier snapshots.
+runbook. See [contextual answers](docs/contextual-answers.md).
+
+On the working tree following `0764a30` (including concurrent changes now at
+`0ce7c9e`), full non-integration regression passed **1,037 tests**, with **1 skipped
+and 57 integration tests deselected**. Subsequent conflict/contract refinements
+passed **115 focused tests**; the final reset error-sanitization refinement passed
+**10 reset tests**. The final source-fixture evaluator passed **849/849 turns in
+832 cases**, with hashes for the contextual/snapshot modules. Static oracles were
+reconciled for newly declared task fields and soft HRM failures; policy source,
+forbidden-source and amount assertions remain. This is not independent business
+acceptance. Artifact build/check, catalog validation (279 cards/29 documents/530
+chunks), source impact (1,346 unchanged bindings) and runtime inventory (22 files)
+passed. The existing Starlette/AnyIO deprecation warning remains.
+
+No live HRM/model/database validation, publication, migration, actual development
+chat reset or deployment was performed. Reset help and fictional guards were
+verified; dry-run/apply against actual databases require explicit development
+targets and stopped services. The pre-existing employee-store consolidation and
+concurrent pgvector documentation changes remain. Older counts below are historical.
 
 
 ### pgvector provisioning documentation - 2026-11-18

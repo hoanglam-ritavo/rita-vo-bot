@@ -28,3 +28,11 @@ def test_dry_run_does_not_mutate_and_apply_requires_explicit_confirmation(monkey
 def test_reset_only_owns_chat_tables():
     assert reset.BOT_TABLES==('chat_messages','chat_turns','chat_conversations')
     assert reset.BACKEND_TABLES==('chat_purge_jobs','chat_rooms')
+
+
+def test_reset_does_not_print_unexpected_library_error(monkeypatch,capsys):
+    import sys
+    monkeypatch.setattr(sys,'argv',['reset_dev_chat'])
+    monkeypatch.setattr(reset,'execute',AsyncMock(side_effect=ValueError('private-url-marker')))
+    assert reset.main()==1
+    assert 'private-url-marker' not in capsys.readouterr().out
