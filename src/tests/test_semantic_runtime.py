@@ -8,7 +8,6 @@ import pytest
 
 from src.database.runtime import run_async
 from src.ingestion import embeddings
-from src.intent import IntentSettings
 from src.retrieval import RetrievalService, RetrievalError, storage
 from src.retrieval.reranking import OnnxReranker, RerankSettings
 from src.retrieval.semantic_config import from_arguments, from_environment
@@ -22,7 +21,7 @@ def concept(identity='arrival', canonical='đi trễ', aliases=None, **changes):
 
 
 def artifact(*concepts):
-    return dict(schema_version=1, reviewed=True, review_notes='Synthetic independent review.',
+    return dict(schema_version=2, reviewed=True, review_notes='Synthetic independent review.',
                 package_fingerprint='a' * 64, concepts=list(concepts) or [concept()])
 
 
@@ -96,14 +95,12 @@ def test_load_binds_package_and_pipeline_identity(tmp_path, monkeypatch):
     assert expander.expansion('đi muộn 15 phút') == ['đi trễ 15 phút']
     semantic_identity = expander.effective_fingerprint('base')
     assert semantic_identity != 'base'
-    assert semantic_identity != expander.effective_fingerprint('base', intent_digest='assist:none')
     assert SemanticExpander().effective_fingerprint('base') == 'base'
     expander.close()
     assert expander.expansion('đi muộn') == []
     monkeypatch.setattr(corpus, 'snapshot_fingerprint', lambda: 'b' * 64)
-    with pytest.raises(ValueError, match='semantic_package_mismatch'):
-        expander.start()
-    assert expander.artifact is None
+    expander.start()
+    assert expander.artifact is not None  # Lexical rules survive unrelated package changes.
 
 
 @pytest.mark.parametrize('raw', [
@@ -119,7 +116,7 @@ def test_loader_rejects_ambiguous_json_without_disclosing_content(tmp_path, raw)
     assert expander.artifact is None and expander.fingerprint is None
 
 
-def install_runtime(monkeypatch, tmp_path, *, intent=None):
+def install_runtime(monkeypatch, tmp_path):
     from src.semantics import corpus
     monkeypatch.setattr(corpus, 'snapshot_fingerprint', lambda: 'a' * 64)
     path = tmp_path / 'lexicon.json'
@@ -135,30 +132,30 @@ def install_runtime(monkeypatch, tmp_path, *, intent=None):
     monkeypatch.setattr(OnnxReranker, 'score', score)
     found = dict(status='matches_found', corpus_fingerprint='published', matches=[
         dict(chunk_id='chunk', chunk_index=0, run_id='run', revision_id='revision',
-             cosine_distance=.2, content='Fictional evidence.', source_spans=['preserved'])])
+             cosine_distance=.2, content='Fictional evidence.', source_spans=[{'page':1}],
+             document_id='doc',title='Fictional',source_path='fictional.txt',version_label=None,
+             effective_from=None,effective_to=None,applicability=None,author_id=None,role=None)])
     search = AsyncMock(side_effect=lambda *args, **kwargs: deepcopy(found))
     monkeypatch.setattr(storage, 'search', search)
     service = RetrievalService(model_path='unused', model_revision='a' * 40,
-        rerank=RerankSettings(enabled=True), semantic=SemanticSettings('expand', path), intent=intent)
+        rerank=RerankSettings(enabled=True), semantic=SemanticSettings('expand', path))
     return service, model, search, score
 
 
-def test_service_keeps_original_rerank_query_and_requires_new_profile(tmp_path, monkeypatch):
+def test_service_expands_without_changing_original_rerank_query(tmp_path, monkeypatch):
     service, model, search, score = install_runtime(monkeypatch, tmp_path)
     async def scenario():
         await service.start()
         try:
-            service._reranker.profile = dict(fingerprint='base', corpus_fingerprint='published', threshold=0., holdout_passed=True)
             result = await service.retrieve('đi muộn 15 phút không xin phép')
-            assert result['fallback_reason'] == 'relevance_unavailable' and result['matches'] == []
+            assert result['fallback_reason'] is None and result['matches']
             assert 'candidate_order' not in result
             assert score.call_args.args[0] == 'đi muộn 15 phút không xin phép'
             assert search.call_args.args[3] == 30 and len(search.call_args.kwargs['extra_vectors']) == 1
             encoded = [call.args[0][0] for call in model.encode.call_args_list]
             assert encoded == ['query: đi muộn 15 phút không xin phép', 'query: đi trễ 15 phút không xin phép']
-            service._reranker.profile['fingerprint'] = service._reranker.fingerprint
             result = await service.retrieve('đi muộn 15 phút không xin phép')
-            assert result['matches'][0]['source_spans'] == ['preserved']
+            assert result['matches'][0]['source_spans'] == [{'page':1}]
             assert not {'semantic', 'variants', 'intent'} & result.keys()
         finally:
             await service.close()
@@ -196,32 +193,6 @@ def test_start_review_failure_is_safe_and_clears_readiness(tmp_path, monkeypatch
     search.assert_not_called()
 
 
-@pytest.mark.parametrize('status,styles,expected', [
-    ('classified', ['procedure'], ['procedure']),
-    ('uncertain', ['conditions'], ()), ('unavailable', [], ()),
-])
-def test_assistance_reuses_original_vector_and_never_blocks_search(tmp_path, monkeypatch, status, styles, expected):
-    service, model, search, score = install_runtime(monkeypatch, tmp_path, intent=IntentSettings('assist'))
-    # The classifier's own load/acceptance tests are separate; this exercises the consumer.
-    monkeypatch.setattr(service._intent, 'start', lambda _: None)
-    predict = Mock(return_value=dict(status=status, source='type_b', styles=styles))
-    monkeypatch.setattr(service._intent, 'predict', predict)
-    expand = Mock(return_value=[])
-    monkeypatch.setattr(service._semantic, 'expansion', expand)
-    async def scenario():
-        await service.start()
-        try:
-            assert service._reranker.fingerprint == service._semantic.effective_fingerprint('base', intent_digest='assist:none')
-            await service.retrieve('đi muộn')
-            expand.assert_called_once_with('đi muộn', styles=expected)
-            predict.assert_called_once_with([1.] + [0.] * 383)
-            search.assert_awaited_once()
-            assert model.encode.call_count == 1
-        finally:
-            await service.close()
-    run_async(scenario())
-
-
 def test_http_keeps_wire_contract_and_hides_expansion(tmp_path, monkeypatch):
     from fastapi.testclient import TestClient
     from src.api.app import create_app
@@ -236,6 +207,7 @@ def test_http_keeps_wire_contract_and_hides_expansion(tmp_path, monkeypatch):
         assert response.status_code == 200
         data = response.json()
         assert set(data) == {'status', 'matches', 'fallback_reason', 'relevance', 'timings'}
-        assert data['fallback_reason'] == 'relevance_unavailable'
+        assert data['fallback_reason'] is None
+        assert data['relevance']['status'] == 'unassessed'
         assert len(search.call_args.kwargs['extra_vectors']) == 1
         assert score.call_args.args[0] == 'đi muộn'

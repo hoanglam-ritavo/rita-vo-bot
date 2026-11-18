@@ -4,7 +4,7 @@ import logging
 import time
 
 from src.retrieval import RetrievalService, RetrievalError
-from .contracts import ApiError, RetrievalResponse, Timings
+from .contracts import ApiError, RetrievalResponse, Timings, Match
 from .answer import AnswerService
 from src.type_b.service import TypeBCoordinator
 
@@ -18,8 +18,7 @@ class ApiService:
         self.settings = settings
         self.retrieval = retrieval if retrieval is not None else RetrievalService(
             model_path=settings.model_path, model_revision=settings.model_revision, device='cpu',
-            rerank=settings.rerank, intent=settings.intent, semantic=settings.semantic,
-            relevance_filter_enabled=settings.relevance_filter_enabled)
+            rerank=settings.rerank, semantic=settings.semantic)
         self.database_check = database_check or check_database
         self.database_close = database_close or close_database
         self.started = False
@@ -69,7 +68,9 @@ class ApiService:
         return await self.context.execute(text, top_k, hrm_user_id, service_key, answer=answer)
 
     def retrieval_response(self, result, started, elapsed):
-        return RetrievalResponse(status=result['status'], matches=result['matches'],
+        matches = [{key: value for key, value in match.items() if key in Match.model_fields}
+                   for match in result['matches']]
+        return RetrievalResponse(status=result['status'], matches=matches,
             fallback_reason=result['fallback_reason'],
             relevance=result.get('relevance', {'status': 'unassessed', 'warnings': ['evidence_completeness_not_assessed']}),
             timings=Timings(retrieval_seconds=elapsed, rerank_seconds=result.get('rerank_seconds', 0.0),

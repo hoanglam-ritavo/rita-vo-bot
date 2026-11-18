@@ -54,6 +54,8 @@ def build(root=REPOSITORY_ROOT, *, check=False):
 
 def import_pair(lexicon_path, catalog_path, output, root=REPOSITORY_ROOT):
     """Write only a new private tree, never promote candidates into current sources."""
+    if '..' in Path(output).parts:
+        raise SourceError('new_private_output_required')
     root, output = Path(root).absolute(), checked(output)
     private = checked(root / '.tmp')
     if ('..' in output.parts or not output.is_relative_to(private)

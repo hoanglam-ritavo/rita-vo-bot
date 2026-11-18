@@ -9,15 +9,14 @@ from dotenv import dotenv_values, load_dotenv
 from src.paths import REPOSITORY_ROOT
 from src.retrieval.reranking import RerankSettings
 from src.retrieval.config import from_environment
-from src.intent import IntentSettings
-from src.intent.config import from_environment as intent_from_environment
 from src.retrieval.semantics import SemanticSettings
 from src.retrieval.semantic_config import from_environment as semantic_from_environment
 from src.answering.config import AnswerSettings, from_environment as answer_from_environment
 from src.type_b.config import TypeBSettings, from_environment as type_b_from_environment
 
 logger = logging.getLogger(__name__)
-DIAGNOSTIC_KEYS = ('ANSWER_ENABLED', 'SEMANTIC_MODE', 'RELEVANCE_FILTER_ENABLED')
+DIAGNOSTIC_KEYS = ('ANSWER_ENABLED', 'SEMANTIC_MODE')
+RETIRED_KEYS = ('RELEVANCE_FILTER_ENABLED', 'RERANK_PROFILE_PATH', 'INTENT_MODE', 'INTENT_ARTIFACT_PATH')
 
 
 @dataclass(frozen=True)
@@ -28,15 +27,11 @@ class Settings:
     port: int = 8000
     top_k: int = 5
     rerank: RerankSettings = RerankSettings()
-    intent: IntentSettings = IntentSettings()
-    relevance_filter_enabled: bool = True
     semantic: SemanticSettings = SemanticSettings()
     answer: AnswerSettings = AnswerSettings()
     type_b: TypeBSettings = TypeBSettings()
 
     def __post_init__(self):
-        if type(self.relevance_filter_enabled) is not bool:
-            raise ValueError('Invalid relevance filter configuration.')
         if self.host != '127.0.0.1' or type(self.port) is not int or not 1 <= self.port <= 65535:
             raise ValueError('API requires loopback and a valid port.')
         if not re.fullmatch('[a-fA-F0-9]{40}', self.model_revision):
@@ -52,9 +47,9 @@ def load_settings():
     # HTTP startup owns this precedence, including downstream database settings.
     # Standalone CLI/database entrypoints retain their own loading policy.
     load_dotenv(env_path, override=True)
-    relevance_filter = os.environ.get('RELEVANCE_FILTER_ENABLED', 'true').lower()
-    if relevance_filter not in ('true', 'false'):
-        raise ValueError('Invalid relevance filter configuration.')
+    for key in RETIRED_KEYS:
+        if key in os.environ:
+            logger.warning('retired_configuration_ignored key=%s', key)
     revision = os.environ.get('E5_MODEL_REVISION', '614241f622f53c4eeff9890bdc4f31cfecc418b3')
     path = Path(os.environ.get('E5_MODEL_PATH', str(REPOSITORY_ROOT / 'models/embeddings/multilingual-e5-small' / revision)))
     if not path.is_absolute():
@@ -62,15 +57,12 @@ def load_settings():
     settings = Settings(path, revision, os.environ.get('API_HOST', '127.0.0.1'),
                     int(os.environ.get('API_PORT', '8000')),
                     int(os.environ.get('RETRIEVAL_TOP_K', '5')), from_environment(os.environ),
-                    intent_from_environment(os.environ),
-                    relevance_filter_enabled=relevance_filter == 'true',
                     semantic=semantic_from_environment(os.environ),
                     answer=answer_from_environment(os.environ),
                     type_b=type_b_from_environment(os.environ))
     effective = {
         'ANSWER_ENABLED': str(settings.answer.enabled).lower(),
         'SEMANTIC_MODE': settings.semantic.mode,
-        'RELEVANCE_FILTER_ENABLED': str(settings.relevance_filter_enabled).lower(),
     }
     for key, value in effective.items():
         from_file = file_values.get(key) is not None

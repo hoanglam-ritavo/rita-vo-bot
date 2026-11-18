@@ -1,0 +1,42 @@
+{
+  "id": "task.a06219c735de572caabd8b6511fa0973",
+  "label": "Quản lý kiểm tra phiếu Workit",
+  "concept_ids": [],
+  "aliases": [
+    "quản lý kiểm tra phiếu",
+    "xem quy trình phê duyệt Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "text": "Về quản lý kiểm tra phiếu Workit, tài liệu nêu như sau:\nWorkit — quản lý kiểm tra phiếu trước khi duyệt: click dòng phiếu để xem nhanh nội dung ở lưới phía dưới. Các icon bên cạnh cho Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và xem quy trình. Biểu tượng quy trình hiển thị những bước phê duyệt đã qua và bước hiện tại; trong ảnh minh họa bước tô đỏ là bước chờ người dùng kiểm tra, duyệt.",
+          "refs": [
+            {
+              "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+              "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+              "chunk_index": 1,
+              "content_sha256": "ae894f7d3a3b634b8824caa1e9d67c122972ce6bfcd3810eebe9f187fc968c81",
+              "quote": "Workit — quản lý kiểm tra phiếu trước khi duyệt: click dòng phiếu để xem nhanh nội dung ở lưới phía dưới. Các icon bên cạnh cho Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và xem quy trình. Biểu tượng quy trình hiển thị những bước phê duyệt đã qua và bước hiện tại; trong ảnh minh họa bước tô đỏ là bước chờ người dùng kiểm tra, duyệt.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+              },
+              "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad"
+            }
+          ],
+          "id": "evidence.934e639c560c5852b2fbe2cfd1592d8e"
+        }
+      ]
+    }
+  },
+  "source_type": "type_a",
+  "clarification": "Bạn vui lòng nêu rõ đối tượng và thông tin cần hỏi về quản lý kiểm tra phiếu workit."
+}

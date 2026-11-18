@@ -8,7 +8,6 @@ import re
 import unicodedata
 
 from src.paths import REPOSITORY_ROOT
-from .scoring import apply_scoring, passage_features, validate_scoring
 
 MODEL_ID = 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'
 MODEL_REVISION = '1427fd652930e4ba29e8149678df786c240d8825'
@@ -22,7 +21,7 @@ ARTIFACTS = {
     'special_tokens_map.json': '378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d',
     'sentencepiece.bpe.model': 'cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865',
 }
-PIPELINE_VERSION = 'nfc-typos2-rrf60-window512-overlap64-max-filter-v2'
+PIPELINE_VERSION = 'nfc-typos2-rrf60-window512-overlap64-max-candidates-v3'
 WARNING = 'evidence_completeness_not_assessed'
 
 
@@ -33,8 +32,6 @@ class RerankSettings:
     model_file: str = MODEL_FILE
     candidate_count: int = 30
     batch_size: int = 4
-    profile_path: Path | None = None
-    scoring_path: Path | None = None  # Explicit offline experiment input; no environment adapter.
 
     def __post_init__(self):
         if type(self.enabled) is not bool or self.model_file != MODEL_FILE:
@@ -43,13 +40,8 @@ class RerankSettings:
             raise ValueError('invalid_candidate_count')
         if type(self.batch_size) is not int or not 1 <= self.batch_size <= 16:
             raise ValueError('invalid_reranker_batch_size')
-        if self.profile_path is not None and self.scoring_path is not None:
-            raise ValueError('conflicting_relevance_scoring_inputs')
-        for name in ('model_path', 'profile_path', 'scoring_path'):
-            value = getattr(self, name)
-            if value is not None:
-                value = Path(value)
-                object.__setattr__(self, name, value if value.is_absolute() else REPOSITORY_ROOT / value)
+        value = Path(self.model_path)
+        object.__setattr__(self, 'model_path', value if value.is_absolute() else REPOSITORY_ROOT / value)
 
 
 def query_variants(question):
@@ -74,81 +66,22 @@ def fuse_candidates(lists, limit):
     return [records[key] for key in sorted(records, key=lambda key: (-scores[key], key))[:limit]]
 
 
-def relevance(matches, threshold=None):
-    if not matches:
-        return {'status': 'no_candidates', 'warnings': [WARNING]}
-    if threshold is None:
-        return {'status': 'unassessed', 'warnings': [WARNING]}
-    low = max(m['rerank_score'] for m in matches) < threshold
-    return {'status': 'low_relevance' if low else 'relevant_candidates',
-            'warnings': [WARNING, 'low_relevance'] if low else [WARNING]}
+def relevance(matches):
+    return {'status': 'unassessed' if matches else 'no_candidates',
+            'warnings': [WARNING, 'relevance_not_assessed']}
 
 
-def load_profile(path):
-    if path is None or not path.exists():
-        return None
-    try:
-        profile = json.loads(path.read_text(encoding='utf-8'))
-        if not isinstance(profile, dict):
-            raise ValueError()
-        if (type(profile.get('threshold')) not in (float, int)
-                or not math.isfinite(profile['threshold'])
-                or type(profile.get('holdout_passed')) is not bool
-                or any(not isinstance(profile.get(k), str) or not profile[k]
-                       for k in ('fingerprint',))):
-            raise ValueError()
-        version = profile.get('schema_version', 1)
-        if type(version) is not int:
-            raise ValueError()
-        # Legacy top-1 profiles cannot certify individual passages.
-        if version not in (2, 3):
-            return None
-        if version == 3:
-            validate_scoring(profile.get('scoring'))
-        elif 'scoring' in profile:
-            raise ValueError()
-        if not isinstance(profile.get('corpus_fingerprint'), str) or not profile['corpus_fingerprint']:
-            raise ValueError()
-        return profile
-    except (ValueError, TypeError, OSError):
-        raise ValueError('invalid_relevance_profile') from None
-
-
-def profile_threshold(profile, fingerprint, corpus_fingerprint):
-    if (profile and profile['holdout_passed'] is True
-            and profile['fingerprint'] == fingerprint
-            and corpus_fingerprint is not None
-            and profile['corpus_fingerprint'] == corpus_fingerprint):
-        return float(profile['threshold'])
-    return None
-
-
-def filter_candidates(result, threshold, top_k, *, enabled=True):
-    """Withhold unassessed candidates unless filtering is explicitly disabled."""
-    candidates = result['matches']
-    result['relevance'] = relevance(candidates, threshold if enabled else None)
-    if not enabled:
-        result['relevance']['warnings'].append('relevance_filter_disabled')
+def finalize_candidates(result, top_k):
+    """Ranking is not an authorization to answer a business question."""
+    result['matches'] = result['matches'][:top_k]
+    result['relevance'] = relevance(result['matches'])
     if result['status'] == 'model_mismatch':
         result['fallback_reason'] = None
-        return result
-    if result['status'] == 'no_eligible_documents':
-        reason = 'no_eligible_documents'
-    elif not candidates:
-        reason = 'no_candidates'
-    elif not enabled:
-        result['matches'] = candidates[:top_k]
-        reason = None
-    elif threshold is None:
-        reason = 'relevance_unavailable'
+    elif result['status'] == 'no_eligible_documents':
+        result['fallback_reason'] = 'no_eligible_documents'
     else:
-        result['matches'] = [m for m in candidates if m['rerank_score'] >= threshold][:top_k]
-        reason = None if result['matches'] else 'below_relevance_threshold'
-    if reason:
-        result['matches'] = []
-    result['fallback_reason'] = reason
-    if result['status'] != 'no_eligible_documents':
         result['status'] = 'matches_found' if result['matches'] else 'no_matches'
+        result['fallback_reason'] = None if result['matches'] else 'no_candidates'
     return result
 
 
@@ -156,9 +89,7 @@ class OnnxReranker:
     def __init__(self, settings):
         self.settings = settings
         self.session = self.tokenizer = None
-        self.profile = None
         self.fingerprint = None
-        self.scoring = None
 
     def start(self):
         from numpy._core._multiarray_umath import __cpu_features__
@@ -185,31 +116,17 @@ class OnnxReranker:
         self.session = ort.InferenceSession(str(self.settings.model_path / self.settings.model_file),
             sess_options=options, providers=['CPUExecutionProvider'])
         self.score('test', [{'content': 'test'}])  # Validate graph IO before readiness.
-        self.profile = load_profile(self.settings.profile_path)
-        self.scoring = self.profile.get('scoring') if self.profile else None
-        if self.settings.scoring_path is not None:
-            try:
-                self.scoring = validate_scoring(json.loads(self.settings.scoring_path.read_text(encoding='utf-8')))
-            except (ValueError, TypeError, OSError):
-                raise ValueError('invalid_relevance_scoring') from None
-        if self.scoring is not None:
-            self.fingerprint = hashlib.sha256(json.dumps({'base': self.fingerprint,
-                'scoring': self.scoring['digest']}, sort_keys=True).encode()).hexdigest()
 
     def score(self, question, matches):
         return self._score(question, matches)
 
-    def score_features(self, question, matches, concepts=()):
-        return self._score(question, matches, features=True, concepts=concepts)
-
-    def _score(self, question, matches, *, features=False, concepts=()):
+    def _score(self, question, matches):
         import numpy as np
         query = self.tokenizer.encode(question, add_special_tokens=False)
         capacity = 512 - len(query) - self.tokenizer.num_special_tokens_to_add(pair=True)
         if capacity <= 64:
             raise ValueError('reranker_question_exceeds_model_limit')
         scores = [-math.inf] * len(matches)
-        window_scores = [[] for _ in matches] if features else None
         batch, owners = [], []
         windows = 0
 
@@ -224,8 +141,6 @@ class OnnxReranker:
                 raise ValueError('invalid_reranker_scores')
             for owner, score in zip(owners, result.reshape(-1)):
                 scores[owner] = max(scores[owner], float(score))
-                if window_scores is not None:
-                    window_scores[owner].append(float(score))
             batch.clear()
             owners.clear()
 
@@ -244,18 +159,8 @@ class OnnxReranker:
                 if start + capacity >= len(tokens):
                     break
         flush()
-        if features:
-            rows = [passage_features(question, match['content'], values,
-                match['cosine_distance'], concepts) for match, values in zip(matches, window_scores)]
-            return rows, windows
         return scores, windows
-
-    def score_passages(self, question, matches, concepts=()):
-        features, windows = self.score_features(question, matches, concepts)
-        scores = apply_scoring(features, self.scoring) if self.scoring is not None else [row[0] for row in features]
-        return scores, windows, features
 
     def close(self):
         self.session = self.tokenizer = None
-        self.profile = self.fingerprint = None
-        self.scoring = None
+        self.fingerprint = None

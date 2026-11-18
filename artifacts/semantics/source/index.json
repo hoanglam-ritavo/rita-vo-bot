@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "reviewed": true,
-    "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending.",
+    "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred.",
     "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef"
   },
   "concepts": [
@@ -238,6 +238,26 @@
     "concepts/workit-trip.json",
     "concepts/workit-ui.json",
     "concepts/workplace-safety.json",
-    "concepts/worktime.json"
+    "concepts/worktime.json",
+    "concepts/procedure.bravo-vpn-connect.json",
+    "concepts/procedure.bravo-install.json",
+    "concepts/procedure.bravo-support.json",
+    "concepts/procedure.workit-approve.json",
+    "concepts/procedure.workit-return.json",
+    "concepts/procedure.outlook-room-calendar.json",
+    "concepts/procedure.outlook-equipment.json",
+    "concepts/procedure.outlook-admin-room.json",
+    "concepts/procedure.outlook-room-delete.json",
+    "concepts/procedure.workit-password.json",
+    "concepts/procedure.workit-shortcuts.json",
+    "concepts/procedure.eworkdate-email.json",
+    "concepts/procedure.eworkdate-channels.json",
+    "concepts/procedure.eworkdate-outlook.json",
+    "concepts/procedure.epostal-send.json",
+    "concepts/procedure.epostal-admin.json",
+    "concepts/procedure.epostal-confirm.json",
+    "concepts/procedure.workit-download.json",
+    "concepts/procedure.workit-sharing.json",
+    "concepts/procedure.workit-incoming.json"
   ]
 }

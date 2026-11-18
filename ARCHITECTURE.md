@@ -25,11 +25,10 @@ errors and preprovisioned disposable test contract.
 Both endpoints accept optional hrm_user_id (HRM user_id/backend odooId), not
 employee_id. TYPE_B_ENABLED defaults false; a supplied reference or B/mixed route
 requires X-Rita-Service-Key. Backend must bind the ID to an authorized authenticated
-user. A shared coordinator prepares one original E5 vector and source hint, matches
+user. A shared coordinator matches
 versioned bounded work tasks, reads the readonly employee service and/or retrieves
 policy documents. It exposes only requested work fields, preserves null/missing/error
-outcomes and never resolves identity by name/email. The source-hint observer is
-independent of INTENT_MODE observe/assist and does not change retrieval fingerprints.
+outcomes and never resolves identity by name/email. There is no learned source-hint observer; the deterministic work-task registry owns routing. Retrieval requests may reuse one prepared E5 vector; template answers use direct evidence reads.
 
 Type A wire responses stay unchanged; B/mixed have strict evidence/claim variants.
 Database facts never become document chunks or fabricated quotations. B-only answer
@@ -44,43 +43,18 @@ failure leaves Type A available. See [HTTP contract and rollout](docs/type-b-htt
 
 ## Standalone Colab intent kit
 
-The external-execution [Colab intent kit](collabs/intent-colab/README.md) is
-versioned under `collabs/intent-colab/`, with canonical tests in `src/tests/`.
-Its generated single-file trainer embeds selected intent contracts plus a local
-runtime template; it has no project imports or database dependency. Explicit
-check/write generators detect drift; source snapshots normalize UTF-8/LF while
-model identities retain raw-byte fingerprints. E5 may encode on GPU; sklearn
-heads preserve the CPU training algorithm. The tracked synthetic sample remains
-unreviewed. Private review/train copies, source-bound test receipts and allowlisted
-upload ZIPs stay under `.tmp/intent-colab/`. Packaging neither authorizes runtime
-use nor replaces internal paired acceptance/semantic evaluation.
-
-The versioned [intent notebook](collabs/intent-colab/notebooks/train_intent.ipynb)
-is a Colab workflow over that CLI, not a second training implementation. It
-checks the fixed ZIP allowlist/manifest, retains existing kit/dataset files,
-offers explicit reviewed-dataset upload and selects only completed matching runs.
-Exports contain the selected run and hash-matched dataset only. Notebook source
-is part of package checksums and verification identity; saved outputs remain empty.
+Retired with intent training and the runtime classifier. Git preserves history; private data is untouched. See [replacement](docs/catalog-answering.md).
 
 ## Independent relevance scoring Colab kit
 
-The independent [relevance V3 Colab kit](collabs/relevance-scoring-v3/README.md)
-keeps versioned UTF-8/LF scoring/fitter snapshots and a byte-bound package manifest.
-`scripts.relevance_colab` checks upstream source drift before packaging/export/
-import. Reviewed numeric development bundles contain no source text or database
-credentials; identifiers and group strings remain for leakage checks. The
-standalone NumPy CPU fitter needs neither the repo nor models/database. Optional
-CUDA FP64 scoring is diagnostic only. Imports bind the original bundle and
-independently re-fit on local CPU into `.tmp`; existing semantic acceptance,
-corpus/pipeline identities and gated profile promotion remain unchanged. See
-the [kit contract](collabs/relevance-scoring-v3/contracts/data.md).
+Retired with learned scoring/calibration/profile promotion. E5 and raw ONNX reranking remain local candidate ranking tools.
 
 ## Artifact source assembly
 
 `src.artifact_authoring.sources` owns the standard-library-only declared source
 layout, duplicate/path checks and deterministic assembly. The runtime inventory
 checker uses that module to permit exact authoring paths outside the runtime
-asset inventory, without importing retrieval, ML or database libraries.
+asset inventory, without importing retrieval, ML or database libraries. Runtime output metadata uses schema 2; the source index envelope remains schema 1.
 `src.artifact_authoring.workflow` owns explicit offline import/build and invokes
 the existing semantic/catalog validators against the current package snapshot;
 `src.cli.build_artifacts` is its CLI. Importing these modules performs no IO.
@@ -143,30 +117,11 @@ See [HTTP operation and rollout](README.md#http-service-operation-and-rollout).
 
 ## Implemented public-document retrieval
 
-The experimental local learned-scoring path is owned by
-`src/retrieval/scoring.py` and `scoring_training.py`. It keeps the pinned
-E5/ONNX models and 30 candidates, derives eight fixed passage features, and
-binds fitted coefficients into the runtime fingerprint. Schema-v3 profiles
-carry coefficients; schema-v2 retains raw-max scoring. Development-only fitting
-and paired collection cannot issue acceptance. Public results omit numeric
-feature diagnostics. See [scoring and acceptance](docs/relevance-scoring.md).
+`src.retrieval.service` owns local E5 encoding, optional ONNX reranking and guarded semantic alternatives. Candidate retrieval shares readonly REPEATABLE READ snapshots, filters eligible current public documents and compatible active successful runs, then returns at most top-K unassessed candidates. Effective dates use Asia/Ho_Chi_Minh. Distances/logits are not confidence or answer authorization.
 
-Optional corpus-bound Vietnamese expansion is owned by `src.retrieval.semantics`
-and offline preparation by `src.semantics`. It defaults off, preserves source
-content and uses a separately reviewed language artifact rather than document-ID
-ranking rules. Semantic queries share eligibility filters and the existing
-30-candidate budget; the rerank query remains the normalized/typo-corrected
-original. Effective pipeline fingerprints bind the language artifact and any
-optional intent-assistance identity. Source and runtime acceptance remain
-separate. See [Vietnamese semantics](docs/vietnamese-semantics.md) for coverage,
-review, evaluation and rollout contracts. No package schema, stored vector,
-database migration or public retrieval wire change is involved.
+`src.retrieval.storage.read_references` reads authored evidence addresses independently of top-K in one readonly snapshot, applying the same eligibility/model/access conditions. The renderer validates source/content hashes, exact quotes and metadata. Source IDs, spans and revision/run provenance remain database-owned. There are no intent heads, relevance profiles or learned scoring paths.
 
-`src.retrieval.RetrievalService` accepts an independent question string and returns nearest-neighbor chunks with source provenance. Both the retrieval CLI and HTTP retrieval service reuse it; no chat RPC is implemented. The service loads and fingerprints a local embedding model once, embeds questions with `query: `, checks token limits without truncation and validates/normalizes the 384-dimensional query vector. Model work is serialized in worker threads; each database request owns a separate read-only repeatable-read session. The application closes the shared database at shutdown, independently of service close. Runtime model files are immutable for the service lifetime.
-
-Exact cosine retrieval filters current include/active revisions, inclusive effective dates using the shared Asia/Ho_Chi_Minh business date, as publication does, public access rules and active successful runs before ranking. Model name, revision, dimensions, file fingerprint, normalization and indexed passage prefix must match. Public access uses EXISTS to avoid duplicate matches; ties use chunk IDs. Results include source spans and document metadata, never vectors. Empty eligibility, model incompatibility, absent vectors and operational failures remain distinct. Cosine search supplies candidates internally; public results require a matching per-passage relevance profile by default and may be empty. HTTP configuration can explicitly disable this gate to return unassessed top-k candidates; access and eligibility filters still apply. Accepted excerpts do not establish sufficient evidence, truth or answerability. Private-document authentication and conversation resolution remain future work. The retrieval HTTP route below exposes the same source retrieval without generation; the separately gated answer route consumes accepted excerpts.
-
-Synthetic unit tests cover query input, vector checks, model lifecycle and safe errors. Dedicated disposable PostgreSQL integration tests cover ranking and eligibility filters; they must not use the application database. Real-model retrieval evaluation is a separate read-only exercise against an explicitly selected dataset, measuring expected-source recall and latency without updating packages or database rows.
+Model work remains serialized off the event loop; cancellation drains workers, HTTP owns the busy slot, and each request owns its DB session. No model downloads or import-time DB connections occur. See [runtime contract](docs/catalog-answering.md#runtime-contract).
 
 ## Structured evidence (schema v3)
 
@@ -199,60 +154,13 @@ Readiness checks model initialization and database availability, not semantic qu
 
 ## Planned operational retrieval and extended answering
 
-`src.answering` owns the source-bound catalog, strict claims/citations and
-deterministic renderer. There is no generative model, GGUF loader, model verifier
-or automatic repair. `src.api.answer` retains the shared busy slot and a 120-second
-request deadline, including retrieval. Cancellation drains retrieval workers;
-template processing has no uncertain native generation context to disable.
+Current deterministic policy answering lives in `src.answering`: schema-v2 catalogs have stable task/evidence IDs, scoped aliases/concepts, clarification prompts, aspect sections and exact references. Schema-v2 lexical artifacts remain hash-paired with the catalog; snapshot fingerprints are authoring provenance rather than a global runtime gate. Schema-1 runtime pairs are rejected.
 
-Startup validates catalog/package/lexicon fingerprints and all source references.
-Bad or missing catalog disables answering while retrieval remains available.
-The semantic phrase matcher is shared without changing retrieval expansion/ranking.
-At request time, a unique catalog concept/alias and question aspect select a
-template. Every required source must occur in the current returned matches with
-matching document/revision/index/content/metadata. No extra evidence fetch or
-DB-ID routing occurs. Response-only origins stay application-owned.
+An unambiguous task reads its declared evidence directly from current eligible DB publications, independently of top-K. Claims require every reference; partial evidence can yield independently supported partial claims. Unknown tasks expose no nearest excerpts. Explicit document lookups can return labeled unassessed excerpts. Multi-task, unsupported personal eligibility, aggregate and ambiguous questions ask for clarification. This changes the old top-K-only evidence policy intentionally.
 
-Catalog coverage inventories every chunk; selected units retain source wording
-or authored prose with exact quotes and conditions. Complete coverage is local
-to the declared aspect, never inferred from top-K. Ambiguity and unsupported
-personal/aggregate questions ask for clarification. Missing templates/evidence
-return labeled verbatim excerpts, or insufficient evidence when none exist.
-Filtered/unassessed retrieval policy is preserved without a model-verifier gate.
-The API request/response shape stays compatible; generation/verification seconds
-are zero, and template/rendering overhead is included in total seconds. Logs
-contain generated request IDs, status and timings, not questions or raw content.
-See [current contract](docs/answer-evaluation.md#semantic-template-answer-api).
-`scripts.evaluate_answers` is a retired stub; historical studies cannot authorize
-the new template runtime. Models and source/database packages are untouched.
+Type B uses the deterministic bounded self-reference task registry and readonly employee adapter; no classifier hints remain. Mixed results separate policy and facts without deciding eligibility. Broader tools, cross-employee lookup, conversation memory, automatic aggregates and generative answers remain future work.
 
-Type A documents provide policy evidence; Type B tools provide authoritative current operational facts. Preserve applicability, access restrictions, source citations and explicit unavailable/conflicting-source handling. Exact lookup/computation is needed for structured questions; the stored chunks and vectors alone are not a table query engine. Models are locally operated; internal data must not be uploaded as an implicit implementation choice.
-
-### Type B: current operational evidence
-
-Backend must resolve the authenticated user and validate permissions. The implemented opt-in HTTP adapter reads a bounded self work profile by hrm_user_id with a service key. Project memberships, responsible-person lookup, cross-employee reads and end-user authentication inside the bot remain future work. See [Type B contract](docs/type-b-http.md).
-
-The current adapter uses a deterministic task matcher plus optional accepted source hints, not model-generated functions or SQL. Backend controls authorization. A copied embedding index must not become the source of truth for reporting relationships. Responses identify the operational source and preserve its timestamp/null without asserting freshness.
-
-### Routing and combined questions
-
-The following describes the broader target. Implemented v1 supports only the
-bounded work tasks and separated mixed evidence documented above; follow-up
-memory, role-to-person workflow resolution and project lookups are not implemented.
-
-Use model interpretation together with deterministic backend checks. Supply descriptions of each source/tool's capabilities and required parameters. Consider conversation history and required evidence rather than keywords alone. Model-reported confidence is not sufficient proof that a route or answer is correct.
-
-| Example | Intended behavior |
-| --- | --- |
-| “What is the leave application procedure?” | Retrieve Type A policy and cite it |
-| “Who is my direct manager?” | Resolve authenticated identity and query Type B |
-| “Under the procedure, whom should I send this form to?” | Find the approval role in A, then resolve the current person through B |
-| “What about unpaid leave?” | Resolve the previous topic, then retrieve the relevant policy |
-| “Who manages that project?” with no identifiable project | Ask for clarification before querying |
-| “Hello” | Reply directly without business-data retrieval |
-| A Type B request before integration exists | Explain that the operational source is not connected |
-
-Combined retrieval may be sequential: first determine the approval rule, then query the person holding that role. Do not assume the direct manager is the approver unless the policy supports that relationship. No multi-agent architecture is required. After retrieval, check that evidence covers the question; otherwise clarify or state the limitation.
+`src.artifact_authoring.impact` reports dependency-local drift and relinks only unique byte-identical evidence with unchanged revision/source/context. Build/check generates compatible artifacts. Content/revision changes require targeted review, not fingerprint edits or training. See [authoring/release](docs/catalog-answering.md).
 
 ## Trust, freshness, and failure behavior
 
@@ -266,20 +174,12 @@ Combined retrieval may be sequential: first determine the approval rule, then qu
 
 ## Delivery phases and evaluation
 
-Baseline calibration preparation is owned by `src.cli.prepare_rerank`, with
-model-free workspace import/validation/freeze in `src.retrieval.rerank_preparation`
-and shared evaluator case rules in `src.retrieval.evaluation_cases`. Preparation
-uses existing package validation and canonical identities without database or
-model access. The separate baseline benchmark records authored-input/package
-bindings and reproduction settings; freeze permits candidate-label edits only
-and checks operator review declarations before snapshotting. It neither certifies
-semantic review nor changes calibration gates or runtime APIs. See
-[baseline preparation](docs/online-reranking.md#prepare-baseline-calibration-inputs).
+Source update/reconciliation is owned by `src.artifact_authoring.impact`; deterministic build/check remains in `src.artifact_authoring.workflow`. General retrieval and template outcome evaluators remain separate from business acceptance. Calibration, learned scoring and intent training are retired.
 
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
 | 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and loopback HTTP transport | Database behavior; source identity, consistency, history and metadata validation; HTTP health and lifecycle |
-| 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; corpus-matched calibration acceptance, integrated generated answers and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
+| 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; independent catalog quality acceptance and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
 | 2 — partial, opt-in | Service-authenticated self work-profile evidence; backend owns user authorization | Broader entity resolution, project tools and user rollout remain separate |
 | 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
 
@@ -305,37 +205,12 @@ Unit tests cover synthetic package contracts, converter compatibility, CLI batch
 
 ## Optional online reranking
 
-Runtime E5 defaults to `models/embeddings/multilingual-e5-small/<revision>/`; the existing pinned ONNX/tokenizer layout stays directly under `models/`. The model allowlist uses Git LFS for weights, SentencePiece binaries and large tokenizer JSON, and byte-preserving Git attributes for the entire inventory. Only the selected current catalog/profile/lexicon/classifier JSON and their provenance manifests are tracked directly under their `artifacts/<group>/` directories, without version subdirectories. Git retains prior bytes; hashes and provenance retain content identity. Runtime loaders use explicit configured paths and never select a latest version or fall back to old paths; local verification receipts and private `.tmp/` evaluation workspaces remain ignored. `artifacts/runtime-assets.json` records model identities and file hashes. The standard-library-only `scripts.verify_runtime_assets` validates local bytes, hydrated LFS files, the complete E5 tree and Git-tracked asset paths; it neither loads models nor validates live corpus compatibility. Backup/restore and calibration promotion remain separate operational gates described in [runtime artifacts](docs/runtime-artifacts.md).
-
-Semantic expansion additionally reads every package JSON and source snapshot in `chunks/` at startup to check its package fingerprint, including packages not active in PostgreSQL. Relevance profiles bind the eligible database corpus using publication run IDs, revision IDs and configurations; independently republishing identical packages generates new run IDs and invalidates profile reuse. Shipping model/artifact files alone does not provision or certify that database state. No startup download, generation, schema, response or health-contract change is introduced by Git/LFS storage.
-
-`src.retrieval` owns the pinned mMARCO MiniLM ONNX lifecycle and shared function/CLI/HTTP pipeline. Enabled requests normalize NFC/whitespace, retrieve original plus an optional allowlisted typo correction in one read-only snapshot, fuse candidates with RRF, and rerank overlapping token windows on CPU. Content and provenance are preserved; candidate selection/order, per-passage filtering and explicit empty fallback are shared across public entrypoints. The model is loaded locally with pinned artifact hashes; no ingestion, schema or vector writes occur. Runtime failure does not silently fall back. The service lock spans retrieval and reranking so close/cancellation drains work before releasing models. See [online reranking](docs/online-reranking.md) for configuration, limits, profile calibration and rollout gates.
-
+Pinned local CPU ONNX reranking sorts unassessed candidates. It has no profile/threshold/learned scoring gate. Preserve model hash validation, long-passage windows and failure/cancellation handling. See [configuration](docs/online-reranking.md).
 
 ## Optional intent observation
 
-`src.intent` owns a local JSON linear classifier over the already-created original E5 query vector. One multiclass head predicts A/B/mixed/conversation/out-of-scope/missing-context; five binary heads identify Type A evidence needs. `RetrievalService` owns its lifecycle under the existing worker/lock boundary. HTTP settings and the retrieval CLI opt in explicitly; the default is off. In `observe` mode, the observer logs only labels/status/artifact identity/timing and never enters result serialization, alters query processing, filters candidates, changes ranking, bypasses relevance assessment, or calls a tool. Invalid or unaccepted artifacts make the observer unavailable without suppressing retrieval errors. No additional encoder, model server, schema or response field is introduced.
-
-The separate `assist` mode requires semantic expansion and uses accepted style
-hints to prioritize already-valid alternatives; source labels never exclude
-documents or invoke tools. Uncertain/unavailable inference retains unassisted
-alternatives, while the effective fingerprint still identifies the configured
-assistance pipeline and loaded classifier version. A missing classifier at
-startup therefore does not silently reuse a semantic-only profile. Assistance
-must pass the [semantic paired gates](docs/vietnamese-semantics.md) after the
-semantic-only stage; off/observe parity and classifier acceptance remain separate.
-
-`src.cli.prepare_intents` provides JSON-configured validate/preflight/run batches. Shared dataset validation and offline orchestration live in `src.intent.dataset` and `src.intent.preparation`; `src.intent.training` owns regularization selection on grouped training folds, separate threshold calibration and frozen holdout evaluation. The historical `scripts.train_intent` and `scripts.intent_contract` entrypoints delegate to those modules. Import/help/validation do not load ML runtimes. Preflight uses the same query token helper as retrieval without encoding; run reuses one local E5 instance, never connects to PostgreSQL, and writes atomic files in a new private run directory. Manifest completion distinguishes a valid diagnostic run, a quality-passed candidate and an incomplete/failed run; it never authorizes runtime usage.
-
-`scripts.benchmark_intent` remains separate and uses the public filtered retrieval path for paired off/observe checks, emitting an accepted artifact only after quality, export parity, retrieval invariance and latency gates pass. Runtime identity binds E5 files/revision and preprocessing; classifier evaluation does not replace corpus-matched passage calibration. The opt-in HTTP Type B coordinator consumes source hints independently, while general entity extraction and conversation state remain planned. See [intent observation and verification](docs/intent-classifier.md).
+Retired. Deterministic catalog concepts and the Type B task registry replace classifier observation/assistance/source hints. No extra classifier artifact is loaded.
 
 ## Relevance filtering and empty fallback
 
-Saved offline benchmark collections can be inspected with `scripts.diagnose_retrieval` without model inference or database access. It emits a metadata diagnostic and a separate private unranked source worksheet, retains unresolved labels, and never calibrates, changes runtime responses or issues a profile. Current package source hashes support reproducibility but do not independently certify historical database identity. See [diagnostic procedure and limits](docs/online-reranking.md#diagnose-empty-results-before-recalibration).
-
-The later user-authorized [clear-content publication](docs/chunk-coverage-verification.md#clear-content-publication-follow-up--2026-11-13) expanded the local database to 28 current active publications / 524 active chunks, adding 200 chunks from fifteen formerly held packages. User-confirmed metadata and explicit source exclusions make the retained subset eligible; original snapshots and identities remain unchanged. This operation changes package data and publication state, not runtime code, schema or API contracts. Publication does not establish a matching relevance profile.
-
-As of 2026-11-13, public retrieval uses top-K as an upper bound after per-passage relevance filtering. The fixed 30-candidate reranking pool is independent of top-K. A schema-v2 profile binds model/pipeline identity and the version-2 corpus fingerprint, including compatible active publications and retrieval-affecting metadata read in the same snapshot. Attempts and audit timestamps are excluded; old corpus fingerprints require new evaluation rather than rewriting. Missing, stale or legacy calibration withholds candidates with `no_matches/relevance_unavailable`; low-scoring candidates yield `below_relevance_threshold`. Eligibility and candidate absence retain distinct reasons. Operational errors remain errors. The offline benchmark retains a separate diagnostic candidate path for source labeling. HTTP accepts no request-level bypass; server configuration can explicitly disable relevance filtering. The CLI keeps the calibrated gate enabled. See [filtering and rollout](docs/online-reranking.md). No relevance score establishes full answer coverage.
-
-
-The HTTP settings adapter reads `RELEVANCE_FILTER_ENABLED` (strict case-insensitive boolean, default `true`) and passes it into `RetrievalService`; direct callers may set `relevance_filter_enabled=False`. The public finalization path always enforces top-K and removes candidate diagnostics. When filtering is disabled it does not load/check the profile, returns unassessed reranked candidates (or vector candidates when reranking is off), and includes the `relevance_filter_disabled` warning. Empty reasons, model/database failures, locking, cancellation and intent observation remain unchanged. Offline `assessment=False`, CLI and calibration defaults are separate and unchanged. See [filter-mode contract](docs/online-reranking.md#retrieval-and-response-semantics); the backend currently discards relevance metadata, so the portal cannot distinguish this mode.
+Retrieval now returns unassessed candidates, with explicit warnings; no profile-based filtering occurs. Empty outcomes distinguish no candidates/no eligible documents from operational failures. Answer eligibility is checked against exact source evidence per task. See [catalog answering](docs/catalog-answering.md).

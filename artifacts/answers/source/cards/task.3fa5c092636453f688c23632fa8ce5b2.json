@@ -1,0 +1,42 @@
+{
+  "id": "task.3fa5c092636453f688c23632fa8ce5b2",
+  "label": "Nhận thư E-Postal",
+  "concept_ids": [],
+  "aliases": [
+    "nhận thư E-Postal",
+    "QR Receiving"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "text": "Về nhận thư E-Postal, tài liệu nêu như sau:\nE-Postal — nhận thư tại lễ tân/phòng bảo vệ: mở QR Receiving trong tài liệu bằng máy tính/điện thoại. Khai công ty, mã nhân viên, họ tên, email công ty HCNS IT cấp, phòng ban, tiêu đề thư; nội dung chi tiết và ghi chú không bắt buộc. Chọn Nhận hộ Đúng nếu nhận thay; chọn trạng thái Đã nhận hoặc Từ chối nhận để hệ thống gửi email. QR Sending dành cho gửi thư, không dùng nhầm.",
+          "refs": [
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 1,
+              "content_sha256": "7815395522827e6e74b820186d62dddd0d6a48dfc0ff29ef53ac42a999600d76",
+              "quote": "E-Postal — nhận thư tại lễ tân/phòng bảo vệ: mở QR Receiving trong tài liệu bằng máy tính/điện thoại. Khai công ty, mã nhân viên, họ tên, email công ty HCNS IT cấp, phòng ban, tiêu đề thư; nội dung chi tiết và ghi chú không bắt buộc. Chọn Nhận hộ Đúng nếu nhận thay; chọn trạng thái Đã nhận hoặc Từ chối nhận để hệ thống gửi email. QR Sending dành cho gửi thư, không dùng nhầm.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              },
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae"
+            }
+          ],
+          "id": "evidence.724c53329bf1503fa857ff462aca72c1"
+        }
+      ]
+    }
+  },
+  "source_type": "type_a",
+  "clarification": "Bạn vui lòng nêu rõ đối tượng và thông tin cần hỏi về nhận thư e-postal."
+}

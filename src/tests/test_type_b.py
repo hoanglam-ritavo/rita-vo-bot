@@ -41,7 +41,7 @@ def profile(**changes):
 
 def documents():
     return dict(status='matches_found', fallback_reason=None,
-        relevance=dict(status='relevant_candidates', warnings=[]), matches=[dict(
+        relevance=dict(status='unassessed', warnings=['relevance_not_assessed']), matches=[dict(
             chunk_id='chunk', chunk_index=0, run_id='run', document_id='doc', revision_id='rev',
             content='Fictional policy evidence.', cosine_distance=0.1, rerank_score=1.0, title='Policy',
             author_id=None, role=None, source_path='fictional.txt', version_label=None,
@@ -50,7 +50,8 @@ def documents():
 
 def service(*, enabled=True, hint=None, personnel=None):
     retrieval = SimpleNamespace(start=AsyncMock(), close=AsyncMock(), started=True,
-        start_source_intent=AsyncMock(), retrieve=AsyncMock(return_value=documents()),
+        retrieve=AsyncMock(return_value=documents()),
+        read_evidence=AsyncMock(return_value={**documents(), 'matches':[{**documents()['matches'][0], 'source_sha256':'a'*64}]}),
         retrieve_prepared=AsyncMock(return_value=documents()),
         prepare_query=AsyncMock(side_effect=lambda text, top_k: SimpleNamespace(question=text, hint=hint or UNKNOWN)))
     employee = SimpleNamespace(check_source=AsyncMock(), close=AsyncMock(),
@@ -148,15 +149,6 @@ def test_no_reads_for_ambiguous_or_unsupported_tasks(endpoint, question, reason)
     owner.retrieval.retrieve_prepared.assert_not_awaited()
 
 
-@pytest.mark.parametrize('source,question,expected', [
-    ('type_a', QUESTION, 'source_intent_conflict'),
-    ('type_b', 'Tôi đang thuộc phòng ban nào và chính sách hỗ trợ thế nào?', 'source_intent_conflict'),
-    ('type_b', 'Tôi còn dữ liệu gì?', 'employee_task_unclear'),
-    ('mixed', 'Tôi được những gì?', 'employee_task_unclear'),
-])
-def test_classifier_hints_never_authorize_arbitrary_reads(source, question, expected):
-    route = route_question(question, dict(status='classified', source=source))
-    assert route.reason == expected and not route.fields
 
 
 @pytest.mark.parametrize('endpoint', ENDPOINTS)
@@ -232,13 +224,13 @@ def test_mixed_answer_with_real_template_renderer_keeps_both_reference_kinds():
     from src.answering.catalog import Catalog, METADATA
     owner, _ = service()
     match = documents()['matches'][0]
-    reference = dict(document_id=match['document_id'], revision_id=match['revision_id'],
+    reference = dict(source_sha256='a'*64, document_id=match['document_id'], revision_id=match['revision_id'],
         chunk_index=0, content_sha256=hashlib.sha256(match['content'].encode()).hexdigest(),
         quote=match['content'], metadata={key: match[key] for key in METADATA})
-    catalog = Catalog.model_validate(dict(schema_version=1, package_fingerprint='fake', lexicon_sha256='fake',
-        cards=[dict(id='policy', label='Fictional policy', concept_ids=[], aliases=['chính sách trợ cấp'],
+    catalog = Catalog.model_validate(dict(schema_version=2, package_fingerprint='fake', lexicon_sha256='fake',
+        cards=[dict(source_type='type_a', clarification='Fictional clarification', id='policy', label='Fictional policy', concept_ids=[], aliases=['chính sách trợ cấp'],
             requires_any=[], excludes_any=[], sections={'overview': dict(complete=True,
-                units=[dict(text='Fictional policy evidence.', refs=[reference])])})], coverage=[]))
+                units=[dict(id='evidence.fictional', text='Fictional policy evidence.', refs=[reference])])})], coverage=[]))
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
         owner.answers.available = True
         owner.answers.catalog = catalog
@@ -265,7 +257,7 @@ def test_mixed_answer_with_real_template_renderer_keeps_both_reference_kinds():
     ('Ngày chính thức của tôi và hướng dẫn sử dụng Workit?', 'mixed'),
 ])
 def test_policy_and_named_subjects_are_not_treated_as_self_values(question, source):
-    route = route_question(question, UNKNOWN)
+    route = route_question(question)
     assert route.source == source
     if 'Nguyễn' in question:
         assert not route.fields and route.reason is not None
@@ -284,21 +276,6 @@ def test_http_configuration_loads_type_b_without_logging_the_key(monkeypatch, tm
     assert KEY not in caplog.text + repr(settings)
 
 
-def test_independent_source_observer_does_not_change_intent_mode(monkeypatch):
-    async def exercise():
-        retrieval = RetrievalService(model_path=Path('unused'), model_revision='a'*40)
-        retrieval._model = object()
-        retrieval._fingerprint = 'fake'
-        retrieval._encode = Mock(return_value=[1.0] + [0.0]*383)
-        await retrieval.start_source_intent(None)
-        assert retrieval._intent.settings.mode == 'off'
-        assert retrieval._source_intent.settings.mode == 'observe'
-        retrieval._source_intent.predict = Mock(return_value=dict(status='classified', source='type_b', styles=[]))
-        result = await retrieval.prepare_query(QUESTION)
-        assert result.hint['source'] == 'type_b'
-        retrieval._encode.assert_called_once()
-        await retrieval.close()
-    run_async(exercise())
 
 
 def test_request_deadline_releases_slot_without_retry(monkeypatch):
@@ -354,7 +331,7 @@ def test_feature_settings_are_strict_and_secret_repr_is_safe():
 
 def test_original_embedding_reused_without_changing_type_a_storage_or_fingerprints(monkeypatch):
     async def exercise():
-        retrieval = RetrievalService(model_path=Path('unused'), model_revision='a'*40, relevance_filter_enabled=False)
+        retrieval = RetrievalService(model_path=Path('unused'), model_revision='a'*40)
         retrieval._model = object()
         retrieval._fingerprint = 'model-fingerprint'
         retrieval._encode = Mock(return_value=[1.0] + [0.0]*383)
@@ -364,8 +341,7 @@ def test_original_embedding_reused_without_changing_type_a_storage_or_fingerprin
         result = await retrieval.retrieve_prepared(prepared, 5)
         retrieval._encode.assert_called_once_with('Original question')
         assert result['corpus_fingerprint'] == 'corpus'
-        assert prepared.hint['status'] == 'unavailable'
-        assert retrieval._intent.settings.mode == 'off'
+        assert not hasattr(prepared, 'hint')
         assert search.call_args.args[1:3] == ('a'*40, 'model-fingerprint')
         await retrieval.close()
         retrieval._model = object()

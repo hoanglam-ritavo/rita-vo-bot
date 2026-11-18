@@ -72,10 +72,8 @@ def test_config_rejects_invalid_settings(values):
 def test_relevance_keeps_low_candidates_and_never_certifies_completeness():
     matches = [{'rerank_score': -4.}]
     assert relevance(matches)['status'] == 'unassessed'
-    assert relevance(matches, 0)['status'] == 'low_relevance'
-    assert relevance(matches, -4)['status'] == 'relevant_candidates'
-    assert relevance([], 0)['status'] == 'no_candidates'
-    assert relevance(matches, -4)['warnings'] == ['evidence_completeness_not_assessed']
+    assert relevance([])['status'] == 'no_candidates'
+    assert relevance(matches)['warnings'] == ['evidence_completeness_not_assessed', 'relevance_not_assessed']
 
 
 def install_doubles(monkeypatch):
@@ -99,11 +97,10 @@ def test_online_orchestration_and_fail_closed(monkeypatch):
     async def scenario():
         service = RetrievalService(model_path='unused', model_revision='a'*40, rerank=RerankSettings(enabled=True))
         await service.start()
-        service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus', threshold=9., holdout_passed=True)
         result = await service.retrieve('thai sảng', 2)
         assert [m['chunk_id'] for m in result['matches']] == ['1', '2']
         assert 'candidate_order' not in result
-        assert result['relevance']['status'] == 'relevant_candidates'
+        assert result['relevance']['status'] == 'unassessed'
         assert search.call_args.args[3] == 30 and len(search.call_args.kwargs['extra_vectors']) == 1
         monkeypatch.setattr(OnnxReranker, 'score', Mock(side_effect=RuntimeError('private text')))
         with pytest.raises(RetrievalError, match='reranking_failed'):
@@ -136,22 +133,6 @@ def test_cancelled_rerank_drains_before_close(monkeypatch):
     run_async(scenario())
 
 
-def test_calibration_checks_every_returned_passage_not_just_top_one():
-    from scripts.benchmark_online_retrieval import calibrate
-    def row(split, supported):
-        return dict(split=split, relevant=supported, _revision='rev', _run='run',
-                    _case=dict(id=split+str(supported), category='detail' if supported else 'unsupported',
-                               required_groups=[[0]] if supported else []),
-                    after_rerank=[dict(chunk_index=i, revision_id='rev', run_id='run',
-                                      rerank_score=score, relevant=supported and i == 0)
-                                  for i, score in enumerate([3., -2.] if supported else [-2.])])
-    rows = [row(split, supported) for split in ('calibration', 'holdout') for supported in (True, False)]
-    assert calibrate(rows)['holdout_passed']
-    rows[2]['after_rerank'][1]['rerank_score'] = 2.5
-    assert not calibrate(rows)['holdout_passed']
-    assert not calibrate(rows[:2])['holdout_passed']
-
-
 def test_start_failure_clears_readiness_and_never_falls_back(monkeypatch):
     install_doubles(monkeypatch)
     monkeypatch.setattr(OnnxReranker, 'start', Mock(side_effect=ValueError('private path')))
@@ -166,83 +147,9 @@ def test_start_failure_clears_readiness_and_never_falls_back(monkeypatch):
     run_async(scenario())
 
 
-def test_profile_requires_matching_identity_corpus_and_validated_holdout(tmp_path):
-    import json
-    from src.retrieval.reranking import profile_threshold, load_profile
-    path = tmp_path / 'profile.json'
-    assert load_profile(path) is None
-    good = dict(schema_version=2, fingerprint='current', corpus_fingerprint='corpus', threshold=-3.2, holdout_passed=True)
-    path.write_text(json.dumps(good), encoding='utf-8')
-    profile = load_profile(path)
-    assert profile_threshold(profile, 'current', 'corpus') == -3.2
-    assert profile_threshold(profile, 'stale', 'corpus') is None
-    assert profile_threshold(profile, 'current', 'changed') is None
-    assert profile_threshold(profile, 'current', None) is None
-    for changes in ({'threshold': True}, {'threshold': math.nan}, {'corpus_fingerprint': None}):
-        path.write_text(json.dumps(good | changes), encoding='utf-8')
-        with pytest.raises(ValueError, match='invalid_relevance_profile'):
-            load_profile(path)
-    path.write_text(json.dumps({k: v for k, v in good.items() if k != 'schema_version'}))
-    assert load_profile(path) is None
-
-
-def test_benchmark_rejects_writing_into_model_or_case_inputs(tmp_path, monkeypatch):
-    import json
-    from scripts import benchmark_online_retrieval as bench
-    from scripts import evaluate_retrieval as evaluation
-    monkeypatch.setattr(evaluation, 'REPOSITORY_ROOT', tmp_path)
-    root = tmp_path / '.tmp'
-    root.mkdir()
-    model = root / 'model'
-    model.mkdir()
-    manifest = root / 'manifest.json'
-    case = root / 'cases.json'
-    manifest.write_text(json.dumps({'datasets': [{'package': str(root / 'package'), 'cases': str(case)}]}))
-    args = SimpleNamespace(manifest=manifest, model_path=model, rerank_model_path=model,
-                           requests=100, output=model / 'new.json')
-    with pytest.raises(ValueError, match='output_overwrites_input'):
-        bench.validate_outputs(args)
-    args.output = case
-    with pytest.raises(ValueError, match='output_overwrites_input'):
-        bench.validate_outputs(args)
-    args.output = root / 'report.json'
-    bench.validate_outputs(args)
-
-
-@pytest.mark.parametrize('threshold,expected,reason', [(2., ['2'], None), (1., ['1', '2'], None),
-    (3., [], 'below_relevance_threshold'), (None, [], 'relevance_unavailable')])
-def test_filter_never_fills_top_k(threshold, expected, reason):
-    from src.retrieval.reranking import filter_candidates
-    matches = [dict(chunk_id=str(i), rerank_score=float(i), source_spans=['fictional']) for i in range(3)]
-    result = filter_candidates(dict(status='matches_found', matches=matches), threshold, 5)
-    assert [m['chunk_id'] for m in result['matches']] == expected
-    assert result['fallback_reason'] == reason
-    assert result['status'] == ('matches_found' if expected else 'no_matches')
-    assert all(m['source_spans'] == ['fictional'] for m in result['matches'])
-
-
-@pytest.mark.parametrize('enabled,corpus', [(False, 'corpus'), (True, 'changed'), (True, None)])
-def test_unavailable_assessment_never_exposes_candidates(monkeypatch, enabled, corpus):
-    search = install_doubles(monkeypatch)
-    search.return_value['corpus_fingerprint'] = corpus
-    monkeypatch.setattr(OnnxReranker, 'score', lambda *args: ([1., 2., 3.], 3))
-    async def scenario():
-        service = RetrievalService(model_path='unused', model_revision='a'*40, rerank=RerankSettings(enabled=enabled))
-        await service.start()
-        try:
-            if enabled:
-                service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus', threshold=0, holdout_passed=True)
-            result = await service.retrieve('question', 5)
-            assert result['matches'] == [] and result['fallback_reason'] == 'relevance_unavailable'
-            assert 'candidate_order' not in result
-        finally:
-            await service.close()
-    run_async(scenario())
-
-
 @pytest.mark.parametrize('status,reason', [('no_eligible_documents', 'no_eligible_documents'),
                                          ('no_matches', 'no_candidates'),
-                                         ('matches_found', 'below_relevance_threshold')])
+                                         ('matches_found', None)])
 def test_public_pipeline_distinguishes_empty_outcomes_without_leaking_candidates(monkeypatch, status, reason):
     import json
     search = install_doubles(monkeypatch)
@@ -258,155 +165,12 @@ def test_public_pipeline_distinguishes_empty_outcomes_without_leaking_candidates
                                    rerank=RerankSettings(enabled=True))
         await service.start()
         try:
-            service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus',
-                                            threshold=0., holdout_passed=True)
             result = await service.retrieve('Fictional policy?', 5)
-            assert result['status'] == ('no_eligible_documents' if status == 'no_eligible_documents' else 'no_matches')
-            assert result['fallback_reason'] == reason and result['matches'] == []
+            assert result['status'] == status
+            assert result['fallback_reason'] == reason
+            assert bool(result['matches']) == (status == 'matches_found')
             assert 'candidate_order' not in result
-            assert 'WITHHELD FICTIONAL PASSAGE' not in json.dumps(result)
-        finally:
-            await service.close()
-    run_async(scenario())
-
-
-def test_benchmark_rejects_small_or_leaking_datasets():
-    from scripts.benchmark_online_retrieval import validate_cases
-    cases = [(dict(id=str(i), question=str(i), intent_group=str(i), split='calibration', relevant=True), 'rev', 'run') for i in range(2)]
-    with pytest.raises(ValueError, match='need_100'):
-        validate_cases(cases)
-    validate_cases(cases, collect_only=True)
-    cases[1][0].update(intent_group='0', split='holdout')
-    with pytest.raises(ValueError, match='leaks'):
-        validate_cases(cases, collect_only=True)
-
-
-@pytest.mark.parametrize('collect_only', [False, True])
-def test_benchmark_runs_filtered_latency_and_only_certifies_labeled_cases(tmp_path, monkeypatch, collect_only):
-    import json
-    from scripts import benchmark_online_retrieval as bench
-    manifest = tmp_path / 'manifest.json'
-    case_path = tmp_path / 'cases.json'
-    case_path.write_text('{}')
-    manifest.write_text(json.dumps({'datasets': [{'package': str(tmp_path), 'cases': str(case_path)}]}))
-    cases = []
-    for i in range(100):
-        split = 'calibration' if i < 40 else 'holdout' if i < 80 else 'regression'
-        supported = i % 2 == 0
-        cases.append(dict(id=str(i), question=str(i), intent_group=str(i), split=split,
-            relevant=supported, category='detail' if supported else 'unsupported',
-            required_groups=[[0]] if supported else [], candidate_labels={'chunk': supported}))
-    case_path.write_text(json.dumps({'cases': cases}))
-    files = {'metadata.json': b'{}'}
-    monkeypatch.setattr(bench, 'model_fingerprint', lambda *_: 'embedding')
-    monkeypatch.setattr(bench, 'load_cases', lambda *_: cases)
-    monkeypatch.setattr(bench, 'configuration', lambda *_: {})
-    monkeypatch.setattr(bench.packages, 'load_package', lambda *_a, **_k: ({'revision_id': 'rev'}, {}, files))
-    monkeypatch.setattr(bench.packages, 'snapshot_files', lambda *_: files)
-    monkeypatch.setattr(bench, 'database_state', AsyncMock(return_value={'run_id': 'run'}))
-    instances = []
-    class Service:
-        def __init__(self, **kwargs):
-            self._reranker = SimpleNamespace(fingerprint='reranker', profile=None)
-            self.public_calls = 0
-            self.closed = False
-            instances.append(self)
-        async def start(self):
-            pass
-        async def close(self):
-            self.closed = True
-        async def _retrieve(self, question, top_k, *, assessment):
-            assert assessment is False
-            match = dict(chunk_id='chunk', chunk_index=0, revision_id='rev', run_id='run',
-                         rerank_score=3. if int(question) % 2 == 0 else -2., cosine_distance=.1)
-            return dict(status='matches_found', matches=[match], candidate_order=[match],
-                        corpus_fingerprint='corpus', rerank_seconds=.01)
-        async def retrieve(self, question, top_k):
-            self.public_calls += 1
-            assert (self._reranker.profile is None) == collect_only
-            return dict(corpus_fingerprint='corpus')
-    monkeypatch.setattr(bench, 'RetrievalService', Service)
-    args = SimpleNamespace(manifest=manifest, model_path=tmp_path, model_revision='a'*40,
-                           rerank=True, collect_only=collect_only, requests=100)
-    report = run_async(bench.benchmark(args))
-    assert report['rollout_ready'] is (not collect_only)
-    assert report['corpus_fingerprint'] == 'corpus'
-    assert report['preparation_binding'][0]['case_identity']
-    assert report['reproduction_arguments'][-1] == '--rerank'
-    assert instances[0].public_calls == 100 and instances[0].closed
-    assert all('_case' not in row for row in report['cases'])
-
-
-@pytest.mark.parametrize('filter_enabled', [True, False])
-@pytest.mark.parametrize('rerank_enabled', [True, False])
-def test_independent_filter_and_rerank_switches(monkeypatch, filter_enabled, rerank_enabled):
-    search = install_doubles(monkeypatch)
-    monkeypatch.setattr(OnnxReranker, 'score', lambda *args: ([0., 9., 4.], 3))
-    async def scenario():
-        service = RetrievalService(model_path='unused', model_revision='a'*40,
-            rerank=RerankSettings(enabled=rerank_enabled), relevance_filter_enabled=filter_enabled)
-        await service.start()
-        try:
-            if rerank_enabled:
-                service._reranker.profile = dict(fingerprint='synthetic', corpus_fingerprint='corpus',
-                                                threshold=8., holdout_passed=True)
-            result = await service.retrieve('question', 2)
-            expected = (['1'] if rerank_enabled else []) if filter_enabled else (
-                ['1', '2'] if rerank_enabled else ['0', '1'])
-            assert [m['chunk_id'] for m in result['matches']] == expected
-            assert result['status'] == ('matches_found' if expected else 'no_matches')
-            assert result['fallback_reason'] == (None if expected else 'relevance_unavailable')
-            assert search.call_args.args[3] == (30 if rerank_enabled else 2)
-            assert 'candidate_order' not in result
-            assert all(m['content'] == 'synthetic' for m in result['matches'])
-            if not filter_enabled:
-                assert result['relevance'] == dict(status='unassessed', warnings=[
-                    'evidence_completeness_not_assessed', 'relevance_filter_disabled'])
-                assert 'Unassessed' in result['notice']
-            if not rerank_enabled:
-                assert result['rerank_seconds'] == 0.0
-                assert all(m['rerank_score'] is None for m in result['matches'])
-            else:
-                assert result['rerank_seconds'] > 0
-                assert result['matches'][0]['rerank_score'] == 9.
-        finally:
-            await service.close()
-    run_async(scenario())
-
-
-@pytest.mark.parametrize('profile_kind', ['missing', 'malformed', 'mismatched'])
-@pytest.mark.parametrize('filter_enabled', [True, False])
-def test_profile_file_only_used_when_filtering(monkeypatch, tmp_path, profile_kind, filter_enabled):
-    import json
-    from src.retrieval.reranking import load_profile
-    install_doubles(monkeypatch)
-    profile = tmp_path / 'profile.json'
-    if profile_kind == 'malformed':
-        profile.write_text('{invalid', encoding='utf-8')
-    elif profile_kind == 'mismatched':
-        profile.write_text(json.dumps(dict(schema_version=2, fingerprint='old',
-            corpus_fingerprint='old', threshold=99., holdout_passed=True)), encoding='utf-8')
-    loaded_paths = []
-    def start(reranker):
-        reranker.fingerprint = 'synthetic'
-        loaded_paths.append(reranker.settings.profile_path)
-        reranker.profile = load_profile(reranker.settings.profile_path)
-    monkeypatch.setattr(OnnxReranker, 'start', start)
-    monkeypatch.setattr(OnnxReranker, 'score', lambda *args: ([0., 1., 2.], 3))
-    async def scenario():
-        service = RetrievalService(model_path='unused', model_revision='a'*40,
-            rerank=RerankSettings(enabled=True, profile_path=profile),
-            relevance_filter_enabled=filter_enabled)
-        try:
-            if filter_enabled and profile_kind == 'malformed':
-                with pytest.raises(RetrievalError, match='model_load_failed'):
-                    await service.start()
-            else:
-                await service.start()
-                result = await service.retrieve('question', 1)
-                assert result['status'] == ('no_matches' if filter_enabled else 'matches_found')
-                assert result['fallback_reason'] == ('relevance_unavailable' if filter_enabled else None)
-            assert loaded_paths == [profile if filter_enabled else None]
+            assert ('WITHHELD FICTIONAL PASSAGE' in json.dumps(result)) == (status == 'matches_found')
         finally:
             await service.close()
     run_async(scenario())
@@ -414,30 +178,30 @@ def test_profile_file_only_used_when_filtering(monkeypatch, tmp_path, profile_ki
 
 @pytest.mark.parametrize('status,reason', [('no_eligible_documents', 'no_eligible_documents'),
                                         ('no_matches', 'no_candidates')])
-def test_filter_disabled_preserves_empty_outcomes(monkeypatch, status, reason):
+def test_unassessed_retrieval_preserves_empty_outcomes(monkeypatch, status, reason):
     search = install_doubles(monkeypatch)
     search.return_value = dict(status=status, matches=[])
     async def scenario():
-        service = RetrievalService(model_path='unused', model_revision='a'*40, relevance_filter_enabled=False)
+        service = RetrievalService(model_path='unused', model_revision='a'*40)
         await service.start()
         try:
             result = await service.retrieve('question')
             assert result['status'] == status and result['fallback_reason'] == reason
             assert result['matches'] == []
             assert result['relevance'] == dict(status='no_candidates', warnings=[
-                'evidence_completeness_not_assessed', 'relevance_filter_disabled'])
+                'evidence_completeness_not_assessed', 'relevance_not_assessed'])
             assert 'candidate_order' not in result
         finally:
             await service.close()
     run_async(scenario())
 
 
-def test_filter_disabled_does_not_hide_reranker_failure(monkeypatch):
+def test_unassessed_retrieval_does_not_hide_reranker_failure(monkeypatch):
     install_doubles(monkeypatch)
     monkeypatch.setattr(OnnxReranker, 'score', Mock(side_effect=RuntimeError('private')))
     async def scenario():
         service = RetrievalService(model_path='unused', model_revision='a'*40,
-            rerank=RerankSettings(enabled=True), relevance_filter_enabled=False)
+            rerank=RerankSettings(enabled=True))
         await service.start()
         try:
             with pytest.raises(RetrievalError, match='reranking_failed'):
@@ -445,9 +209,3 @@ def test_filter_disabled_does_not_hide_reranker_failure(monkeypatch):
         finally:
             await service.close()
     run_async(scenario())
-
-
-@pytest.mark.parametrize('value', ['false', 0, None])
-def test_service_requires_boolean_filter_setting(value):
-    with pytest.raises(ValueError, match='invalid_relevance_filter_configuration'):
-        RetrievalService(model_path='unused', model_revision='a'*40, relevance_filter_enabled=value)

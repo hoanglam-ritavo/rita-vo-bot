@@ -11,7 +11,7 @@ from src.ingestion.embeddings import MODEL_NAME
 
 
 def corpus_identity(run_id, revision_id, configuration, revision, groups):
-    """Only publication identity, eligibility and public provenance affect calibration."""
+    """Publication identity, eligibility and provenance for evaluation drift detection."""
     metadata = {key: getattr(revision, key) for key in (
         'is_catalog_current', 'lifecycle_status', 'indexing_decision',
         'applicability', 'source_path', 'title', 'version_label')}
@@ -42,11 +42,43 @@ def eligibility(model_revision, fingerprint):
 def match_record(chunk, revision):
     return {'chunk_id': str(chunk.id), 'chunk_index': chunk.chunk_index, 'run_id': str(chunk.run_id),
             'document_id': str(revision.document_id), 'revision_id': str(revision.id),
-            'content': chunk.content, 'title': revision.title or '', 'source_path': revision.source_path,
+            'content': chunk.content, 'title': revision.title, 'source_path': revision.source_path,
+            'version_label': revision.version_label,
             'effective_from': revision.effective_from.isoformat() if revision.effective_from else None,
             'effective_to': revision.effective_to.isoformat() if revision.effective_to else None,
             'applicability': revision.applicability, 'source_spans': chunk.source_location['spans'],
             'author_id': chunk.author_id, 'role': chunk.role}
+
+
+async def read_references(references, model_revision, fingerprint):
+    """Resolve authored references from one current, eligible publication snapshot.
+
+    A reference is an address, never an authorization. Content/quote/context are
+    checked again by the answer renderer. Missing addresses remain missing.
+    """
+    import uuid
+    addresses = set()
+    for ref in references:
+        try:
+            addresses.add((uuid.UUID(ref.document_id), uuid.UUID(ref.revision_id), ref.chunk_index))
+        except ValueError:
+            continue
+    if not addresses:
+        return []
+    from sqlalchemy import tuple_
+    async with session_scope() as db:
+        await db.execute(text('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY'))
+        query = (select(Chunk, Revision).join(Run, Chunk.run_id == Run.id)
+                 .join(Revision, Run.revision_id == Revision.id)
+                 .where(*eligibility(model_revision, fingerprint),
+                        tuple_(Revision.document_id, Revision.id, Chunk.chunk_index).in_(sorted(addresses))))
+        rows = (await db.execute(query)).all()
+        # Duplicate active publications must not select an arbitrary source.
+        grouped = {}
+        for chunk, revision in rows:
+            key = (str(revision.document_id), str(revision.id), chunk.chunk_index)
+            grouped.setdefault(key, []).append({**match_record(chunk, revision), 'source_sha256': revision.sha256})
+        return [values[0] for _, values in sorted(grouped.items()) if len(values) == 1]
 
 
 async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=()):

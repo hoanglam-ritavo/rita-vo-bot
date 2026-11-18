@@ -17,7 +17,7 @@ def main(argv=None):
         print(json.dumps({'status':'valid', 'documents':len({c.document_id for c in catalog.coverage}),
             'chunks':len(catalog.coverage), 'cards':len(catalog.cards), 'concepts':len(lexicon['concepts']),
             'coverage':dict(Counter(c.disposition for c in catalog.coverage)),
-            'notice':'Structural/source identity validation only; not semantic acceptance.'}))
+            'notice':'Structure/lexicon pairing only; use impact and target DB checks for source compatibility.'}))
         return 0
     except Exception:
         print(json.dumps({'status':'invalid','code':'answer_catalog_invalid_or_unavailable'}))

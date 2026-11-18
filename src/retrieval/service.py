@@ -4,13 +4,11 @@ import math
 import re
 import time
 import logging
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 
 from src.ingestion import embeddings
 from src.ingestion.document_packages import Rejected
-from src.intent import IntentObserver, IntentSettings
-from src.intent.runtime import identity as intent_identity
-from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, profile_threshold, filter_candidates
+from .reranking import RerankSettings, OnnxReranker, query_variants, relevance, finalize_candidates
 from .semantics import SemanticSettings, SemanticExpander
 
 logger = logging.getLogger(__name__)
@@ -20,7 +18,6 @@ logger = logging.getLogger(__name__)
 class PreparedQuery:
     question: str
     vector: tuple[float, ...]
-    hint: dict
     owner: object = field(repr=False)
 
 
@@ -43,7 +40,7 @@ def validate_request(question, top_k):
 
 
 def query_input(model, question):
-    """Shared token preflight for online retrieval and offline intent preparation."""
+    """Token preflight for retrieval and diagnostic callers."""
     content = 'query: ' + question
     limit = min(model.max_seq_length, model.tokenizer.model_max_length)
     if type(limit) is not int or limit <= 0:
@@ -53,13 +50,9 @@ def query_input(model, question):
 
 
 class RetrievalService:
-    def __init__(self, *, model_path, model_revision, device=None, rerank=None, intent=None, semantic=None,
-                 relevance_filter_enabled=True):
+    def __init__(self, *, model_path, model_revision, device=None, rerank=None, semantic=None):
         if not isinstance(model_revision, str) or not re.fullmatch('[0-9a-fA-F]{40}', model_revision):
             raise RetrievalError('invalid_model_revision')
-        if type(relevance_filter_enabled) is not bool:
-            raise ValueError('invalid_relevance_filter_configuration')
-        self.relevance_filter_enabled = relevance_filter_enabled
         self.device = device
         self.model_path = model_path
         self.model_revision = model_revision.lower()
@@ -68,14 +61,10 @@ class RetrievalService:
         self._lock = asyncio.Lock()
         self.rerank_settings = rerank or RerankSettings()
         self._reranker = None
-        self._intent = IntentObserver(intent or IntentSettings())
-        self._source_intent = IntentObserver(IntentSettings())
         self._prepared_owner = object()
         self._semantic = SemanticExpander(semantic or SemanticSettings())
         if self._semantic.settings.mode == 'expand' and not self.rerank_settings.enabled:
             raise ValueError('semantic_requires_reranker')
-        if self._intent.settings.mode == 'assist' and self._semantic.settings.mode != 'expand':
-            raise ValueError('intent_assistance_requires_semantics')
 
     @property
     def started(self):
@@ -118,9 +107,7 @@ class RetrievalService:
                     raise RetrievalError(str(exc), 2) from None
                 self._model, self._fingerprint = await self._worker(self._load)
                 if self.rerank_settings.enabled:
-                    settings = (self.rerank_settings if self.relevance_filter_enabled
-                                else replace(self.rerank_settings, profile_path=None))
-                    self._reranker = OnnxReranker(settings)
+                    self._reranker = OnnxReranker(self.rerank_settings)
                     try:
                         await self._worker(self._reranker.start)
                     except BaseException:
@@ -128,14 +115,8 @@ class RetrievalService:
                         self._reranker = None
                         self._model = self._fingerprint = None
                         raise
-                if self._intent.settings.mode in ('observe', 'assist'):
-                    await self._worker(self._intent.start, intent_identity(
-                        self.model_revision, self._fingerprint, self.rerank_settings.enabled))
                 if self._reranker and self._semantic.settings.mode == 'expand':
-                    intent_digest = ('assist:' + self._intent.version
-                                     if self._intent.settings.mode == 'assist' else None)
-                    self._reranker.fingerprint = self._semantic.effective_fingerprint(
-                        self._reranker.fingerprint, intent_digest=intent_digest)
+                    self._reranker.fingerprint = self._semantic.effective_fingerprint(self._reranker.fingerprint)
             except RetrievalError:
                 self._clear_runtime()
                 raise
@@ -171,12 +152,18 @@ class RetrievalService:
     async def retrieve(self, question, top_k=5):
         return await self._retrieve(question, top_k, assessment=True)
 
-    async def start_source_intent(self, artifact_path):
-        """Independent source hints: never change observe/assist or retrieval fingerprints."""
+    async def read_evidence(self, references):
         async with self._lock:
-            self._source_intent = IntentObserver(IntentSettings('observe', artifact_path))
-            await self._worker(self._source_intent.start, intent_identity(
-                self.model_revision, self._fingerprint, self.rerank_settings.enabled))
+            if self._model is None:
+                raise RetrievalError('service_not_started', 2)
+            from .storage import read_references
+            try:
+                matches = await read_references(references, self.model_revision, self._fingerprint)
+            except Exception:
+                raise RetrievalError('database_evidence_failed', 2) from None
+            return {'status': 'matches_found' if matches else 'no_matches', 'matches': matches,
+                    'fallback_reason': None if matches else 'no_candidates',
+                    'relevance': relevance(matches), 'rerank_seconds': 0.0}
 
     async def prepare_query(self, question, top_k=5):
         question = validate_request(question, top_k)
@@ -186,8 +173,7 @@ class RetrievalService:
             original = query_variants(question)[0] if self._reranker else question
             try:
                 vector = await self._worker(self._encode, original)
-                hint = await self._worker(self._source_intent.predict, vector)
-                return PreparedQuery(question, tuple(vector), hint, self._prepared_owner)
+                return PreparedQuery(question, tuple(vector), self._prepared_owner)
             except RetrievalError:
                 raise
             except Exception:
@@ -196,9 +182,7 @@ class RetrievalService:
     async def retrieve_prepared(self, prepared, top_k=5):
         return await self._retrieve(prepared.question, top_k, assessment=True, prepared=prepared)
 
-    async def _retrieve(self, question, top_k=5, *, assessment, collect_scoring_features=False, prepared=None):
-        if assessment and collect_scoring_features:
-            raise ValueError('private_scoring_diagnostics_only')
+    async def _retrieve(self, question, top_k=5, *, assessment, prepared=None):
         # Offline assessment=False exposes candidate diagnostics; public output always uses finalization.
         question = validate_request(question, top_k)
         
@@ -214,13 +198,8 @@ class RetrievalService:
                     vector = list(prepared.vector)
                 else:
                     vector = await self._worker(self._encode, variants[0])
-                styles = ()
-                if self._intent.settings.mode == 'assist':
-                    prediction = await self._worker(self._intent.predict, vector)
-                    if prediction['status'] == 'classified':
-                        styles = prediction['styles']
                 skipped = 0
-                for variant in self._semantic.expansion(rerank_question, styles=styles):
+                for variant in self._semantic.expansion(rerank_question):
                     if variant in variants:
                         continue
                     # Do not truncate a rewrite or silently lose a condition to fit it.
@@ -236,9 +215,6 @@ class RetrievalService:
                 raise
             except Exception:
                 raise RetrievalError('query_embedding_failed', 2) from None
-            if self._intent.settings.mode == 'observe':
-                # Observation only: reuse the original vector; never change candidates or response.
-                await self._worker(self._intent.observe, vector)
             from .storage import search
             try:
                 count = 30 if self._reranker else top_k
@@ -248,8 +224,6 @@ class RetrievalService:
                 raise RetrievalError('database_search_failed', 2) from None
             result['top_k'] = top_k
             result['rerank_seconds'] = 0.0
-            if collect_scoring_features:
-                result['scoring_features'] = {}
             candidates = result['matches']
             for match in candidates:
                 match.setdefault('rerank_score', None)
@@ -259,15 +233,7 @@ class RetrievalService:
             if self._reranker and candidates:
                 started = time.perf_counter()
                 try:
-                    if collect_scoring_features or getattr(self._reranker, 'scoring', None) is not None:
-                        concepts = (self._semantic.artifact or {}).get('concepts', [])
-                        scores, windows, features = await self._worker(
-                            self._reranker.score_passages, rerank_question, candidates, concepts)
-                        if collect_scoring_features:
-                            result['scoring_features'] = {match['chunk_id']: row
-                                for match, row in zip(candidates, features)}
-                    else:
-                        scores, windows = await self._worker(self._reranker.score, rerank_question, candidates)
+                    scores, windows = await self._worker(self._reranker.score, rerank_question, candidates)
                 except ValueError as exc:
                     if str(exc) == 'reranker_question_exceeds_model_limit':
                         raise RetrievalError('question_exceeds_model_limit') from None
@@ -282,29 +248,18 @@ class RetrievalService:
                             len(candidates), windows, result['rerank_seconds'])
             result['reranker_fingerprint'] = self._reranker.fingerprint if self._reranker else None
             if assessment:
-                threshold = (profile_threshold(self._reranker.profile, self._reranker.fingerprint,
-                             result.get('corpus_fingerprint'))
-                             if self._reranker and self.relevance_filter_enabled else None)
-                filter_candidates(result, threshold, top_k, enabled=self.relevance_filter_enabled)
-                # Public output must not expose candidate diagnostic identities.
+                finalize_candidates(result, top_k)
                 result.pop('candidate_order', None)
-                result.pop('scoring_features', None)
-                logger.info('retrieval_assessed filter_enabled=%s status=%s reason=%s candidates=%d retained=%d',
-                            self.relevance_filter_enabled, result['status'], result['fallback_reason'],
-                            len(candidates), len(result['matches']))
+                logger.info('retrieval_finished status=%s reason=%s candidates=%d retained=%d',
+                            result['status'], result['fallback_reason'], len(candidates), len(result['matches']))
             else:
                 result['matches'] = candidates
                 result['relevance'] = relevance(candidates)
-            result['notice'] = (
-                'Relevance-filtered excerpts only; not a generated answer or completeness guarantee.'
-                if assessment and self.relevance_filter_enabled else
-                'Unassessed source candidates; not a generated answer or completeness guarantee.')
+            result['notice'] = 'Unassessed source candidates; not an answer or completeness guarantee.'
             return result
 
     def _clear_runtime(self):
-        self._source_intent.close()
         self._prepared_owner = object()
-        self._intent.close()
         self._semantic.close()
         if self._reranker:
             self._reranker.close()

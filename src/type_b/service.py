@@ -36,7 +36,6 @@ class TypeBCoordinator:
     async def start(self):
         if not self.settings.enabled:
             return
-        await self.owner.retrieval.start_source_intent(self.owner.settings.intent.artifact_path)
         try:
             async with asyncio.timeout(15):
                 await self.employee.check_source()
@@ -74,10 +73,13 @@ class TypeBCoordinator:
         started, request_id, outcome = time.perf_counter(), uuid4().hex, 'failed'
         try:
             async with asyncio.timeout(DEADLINE_SECONDS):
-                prepared = await self.owner.retrieval.prepare_query(text, top_k)
-                route = route_question(text, prepared.hint)
+                from src.retrieval.service import validate_request
+                validate_request(text, top_k)
+                route = route_question(text)
+                prepared = None if answer else await self.owner.retrieval.prepare_query(text, top_k)
                 if route.source == 'type_a':
-                    documents = await self._documents(prepared, top_k)
+                    documents = (await self.owner.answers.document_evidence(text, top_k) if answer
+                                 else await self._documents(prepared, top_k))
                     elapsed = time.perf_counter() - started
                     response = (self.owner.answers.render_documents(text, documents, started, elapsed) if answer
                                 else self.owner.retrieval_response(documents, started, elapsed))
@@ -87,8 +89,9 @@ class TypeBCoordinator:
                         raise ApiError('hrm_user_id_required', 422)
                     evidence = await self._employee_evidence(route, hrm_user_id)
                     documents = None
-                    if route.source == 'mixed' and route.reason is None:
-                        documents = await self._documents(prepared, top_k)
+                    if route.source == 'mixed' and route.reason is None and (not answer or self.owner.answers.available):
+                        documents = (await self.owner.answers.document_evidence(text, top_k) if answer
+                                 else await self._documents(prepared, top_k))
                     elapsed = time.perf_counter() - started
                     response = (self._answer(route, evidence, documents, text, started, elapsed) if answer
                                 else self._retrieval(route, evidence, documents, started, elapsed))

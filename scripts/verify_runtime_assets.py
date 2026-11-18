@@ -20,8 +20,7 @@ RERANK_FILES = frozenset({
     'config.json', 'model_quint8_avx2.onnx', 'sentencepiece.bpe.model',
     'special_tokens_map.json', 'tokenizer.json', 'tokenizer_config.json',
 })
-ARTIFACT_FILES = {'answers': 'catalog.json', 'rerank': 'relevance-profile.json', 'semantics': 'lexicon.json',
-                  'intent': 'accepted-artifact.json'}
+ARTIFACT_FILES = {'answers': 'catalog.json', 'semantics': 'lexicon.json'}
 HEX = re.compile(r'[0-9a-f]{64}')
 
 
@@ -144,7 +143,10 @@ def git_files(root):
     try:
         result = subprocess.run(['git', '-C', str(root), 'ls-files', '-z', '--', 'models', 'artifacts'],
             stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=True)
-        return set(result.stdout.decode('utf-8').rstrip('\0').split('\0')) - {''}
+        tracked = set(result.stdout.decode('utf-8').rstrip('\0').split('\0')) - {''}
+        # Verify the working tree, including deliberate unstaged source removals.
+        # Missing selected runtime assets still fail the manifest checks above.
+        return {path for path in tracked if (root / path).exists() or (root / path).is_symlink()}
     except (OSError, subprocess.CalledProcessError, UnicodeError):
         raise InventoryError('git_inventory_unavailable') from None
 

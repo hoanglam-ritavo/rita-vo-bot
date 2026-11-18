@@ -190,8 +190,7 @@ def main(argv=None):
             rerank = from_arguments(args)
             if (args.output == args.cases.resolve() or args.output.is_relative_to(args.package.resolve())
                     or args.output.is_relative_to(args.model_path.resolve())
-                    or (rerank.enabled and (args.output.is_relative_to(rerank.model_path.resolve())
-                        or (rerank.profile_path and args.output == rerank.profile_path.resolve())))):
+                    or (rerank.enabled and args.output.is_relative_to(rerank.model_path.resolve()))):
                 raise ValueError('output_overwrites_input')
         except ValueError as exc:
             parser.error(str(exc))

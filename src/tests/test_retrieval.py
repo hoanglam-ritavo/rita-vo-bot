@@ -224,7 +224,7 @@ def test_cli_run_delegates_to_shared_runner(monkeypatch):
     shared.assert_awaited_once_with(args)
 
 
-def test_cli_keeps_filtering_when_http_environment_disables_it(model, monkeypatch, capsys):
+def test_cli_returns_unassessed_candidates_and_ignores_retired_environment(model, monkeypatch, capsys):
     monkeypatch.setenv('RELEVANCE_FILTER_ENABLED', 'false')
     storage.search.return_value = {
         'status': 'matches_found', 'corpus_fingerprint': 'fictional-corpus',
@@ -234,7 +234,7 @@ def test_cli_keeps_filtering_when_http_environment_disables_it(model, monkeypatc
                      '--model-revision', 'a' * 40, '--json']) == 0
     result = json.loads(capsys.readouterr().out)
     storage.search.assert_awaited_once()
-    assert result['status'] == 'no_matches' and result['matches'] == []
-    assert result['fallback_reason'] == 'relevance_unavailable'
+    assert result['status'] == 'matches_found' and len(result['matches']) == 1
+    assert result['fallback_reason'] is None
     assert result['relevance']['status'] == 'unassessed'
     assert 'relevance_filter_disabled' not in result['relevance']['warnings']

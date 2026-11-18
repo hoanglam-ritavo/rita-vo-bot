@@ -7,7 +7,7 @@ from src.tests.test_answering import sample
 
 
 @pytest.mark.parametrize('failure',[None,'fingerprint','lexicon','quote','revision','hash','coverage','duplicate','metadata'])
-def test_catalog_validation_rejects_stale_or_missing_evidence(sample,tmp_path,failure):
+def test_structural_catalog_validation_leaves_source_drift_to_local_evidence_gate(sample,tmp_path,failure):
     folder=tmp_path/'chunks'/'doc'
     folder.mkdir(parents=True)
     (folder/'metadata.json').write_text(json.dumps(sample.metadata),encoding='utf-8')
@@ -25,7 +25,7 @@ def test_catalog_validation_rejects_stale_or_missing_evidence(sample,tmp_path,fa
     elif failure=='coverage': data['coverage']=[]
     elif failure=='duplicate': data['cards']*=2
     elif failure=='metadata': target['metadata']['applicability']='everyone'
-    if failure:
+    if failure in {'lexicon','coverage','duplicate'}:
         with pytest.raises(ValueError): validate_catalog(data,sample.lexicon,'lexicon',snapshot,root=tmp_path)
     else:
         assert len(validate_catalog(data,sample.lexicon,'lexicon',snapshot,root=tmp_path).cards)==1

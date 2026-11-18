@@ -1,0 +1,71 @@
+{
+  "id": "task.bravo-support",
+  "label": "Liên hệ hỗ trợ Bravo",
+  "source_type": "type_a",
+  "clarification": "Bạn muốn hỏi bước nào hoặc quyền thao tác nào về liên hệ hỗ trợ bravo?",
+  "concept_ids": [
+    "procedure.bravo-support"
+  ],
+  "aliases": [
+    "hỗ trợ Bravo",
+    "liên hệ ITSYS"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.bravo-support",
+          "text": "Bravo 8 — hỗ trợ cài đặt/kết nối: ITSYS là nhóm IT System thuộc KSNB, email ksnb_it.system@ritavo.com; IT thuộc HCNS, email it@ritavo.com. Tài liệu 1.0 ngày 11.11.2023 nêu liên hệ một trong hai để cài phiên bản Bravo mới nhất; lỗi sử dụng theo sơ đồ liên hệ KSNB IT System. VPN nghĩa là mạng riêng ảo.",
+          "refs": [
+            {
+              "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+              "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+              "chunk_index": 4,
+              "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+              "content_sha256": "c53bbdc2ad6cee23af4aa070bd8cc219076ee5dd15378ee912b72856c734ef21",
+              "quote": "Bravo 8 — hỗ trợ cài đặt/kết nối: ITSYS là nhóm IT System thuộc KSNB, email ksnb_it.system@ritavo.com; IT thuộc HCNS, email it@ritavo.com. Tài liệu 1.0 ngày 11.11.2023 nêu liên hệ một trong hai để cài phiên bản Bravo mới nhất; lỗi sử dụng theo sơ đồ liên hệ KSNB IT System. VPN nghĩa là mạng riêng ảo.",
+              "metadata": {
+                "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 11.11.2023",
+                "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.bravo-support",
+          "text": "Bravo 8 — hỗ trợ cài đặt/kết nối: ITSYS là nhóm IT System thuộc KSNB, email ksnb_it.system@ritavo.com; IT thuộc HCNS, email it@ritavo.com. Tài liệu 1.0 ngày 11.11.2023 nêu liên hệ một trong hai để cài phiên bản Bravo mới nhất; lỗi sử dụng theo sơ đồ liên hệ KSNB IT System. VPN nghĩa là mạng riêng ảo.",
+          "refs": [
+            {
+              "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+              "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+              "chunk_index": 4,
+              "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+              "content_sha256": "c53bbdc2ad6cee23af4aa070bd8cc219076ee5dd15378ee912b72856c734ef21",
+              "quote": "Bravo 8 — hỗ trợ cài đặt/kết nối: ITSYS là nhóm IT System thuộc KSNB, email ksnb_it.system@ritavo.com; IT thuộc HCNS, email it@ritavo.com. Tài liệu 1.0 ngày 11.11.2023 nêu liên hệ một trong hai để cài phiên bản Bravo mới nhất; lỗi sử dụng theo sơ đồ liên hệ KSNB IT System. VPN nghĩa là mạng riêng ảo.",
+              "metadata": {
+                "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 11.11.2023",
+                "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

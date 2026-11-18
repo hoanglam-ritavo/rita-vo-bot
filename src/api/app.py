@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Header, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from src.helper.cache import CacheManager
 
 from .config import load_settings
 from .contracts import RetrievalResponse, AnswerResponse, AnswerHealthResponse, ApiError, RetrieveRequest
@@ -39,18 +40,26 @@ async def execute_until_disconnect(request, operation):
 def create_app(settings=None, *, service_factory=ApiService):
     @asynccontextmanager
     async def lifespan(app):
-        service = service_factory(settings or load_settings())
-        app.state.retrieval_service = service
+        cache = CacheManager()
+        app.state.cache_manager = cache
+        service = None
         try:
+            service = service_factory(settings or load_settings())
+            app.state.retrieval_service = service
             await service.start()
             yield
         except Exception:
             raise RuntimeError('API lifecycle failed; check local model and database configuration.') from None
         finally:
             try:
-                await service.close()
-            except Exception:
-                raise RuntimeError('API shutdown failed.') from None
+                try:
+                    if service is not None:
+                        await service.close()
+                except Exception:
+                    raise RuntimeError('API shutdown failed.') from None
+            finally:
+                await cache.close()
+                del app.state.cache_manager
 
     app = FastAPI(title='Rita local document retrieval', lifespan=lifespan)
 
@@ -75,8 +84,7 @@ def create_app(settings=None, *, service_factory=ApiService):
         return JSONResponse(status_code=422, headers={'Cache-Control': 'no-store'}, content={'error': {'code': 'invalid_request', 'message': 'text phải là chuỗi không rỗng, tối đa 8.000 ký tự; top_k là số nguyên từ 1 đến 20; hrm_user_id là số nguyên dương hoặc null.'}})
 
     @app.post('/api/v1/retrieve', response_model=RetrievalResponse | ContextRetrievalResponse,
-        description='Retrieve at most top_k source excerpts. With RELEVANCE_FILTER_ENABLED=true (default), '
-                    'missing calibration returns an explicit empty fallback. When false, candidates are unassessed; '
+        description='Retrieve at most top_k unassessed source candidates. '
                     'scores and relevance metadata do not certify confidence or complete evidence. '
                     'Optional hrm_user_id enables readonly work-profile evidence when Type B is configured; '
                     'requires X-Rita-Service-Key and backend authorization.', responses={

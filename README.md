@@ -25,7 +25,7 @@ The Offline Indexing Pipeline has two scopes. Scope 1 prepares sources and autho
 
 Before publication, use `python -m src.cli.preflight_documents --package <package-path> --model-path <local-model-directory> --model-revision <40-hex-commit> --json`. Install the optional local runtime from `requirements-example.txt` first. Preflight loads the local model and checks every chunk's token length without encoding by default; add `--check-embeddings` to generate and validate vectors in memory. It needs no database, accepts structurally valid hold/unknown packages, and never changes metadata or package files. Publication metadata blockers are reported separately. Passing preflight is not permission to publish or evidence of transcription/retrieval quality. Publication still performs its own checks; its `--dry-run` does not tokenize or embed. See the [preflight details](docs/offline-indexing.md#technical-preflight) and [Scope 2 operational guide](docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication) for data mapping, outcomes and verification. Preflight vectors are discarded. Publication verifies stored data before skipping unchanged content; explicit metadata-only updates preserve the existing run/chunks. Changed publication reuses compatible stored exact-text vectors and encodes missing text; `--force` re-encodes every chunk. History remains stored within the new database; vector reuse itself needs no automatic republication. See the fresh-schema requirement below.
 
-Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. The [standalone Colab intent kit](collabs/intent-colab/README.md) lives in `collabs/intent-colab/` with a fictional unreviewed sample; its private datasets, runs and generated ZIPs stay under `.tmp`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
+Entrypoints are in `src/cli/`, package processing in `src/ingestion/`, metadata validation in `src/catalog/`, database code in `src/database/`, tests in `src/tests/` and manual utilities in `scripts/`. The old intent/scoring kits are retired; their history remains in Git and private datasets/runs/ZIPs stay untouched under `.tmp`. `main.py` remains a thin database-check dispatcher. See the [application command reference](src/cli/README.md) and [manual utility reference](scripts/README.md) for command selection, status, prerequisites and effects. Source rename manifests, journals and `rename-history/` remain historical evidence.
 
 The current schema head is `c7d92e6a104b`, an additive guard migration after the provisioned `bce4184a7f51` baseline. Existing databases at that baseline upgrade without rebuilding tables. Fresh databases require the `vector` extension before the baseline creates its 14 tables. Older `0001` through `0006` histories are not automatically converted. See [database design](docs/database-design.md) for provisioning and [corpus publication](docs/corpus-publication.md) for validate/preflight/dry-run/publication and verification.
 
@@ -43,9 +43,18 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+
+### Catalog tasks and linked evidence - 2026-11-18
+
+Working tree based on `b84680e`. The runtime now uses schema-v2 task/evidence catalogs with direct eligible DB reference reads; intent/profile training, calibration and Colab kits are removed. Retrieval HTTP/CLI return unassessed candidates. Twenty source-checked procedure tasks and concepts extend the inventory to 52 tasks / 252 concepts, with dispositions for 29 packages / 530 chunks. Source coverage is not answer completeness or human quality acceptance. See [current operation and limitations](docs/catalog-answering.md).
+
+Post-edit validation is being finalized; final results are recorded here before handoff. No application DB publication, service restart or live answer-quality acceptance is performed.
+
+All subsequent dated verification entries are historical snapshots; removed commands, retired gates and earlier runtime contracts below do not describe the current implementation.
+
 ### Intent Colab workflow notebook - 2026-11-17
 
-The [intent notebook](collabs/intent-colab/notebooks/train_intent.ipynb) now
+The [retired intent notebook](docs/intent-classifier.md) now
 orchestrates the existing CLI: verified kit extraction, dependency installation,
 local model/device selection, private dataset setup/review, preflight, training
 and hash-bound export. It is stored with empty outputs and included in the
@@ -76,7 +85,7 @@ acceptance/promotion, `.env` change or service deployment was performed.
 
 ### Relevance scoring V3 Colab development kit - 2026-11-17
 
-The independent [V3 kit](collabs/relevance-scoring-v3/README.md) packages numeric
+The independent [V3 kit](docs/relevance-scoring.md) packages numeric
 development fitting without a source clone, model or database. Optional GPU
 scoring is diagnostic; final acceptance/promotion stays on the local CPU pipeline.
 The exchange utility exports reviewed numeric rows and independently re-fits
@@ -108,7 +117,7 @@ artifacts are unchanged by this kit work.
 Implemented in the uncommitted working tree based on `1961fc9`. Reusable kit
 source and its 600-case fictional unreviewed sample now live under
 `collabs/intent-colab/`; existing ignored local kit/workspaces remain intact.
-See the [kit commands and boundaries](collabs/intent-colab/README.md). No runtime
+See the [kit commands and boundaries](docs/intent-classifier.md). No runtime
 API, model bytes, selected artifacts or `.env` were changed by this migration.
 
 Post-edit focused non-integration regression across the Colab kit, runtime intent,
@@ -204,8 +213,8 @@ future eligible rerank/intent artifacts. Git retains history. Selected catalog
 and lexicon data are byte-identical to the former `answers/v1` and `semantics/v2`
 files; acceptance states remain unchanged. Defaults, allowlists, inventory and
 the gated profile promotion utility follow the stable layout. See the
-[transition and configuration checklist](docs/runtime-artifacts.md#stable-path-transition)
-and [replacement/recovery workflow](docs/runtime-artifacts.md#current-relevance-profile-replacement-and-reconciliation).
+[transition and configuration checklist](docs/runtime-artifacts.md)
+and [replacement/recovery workflow](docs/runtime-artifacts.md).
 
 The focused promotion/inventory/answer run passed **102 tests** before the final
 default-path/fallback regressions. Final post-edit
@@ -464,7 +473,7 @@ remains independent. The filtered branch retains its existing acceptance and
 corpus checks; official offline evaluation still rejects unassessed candidates.
 Normal answer responses add server-owned `relevance` metadata and retain
 `unassessed`, `relevance_filter_disabled` and completeness warnings even after
-successful verification. See [the unfiltered contract](docs/answer-evaluation.md#explicit-unfiltered-answering).
+successful verification. See [the unfiltered contract](docs/answer-evaluation.md).
 
 Local `.env` was prepared only for the four approved answer/model/filter keys,
 with the actual Q5 SHA-256; all unrelated parsed values were checked unchanged.
@@ -520,7 +529,7 @@ are pinned in [requirements-answer.txt](requirements-answer.txt). Retired server
 environment values are ignored without editing `.env`; API response contracts
 and excerpt-only retrieval are preserved. Report schema v3 binds installed
 native/binding/template/model identity; server-runtime reports cannot enable it.
-See [native setup and cancellation limits](docs/answer-evaluation.md#native-python-runtime).
+See [native setup and cancellation limits](docs/answer-evaluation.md).
 
 Installed the official PyPI source release after SHA-256 verification and built
 a CPU wheel with the existing Visual Studio Build Tools 2026 for Python 3.14.10.
@@ -571,7 +580,7 @@ source-data removal and untracked work. Added the separate disabled-by-default
 `POST /api/v1/answer` and application-owned answer runtime/contracts/pipeline,
 shared with offline evaluation. The candidate is now
 `models/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf`; Q4/4B results cannot authorize it.
-See [answer behavior and acceptance](docs/answer-evaluation.md#local-answer-api).
+See [answer behavior and acceptance](docs/answer-evaluation.md).
 
 Post-edit full non-integration verification: **931 passed, 1 skipped,
 51 deselected**, with the existing Starlette/AnyIO deprecation warning. `pip check`,
@@ -666,7 +675,7 @@ deprecation warning, before provision. After provision, runtime inventory
 verification passed for **20 assets** and the package-bound loader accepted v2.
 These are lexical checks, not retrieval-quality acceptance. The manifest keeps
 evaluation pending and supplies no relevance profile. Previously exposed cases
-remain regression data. See [lexical enrichment](docs/vietnamese-semantics.md#reviewed-lexical-enrichment-v2---2026-11-16).
+remain regression data. See [lexical enrichment](docs/vietnamese-semantics.md).
 
 ### Accepted rerank labels and full benchmark - 2026-11-16
 
@@ -717,7 +726,7 @@ validation and local E5 token preflight. The private proposal covers 29 packages
 530 chunks with 232 concepts and 636 evidence units. The user explicitly approved
 all three source/alias groups; a reviewed lexicon was exported privately and
 passed the real package-bound loader and bounded-rewrite smoke checks. This is
-source acceptance, not runtime release. See [source reconciliation](docs/vietnamese-semantics.md#explicit-source-reconciliation---2026-11-16).
+source acceptance, not runtime release. See [source reconciliation](docs/vietnamese-semantics.md).
 
 Focused package/preparation/semantic-runtime tests: **86 passed**, with one
 dependency deprecation warning. Initial sandbox runs encountered Windows
@@ -851,7 +860,7 @@ flagged partial or premise-correcting evidence for two proposed unsupported
 questions; all 30 new negative hypotheses still require human source review.
 One patrol question was revised before collection to preserve ambiguous source
 wording, with independent source-fidelity checks. See
-[agent-assisted review](docs/runtime-artifacts.md#agent-assisted-source-review).
+[agent-assisted review](docs/runtime-artifacts.md).
 
 No new collection, full calibration, profile issuance, runtime/configuration
 change, publication write or API restart was performed. Final calibration-input
@@ -1020,7 +1029,7 @@ These tests use synthetic model/search boundaries and exercise the HTTP-to-retri
 
 ### Empty-retrieval diagnostic and review handoff - 2026-11-14
 
-Post-edit investigation started from clean `cfb2e00`. Added `scripts.diagnose_retrieval`, an offline saved-collection inspector with a metadata diagnostic and a separate private unranked source worksheet; no public API, runtime ranking or profile acceptance behavior changed. See [diagnostic procedure](docs/online-reranking.md#diagnose-empty-results-before-recalibration) and [utility usage](scripts/README.md#evaluation-and-experiments).
+Post-edit investigation started from clean `cfb2e00`. Added `scripts.diagnose_retrieval`, an offline saved-collection inspector with a metadata diagnostic and a separate private unranked source worksheet; no public API, runtime ranking or profile acceptance behavior changed. See [diagnostic procedure](docs/online-reranking.md) and [utility usage](scripts/README.md#evaluation-and-experiments).
 
 Read-only local-model checks verified **28 eligible publications / 524 active chunks** against package contents and normalized vectors. The three user-reported questions each placed source-backed minimum evidence in the top three before reranking and first after reranking, but all target scores were below the historical failed calibration cutoff. Minimum evidence is not a complete answer, personal entitlement or current-policy acceptance. Native tokenizer/window/ONNX parity passed for four fictional passages / nine windows with identical batching; singleton inference showed quantized score drift and is not a valid same-batch parity comparison. Five high-scoring historical negatives were rechecked against retained extraction excerpts and still concerned different workflows; no existing labels were changed. The other historical labels remain pending user review, not newly accepted by this task.
 
@@ -1078,6 +1087,34 @@ Static checks covered local links/heading anchors in 14 Markdown files, document
 
 No integration database tests, publication, migrations, live API/model checks, intent training, real-model benchmark or application rollout ran in this task. Existing working-tree runtime/data changes were preserved. Known evaluator report limitations remain separate implementation work, documented in [retrieval evaluation](docs/retrieval-evaluation.md#known-evaluator-reporting-gap).
 
+### Stage 2 batch CLI verification — 2026-11-13
+
+Working tree based on `e656991`, after adding the shared offline preparation CLI: **537 passed, 1 skipped, 34 deselected** in the full non-integration suite, with the existing Starlette/AnyIO deprecation warning. After the final run-directory ownership/cleanup adjustment, all **20 batch CLI tests passed** again. Tests used the isolated extended-length `.tmp/intent-test-runs` workspace outside the sandbox. Coverage includes no-ML imports/help, aggregated validation, review-before-model gating, token-only preflight, legacy/new artifact parity, unique run directories, atomic manifests, interruptions, changed inputs and failure reporting. `pip check`, legacy/new CLI help and scoped diff checks passed.
+
+Actual CLI validation accepted the structure of the 600-case draft while reporting `review_required: true` and `training_allowed: false`. Real local CPU E5 preflight checked all 600 questions without encoding; none exceeded the token limit. The report is under `.tmp/intent-v1/preflight-cli-report.json`. An actual `run` invocation correctly stopped before model loading with `human_review_required`, leaving a diagnostic manifest and no candidate. No reviewed training, semantic quality evaluation, database benchmark, accepted artifact or observation enablement was performed. Existing dataset/chunk changes and `.env` were preserved.
+
+### Intent verification — 2026-11-13
+
+Implementation working tree based on `e656991`, preserving existing documentation, corpus and answer-evaluation changes. Full non-integration verification after implementation: **516 passed, 1 skipped, 34 deselected**, with one existing Starlette/AnyIO deprecation warning. After final dataset-validation/diagnostic hardening and one additional test, the focused intent suites passed **35 tests**. Tests used a separate extended-length `.tmp/intent-test-runs` directory outside the sandbox; the first sandbox attempt failed at pre-existing temporary-directory permissions. No permissions or existing temporary trees were changed. Synthetic tests cover NumPy/sklearn parity, training/holdout separation, acceptance gates, off/observe retrieval invariance, HTTP/CLI wiring, encode counts, cancellation and cleanup. CLI help and `pip check` passed.
+
+The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally checked, **unreviewed** cases; training rejects it before loading E5. Human label/split review, real-model intent training, the quality gate and paired retrieval latency benchmark have **not run**. No accepted intent artifact has been produced, and observation has not been enabled. Database integration tests were deselected; no migration, publication, source-package edit, backend or portal change is part of this implementation. See the guide for the draft's template/diversity limitations and the independent retrieval calibration prerequisite.
+
+<a id="offline-answer-evaluation-endpoint-not-implemented"></a>
+
+### Fallback verification - 2026-11-13
+
+Implementation working tree, including pre-existing reranking changes: the public function/CLI/HTTP path now filters each passage before top-K and returns a required nullable `fallback_reason`. Uncalibrated vector-only/reranked candidates are withheld. See [the response and rollout contract](docs/online-reranking.md#retrieval-and-response-semantics). No source packages, publications, schema, model files or application `.env` were changed.
+
+Non-integration verification: **454 passed, 1 skipped, 34 deselected** using an isolated extended-length `.tmp/` basetemp outside the Windows sandbox. Earlier sandbox runs hit access-denied temporary-directory errors; no permissions were changed. The new per-passage 100-question source-labeled benchmark has **not been completed**: the available historical 40-question set lacks per-candidate labels and has related intents across splits. No schema-v2 profile was emitted, and no real-model quality/latency gate is claimed. Subsequent focused checks passed: 62 retrieval/API tests after profile hardening, then 24 reranking/benchmark tests after adding two orchestration cases. The pinned local ONNX smoke passed on two fictional passages without database access. PostgreSQL integration tests were not executed; synthetic tests do not verify the new corpus snapshot query on a real database.
+
+### Online reranking verification — 2026-11-13
+
+Historical top-1 evaluation, predating per-passage filtering (not a current rollout approval). Executed on the implementation working tree with the downloaded ONNX verified against official revision `1427fd652930e4ba29e8149678df786c240d8825` and its matching local tokenizer. A read-only, package-pinned 40-question evaluation (30 supported, 10 unsupported; known prompts kept as regression) found complete top-5 evidence for all 30 supported cases, with no candidate-pool misses. The required bereavement-family top-1 case failed: its detail ranked fourth. The calibrated relevance gate also failed (holdout positive top-1 recall 75%; calibration positive top-1 recall 46.7%; no holdout negative acceptances at that threshold). No calibrated profile was emitted; reranking remains disabled by default.
+
+On 100 sequential post-warm-up requests with 30 candidates and batch size 4, p50 was 2.59 s and p95 was 3.88 s. Peak process working set was 1,951,526,912 bytes (about 1.82 GiB), including E5 and ONNX. Host: Windows x86-64, Intel Family 6 Model 165, Python 3.14.10. These observations are not a deployment SLA or evidence of complete policy coverage. Selected packages/storage passed before/after read-only verification. Local reports/cases are under ignored `.tmp/online-evaluation/`; private questions and source contents are not committed. The benchmark preceded final profile-fingerprint hardening (batch/runtime identity), which does not change candidate selection or inference; its profile fingerprint is intentionally not reusable by the final implementation.
+
+Final non-integration verification: `python -m pytest -m 'not integration' -q` with a fresh extended-length `.tmp/` basetemp on Windows: **442 passed, 1 skipped, 34 deselected**. An initial ordinary-path run encountered 17 legacy asset-restructuring fixture errors from Windows path length; those resolved with the documented extended-length path, without changing the fixtures. Focused retrieval/API tests and the real local ONNX smoke passed. The updated PostgreSQL integration cases were **not executed**: automatic approval review rejected migrations/writes against the configured test URL because disposable ownership had not been verified. Read-only evaluation does not replace those transaction/eligibility fixture tests. No publication, schema change or stored-vector update was performed.
+
 ## Setup (PowerShell)
 
 Provision a separate empty PostgreSQL database for the current schema. Do not point the new publisher at an older database; see [initialization and boundaries](docs/database-design.md#initialization-and-boundaries).
@@ -1095,9 +1132,9 @@ if (-not (Test-Path -LiteralPath .env)) {
 }
 ```
 
-The annotated [environment example](.env.example) groups database, transport, model and retrieval settings, with value limits and provisioning requirements. Preserve local values when updating comments. HTTP startup gives repository `.env` precedence over process environment, including database URLs; absent keys use process environment, then defaults. Standalone database/CLI loading keeps its existing precedence. Restart running services to load changes. `RERANK_PROFILE_PATH` is a commented example, not a supplied artifact: provision a validated corpus-matched profile through the [reranking workflow](docs/online-reranking.md) before expecting accepted excerpts with filtering enabled. The HTTP-only `RELEVANCE_FILTER_ENABLED` switch defaults to `true`; explicitly setting `false` returns unassessed top-k candidates without a profile and leaves reranking independent. CLI/evaluator defaults and calibration requirements are unchanged; see [filter modes](docs/online-reranking.md#local-model-and-configuration).
+The annotated [environment example](.env.example) documents active settings. HTTP startup gives root `.env` precedence over launcher values; standalone entrypoints retain their loading policy. Restart to apply configuration. Intent/filter/profile env keys are retired and ignored, with name-only warnings if inherited. See [current catalog workflow](docs/catalog-answering.md).
 
-Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; the selected current runtime JSON and provenance can be tracked at stable paths under `artifacts/`. Git retains prior versions; see the [layout transition](docs/runtime-artifacts.md#stable-path-transition) before restarting an older configuration. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
+Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; the selected current runtime JSON and provenance can be tracked at stable paths under `artifacts/`. Git retains prior versions; see the [release and rollback rules](docs/runtime-artifacts.md#release-recovery-and-rollback) before restarting an older configuration. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
 
 Configuration presentation verification (2026-11-13, existing working tree): parsed `.env` values were identical before and after the comment/layout update; `.env.example` only removed the active sample profile assignment by commenting it out. Parser checks found no malformed entries or duplicate active keys. No API, database, model benchmark or application test suite was run for this documentation-only change.
 
@@ -1112,43 +1149,9 @@ PostgreSQL must already have the target database and the pgvector extension inst
 
 ## Local question retrieval
 
-Install `requirements-example.txt` for the local embedding runtime. Call the retrieval CLI with an existing local model directory and its declared full commit:
+Use `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> --top-k 5 --json`. The CLI uses the same candidate policy as HTTP: at most top-K unassessed excerpts, with provenance and explicit warnings. It never generates an answer or certifies relevance/completeness. Model token limits, eligible current publications, E5 compatibility and safe failures remain enforced.
 
-```powershell
-python -m src.cli.retrieve_documents --question "What benefits are available?" --model-path C:/models/multilingual-e5-small --model-revision <40-hex-commit> --top-k 5 --json
-```
-
-Replace the model placeholders before execution. The command returns source chunks, not an LLM answer. `--top-k` defaults to 5 (range 1–20). Questions must be nonempty strings with at most 8,000 characters after trimming and fit the model token limit including `query: ` and special tokens; no truncation is performed. The local model is loaded without downloads or remote code. Match output includes content, source spans, document/revision/run IDs, title, relative source path, applicability, effective dates and cosine distance. Smaller distances order internal vector candidates; distances are not confidence scores. Opt-in CPU reranking changes ordering; see [online reranking](docs/online-reranking.md). Results require a matching per-passage calibration profile. Without one, candidates are withheld with `fallback_reason: relevance_unavailable`; top-K is only an upper bound.
-
-Only current, include/active, effective public revisions with active successful runs are searched. Runtime model name, revision, file fingerprint, normalization, dimension and passage prefix must match the indexed run. Private documents cannot be enabled through a CLI argument. Exact cosine search needs no new vector index. Database transactions are read-only; no package or vector data is modified. Statuses distinguish `matches_found`, `no_eligible_documents`, `model_mismatch` and `no_matches`; operational failures are errors, never empty evidence. Exit codes are 0 for valid results including empty results, 1 for invalid input/model incompatibility and 2 for operational errors. There is no automatic file logging of questions or retrieved text.
-
-To avoid passing Vietnamese text through shell arguments, open `scripts/try_retrieval.py`, save it as UTF-8, and edit `QUESTION`, `TOP_K`, `MODEL_PATH` and `MODEL_REVISION` at the top. Select this repository's `env/Scripts/python.exe` interpreter in your IDE, then run the file. Its default model path points to the locally prepared pinned model under `models/embeddings`; that model directory and PostgreSQL configured in `.env` must still be available. Direct file execution works from any working directory; imports and model paths are anchored to the repository, without changing the working directory. Alternatively, from the repository root run:
-
-```powershell
-.\env\Scripts\python.exe -m scripts.try_retrieval
-```
-
-The script uses the same filtered retrieval contract and displays accepted chunks (up to `TOP_K`); its default vector-only mode withholds candidates with `relevance_unavailable`. Accepted matches preserve content and source locations; the compact script currently shows a generic no-match message, so inspect CLI JSON for the fallback reason. `QUESTION` stays user-owned; do not edit it for batch evaluation. It does not start the API or write the database. No separate model server is required. Accepted excerpts are not synthesized answers or a complete inventory.
-
-The script ends with two timings: model initialization (including fingerprinting and loading inside `service.start()`) and retrieval after the model is ready (query embedding, PostgreSQL search and result construction inside `service.retrieve()`). Measurements use `time.perf_counter()` and exclude input validation, service construction, shutdown, formatting and terminal output. CLI JSON includes unrounded seconds in `timings.model_initialization_seconds` and `timings.retrieval_seconds`; the script displays seconds to three decimal places. A failed or unstarted step has `null`, displayed as an unavailable completed measurement, not zero. Completed measurements survive later retrieval/shutdown errors. Each script invocation loads the model again, and the first retrieval may include database connection setup and first-execution overhead. These are observations of that invocation, not a stable benchmark of production latency; no warm-up or extra query is performed.
-
-For repeated calls, reuse a service instance on one event loop:
-
-```python
-from src.retrieval import RetrievalService
-from src.database import close_database
-
-async def retrieve_example(model_path, model_revision):
-    service = RetrievalService(model_path=model_path, model_revision=model_revision)
-    try:
-        await service.start()
-        return await service.retrieve("What benefits are available?", top_k=5)
-    finally:
-        await service.close()
-        await close_database()  # Application owner closes the shared database at shutdown.
-```
-
-The application owns the loop; use the existing `run_async()` wrapper only at a synchronous Windows entrypoint, never inside another event loop. Model operations run in a worker thread and are serialized per service. Model files must remain immutable until the service closes; restart with a new service after changing models. Retrieval service close does not dispose the shared database. Imports do not load configuration, models or connect. CLI/direct retrieval stays document-only. The HTTP endpoints optionally support [Type B work-profile evidence](docs/type-b-http.md); answer renders templates and retrieve returns structured evidence without generating an answer. Conversation history, cross-employee lookup and broader operational tools remain unimplemented.
+Optional `--rerank`, `--rerank-model-path`, `--rerank-candidates`, `--rerank-batch-size`, `--semantic-mode` and `--semantic-artifact-path` configure local ranking/expansion. Intent/profile arguments have been removed. See [command inventory](src/cli/README.md) and [manual evaluation](docs/retrieval-evaluation.md).
 
 ## Local retrieval API and Swagger
 
@@ -1168,7 +1171,7 @@ Open http://127.0.0.1:8000/docs and call `POST /api/v1/retrieve`:
 
 `text` must be a nonempty string after trimming, at most 8,000 characters and within E5's token limit including the query prefix; input is not truncated. Optional `top_k` must be an integer from 1 to 20; omitting it uses `RETRIEVAL_TOP_K`. Null, boolean, string and out-of-range values are rejected, as are extra fields.
 
-The response contains `status` (`matches_found`, `no_eligible_documents`, `no_matches`), `matches`, required nullable `fallback_reason`, `relevance` and `timings` (`retrieval_seconds`, `total_seconds`, `rerank_seconds`). Each match retains content, chunk/index/run/document/revision IDs, title, relative source path, version label, applicability, effective dates, source spans, author ID/role and cosine distance. No vectors, generated answer, confidence or evidence-completeness assessment are returned. Additive relevance metadata and optional raw reranker scores are described in [online reranking](docs/online-reranking.md). Internal vector candidates sort by smaller distances; enabled reranking sorts them by raw reranker scores before relevance filtering. Neither score is confidence. Only passages passing a matching calibrated threshold are returned; missing assessment produces an explicit empty fallback. The API cannot count benefits, resolve personal eligibility or determine whether top-K covers an exhaustive request.
+The response contains `status` (`matches_found`, `no_eligible_documents`, `no_matches`), `matches`, required nullable `fallback_reason`, `relevance` and `timings` (`retrieval_seconds`, `total_seconds`, `rerank_seconds`). Each match retains content, chunk/index/run/document/revision IDs, title, relative source path, version label, applicability, effective dates, source spans, author ID/role and cosine distance. No vectors, generated answer, confidence or evidence-completeness assessment are returned. Additive relevance metadata and optional raw reranker scores are described in [online reranking](docs/online-reranking.md). Internal vector candidates sort by smaller distances; enabled reranking sorts them by raw reranker scores before top-K selection. Neither score is confidence; all candidates remain unassessed. Exact catalog evidence checks independently control template answers. The API cannot count benefits, resolve personal eligibility or determine whether top-K covers an exhaustive request.
 
 This is a breaking replacement: `POST /api/v1/ask` no longer exists and returns 404. Clients must use the new route and response. Old `ANSWER_TOP_K` and `OLLAMA_*` settings are unused; configure `RETRIEVAL_TOP_K` instead. Removing the project dependency does not uninstall software or delete model weights on the machine.
 
@@ -1184,71 +1187,13 @@ See [online reranking](docs/online-reranking.md) for the pinned local ONNX model
 
 ## Optional intent observation
 
-The lightweight [intent classifier](docs/intent-classifier.md) reuses the E5 query vector with small logistic heads for source intent and Type A evidence needs. `INTENT_MODE=off` is the default; `observe` requires an explicitly provisioned, accepted local JSON artifact through `INTENT_ARTIFACT_PATH` and only emits safe technical logs. Separately, TYPE_B_ENABLED enables an HTTP source-hint observer at that path, combined with a bounded work-task matcher and service authentication. This does not change observe/assist, passage filtering or CLI behavior. No additional transformer or duplicate original-query embedding is used. Missing/incompatible hints leave explicit supported tasks and Type A retrieval available.
+The classifier and its offline tools/kits are retired. Catalog semantics and bounded Type B tasks replace intent heads. No intent artifact or relevance profile is required. See [current design](docs/catalog-answering.md). Historical intent verification is retained in earlier dated entries.
 
-Optional `assist` requires `SEMANTIC_MODE=expand` and uses accepted style hints
-only to prioritize valid phrase alternatives. It has its own pipeline/profile
-identity and release gate after semantic-only evaluation. HTTP Type B routing is a
-separate opt-in coordinator, not an effect of assistance mode. See
-[semantic workflow](docs/vietnamese-semantics.md) and [Type B](docs/type-b-http.md).
-
-Install `requirements-intent.txt` only for offline training. `python -m scripts.train_intent --help` describes training/calibration; `python -m scripts.benchmark_intent --help` describes the paired read-only benchmark required before promotion. Follow the guide for reviewed private datasets, model identity, quality/latency gates and rollback. No command automatically changes `.env`, downloads models, migrates storage or publishes documents.
-
-For Stage 2 batch operation, use `python -m src.cli.prepare_intents validate --config .tmp/intent-v1/config.json --json`, followed by `preflight` and then `run` with the same config. See [configuration and batch outputs](docs/intent-classifier.md#unified-offline-preparation-cli) and the [example](docs/examples/intent-preparation.json). Validation aggregates structural errors without loading ML; preflight tokenizes without encoding; run requires reviewed labels and writes a new manifest/report/candidate directory. No database is required. The old trainer uses the same shared implementation and remains supported; benchmark/promotion are separate.
-
-### Stage 2 batch CLI verification — 2026-11-13
-
-Working tree based on `e656991`, after adding the shared offline preparation CLI: **537 passed, 1 skipped, 34 deselected** in the full non-integration suite, with the existing Starlette/AnyIO deprecation warning. After the final run-directory ownership/cleanup adjustment, all **20 batch CLI tests passed** again. Tests used the isolated extended-length `.tmp/intent-test-runs` workspace outside the sandbox. Coverage includes no-ML imports/help, aggregated validation, review-before-model gating, token-only preflight, legacy/new artifact parity, unique run directories, atomic manifests, interruptions, changed inputs and failure reporting. `pip check`, legacy/new CLI help and scoped diff checks passed.
-
-Actual CLI validation accepted the structure of the 600-case draft while reporting `review_required: true` and `training_allowed: false`. Real local CPU E5 preflight checked all 600 questions without encoding; none exceeded the token limit. The report is under `.tmp/intent-v1/preflight-cli-report.json`. An actual `run` invocation correctly stopped before model loading with `human_review_required`, leaving a diagnostic manifest and no candidate. No reviewed training, semantic quality evaluation, database benchmark, accepted artifact or observation enablement was performed. Existing dataset/chunk changes and `.env` were preserved.
-
-### Intent verification — 2026-11-13
-
-Implementation working tree based on `e656991`, preserving existing documentation, corpus and answer-evaluation changes. Full non-integration verification after implementation: **516 passed, 1 skipped, 34 deselected**, with one existing Starlette/AnyIO deprecation warning. After final dataset-validation/diagnostic hardening and one additional test, the focused intent suites passed **35 tests**. Tests used a separate extended-length `.tmp/intent-test-runs` directory outside the sandbox; the first sandbox attempt failed at pre-existing temporary-directory permissions. No permissions or existing temporary trees were changed. Synthetic tests cover NumPy/sklearn parity, training/holdout separation, acceptance gates, off/observe retrieval invariance, HTTP/CLI wiring, encode counts, cancellation and cleanup. CLI help and `pip check` passed.
-
-The private draft `.tmp/intent-v1/draft-cases.json` contains 600 structurally checked, **unreviewed** cases; training rejects it before loading E5. Human label/split review, real-model intent training, the quality gate and paired retrieval latency benchmark have **not run**. No accepted intent artifact has been produced, and observation has not been enabled. Database integration tests were deselected; no migration, publication, source-package edit, backend or portal change is part of this implementation. See the guide for the draft's template/diversity limitations and the independent retrieval calibration prerequisite.
-
-<a id="offline-answer-evaluation-endpoint-not-implemented"></a>
 ## Grounded answers and offline acceptance
 
-`POST /api/v1/answer` is a separate opt-in Semantic + template endpoint;
-`/api/v1/retrieve` remains excerpt-only. Set `ANSWER_ENABLED=true`,
-`SEMANTIC_MODE=expand`, a matching `SEMANTIC_ARTIFACT_PATH`, and optionally
-`ANSWER_CATALOG_PATH` (default `artifacts/answers/catalog.json`). No GGUF,
-native generation dependency, report, model verifier or inference retry is used.
-Retired model/report/debug settings are ignored; local `.env` is not rewritten.
+Enable `ANSWER_ENABLED` only with a schema-v2 lexicon/catalog and provisioned retrieval dependencies. The source-bound template API reads exact linked evidence from eligible DB publications, independently of search top-K. Unknown tasks ask for detail; explicit document lookup may return unassessed excerpts. There is no generator, verifier, learned intent model or relevance profile.
 
-Validate source/lexicon identity with `python -m src.cli.check_answer_catalog`.
-The initial catalog inventories all 29 documents / 530 chunks: 32 chunks have
-source-bound template entries and 498 remain excerpt-only. Most initial entries
-preserve full source wording and report partial coverage; three benefit entries
-have authored natural-language amount/condition/paperwork responses. This is
-whole-corpus availability, not complete natural-language template coverage.
-
-Filtering remains authoritative; explicitly unfiltered results remain unassessed.
-Only uniquely matched questions with all required current top-K evidence use a
-template. Other cases return labeled excerpts, clarification or insufficient
-evidence, without personal eligibility or aggregate conclusions. Requests share
-the retrieval busy slot, 120-second deadline and cancellation cleanup. Existing
-response fields remain; generation/verification timings are zero.
-
-See [current answer contract](docs/answer-evaluation.md#semantic-template-answer-api)
-and [manual regression](scripts/README.md#template-answer-regression).
-Historical Qwen studies below describe retired behavior and cannot enable templates.
-
-### Fallback verification - 2026-11-13
-
-Implementation working tree, including pre-existing reranking changes: the public function/CLI/HTTP path now filters each passage before top-K and returns a required nullable `fallback_reason`. Uncalibrated vector-only/reranked candidates are withheld. See [the response and rollout contract](docs/online-reranking.md#retrieval-and-response-semantics). No source packages, publications, schema, model files or application `.env` were changed.
-
-Non-integration verification: **454 passed, 1 skipped, 34 deselected** using an isolated extended-length `.tmp/` basetemp outside the Windows sandbox. Earlier sandbox runs hit access-denied temporary-directory errors; no permissions were changed. The new per-passage 100-question source-labeled benchmark has **not been completed**: the available historical 40-question set lacks per-candidate labels and has related intents across splits. No schema-v2 profile was emitted, and no real-model quality/latency gate is claimed. Subsequent focused checks passed: 62 retrieval/API tests after profile hardening, then 24 reranking/benchmark tests after adding two orchestration cases. The pinned local ONNX smoke passed on two fictional passages without database access. PostgreSQL integration tests were not executed; synthetic tests do not verify the new corpus snapshot query on a real database.
-
-### Online reranking verification — 2026-11-13
-
-Historical top-1 evaluation, predating per-passage filtering (not a current rollout approval). Executed on the implementation working tree with the downloaded ONNX verified against official revision `1427fd652930e4ba29e8149678df786c240d8825` and its matching local tokenizer. A read-only, package-pinned 40-question evaluation (30 supported, 10 unsupported; known prompts kept as regression) found complete top-5 evidence for all 30 supported cases, with no candidate-pool misses. The required bereavement-family top-1 case failed: its detail ranked fourth. The calibrated relevance gate also failed (holdout positive top-1 recall 75%; calibration positive top-1 recall 46.7%; no holdout negative acceptances at that threshold). No calibrated profile was emitted; reranking remains disabled by default.
-
-On 100 sequential post-warm-up requests with 30 candidates and batch size 4, p50 was 2.59 s and p95 was 3.88 s. Peak process working set was 1,951,526,912 bytes (about 1.82 GiB), including E5 and ONNX. Host: Windows x86-64, Intel Family 6 Model 165, Python 3.14.10. These observations are not a deployment SLA or evidence of complete policy coverage. Selected packages/storage passed before/after read-only verification. Local reports/cases are under ignored `.tmp/online-evaluation/`; private questions and source contents are not committed. The benchmark preceded final profile-fingerprint hardening (batch/runtime identity), which does not change candidate selection or inference; its profile fingerprint is intentionally not reusable by the final implementation.
-
-Final non-integration verification: `python -m pytest -m 'not integration' -q` with a fresh extended-length `.tmp/` basetemp on Windows: **442 passed, 1 skipped, 34 deselected**. An initial ordinary-path run encountered 17 legacy asset-restructuring fixture errors from Windows path length; those resolved with the documented extended-length path, without changing the fixtures. Focused retrieval/API tests and the real local ONNX smoke passed. The updated PostgreSQL integration cases were **not executed**: automatic approval review rejected migrations/writes against the configured test URL because disposable ownership had not been verified. Read-only evaluation does not replace those transaction/eligibility fixture tests. No publication, schema change or stored-vector update was performed.
+Use `python -m src.cli.build_artifacts impact`, then deliberate `refresh`, `build`, `check` and `python -m src.cli.check_answer_catalog`. These commands do not publish to the DB. See [answer contract and source updates](docs/catalog-answering.md) and [verification](docs/answer-evaluation.md). Historic model/profile studies in dated entries are not current acceptance evidence.
 
 ## Retrieval evaluation
 

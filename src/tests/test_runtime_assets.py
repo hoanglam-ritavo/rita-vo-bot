@@ -159,16 +159,16 @@ def test_tracked_policy_and_optional_artifact_pair(inventory):
     git(root, 'add', '-f', 'models/.cache/download.metadata')
     assert 'tracked_path_not_allowed' in error_codes(assets.verify(root)[0])
     git(root, 'rm', '--cached', 'models/.cache/download.metadata')
-    parent = root / 'artifacts/rerank'
+    parent = root / 'artifacts/answers'
     parent.mkdir(parents=True)
-    for name in ('relevance-profile.json', 'manifest.json'):
+    for name in ('catalog.json', 'manifest.json'):
         path = parent / name
         raw = b'{"fictional": true}\n'
         path.write_bytes(raw)
         git(root, 'add', path.relative_to(root).as_posix())
         assert 'tracked_asset_not_in_manifest' in error_codes(assets.verify(root)[0])
         data['assets'].append({'path': path.relative_to(root).as_posix(), 'size_bytes': len(raw),
-                              'sha256': hashlib.sha256(raw).hexdigest(), 'group': 'rerank'})
+                              'sha256': hashlib.sha256(raw).hexdigest(), 'group': 'answers'})
     write_manifest(root, data)
     assert assets.verify(root)[1] == 0  # Integrity only, not acceptance validation.
     data['assets'].pop()

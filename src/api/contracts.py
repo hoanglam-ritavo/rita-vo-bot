@@ -21,7 +21,7 @@ class RetrieveRequest(StrictModel):
         description='HRM user_id (backend odooId), not employee_id or internal UUID. '
                     'Backend must bind this reference to its authenticated caller. Requires X-Rita-Service-Key.')
     top_k: int = Field(default=5, ge=1, le=20,
-                       description='Maximum number of excerpts, not a target count. Relevance filtering is server-configured. '
+                       description='Maximum number of unassessed excerpts, not a target count. '
                        'Omit to use RETRIEVAL_TOP_K (default 5).')
 
     @field_validator('text', mode='before')

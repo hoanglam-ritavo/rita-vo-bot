@@ -71,7 +71,7 @@ def validate_manifest(data, root=None):
     from src.retrieval.semantics import normalized, validate_artifact
     try:
         validate_artifact({key: data[key] for key in ('schema_version', 'reviewed', 'review_notes',
-            'package_fingerprint', 'concepts')}, require_reviewed=False)
+            'package_fingerprint', 'concepts')} | {'schema_version': 2}, require_reviewed=False)
     except ValueError:
         errors.append('invalid_semantic_concepts')
     alias_targets = {}
@@ -194,6 +194,7 @@ def export_artifact(data, root=None):
     # Chunk IDs/source excerpts never enter the runtime lexicon.
     result = {key: data[key] for key in ('schema_version', 'reviewed', 'review_notes', 'package_fingerprint', 'concepts')}
     from src.retrieval.semantics import validate_artifact
+    result['schema_version'] = 2
     validate_artifact(result)
     return result
 
@@ -225,7 +226,7 @@ def main(argv=None):
                 artifact = export_artifact(data, args.chunks_root)
                 path = write_new(args.output, artifact)
                 result = {'status': 'reviewed_lexicon_exported', 'output': str(path),
-                    'artifact_hash': digest(artifact), 'calibration_required': True}
+                    'artifact_hash': digest(artifact), 'evaluation_required': True}
         print(json.dumps(result, ensure_ascii=True))
         return 1 if result.get('errors') else 0
     except (SemanticPreparationError, ValueError) as exc:

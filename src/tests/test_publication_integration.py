@@ -67,6 +67,43 @@ def local_model(empty_catalog_db, tmp_path, monkeypatch):
     return model
 
 
+def test_catalog_reference_reader_requires_current_eligible_compatible_publication(local_model, tmp_path):
+    from types import SimpleNamespace
+    from src.retrieval.storage import read_references
+    from src.answering.catalog import Reference, METADATA
+    from src.answering.pipeline import matches_reference
+    from src.ingestion.embeddings import model_fingerprint
+    import hashlib
+    package, _ = ready(tmp_path)
+
+    async def scenario():
+        try:
+            await service.publish(tmp_path, package, 'a'*40, model_path=local_model)
+            metadata = p.metadata(package)
+            chunk = p.decode((package/'chunks.json').read_bytes())['chunks'][0]
+            ref = Reference(document_id=metadata['document_id'], revision_id=metadata['revision_id'],
+                chunk_index=0, source_sha256=metadata['sha256'],
+                content_sha256=hashlib.sha256(chunk['content'].encode()).hexdigest(), quote=chunk['content'],
+                metadata={key: metadata.get(key) for key in METADATA})
+            fingerprint = model_fingerprint(local_model)
+            matches = await read_references([ref], 'a'*40, fingerprint)
+            assert len(matches) == 1 and matches_reference(ref, matches[0])
+            assert not await read_references([ref], 'b'*40, fingerprint)
+            assert not await read_references([ref], 'a'*40, 'incompatible')
+            async with session_scope() as db:
+                revision = await db.get(DocumentRevision, UUID(metadata['revision_id']))
+                revision.applicability = 'Changed audience'
+            matches = await read_references([ref], 'a'*40, fingerprint)
+            assert len(matches) == 1 and not matches_reference(ref, matches[0])
+            async with session_scope() as db:
+                revision = await db.get(DocumentRevision, UUID(metadata['revision_id']))
+                revision.lifecycle_status = 'withdrawn'
+            assert not await read_references([ref], 'a'*40, fingerprint)
+        finally:
+            await close_database()
+    run_async(scenario())
+
+
 async def database_state():
     """Read committed state in a fresh session, including vectors and all metadata."""
     async with session_scope() as db:

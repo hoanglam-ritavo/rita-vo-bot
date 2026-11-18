@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import re
 import unicodedata
 
-TASK_VERSION = 1
+TASK_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -16,10 +16,10 @@ class Task:
 
 TASKS = (
     Task('employee_name', 'Họ tên', ('ho ten', 'ten cua toi')),
-    Task('employee_code', 'Mã nhân viên', ('ma nhan vien',)),
-    Task('job_title', 'Chức danh', ('chuc danh',)),
-    Task('department_name', 'Phòng ban', ('phong ban', 'bo phan', 'thuoc phong', 'thuoc don vi')),
-    Task('manager_name', 'Quản lý trực tiếp', ('quan ly truc tiep', 'nguoi quan ly', 'cap tren truc tiep')),
+    Task('employee_code', 'Mã nhân viên', ('ma nhan vien', 'ma so nhan vien')),
+    Task('job_title', 'Chức danh', ('chuc danh', 'chuc vu', 'vi tri cong viec')),
+    Task('department_name', 'Phòng ban', ('phong ban', 'bo phan', 'thuoc phong', 'thuoc don vi', 'don vi cong tac')),
+    Task('manager_name', 'Quản lý trực tiếp', ('quan ly truc tiep', 'nguoi quan ly', 'cap tren truc tiep', 'sep truc tiep')),
     Task('probation_date', 'Ngày bắt đầu thử việc', ('ngay bat dau thu viec', 'bat dau thu viec', 'ngay thu viec', 'thu viec tu ngay nao'), True),
     Task('probation_end_date', 'Ngày kết thúc thử việc', ('ngay ket thuc thu viec', 'ket thuc thu viec', 'thu viec ket thuc', 'het thu viec ngay nao'), True),
     Task('official_date', 'Ngày chính thức', ('ngay chinh thuc', 'ngay vao lam chinh thuc', 'ngay lam viec chinh thuc', 'chinh thuc tu ngay nao'), True),
@@ -58,7 +58,7 @@ RESTRICTED = ('ngan hang', 'tai khoan ngan hang', 'so tai khoan', 'cccd', 'can c
               'lich su', 'ho so cua toi', 'toan bo ho so', 'tat ca thong tin')
 
 
-def route_question(text, hint):
+def route_question(text):
     query = normalized(text)
     original = unicodedata.normalize('NFC', text.casefold())
     self_reference = bool(re.search(r'\b(?:tôi|toi|mình)\b', original)) or (
@@ -67,14 +67,13 @@ def route_question(text, hint):
     fields = tuple(task.field for task in TASKS if any(phrase(query, alias) for alias in task.aliases))
     if query in ('toi la ai', 'toi ten gi'):
         fields = ('employee_name',)
-    predicted = hint.get('source') if hint.get('status') == 'classified' else None
     source = 'mixed' if policy and fields and self_reference else 'type_b'
     # A named subject plus a trailing "I want to know" is not a self-reference.
     nonself = r'\bcua (?!(?:toi|minh|ban than)\b)'
     if policy:
         nonself = r'\bcua (?!(?:toi|minh|ban than|cong ty|doanh nghiep)\b)'
     third_person = bool(re.search(nonself, query))
-    if third_person and (fields or predicted in ('type_b', 'mixed')):
+    if third_person and fields:
         return Route(source, reason='other_employee_unsupported')
     restricted = any(phrase(query, term) for term in RESTRICTED)
     if restricted and self_reference and (fields or not policy or phrase(query, 'va')):
@@ -98,17 +97,8 @@ def route_question(text, hint):
         # Policy wording alone does not request the individual's field value.
         if policy and not any(phrase(query, marker) for marker in (
                 'va', 'dong thoi', 'cho biet', 'la gi', 'la ai', 'ngay nao', 'voi', 'thuoc', 'toi co duoc')):
-            return Route('type_a') if predicted not in ('type_b', 'mixed') else Route(
-                'mixed', reason='source_intent_conflict')
-        if predicted == 'type_a' and not policy:
-            return Route(source, reason='source_intent_conflict')
-        if predicted == 'type_b' and policy:
-            return Route(source, reason='source_intent_conflict')
-        if predicted == 'mixed' and not policy:
-            return Route('mixed', reason='employee_task_unclear')
+            return Route('type_a')
         return Route(source, fields)
-    if predicted in ('type_b', 'mixed'):
-        return Route(predicted, reason='employee_task_unclear')
     if fields and not policy:
         return Route('type_b', reason='employee_reference_unclear')
     if self_reference and not policy and any(phrase(query, term) for term in (

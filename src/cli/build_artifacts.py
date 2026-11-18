@@ -12,6 +12,8 @@ def main(argv=None):
     commands = parser.add_subparsers(dest='command', required=True)
     commands.add_parser('check')
     commands.add_parser('build')
+    commands.add_parser('impact', help='Read-only dependency report; no source text or database IO.')
+    commands.add_parser('refresh', help='Relink unique unchanged evidence and refresh coverage; then build/check.')
     command = commands.add_parser('import')
     command.add_argument('--lexicon', required=True, type=Path)
     command.add_argument('--catalog', required=True, type=Path)
@@ -19,8 +21,12 @@ def main(argv=None):
                          help='New directory below repository .tmp; never current sources.')
     args = parser.parse_args(argv)
     try:
-        result = (import_pair(args.lexicon, args.catalog, args.output) if args.command == 'import'
-                  else build(check=args.command == 'check'))
+        if args.command in ('impact', 'refresh'):
+            from src.artifact_authoring.impact import inspect, refresh
+            result = inspect()[0] if args.command == 'impact' else refresh()
+        else:
+            result = (import_pair(args.lexicon, args.catalog, args.output) if args.command == 'import'
+                      else build(check=args.command == 'check'))
         print(json.dumps(result))
         return 0
     except (ValueError, OSError) as exc:

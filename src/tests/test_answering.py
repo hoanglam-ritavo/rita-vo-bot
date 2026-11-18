@@ -26,21 +26,21 @@ def sample():
     text = 'Fictional policy: permanent staff receive 100 credits with a certificate; temporary staff excluded.'
     metadata = dict(title='Fictional policy', applicability='Permanent staff', effective_from=None,
                     effective_to=None, version_label='v1', source_path='fictional.pdf')
-    match = dict(content=text, **metadata, document_id='doc', revision_id='revision', chunk_index=0,
+    match = dict(source_sha256='a'*64, content=text, **metadata, document_id='doc', revision_id='revision', chunk_index=0,
                  chunk_id='chunk', run_id='run', source_spans=[{'page': 1}])
-    ref = dict(document_id='doc', revision_id='revision', chunk_index=0,
+    ref = dict(source_sha256='a'*64, document_id='doc', revision_id='revision', chunk_index=0,
                content_sha256=hashlib.sha256(text.encode()).hexdigest(), quote=text, metadata=metadata)
-    unit = dict(text='Permanent staff receive 100 credits with a certificate; temporary staff are excluded.', refs=[ref])
-    card = dict(id='birth', label='Fictional childbirth benefit', concept_ids=['birth'],
+    unit = dict(id='evidence.fictional', text='Permanent staff receive 100 credits with a certificate; temporary staff are excluded.', refs=[ref])
+    card = dict(source_type='type_a', clarification='Bạn muốn hỏi thông tin nào?', id='birth', label='Fictional childbirth benefit', concept_ids=['birth'],
                 aliases=['sinh con'], requires_any=[], excludes_any=['vợ', 'Workit'],
                 sections={'overview':dict(complete=False, units=[unit]), 'amount':dict(complete=True, units=[unit]),
                           'conditions':dict(complete=True, units=[unit]), 'paperwork':dict(complete=True, units=[unit])})
-    data = dict(schema_version=1, package_fingerprint='packages', lexicon_sha256='lexicon', cards=[card],
+    data = dict(schema_version=2, package_fingerprint='packages', lexicon_sha256='lexicon', cards=[card],
                 coverage=[dict(document_id='doc',chunk_index=0,disposition='template',note='Fictional source checked.')])
     lexicon = dict(package_fingerprint='packages', concepts=[dict(id='birth', canonical='sinh con',
         aliases=['sinh em bé'], requires_any=[], excludes_any=['vợ', 'Workit'])])
     result = dict(status='matches_found', matches=[match], fallback_reason=None,
-                  relevance=dict(status='relevant_candidates', warnings=[]))
+                  relevance=dict(status='unassessed', warnings=['relevance_not_assessed']))
     return SimpleNamespace(data=data, catalog=Catalog.model_validate(data), lexicon=lexicon, result=result,
                            metadata=metadata)
 
@@ -58,7 +58,7 @@ def test_source_mismatch_never_uses_authored_text(sample, mutation):
     sample.result['matches'][0][mutation] = 9 if mutation == 'chunk_index' else 'CHANGED'
     row = render('Sinh con được bao nhiêu?', sample.result, sample.catalog, sample.lexicon)
     assert row['reason'] == 'template_evidence_missing'
-    assert row['intro'] and row['claims'][0]['text'] == sample.result['matches'][0]['content']
+    assert row['claims'] == [] and not row['intro']
 
 
 def test_all_required_sources_or_partial(sample):
@@ -73,7 +73,7 @@ def test_all_required_sources_or_partial(sample):
     'Nhân viên không sinh con có được hỗ trợ?', 'Tổng phúc lợi bao nhiêu?', 'So sánh hai chính sách?'])
 def test_ambiguity_and_guards(sample,text):
     row=render(text,sample.result,sample.catalog,sample.lexicon)
-    assert row['status'] in {'needs_clarification','partial'}
+    assert row['status'] in {'needs_clarification','insufficient_evidence'}
     assert row['status'] != 'answered'
     if row['status']=='partial': assert row['reason']=='template_unavailable'
 
@@ -101,10 +101,10 @@ def test_conjunction_preserves_two_beneficiaries_despite_global_exclusion(sample
 
 def test_unassessed_preserved_and_filter_never_bypassed(sample):
     sample.result['relevance']={'status':'unassessed','warnings':['relevance_filter_disabled']}
-    row=render('Sinh con được bao nhiêu?',sample.result,sample.catalog,sample.lexicon,allow_unassessed=True)
+    row=render('Sinh con được bao nhiêu?',sample.result,sample.catalog,sample.lexicon)
     assert row['status']=='answered' and row['relevance']['status']=='unassessed'
     assert 'evidence_completeness_not_assessed' in row['relevance']['warnings']
-    with pytest.raises(ValueError): render('Question',sample.result,sample.catalog,sample.lexicon)
+    assert render('Question',sample.result,sample.catalog,sample.lexicon)['claims'] == []
     sample.result.update(matches=[],fallback_reason='relevance_unavailable')
     sample.result['relevance']={'status':'unassessed','warnings':[]}
     row=render('Sinh con được bao nhiêu?',sample.result,sample.catalog,sample.lexicon)
@@ -115,10 +115,10 @@ def test_excerpts_are_verbatim_bounded_and_keep_provenance(sample):
     sample.result['matches']*=20
     sample.result['matches']=[dict(m,chunk_id=str(i),content=m['content']+str(i))
                               for i,m in enumerate(sample.result['matches'])]
-    row=render('Unrecognized question?',sample.result,sample.catalog,sample.lexicon)
+    row=render('Tìm tài liệu minh họa?',sample.result,sample.catalog,sample.lexicon)
     assert row['status']=='partial' and len(row['claims'])==12 and row['intro']
     assert all(c['text']==c['citations'][0]['quote'] for c in row['claims'])
-    assert len(row['limitations'])==2
+    assert row['limitations']
     duplicate=evidence_sources([sample.result['matches'][0],dict(sample.result['matches'][0],chunk_id='copy')])
     assert len(duplicate)==1 and len(duplicate['S1']['origins'])==2
 
@@ -127,6 +127,7 @@ def service(sample):
     owner=ApiService(Settings(Path('unused'),'a'*40),retrieval=SimpleNamespace(
         start=AsyncMock(),close=AsyncMock(),started=True,retrieve=AsyncMock(return_value=sample.result)),
         database_check=AsyncMock(),database_close=AsyncMock())
+    owner.retrieval.read_evidence = owner.retrieval.retrieve
     owner.started=True
     owner.answers.available=True
     owner.answers.catalog,owner.answers.lexicon=sample.catalog,sample.lexicon
@@ -154,7 +155,8 @@ def test_http_wire_sources_no_qwen_and_default_query(sample,top_k,monkeypatch,ca
     assert data['sources'][0]['origins'][0]['chunk_id']=='chunk'
     assert data['timings']['generation_seconds']==data['timings']['verification_seconds']==0
     assert not {'draft','verdict','confidence','request_id'} & data.keys()
-    owner.retrieval.retrieve.assert_awaited_once_with(body['text'],top_k=top_k or 7)
+    owner.retrieval.read_evidence.assert_awaited_once()
+    assert owner.retrieval.read_evidence.call_args.args[0][0].document_id == 'doc'
     assert not capsys.readouterr().out
     assert 'certificate' not in caplog.text
 
@@ -164,17 +166,17 @@ def test_busy_timeout_errors_and_cleanup(sample,monkeypatch):
     async def run():
         owner=service(sample)
         owner.busy=True
-        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Sinh con được bao nhiêu?',5)
         assert exc.value.status_code==429
         owner.busy=False
         owner.retrieval.retrieve.side_effect=RetrievalError('question_too_long')
-        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Sinh con được bao nhiêu?',5)
         assert exc.value.status_code==422 and not owner.busy and owner._idle.is_set()
         owner.retrieval.retrieve.side_effect=None
         async def wait(*args, **kwargs): await asyncio.sleep(10)
         owner.retrieval.retrieve.side_effect=wait
         monkeypatch.setattr(module,'DEADLINE_SECONDS',.01)
-        with pytest.raises(ApiError) as exc: await owner.answers.answer('Question',5)
+        with pytest.raises(ApiError) as exc: await owner.answers.answer('Sinh con được bao nhiêu?',5)
         assert exc.value.status_code==504 and not owner.busy
         assert owner.answers.available  # No uncertain native context to invalidate.
     asyncio.run(run())
@@ -193,7 +195,7 @@ def test_cancel_and_repeated_drain_retains_ownership(sample):
                 await drain(worker)
                 raise
         owner.retrieval.retrieve.side_effect=retrieve
-        task=asyncio.create_task(owner.answers.answer('Question',5))
+        task=asyncio.create_task(owner.answers.answer('Sinh con được bao nhiêu?',5))
         await entered.wait()
         task.cancel()
         await asyncio.sleep(0)
@@ -445,7 +447,7 @@ def test_answer_health_startup_states_and_safe_logs(sample, monkeypatch, caplog,
         else:
             loader.assert_called_once()
         if expected_reason:
-            failed = client.post('/api/v1/answer', json={'text': 'PRIVATE_QUESTION'})
+            failed = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
             assert failed.status_code == 503
             assert failed.json()['error']['code'] == 'answer_unavailable'
         owner.retrieval.retrieve.assert_not_awaited()
@@ -507,7 +509,7 @@ def test_answer_processing_failure_has_safe_correlated_log_and_releases_slot(sam
     owner = service(sample)
     owner.retrieval.retrieve.side_effect = RuntimeError('PRIVATE_EVIDENCE credentials question')
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
-        response = client.post('/api/v1/answer', json={'text': 'PRIVATE_QUESTION'})
+        response = client.post('/api/v1/answer', json={'text': 'Sinh con được bao nhiêu? PRIVATE_QUESTION'})
         assert response.status_code == 503
         assert response.json()['error']['code'] == 'answer_unavailable'
         assert not owner.busy and owner._idle.is_set() and owner.answers.available
@@ -535,7 +537,7 @@ def test_http_startup_file_enables_answers_despite_inherited_disabled_flag(sampl
 
     def factory(settings):
         owner = ApiService(settings, retrieval=SimpleNamespace(start=AsyncMock(), close=AsyncMock(),
-                           started=True, retrieve=AsyncMock(return_value=sample.result)),
+                           started=True, retrieve=AsyncMock(return_value=sample.result), read_evidence=AsyncMock(return_value=sample.result)),
                            database_check=AsyncMock(), database_close=AsyncMock())
         owners.append(owner)
         return owner

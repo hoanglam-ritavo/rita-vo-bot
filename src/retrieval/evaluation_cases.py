@@ -30,36 +30,3 @@ def validate_case_data(data, record, payload):
                     any(type(i) is not int or not 0 <= i < len(payload['chunks']) for i in group)):
                 raise ValueError('invalid_chunk_index')
     return cases
-
-
-def validate_online_case(case):
-    if case.get('split') not in ('calibration', 'holdout', 'regression') or type(case.get('relevant')) is not bool:
-        raise ValueError('invalid_online_case')
-    if case['relevant'] != bool(case['required_groups']):
-        raise ValueError('invalid_online_case_evidence')
-
-
-def validate_cases(entries, collect_only=False):
-    cases = [c for c, _, _ in entries]
-    if not cases or len({c['question'] for c in cases}) != len(cases) or len({c['id'] for c in cases}) != len(cases):
-        raise ValueError('duplicate_or_empty_cases')
-    groups = {}
-    for case in cases:
-        family = case.get('intent_group')
-        if not isinstance(family, str) or not family.strip():
-            raise ValueError('intent_group_required')
-        if family in groups and groups[family] != case['split']:
-            raise ValueError('intent_group_leaks_across_splits')
-        groups[family] = case['split']
-    if collect_only:
-        return
-    if (len(cases) < 100 or sum(c['split'] == 'regression' for c in cases) < 20
-            or any(sum(c['split'] == split and c['relevant'] is label for c in cases) < 20
-                   for split in ('calibration', 'holdout') for label in (True, False))):
-        raise ValueError('need_100_split_balanced_cases')
-
-
-def case_identity(data):
-    """Bind all authored fields while permitting post-collection label review."""
-    return packages.canonical_hash({**data, 'cases': [
-        {k: v for k, v in case.items() if k != 'candidate_labels'} for case in data['cases']]})

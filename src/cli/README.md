@@ -11,36 +11,19 @@ Run commands from the repository root with the repository virtual environment. B
 | `check_db.py` | Current | `python -m src.cli.check_db`: check PostgreSQL connectivity and pgvector version. |
 | `check_employee_source.py` | Current, opt-in readonly foundation | `python -m src.cli.check_employee_source`: metadata-only HRM connectivity, readonly role/transaction and 64-column projection check; exits 0/1, loads root `.env`, closes its own pool; no employee output, writes or migrations. See [employee source](../../docs/employee-source.md). |
 | `prepare_documents.py` | Current | `python -m src.cli.prepare_documents <init/validate/revise/recover> ...`: manage current agent-authored packages. |
-| `prepare_rerank.py` | Current, offline baseline preparation | `python -m src.cli.prepare_rerank <init/validate/freeze> --manifest <private-manifest> ... [--json]`: import draft cases, validate pins and freeze reviewed candidate labels. |
 | `preflight_documents.py` | Current | `python -m src.cli.preflight_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--check-embeddings] [--json]`: local technical checks. |
 | `publish_documents.py` | Current | `python -m src.cli.publish_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--dry-run] [--json]`: publish eligible packages. |
 | `publication_attempt.py` | Current | `python -m src.cli.publication_attempt --id <uuid> [--reconcile]`: inspect metadata-only execution state; explicit reconciliation finalizes an existing commit receipt without publication/retry. |
-| `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve accepted source excerpts. |
-| `prepare_intents.py` | Current, preferred batch interface | `python -m src.cli.prepare_intents <validate/preflight/run> --config .tmp/intent/config.json [--json]`. |
+| `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve unassessed source candidates. |
 | `prepare_semantics.py` | Current, offline authoring | `python -m src.cli.prepare_semantics <inventory/validate/export> ...`: snapshot all packages, validate declared coverage, export a reviewed lexicon. |
-| `check_answer_catalog.py` | Current read-only validator | `python -m src.cli.check_answer_catalog [--catalog <path>] [--lexicon <path>]`: defaults to `artifacts/answers/catalog.json` and `artifacts/semantics/lexicon.json`; validates catalog/source identity without version discovery or fallback; does not issue acceptance. |
-| `build_artifacts.py` | Current, offline authoring | `python -m src.cli.build_artifacts <check/build/import>`: check or assemble declared lexicon/catalog sources; import requires `--lexicon <path> --catalog <path> --output .tmp/<new-directory>`. Uses current packages, no model/DB/env IO; import writes a new private tree, build writes changed runtime JSON only, check is read-only. Exit 0 success, 1 invalid/stale/IO, 2 argument error. Never updates provenance or acceptance. See [source contract](../../docs/runtime-artifacts.md#split-source-authoring). |
+| `check_answer_catalog.py` | Current read-only validator | `python -m src.cli.check_answer_catalog [--catalog <path>] [--lexicon <path>]`: defaults to `artifacts/answers/catalog.json` and `artifacts/semantics/lexicon.json`; validates schema-v2 structure and lexical pairing without version discovery or fallback; does not issue acceptance. |
+| `build_artifacts.py` | Current, offline authoring | `python -m src.cli.build_artifacts <impact/refresh/check/build/import>`: check or assemble declared lexicon/catalog sources; import requires `--lexicon <path> --catalog <path> --output .tmp/<new-directory>`. Uses current packages for authoring reports/build coverage, no model/DB/env IO; import writes a new private tree, build writes changed runtime JSON only, check and impact are read-only; refresh writes declared sources. Exit 0 success, 1 invalid/stale/IO, 2 argument error. Never updates provenance or acceptance. See [source contract](../../docs/runtime-artifacts.md#split-source-authoring). |
 | `serve_api.py` | Current | `python -m src.cli.serve_api`: serve local HTTP retrieval and the separately gated opt-in answer route using environment configuration. |
 | `main.py` | Compatibility dispatcher | Root `python main.py [check-db]` calls the DB check; `python main.py ingest` returns retirement guidance. Importing `src.cli.main` does not execute it. |
 | `asset_catalog.py`, `import_catalog.py`, `ingest.py`, `review.py` | Retired | `python -m src.cli.<name>` only prints replacement guidance and exits `2`; these do not perform the named operations. |
 | `__init__.py` | Package initializer | No standalone command. |
 
 ## Document workflow
-
-For baseline rerank calibration inputs, see the [preparation workflow](../../docs/online-reranking.md#prepare-baseline-calibration-inputs).
-`init` requires an existing manifest and a new `--output-dir`; it copies cases,
-checks package revision/canonical hashes and writes a draft receipt, review
-template and collection argument list. It does not author questions or repair
-stale pins. `validate --stage collection|calibration` checks the shared case
-contract; exact candidate-set matching requires `freeze`. `freeze` additionally
-requires `--collection`, `--review` and a new `--output-dir`. It accepts only
-candidate-label edits since collection and emits a frozen snapshot and benchmark
-arguments, never a profile. Paths resolve from the repository root; private
-inputs and outputs stay under `.tmp/`, with links and overwrites rejected.
-No command loads `.env`, a model, or a database. Package validation can create
-coordination locks under `.tmp/`. Exit codes: `0` requested step completed,
-`1` validation/review rejection, `2` IO/operational failure or argparse usage
-error. JSON errors identify files/case indices without question or source text.
 
 Use [offline indexing](../../docs/offline-indexing.md) for the authoritative package schema, workflow and publication boundaries.
 
@@ -61,26 +44,19 @@ Publication requires the baseline and additive guards described in [database des
 
 ## Retrieval and services
 
-`retrieve_documents` needs PostgreSQL and a compatible published corpus/local model. It returns status, matches, nullable fallback reason and timings as JSON (pretty-printed unless `--json`). `--top-k` defaults to `5`, range `1-20`, and is an upper bound after relevance filtering. Reranking, semantics and intent flags are described by `--help` and the [reranking](../../docs/online-reranking.md), [semantics](../../docs/vietnamese-semantics.md) and [intent](../../docs/intent-classifier.md) guides. No accepted relevance profile means candidates may be withheld with `relevance_unavailable`.
+The retrieval CLI accepts explicit E5, reranker and semantic settings, returning
+unassessed candidates with complete source provenance. Intent/profile options
+are removed. `serve_api` reads the active environment settings; it does not
+publish, migrate or restart another process. See [runtime contract](../../docs/catalog-answering.md).
 
-Exit `0` includes valid empty outcomes; model mismatch exits `1`; errors use the service's existing `1`/`2` classification. Retrieval does not write publication data. The CLI keeps `run(args)` as a compatibility wrapper around `src.retrieval.runner`; [the IDE utility](../../scripts/README.md#manual-retrieval) uses that same runner. Both return excerpts, not generated answers.
+## Catalog evidence and source updates
 
-`serve_api` reads configuration, loads the local model and checks PostgreSQL at startup; it binds HTTP until stopped. Exit `0` requires successful server startup; configuration/startup failure exits `1`. No migrations or publication run at startup. See [HTTP setup](../../README.md#local-retrieval-api-and-swagger).
-
-`serve_api` does not accept application-specific argparse flags or implement a `--help` command; use the linked configuration guide. HTTP startup gives repository `.env` precedence over process environment, including database URLs; standalone CLI policies are unchanged. Use HTTP `/health/live` and `/health/ready` probes, plus `/health/answer` for answer availability; see [operation and rollout](../../README.md#http-service-operation-and-rollout).
-
-`check_db` loads DB configuration only when executed, reports the extension version or a credential-safe error, always closes the engine, and exits `0`/`1`. It does not migrate or write application tables.
-
-## Intent preparation and compatibility
-
-The [standalone Colab kit](../../collabs/intent-colab/README.md) is the separate
-external-execution option. It preserves candidate compatibility, not acceptance;
-its synthetic sample requires human review. Application entrypoints below remain
-in this directory; kit maintenance and private ZIP output are documented there.
-
-Use `prepare_intents` for repeatable config-driven batches. `validate` requires no ML runtime; `preflight` requires the local tokenizer/model and checks tokens without encoding; `run` requires reviewed data and offline training dependencies. Preflight/run create new private run artifacts under `.tmp/`; run produces a manifest, training report and candidate, not a runtime-accepted artifact. No PostgreSQL is used. Exit `0` indicates successful completion, `1` validation/preflight/quality rejection, `2` operational failure or unreviewed training data, `130` interruption. See [config, outputs and gates](../../docs/intent-classifier.md#unified-offline-preparation-cli).
-
-The historical `scripts.train_intent` shares the training implementation. `scripts.benchmark_intent` remains a separate acceptance step; neither interface automatically changes `.env` or enables a classifier.
+Run `python -m src.cli.build_artifacts impact` for a readonly dependency report.
+`refresh` deliberately relinks unique unchanged evidence and refreshes coverage;
+`build` regenerates the runtime pair; `check` compares generated bytes. Changed
+meaning/context/revisions require targeted source review, not hash edits.
+All operate on local package/artifact files, without model/env/DB access.
+See [source-update contract](../../docs/catalog-answering.md#updating-chunks).
 
 ## Semantic preparation
 
@@ -98,8 +74,7 @@ pending draft with source excerpts. Agent authoring/review happens separately;
 the command does not infer aliases or certify meaning. `validate` checks byte
 identity, references, dispositions and declared coverage; a technically valid
 draft can still require review. `export` requires reviewed units and review notes
-and writes only runtime language concepts, without source/chunk IDs. It does not
-emit a relevance profile or enable runtime. `--chunks-root` explicitly overrides
+and writes only runtime language concepts, without source/chunk IDs. It exports schema-v2 language rules without enabling runtime or issuing quality acceptance. `--chunks-root` explicitly overrides
 the package root for fixtures/controlled authoring. Exit `0` means the requested
 step completed, `1` invalid manifest, `2` review-blocked export, operational or
 usage failure. See [review and evaluation](../../docs/vietnamese-semantics.md).

@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "reviewed": true,
-  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending.",
+  "review_notes": "Lexical enrichment v2 explicitly approved by the user in grouped review. Canonical phrases, prior aliases and source conditions are preserved. Retrieval evaluation and relevance-profile acceptance remain pending. 2026-11-18: scoped procedure concepts source-checked by implementation agent; no human review or runtime quality acceptance inferred.",
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
   "concepts": [
     {
@@ -2985,6 +2985,266 @@
       "styles": [
         "detail",
         "conditions"
+      ]
+    },
+    {
+      "id": "procedure.bravo-vpn-connect",
+      "canonical": "Kết nối VPN Bravo ngoài công ty",
+      "aliases": [
+        "kết nối VPN Bravo",
+        "kết nối VPN RitaVO"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.bravo-install",
+      "canonical": "Cài đặt và cập nhật Bravo",
+      "aliases": [
+        "cài đặt Bravo",
+        "cập nhật Bravo"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.bravo-support",
+      "canonical": "Liên hệ hỗ trợ Bravo",
+      "aliases": [
+        "hỗ trợ Bravo",
+        "liên hệ ITSYS"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-approve",
+      "canonical": "Quản lý duyệt phiếu Workit",
+      "aliases": [
+        "duyệt phiếu Workit",
+        "phê duyệt phiếu Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-return",
+      "canonical": "Trả lại phiếu Workit",
+      "aliases": [
+        "trả lại phiếu Workit",
+        "từ chối phiếu Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.outlook-room-calendar",
+      "canonical": "Thêm lịch phòng họp Outlook",
+      "aliases": [
+        "thêm lịch phòng họp Outlook",
+        "theo dõi phòng họp Outlook"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.outlook-equipment",
+      "canonical": "Đăng ký thiết bị và nước họp Outlook",
+      "aliases": [
+        "đăng ký thiết bị Outlook",
+        "đặt nước họp Outlook"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.outlook-admin-room",
+      "canonical": "HC Admin thay đổi lịch phòng họp",
+      "aliases": [
+        "HC Admin đổi lịch phòng họp",
+        "HC Admin xóa lịch phòng họp"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.outlook-room-delete",
+      "canonical": "Không xóa được lịch phòng họp Outlook",
+      "aliases": [
+        "không xóa được lịch phòng họp",
+        "lịch phòng họp bị xóa"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-password",
+      "canonical": "Đăng nhập và đổi mật khẩu Workit",
+      "aliases": [
+        "đăng nhập Workit",
+        "đổi mật khẩu Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-shortcuts",
+      "canonical": "Phím thao tác dữ liệu Workit",
+      "aliases": [
+        "phím tắt Workit",
+        "nhân bản dữ liệu Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.eworkdate-email",
+      "canonical": "Email cho đơn E-Workdate",
+      "aliases": [
+        "email E-Workdate",
+        "email cá nhân E-Workdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.eworkdate-channels",
+      "canonical": "Kênh duyệt E-Workdate",
+      "aliases": [
+        "kênh duyệt E-Workdate",
+        "Power Automate E-Workdate"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.eworkdate-outlook",
+      "canonical": "Duyệt E-Workdate qua Outlook",
+      "aliases": [
+        "duyệt E-Workdate qua Outlook",
+        "duyệt E-Workdate qua Teams"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.epostal-send",
+      "canonical": "Gửi thư E-Postal",
+      "aliases": [
+        "gửi thư E-Postal",
+        "QR Sending"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.epostal-admin",
+      "canonical": "Hành chính ghi nhận thư E-Postal",
+      "aliases": [
+        "ghi nhận thư E-Postal",
+        "PhoneList E-Postal"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.epostal-confirm",
+      "canonical": "Xác nhận nhận thư E-Postal",
+      "aliases": [
+        "xác nhận nhận thư E-Postal",
+        "từ chối nhận thư E-Postal"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-download",
+      "canonical": "Tải văn bản Workit",
+      "aliases": [
+        "tải văn bản Workit",
+        "tải xuống văn bản Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-sharing",
+      "canonical": "Chia sẻ văn bản Workit",
+      "aliases": [
+        "chia sẻ văn bản Workit",
+        "cấp quyền chia sẻ Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "procedure.workit-incoming",
+      "canonical": "Văn bản đến và giấy ủy quyền Workit",
+      "aliases": [
+        "văn bản đến Workit",
+        "giấy ủy quyền Workit"
+      ],
+      "requires_any": [],
+      "excludes_any": [],
+      "styles": [
+        "procedure"
       ]
     }
   ]

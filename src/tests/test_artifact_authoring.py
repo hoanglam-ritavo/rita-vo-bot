@@ -20,20 +20,20 @@ def authored(tmp_path):
     doc = snapshot['packages'][0]
     metadata = json.loads((package / 'metadata.json').read_bytes())
     chunk = snapshot['chunks'][0]
-    lexicon = dict(schema_version=1, reviewed=True, review_notes='Fictional source review.',
+    lexicon = dict(schema_version=2, reviewed=True, review_notes='Fictional source review.',
         package_fingerprint=snapshot['package_fingerprint'], concepts=[
             dict(id=name, canonical=name, aliases=[name], requires_any=[], excludes_any=[])
             for name in ('z', 'a')])
-    ref = dict(document_id=doc['document_id'], revision_id=doc['revision_id'], chunk_index=0,
+    ref = dict(source_sha256=metadata['sha256'], document_id=doc['document_id'], revision_id=doc['revision_id'], chunk_index=0,
                content_sha256=chunk['content_sha256'], quote=chunk['content'],
                metadata={key: metadata[key] for key in ('title', 'applicability', 'effective_from',
                                                         'effective_to', 'version_label', 'source_path')})
     lexical = sources.encode(lexicon)
-    catalog = dict(schema_version=1, package_fingerprint=snapshot['package_fingerprint'],
+    catalog = dict(schema_version=2, package_fingerprint=snapshot['package_fingerprint'],
         lexicon_sha256=hashlib.sha256(lexical).hexdigest(), cards=[
-            dict(id=name, label='Fictional ' + name, concept_ids=[name], aliases=[name],
+            dict(source_type='type_a', clarification='Fictional clarification', id=name, label='Fictional ' + name, concept_ids=[name], aliases=[name],
                  requires_any=[], excludes_any=[], sections={'overview': {'complete': False,
-                     'units': [{'text': chunk['content'], 'refs': [deepcopy(ref)]}]}})
+                     'units': [{'id':'evidence.fictional', 'text': chunk['content'], 'refs': [deepcopy(ref)]}]}})
             for name in ('z', 'a')], coverage=[
                 dict(document_id=doc['document_id'], chunk_index=i,
                      disposition='template' if i == 0 else 'excerpt', note='Fictional coverage.')

@@ -63,16 +63,11 @@ merely because they contain "tôi". Salary, balances, tenure, bank, identity,
 health, family, education, complete profiles and cross-employee lookups are outside
 v1. Unsupported portions must not be silently treated as completed requests.
 
-When enabled, the HTTP coordinator loads a separate source-hint observer from
-INTENT_ARTIFACT_PATH using existing identity/acceptance checks and the original
-E5 vector. INTENT_MODE off/observe/assist and retrieval fingerprints retain their
-existing meanings. Missing/incompatible/unaccepted artifacts leave hints
-unavailable; explicit tasks may still run. A classifier B/mixed label cannot
-authorize fields; clear source/matcher conflicts require clarification.
+The coordinator uses the explicit deterministic work-task registry without a learned source-hint observer. No intent artifact or classifier mode is read. Explicit self-reference, supported fields and service authorization remain required. Catalog policy answers read linked current evidence independently of retrieval top-K; unavailable policy templates leave supported Type B facts available. See [catalog answering](catalog-answering.md).
 
-Preparation encodes the original query once under the retrieval worker/lock.
+Candidate-retrieval preparation encodes the original query once under the retrieval worker/lock; answer tasks use linked evidence without this embedding.
 A/mixed retrieval reuses it and preserves semantic expansion, reranking, corpus
-identity, eligibility and relevance filtering. Prepared objects are request-local
+identity and eligibility; candidates remain unassessed. Prepared objects are request-local
 and invalid after close/restart. B-only skips document search/reranker scoring and
 policy rendering. Existing CLI/direct retrieve remains Type A-only.
 

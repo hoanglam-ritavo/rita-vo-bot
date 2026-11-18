@@ -25,24 +25,14 @@ def evidence_sources(matches):
     return sources
 
 
-def checked_relevance(result, *, allow_unassessed=False):
+def checked_relevance(result):
     metadata = result.get('relevance')
-    if (not isinstance(metadata, dict) or set(metadata) != {'status', 'warnings'}
-            or not isinstance(metadata['status'], str) or not isinstance(metadata['warnings'], list)
+    if (not isinstance(metadata, dict) or metadata.get('status') not in ('unassessed', 'no_candidates')
+            or not isinstance(metadata.get('warnings'), list)
             or any(not isinstance(w, str) for w in metadata['warnings'])):
-        raise ValueError('relevance_unavailable')
-    status, warnings = metadata['status'], list(metadata['warnings'])
-    disabled = 'relevance_filter_disabled' in warnings
-    valid = (disabled and status == ('unassessed' if result['matches'] else 'no_candidates')
-             if allow_unassessed else not disabled and
-             (status == 'relevant_candidates' if result['matches'] else
-              status in {'no_candidates', 'low_relevance'} or
-              (status == 'unassessed' and result.get('fallback_reason') == 'relevance_unavailable')))
-    if not valid:
-        raise ValueError('relevance_unavailable')
-    if 'evidence_completeness_not_assessed' not in warnings:
-        warnings.append('evidence_completeness_not_assessed')
-    return {'status': status, 'warnings': warnings}
+        raise ValueError('invalid_evidence_metadata')
+    warnings = list(dict.fromkeys([*metadata['warnings'], 'evidence_completeness_not_assessed']))
+    return {'status': metadata['status'], 'warnings': warnings}
 
 
 def requested_aspects(question):
@@ -55,19 +45,14 @@ def requested_aspects(question):
 
 def matches_reference(ref, match):
     return (match.get('document_id') == ref.document_id and match.get('revision_id') == ref.revision_id
+            and match.get('source_sha256') == ref.source_sha256
             and match.get('chunk_index') == ref.chunk_index
             and hashlib.sha256(match['content'].encode('utf-8')).hexdigest() == ref.content_sha256
             and ref.quote in match['content']
             and all(match.get(key) == value for key, value in ref.metadata.items()))
 
 
-def render(question, result, catalog, lexicon, *, allow_unassessed=False):
-    relevance = checked_relevance(result, allow_unassessed=allow_unassessed)
-    row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
-           'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
-    if not result['matches']:
-        return row
-    sources = evidence_sources(result['matches'])
+def select_cards(question, catalog, lexicon):
     question = query_variants(question)[-1]
     concepts = matching_concepts(lexicon, question)
     cards = [c for c in catalog.cards
@@ -78,6 +63,13 @@ def render(question, result, catalog, lexicon, *, allow_unassessed=False):
         'tổng', 'so sánh', 'bao nhiêu mục', 'bao nhiêu loại', 'tôi có được',
         'có mấy', 'quản lý trực tiếp của tôi', 'dự án của tôi',
         'trường hợp của tôi', 'tôi thử việc', 'không sinh con', 'không kết hôn'))
+    # Negation outside an explicitly authored negative task must not turn a
+    # positive policy/procedure into an answer about the opposite situation.
+    negative = any(phrase_matches(p, question) for p in ('không', 'chưa', 'ngoại trừ'))
+    if negative and cards and not any(
+            phrase_matches(alias, question) and any(phrase_matches(p, alias) for p in ('không', 'chưa', 'ngoại trừ'))
+            for card in cards for alias in card.aliases):
+        complex_request = True
     # An exclusion in the second clause must not hide another requested beneficiary.
     clause_cards = set()
     for clause in re.split(r'\bvà\b|;', question, flags=re.IGNORECASE):
@@ -87,13 +79,40 @@ def render(question, result, catalog, lexicon, *, allow_unassessed=False):
                 or bool(set(c.concept_ids) & clause_concepts))
             and (not c.requires_any or any(phrase_matches(p, clause) for p in c.requires_any))
             and not any(phrase_matches(p, clause) for p in c.excludes_any))
-    if len(cards) > 1 or len(clause_cards) > 1 or complex_request:
+    return cards, len(cards) > 1 or len(clause_cards) > 1 or complex_request
+
+
+def is_document_lookup(question):
+    return any(phrase_matches(p, question) for p in (
+        'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
+
+
+def render(question, result, catalog, lexicon):
+    relevance = checked_relevance(result)
+    row = {'status': 'insufficient_evidence', 'claims': [], 'sources': {}, 'limitations': [EMPTY],
+           'reason': result.get('fallback_reason'), 'relevance': relevance, 'intro': ''}
+    cards, ambiguous = select_cards(question, catalog, lexicon)
+    if ambiguous:
         row.update(status='needs_clarification', reason='needs_clarification', limitations=[
-            'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ quyền lợi hoặc thủ tục và đối tượng cần tìm; mình chưa thể kết luận điều kiện cá nhân hay tính toán tổng hợp.'])
+            'Bạn muốn hỏi riêng nội dung nào? Vui lòng nêu rõ chủ đề, đối tượng và thông tin cần tìm.'])
         return row
+    if is_document_lookup(question):
+        sources = evidence_sources(result['matches'])
+        claims = [{'text': source['content'], 'citations': [{'source_id': key, 'quote': source['content']}]}
+                  for key, source in sources.items() if 0 < len(source['content']) <= 2000][:12]
+        row.update(status='partial' if claims else 'insufficient_evidence', claims=claims, sources=sources,
+                   intro=EXCERPTS if claims else '', reason='document_lookup', limitations=[
+                       'Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ.'])
+        return row
+    if not cards:
+        row.update(reason='task_unavailable', limitations=[
+            'Mình chưa xác định được tác vụ phù hợp. Bạn hãy nêu rõ chủ đề và thông tin cần hỏi; '
+            'nếu muốn tìm nguồn, hãy yêu cầu tìm tài liệu.'])
+        return row
+    sources = evidence_sources(result['matches'])
     if len(cards) == 1:
         card = cards[0]
-        aspects = requested_aspects(question)
+        aspects = requested_aspects(query_variants(question)[-1])
         claims, complete = [], True
         for aspect in aspects:
             section = card.sections.get(aspect)
@@ -123,23 +142,33 @@ def render(question, result, catalog, lexicon, *, allow_unassessed=False):
                        reason=None if complete else 'incomplete_template_evidence', limitations=[] if complete else [
                            'Mình mới xác định được phần dưới đây từ các đoạn được cung cấp; chưa đủ thông tin cho toàn bộ yêu cầu.'])
             return row
-    claims = [{'text': source['content'], 'citations': [{'source_id': key, 'quote': source['content']}]}
-              for key, source in sources.items() if 0 < len(source['content']) <= 2000][:12]
-    if claims:
-        row.update(status='partial', claims=claims, sources=sources, intro=EXCERPTS,
-                   reason='template_unavailable' if not cards else 'template_evidence_missing', limitations=[
-                       'Chưa đủ cơ sở để tổng hợp thành câu trả lời theo mẫu. Bạn có thể nêu rõ quyền lợi, điều kiện, hồ sơ hoặc thao tác cần hỏi.'])
-        if len(claims) < len(sources):
-            row['limitations'].append('Chỉ hiển thị các trích đoạn nguyên vẹn trong giới hạn trả lời; không khẳng định đây là toàn bộ thông tin.')
+    row.update(reason='template_evidence_missing', limitations=[cards[0].clarification,
+        'Chưa đủ bằng chứng hiện hành để trả lời theo mẫu.'])
     return row
 
 
-async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5, allow_unassessed=False):
+async def evidence_result(question, retrieval, catalog, lexicon, top_k=5):
+    from src.retrieval.service import validate_request
+    from src.retrieval.reranking import relevance
+    question = validate_request(question, top_k)
+    cards, ambiguous = select_cards(question, catalog, lexicon)
+    if ambiguous:
+        return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
+    if is_document_lookup(question):
+        result = await retrieval.retrieve(question, top_k=top_k)
+        if result['status'] == 'model_mismatch':
+            raise ValueError('model_mismatch')
+        return result
+    refs = [ref for card in cards for aspect in requested_aspects(query_variants(question)[-1])
+            for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
+    if not refs:
+        return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
+    return await retrieval.read_evidence(refs)
+
+
+async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5):
     started = time.perf_counter()
-    result = await retrieval.retrieve(question, top_k=top_k)
-    elapsed = time.perf_counter() - started
-    if result['status'] == 'model_mismatch':
-        raise ValueError('model_mismatch')
-    # An empty filtered fallback remains empty and never reads catalog facts into the answer.
-    row = render(question, result, catalog, lexicon, allow_unassessed=allow_unassessed)
-    return {**row, 'retrieval_seconds': elapsed, 'generation_seconds': 0.0, 'verification_seconds': 0.0}
+    result = await evidence_result(question, retrieval, catalog, lexicon, top_k)
+    row = render(question, result, catalog, lexicon)
+    return {**row, 'retrieval_seconds': time.perf_counter() - started,
+            'generation_seconds': 0.0, 'verification_seconds': 0.0}

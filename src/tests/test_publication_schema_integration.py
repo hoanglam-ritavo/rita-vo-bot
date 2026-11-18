@@ -17,7 +17,6 @@ from src.ingestion import approved_publication as publication, attempts
 from src.ingestion.document_packages import Rejected
 from src.ingestion.evidence import read_evidence
 from src.retrieval.storage import search
-from src.retrieval.reranking import profile_threshold
 from test_structured_evidence import structured_package
 from package_fixtures import set_metadata, revised_package
 
@@ -77,9 +76,6 @@ def test_publication_audit_receipts_and_metadata_fingerprint(published_schema, t
             assert changed['run_id'] == first['run_id']
             after = await search(vector, 'a'*40, fingerprint, 5)
             assert before['corpus_fingerprint'] != after['corpus_fingerprint']
-            old_profile = dict(schema_version=2, fingerprint='pipeline', threshold=0., holdout_passed=True,
-                               corpus_fingerprint=before['corpus_fingerprint'])
-            assert profile_threshold(old_profile, 'pipeline', after['corpus_fingerprint']) is None
             skipped = await publication.publish(tmp_path, path, 'a'*40, model_path=model)
             async with session_scope() as db:
                 assert await db.scalar(select(func.count()).select_from(MetadataAudit)) == 2

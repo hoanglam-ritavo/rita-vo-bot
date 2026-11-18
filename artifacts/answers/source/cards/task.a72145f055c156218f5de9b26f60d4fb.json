@@ -1,0 +1,42 @@
+{
+  "id": "task.a72145f055c156218f5de9b26f60d4fb",
+  "label": "Phạm vi bản ghi làm rõ hội thoại",
+  "concept_ids": [],
+  "aliases": [
+    "bản ghi làm rõ hội thoại",
+    "lựa chọn nguồn trong hội thoại"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "text": "Về phạm vi bản ghi làm rõ hội thoại, tài liệu nêu như sau:\nBản ghi làm rõ từ hội thoại 16/11/2026: chỉ ghi nhận lựa chọn của người dùng cho chuẩn bị retrieval; không phải văn bản HCNS ban hành, sửa nguyên văn PDF, xác nhận hiệu lực pháp lý hay dữ liệu nhân sự hiện tại. Không suy rộng sang chính sách khác.",
+          "refs": [
+            {
+              "document_id": "130dbf93-cbc9-4aa1-86bd-6a00486919b6",
+              "revision_id": "e12a6fc4-9d4b-40a2-b386-8343e2da5194",
+              "chunk_index": 0,
+              "content_sha256": "c25745a1e94d9bff53c5dc46716f9402aa185a3b6a7f5780fa1e0b092574187a",
+              "quote": "Bản ghi làm rõ từ hội thoại 16/11/2026: chỉ ghi nhận lựa chọn của người dùng cho chuẩn bị retrieval; không phải văn bản HCNS ban hành, sửa nguyên văn PDF, xác nhận hiệu lực pháp lý hay dữ liệu nhân sự hiện tại. Không suy rộng sang chính sách khác.",
+              "metadata": {
+                "title": "Làm rõ nguồn theo quyết định hội thoại 16/11/2026",
+                "applicability": "Only the five source interpretation choices explicitly confirmed in the 2026-11-16 conversation; not an independent HR policy or live personnel source.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "2026-11-16 conversation decisions",
+                "source_path": "semantic-clarifications/2026-11-16-policy-decisions.md"
+              },
+              "source_sha256": "ca9482ba7c6684bc1cd3066a6dc18b77faf31a4cfb486ed05138c2b258302c7f"
+            }
+          ],
+          "id": "evidence.7416b20c32eb5548aa1413d3d6112e80"
+        }
+      ]
+    }
+  },
+  "source_type": "type_a",
+  "clarification": "Bạn vui lòng nêu rõ đối tượng và thông tin cần hỏi về phạm vi bản ghi làm rõ hội thoại."
+}

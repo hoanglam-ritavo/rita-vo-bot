@@ -49,7 +49,7 @@ def validate_artifact(data, *, require_reviewed=True):
     """Validate shape/review declaration only; this cannot certify semantic accuracy."""
     fields = {'schema_version', 'reviewed', 'review_notes', 'package_fingerprint', 'concepts'}
     if (not isinstance(data, dict) or set(data) != fields
-            or type(data['schema_version']) is not int or data['schema_version'] != 1
+            or type(data['schema_version']) is not int or data['schema_version'] != 2
             or type(data['reviewed']) is not bool
             or not isinstance(data['review_notes'], str)
             or not isinstance(data['package_fingerprint'], str)
@@ -152,15 +152,13 @@ class SemanticExpander:
     def start(self):
         if self.settings.mode == 'off':
             return
-        from src.semantics.corpus import decode_json, snapshot_fingerprint
+        from src.semantics.corpus import decode_json
         try:
             path = self.settings.artifact_path
             if path.stat().st_size > MAX_ARTIFACT_BYTES:
                 raise ValueError('invalid_semantic_artifact')
             raw = path.read_bytes()
             data = validate_artifact(decode_json(raw))
-            if data['package_fingerprint'] != snapshot_fingerprint():
-                raise ValueError('semantic_package_mismatch')
             if path.read_bytes() != raw:
                 raise ValueError('semantic_artifact_changed')
             self.artifact = data
@@ -170,19 +168,19 @@ class SemanticExpander:
             self.close()
             code = str(exc) if isinstance(exc, ValueError) and str(exc) in {
                 'invalid_semantic_artifact', 'semantic_review_required',
-                'semantic_package_mismatch', 'semantic_artifact_changed'} else 'invalid_semantic_artifact'
+                'semantic_artifact_changed'} else 'invalid_semantic_artifact'
             raise ValueError(code) from None
 
     def expansion(self, question, *, styles=()):
         return _expand(self._compiled, question, styles) if self.artifact else []
 
-    def effective_fingerprint(self, base, *, intent_digest=None):
+    def effective_fingerprint(self, base):
         if self.settings.mode == 'off':
             return base
         return digest({'base': base, 'semantic_artifact': self.fingerprint,
                        'expansion': EXPANSION_VERSION, 'rerank_query': RERANK_QUERY_POLICY,
                        'max_alternates': MAX_ALTERNATES, 'candidate_count': 30,
-                       'fusion': 'rrf60', 'intent_assistance': intent_digest})
+                       'fusion': 'rrf60'})
 
     def close(self):
         self.artifact = None
