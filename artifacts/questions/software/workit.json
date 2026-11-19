@@ -2460,6 +2460,88 @@
           "expectation": "Nhận diện nhu cầu nếu đủ rõ; nếu chưa nhận diện được thì hỏi lại hoặc báo giới hạn, không đoán sang thôi việc hay nguồn E-Leave."
         }
       ]
+    },
+    {
+      "id": "q.software.workit.093",
+      "title": "Chọn đúng hướng dẫn Workit cho phép năm, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Giấy tờ cần chuẩn bị khi lập phiếu phép năm trên Workit?",
+          "expectation": "Chọn đúng hướng dẫn Workit cho phép năm, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit.094",
+      "title": "Chọn đúng hướng dẫn Workit cho nghỉ không lương, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.unpaid"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Giấy tờ cần chuẩn bị khi lập phiếu nghỉ không lương trên Workit?",
+          "expectation": "Chọn đúng hướng dẫn Workit cho nghỉ không lương, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit.095",
+      "title": "Giữ tác vụ nhận diện nhưng không trả thông tin khi căn cứ hiện hành không khả dụng.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork",
+        "boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hồ sơ lập phiếu phép năm trên Workit?",
+          "expectation": "Giữ tác vụ nhận diện nhưng không trả thông tin khi căn cứ hiện hành không khả dụng."
+        }
+      ]
     }
   ]
 }

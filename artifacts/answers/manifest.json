@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_sha256": "ca88119c77b05b3d50962dab336481ca3f5721b85735d0009b0179b78420d81f",
+  "catalog_sha256": "e41e0a1777e46b317ecc49c3e04edaec37a173731bd6807afda761a278b87634",
   "provenance": "Cross-domain source-bound tasks; partial sections retain source conditions. Implementation-agent source review only.",
   "runtime_release_accepted": false,
   "retrieval_acceptance": "Unassessed candidates; task claims require exact current eligible DB evidence.",
@@ -8,7 +8,7 @@
   "tasks": 279,
   "new_procedure_tasks": 20,
   "source_binding_summary": {
-    "unchanged": 1346
+    "unchanged": 1353
   },
   "new_leave_tasks": 6,
   "cross_domain_authoring": {
@@ -157,7 +157,7 @@
     "automatic_answer_replay": false,
     "source_evidence_changed": false
   },
-  "observed_regression": {
+  "pre_plan2_regression": {
     "date": "2026-11-19",
     "independent_acceptance": false,
     "fixture": {
@@ -180,5 +180,13 @@
     "final_validation_checks": {
       "passed": 14
     }
+  },
+  "plan2_pilot": {
+    "date": "2026-11-19",
+    "baseline_revision": "1bfbe6b",
+    "scope": "Offline pilot candidate: Workit and E-Leave paperwork and guarded question variants.",
+    "new_partial_sections": 4,
+    "independent_acceptance": false,
+    "database_verified": false
   }
 }

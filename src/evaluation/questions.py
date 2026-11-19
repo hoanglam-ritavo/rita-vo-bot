@@ -6,6 +6,7 @@ import json
 import re
 from pathlib import Path
 from types import SimpleNamespace
+from typing import Literal
 from uuid import uuid4
 
 from pydantic import Field
@@ -21,6 +22,8 @@ class Oracle(Strict):
     http_status: int = 200
     task_ids_any: list[str] = Field(default_factory=list)
     forbidden_task_ids: list[str] = Field(default_factory=list)
+    expected_aspects: list[Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure']] | None = Field(
+        default=None, min_length=1, max_length=5)
     required_source_groups: list[list[str]] = Field(default_factory=list)
     forbidden_documents: list[str] = Field(default_factory=list)
     employee_fields: list[str] = Field(default_factory=list)
@@ -32,17 +35,24 @@ class Oracle(Strict):
     fixture: str = Field(default='current', pattern='^(current|missing|withdrawn|changed|denied|partial|unrelated_changed|catalog_unavailable|catalog_changed|employee_unavailable|feature_disabled|missing_policy)$')
 
 
-def load_dataset(root=REPOSITORY_ROOT):
+def load_dataset(root=REPOSITORY_ROOT, *, questions_dir=None):
     root = Path(root)
-    directory = checked(root / 'artifacts/questions')
-    index = decode((directory / 'index.json').read_bytes())
+    root = root.absolute()
+    directory = root / (questions_dir if questions_dir is not None else 'artifacts/questions')
+    if questions_dir is not None and ('..' in directory.parts or directory == root / '.tmp'
+                                      or not directory.is_relative_to(root / '.tmp')):
+        raise ValueError('private_question_directory_required')
+    directory = checked(directory)
+    index_path = checked(directory / 'index.json')
+    index_bytes = index_path.read_bytes()
+    index = decode(index_bytes)
     cases, oracles, inputs = [], {}, {}
-    inputs['artifacts/questions/index.json'] = hashlib.sha256((directory / 'index.json').read_bytes()).hexdigest()
+    inputs[index_path.relative_to(root).as_posix()] = hashlib.sha256(index_bytes).hexdigest()
     for entry in index['files']:
-        path = checked(directory / entry['path'])
-        if not path.is_relative_to(directory):
+        path = directory / entry['path']
+        if '..' in path.parts or not path.is_relative_to(directory):
             raise ValueError('invalid_question_path')
-        raw = path.read_bytes()
+        raw = checked(path).read_bytes()
         inputs[path.relative_to(root).as_posix()] = hashlib.sha256(raw).hexdigest()
         group = decode(raw)
         for case in group['cases']:
@@ -50,7 +60,8 @@ def load_dataset(root=REPOSITORY_ROOT):
                 raise ValueError('duplicate_question_case')
             cases.append(case)
     for relative in index.get('oracles', []):
-        if not relative.startswith('oracles/') or len(Path(relative).parts) != 2:
+        if (not relative.startswith('oracles/') or len(Path(relative).parts) != 2
+                or Path(relative).suffix != '.json'):
             raise ValueError('invalid_oracle_path')
         path = checked(directory / relative)
         raw = path.read_bytes()
@@ -67,7 +78,7 @@ def load_dataset(root=REPOSITORY_ROOT):
     return cases, oracles, inputs
 
 
-def check_turn(oracle, status_code, result, selected=()):
+def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
     """Assert authored per-turn contracts, never infer an oracle from output."""
     failures = []
     if status_code != oracle.http_status:
@@ -84,6 +95,8 @@ def check_turn(oracle, status_code, result, selected=()):
         failures.append('task')
     if set(selected).intersection(oracle.forbidden_task_ids):
         failures.append('forbidden_task')
+    if oracle.expected_aspects is not None and set(aspects) != set(oracle.expected_aspects):
+        failures.append('aspect')
     docs = {origin['document_id'] for source in result.get('sources', []) for origin in source.get('origins', [])}
     if any(not docs.intersection(group) for group in oracle.required_source_groups):
         failures.append('required_source')
@@ -113,6 +126,25 @@ def check_turn(oracle, status_code, result, selected=()):
             for claim in claims for ref in claim['evidence_refs'] if nodes[ref]['kind']=='document'):
         failures.append('citation_integrity')
     return failures
+
+
+def turn_metadata(result, selected, aspects):
+    return {'status': result.get('status', result.get('error', {}).get('code')),
+            'task_ids': sorted({card.id for card in selected}), 'aspects': list(aspects),
+            'document_ids': sorted({origin['document_id'] for source in result.get('sources', [])
+                                    for origin in source.get('origins', [])}),
+            'employee_fields': sorted({node['field'] for node in result.get('evidence', [])
+                                       if node['kind'] == 'employee'})}
+
+
+def group_counts(rows):
+    groups = {}
+    for row in rows:
+        group = row['case_id'].rsplit('.', 1)[0]
+        counts = groups.setdefault(group, dict(passed=0, failed=0, deferred=0))
+        state = row.get('state') or ('passed' if row['passed'] else 'failed')
+        counts[state] += 1
+    return groups
 
 
 class FixtureRetrieval:
@@ -180,7 +212,7 @@ def fixture_records(root):
     return result
 
 
-async def run_fixture(root=REPOSITORY_ROOT):
+async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
     import httpx
     from src.api.app import create_app
     from src.api.config import Settings
@@ -197,7 +229,7 @@ async def run_fixture(root=REPOSITORY_ROOT):
     from src.type_b.tasks import BY_FIELD
 
     root = Path(root)
-    cases, oracles, inputs = load_dataset(root)
+    cases, oracles, inputs = load_dataset(root, questions_dir=questions_dir)
     for relative in ('artifacts/answers/catalog.json', 'artifacts/semantics/lexicon.json', 'artifacts/retrieval/catalog.json'):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
@@ -272,12 +304,13 @@ async def run_fixture(root=REPOSITORY_ROOT):
                     owner.context.available = False
                 response = await client.post('/api/v1/answer', json=body)
                 value = response.json()
+                selected = [] if ambiguous else selected
                 failures = check_turn(oracle, response.status_code, value,
-                                      [] if ambiguous else [c.id for c in selected])
+                                      [c.id for c in selected], aspects=analysis.aspects)
                 if response.status_code == 200:
                     state = compact(state, value)
                 rows.append(dict(case_id=case['id'], turn=n, passed=not failures, failures=failures,
-                                 status=value.get('status', value.get('error', {}).get('code'))))
+                                 **turn_metadata(value, () if analysis.document_lookup else selected, analysis.aspects)))
     failed = sum(not row['passed'] for row in rows)
     if any(hashlib.sha256((root / path).read_bytes()).hexdigest() != expected for path, expected in inputs.items()):
         raise ValueError('evaluation_inputs_changed')
@@ -285,4 +318,5 @@ async def run_fixture(root=REPOSITORY_ROOT):
             'database_verified': False, 'retrieval_metrics': 'not_measured_no_vector_search',
             'cases': len(cases), 'turns': len(rows), 'passed': len(rows)-failed, 'failed': failed,
             'groups': dict(Counter('.'.join(row['case_id'].split('.')[1:-1]) for row in rows if not row['passed'])),
+            'group_counts': group_counts(rows),
             'inputs': inputs, 'results': rows}

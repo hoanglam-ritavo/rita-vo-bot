@@ -174,6 +174,30 @@ def test_question_loader_requires_complete_per_turn_oracles_and_safe_paths(tmp_p
     with pytest.raises(ValueError,match='invalid_oracle_path'):load_dataset(tmp_path)
 
 
+def test_private_question_set_checks_aspects_and_rejects_directory_escape(tmp_path):
+    from src.evaluation.questions import load_dataset
+
+    folder = tmp_path / '.tmp' / 'holdout'
+    (folder / 'oracles').mkdir(parents=True)
+    index = dict(files=[dict(path='cases.json')], oracles=['oracles/cases.json'])
+    (folder / 'index.json').write_bytes(encode(index))
+    (folder / 'cases.json').write_bytes(encode(dict(cases=[dict(id='q.holdout.001', turns=[{}])])))
+    (folder / 'oracles/cases.json').write_bytes(encode(dict(turns=[dict(
+        case_id='q.holdout.001', turn=0, statuses=['partial'], expected_aspects=['paperwork'])])))
+
+    _, oracles, hashes = load_dataset(tmp_path, questions_dir=folder)
+    assert set(hashes) == {'.tmp/holdout/index.json', '.tmp/holdout/cases.json', '.tmp/holdout/oracles/cases.json'}
+    oracle = oracles['q.holdout.001', 0]
+    assert check_turn(oracle, 200, {'status': 'partial'}, aspects=('paperwork',)) == []
+    assert check_turn(oracle, 200, {'status': 'partial'}, aspects=('procedure',)) == ['aspect']
+    with pytest.raises(ValueError, match='private_question_directory_required'):
+        load_dataset(tmp_path, questions_dir=tmp_path / 'public')
+    index['files'] = [dict(path='../outside.json')]
+    (folder / 'index.json').write_bytes(encode(index))
+    with pytest.raises(ValueError, match='invalid_question_path'):
+        load_dataset(tmp_path, questions_dir=folder)
+
+
 def test_value_oracles_do_not_accept_swapped_fictional_employee_values():
     o=Oracle(case_id='fictional',turn=0,statuses=['answered'],employee_fields=['job_title'],
              expected_values={'job_title':'Fictional role'})

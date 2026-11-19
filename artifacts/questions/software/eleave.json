@@ -541,6 +541,116 @@
           "expectation": "Giữ tác vụ theo buổi; trình bày phần quy trình có bằng chứng và giữ giới hạn chưa đầy đủ."
         }
       ]
+    },
+    {
+      "id": "q.software.eleave.021",
+      "title": "Chọn đúng hướng dẫn E-Leave cho phép năm, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Giấy tờ cần chuẩn bị khi nộp đơn phép năm trên E-Leave?",
+          "expectation": "Chọn đúng hướng dẫn E-Leave cho phép năm, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.022",
+      "title": "Chọn đúng hướng dẫn E-Leave cho phép năm theo buổi, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Giấy tờ cần chuẩn bị khi nộp đơn phép năm theo buổi trên E-Leave?",
+          "expectation": "Chọn đúng hướng dẫn E-Leave cho phép năm theo buổi, trả thông tin mẫu theo nguồn và giữ giới hạn về chứng từ."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.023",
+      "title": "Không thay thế bằng hướng dẫn Workit hoặc mẫu nghỉ phép năm của E-Leave.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork",
+        "boundary"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Giấy tờ nộp đơn nghỉ không lương trên E-Leave cần gì?",
+          "expectation": "Không thay thế bằng hướng dẫn Workit hoặc mẫu nghỉ phép năm của E-Leave."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.024",
+      "title": "Chọn hướng dẫn đăng ký nghỉ theo buổi.",
+      "tags": [
+        "type-a",
+        "aspect:paperwork",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A đã xuất bản, hiện hành và được phép truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Đăng ký nghỉ phép theo buổi E-Leave",
+          "expectation": "Chọn hướng dẫn đăng ký nghỉ theo buổi."
+        },
+        {
+          "text": "Còn giấy tờ thì sao?",
+          "expectation": "Giữ tác vụ theo buổi, chuyển sang phần trường biểu mẫu và giữ giới hạn nguồn."
+        }
+      ]
     }
   ]
 }

@@ -2122,6 +2122,82 @@
       "claims": "any",
       "fixture": "current",
       "expected_values": {}
+    },
+    {
+      "case_id": "q.software.workit.093",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_task_ids": [
+        "task.leave.workit.unpaid",
+        "task.leave.eleave.annual",
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.software.workit.094",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual",
+        "task.leave.eleave.annual",
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.software.workit.095",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "claims": "none",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "fixture": "missing"
     }
   ]
 }

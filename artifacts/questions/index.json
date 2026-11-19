@@ -487,8 +487,8 @@
     {
       "path": "software/eleave.json",
       "group_id": "software.eleave",
-      "case_count": 20,
-      "turn_count": 21
+      "case_count": 24,
+      "turn_count": 26
     },
     {
       "path": "software/epostal.json",
@@ -511,8 +511,8 @@
     {
       "path": "software/workit.json",
       "group_id": "software.workit",
-      "case_count": 92,
-      "turn_count": 92
+      "case_count": 95,
+      "turn_count": 95
     },
     {
       "path": "policy/business-expansion.json",
@@ -523,8 +523,8 @@
   ],
   "totals": {
     "groups": 21,
-    "cases": 832,
-    "turns": 849,
+    "cases": 839,
+    "turns": 857,
     "observed_task_cards": 279,
     "documents": 29,
     "employee_fields": 9,
@@ -1390,7 +1390,8 @@
           "q.software.eleave.009",
           "q.software.eleave.010",
           "q.software.eleave.011",
-          "q.software.eleave.012"
+          "q.software.eleave.012",
+          "q.software.eleave.021"
         ],
         "aspects": {
           "overview": [
@@ -1401,6 +1402,9 @@
           ],
           "conditions": [
             "q.software.eleave.012"
+          ],
+          "paperwork": [
+            "q.software.eleave.021"
           ]
         }
       },
@@ -1416,7 +1420,9 @@
           "q.software.eleave.018",
           "q.software.eleave.019",
           "q.software.eleave.020",
-          "q.boundaries.evidence-availability.009"
+          "q.boundaries.evidence-availability.009",
+          "q.software.eleave.022",
+          "q.software.eleave.024"
         ],
         "aspects": {
           "overview": [
@@ -1428,6 +1434,10 @@
           ],
           "conditions": [
             "q.software.eleave.019"
+          ],
+          "paperwork": [
+            "q.software.eleave.022",
+            "q.software.eleave.024"
           ]
         }
       },
@@ -1492,7 +1502,9 @@
           "q.software.workit.041",
           "q.software.workit.042",
           "q.software.workit.092",
-          "q.conversation.context-and-followups.002"
+          "q.conversation.context-and-followups.002",
+          "q.software.workit.093",
+          "q.software.workit.095"
         ],
         "aspects": {
           "overview": [
@@ -1503,6 +1515,10 @@
           ],
           "conditions": [
             "q.software.workit.042"
+          ],
+          "paperwork": [
+            "q.software.workit.093",
+            "q.software.workit.095"
           ]
         }
       },
@@ -1516,7 +1532,8 @@
           "q.software.workit.046",
           "q.software.workit.047",
           "q.software.workit.048",
-          "q.software.workit.049"
+          "q.software.workit.049",
+          "q.software.workit.094"
         ],
         "aspects": {
           "overview": [
@@ -1527,6 +1544,9 @@
           ],
           "conditions": [
             "q.software.workit.049"
+          ],
+          "paperwork": [
+            "q.software.workit.094"
           ]
         }
       },
@@ -5372,7 +5392,10 @@
           "q.policy.business-expansion.3df0e4c6c654adee",
           "q.policy.business-expansion.bda34f62c0b93a57",
           "q.policy.business-expansion.2cedb034b404776b",
-          "q.policy.business-expansion.27d9bc443125fc52"
+          "q.policy.business-expansion.27d9bc443125fc52",
+          "q.software.eleave.021",
+          "q.software.eleave.022",
+          "q.software.eleave.024"
         ]
       },
       {
@@ -6029,7 +6052,10 @@
           "q.policy.business-expansion.62ce94c7b4df1d5a",
           "q.policy.business-expansion.6156d5f126a3499e",
           "q.policy.business-expansion.f1406882f0bb4cfb",
-          "q.policy.business-expansion.0e12ebcc93be5693"
+          "q.policy.business-expansion.0e12ebcc93be5693",
+          "q.software.workit.093",
+          "q.software.workit.094",
+          "q.software.workit.095"
         ]
       },
       {
@@ -6173,7 +6199,9 @@
           "q.software.workit.040",
           "q.software.workit.041",
           "q.software.workit.042",
-          "q.software.workit.092"
+          "q.software.workit.092",
+          "q.software.workit.093",
+          "q.software.workit.095"
         ]
       },
       {
@@ -6186,7 +6214,8 @@
           "q.software.workit.046",
           "q.software.workit.047",
           "q.software.workit.048",
-          "q.software.workit.049"
+          "q.software.workit.049",
+          "q.software.workit.094"
         ]
       },
       {
@@ -6199,7 +6228,8 @@
           "q.software.eleave.009",
           "q.software.eleave.010",
           "q.software.eleave.011",
-          "q.software.eleave.012"
+          "q.software.eleave.012",
+          "q.software.eleave.021"
         ]
       },
       {
@@ -6214,7 +6244,9 @@
           "q.software.eleave.017",
           "q.software.eleave.018",
           "q.software.eleave.019",
-          "q.software.eleave.020"
+          "q.software.eleave.020",
+          "q.software.eleave.022",
+          "q.software.eleave.024"
         ]
       },
       {
@@ -8216,7 +8248,9 @@
           "q.software.workit.040",
           "q.software.workit.041",
           "q.software.workit.042",
-          "q.software.workit.092"
+          "q.software.workit.092",
+          "q.software.workit.093",
+          "q.software.workit.095"
         ]
       },
       {
@@ -8229,7 +8263,8 @@
           "q.software.workit.046",
           "q.software.workit.047",
           "q.software.workit.048",
-          "q.software.workit.049"
+          "q.software.workit.049",
+          "q.software.workit.094"
         ]
       },
       {
@@ -8242,7 +8277,8 @@
           "q.software.eleave.009",
           "q.software.eleave.010",
           "q.software.eleave.011",
-          "q.software.eleave.012"
+          "q.software.eleave.012",
+          "q.software.eleave.021"
         ]
       },
       {
@@ -8257,7 +8293,9 @@
           "q.software.eleave.017",
           "q.software.eleave.018",
           "q.software.eleave.019",
-          "q.software.eleave.020"
+          "q.software.eleave.020",
+          "q.software.eleave.022",
+          "q.software.eleave.024"
         ]
       },
       {

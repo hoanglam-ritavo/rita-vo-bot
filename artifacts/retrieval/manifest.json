@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/retrieval/catalog.json",
-    "sha256": "8f9e240775a0a9610829cb9c137c730820a7c70cbf2d5a4baa1e8270add55500",
-    "size_bytes": 976158
+    "sha256": "3d71cf110f1c3c107eb79a4114fd06423c2e6f752e1d73086476011f68814843",
+    "size_bytes": 976852
   },
   "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
   "bindings": 446,
@@ -140,7 +140,7 @@
     "automatic_answer_replay": false,
     "source_evidence_changed": false
   },
-  "observed_regression": {
+  "pre_plan2_regression": {
     "date": "2026-11-19",
     "independent_acceptance": false,
     "fixture": {
@@ -163,5 +163,13 @@
     "final_validation_checks": {
       "passed": 14
     }
+  },
+  "plan2_pilot": {
+    "date": "2026-11-19",
+    "baseline_revision": "1bfbe6b",
+    "scope": "Offline pilot candidate: Workit and E-Leave paperwork and guarded question variants.",
+    "new_partial_sections": 4,
+    "independent_acceptance": false,
+    "database_verified": false
   }
 }

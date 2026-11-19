@@ -3,14 +3,14 @@ import math
 import time
 import hashlib
 
-from src.evaluation.questions import load_dataset, check_turn
+from src.evaluation.questions import check_turn, group_counts, load_dataset, turn_metadata
 
 
 def p95(values):
     return sorted(values)[max(0, math.ceil(len(values)*.95)-1)] if values else None
 
 
-async def run_readonly(root, *, retrieval_limit=40):
+async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
     from src.api.config import load_settings
     from src.api.answer import format_answer
     from src.answering.catalog import load_catalog
@@ -20,7 +20,7 @@ async def run_readonly(root, *, retrieval_limit=40):
     from src.retrieval import RetrievalService
     from src.type_b.tasks import route_question
 
-    cases, oracles, inputs = load_dataset(root)
+    cases, oracles, inputs = load_dataset(root, questions_dir=questions_dir)
     settings = load_settings()
     service = RetrievalService(model_path=settings.model_path, model_revision=settings.model_revision,
         device='cpu', rerank=settings.rerank, semantic=settings.semantic)
@@ -74,9 +74,11 @@ async def run_readonly(root, *, retrieval_limit=40):
                 started = time.perf_counter()
                 rendered = await evaluate_question(question, service, catalog, lexicon, analysis=analysis)
                 response = format_answer(rendered, started).model_dump(mode='json')
-                failures = check_turn(oracle, 200, response, [] if ambiguous else [c.id for c in cards])
+                selected = () if ambiguous else cards
+                failures = check_turn(oracle, 200, response, [c.id for c in selected], aspects=analysis.aspects)
                 state = compact(state, response)
-                rows.append({**key, 'state': 'failed' if failures else 'passed', 'failures': failures})
+                rows.append({**key, 'state': 'failed' if failures else 'passed', 'failures': failures,
+                             **turn_metadata(response, selected, analysis.aspects)})
                 sample_key = tuple(c.id for c in cards)
                 if (oracle.claims != 'required' or not refs or not sample_tasks.intersection(sample_key)
                         or sample_key in sampled or len(benchmarks) >= retrieval_limit):
@@ -112,7 +114,7 @@ async def run_readonly(root, *, retrieval_limit=40):
                 hashlib.sha256((root / path).read_bytes()).hexdigest() != expected for path, expected in inputs.items()):
             raise ValueError('evaluation_inputs_changed')
         return dict(schema_version=1, mode='readonly-type-a', database_writes=False, independent_acceptance=False,
-            cases=len(cases), turns=len(rows), **counts, inputs=inputs, results=rows,
+            cases=len(cases), turns=len(rows), **counts, inputs=inputs, results=rows, group_counts=group_counts(rows),
             retrieval=dict(samples=len(benchmarks), rows=benchmarks, ordering_p95_ms=p95(sort_ms),
                 before_expected_first=sum(r['before_expected_first'] for r in benchmarks),
                 after_expected_first=sum(r['after_expected_first'] for r in benchmarks),

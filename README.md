@@ -53,6 +53,28 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Template coverage pilot - 2026-11-19
+
+On `1bfbe6b` plus this working tree, the coverage inventory maps 279 tasks and
+320 concepts to their declared aspects and source references. Four new partial
+`paperwork` sections describe form fields for annual and unpaid leave in Workit
+and annual and session-based leave in E-Leave. They preserve the distinction
+between form inputs and mandatory supporting documents. The number of declared
+partial sections is 510, up from 506. The nine complete declarations are unchanged.
+The E-Leave unpaid procedure remains a source gap.
+
+The pre-edit fixture baseline passed **849/849 turns**. The post-edit public
+bank passed **857/857 turns in 839 cases**, preserving all earlier cases and
+oracles. The final non-integration suite passed **1,177 tests**, with one skipped
+and 57 integration tests deselected. The private-directory option passed a CLI
+smoke test using a copy of one public case. Artifact check, catalog validation,
+all 1,353 authored references and the 22-file runtime inventory passed.
+
+The candidate is ready for the [independent holdout and Type A test gate](docs/business-topics.md#template-coverage-and-holdout).
+Neither gate has run. No target publication, runtime deployment or independent
+quality acceptance was established. Further coverage batches remain pending the
+pilot gate. The private inventory and fixture reports are stored under `.tmp`.
+
 ### Leave submission follow-up and answer presentation - 2026-11-19
 
 On `6a9dbea` plus the current working tree, a follow-up asking where to submit

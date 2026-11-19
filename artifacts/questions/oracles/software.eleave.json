@@ -494,6 +494,127 @@
       "claims": "required",
       "fixture": "current",
       "expected_values": {}
+    },
+    {
+      "case_id": "q.software.eleave.021",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual",
+        "task.leave.workit.unpaid",
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.software.eleave.022",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual",
+        "task.leave.workit.unpaid",
+        "task.leave.eleave.annual"
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.software.eleave.023",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence",
+        "unsupported",
+        "needs_clarification"
+      ],
+      "forbidden_task_ids": [
+        "task.leave.workit.annual",
+        "task.leave.workit.unpaid",
+        "task.leave.eleave.annual",
+        "task.leave.eleave.sessions"
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "none"
+    },
+    {
+      "case_id": "q.software.eleave.024",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "claims": "required"
+    },
+    {
+      "case_id": "q.software.eleave.024",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_task_ids": [
+        "task.leave.eleave.annual",
+        "task.leave.workit.annual",
+        "task.leave.workit.unpaid"
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required"
     }
   ]
 }

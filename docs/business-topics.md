@@ -82,10 +82,18 @@ identical evidence under its existing guards. Meaning/revision/provenance change
 require targeted review and tests. Disk edits do not update DB publication.
 
 The question bank preserves the original 416 cases / 433 turns and adds direct
-task wiring/aspect cases: currently 832 cases / 849 turns. Separate per-turn
+task wiring/aspect cases (832 cases / 849 turns before the coverage pilot).
+The coverage pilot brings the public bank to 839 cases / 857 turns. Separate per-turn
 oracles assert task/source choices, forbidden targets, requested employee fields,
 nulls and failure fixtures. Original prose/support labels remain intact.
 Expansion wiring is not an independent paraphrase holdout or business acceptance.
+
+The template coverage pilot adds a `paperwork` section to the annual and unpaid
+Workit tasks and the annual and session-based E-Leave tasks. It distinguishes
+form fields from supporting documents. The cited instructions do not establish
+which documents are mandatory for every situation, so these sections are partial.
+The E-Leave unpaid procedure still lacks a corresponding template. See the
+[coverage and holdout workflow](#template-coverage-and-holdout).
 
 ```powershell
 python -m src.cli.build_artifacts check
@@ -116,6 +124,47 @@ mode issues independent quality/deployment acceptance. Release all three
 artifact/manifest pairs with code in an isolated checkout. Verify target
 publications and consumer handling of the unavailable enum before deployment.
 This implementation does not publish application data, migrate or restart services.
+
+## Template coverage and holdout
+
+Run `python -m scripts.inventory_template_coverage --output .tmp/<new-report>.json`
+to map the five aspects for every task. The inventory records declarations, task
+and route IDs, platforms, context modes, source addresses, chunk dispositions and
+input hashes. An undeclared aspect may be inapplicable. The inventory cannot
+verify the meaning of claims, natural language coverage or DB availability.
+
+Classify each actionable gap as language recognition, missing or partial answer
+content, insufficient source, or target publication unavailable. Compare adjacent
+tasks before adding an alias. Reuse the current task ID for equivalent wording
+and add a section only when current source packages support it. Keep missing and
+unpublished sources in the backlog for separate source or publication work.
+Business completeness requires comparison with the source, including subjects,
+conditions and exceptions. Readiness and publication are separate checks.
+
+An independent reviewer prepares and freezes an indexed question directory under
+`.tmp`, using the same groups and per-turn oracle format as the public bank. The
+reviewer retains the questions and compares the same set on the pinned baseline
+and candidate. The implementer receives aggregate results. If a case is disclosed
+for debugging, replace it for the next holdout and keep the disclosed variant as
+a regression when suitable. Use fresh report paths for both runs.
+
+```powershell
+python -m src.cli.evaluate_questions --questions-dir .tmp/<private-set> --output .tmp/<fixture-report>.json
+python -m src.cli.evaluate_questions --questions-dir .tmp/<private-set> --readonly --output .tmp/<readonly-report>.json
+```
+
+Use the second command with an authorized SELECT-only Type A test connection.
+The optional `expected_aspects` oracle compares the requested aspects in the
+internal plan. The socket HTTP API has no aspect field. Reports include task IDs,
+aspects, cited document IDs, employee field names and per-group counts. They omit
+question text, response bodies and field values. Pass, fail and deferred counts
+remain separate. New phases require public regressions, at least 90% holdout
+success for supported cases in each group, improvement unless the baseline was
+already perfect, and no wrong subject, platform, source, HRM field or completeness
+claims. All eligible Type A checks must pass before a target release. Report an
+offline result separately if target publication checks are still deferred.
+
+## Historical verification
 
 Final verification on 2026-11-18 passed 1,010 non-integration tests and all 849
 fixture turns. Readonly Type A passed 785 turns, deferred 64 isolated/personnel

@@ -16,6 +16,11 @@ and [current verification](README.md#current-verification-status).
 
 ## Request planning and completeness
 
+Template coverage is recorded at the task and aspect level. The local inventory
+and question runner are authoring tools. The runner can use an isolated private
+question directory and assert the internal plan's aspects without publishing them
+in the HTTP schema. See [coverage and holdout](docs/business-topics.md#template-coverage-and-holdout).
+
 `src/answering/planning.py` analyzes document lookup, clause-local personnel
 subjects, direct fields, task candidates and unresolved clauses. Contextual
 composition and the HTTP coordinator consume that analysis; evidence selection

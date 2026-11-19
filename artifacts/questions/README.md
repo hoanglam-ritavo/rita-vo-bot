@@ -57,6 +57,12 @@ Assistant responses are intentionally absent. A follow-up assumes the preceding
 turn met its expectation; this is an authored scenario, not recorded execution.
 An expectation concerns meaning, sources and limitations, not exact prose.
 
+An oracle may set `expected_aspects` to a nonempty list of `overview`, `amount`,
+`conditions`, `paperwork` or `procedure`. The local question runner compares the
+set against the planned aspects for that turn. Private review sets use the same
+indexed layout under `.tmp` and run via `--questions-dir`. See the
+[holdout procedure](../../docs/business-topics.md#template-coverage-and-holdout).
+
 Support classifications:
 
 - `implemented`: the current contract describes this clarification or protective
