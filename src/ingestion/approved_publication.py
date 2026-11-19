@@ -137,11 +137,16 @@ async def reuse_source(db, active, record):
             IngestionRun.is_active.is_(True), IngestionRun.status == 'succeeded'))
 
 
-async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False, update_metadata=False):
+async def publish(root, directory, model_revision, *, model_path, dry_run=False, force=False,
+                  update_metadata=False, expected_package_sha256=None, expected_model_files_sha256=None):
     loaded = packages.load_package(root, directory, eligible=True)
+    if expected_package_sha256 is not None:
+        packages.require(packages.files_hash(loaded[2]) == expected_package_sha256, 'package_changed')
     # Validate model identity before allocating a durable execution attempt.
     config = configuration(loaded[1], model_revision)
     config['model_files_sha256'] = model_fingerprint(model_path)
+    if expected_model_files_sha256 is not None:
+        packages.require(config['model_files_sha256'] == expected_model_files_sha256, 'model_changed')
     if dry_run:
         return await _publish(root, directory, model_revision, model_path=model_path,
                               dry_run=True, force=force, update_metadata=update_metadata, loaded=loaded, config=config)

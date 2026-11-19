@@ -1,0 +1,10 @@
+step 1: preview one release mode
+python3.14 release/linux-first-release.py
+python3.14 release/linux-release.py
+
+step 2: apply only the selected release mode
+python3.14 release/linux-first-release.py --apply
+python3.14 release/linux-release.py --apply
+
+step 3: start fastapi after a successful handoff
+./env/bin/python -m src.cli.serve_api

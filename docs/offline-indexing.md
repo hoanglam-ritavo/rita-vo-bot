@@ -16,11 +16,24 @@ chunks/<document_id>/
 
 The snapshot is named `source.pdf`, `source.txt`, etc. A complete package has exactly these four files. Initialization creates metadata and snapshot; missing extraction/chunks means incomplete input, not a review state. No local catalog, manifest, initial draft, payload, approval copy, cache or report is maintained. Source identity appears only in metadata; the directory name must match document_id.
 
-`package_paths` scans only this layout. Old `review/`, `approved/` and hidden staging directories are excluded. Historical `indexing_chunks/` and `indexing_workspace/` are never scanned, merged or removed. Initialization refuses to create duplicate identities for sources represented only in the current legacy review/approved workspace; explicitly convert a selected legacy package first.
+`package_paths` scans only this layout. The root `chunks/manifest.json` is
+reserved for release selection. Old `review/`, `approved/` and hidden staging
+directories are excluded. Historical `indexing_chunks/` and
+`indexing_workspace/` are never scanned, merged or removed. Initialization
+refuses to create duplicate identities for sources represented only in the
+current legacy review/approved workspace. Convert a selected legacy package
+explicitly first.
 
 Edit extraction/chunks and non-identity metadata in place for the same source revision. Do not replace snapshot bytes or change identity/fingerprint fields to disguise source changes. Use `revise` for changed bytes; it requires `--supersedes-current`, creates a new revision of the same document at the same package path, and resets lifecycle/indexing eligibility and evidence notes. Old extraction/chunks are removed from the current package. It records the previous revision and its declared supersedes ancestors, dropping other relations. Source renaming is unsupported. Git retains committed authoring history; the database retains previous indexed chunks. Local displaced packages remain in ignored `.tmp/package-backups/` for recovery, not as publication candidates.
 
 ## Commands
+
+For a release of a frozen package set, use the
+[manifest workflow](../src/cli/README.md#manifest-based-corpus-release).
+It binds document and revision IDs, chunk counts, and hashes of the complete
+package files. Package metadata remains the source of publication eligibility
+and relation targets. Refresh the manifest explicitly after package changes
+that belong to the release.
 
 From the repository root, with the virtual environment active:
 

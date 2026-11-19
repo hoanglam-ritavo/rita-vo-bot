@@ -12,6 +12,7 @@ from src.paths import assets, workspace
 
 SUPPORTED = {'.pdf', '.xlsx', '.csv', '.md', '.txt'}
 IDENTITY_FIELDS = ('document_id', 'revision_id', 'source_path', 'sha256', 'size_bytes', 'extension')
+MANIFEST_NAME = 'manifest.json'
 
 class Rejected(ValueError):
     """Fixed credential/content-safe rejection codes."""
@@ -263,6 +264,9 @@ def _package_paths(root):
         if document.name in ('review', 'approved') or document.name.startswith('.'):
             continue
         reject_links(document)
+        if document.name == MANIFEST_NAME:
+            require(document.is_file(), 'unexpected_package_entry')
+            continue
         uuid(document.name)
         require(document.is_dir(), 'unexpected_package_entry')
         if not (document / 'metadata.json').exists():

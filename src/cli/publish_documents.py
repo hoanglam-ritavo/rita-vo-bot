@@ -34,8 +34,7 @@ def main(argv=None):
 
 async def run(root, args):
     from src.database import close_database
-    from src.ingestion.approved_publication import publish
-    from src.ingestion.publish import PublishRejected
+    from src.ingestion.publication_batch import dependency_waves, publication_result
     results, candidates = [], []
     records = {}
     try:
@@ -55,35 +54,18 @@ async def run(root, args):
             except Exception:
                 results.append({'status': 'failed', 'code': 'package_read_failed'})
         counts = Counter(revision for _, revision in candidates)
-        # Topological ordering within the selected batch; external targets are checked in PostgreSQL.
-        ordered = []
-        remaining = list(candidates)
-        while remaining:
-            ids = {revision for _, revision in remaining}
-            ready = [(path, revision) for path, revision in remaining
-                     if not any(r['revision_id'] in ids for r in records[path]['relations'])]
-            if not ready:
-                results.append({'status': 'rejected', 'code': 'cyclic_batch_relations'})
-                break
-            ordered.extend(ready)
-            remaining = [item for item in remaining if item not in ready]
-        for path, revision in ordered:
-            if counts[revision] > 1:
-                results.append({'status': 'rejected', 'code': 'multiple_packages_select_one', 'revision_id': revision})
-                continue
-            try:
-                result = await publish(root, path, args.model_revision, model_path=args.model_path, dry_run=args.dry_run, force=args.force, update_metadata=args.update_metadata)
-                results.append(result)
-            except packages.Rejected as exc:
-                results.append({'status': 'rejected', 'code': str(exc), 'revision_id': revision,
-                                **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
-            except (PublishRejected, CatalogError) as exc:
-                results.append({'status': 'rejected', 'code': 'metadata_or_source_rejected', 'revision_id': revision,
-                                **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
-            except Exception as exc:
-                from src.ingestion.attempts import AttemptUncertain
-                results.append({'status': 'failed', 'code': 'publication_outcome_unknown' if isinstance(exc, AttemptUncertain) else 'publication_failed',
-                                'revision_id': revision, **({'attempt_id': exc.attempt_id} if hasattr(exc, 'attempt_id') else {})})
+        waves, cyclic = dependency_waves(candidates, records)
+        if cyclic:
+            results.append({'status': 'rejected', 'code': 'cyclic_batch_relations'})
+        for wave in waves:
+            for path, revision in wave:
+                if counts[revision] > 1:
+                    results.append({'status': 'rejected', 'code': 'multiple_packages_select_one',
+                                    'revision_id': revision})
+                    continue
+                results.append(await publication_result(
+                    root, path, revision, args.model_revision, model_path=args.model_path,
+                    dry_run=args.dry_run, force=args.force, update_metadata=args.update_metadata))
         if not paths:
             results.append({'status': 'rejected', 'code': 'no_packages'})
     except packages.Rejected as exc:

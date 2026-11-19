@@ -1636,7 +1636,8 @@ Final non-integration verification: `python -m pytest -m 'not integration' -q` w
 
 ## Setup (PowerShell)
 
-For a first production deployment, follow the [production bootstrap runbook](docs/production-bootstrap.md).
+For a first production deployment, follow the [production release guide](guide/release-guide.md).
+Its corpus step uses the tracked package manifest and `publish_corpus` CLI.
 
 Provision a separate empty PostgreSQL database for the current schema. Do not point the new publisher at an older database; see [initialization and boundaries](docs/database-design.md#initialization-and-boundaries).
 
@@ -1728,7 +1729,7 @@ The target is at least 90% complete evidence among detail/condition cases with e
 
 ## HTTP service operation and rollout
 
-See the [production cutover checklist](docs/production-bootstrap.md#release-checks-and-recovery)
+See the [production cutover checklist](guide/release-guide.md#release-checks-and-recovery)
 for a fresh environment.
 
 FastAPI is the only service transport. Run `python -m src.cli.serve_api` with the

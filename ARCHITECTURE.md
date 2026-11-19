@@ -174,6 +174,10 @@ An explicit CLI handles development chat reset. See the
 
 ## Command ownership
 
+`publish_corpus` applies the release selection in `chunks/manifest.json`.
+The ingestion layer validates the pinned packages and model, orders dependency
+waves, and delegates per-package dry-run and writes to the existing publisher.
+
 [Application entrypoints](src/cli/README.md) remain in `src/cli/`; [manual utilities, offline evaluations and experiments](scripts/README.md) remain in `scripts/`. Both inventories distinguish current commands, compatibility aliases, retired stubs and support modules. Existing command paths remain supported. One-shot retrieval lifecycle/timings live in `src.retrieval.runner`, used by the CLI compatibility wrapper and IDE utility; HTTP continues to own its long-lived service lifecycle. Pure model revision validation lives in `src.ingestion.model_identity`, shared by publication, preflight and evaluation without imports between those CLI implementations. Historical asset tools retain their old `app/` paths and are not current setup commands.
 
 ## Standalone Colab intent kit

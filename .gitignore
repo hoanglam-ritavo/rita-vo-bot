@@ -150,6 +150,7 @@ pytest-cache-files-*/
 /indexing_chunks/
 # Track only current package artifacts; exclude old layouts and temporary files.
 /chunks/*
+!/chunks/manifest.json
 !/chunks/*/
 /chunks/*/*
 !/chunks/*/metadata.json

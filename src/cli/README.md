@@ -15,6 +15,7 @@ Run commands from the repository root with the repository virtual environment. B
 | `prepare_documents.py` | Current | `python -m src.cli.prepare_documents <init/validate/revise/recover> ...`: manage current agent-authored packages. |
 | `preflight_documents.py` | Current | `python -m src.cli.preflight_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--check-embeddings] [--json]`: local technical checks. |
 | `publish_documents.py` | Current | `python -m src.cli.publish_documents --package <package> --model-path <local-model> --model-revision <40-hex> [--dry-run] [--json]`: publish eligible packages. |
+| `publish_corpus.py` | Current | `python -m src.cli.publish_corpus <freeze/plan/apply>`: record, check or publish the selected release corpus from `chunks/manifest.json`. |
 | `publication_attempt.py` | Current | `python -m src.cli.publication_attempt --id <uuid> [--reconcile]`: inspect metadata-only execution state; explicit reconciliation finalizes an existing commit receipt without publication/retry. |
 | `retrieve_documents.py` | Current | `python -m src.cli.retrieve_documents --question "Synthetic policy question" --model-path <local-model> --model-revision <40-hex> [--top-k 5] [--json]`: retrieve unassessed source candidates. |
 | `prepare_semantics.py` | Current, offline authoring | `python -m src.cli.prepare_semantics <inventory/validate/export> ...`: snapshot all packages, validate declared coverage, export a reviewed lexicon. |
@@ -50,6 +51,40 @@ Use [offline indexing](../../docs/offline-indexing.md) for the authoritative pac
 - `publish_documents` requires PostgreSQL, provisioned migrations, an eligible package and supplied local model. Repeat `--package` to select a batch or use `--all` instead. Verified unchanged publication skips even after formatting/author-note changes. `--update-metadata` permits supported metadata-only updates without another run/chunk set. Changed publication creates a full new run, reusing compatible exact-text vectors from the active same-revision or current explicitly superseded same-document run. `--force` creates a run and re-encodes all chunks. Publication writes transactionally to PostgreSQL. `--dry-run` reads DB/model files and reports planned counts but does not tokenize, embed or publish. See [publication decisions, counts and compatibility](../../docs/offline-indexing.md#scope-2-package-reading-embedding-and-publication).
 
 Package commands emit summaries or `--json` reports: exit `0` for success/skips, `1` for rejected input, `2` for operational failure/retired operations. Argparse usage errors also exit `2`. Package-changing operations may use locks/backups under `.tmp/`; reports go to stdout and technical preflight does not modify package data. Do not equate successful validation or preflight with business approval.
+
+## Manifest-based corpus release
+
+For Linux release preparation and operator handoff, see the
+[Linux release commands](../../guide/release-guide.md#linux-release-commands).
+
+Run from the repository root. Reserve manifest updates for release preparation.
+
+```text
+python -m src.cli.publish_corpus freeze --all
+python -m src.cli.publish_corpus plan --model-path "<local-model>" --model-revision "<40-hex>"
+python -m src.cli.publish_corpus apply --model-path "<local-model>" --model-revision "<40-hex>"
+```
+
+- `freeze` writes a deterministic manifest for validated current packages.
+  Select all with `--all` or repeat `--package chunks/<document-id>`. Use
+  `--replace` only to refresh an existing manifest intentionally.
+- `plan` checks the manifest, exact package bytes, metadata blockers and
+  token lengths against the local model. The JSON lists dependency waves and
+  required external revisions. PostgreSQL checks are deferred.
+- `apply` repeats input validation, checks external required relations in
+  PostgreSQL and dry-runs each wave before its first write. The existing
+  publisher commits per package and reuses compatible vectors. Stop at the
+  first failure and keep the JSON report with dry-run and publish phases,
+  confirmed run/attempt IDs and unattempted package IDs.
+
+`plan` and `apply` accept `--expected-manifest-sha256` to bind the operation
+to a specific manifest. The Linux release commands supply this digest.
+
+JSON goes to stdout. Exit 0 means freeze, plan or apply succeeded. Exit 1
+means input or publication rejection. Exit 2 means invalid command usage or
+operational failure, including uncertain publication outcome. Reconcile
+uncertain results before retrying. See the
+[release guide](../../guide/release-guide.md#3-publish-and-verify-the-document-corpus).
 
 ## Publication attempt inspection
 
