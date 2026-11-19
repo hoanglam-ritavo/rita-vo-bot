@@ -110,7 +110,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.software.eleave.006",
@@ -403,7 +407,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.software.eleave.018",
@@ -583,7 +591,11 @@
         "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
         "7f1f2cf6-e181-42a8-8caf-f9429094e661"
       ],
-      "claims": "none"
+      "claims": "none",
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.software.eleave.024",

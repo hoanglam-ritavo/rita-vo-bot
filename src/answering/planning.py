@@ -1,5 +1,6 @@
 """One conservative request analysis shared by HTTP and conversation consumers."""
 from dataclasses import dataclass
+from pathlib import PurePosixPath
 import re
 import unicodedata
 
@@ -34,12 +35,17 @@ class RequestAnalysis:
     scope_intro: str | None = None
     scope_limits: tuple[str, ...] = ()
     scope_system: str | None = None
+    topic_unmatched: bool = False
+    discovery_options: bool = False
 
 
-def choice_labels(cards):
+def choice_labels(cards, *, include_filenames=False):
+    def duplicate_labels(options):
+        labels = [normalized(label) for _, label in options]
+        return {label for label in labels if labels.count(label) > 1}
+
     options = [(card.id, card.label.strip()) for card in cards]
-    duplicates = {normalized(label) for _, label in options
-                  if sum(normalized(other) == normalized(label) for _, other in options) > 1}
+    duplicates = duplicate_labels(options)
     if duplicates:
         options = []
         for card in cards:
@@ -52,8 +58,34 @@ def choice_labels(cards):
                 if sources:
                     label = (label + ' — ' + ' / '.join(sources))[:240].rstrip()
             options.append((card.id, label))
-    labels = {normalized(label) for _, label in options}
-    return tuple(options) if '' not in labels and len(labels) == len(options) else ()
+    duplicates = duplicate_labels(options)
+    if duplicates and include_filenames:
+        for index, (task_id, label) in enumerate(options):
+            if normalized(label) not in duplicates:
+                continue
+            card = cards[index]
+            files = sorted({PurePosixPath(ref.metadata['source_path'].replace('\\', '/')).name
+                            for section in card.sections.values() for unit in section.units
+                            for ref in unit.refs if ref.metadata.get('source_path')})
+            if files:
+                suffix = ' — ' + ' / '.join(files)[:180]
+                options[index] = (task_id, card.label.strip()[:240 - len(suffix)].rstrip() + suffix)
+    return tuple(options) if not duplicate_labels(options) and all(label for _, label in options) else ()
+
+
+def unknown_topic_prompt(question, policy):
+    query = policy.analyze(question) if policy is not None else None
+    systems = {'workit': 'Workit', 'workit-mobile': 'Workit Mobile', 'eleave': 'E-Leave',
+               'epostal': 'E-Postal', 'eworkdate': 'E-Workdate', 'outlook': 'Outlook', 'bravo': 'Bravo'}
+    families = {'vehicles': 'sử dụng xe', 'attendance': 'chấm công', 'travel': 'công tác phí',
+                'administration': 'hành chính', 'benefits': 'phúc lợi', 'labor': 'nội quy lao động',
+                'safety': 'an toàn nơi làm việc'}
+    if query and query.system in systems:
+        return f'Bạn cần hướng dẫn thao tác nào trên {systems[query.system]}? Hãy nêu tên chức năng hoặc việc cần làm.'
+    if query and query.family in families:
+        return f'Bạn muốn xem quy định hay cách thực hiện về {families[query.family]}? Hãy nêu việc cần làm.'
+    return ('Bạn hãy nêu rõ chủ đề và việc cần làm. Nếu muốn xem nguồn, '
+            'hãy bắt đầu câu hỏi bằng “tìm tài liệu” và tên chủ đề.')
 
 
 def _covered_fragment(text, query, cards, lexicon):
@@ -249,6 +281,11 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     # task. Do not resurrect those values from the original stored question.
     inputs = dict(request['user_inputs']) if 'user_inputs' in request else parse_inputs(question)
     aspects = tuple(request.get('aspects') or requested_aspects(question))
+    if (len(cards) == 1 and len(aspects) == 1 and not (ambiguous or clarification or other or fields)
+            and not request.get('source_id')):
+        related = getattr(cards[0], 'related_aspects', {}).get(aspects[0])
+        if related:
+            cards = [card for card in catalog.cards if card.id == related]
     unsupported = resolution is not None and resolution.state == 'unsupported' and not fields and not cards
     parts = tuple((['documents'] if lookup or cards or unsupported else []) +
                   (['profile'] if fields or unclear or ambiguous_owner else []) + (['unresolved'] if unresolved else []))
@@ -268,7 +305,8 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     general_leave = (leave_query is not None and leave_query.involves_leave and (
         slots.get('intent') == 'submission' or
         (not leave_query.platform_requested and not slots.get('system'))))
-    return RequestAnalysis(cards=tuple(cards), ambiguous=ambiguous, direct_fields=tuple(dict.fromkeys(fields)),
+    direct_fields = () if request.get('document_guidance') else tuple(dict.fromkeys(fields))
+    return RequestAnalysis(cards=tuple(cards), ambiguous=ambiguous, direct_fields=direct_fields,
         document_lookup=lookup, unsupported_person=other, clarification=clarification, unresolved=unresolved,
         clarification_reason=reason, question=question, aspects=aspects,
         document_question=question if lookup and not fields else '; '.join(documents) or question, user_inputs=tuple(inputs.items()),
@@ -277,5 +315,5 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
         parts=parts, personal_request=personal_request, choice_options=options, check_scopes=check_scopes,
         leave_platforms=leave_platforms,
-        general_guidance=bool(general_leave and
+        general_guidance=bool(request.get('document_guidance') or general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

@@ -14,6 +14,7 @@ from src.api.config import Settings
 from src.api.contracts import ApiError
 from src.api.service import ApiService
 from src.answering.config import AnswerSettings
+from src.database.config import ConfigurationError
 from src.database.runtime import run_async
 from src.type_b.employee_store.fields import PROFILE_FIELDS
 from src.type_b.employee_store.normalization import normalize_profile
@@ -177,6 +178,78 @@ def test_missing_profile_null_field_and_disabled_source_differ():
     with TestClient(create_app(owner.settings,service_factory=lambda _:owner),headers=HEADERS) as client:
         data=client.post('/api/v1/answer',json={'text':QUESTION,'hrm_user_id':7}).json()
         assert data['application']['state']=='disabled'
+
+
+@pytest.mark.parametrize('enabled,read_error,lookup_state,application_state,reason,missing', [
+    (True, None, 'applied', 'partial', '-', 'job_title'),
+    (True, None, 'not_found', 'not_found', '-', '-'),
+    (False, None, 'disabled', 'disabled', '-', '-'),
+    (True, EmployeeValidationError('conflicting_rows'), 'unavailable', 'unavailable', 'conflicting_rows', '-'),
+    (True, EmployeeSourceError('source_timeout'), 'unavailable', 'unavailable', 'source_timeout', '-'),
+    (True, EmployeeSourceError('private-source-marker'), 'unavailable', 'unavailable', 'source_unavailable', '-'),
+])
+def test_employee_lookup_log_distinguishes_context_outcomes(
+        enabled, read_error, lookup_state, application_state, reason, missing, caplog):
+    owner, employee = service(enabled=enabled, personnel=profile(job_title=None))
+    caplog.set_level('INFO', logger='src.type_b.service')
+    message_id = '4a7565c6-0415-4c73-875b-35f14ee453e9'
+    if read_error is not None or lookup_state == 'not_found':
+        employee.read_context.side_effect = read_error
+        employee.read_context.return_value = None
+
+    async def scenario():
+        await owner.start()
+        try:
+            return await owner.context.execute('Chức danh hiện tại của tôi là gì?', 5, 741852963,
+                                               answer=True, message_id=message_id, attempt=1)
+        finally:
+            await owner.close()
+
+    result = asyncio.run(scenario())
+    assert result.application.state == application_state
+    (lookup,) = [message for message in caplog.messages if message.startswith('employee_context_lookup ')]
+    assert f'message_id={message_id} attempt=1' in lookup
+    stage = 'read_context' if enabled else 'check_source'
+    assert f'stage={stage} state={lookup_state} reason={reason} check_deferred=False' in lookup
+    assert f'requested_fields=job_title missing_fields={missing}' in lookup
+    assert '741852963' not in caplog.text and 'private-source-marker' not in caplog.text
+    if not enabled:
+        employee.check_source.assert_not_awaited()
+        employee.read_context.assert_not_awaited()
+
+
+@pytest.mark.parametrize('error,reason', [
+    (ConfigurationError('private-configuration-marker'), 'invalid_source_configuration'),
+    (EmployeeSourceError('schema_incompatible'), 'schema_incompatible'),
+])
+def test_employee_lookup_logs_deferred_reason_and_clears_it_on_recovery(error, reason, caplog):
+    owner, employee = service()
+    employee.check_source.side_effect = [error, None]
+    caplog.set_level('INFO', logger='src.type_b.service')
+    message_id = '4a7565c6-0415-4c73-875b-35f14ee453e9'
+
+    async def scenario():
+        await owner.start()
+        try:
+            failed = await owner.context.execute('Chức danh hiện tại của tôi là gì?', 5, 7,
+                                                 answer=True, message_id=message_id, attempt=1)
+            employee.read_context.assert_not_awaited()
+            assert employee.check_source.await_count == 1
+            owner.context._next_source_check = 0
+            recovered = await owner.context.execute('Chức danh hiện tại của tôi là gì?', 5, 7,
+                                                    answer=True, message_id=message_id, attempt=2)
+            assert employee.check_source.await_count == 2
+            return failed, recovered
+        finally:
+            await owner.close()
+
+    failed, recovered = asyncio.run(scenario())
+    assert failed.application.state == 'unavailable'
+    assert recovered.application.state == 'applied'
+    first, second = [message for message in caplog.messages if message.startswith('employee_context_lookup ')]
+    assert f'attempt=1 stage=check_source state=unavailable reason={reason} check_deferred=True' in first
+    assert 'attempt=2 stage=read_context state=applied reason=- check_deferred=False' in second
+    assert 'private-configuration-marker' not in caplog.text
 
 
 def test_general_retrieval_keeps_order_and_has_no_unnecessary_employee_reads():

@@ -124,6 +124,29 @@ def test_service_commits_before_cache_and_replays_without_inference():
     asyncio.run(scenario())
 
 
+def test_service_retry_forwards_the_accepted_attempt():
+    async def scenario():
+        req, owner, store = setup_service()
+        store.get_turn.return_value = req.stored_payload()
+        turn, _ = store.begin.return_value
+        store.begin.return_value = (turn.model_copy(update={'attempt': 2}), True)
+        store.finish.return_value = store.finish.return_value.model_copy(update={'attempt': 2})
+        cache = CacheManager()
+        try:
+            svc = ConversationService(owner, cache, store)
+            value = await svc.retry(req.room_id, req.message_id,
+                                    RetryRequest(user_id=req.user_id, hrm_user_id=req.hrm_user_id))
+        finally:
+            await cache.close()
+        assert value.attempt == 2
+        store.begin.assert_awaited_once_with(req, retry=True)
+        owner.context.execute.assert_awaited_once()
+        assert owner.context.execute.await_args.kwargs['message_id'] == req.message_id
+        assert owner.context.execute.await_args.kwargs['attempt'] == 2
+
+    asyncio.run(scenario())
+
+
 def test_cache_replay_bypass_and_failed_cache_write():
     async def scenario():
         req, owner, store = setup_service()

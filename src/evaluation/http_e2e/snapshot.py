@@ -5,7 +5,7 @@ from pathlib import Path
 import hashlib
 
 from .config import EvaluationError, digest
-from .inventory import task_sections
+from .inventory import MANAGER_CONFLICT_USER_ID, task_sections
 from .assertions import question_dates
 from src.evaluation.questions import normalize_whitespace
 
@@ -44,9 +44,11 @@ def representatives(rows, key='user_id'):
             score += type(r.get('active')) is bool
             return stamp is not None, stamp or datetime.min.replace(tzinfo=timezone.utc), score, r['employee_id']
         best = sorted(candidates, key=rank, reverse=True)
-        if len(best) > 1 and rank(best[0]) == rank(best[1]) and best[0] != best[1]:
+        winner = best[0]
+        top_rank = rank(winner)
+        if any(rank(row) == top_rank and row != winner for row in best[1:]):
             continue  # No arbitrary expected winner for conflicting ties.
-        chosen[identity] = best[0]
+        chosen[identity] = winner
     return chosen
 
 
@@ -56,18 +58,18 @@ def employee_facts(row, rows, selected=None):
     allowed = get_args(EmployeeField)
     facts = {k: display(row.get(k)) for k in allowed if k not in ('manager_name', 'manager_email')}
     manager = None
+    code = display(row.get('manager_code'))
     selected = representatives(rows, 'employee_id') if selected is None else selected
     if row.get('manager_id') is not None:
         manager = selected.get(row['manager_id'])
-    elif row.get('manager_code'):
-        code = display(row['manager_code'])
+    elif code is not None:
         options = [r for r in selected.values() if display(r.get('employee_code')) == code]
         if len(options) == 1:
             manager = options[0]
     # A stale/wrong link or self reference never supplies expected manager facts.
     if manager and (manager['employee_id'] == row['employee_id'] or
             manager.get('user_id') is not None and manager['user_id'] == row['user_id'] or
-            row.get('manager_code') and display(row['manager_code']) != display(manager.get('employee_code'))):
+            code is not None and code != display(manager.get('employee_code'))):
         manager = None
     facts['manager_name'] = display(manager.get('employee_name')) if manager else None
     facts['manager_email'] = display(manager.get('work_email')) if manager else None
@@ -92,6 +94,11 @@ def build_bindings(scenarios, snapshot):
         'manager': lambda r, v: v['manager_name'] is not None,
     }.items():
         roles[name] = next((uid for uid, r, v in profiles if predicate(r, v)), None)
+    conflict = selected.get(MANAGER_CONFLICT_USER_ID, {})
+    linked = managers.get(conflict.get('manager_id'))
+    code = display(conflict.get('manager_code'))
+    roles['manager_conflicting'] = (MANAGER_CONFLICT_USER_ID
+        if linked is not None and code is not None and code != display(linked.get('employee_code')) else None)
     existing = {r['user_id'] for r in rows}
     missing = max([x for x in existing if x is not None] + [0]) + 1
     roles['not_found'] = missing if missing <= 2**53-1 else next((x for x in range(1, len(existing)+2) if x not in existing), None)

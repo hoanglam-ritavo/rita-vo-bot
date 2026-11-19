@@ -2,7 +2,7 @@
 import hashlib
 from pathlib import Path
 from typing import Literal
-from pydantic import Field
+from pydantic import Field, model_serializer
 from src.paths import REPOSITORY_ROOT
 from src.retrieval.semantics import validate_artifact
 from src.semantics.corpus import decode_json
@@ -10,6 +10,7 @@ from .contracts import Strict
 from .context_spec import ContextSpec
 
 METADATA = ('title', 'applicability', 'effective_from', 'effective_to', 'version_label', 'source_path')
+Aspect = Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure']
 
 
 def sha_bytes(raw):
@@ -47,8 +48,19 @@ class Card(Strict):
     aliases: list[str] = Field(min_length=1, max_length=100)
     requires_any: list[str]
     excludes_any: list[str]
-    sections: dict[Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure'], Section]
+    sections: dict[Aspect, Section]
     context: ContextSpec | None = None
+    related_aspects: dict[Aspect, str] = Field(default_factory=dict)
+    discovery_terms: list[str] = Field(default_factory=list, max_length=24)
+
+    @model_serializer(mode='wrap')
+    def serialize_card(self, handler):
+        data = handler(self)
+        if not self.related_aspects:
+            data.pop('related_aspects', None)
+        if not self.discovery_terms:
+            data.pop('discovery_terms', None)
+        return data
 
 
 class Coverage(Strict):
@@ -76,7 +88,8 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
         if catalog.schema_version == 3 and card.context is None:
             raise ValueError('missing_context_disposition')
         if (card.id in ids or not card.sections or not set(card.concept_ids) <= concepts
-                or any(not p.strip() or len(p) > 240 for p in card.aliases + card.requires_any + card.excludes_any)):
+                or any(not p.strip() or len(p) > 240 for p in card.aliases + card.requires_any + card.excludes_any)
+                or any(len(p.split()) < 2 or len(p) > 100 for p in card.discovery_terms)):
             raise ValueError('invalid_answer_card')
         ids.add(card.id)
         for section in card.sections.values():
@@ -94,6 +107,19 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
                             or not ref.document_id or not ref.revision_id):
                         raise ValueError('invalid_answer_reference')
                     used.add(key)
+    by_id = {card.id: card for card in catalog.cards}
+    for card in catalog.cards:
+        if not card.related_aspects:
+            continue
+        revisions = {(ref.document_id, ref.revision_id) for section in card.sections.values()
+                     for unit in section.units for ref in unit.refs}
+        for aspect, task_id in card.related_aspects.items():
+            target = by_id.get(task_id)
+            section = target.sections.get(aspect) if target else None
+            if (aspect in card.sections or not section or target.context != card.context
+                    or any((ref.document_id, ref.revision_id) not in revisions
+                           for unit in section.units for ref in unit.refs)):
+                raise ValueError('invalid_related_answer_aspect')
     coverage = {(c.document_id, c.chunk_index): c for c in catalog.coverage}
     expected = {(c['document_id'], c['chunk_index']) for c in snapshot['chunks']} if snapshot is not None else None
     if validate_coverage and (len(coverage) != len(catalog.coverage) or (expected is not None and set(coverage) != expected)

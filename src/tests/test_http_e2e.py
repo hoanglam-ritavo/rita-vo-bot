@@ -14,7 +14,7 @@ import pytest
 from src.evaluation.http_e2e.config import (
     Configuration, EvaluationError, base_url, configuration, digest, private_path, write_private,
 )
-from src.evaluation.http_e2e.inventory import Scenario, build_inventory, public_inventory
+from src.evaluation.http_e2e.inventory import Scenario, build_inventory, public_inventory, select_profile
 from src.evaluation.http_e2e.runner import prepare, run, request_for
 from src.evaluation.http_e2e.snapshot import build_bindings, representatives, reference_inventory, reference_key
 from src.evaluation.http_e2e.assertions import check_response
@@ -66,14 +66,15 @@ def retrieval_body():
     return result
 
 
-def run_fake(scenarios, handler, *, reader=fake_snapshot, mutate=None):
+def run_fake(scenarios, handler, *, reader=fake_snapshot, mutate=None, profile='full', prepared_profile=None):
     async def exercise():
         cfg = config()
-        binding = await prepare(cfg, scenarios, {}, {'cards':[]}, Path.cwd(), snapshot_reader=fake_snapshot)
+        binding = await prepare(cfg, scenarios, {}, {'cards':[]}, Path.cwd(),
+                                profile=prepared_profile or profile, snapshot_reader=fake_snapshot)
         if mutate:
             mutate(binding)
         return await run(cfg, scenarios, {}, {'cards':[]}, Path.cwd(), binding, digest(binding),
-                         snapshot_reader=reader, transport=httpx.MockTransport(handler))
+                         profile=profile, snapshot_reader=reader, transport=httpx.MockTransport(handler))
     return asyncio.run(exercise())
 
 
@@ -141,6 +142,21 @@ def test_inventory_covers_each_case_and_endpoint_without_executing(monkeypatch):
     assert 'Fictional' not in json.dumps(report)
 
 
+def test_bank_profiles_have_distinct_pinned_inventories():
+    from src.evaluation.questions import load_dataset
+
+    cases, oracles, inputs = load_dataset(Path.cwd())
+    scenarios = build_inventory(cases, oracles)
+    full = public_inventory(select_profile(scenarios, 'full'), inputs)
+    smoke = public_inventory(select_profile(scenarios, 'smoke'), inputs, profile='smoke')
+    assert full['profile'] == 'full' and full['counts'] == {'pending': 1694, 'not_applicable': 74}
+    assert full['retrieve_unresolved_default'] == 0
+    assert smoke['profile'] == 'smoke' and smoke['counts'] == {'pending': 56}
+    assert smoke['selection_fingerprint'] != full['selection_fingerprint']
+    assert {(r['case_id'], r['endpoint']) for r in smoke['results']} <= {
+        (r['case_id'], r['endpoint']) for r in full['results'] if r['state'] == 'pending'}
+
+
 def test_independent_selection_and_null_binding():
     data = snapshot()
     older = deepcopy(data['employees'][0])
@@ -153,6 +169,42 @@ def test_independent_selection_and_null_binding():
     assert bindings[s.key]['expected_values'] == {'job_title':None}
     assert roles['inactive'] is None and roles['duplicate_user'] == 7
     assert roles['not_found'] not in {r['user_id'] for r in data['employees']}
+
+
+def test_representative_checks_all_top_ranked_rows():
+    first, = snapshot()['employees']
+    conflicting = {**first, 'official_date': '2026-02-01'}
+    lower = {**first, 'updated_at': '2025-11-18T00:00:00Z'}
+    assert representatives([first, dict(first), conflicting, lower]) == {}
+    assert representatives([first, dict(first), lower]) == {7: first}
+
+
+def test_manager_conflict_requires_the_designated_fixture_and_returns_null():
+    scenarios = [s for s in build_inventory([], {}) if s.case_id == 'hrm.role.manager_conflicting']
+    data = snapshot()
+    row, = data['employees']
+    row.update(user_id=910006, manager_id=84, manager_code='WRONG')
+    manager = {**row, 'user_id': None, 'employee_id': 84, 'employee_code': 'CORRECT',
+               'manager_id': None, 'manager_code': None}
+    data['employees'].append(manager)
+    bindings, roles = build_bindings(scenarios, data)
+    assert roles['manager_conflicting'] == 910006
+    for s in scenarios:
+        binding = bindings[s.key]
+        assert binding['state'] == 'ready' and binding['expected_values'] == {'manager_name': None}
+        is_answer = s.endpoint.endswith('/answer')
+        payload = answer_body() if is_answer else retrieval_body()
+        payload['evidence'][0].update(field='manager_name', subject='manager', label='Quản lý trực tiếp', value=None)
+        payload['application']['state'] = 'partial'
+        payload['status'] = 'insufficient_evidence' if is_answer else 'no_evidence'
+        if is_answer:
+            payload['claims'][0]['text'] = 'Hồ sơ hiện chưa có thông tin về quản lý trực tiếp.'
+            payload['answer'] = payload['claims'][0]['text'] + ' [C1]'
+        assert check_response(s, binding, 200, payload, {'cache-control': 'no-store'}, {'cards': []}, None) == []
+    row['manager_code'] = ' NULL '
+    bindings, roles = build_bindings(scenarios, data)
+    assert roles['manager'] == 910006 and roles['manager_conflicting'] is None
+    assert {b['reason'] for b in bindings.values()} == {'profile_role_missing'}
 
 
 def test_missing_profile_or_source_is_blocked_before_response():
@@ -172,6 +224,25 @@ def test_two_endpoint_expectations_are_independent():
         {'cache-control':'no-store'},{'cards':[]},'2026-11-18')
 
 
+@pytest.mark.parametrize(('field', 'value', 'label', 'claim'), [
+    ('job_title', 'Analyst', 'Chức danh', 'Chức danh của bạn: Analyst.'),
+    ('job_title', None, 'Chức danh', 'Hồ sơ hiện chưa có thông tin về chức danh.'),
+    ('official_date', '2026-11-19', 'Ngày chính thức', 'Ngày chính thức của bạn: 19/11/2026.'),
+])
+def test_employee_claim_must_display_the_linked_value(field, value, label, claim):
+    s = scenario(employee_fields=[field], expected_employee_claim_fields=[field])
+    body = answer_body(value)
+    body['evidence'][0].update(field=field, label=label)
+    body['claims'][0]['text'] = claim
+    body['answer'] = claim + ' [C1]'
+    args = ({'cache-control': 'no-store'}, {'cards': []}, None)
+    binding = {'expected_values': {field: value}}
+    assert check_response(s, binding, 200, body, *args) == []
+    body['claims'][0]['text'] = f'{label} của bạn: Director.'
+    body['answer'] = body['claims'][0]['text'] + ' [C1]'
+    assert check_response(s, binding, 200, body, *args) == ['employee_claim_value']
+
+
 @pytest.mark.parametrize('mutation,expected', [
     (lambda b:b.update(schema_version=1),'response_schema'),
     (lambda b:b['evidence'][0].update(value='Wrong value'),'employee_values'),
@@ -187,16 +258,17 @@ def test_response_errors_fail_without_echoing_values(mutation,expected):
     assert expected in failures and 'Wrong value' not in json.dumps(failures)
 
 
-def test_health_order_and_sequential_stateless_payloads():
+@pytest.mark.parametrize('profile', ['full', 'smoke'])
+def test_health_order_and_sequential_stateless_payloads(profile):
     calls=[]
     def handler(request):
         calls.append(request)
         if request.method=='GET':
             return httpx.Response(200,json={'status':'alive' if request.url.path.endswith('/live') else 'ready'})
         return httpx.Response(200,json=retrieval_body() if request.url.path.endswith('/retrieve') else answer_body(),headers={'Cache-Control':'no-store'})
-    result=run_fake([scenario('/api/v1/retrieve'),scenario()],handler)
+    result=run_fake([scenario('/api/v1/retrieve'),scenario()],handler,profile=profile)
     assert [r.url.path for r in calls]==['/health/live','/health/ready','/health/answer','/api/v1/retrieve','/api/v1/answer']
-    assert result['counts']=={'passed':2} and result['exit_code']==0
+    assert result['counts']=={'passed':2} and result['exit_code']==0 and result['profile']==profile
     assert 'X-Rita-Service-Key' not in calls[0].headers
     for req in calls[3:]:
         assert set(json.loads(req.content))=={'text','hrm_user_id','top_k'}
@@ -231,6 +303,16 @@ def test_binding_coverage_precedes_any_http():
         pytest.fail('HTTP must not run for invalid binding')
     result=run_fake([scenario()],handler,mutate=lambda b:b['bindings'].clear())
     assert result['problem']=='binding_coverage' and result['exit_code']==2
+
+
+def test_profile_and_selection_are_checked_before_any_http():
+    def handler(req):
+        pytest.fail('HTTP must not run for a different selection')
+
+    result = run_fake([scenario()], handler, profile='smoke', prepared_profile='full')
+    assert result['profile'] == 'smoke' and result['problem'] == 'binding_profile_mismatch'
+    result = run_fake([scenario()], handler, mutate=lambda b: b.update(selection_fingerprint='changed'))
+    assert result['problem'] == 'binding_selection_mismatch' and result['exit_code'] == 2
 
 
 def test_transport_timeout_not_retried_and_remaining_cases_blocked():
@@ -423,13 +505,16 @@ def test_document_citations_and_retrieval_content_match_pinned_sql_snapshot():
     assert 'retrieval_snapshot_provenance' in check_response(r,b,200,data,{'cache-control':'no-store'},catalog,'2026-11-18',corpus_records={'chunk':pinned})
 
 
-def test_answer_checks_display_claim_limitations_and_explicit_aspect():
+@pytest.mark.parametrize(('task_id', 'scope'), [
+    ('task.policy', 'Fictional scope'), ('task.leave.workit.unpaid', 'Workit'),
+])
+def test_answer_checks_display_claim_limitations_and_explicit_aspect(task_id, scope):
     ref = {'document_id':'doc', 'revision_id':'rev', 'chunk_index':1, 'quote':'Fictional proof', 'metadata':{}}
     other = ref | {'chunk_index':0, 'quote':'Different aspect'}
     unit = {'text':'Fictional condition', 'refs':[ref]}
-    catalog = {'cards':[{'id':'task.policy', 'sections':{'conditions':{'units':[unit]},
+    catalog = {'cards':[{'id':task_id, 'label':'Fictional scope', 'sections':{'conditions':{'units':[unit]},
         'overview':{'units':[unit | {'refs':[other]}]}}}]}
-    s = scenario(employee_fields=[], claims='required', task_ids_any=['task.policy'],
+    s = scenario(employee_fields=[], claims='required', task_ids_any=[task_id],
         expected_aspects=['conditions'], expected_policy_claim_texts=['Fictional condition'],
         required_limitations=['Fictional limit'])
     s.tags = ('aspect:overview',)  # The explicit oracle wins.
@@ -441,6 +526,10 @@ def test_answer_checks_display_claim_limitations_and_explicit_aspect():
     def failures(payload):
         return check_response(s, {'expected_values':{}}, 200, payload, {'cache-control':'no-store'}, catalog, '2026-11-19')
     assert failures(body) == []
+    prefix = f'Phạm vi trả lời là {scope}.\n\n'
+    assert failures(body | {'answer':prefix + body['answer']}) == []
+    assert 'answer_display' in failures(body | {'answer':prefix + prefix + body['answer']})
+    assert 'answer_display' in failures(body | {'answer':'Phạm vi trả lời là Other.\n' + body['answer']})
     assert 'answer_display' in failures(body | {'answer':'Unrelated conclusion'})
     assert 'required_limitations' in failures(body | {'limitations':[]})
     claim = body['claims'][0] | {'text':'Different condition'}

@@ -142,7 +142,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.boundaries.evidence-availability.008",
@@ -160,7 +164,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.boundaries.evidence-availability.009",
@@ -206,7 +214,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.boundaries.evidence-availability.011",

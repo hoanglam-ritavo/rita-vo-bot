@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "mode": "external-http-private-binding",
+  "profile": "full",
+  "selection_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
   "target_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
   "inputs": {},
   "snapshot_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
@@ -22,6 +24,7 @@
     "inactive": null,
     "duplicate_user": null,
     "manager": null,
+    "manager_conflicting": null,
     "not_found": 900099
   },
   "corpus_records": {}

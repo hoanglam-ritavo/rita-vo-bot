@@ -110,7 +110,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     }
   ]
 }

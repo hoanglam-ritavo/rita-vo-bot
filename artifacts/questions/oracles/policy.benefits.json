@@ -110,7 +110,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.benefits.006",
@@ -231,7 +235,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.benefits.011",
@@ -390,7 +398,13 @@
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "expected_aspects": [
+        "amount"
+      ],
+      "expected_policy_claim_texts": [
+        "Khi nhân viên kết hôn, chính sách phúc lợi 2023 nêu mức hỗ trợ 1.000.000đ/trường hợp, cần giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc hoặc cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn."
+      ]
     },
     {
       "case_id": "q.policy.benefits.017",
@@ -413,7 +427,13 @@
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "expected_aspects": [
+        "conditions"
+      ],
+      "expected_policy_claim_texts": [
+        "Khi nhân viên kết hôn, chính sách phúc lợi 2023 nêu mức hỗ trợ 1.000.000đ/trường hợp, cần giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc hoặc cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn."
+      ]
     },
     {
       "case_id": "q.policy.benefits.018",
@@ -595,7 +615,13 @@
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "expected_aspects": [
+        "amount"
+      ],
+      "expected_policy_claim_texts": [
+        "Khi con nhân viên kết hôn, chính sách phúc lợi 2023 nêu mức hỗ trợ 500.000đ/trường hợp; cần giấy chứng thực quan hệ và giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc hoặc cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn."
+      ]
     },
     {
       "case_id": "q.policy.benefits.025",
@@ -618,7 +644,13 @@
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "expected_aspects": [
+        "conditions"
+      ],
+      "expected_policy_claim_texts": [
+        "Khi con nhân viên kết hôn, chính sách phúc lợi 2023 nêu mức hỗ trợ 500.000đ/trường hợp; cần giấy chứng thực quan hệ và giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc hoặc cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn."
+      ]
     },
     {
       "case_id": "q.policy.benefits.026",

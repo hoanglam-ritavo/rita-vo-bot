@@ -21,8 +21,8 @@ uses endpoint-specific assertions. This client is separate from the
 
 ## Scenario matrix
 
-Each bank case appears exactly once per endpoint. Current-source one-turn cases
-are candidates. Multi-turn cases remain
+The default `full` profile lists each bank case once per endpoint. Current-source
+one-turn cases are candidates. Multi-turn cases remain
 `not_applicable / conversation_required`, without splitting turns or using a
 client reducer. Cases requiring source/feature changes or injected failures
 remain `not_applicable / controlled_fixture_required`. Missing profiles or
@@ -30,20 +30,24 @@ publications block an applicable case; they never count as passed or excluded.
 
 Each endpoint adds eleven protocol scenarios: missing/wrong key;
 missing/null/string/boolean/zero HRM reference; blank text; and zero/large/boolean
-top-K. Five additional HRM-role scenarios per endpoint cover complete work fields,
-inactive profiles, duplicate user references, resolved managers and a reference
-confirmed absent in the snapshot. Missing suitable roles are blocked.
+top-K. Six additional HRM-role scenarios per endpoint cover complete work fields,
+inactive profiles, duplicate user references, resolved managers, a conflicting
+manager link and a reference confirmed absent in the snapshot. Missing suitable
+roles are blocked.
 
 | Endpoint | Expectations |
 | --- | --- |
 | Both | Expected HTTP status, no-store, strict schema 2, exact employee fields/subjects/values/nulls, declared application states, required/forbidden sources and input provenance |
 | Retrieve | Endpoint-specific status and lookup expectations, top-K 5, unassessed matches, completeness warning, snapshot provenance and first linked task/aspect evidence for authored positive targets |
-| Answer | Claim-to-display consistency, declared exact policy claims and limitations, task/aspect evidence, citation quotes/metadata, graph integrity and forbidden-task evidence |
+| Answer | Claim-to-display consistency, evidence-backed scope line, authored HRM display and policy claims, limitations, task/aspect evidence, citation quotes/metadata, graph integrity and forbidden-task evidence |
 | Calculation | Independent work-date arithmetic, expected value and unit, HRM date and `as_of` inputs, and a claim linked to the calculation. Retrieve rejects calculation evidence |
 
 The socket harness uses authored aspects when selecting task evidence and checks
 exact policy claim text and required limitations where the oracle declares them.
-It checks the displayed answer against the response's claims or limitations.
+It checks the displayed answer against the response's claims or limitations. An
+optional leading scope line must match an expected task supported by the cited
+evidence. Authored direct HRM claims must show the exact bound value or the
+missing-data message and link to the corresponding employee evidence.
 For explicitly authored lookup cases, it checks the `document_lookup` fallback,
 unassessed limitation, source metadata and full excerpt hash against the frozen
 publication. Template claims use authored references. Scores and timings are
@@ -51,16 +55,23 @@ outside the scoring rules.
 
 Reviewed Retrieve cases can require a specific outcome and forbid document
 lookup. Platform contrast cases verify the expected first candidate while
-allowing unassessed secondary candidates. Inventory reports the number of
-applicable Retrieve checks still using the broad default `unresolved` rule.
+allowing unassessed secondary candidates. Of the 65 cases previously using the
+broad `unresolved` rule, 15 must ask for clarification without document lookup
+and 50 use unassessed corpus search. The latter accept `evidence_found` or
+`no_evidence` because eligible publications determine candidate availability.
+This also applies to search results for requests to perform actions or endorse
+unsupported conclusions. Answer carries the separate business expectation.
 
-The 2026-11-19 local inventory covers 867 question cases and 1,766 checks. It
-lists 1,692 pending preparation and 74 outside the stateless run (50 conversation,
-24 controlled fixture). The 25 multi-turn cases are marked
+The `full` profile covers 867 question cases and 1,768 checks, with 1,694 pending
+preparation and 74 outside the stateless run (50 conversation, 24 controlled
+fixture). The 25 multi-turn cases are marked
 `conversation_required` for each endpoint. Their per-turn conversation checks
 run in the offline [question fixture](../artifacts/questions/README.md#record-format).
-Of the applicable Retrieve checks, 65 retain the broad default. Counts are
-recomputed from the selected inputs and describe planning coverage.
+The `smoke` profile selects 11 protocol scenarios, six HRM-role scenarios and
+11 bank cases for both endpoints, for 56 pending checks. It includes a document
+excerpt, mixed HRM and policy, date arithmetic, platform-specific paperwork,
+missing-data, clarification and privacy boundaries. The full inventory has zero
+applicable Retrieve checks using `unresolved`. These counts describe planning coverage.
 
 ## Configuration
 
@@ -99,20 +110,22 @@ scope; no TLS-verification bypass is introduced.
 
 ## Future execution sequence
 
-These commands describe the later execution plan; they were not run against
-live services during construction. Use the repository virtual environment and
-new output paths, replacing placeholders without committing private values.
+Use the repository virtual environment and new output paths. Run the sequence
+first with `--profile smoke`, then repeat with `--profile full` and new paths
+after smoke reports zero failures and zero blocked checks. Omitting the option
+selects `full`. Use the same profile for all three commands in a run.
 
 ```powershell
 # Local matrix only; no dotenv, network, DB or model access.
-python -m src.cli.evaluate_http_e2e inventory --output .tmp/e2e-inventory-new.json
+python -m src.cli.evaluate_http_e2e inventory --profile smoke --output .tmp/e2e-smoke-inventory.json
 
 # Later: read prepared databases; do not call the bot or change data.
-python -m src.cli.evaluate_http_e2e prepare --env-file <test-config-file> --output .tmp/e2e-binding-new.json
+python -m src.cli.evaluate_http_e2e prepare --profile smoke --env-file <test-config-file> --output .tmp/e2e-smoke-binding.json
 
 # Review/freeze that binding and retain prepare's canonical binding_sha256.
 # Start the correctly configured bot manually through its existing serve_api command.
-python -m src.cli.evaluate_http_e2e run --env-file <test-config-file> --binding .tmp/e2e-binding-new.json --binding-sha256 <reviewed-canonical-sha256> --output .tmp/e2e-report-new.json
+python -m src.cli.evaluate_http_e2e run --profile smoke --env-file <test-config-file> --binding .tmp/e2e-smoke-binding.json --binding-sha256 <reviewed-canonical-sha256> --output .tmp/e2e-smoke-report.json
+# Repeat with --profile full and fresh e2e-full-* paths.
 ```
 
 `prepare` uses the existing employee-store metadata/privilege check, then surveys
@@ -129,6 +142,16 @@ fallback only without an ID; self/conflicting links supply no manager facts.
 One selected profile must satisfy every requested null/nonnull condition of a
 case. Identities and values are chosen before HTTP, not from bot responses.
 
+Reuse the [fictional HRM fixture](employee-source.md#verification-and-disposable-fixture).
+Ensure there is a profile with all four work fields, a profile with no job title,
+an inactive profile with a nonnull title, a duplicate user with a clear winner,
+a resolved manager link and an absent user reference. The manager-conflict role
+requires fictional user `910006` with a linked manager ID and a different
+nonempty manager code. Answer expects an insufficient-evidence result and
+Retrieve expects no evidence, both with a null manager name and partial
+application. For `full`, use blocked rows from `prepare` to identify any
+additional missing field combinations or corpus publications.
+
 The corpus snapshot reads eligible current/public/active publications compatible
 with the inventory's E5 pin. Exact chunk hashes, authored quotes and metadata
 establish task/aspect prerequisites independently of HTTP output. Missing source
@@ -139,11 +162,13 @@ fully supported claim and the declared source groups. Retrieve prerequisites
 follow the required source groups and expected task evidence. Snapshot preparation
 uses hashes and metadata without generating embeddings or loading models.
 
-The private binding contains minimal HRM expectations/references, role
-availability, corpus identities/hashes/metadata, input hashes and a snapshot
-fingerprint. Review it privately. `--binding-sha256` freezes canonical JSON
-content. Run rejects different local inputs, bindings, URL, business day or
-source snapshots. Expected values are never refreshed during execution.
+The private binding contains the profile and selection fingerprint, minimal HRM
+expectations/references, role availability, corpus identities/hashes/metadata,
+input hashes and a snapshot fingerprint. Review it privately.
+`--binding-sha256` freezes canonical JSON content. Run validates the profile and
+selection before HTTP, and rejects different local inputs, bindings, URL,
+business day or source snapshots. Prepare a fresh binding after harness or input
+changes. Expected values remain fixed during execution.
 
 `run` probes `/health/live`, `/health/ready`, `/health/answer` in order, using
 20-second timeouts and service authentication for protected probes. Failures
@@ -169,7 +194,7 @@ and counts, never credentials, DB URLs, personnel values, question text,
 source bodies or response bodies. Exceptions are not printed. Preparation prints
 only counts and its canonical binding hash.
 
-Every case/endpoint appears once as `passed`, `failed`, `blocked` or
+Every case/endpoint in the selected profile appears once as `passed`, `failed`, `blocked` or
 `not_applicable`, grouped by endpoint and business group. Exit 0 requires every
 applicable check passing and none blocked; exit 1 means assertions failed;
 exit 2 means invalid/unavailable/incomplete execution, including missing

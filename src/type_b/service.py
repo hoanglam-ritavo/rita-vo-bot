@@ -10,8 +10,10 @@ from typing import TYPE_CHECKING
 from src.api.contracts import (ApiError, AnswerTimings, Timings, Relevance,
                                UnifiedAnswerResponse, UnifiedRetrievalResponse)
 from src.answering.contextual import prepare, requirements, compose, document_result
+from src.answering.discovery import suggest_document_topics
 from src.answering.scope import resolve_document_scopes
 from src.api.admission import admit, release
+from src.database.config import ConfigurationError
 from src.retrieval import RetrievalError
 
 if TYPE_CHECKING:
@@ -19,6 +21,12 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 DEADLINE_SECONDS = 120
+EMPLOYEE_ERROR_CODES = frozenset({
+    'schema_incompatible', 'unsafe_database_role', 'readonly_required', 'source_access_denied',
+    'source_closed', 'source_timeout', 'source_unavailable', 'invalid_batch', 'invalid_data',
+    'invalid_identity', 'invalid_list', 'invalid_projection', 'invalid_timestamp',
+    'unexpected_identity', 'conflicting_rows',
+})
 
 
 class ContextCoordinator:
@@ -32,34 +40,87 @@ class ContextCoordinator:
             self.employee = employee_service if employee_service is not None else EmployeeSourceService()
             self.source_error_type = EmployeeSourceError
         self.available = False
+        self._last_source_error = None
         self._next_source_check = 0.0
         self._source_check_lock = asyncio.Lock()
 
     async def start(self):
         await self.check_source()
 
+    def _source_error_code(self, error):
+        if isinstance(error, ConfigurationError):
+            return 'invalid_source_configuration'
+        if isinstance(error, TimeoutError):
+            return 'source_timeout'
+        if isinstance(error, self.source_error_type) and error.code in EMPLOYEE_ERROR_CODES:
+            return error.code
+        return 'source_unavailable'
+
     async def check_source(self):
-        if not self.settings.enabled or self.employee is None or self.available or time.monotonic() < self._next_source_check or self._source_check_lock.locked():
-            return
+        """Return whether a needed check was deferred by the cooldown or another check."""
+        if not self.settings.enabled or self.employee is None or self.available:
+            return False
+        if time.monotonic() < self._next_source_check or self._source_check_lock.locked():
+            return True
         async with self._source_check_lock:
             self._next_source_check = time.monotonic() + 30
             try:
                 async with asyncio.timeout(15):
                     await self.employee.check_source()
                 self.available = True
+                self._last_source_error = None
                 logger.info('employee_context state=ready')
-            except Exception:
-                logger.warning('employee_context state=unavailable')
+            except Exception as error:
+                self._last_source_error = self._source_error_code(error)
+                logger.warning('employee_context state=unavailable stage=check_source reason=%s',
+                               self._last_source_error)
             finally:
                 self._next_source_check = time.monotonic() + 30
+        return False
 
     async def close(self):
         self.available = False
+        self._last_source_error = None
         if self.employee is not None:
             await self.employee.close()
 
+    async def _lookup_employee(self, hrm_user_id, fields, manager, *, message_id, attempt):
+        started = time.perf_counter()
+        snapshot, reason = None, None
+        state = 'disabled' if not self.settings.enabled else 'unavailable'
+        stage = 'check_source'
+        check_deferred = await self.check_source()
+        if self.settings.enabled and self.available:
+            stage = 'read_context'
+            try:
+                snapshot = await self.employee.read_context(hrm_user_id, fields, manager=manager)
+                state = 'applied' if snapshot is not None else 'not_found'
+            except self.source_error_type as error:
+                from .employee_store.errors import EmployeeValidationError
+                record_error = isinstance(error, EmployeeValidationError)
+                reason = self._source_error_code(error)
+                if not record_error:
+                    self.available = False
+                    self._last_source_error = reason
+                    self._next_source_check = time.monotonic() + 30
+                logger.warning('employee_context state=unavailable stage=read_context scope=%s reason=%s '
+                               'message_id=%s attempt=%s',
+                               'record' if record_error else 'source', reason, message_id, attempt)
+        elif self.settings.enabled:
+            reason = self._last_source_error
+
+        if message_id is not None:
+            missing_fields = (tuple(field for field in fields if snapshot.values.get(field) is None)
+                              if snapshot is not None else ())
+            logger.info('employee_context_lookup message_id=%s attempt=%s stage=%s state=%s reason=%s '
+                        'check_deferred=%s requested_fields=%s missing_fields=%s manager_requested=%s elapsed_ms=%.1f',
+                        message_id, attempt, stage, state, reason or '-', check_deferred,
+                        ','.join(fields) or '-', ','.join(missing_fields) or '-', manager,
+                        (time.perf_counter() - started) * 1000)
+        return snapshot, state
+
     async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None, reserved=False,
-                      on_resolved=None):
+                      on_resolved=None, message_id=None, attempt=None):
         if type(hrm_user_id) is not int or not 0 < hrm_user_id <= 2**53-1:
             raise ApiError('hrm_user_id_required', 422)
         if not self.owner.started:
@@ -77,9 +138,13 @@ class ContextCoordinator:
                 policy = getattr(self.owner.retrieval, 'policy', None)
                 plan = prepare(text, answers.catalog, answers.lexicon, policy, analysis=analysis)
                 scoped_evidence = None
+                discovery_seconds = 0.
                 if answer and answers.available:
                     resolved, scoped_evidence = await resolve_document_scopes(plan.analysis, answers.catalog,
                                                                               self.owner.retrieval)
+                    if resolved.topic_unmatched and on_resolved is not None:
+                        resolved, discovery_seconds = await suggest_document_topics(resolved, answers.catalog,
+                                                                                   self.owner.retrieval)
                     if resolved is not plan.analysis:
                         plan = prepare(text, answers.catalog, answers.lexicon, policy, analysis=resolved)
                 if on_resolved is not None:
@@ -93,34 +158,29 @@ class ContextCoordinator:
                                if plan.unsupported_person else plan.clarification)
                     logger.info('request_plan state=%s reason=%s', status,
                                 'other_subject' if plan.unsupported_person else
-                                'unresolved_request' if plan.analysis.unresolved else 'ambiguous_request')
+                                'topic_suggestions' if plan.analysis.discovery_options else
+                                'unresolved_request' if plan.analysis.unresolved else
+                                'multiple_scopes' if len(plan.analysis.cards) > 1 else
+                                'topic_unmatched' if not (plan.analysis.parts or plan.analysis.missing_slots
+                                                          or plan.analysis.ambiguous) else 'needs_detail')
                     elapsed = time.perf_counter() - started
-                    relevance = Relevance(status='no_candidates', warnings=['document_retrieval_not_requested'])
+                    warning = 'document_retrieval_not_requested'
+                    if discovery_seconds:
+                        warning = 'topic_discovery_suggestions_only' if plan.analysis.discovery_options else 'topic_discovery_no_verified_options'
+                    relevance = Relevance(status='no_candidates', warnings=[warning])
                     if not answer:
                         return UnifiedRetrievalResponse(status=status, document_status=None, matches=[],
                             fallback_reason=None, relevance=relevance, timings=Timings(
                                 retrieval_seconds=0., total_seconds=elapsed))
                     return UnifiedAnswerResponse(status=status, answer=message, claims=[], sources=[],
                         limitations=[message], fallback_reason='other_employee_unsupported' if plan.unsupported_person else plan.analysis.clarification_reason,
-                        relevance=relevance, timings=AnswerTimings(retrieval_seconds=0., generation_seconds=0.,
+                        relevance=relevance, timings=AnswerTimings(retrieval_seconds=discovery_seconds, generation_seconds=0.,
                             verification_seconds=0., total_seconds=elapsed))
                 fields, manager = requirements(plan)
                 snapshot, context_state = None, 'not_needed'
                 if fields or manager:
-                    context_state = 'disabled' if not self.settings.enabled else 'unavailable'
-                    await self.check_source()
-                    if self.settings.enabled and self.available:
-                        try:
-                            snapshot = await self.employee.read_context(hrm_user_id, fields, manager=manager)
-                            context_state = 'applied' if snapshot is not None else 'not_found'
-                        except self.source_error_type as error:
-                            from .employee_store.errors import EmployeeValidationError
-                            if not isinstance(error, EmployeeValidationError):
-                                self.available = False
-                                self._next_source_check = time.monotonic() + 30
-                            context_state = 'unavailable'
-                            logger.warning('employee_context state=unavailable scope=%s',
-                                           'record' if isinstance(error, EmployeeValidationError) else 'source')
+                    snapshot, context_state = await self._lookup_employee(
+                        hrm_user_id, fields, manager, message_id=message_id, attempt=attempt)
                 document, raw = None, None
                 direct_only = bool(plan.direct_fields) and plan.card is None and not plan.analysis.document_lookup
                 if not direct_only:

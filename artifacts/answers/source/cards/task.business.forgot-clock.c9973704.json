@@ -7,7 +7,11 @@
   ],
   "aliases": [
     "quên chấm công",
-    "quên bấm công"
+    "quên bấm công",
+    "lỡ không bấm vân tay",
+    "quên quẹt vân tay",
+    "quên chấm vân tay",
+    "lỡ quên quét vân tay"
   ],
   "requires_any": [],
   "excludes_any": [],
@@ -85,5 +89,10 @@
     "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
     "facts": [],
     "family_summary": false
-  }
+  },
+  "discovery_terms": [
+    "lỡ quên quét",
+    "quên máy vân tay",
+    "quên giờ vào"
+  ]
 }

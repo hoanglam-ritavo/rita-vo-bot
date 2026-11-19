@@ -6,10 +6,10 @@ import json
 import logging
 import re
 
-from src.answering.planning import analyze_question, choice_labels
+from src.answering.planning import analyze_question, choice_labels, unknown_topic_prompt
 from src.answering.slots import SLOT_LABELS, parse_inputs
 from src.type_b.tasks import TASKS, normalized
-from .continuation import ASPECTS, recognize, input_update
+from .continuation import ASPECTS, recognize, input_update, starts_new_request
 
 SCHEMA = 9
 LEGACY_SCHEMAS = (7, 8)
@@ -30,12 +30,13 @@ def valid_context(previous):
     if request is not None:
         if not isinstance(request, dict) or not isinstance(request.get('question'), str) or not 1 <= len(request['question']) <= 2000:
             return False
-        if set(request) - {'question', 'slots', 'user_inputs', 'aspects', 'selected_task', 'source_id', 'self_reference'}:
+        if set(request) - {'question', 'slots', 'user_inputs', 'aspects', 'selected_task', 'source_id',
+                           'self_reference', 'document_guidance'}:
             return False
         for key in ('selected_task', 'source_id'):
             if key in request and (not isinstance(request[key], str) or not 1 <= len(request[key]) <= 100):
                 return False
-        if 'self_reference' in request and type(request['self_reference']) is not bool:
+        if any(type(request[key]) is not bool for key in ('self_reference', 'document_guidance') if key in request):
             return False
         slots = request.get('slots', {})
         if not isinstance(slots, dict) or set(slots) - {'system', 'subtype', 'days', 'sessions', 'granularity', 'intent'}:
@@ -177,7 +178,7 @@ def _typed_choice(query, candidates, policy, *, allow_number=True):
         aspects = update.aspects
     else:
         aspects = ()
-    labels = dict(choice_labels(candidates))
+    labels = dict(choice_labels(candidates, include_filenames=True))
     return [card for index, card in enumerate(candidates, 1) if choice in {
         *((str(index),) if allow_number else ()), normalized(card.label),
         normalized(labels.get(card.id, '')), *(normalized(alias) for alias in card.aliases)}], aspects
@@ -232,6 +233,8 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
     item = re.fullmatch(r'(?:(?:con|ve|giai thich) )?muc (?:thu |so )?(\d+)(?: (?:trong|o|cua) cau tra loi truoc)?(?: thi sao)?', query)
     if prior and len(chosen) == 1:
         request = {**prior, 'selected_task': chosen[0].id}
+        if prior.get('document_guidance') and old.get('pending') == 'task':
+            request['question'] = chosen[0].label
         if added_aspects:
             request['aspects'] = list(dict.fromkeys([*prior.get('aspects', []), *added_aspects]))
         if active_task != chosen[0].id:
@@ -263,7 +266,7 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
             update = None
         sources = {ref.document_id for card in candidates for section in getattr(card, 'sections', {}).values()
                    for unit in section.units for ref in unit.refs}
-        if text.strip().lower() in sources:
+        if text.strip().lower() in sources and not prior.get('document_guidance'):
             request = {**prior, 'source_id': text.strip().lower()}
             continuation, turn_kind = True, 'selection'
         elif inputs.values:
@@ -288,6 +291,11 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
                 request.pop('source_id', None)
             elif active_task:
                 request['selected_task'] = active_task
+                if len(update.aspects) == 1 and not update.add and not update.slots:
+                    related_task = getattr(by_id.get(active_task), 'related_aspects', {}).get(update.aspects[0])
+                    if related_task:
+                        request['selected_task'] = related_task
+                        request.pop('source_id', None)
             continuation = True
             turn_kind = 'correction' if update.correction else 'followup' if update.aspects else 'slot_update'
             previous_slots = prior.get('slots', {})
@@ -309,7 +317,8 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         request['self_reference'] = True
     analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
     independent = bool(analysis.parts or analysis.unsupported_person or analysis.cards
-                       or analysis.document_lookup or analysis.missing_slots)
+                       or analysis.document_lookup or analysis.missing_slots
+                       or (not issue and starts_new_request(query)))
     retained = False
     ambiguous_pending_target = (candidates and analysis.clarification
         and any(card.id in old['candidates'] for card in analysis.cards))
@@ -339,7 +348,7 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
     elif focus_unit is not None:
         analysis = replace(analysis, focus_unit=focus_unit)
     elif not continuation and not (analysis.parts or analysis.clarification or analysis.unsupported_person):
-        analysis = replace(analysis, clarification='Bạn hãy nêu rõ chủ đề, đối tượng và thông tin cần hỏi.')
+        analysis = replace(analysis, clarification=unknown_topic_prompt(text, policy), topic_unmatched=True)
     if (legacy_prompt or not compatible) and valid and previous.get('pending') == 'task' and previous.get('request'):
         previous_cards = [by_id[key] for key in previous.get('candidates', []) if key in by_id]
         old_choice, _ = _typed_choice(query, previous_cards, policy)
@@ -396,6 +405,9 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
 def finalize_scope(state, analysis):
     """Persist the options actually offered and any scope used to answer."""
     request = deepcopy(state['request'])
+    if analysis.discovery_options and request is not None:
+        request['document_guidance'] = True
+        request['aspects'] = list(analysis.aspects)
     if analysis.scope_intro and request is not None:
         request['selected_task'] = analysis.cards[0].id
         if analysis.scope_system:

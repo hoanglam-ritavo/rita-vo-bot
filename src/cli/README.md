@@ -8,7 +8,7 @@ Run commands from the repository root with the repository virtual environment. B
 
 | File | Status | Purpose and invocation |
 | --- | --- | --- |
-| `evaluate_http_e2e.py` | Constructed; live execution pending | `python -m src.cli.evaluate_http_e2e <inventory/prepare/run> --output .tmp/<new-file>.json`: local inventory, explicit readonly binding preparation, or external HTTP against a manual bot. No service startup, DB writes, models or conversation IDs; see [runbook](../../docs/http-e2e.md). |
+| `evaluate_http_e2e.py` | Constructed; live execution pending | `python -m src.cli.evaluate_http_e2e <inventory/prepare/run> [--profile full\|smoke] --output .tmp/<new-file>.json`: local inventory, explicit readonly binding preparation, or external HTTP against a manual bot. See [runbook](../../docs/http-e2e.md). |
 | `check_db.py` | Current | `python -m src.cli.check_db`: check PostgreSQL connectivity and pgvector version. |
 | `reset_dev_chat.py` | Explicit development-only reset | `python -m src.cli.reset_dev_chat`: dry-run counts from explicit CHAT_RESET_BOT_DATABASE_URL/CHAT_RESET_BACKEND_DATABASE_URL; loopback PostgreSQL dev/test databases only, no .env loading. Apply requires `--apply --services-stopped --confirm RESET_DEVELOPMENT_CHAT`; deletes only allowlisted chat rows, separate per-database transactions, no CASCADE/DDL. See [reset runbook](../../docs/contextual-answers.md#conversations-and-rollout). |
 | `check_employee_source.py` | Current, opt-in Type B employee-store preflight | `python -m src.cli.check_employee_source`: delegates to `src/type_b/employee_store` for metadata-only HRM connectivity, readonly role/transaction and 64-column projection checks; exits 0/1, loads root `.env`, drains/closes its own pool; no employee output, writes or migrations. See [employee source](../../docs/employee-source.md). |
@@ -31,7 +31,9 @@ Run commands from the repository root with the repository virtual environment. B
 
 The separate external HTTP evaluation command is constructed for a later live
 execution plan. `python -m src.cli.evaluate_http_e2e inventory --output .tmp/<new-inventory>.json`
-compiles both stateless endpoint scenarios locally. Explicit `prepare` reads
+compiles both stateless endpoint scenarios locally. All three commands accept
+`--profile smoke` for the fixed 56-check selection or `--profile full` for the
+default matrix. A binding is specific to the selected profile. Explicit `prepare` reads
 only preprovisioned HRM/corpus test inputs; explicit `run --binding .tmp/<binding>.json
 --binding-sha256 <reviewed-hash> --output .tmp/<new-report>.json` health-checks and
 calls a manually started loopback bot. It does not start the bot, seed/reset DBs,

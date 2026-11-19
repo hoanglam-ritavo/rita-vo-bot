@@ -9,7 +9,12 @@
     "đặt phòng họp Workit",
     "đặt phòng họp trên Workit",
     "đăng ký phòng họp Workit",
-    "đặt lịch phòng họp Workit"
+    "đặt lịch phòng họp Workit",
+    "mượn phòng họp của công ty",
+    "mượn được phòng họp của công ty",
+    "đặt một phòng họp trên Workit",
+    "book phòng họp trên Workit",
+    "đặt phòng họp bằng Workit"
   ],
   "requires_any": [],
   "excludes_any": [],
@@ -83,5 +88,10 @@
     "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
     "facts": [],
     "family_summary": false
-  }
+  },
+  "discovery_terms": [
+    "phòng trên workit",
+    "phòng họp workit",
+    "lịch họp workit"
+  ]
 }

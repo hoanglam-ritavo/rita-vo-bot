@@ -3,10 +3,11 @@ from src.business_calendar import business_today
 import math
 import hashlib
 import json
+from collections import defaultdict
 from sqlalchemy import select, exists, or_, text
 from src.database import session_scope
 from src.database.models import DocumentChunk as Chunk, DocumentRevision as Revision
-from src.database.models import IngestionRun as Run, DocumentAccessRule as Access
+from src.database.models import IngestionRun as Run, DocumentAccessRule as Access, DocumentRelation
 from src.ingestion.embeddings import MODEL_NAME
 
 
@@ -58,9 +59,12 @@ async def read_references(references, model_revision, fingerprint):
     """
     import uuid
     addresses = set()
+    revisions_by_hash = defaultdict(set)
     for ref in references:
         try:
-            addresses.add((uuid.UUID(ref.document_id), uuid.UUID(ref.revision_id), ref.chunk_index))
+            revision = uuid.UUID(ref.revision_id)
+            addresses.add((uuid.UUID(ref.document_id), revision, ref.chunk_index))
+            revisions_by_hash[ref.source_sha256].add(revision)
         except ValueError:
             continue
     if not addresses:
@@ -78,7 +82,17 @@ async def read_references(references, model_revision, fingerprint):
         for chunk, revision in rows:
             key = (str(revision.document_id), str(revision.id), chunk.chunk_index)
             grouped.setdefault(key, []).append({**match_record(chunk, revision), 'source_sha256': revision.sha256})
-        return [values[0] for _, values in sorted(grouped.items()) if len(values) == 1]
+        matches = [values[0] for _, values in sorted(grouped.items()) if len(values) == 1]
+        candidate_revisions = set().union(*(ids for ids in revisions_by_hash.values() if len(ids) > 1))
+        if matches and candidate_revisions:
+            relations = await db.execute(select(DocumentRelation.source_revision_id, DocumentRelation.target_revision_id)
+                .where(DocumentRelation.relation_type == 'duplicate_of',
+                       DocumentRelation.source_revision_id.in_(candidate_revisions),
+                       DocumentRelation.target_revision_id.in_(candidate_revisions)))
+            pairs = sorted((str(source), str(target)) for source, target in relations)
+            for match in matches:
+                match['duplicate_revision_pairs'] = [pair for pair in pairs if match['revision_id'] in pair]
+        return matches
 
 
 async def search(vector, model_revision, fingerprint, top_k, *, detail_only=False, extra_vectors=(), references=()):

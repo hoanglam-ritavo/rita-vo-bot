@@ -94,6 +94,10 @@ requires the publication-backed excerpt contract. `calculation_required` can
 require or forbid a calculation in Answer. Required calculations use an
 explicit evaluation date. `expected_values` supplies fictional HRM values for
 the local fixture, while the socket harness pins values from the readonly binding.
+Optional `expected_employee_claim_fields` lists the direct HRM fields whose
+claim presentation the socket harness checks against that binding. The check
+includes the field label, formatted value or missing-data message, and link to
+the matching employee evidence.
 
 Support classifications:
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_sha256": "e41e0a1777e46b317ecc49c3e04edaec37a173731bd6807afda761a278b87634",
+  "catalog_sha256": "16e7c1547228f14d53cfe7659eb79fc1ba7deed4cde74d4d81c3a8d5158ee31d",
   "provenance": "Cross-domain source-bound tasks; partial sections retain source conditions. Implementation-agent source review only.",
   "runtime_release_accepted": false,
   "retrieval_acceptance": "Unassessed candidates; task claims require exact current eligible DB evidence.",
@@ -186,6 +186,19 @@
     "baseline_revision": "1bfbe6b",
     "scope": "Offline pilot candidate: Workit and E-Leave paperwork and guarded question variants.",
     "new_partial_sections": 4,
+    "independent_acceptance": false,
+    "database_verified": false
+  },
+  "natural_question_pilot": {
+    "date": "2026-11-19",
+    "baseline_revision": "b2ecf5a",
+    "scope": "Bounded natural Vietnamese routing and partial source-backed procedures. No new vector fallback.",
+    "independent_acceptance": false,
+    "database_verified": false
+  },
+  "document_guidance_expansion": {
+    "date": "2026-11-19",
+    "scope": "Bounded document topic suggestions and reviewed partial procedure sections; no independent acceptance or live publication verification.",
     "independent_acceptance": false,
     "database_verified": false
   }

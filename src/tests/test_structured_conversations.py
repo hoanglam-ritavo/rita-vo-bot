@@ -94,6 +94,45 @@ class MemoryStore:
         raise AssertionError('Unexpected failure in fictional conversation')
 
 
+def test_http_correlates_conversation_receipt_and_employee_lookup_without_logging_payload(sample, monkeypatch, caplog):
+    owner = service(sample)
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True), type_b=TypeBSettings(True))
+    job_title = 'private-test-job-title'
+    employee = SimpleNamespace(read_context=AsyncMock(return_value=snapshot(job_title=job_title)),
+                               check_source=AsyncMock(), close=AsyncMock())
+    owner.context = ContextCoordinator(owner, employee)
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    caplog.set_level('INFO', logger='src.api.app')
+    caplog.set_level('INFO', logger='src.type_b.service')
+    payload = dict(user_id=str(uuid4()), hrm_user_id=741852963, room_id=str(uuid4()), message_id=str(uuid4()),
+                   expected_context_version=0, text='Chức danh hiện tại của tôi là gì?', top_k=5)
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner)) as client:
+        assert client.post('/api/v1/answer', json=payload).status_code == 401
+        invalid = client.post('/api/v1/answer', json=payload | {'hrm_user_id': 0}, headers=SERVICE_HEADERS)
+        assert invalid.status_code == 422
+        assert not any('conversation_answer_received' in message for message in caplog.messages)
+
+        response = client.post('/api/v1/answer', json=payload, headers=SERVICE_HEADERS)
+        assert response.status_code == 200
+        assert response.json()['result']['application']['state'] == 'applied'
+        assert job_title in response.json()['result']['answer']
+        replay = client.post('/api/v1/answer', json=payload, headers=SERVICE_HEADERS)
+        assert replay.json() == response.json()
+
+    receipts = [message for message in caplog.messages if message.startswith('conversation_answer_received ')]
+    assert receipts == [f"conversation_answer_received message_id={payload['message_id']} "
+                        'expected_context_version=0 top_k=5 has_choice=False'] * 2
+    (lookup,) = [message for message in caplog.messages if message.startswith('employee_context_lookup ')]
+    assert f"message_id={payload['message_id']} attempt=1 stage=read_context state=applied" in lookup
+    assert 'requested_fields=job_title missing_fields=-' in lookup
+    employee.read_context.assert_awaited_once_with(payload['hrm_user_id'], ('job_title',), manager=False)
+    for value in (*SERVICE_HEADERS.values(), job_title, payload['text'], payload['room_id'],
+                  payload['user_id'], str(payload['hrm_user_id'])):
+        assert value not in caplog.text
+
+
 @pytest.mark.parametrize('ending', ['.', '?', '', '\n'])
 @pytest.mark.parametrize('reply', ['Workit', 'Workit.', 'dùng workit', 'đang dùng Workit'])
 def test_http_pending_platform_survives_punctuation_and_cache_rebuild(sample, routing, monkeypatch, ending, reply):
@@ -497,6 +536,260 @@ def test_document_lookup_stays_available_when_search_text_mentions_comparison(ro
     plan, _ = plan_turn('Tìm tài liệu về so sánh các chế độ sinh con', {}, catalog, lexicon, policy=policy)
     assert plan.document_lookup and not plan.clarification
     assert not plan.check_scopes
+    plan, _ = plan_turn('cho mình xem văn bản đi trên Workit', {}, catalog, lexicon, policy=policy)
+    assert not plan.document_lookup
+
+
+def test_vehicle_procedure_and_related_forms_use_current_citations(sample, routing, monkeypatch):
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+
+    catalog, lexicon, policy = routing
+    documents = FixtureRetrieval(policy, fixture_records(REPOSITORY_ROOT))
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
+    owner.retrieval.retrieve = AsyncMock(side_effect=AssertionError('Template answers must not search vectors'))
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        def ask(text):
+            response = client.post('/api/v1/answer', json=dict(user_id=actor, hrm_user_id=7,
+                room_id=room, message_id=str(uuid4()), expected_context_version=store.version_number, text=text))
+            assert response.status_code == 200
+            return response.json()['result']
+
+        for question in ('làm sao để dùng được xe của công ty', 'làm sao để dùng được xe của tập đoàn',
+                         'Cho mình hỏi cách mượn xe công ty'):
+            result = ask(question)
+            assert result['status'] == 'partial' and 'clarification_options' not in result
+            assert 'Admin hoặc Quản lý điều xe' in result['answer']
+            assert 'phê duyệt' in result['answer'] and 'việc riêng' in result['answer']
+            assert 'Nếu cần tự lái' in result['answer']
+            assert result['claims'] and {source['version_label'] for source in result['sources']} == {'HCNS-QT02 — 01'}
+            assert all(claim['evidence_refs'] for claim in result['claims'])
+
+        paperwork = ask('cần giấy tờ gì')
+        assert paperwork['claims'] and store.delta['task_id'] == 'task.topic.vehicle-forms'
+        assert {source['version_label'] for source in paperwork['sources']} == {'HCNS-QT02 — 01'}
+
+        reads = owner.retrieval.read_evidence.await_count
+        switched = ask('làm sao để cấp lại thẻ gửi xe tháng')
+        assert switched['status'] == 'needs_clarification' and 'tìm tài liệu' in switched['answer']
+        assert store.delta['turn_kind'] == 'new_request' and owner.retrieval.read_evidence.await_count == reads
+
+        workit = ask('đăng ký xe của công ty trên Workit')
+        assert workit['claims'] and 'Xe công tác' in workit['answer']
+        assert {source['version_label'] for source in workit['sources']} == {'HDSD-29/3/25-V1'}
+
+        both = ask('dùng xe tập đoàn và đặt xe công tác Workit')
+        assert both['status'] == 'needs_clarification'
+        assert {option['label'] for option in both['clarification_options']} == {
+            'sử dụng xe tập đoàn', 'đặt xe công tác Workit'}
+
+        personal = ask('tôi có được dùng xe của công ty cho việc riêng không')
+        assert personal['status'] == 'needs_clarification' and not personal['claims']
+
+        documents.fixture = 'withdrawn'
+        missing = ask('làm sao để dùng được xe của tập đoàn')
+        assert missing['status'] == 'insufficient_evidence'
+        assert missing['fallback_reason'] == 'answer_reference_unavailable' and not missing['claims']
+
+
+@pytest.mark.parametrize(('question', 'task'), [
+    ('đặt một phòng họp trên Outlook', 'task.0fa1b0d52a645ec9bb269436017a938d'),
+    ('cách book phòng họp trên Workit', 'task.business.workit-room.d906cfac'),
+    ('làm sao để xem phiếu lương của mình trên Workit', 'task.business.workit-salary.bcc9e137'),
+    ('làm sao để xin thêm bút và giấy cho phòng ban', 'task.5370844d82725638822c191c4a255ed0'),
+    ('cách đổi mật khẩu tài khoản Workit Mobile', 'task.business.systems.mobile-password.2cb00d36'),
+    ('cách thay mật khẩu tài khoản của tôi trên Workit', 'task.workit-password'),
+    ('lỡ không bấm vân tay thì phải làm gì', 'task.business.forgot-clock.c9973704'),
+    ('làm sao để ghi nhận giờ công khi đi công tác bên ngoài', 'task.topic.attendance-external'),
+    ('cách đưa khách vào công ty', 'task.business.visitors.7f1f2cf6'),
+    ('làm sao để xin tiền mừng cưới ở công ty', 'task.7b0f47d9f7ff5af59e6314f7207d0d47'),
+])
+def test_natural_procedure_questions_have_the_expected_scope(routing, question, task):
+    catalog, lexicon, policy = routing
+    plan, _ = plan_turn(question, {}, catalog, lexicon, policy=policy)
+    assert not plan.clarification and [card.id for card in plan.cards] == [task]
+    assert 'procedure' in plan.cards[0].sections
+
+
+def test_seal_guidance_procedure_paperwork_and_explicit_lookup(sample, routing, monkeypatch):
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+
+    catalog, lexicon, policy = routing
+    records = fixture_records(REPOSITORY_ROOT)
+    documents = FixtureRetrieval(policy, records)
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
+    owner.retrieval.retrieve = AsyncMock(side_effect=documents.retrieve)
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        def ask(text):
+            response = client.post('/api/v1/answer', json=dict(user_id=actor, hrm_user_id=7,
+                room_id=room, message_id=str(uuid4()), expected_context_version=store.version_number, text=text))
+            assert response.status_code == 200
+            return response.json()['result']
+
+        row = ask('làm sao để dùng con dấu của công ty')
+        assert row['status'] == 'partial' and 'clarification_options' not in row
+        assert 'phân công' in row['answer'] and 'chữ ký mẫu' in row['answer']
+        assert all(source['version_label'].startswith('HCNS-QC01') for source in row['sources'])
+        assert len(row['claims']) == 3 and {evidence['kind'] for evidence in row['evidence']} == {'document'}
+        assert owner.retrieval.read_evidence.await_count == 1
+        assert not owner.retrieval.retrieve.called
+
+        row = ask('cần giấy tờ gì')
+        assert row['status'] == 'partial' and row['claims']
+        assert 'mẫu phiếu xin đóng dấu riêng' in ' '.join(row['limitations'])
+
+        for text, task in (('làm sao để đóng dấu treo', 'seal-hanging'),
+                           ('cách đóng dấu giáp lai', 'seal-overlap')):
+            row = ask(text)
+            assert row['claims'] and store.delta['task_id'] == f'task.business.{task}.293575cf'
+
+        row = ask('tôi bị mất thẻ ra vào thì phải làm gì')
+        assert row['status'] == 'needs_clarification'
+        assert store.delta['turn_kind'] == 'new_request'
+        assert 'yêu cầu trước đó' not in row['answer']
+
+        await_count = owner.retrieval.retrieve.await_count
+        row = ask('cho mình xem tài liệu lương của tôi')
+        assert not row['claims'] and 'clarification_options' not in row
+        assert owner.retrieval.retrieve.await_count == await_count
+        row = ask('cho mình xem tài liệu quy chế quản lý và sử dụng con dấu')
+        assert row['fallback_reason'] == 'document_lookup'
+        assert owner.retrieval.retrieve.await_count == await_count + 1
+
+
+@pytest.mark.parametrize('withdrawn', [False, True])
+def test_document_discovery_reuses_bound_options_and_reads_evidence_again(sample, routing, monkeypatch, withdrawn):
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+
+    catalog, lexicon, policy = routing
+    records = fixture_records(REPOSITORY_ROOT)
+    documents = FixtureRetrieval(policy, records)
+    asset = next(card for card in catalog.cards if card.id == 'task.business.asset-disposal.c7065069')
+    ref = asset.sections['procedure'].units[0].refs[0]
+    hit = records[(ref.document_id, ref.revision_id, ref.chunk_index)]
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.retrieval.retrieve = AsyncMock(return_value={'matches': [hit]})
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
+    owner.context._lookup_employee = AsyncMock(side_effect=AssertionError('Discovery only offers general guidance'))
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    def body(text, **extra):
+        return dict(user_id=actor, hrm_user_id=7, room_id=room, message_id=str(uuid4()),
+                    expected_context_version=store.version_number, text=text, **extra)
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        unknown = client.post('/api/v1/answer', json=body('sao trời xanh')).json()['result']
+        assert not unknown['claims'] and 'clarification_options' not in unknown
+        assert not owner.retrieval.retrieve.called
+
+        question = body('Văn phòng muốn bỏ mấy đồ cũ thì cần làm gì?')
+        prompt = client.post('/api/v1/answer', json=question).json()['result']
+        assert prompt['status'] == 'needs_clarification' and not prompt['claims'] and not prompt['sources']
+        assert prompt['clarification_options'] == [{'id': 1, 'label': 'thanh lý tài sản'}]
+        assert owner.retrieval.retrieve.await_count == owner.retrieval.read_evidence.await_count == 1
+        assert 'topic_discovery_suggestions_only' in prompt['relevance']['warnings']
+
+        selection = body('thanh lý tài sản', choice={'prompt_message_id': str(uuid4()), 'option_id': 1})
+        assert client.post('/api/v1/answer', json=selection).status_code == 409
+        selection['choice']['prompt_message_id'] = question['message_id']
+        if withdrawn:
+            documents.fixture = 'withdrawn'
+        response = client.post('/api/v1/answer', json=selection)
+        assert response.status_code == 200
+        row = response.json()['result']
+        if withdrawn:
+            assert row['fallback_reason'] == 'answer_reference_unavailable' and not row['claims']
+        else:
+            assert row['status'] == 'partial' and row['claims']
+            assert store.delta['task_id'] == asset.id
+        assert owner.retrieval.retrieve.await_count == 1
+        assert owner.retrieval.read_evidence.await_count == 2
+        assert not owner.context._lookup_employee.called
+
+
+@pytest.mark.parametrize('mode', ['unrelated_ranked_hit', 'changed_quote', 'lookup_unavailable'])
+def test_document_discovery_requires_a_matching_current_unit(routing, mode):
+    import asyncio
+    from src.answering.discovery import suggest_document_topics
+    from src.answering.planning import RequestAnalysis
+    from src.evaluation.questions import fixture_records
+    from src.retrieval import RetrievalError
+
+    catalog, _, policy = routing
+    records = fixture_records(REPOSITORY_ROOT)
+    card = next(card for card in catalog.cards if card.id == 'task.business.asset-disposal.c7065069')
+    ref = card.sections['procedure'].units[0].refs[0]
+    row = records[(ref.document_id, ref.revision_id, ref.chunk_index)]
+    retrieval = SimpleNamespace(policy=policy, retrieve=AsyncMock(), read_evidence=AsyncMock())
+    if mode == 'lookup_unavailable':
+        retrieval.retrieve.side_effect = RetrievalError('database_search_failed', 2)
+    else:
+        hit = row if mode == 'changed_quote' else {**row, 'revision_id': str(uuid4())}
+        retrieval.retrieve.return_value = {'matches': [hit]}
+    retrieval.read_evidence.return_value = {'matches': [{**row, 'content': 'Replaced input'}]}
+    analysis = RequestAnalysis(question='Bỏ đồ cũ thì cần làm gì?', aspects=('procedure',),
+                               topic_unmatched=True, clarification='Fictional clarification')
+    resolved, _ = asyncio.run(suggest_document_topics(analysis, catalog, retrieval))
+    assert resolved == analysis and not resolved.choice_options
+    assert retrieval.retrieve.await_args.kwargs == {'top_k': 8}
+    assert retrieval.read_evidence.await_count == (1 if mode == 'changed_quote' else 0)
+
+
+@pytest.mark.parametrize(('verified_relation', 'eligible', 'expected'), [
+    (True, 'both', '91ae6b2d'),
+    (True, 'copy', '1c42626a'),
+    (True, 'partial-target', '1c42626a'),
+    (False, 'both', None),
+])
+def test_travel_duplicate_selection_uses_eligible_verified_copies(routing, verified_relation, eligible, expected):
+    import asyncio
+    from src.answering.scope import resolve_document_scopes
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+
+    catalog, lexicon, policy = routing
+    plan, _ = plan_turn('làm sao để quyết toán tiền đi công tác', {}, catalog, lexicon, policy=policy)
+    assert plan.check_scopes
+    copy, canonical = plan.cards
+    revisions = [card.sections['procedure'].units[0].refs[0].revision_id for card in (copy, canonical)]
+    allowed_revisions = revisions[:1] if eligible == 'copy' else revisions
+    records = {key: row for key, row in fixture_records(REPOSITORY_ROOT).items()
+               if row['revision_id'] in allowed_revisions}
+    if eligible == 'partial-target':
+        ref = canonical.sections['procedure'].units[0].refs[0]
+        records.pop((ref.document_id, ref.revision_id, ref.chunk_index))
+    if not verified_relation:
+        for row in records.values():
+            row.pop('duplicate_revision_pairs', None)
+    result, evidence = asyncio.run(resolve_document_scopes(plan, catalog, FixtureRetrieval(policy, records)))
+    if expected is None:
+        assert evidence is None and len(result.choice_options) == 2
+        assert len({label for _, label in result.choice_options}) == 2
+        assert all(label.endswith('.pdf') for _, label in result.choice_options)
+    else:
+        assert not result.clarification and len(result.cards) == 1 and result.cards[0].id.endswith(expected)
+        assert evidence['matches'] and not result.scope_limits
+        expected_revision = revisions[1] if expected == '91ae6b2d' else revisions[0]
+        assert {row['revision_id'] for row in evidence['matches']} == {expected_revision}
 
 
 def test_scope_precheck_answers_supported_parts_and_keeps_named_switches(sample, routing, monkeypatch):

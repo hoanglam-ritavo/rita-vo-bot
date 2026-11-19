@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/semantics/lexicon.json",
-    "sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
-    "size_bytes": 99217
+    "sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
+    "size_bytes": 100175
   },
   "status": "schema_v2_source_checked_quality_evaluation_pending",
   "source_reviewed": true,
@@ -13,10 +13,10 @@
   "base_artifact_sha256": "1d9375d36fb20a2b23036b88752de4b1e3b0ffd3f2e19f7af8a8c3673340f236",
   "changes": {
     "runtime_schema_version": 2,
-    "concepts": 320,
+    "concepts": 321,
     "new_procedure_concepts": 20,
     "prior_language_rules_preserved": true,
-    "recognition_only_concepts": 68
+    "recognition_only_concepts": 69
   },
   "provenance": {
     "approved_inventory_sha256": "857f9572d5c843b8cacc3eef3dc8cb643310eaa1ab834f607f887574fc76dfbc",
@@ -60,7 +60,7 @@
     "database_publication_performed": false,
     "learned_artifacts": false
   },
-  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+  "lexicon_sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
   "observed_regression": {
     "date": "2026-11-18",
     "independent_acceptance": false,
@@ -87,5 +87,12 @@
       }
     },
     "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted."
+  },
+  "natural_question_pilot": {
+    "date": "2026-11-19",
+    "baseline_revision": "b2ecf5a",
+    "scope": "Bounded natural Vietnamese routing and partial source-backed procedures. No new vector fallback.",
+    "independent_acceptance": false,
+    "database_verified": false
   }
 }

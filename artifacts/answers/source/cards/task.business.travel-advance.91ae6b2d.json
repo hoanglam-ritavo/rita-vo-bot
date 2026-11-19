@@ -8,7 +8,10 @@
   "aliases": [
     "tạm ứng công tác phí",
     "ứng trước công tác phí",
-    "tạm ứng chi phí công tác"
+    "tạm ứng chi phí công tác",
+    "lấy trước tiền để đi công tác",
+    "xin tạm ứng tiền đi công tác",
+    "xin ứng tiền cho chuyến công tác"
   ],
   "requires_any": [],
   "excludes_any": [],
@@ -61,6 +64,58 @@
           ]
         }
       ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.procedure.travel-advance-approval.91ae6b2d",
+          "text": "Khi cần tạm ứng cho chuyến công tác, trình phiếu đề xuất đi công tác hoặc email và phiếu đề nghị tạm ứng nếu có cho Trưởng Đơn vị hoặc cấp có thẩm quyền phê duyệt. Thực hiện thủ tục tạm ứng và thanh toán tạm ứng theo quy định công ty.",
+          "refs": [
+            {
+              "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+              "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+              "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+              "chunk_index": 32,
+              "content_sha256": "0465a0808a96b030dae517dbbbbd93c074e8a2bcb2b23d98453ed28d2a9d9bac",
+              "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7. Thủ tục đi công tác\n1. Khi CBNV phát sinh nhu cầu đi công tác hoặc được cử đi công tác, căn cứ vào thời gian, địa điểm, nội dung công tác, CBNV có trách nhiệm gửi phiếu đề xuất đi công tác (theo mẫu Công ty) hoặc mail và/ hoặc phiếu đề nghị tạm ứng công tác phí (nếu có) trình Trưởng Đơn vị, cấp có thẩm quyền phê duyệt.\nĐiều 7.2. Sau khi được Cấp có thẩm quyền phê duyệt, CBNV chuyển phiếu đề xuất công tác hoặc mail cho Phòng HCNS thực hiện việc đặt phương tiện di chuyển/thực hiện thủ tục thanh toán chi phí vé máy bay. Nếu CBNV có tạm ứng công tác phí, thì CBNV làm thủ tục tạm ứng và thanh toán tạm ứng theo quy định Công ty.",
+              "metadata": {
+                "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "02/QĐ-01-BM01; soát xét 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.procedure.travel-advance-files.91ae6b2d",
+          "text": "Sau khi có đủ chữ ký xác nhận, Phòng Kế toán – Tài chính lưu bản chính nếu nhân viên có nhu cầu tạm ứng. Nhân viên giữ bản sao để làm thủ tục thanh toán khi hoàn thành chuyến công tác.",
+          "refs": [
+            {
+              "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+              "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+              "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+              "chunk_index": 33,
+              "content_sha256": "a421f54124b292c9e23a1d9d39839d2beacecf62fcf3579a06934634b84b9c77",
+              "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7.3. Phiếu đề xuất đi công tác và tạm ứng công tác phí sau khi có đầy đủ chữ ký xác nhận theo quy định, Phòng KT-TC sẽ lưu giữ bản chính nếu CBNV có nhu cầu tạm ứng tiền cho chuyến công tác, CBNV sẽ lưu giữ bản sao để làm thủ tục thanh toán sau khi hoàn thành chuyến công tác.",
+              "metadata": {
+                "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "02/QĐ-01-BM01; soát xét 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn này nêu bước phê duyệt và lưu hồ sơ, chưa đủ để xác nhận mức hoặc thời điểm nhận tiền của từng chuyến."
+      ]
     }
   },
   "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -80,5 +135,9 @@
     "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
     "facts": [],
     "family_summary": false
-  }
+  },
+  "discovery_terms": [
+    "ứng tiền chuyến đi",
+    "lấy tiền trước chuyến đi"
+  ]
 }

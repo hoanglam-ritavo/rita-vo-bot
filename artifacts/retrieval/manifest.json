@@ -2,10 +2,10 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/retrieval/catalog.json",
-    "sha256": "3d71cf110f1c3c107eb79a4114fd06423c2e6f752e1d73086476011f68814843",
-    "size_bytes": 976852
+    "sha256": "01dcf69b8a52c1a4a77c90d0cbad8f6951c62bfd28b30b3e247979a9a13a10ee",
+    "size_bytes": 980645
   },
-  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+  "lexicon_sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
   "bindings": 446,
   "routes": 285,
   "provenance": "Cross-domain metadata and source alternatives checked by implementation agent; acceptance pending.",
@@ -169,6 +169,19 @@
     "baseline_revision": "1bfbe6b",
     "scope": "Offline pilot candidate: Workit and E-Leave paperwork and guarded question variants.",
     "new_partial_sections": 4,
+    "independent_acceptance": false,
+    "database_verified": false
+  },
+  "natural_question_pilot": {
+    "date": "2026-11-19",
+    "baseline_revision": "b2ecf5a",
+    "scope": "Bounded natural Vietnamese routing and partial source-backed procedures. No new vector fallback.",
+    "independent_acceptance": false,
+    "database_verified": false
+  },
+  "document_guidance_expansion": {
+    "date": "2026-11-19",
+    "scope": "Bounded document topic suggestions and reviewed partial procedure sections; no independent acceptance or live publication verification.",
     "independent_acceptance": false,
     "database_verified": false
   }

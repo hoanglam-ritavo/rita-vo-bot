@@ -115,7 +115,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.administration.006",
@@ -225,7 +229,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.administration.011",
@@ -335,7 +343,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     }
   ]
 }

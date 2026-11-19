@@ -53,6 +53,38 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Natural Vietnamese catalog routing - 2026-11-19
+
+On `b2ecf5a` with the routing, procedure, conversation and catalog changes,
+the non-integration suite passed **1,262 tests**, with **1 skipped** and
+**59 deselected**. The source-fixture evaluator passed **901/901 turns across
+867 cases**. Four travel-scope oracles now require a cited partial answer from
+the verified duplicate pair. The HTTP conversation regressions cover direct
+HCNS-QT02 guidance, the paperwork follow-up, explicit Workit booking and
+unavailable source evidence.
+
+Artifact build/check, answer catalog validation, the **22-file** runtime
+inventory and the source-binding impact check passed. These results cover local
+source fixtures and synthetic HTTP requests. PostgreSQL integration, published
+evidence and authenticated staging remain to be verified. See the
+[staging checks](docs/conversations.md#deletion-and-verification).
+
+### Stateless HTTP E2E smoke and scoring - 2026-11-19
+
+On `b2ecf5a` plus the E2E working-tree changes, the HTTP harness, answer
+evaluation and structured conversation suites passed **156 tests** with the
+existing Starlette/AnyIO deprecation warning. The source-fixture evaluator
+passed **901/901 turns across 867 cases**. The artifact build check reported
+zero changed files.
+
+The local `smoke` inventory selects **56 checks**. The `full` inventory
+enumerates **1,768 checks**, including **1,694 pending preparation** and
+**74 outside the stateless run**. All 65 formerly unresolved Retrieve cases
+have explicit expectations. The binding pins the profile and selection before
+HTTP. These results cover local fixtures and inventory. Socket execution and
+PostgreSQL verification remain a separate run. See the
+[HTTP E2E guide](docs/http-e2e.md).
+
 ### Recent-first history and process recovery - 2026-11-19
 
 Bot `b8428f5` plus the conversation changes and concurrent working tree.
@@ -1792,6 +1824,27 @@ fixed 60 seconds versus the bot's 120-second deadline.
 A caller timeout/disconnect does not guarantee immediate retrieval cancellation;
 this existing behavior and the single-request busy limit are unchanged. Backend
 and other HTTP clients must send the shared key; portal and HRM-source logic are unchanged.
+
+### Diagnose conversation HRM lookups
+
+With a fictional employee in staging, submit “Chức danh hiện tại của tôi là gì?”
+through the Portal. Find the turn's `messageId` in the Network response and
+search the existing bot service log for `message_id=<messageId>`. The
+`conversation_answer_received` event records allowlisted metadata for an
+authenticated, validated `POST /api/v1/answer` conversation request. Match it
+to `employee_context_lookup` for the executed `attempt`. A replay that
+returns the stored turn adds a receipt without another lookup.
+
+Compare the entry with `result.application.state`. A lookup state of `not_found`
+means the source returned no matching profile, while `applied` with
+`missing_fields=job_title` means the profile was found with a null title. The
+lookup state describes the source read. The answer may still report `partial`
+after a successful read. For `unavailable`, check `stage` and `reason` to
+distinguish source checks from read failures. `check_deferred=True` indicates
+that the source check was deferred and `reason` reflects the last known source
+failure if available. `reason=source_unavailable` is a generic source failure.
+The events emit field names and turn metadata only. Verify exact Backend-to-bot
+identity mapping with fictional accounts in staging.
 
 ## Database configuration and behavior
 

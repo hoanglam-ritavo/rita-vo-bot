@@ -35,6 +35,24 @@ class InputUpdate:
     error: str | None = None
 
 
+def starts_new_request(query):
+    """Recognize an explicit, self-contained request after short follow-ups are checked."""
+    match = re.fullmatch(
+        r'(?:(?:toi|minh) (?:muon hoi|muon biet)|cho (?:toi|minh) hoi|'
+        r'lam sao de|lam the nao de|(?:xin )?huong dan(?: (?:toi|minh))?) (.+)', query)
+    if not match:
+        match = re.fullmatch(r'(?:(?:toi|minh) )?(?:bi|da|vua|can|muon) (.+?) '
+                             r'(?:thi )?(?:phai lam gi|can lam gi|lam sao|xu ly the nao)', query)
+    if not match:
+        match = re.fullmatch(r'(.+?) thi (?:phai lam gi|can lam gi|xu ly the nao)', query)
+    if not match:
+        return False
+    words = match[1].split()
+    short_references = {'lam', 'viec', 'do', 'nay', 'cai', 'phan', 'muc', 'o', 'dau', 'tiep', 'gi',
+                        'them', 'sua', 'truoc', 'tren', 'truong', 'hop', 'thu', 'tuc', 'ho', 'so', 'giay', 'to'}
+    return len(words) >= 2 and not set(words) <= short_references
+
+
 def recognize(text, policy):
     """Consume the entire reply, including explicit negative/replacement clauses."""
     # Only an explicit correction with a recognized old and replacement value

@@ -46,6 +46,7 @@ class Oracle(Strict):
     required_source_groups: list[list[str]] = Field(default_factory=list)
     forbidden_documents: list[str] = Field(default_factory=list)
     employee_fields: list[str] = Field(default_factory=list)
+    expected_employee_claim_fields: list[str] = Field(default_factory=list)
     null_fields: list[str] = Field(default_factory=list)
     expected_values: dict[str, str | None] = Field(default_factory=dict)
     application_state: str | None = None
@@ -275,6 +276,8 @@ def fixture_records(root):
     snapshot = corpus_snapshot(Path(root) / 'chunks')
     metadata = {p['document_id']: decode_json((Path(root) / 'chunks' / p['document_id'] / 'metadata.json').read_bytes())
                 for p in snapshot['packages']}
+    duplicates = [(meta['revision_id'], relation['revision_id']) for meta in metadata.values()
+                  for relation in meta.get('relations', ()) if relation['type'] == 'duplicate_of']
     from src.answering.catalog import METADATA
     result = {}
     for chunk in snapshot['chunks']:
@@ -283,6 +286,7 @@ def fixture_records(root):
             'chunk_id': str(uuid4()), 'document_id': chunk['document_id'], 'revision_id': meta['revision_id'],
             'chunk_index': chunk['chunk_index'], 'run_id': str(uuid4()), 'source_sha256': meta['sha256'],
             'source_spans': [], 'author_id': None, 'role': None, 'cosine_distance': .1, 'rerank_score': None}
+        row['duplicate_revision_pairs'] = [pair for pair in duplicates if row['revision_id'] in pair]
         result[(row['document_id'], row['revision_id'], row['chunk_index'])] = row
     return result
 
@@ -311,6 +315,7 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                      'src/conversation/context.py', 'src/conversation/continuation.py', 'src/answering/scope.py',
                      'src/type_b/tasks.py', 'src/type_b/service.py',
                      'src/answering/contextual.py', 'src/answering/planning.py', 'src/answering/context_spec.py',
+                     'src/answering/discovery.py',
                      'src/answering/context_contracts.py', 'src/answering/calculations.py',
                      'src/answering/slots.py', 'src/api/contracts.py',
                      'src/type_b/employee_store/service.py', 'src/type_b/employee_store/normalization.py',

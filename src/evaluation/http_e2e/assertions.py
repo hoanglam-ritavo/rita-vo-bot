@@ -10,6 +10,13 @@ from .inventory import RETRIEVAL_RULES, retrieval_rule, task_sections
 
 SOURCE_METADATA = ('title', 'applicability', 'effective_from', 'effective_to', 'version_label')
 ORIGIN_FIELDS = ('chunk_id', 'revision_id', 'document_id', 'run_id', 'source_path', 'source_spans')
+DIRECT_EMPLOYEE_LABELS = {
+    'employee_name': 'Họ tên', 'employee_code': 'Mã nhân viên', 'job_title': 'Chức danh',
+    'department_name': 'Phòng ban', 'manager_name': 'Quản lý trực tiếp',
+    'probation_date': 'Ngày bắt đầu thử việc', 'probation_end_date': 'Ngày kết thúc thử việc',
+    'official_date': 'Ngày chính thức', 'resignation_date': 'Ngày nghỉ việc',
+}
+LEAVE_SCOPE_LABELS = {'workit': 'Workit', 'eleave': 'E-Leave'}
 
 
 def folded(value):
@@ -57,6 +64,28 @@ def calculation_expectation(scenario, binding, catalog, business_day):
         return None
     return {'operation': operation, 'value': str(amount), 'unit': 'day' if operation == 'interval_days' else 'month',
             'as_of': as_of, 'field': field, 'policy_rule': bool(defined)}
+
+
+def employee_claims_match(fields, values, employee, claims):
+    by_field = {node['field']: node for node in employee}
+    direct_claims = {(claim['evidence_refs'][0], normalize_whitespace(claim['text'])) for claim in claims
+                     if len(claim['evidence_refs']) == 1}
+    for field in fields:
+        label = DIRECT_EMPLOYEE_LABELS.get(field)
+        node = by_field.get(field)
+        if label is None or node is None or node['label'] != label or field not in values:
+            return False
+        value = values[field]
+        if value is not None and field.endswith('_date'):
+            try:
+                value = date.fromisoformat(value).strftime('%d/%m/%Y')
+            except ValueError:
+                return False
+        expected = (f'{label} của bạn: {value}.' if value is not None else
+                    f'Hồ sơ hiện chưa có thông tin về {label.lower()}.')
+        if (node['id'], normalize_whitespace(expected)) not in direct_claims:
+            return False
+    return True
 
 
 def check_response(scenario, binding, status, body, headers, catalog, business_day, *, corpus_records=None):
@@ -138,8 +167,9 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
     target_ids = set(o.get('task_ids_any', []))
     relevant = [r for c in cardmap.values() for section in c['sections'].values()
                 for unit in section['units'] for r in unit['refs']]
-    units = [unit for tid in target_ids for section in task_sections(scenario, cardmap[tid]).values()
-             for unit in section['units']]
+    units_by_task = {tid: [unit for section in task_sections(scenario, cardmap[tid]).values()
+                          for unit in section['units']] for tid in target_ids}
+    units = [unit for task_units in units_by_task.values() for unit in task_units]
     target_refs = [ref for unit in units for ref in unit['refs']]
     def address(origin, ref):
         # Answer origins expose chunk_id, not chunk_index. Resolve that ID from
@@ -160,14 +190,12 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
         excerpt = o.get('answer_kind') == 'excerpt'
         if (result['fallback_reason'] == 'document_lookup') != excerpt:
             failures.append('answer_kind')
-        display = [f"{claim['text']} [{claim['id']}]" for claim in result['claims']]
-        if not display:
-            display = result['limitations']
-        if not display or normalize_whitespace(result['answer']) != normalize_whitespace(' '.join(display)):
-            failures.append('answer_display')
         cited_ids = {key for claim in result['claims'] for key in claim['evidence_refs']}
         if any(node['id'] not in cited_ids for node in employee):
             failures.append('employee_claim_evidence')
+        if not employee_claims_match(o.get('expected_employee_claim_fields', []),
+                                     binding['expected_values'], employee, result['claims']):
+            failures.append('employee_claim_value')
         for n in evidence:
             if n['kind'] != 'document':
                 continue
@@ -189,6 +217,26 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
                        for k in SOURCE_METADATA) for r in candidates):
                 failures.append('citation_provenance')
         policy_claims = [c for c in result['claims'] if any(nodes[k]['kind'] == 'document' for k in c['evidence_refs'])]
+
+        def backs_unit(claim, unit):
+            cited = [nodes[key] for key in claim['evidence_refs'] if nodes[key]['kind'] == 'document']
+            return bool(unit['refs']) and all(any(node['quote'] == ref['quote'] and any(address(origin, ref)
+                for origin in source_map[node['source_id']]['origins']) for node in cited) for ref in unit['refs'])
+
+        display = [f"{claim['text']} [{claim['id']}]" for claim in result['claims']] or result['limitations']
+        lines = result['answer'].splitlines()
+        if policy_claims and lines and normalize_whitespace(lines[0]).startswith('Phạm vi trả lời là '):
+            scope_labels = set()
+            for tid, task_units in units_by_task.items():
+                if any(backs_unit(claim, unit) for unit in task_units for claim in policy_claims):
+                    scope_labels.add(cardmap[tid].get('label'))
+                    if tid.startswith('task.leave.'):
+                        scope_labels.add(LEAVE_SCOPE_LABELS.get(tid.split('.')[2]))
+            if normalize_whitespace(lines[0]) in {f'Phạm vi trả lời là {label}.' for label in scope_labels if label}:
+                lines = lines[1:]
+        if not display or normalize_whitespace(' '.join(lines)) != normalize_whitespace(' '.join(display)):
+            failures.append('answer_display')
+
         failures.extend(policy_content_failures(o.get('expected_policy_claim_texts'), o.get('required_limitations'),
                                                 policy_claims, result['limitations']))
         if excerpt:
@@ -197,10 +245,7 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
                 failures.append('excerpt_claim_text')
         elif target_refs and o.get('claims') == 'required':
             def backed(claim):
-                cited = [nodes[key] for key in claim['evidence_refs'] if nodes[key]['kind'] == 'document']
-                return any(all(any(node['quote'] == ref['quote'] and any(address(origin, ref)
-                    for origin in source_map[node['source_id']]['origins']) for node in cited)
-                    for ref in unit['refs']) and (not o.get('expected_policy_claim_texts')
+                return any(backs_unit(claim, unit) and (not o.get('expected_policy_claim_texts')
                     or normalize_whitespace(claim['text']) == normalize_whitespace(unit.get('text', '')))
                     for unit in units)
             if not any(map(backed, policy_claims)) or (o.get('expected_aspects') or o.get('expected_policy_claim_texts')) and not all(map(backed, policy_claims)):

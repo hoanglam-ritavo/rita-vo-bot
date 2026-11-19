@@ -6,7 +6,9 @@
     "travel-settlement"
   ],
   "aliases": [
-    "thanh toán công tác phí"
+    "thanh toán công tác phí",
+    "quyết toán tiền đi công tác",
+    "thanh toán tiền sau chuyến công tác"
   ],
   "requires_any": [],
   "excludes_any": [],
@@ -171,5 +173,9 @@
     "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
     "facts": [],
     "family_summary": false
-  }
+  },
+  "discovery_terms": [
+    "quyết toán chuyến đi",
+    "nộp chi phí chuyến đi"
+  ]
 }

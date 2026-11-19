@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
-  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+  "lexicon_sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
   "families": [
     {
       "id": "leave",
@@ -147,7 +147,8 @@
         "vehicle-log",
         "vehicle-maintenance",
         "vehicle-tolls",
-        "vehicle-use"
+        "vehicle-use",
+        "query.topic.vehicle-use-natural"
       ]
     },
     {
@@ -13697,7 +13698,13 @@
         "Muốn đăng ký phòng họp qua Outlook thì thao tác ra sao?",
         "Tôi cần tổ chức một buổi họp, hướng dẫn tôi đặt phòng bằng Outlook.",
         "Cach dat phong hop tren Outlook nhu the nao?",
-        "Đặt phòng họp Outlook"
+        "Đặt phòng họp Outlook",
+        "mượn phòng họp của công ty",
+        "mượn được phòng họp của công ty",
+        "đặt một phòng họp trên Outlook",
+        "đặt phòng họp trên Outlook",
+        "book phòng họp qua Outlook",
+        "đặt phòng họp bằng Outlook"
       ],
       "concept_ids": [],
       "requires_any": [],
@@ -14007,7 +14014,11 @@
         "Muốn đăng ký cấp văn phòng phẩm bằng Workit thì làm sao?",
         "Phòng tôi cần thêm văn phòng phẩm, hướng dẫn tôi lập đề nghị trên Workit.",
         "Tao de nghi van phong pham tren Workit nhu the nao?",
-        "Đề nghị văn phòng phẩm Workit"
+        "Đề nghị văn phòng phẩm Workit",
+        "xin văn phòng phẩm trên Workit",
+        "xin văn phòng phẩm bằng Workit",
+        "làm sao để xin thêm bút và giấy cho phòng ban",
+        "xin thêm văn phòng phẩm"
       ],
       "concept_ids": [],
       "requires_any": [],
@@ -14070,7 +14081,11 @@
         "Chính sách quy định gì về tiền cưới dành cho nhân viên?",
         "Tôi đang tìm quy định hỗ trợ khi chính nhân viên tổ chức kết hôn.",
         "Nhan vien ket hon co khoan ho tro nao theo chinh sach?",
-        "Khoản hỗ trợ nhân viên kết hôn"
+        "Khoản hỗ trợ nhân viên kết hôn",
+        "xin tiền mừng cưới ở công ty",
+        "nhận tiền cưới nhân viên",
+        "xin hỗ trợ khi nhân viên kết hôn",
+        "làm hồ sơ hỗ trợ kết hôn cho nhân viên"
       ],
       "concept_ids": [
         "branch.marriage-employee-benefit"
@@ -14283,7 +14298,12 @@
         "Muốn thay mật khẩu Workit theo hướng dẫn thì làm sao?",
         "Tôi mới dùng Workit và muốn đọc hướng dẫn đăng nhập lần đầu.",
         "Dang nhap va doi mat khau Workit nhu the nao?",
-        "Đăng nhập và đổi mật khẩu Workit"
+        "Đăng nhập và đổi mật khẩu Workit",
+        "thay mật khẩu tài khoản của tôi trên Workit",
+        "đổi mật khẩu tài khoản Workit",
+        "thay mật khẩu trên Workit",
+        "đổi mật khẩu trên Workit",
+        "đổi pass trên Workit"
       ],
       "concept_ids": [
         "procedure.workit-password",
@@ -14814,7 +14834,11 @@
       "task_id": "task.business.visitors.7f1f2cf6",
       "aliases": [
         "tiếp khách tại nơi làm việc",
-        "tiếp khách tại chỗ làm việc"
+        "tiếp khách tại chỗ làm việc",
+        "dẫn khách vào công ty",
+        "đưa khách vào công ty",
+        "tiếp khách tại văn phòng",
+        "đón khách vào nơi làm việc"
       ],
       "concept_ids": [
         "visitors"
@@ -14854,7 +14878,9 @@
       "family": "labor",
       "task_id": "task.business.entry.7f1f2cf6",
       "aliases": [
-        "ra vào nơi làm việc"
+        "ra vào nơi làm việc",
+        "vào tòa nhà công ty",
+        "ra vào văn phòng công ty"
       ],
       "concept_ids": [
         "entry"
@@ -15358,7 +15384,18 @@
       "aliases": [
         "quản lý con dấu",
         "quản lý dấu mộc",
-        "quản lí con dấu"
+        "quản lí con dấu",
+        "dùng con dấu của công ty",
+        "dùng con dấu công ty",
+        "dùng dấu mộc của công ty",
+        "sử dụng con dấu",
+        "sử dụng dấu mộc của công ty",
+        "thủ tục xin đóng dấu",
+        "xin đóng dấu công ty",
+        "đề nghị đóng dấu công ty",
+        "xin đóng dấu văn bản",
+        "xin đóng dấu giấy tờ",
+        "dùng dấu mộc công ty"
       ],
       "concept_ids": [
         "seal-management"
@@ -15400,7 +15437,9 @@
       "task_id": "task.business.seal-technique.293575cf",
       "aliases": [
         "cách đóng dấu",
-        "cách đóng mộc"
+        "cách đóng mộc",
+        "cách đóng dấu lên chữ ký",
+        "cách đóng dấu vào chữ ký"
       ],
       "concept_ids": [
         "seal-technique"
@@ -15414,7 +15453,9 @@
       "task_id": "task.business.seal-hanging.293575cf",
       "aliases": [
         "đóng dấu treo",
-        "đóng mộc treo"
+        "đóng mộc treo",
+        "cách đóng dấu treo",
+        "cách đóng mộc treo"
       ],
       "concept_ids": [
         "seal-hanging"
@@ -15428,7 +15469,9 @@
       "task_id": "task.business.seal-overlap.293575cf",
       "aliases": [
         "đóng dấu giáp lai",
-        "đóng mộc giáp lai"
+        "đóng mộc giáp lai",
+        "cách đóng dấu giáp lai",
+        "cách đóng mộc giáp lai"
       ],
       "concept_ids": [
         "seal-overlap"
@@ -15569,7 +15612,8 @@
         "dùng xe tập đoàn"
       ],
       "concept_ids": [
-        "vehicle-use"
+        "vehicle-use",
+        "query.topic.vehicle-use-natural"
       ],
       "requires_any": [],
       "excludes_any": []
@@ -15925,7 +15969,11 @@
       "task_id": "task.business.forgot-clock.c9973704",
       "aliases": [
         "quên chấm công",
-        "quên bấm công"
+        "quên bấm công",
+        "lỡ không bấm vân tay",
+        "quên quẹt vân tay",
+        "quên chấm vân tay",
+        "lỡ quên quét vân tay"
       ],
       "concept_ids": [
         "forgot-clock"
@@ -16034,7 +16082,10 @@
       "aliases": [
         "tạm ứng công tác phí",
         "ứng trước công tác phí",
-        "tạm ứng chi phí công tác"
+        "tạm ứng chi phí công tác",
+        "lấy trước tiền để đi công tác",
+        "xin tạm ứng tiền đi công tác",
+        "xin ứng tiền cho chuyến công tác"
       ],
       "concept_ids": [
         "travel-advance"
@@ -16119,7 +16170,9 @@
       "family": "travel",
       "task_id": "task.business.travel-settlement.1c42626a",
       "aliases": [
-        "thanh toán công tác phí"
+        "thanh toán công tác phí",
+        "quyết toán tiền đi công tác",
+        "thanh toán tiền sau chuyến công tác"
       ],
       "concept_ids": [
         "travel-settlement"
@@ -16190,7 +16243,10 @@
       "aliases": [
         "tạm ứng công tác phí",
         "ứng trước công tác phí",
-        "tạm ứng chi phí công tác"
+        "tạm ứng chi phí công tác",
+        "lấy trước tiền để đi công tác",
+        "xin tạm ứng tiền đi công tác",
+        "xin ứng tiền cho chuyến công tác"
       ],
       "concept_ids": [
         "travel-advance"
@@ -16275,7 +16331,9 @@
       "family": "travel",
       "task_id": "task.business.travel-settlement.91ae6b2d",
       "aliases": [
-        "thanh toán công tác phí"
+        "thanh toán công tác phí",
+        "quyết toán tiền đi công tác",
+        "thanh toán tiền sau chuyến công tác"
       ],
       "concept_ids": [
         "travel-settlement"
@@ -16362,7 +16420,13 @@
       "aliases": [
         "xem phiếu lương Workit",
         "xem phiếu tiền lương Workit",
-        "tra cứu phiếu lương Workit"
+        "tra cứu phiếu lương Workit",
+        "coi bảng lương của mình trên Workit",
+        "xem phiếu lương của mình trên Workit",
+        "xem phiếu lương của tôi trên Workit",
+        "xem phiếu lương trên Workit",
+        "coi phiếu lương trên Workit",
+        "mở phiếu lương trên Workit"
       ],
       "concept_ids": [
         "workit-salary"
@@ -16434,7 +16498,10 @@
       "aliases": [
         "đổi mật khẩu Workit Mobile",
         "thay mật khẩu Workit Mobile",
-        "đổi pass Workit Mobile"
+        "đổi pass Workit Mobile",
+        "thay mật khẩu trên Workit Mobile",
+        "đổi mật khẩu tài khoản Workit Mobile",
+        "đổi pass trên Workit Mobile"
       ],
       "concept_ids": [
         "systems.mobile-password"
@@ -16753,7 +16820,14 @@
       "aliases": [
         "đặt xe công tác Workit",
         "đặt xe đi công tác Workit",
-        "đăng ký xe công tác Workit"
+        "đăng ký xe công tác Workit",
+        "đặt xe trên Workit",
+        "đăng ký xe trên Workit",
+        "đăng ký xe công tác trên Workit",
+        "đặt xe công tác trên Workit",
+        "đặt xe đi công tác trên Workit",
+        "đăng ký xe của công ty trên Workit",
+        "đăng ký xe của tập đoàn trên Workit"
       ],
       "concept_ids": [
         "workit-car"
@@ -16769,7 +16843,12 @@
         "đặt phòng họp Workit",
         "đặt phòng họp trên Workit",
         "đăng ký phòng họp Workit",
-        "đặt lịch phòng họp Workit"
+        "đặt lịch phòng họp Workit",
+        "mượn phòng họp của công ty",
+        "mượn được phòng họp của công ty",
+        "đặt một phòng họp trên Workit",
+        "book phòng họp trên Workit",
+        "đặt phòng họp bằng Workit"
       ],
       "concept_ids": [
         "workit-room"
@@ -17575,7 +17654,10 @@
       "task_id": "task.topic.attendance-external",
       "aliases": [
         "Chấm công khi đi công tác bên ngoài",
-        "quét vân tay khi đi công tác"
+        "quét vân tay khi đi công tác",
+        "đi công tác bên ngoài thì chấm công",
+        "chấm công lúc đi công tác bên ngoài",
+        "ghi nhận giờ công khi đi công tác bên ngoài"
       ],
       "concept_ids": [
         "query.topic.attendance-external"

@@ -157,7 +157,8 @@ class ConversationService:
             stage = 'answer'
             result = await self.owner.context.execute(request.text, request.top_k,
                 request.hrm_user_id,
-                answer=True, analysis=analysis, reserved=True, on_resolved=resolved_plan)
+                answer=True, analysis=analysis, reserved=True, on_resolved=resolved_plan,
+                message_id=request.message_id, attempt=turn.attempt)
             value = result.model_dump(mode='json')
             options = published_options(analysis, delta, request.message_id, value)
             if options:

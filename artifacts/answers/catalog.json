@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
-  "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
+  "lexicon_sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
   "cards": [
     {
       "id": "task.4265441c1c3659d9820562d4cc983175",
@@ -731,7 +731,13 @@
         "Muốn đăng ký phòng họp qua Outlook thì thao tác ra sao?",
         "Tôi cần tổ chức một buổi họp, hướng dẫn tôi đặt phòng bằng Outlook.",
         "Cach dat phong hop tren Outlook nhu the nao?",
-        "Đặt phòng họp Outlook"
+        "Đặt phòng họp Outlook",
+        "mượn phòng họp của công ty",
+        "mượn được phòng họp của công ty",
+        "đặt một phòng họp trên Outlook",
+        "đặt phòng họp trên Outlook",
+        "book phòng họp qua Outlook",
+        "đặt phòng họp bằng Outlook"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -806,7 +812,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "phòng trên outlook",
+        "phòng họp outlook",
+        "lịch phòng outlook"
+      ]
     },
     {
       "id": "task.6800aeec977b5a068e63273a1e25740e",
@@ -1080,6 +1091,36 @@
               ],
               "id": "evidence.33c0b80a1ef05410895e90e65e23e8f4"
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "text": "Về thay đổi nhân sự bảo vệ, tài liệu nêu như sau:\nQuy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n2.1. Trong trường hợp thay đổi nhân sự tại mục tiêu bảo vệ:\n- Nếu có kế hoạch phải báo cho P.HCNS tối thiểu 3 ngày\n- Trong trường hợp đột xuất thay đổi người: DVBV phải báo cho P.HCNS 3 giờ trước khi vào ca trực và không quá 1 lần/tháng.\n- Trường hợp bảo vệ bỏ vị trí đột xuất không thông báo DVBV phải bổ sung nhân sự trong thời gian 1 giờ kể từ khi Công ty thông báo và không quá 1 lần/tháng.",
+              "refs": [
+                {
+                  "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+                  "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+                  "chunk_index": 2,
+                  "content_sha256": "f6dde76f8a22947da9455f4aeee6ac5ecadc1b587952aae3831247e24e188baa",
+                  "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n2.1. Trong trường hợp thay đổi nhân sự tại mục tiêu bảo vệ:\n- Nếu có kế hoạch phải báo cho P.HCNS tối thiểu 3 ngày\n- Trong trường hợp đột xuất thay đổi người: DVBV phải báo cho P.HCNS 3 giờ trước khi vào ca trực và không quá 1 lần/tháng.\n- Trường hợp bảo vệ bỏ vị trí đột xuất không thông báo DVBV phải bổ sung nhân sự trong thời gian 1 giờ kể từ khi Công ty thông báo và không quá 1 lần/tháng.",
+                  "metadata": {
+                    "title": "Quy định sử dụng bảo vệ",
+                    "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                    "effective_from": "2022-03-09",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT01 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+                  },
+                  "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf"
+                }
+              ],
+              "id": "evidence.33c0b80a1ef05410895e90e65e23e8f4"
+            }
+          ],
+          "limitations": [
+            "Y?u c?u th?ng b?o v? b? sung nh?n s? ?p d?ng cho ??n v? d?ch v? b?o v?."
           ]
         }
       },
@@ -1959,6 +2000,36 @@
               "id": "evidence.6bbd51ccf44250fba3b0961a5175619e"
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "text": "Về quyền xem văn bản đi, tài liệu nêu như sau:\nWorkit — vì sao không thấy Văn bản đi: Hành chính quản lý, nhập liệu và cấp quyền cho người có yêu cầu; mặc định không có dữ liệu nếu chưa được chia sẻ. Khi được cấp quyền, xem thông báo tại Bàn làm việc hoặc vào Văn phòng số > Văn bản đi. Ba quyền riêng là Xem, Tải, Chia sẻ; quyền xem không tự động là quyền tải hoặc chia sẻ.",
+              "refs": [
+                {
+                  "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+                  "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+                  "chunk_index": 1,
+                  "content_sha256": "71f05f674eaf7c5de8456b9f6a0e622de08d7681fc4e728ce53f910320cc0546",
+                  "quote": "Workit — vì sao không thấy Văn bản đi: Hành chính quản lý, nhập liệu và cấp quyền cho người có yêu cầu; mặc định không có dữ liệu nếu chưa được chia sẻ. Khi được cấp quyền, xem thông báo tại Bàn làm việc hoặc vào Văn phòng số > Văn bản đi. Ba quyền riêng là Xem, Tải, Chia sẻ; quyền xem không tự động là quyền tải hoặc chia sẻ.",
+                  "metadata": {
+                    "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                    "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "HDSD-29/3/25-V1",
+                    "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+                  },
+                  "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335"
+                }
+              ],
+              "id": "evidence.6bbd51ccf44250fba3b0961a5175619e"
+            }
+          ],
+          "limitations": [
+            "Quy?n xem V?n b?n ?i tr?n Workit do H?nh ch?nh c?p, theo ph?m vi ???c chia s?."
+          ]
         }
       },
       "source_type": "type_a",
@@ -2291,7 +2362,11 @@
         "Muốn đăng ký cấp văn phòng phẩm bằng Workit thì làm sao?",
         "Phòng tôi cần thêm văn phòng phẩm, hướng dẫn tôi lập đề nghị trên Workit.",
         "Tao de nghi van phong pham tren Workit nhu the nao?",
-        "Đề nghị văn phòng phẩm Workit"
+        "Đề nghị văn phòng phẩm Workit",
+        "xin văn phòng phẩm trên Workit",
+        "xin văn phòng phẩm bằng Workit",
+        "làm sao để xin thêm bút và giấy cho phòng ban",
+        "xin thêm văn phòng phẩm"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -2366,7 +2441,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "đồ văn phòng",
+        "bút viết",
+        "giấy in"
+      ]
     },
     {
       "id": "task.3fa5c092636453f688c23632fa8ce5b2",
@@ -2635,7 +2715,11 @@
         "Chính sách quy định gì về tiền cưới dành cho nhân viên?",
         "Tôi đang tìm quy định hỗ trợ khi chính nhân viên tổ chức kết hôn.",
         "Nhan vien ket hon co khoan ho tro nao theo chinh sach?",
-        "Khoản hỗ trợ nhân viên kết hôn"
+        "Khoản hỗ trợ nhân viên kết hôn",
+        "xin tiền mừng cưới ở công ty",
+        "nhận tiền cưới nhân viên",
+        "xin hỗ trợ khi nhân viên kết hôn",
+        "làm hồ sơ hỗ trợ kết hôn cho nhân viên"
       ],
       "requires_any": [],
       "excludes_any": [
@@ -2749,6 +2833,36 @@
               "id": "evidence.99c623971f8c50c2aa3b49ae667a9a4d"
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.employee-marriage-paperwork",
+              "text": "Chuẩn bị giấy đăng ký kết hôn. Chính sách phúc lợi 2023 áp dụng với nhân viên đã ký hợp đồng lao động chính thức với Công ty TNHH Tập Đoàn Rita Võ; thử việc, thời vụ, học việc và cộng tác viên không thuộc phạm vi này.",
+              "refs": [
+                {
+                  "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+                  "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+                  "chunk_index": 6,
+                  "content_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23",
+                  "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 1.1 — Nhân viên kết hôn: hỗ trợ 1.000.000đ/trường hợp, cần giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+                  "metadata": {
+                    "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                    "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                    "effective_from": "2023-03-08",
+                    "effective_to": null,
+                    "version_label": "01/2023/TB-HCNS",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+                  },
+                  "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9"
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Nguồn xác định giấy tờ và đối tượng áp dụng, chưa nêu nơi nộp, trình tự duyệt hoặc thời hạn giải quyết."
+          ]
         }
       },
       "source_type": "type_a",
@@ -2778,7 +2892,11 @@
           "contract_kind"
         ],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "tiền mừng cưới",
+        "hỗ trợ cưới"
+      ]
     },
     {
       "id": "task.bb6f8ccbd1cc56a0833026eaff50d0e8",
@@ -3748,7 +3866,12 @@
         "Muốn thay mật khẩu Workit theo hướng dẫn thì làm sao?",
         "Tôi mới dùng Workit và muốn đọc hướng dẫn đăng nhập lần đầu.",
         "Dang nhap va doi mat khau Workit nhu the nao?",
-        "Đăng nhập và đổi mật khẩu Workit"
+        "Đăng nhập và đổi mật khẩu Workit",
+        "thay mật khẩu tài khoản của tôi trên Workit",
+        "đổi mật khẩu tài khoản Workit",
+        "thay mật khẩu trên Workit",
+        "đổi mật khẩu trên Workit",
+        "đổi pass trên Workit"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -3819,7 +3942,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "quên pass workit",
+        "tài khoản workit"
+      ]
     },
     {
       "id": "task.workit-shortcuts",
@@ -5953,6 +6080,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.7f1f2cf6.3",
+              "text": "Nội quy lao động — Điều 6.1–3: tăng ca vì công việc cấp thiết cần quản lý lập kế hoạch/đề nghị và Ban TGĐ duyệt. Vị trí nêu trong nguồn: kho vận, lái xe, tạp vụ, bảo vệ, kinh doanh chuỗi nhà hàng cà phê, sản xuất, kỹ thuật, an ninh từ trưởng nhóm trở xuống; trường hợp khác trưởng bộ phận xem xét. Giới hạn nguồn ghi 4 giờ/ngày, 40 giờ/tháng, 200 giờ/năm; công việc cấp bách theo mùa vụ hoặc sự cố khách quan liệt kê có ngoại lệ tối đa 300 giờ/năm.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 3,
+                  "content_sha256": "be574297cb92a608c667275ce43090e4e329491c152a690f1bf853835d7a7f24",
+                  "quote": "Nội quy lao động — Điều 6.1–3: tăng ca vì công việc cấp thiết cần quản lý lập kế hoạch/đề nghị và Ban TGĐ duyệt. Vị trí nêu trong nguồn: kho vận, lái xe, tạp vụ, bảo vệ, kinh doanh chuỗi nhà hàng cà phê, sản xuất, kỹ thuật, an ninh từ trưởng nhóm trở xuống; trường hợp khác trưởng bộ phận xem xét. Giới hạn nguồn ghi 4 giờ/ngày, 40 giờ/tháng, 200 giờ/năm; công việc cấp bách theo mùa vụ hoặc sự cố khách quan liệt kê có ngoại lệ tối đa 300 giờ/năm.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "??y l? quy tr?nh chung trong n?i quy, ch?a x?c nh?n vi?c duy?t cho ca c? th? ho?c thao t?c tr?n Workit."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -6232,6 +6389,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.7f1f2cf6.10",
+              "text": "Nội quy lao động — Điều 9.5–9: lập kế hoạch phép và gửi đơn quản lý; công ty tham khảo ý kiến, thông báo lịch, có thể sắp xếp lại khi cao điểm và cấn phép cho nghỉ nối lễ/Tết. Chuyển tối đa 7 ngày phép cũ sang quý I; sau 31/3 xóa phần cũ còn lại, không trả/đền bù. Đoạn này không quy định thanh toán phép khi chấm dứt hợp đồng.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 10,
+                  "content_sha256": "ba569e2e1e2a735fd82936ffa9c0af84d67d186714d282414d81108443ecd08e",
+                  "quote": "Nội quy lao động — Điều 9.5–9: lập kế hoạch phép và gửi đơn quản lý; công ty tham khảo ý kiến, thông báo lịch, có thể sắp xếp lại khi cao điểm và cấn phép cho nghỉ nối lễ/Tết. Chuyển tối đa 7 ngày phép cũ sang quý I; sau 31/3 xóa phần cũ còn lại, không trả/đền bù. Đoạn này không quy định thanh toán phép khi chấm dứt hợp đồng.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "N?i quy n?u k? ho?ch v? c?ch g?i ??n, ch?a h??ng d?n n?t thao t?c tr?n h? th?ng."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -6293,6 +6480,36 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.7f1f2cf6.11",
+              "text": "Nội quy lao động — Điều 10.1: nghỉ riêng nguyên lương và phải thông báo công ty/quản lý trực tiếp. Bản thân kết hôn: 3 ngày; con ruột/con nuôi kết hôn: 1 ngày; bố mẹ ruột/nuôi của mình hoặc vợ/chồng, vợ/chồng, con ruột/nuôi qua đời: 3 ngày. Nam có vợ sinh: 1 ngày theo khoản 1, khác chế độ BHXH khoản 2. Nữ hành kinh: 30 phút/ngày, không quá 3 ngày/tháng; nuôi con dưới 12 tháng: 60 phút/ngày trong giờ làm.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 11,
+                  "content_sha256": "3f5bac6e06d8a10eb46fb3b890dbbe626ac337919904eded803b6d23525633f1",
+                  "quote": "Nội quy lao động — Điều 10.1: nghỉ riêng nguyên lương và phải thông báo công ty/quản lý trực tiếp. Bản thân kết hôn: 3 ngày; con ruột/con nuôi kết hôn: 1 ngày; bố mẹ ruột/nuôi của mình hoặc vợ/chồng, vợ/chồng, con ruột/nuôi qua đời: 3 ngày. Nam có vợ sinh: 1 ngày theo khoản 1, khác chế độ BHXH khoản 2. Nữ hành kinh: 30 phút/ngày, không quá 3 ngày/tháng; nuôi con dưới 12 tháng: 60 phút/ngày trong giờ làm.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "N?i quy n?u ngh?a v? th?ng b?o v? c?c tr??ng h?p ?p d?ng, ch?a n?u bi?u m?u ho?c c?ch n?p."
           ]
         }
       },
@@ -7600,7 +7817,11 @@
       ],
       "aliases": [
         "tiếp khách tại nơi làm việc",
-        "tiếp khách tại chỗ làm việc"
+        "tiếp khách tại chỗ làm việc",
+        "dẫn khách vào công ty",
+        "đưa khách vào công ty",
+        "tiếp khách tại văn phòng",
+        "đón khách vào nơi làm việc"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -7631,6 +7852,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.receive-visitor",
+              "text": "Tiếp khách tại lễ tân, phòng họp hoặc khu vực được phép. Xin phép cấp quản lý nếu cần đưa khách vào khu vực khác và luôn đi cùng khách. Khách ở lại sau giờ làm việc cần được cấp có thẩm quyền đồng ý.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 34,
+                  "content_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac",
+                  "quote": "Nội quy lao động — Điều 14.5–8: chỉ TGĐ/Chủ tịch quyết định thông tin công ty trên truyền thông. Tiếp khách tại lễ tân/phòng họp/khu cho phép, đưa vào khu khác phải xin quản lý; luôn đi cùng khách, hạn chế thăm riêng, khách ở sau giờ cần cấp có thẩm quyền đồng ý. Người đình chỉ (trừ quyết định khác) hoặc thôi việc liên hệ như khách. Đặt phòng họp: báo lễ tân/Hành chính trước ngày giờ và thời lượng để bố trí. Dùng dụng cụ/máy tính của người khác cần đồng ý; tiết kiệm, bảo quản tài sản; mang ra ngoài/cho người khác dùng cần quản lý chấp thuận.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Đây là hướng dẫn theo nội quy tiếp khách. Nguồn này không xác nhận quyền vào khu vực cụ thể."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -7645,7 +7896,12 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "tiếp khách công ty",
+        "khách đến văn phòng",
+        "dẫn khách"
+      ]
     },
     {
       "id": "task.business.branch.media-authority.7f1f2cf6",
@@ -7793,7 +8049,9 @@
         "entry"
       ],
       "aliases": [
-        "ra vào nơi làm việc"
+        "ra vào nơi làm việc",
+        "vào tòa nhà công ty",
+        "ra vào văn phòng công ty"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -7824,6 +8082,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.workplace-entry",
+              "text": "Đến đúng nơi và giờ làm việc, đồng thời tuân thủ nội quy của tòa nhà. Khi ra ngoài công tác, thông báo lý do và xin quản lý trực tiếp đồng ý. Ra vào ngoài giờ hoặc ngày nghỉ, lễ, Tết cần quản lý chấp thuận, trừ người được phân công trực.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 35,
+                  "content_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8",
+                  "quote": "Nội quy lao động — Điều 14.9: đúng nơi/giờ làm việc, không làm việc riêng hoặc gây mất trật tự, tuân thủ nội quy tòa nhà. Ra ngoài công tác cần lý do, thông báo và quản lý trực tiếp đồng ý. Ra/vào ngoài giờ, ngày nghỉ/lễ/Tết cần quản lý chấp thuận, trừ người trực. Cấm nội dung/vật phẩm vi phạm pháp luật, đạo đức; cấm người có mùi rượu bia/chất kích thích vào nơi làm việc. Sử dụng/tàng trữ trái phép ma túy hoặc chất bị cấm sẽ bị đưa ra khỏi công ty và chuyển cơ quan có thẩm quyền theo nguồn.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Nội quy chung không nêu thủ tục cấp hoặc cấp lại thẻ ra vào tại từng tòa nhà."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -7838,7 +8126,12 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "thẻ ra vào",
+        "vào công ty ngoài giờ",
+        "ra vào chỗ làm"
+      ]
     },
     {
       "id": "task.business.it-security.7f1f2cf6",
@@ -8293,6 +8586,36 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.7f1f2cf6.42",
+              "text": "Nội quy lao động — Điều 19: bảo vệ tài sản, ngăn lãng phí/thất thoát/phá hoại. Trước khi về khóa văn phòng, niêm phong kho, tắt thiết bị điện không dùng.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 42,
+                  "content_sha256": "51f9f0ebf30a3591c5157d0e1967edaa49a1e17985a0f8e955c7bb49a6be4220",
+                  "quote": "Nội quy lao động — Điều 19: bảo vệ tài sản, ngăn lãng phí/thất thoát/phá hoại. Trước khi về khóa văn phòng, niêm phong kho, tắt thiết bị điện không dùng.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "??y l? c?c vi?c theo n?i quy b?o v? t?i s?n tr??c khi r?i n?i l?m vi?c."
           ]
         }
       },
@@ -8861,7 +9184,12 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "phản ánh sự việc",
+        "phản ánh nội bộ",
+        "phản ánh sai phạm"
+      ]
     },
     {
       "id": "task.business.damages.7f1f2cf6",
@@ -9132,6 +9460,36 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.7f1f2cf6.56",
+              "text": "Nội quy lao động — Điều 32: sau tuyển dụng chính thức cung cấp hồ sơ cá nhân theo quy định, Nhân sự quản lý. Kịp thời báo thay đổi thông tin cá nhân, chịu trách nhiệm thông tin; lập/cập nhật theo quy trình nhân sự. Điều này không liệt kê từng giấy tờ hồ sơ.",
+              "refs": [
+                {
+                  "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+                  "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+                  "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+                  "chunk_index": 56,
+                  "content_sha256": "3ee504603a37ce595a7db41d74694b7f177d06f9b5f57b48cc8722b4337c6f4c",
+                  "quote": "Nội quy lao động — Điều 32: sau tuyển dụng chính thức cung cấp hồ sơ cá nhân theo quy định, Nhân sự quản lý. Kịp thời báo thay đổi thông tin cá nhân, chịu trách nhiệm thông tin; lập/cập nhật theo quy trình nhân sự. Điều này không liệt kê từng giấy tờ hồ sơ.",
+                  "metadata": {
+                    "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                    "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "?i?u 32 ch?a n?u danh s?ch gi?y t? ho?c thao t?c g?i h? s?."
           ]
         }
       },
@@ -11095,7 +11453,11 @@
           "contract_kind"
         ],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "nhận khoản phúc lợi",
+        "trả phúc lợi"
+      ]
     },
     {
       "id": "task.business.policy.referral-rates.9b8dd80f",
@@ -11400,7 +11762,18 @@
       "aliases": [
         "quản lý con dấu",
         "quản lý dấu mộc",
-        "quản lí con dấu"
+        "quản lí con dấu",
+        "dùng con dấu của công ty",
+        "dùng con dấu công ty",
+        "dùng dấu mộc của công ty",
+        "sử dụng con dấu",
+        "sử dụng dấu mộc của công ty",
+        "thủ tục xin đóng dấu",
+        "xin đóng dấu công ty",
+        "đề nghị đóng dấu công ty",
+        "xin đóng dấu văn bản",
+        "xin đóng dấu giấy tờ",
+        "dùng dấu mộc công ty"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -11541,6 +11914,220 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.seal-authorized-keeper",
+              "text": "Quản lý Phòng Hành chánh – Nhân sự phân công nhân viên trong phòng quản lý và sử dụng con dấu. Người được phân công trực tiếp đóng dấu. Không chuyển dấu cho người khác nếu chưa được Ban lãnh đạo đồng ý; khi bàn giao phải lập biên bản.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 5,
+                  "content_sha256": "d764f9c16bb26d6cd8dc050f1020c7fc89c02ca6a27e6c1ae40c27686d8c5cdb",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nChương II — NỘI DUNG QUY CHẾ\nĐiều 3. Trách nhiệm quản lý và lưu giữ con dấu\nNgười được giao quản lý, lưu giữ con dấu chịu trách nhiệm trước Ban lãnh đạo Công ty về việc quản lý và sử dụng con dấu, cụ thể:\n1. Không giao con dấu cho người khác khi chưa được sự đồng ý cho phép của Ban lãnh đạo. Việc bàn giao con dấu phải được lập thành biên bản.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                },
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 6,
+                  "content_sha256": "59b68920df121c62a55a28f44e86dbec66294894c83c4fde2da5d7ad9ddfb70f",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.2. Phải tự tay trực tiếp đóng dấu vào các văn bản, giấy tờ của Công ty. Trước khi đóng dấu phải kiểm tra thể thức trình bày và nội dung văn bản, chữ ký trên văn bản là đúng của người có thẩm quyền ký văn bản.\n3. Chỉ được đóng dấu vào văn bản, giấy tờ sau khi đã có chữ ký của người có thẩm quyền trong phạm vi được quyền được quy định tại Điều 6 Quy chế này.\nĐiều 4. Sử dụng con dấu\n1. Chỉ có người quản lý, sử dụng con dấu mới được sử dụng con dấu đóng trên văn bản có chữ ký của người có thẩm quyền như quy định tại Điều 6 Quy chế này.\n2. Trước khi đóng dấu, người quản lý, sử dụng con dấu phải kiểm tra chữ ký của người có thẩm quyền với chữ ký mẫu của người này để đảm bảo tính chính xác thực sự của chữ ký. Đồng thời, phải rà soát nội dung của văn bản, tài liệu, chứng từ có liên quan để đảm bảo rằng văn bản, tài liệu, chứng từ này đã được ký đúng thẩm quyền của người ký.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                },
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 17,
+                  "content_sha256": "c512935916ee6ce9bb242aa1237d7549e5a8f1f7507c2d59b5f13862e9e6e745",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nChương III — TRÁCH NHIỆM TỔ CHỨC THỰC HIỆN VÀ XỬ LÝ VI PHẠM\nĐiều 7. Trách nhiệm của các phòng ban\n1. Phòng Hành chánh - Nhân sự có trách nhiệm:\n- Quản lý phòng hành chánh – nhân sự có quyền phân công nhân viên thuộc phòng ban của mình để quản lý, sử dụng con dấu đúng theo những điều khoản được quy định trong quy chế này.\n- Quản lý phòng Hành chánh – nhân sự có trách nhiệm hướng dẫn, kiểm tra, giám sát việc quản lý và sử dụng con dấu của nhân viên được phân công quản lý và sử dụng con dấu. Chịu trách nhiệm trước Ban lãnh đạo Công ty và pháp luật về quản lý và sử dụng con dấu theo quy định.\n- Nhân viên được phân công quản lý, sử dụng con dấu chịu trách nhiệm trước Quản lý phòng Hành chánh - Nhân sự, Ban lãnh đạo Công ty và pháp luật về việc về quản lý và sử dụng con dấu được giao.\n- Trường hợp xảy ra sai phạm trong quá trình quản lý và sử dụng con dấu mà phát sinh thiệt hại cho Công ty thì Quản lý Phòng Hành chánh – Nhân sự và Nhân viên được phân công quản lý, sử dụng con dấu phải chịu trách nhiệm và bồi thường tùy theo quyết định xử lý của Ban Lãnh đạo Công ty.\n2. Toàn thể các phòng ban, các đơn vị trực thuộc có trách nhiệm phổ biến và triển khai cho các đơn vị, nhân viên biết và thực hiện quy chế này.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.guidance.seal-verify-signed-document",
+              "text": "Chuẩn bị văn bản đã có chữ ký của người có thẩm quyền. Trước khi đóng dấu, người được giao giữ dấu kiểm tra thể thức, rà soát nội dung và đối chiếu với chữ ký mẫu để bảo đảm người ký ký đúng thẩm quyền theo Điều 6.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 6,
+                  "content_sha256": "59b68920df121c62a55a28f44e86dbec66294894c83c4fde2da5d7ad9ddfb70f",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.2. Phải tự tay trực tiếp đóng dấu vào các văn bản, giấy tờ của Công ty. Trước khi đóng dấu phải kiểm tra thể thức trình bày và nội dung văn bản, chữ ký trên văn bản là đúng của người có thẩm quyền ký văn bản.\n3. Chỉ được đóng dấu vào văn bản, giấy tờ sau khi đã có chữ ký của người có thẩm quyền trong phạm vi được quyền được quy định tại Điều 6 Quy chế này.\nĐiều 4. Sử dụng con dấu\n1. Chỉ có người quản lý, sử dụng con dấu mới được sử dụng con dấu đóng trên văn bản có chữ ký của người có thẩm quyền như quy định tại Điều 6 Quy chế này.\n2. Trước khi đóng dấu, người quản lý, sử dụng con dấu phải kiểm tra chữ ký của người có thẩm quyền với chữ ký mẫu của người này để đảm bảo tính chính xác thực sự của chữ ký. Đồng thời, phải rà soát nội dung của văn bản, tài liệu, chứng từ có liên quan để đảm bảo rằng văn bản, tài liệu, chứng từ này đã được ký đúng thẩm quyền của người ký.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                },
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 16,
+                  "content_sha256": "625ead805025ec37095c0f9741418ccbd77072a3ecd140b044332bbea264f4d9",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 6. Thẩm quyền ký và đóng dấu\n1. Chủ tịch Hội đồng thành viên và Tổng Giám Đốc có thẩm quyền ký tất cả các loại văn bản, chứng từ của Công ty theo quy định của Luật doanh nghiệp và điều lệ Công ty.\n2. Phó Tổng Giám đốc, Giám đốc, Phó Giám đốc ký văn bản, chứng từ khi được Tổng Giám đốc, Chủ tịch Hội đồng thành viên ủy quyền.\n3. Các trưởng/ phó phòng chuyên môn được kí các văn bản liên quan đến chuyên môn nghiệp vụ thuộc thẩm quyền và các bản bản khác khi được ủy quyền bằng văn bản.\n4. Người được ủy quyền phải chịu trách nhiệm trước Tổng Giám đốc, Chủ tịch Hội đồng thành viên và trước pháp luật về nội dung các văn bản giấy tờ mà mình đã ký.\n5. Ngoài các cá nhân có thẩm quyền ký tên nêu trên, nhân viên được phân công quản lý và sử dụng con dấu không được sử dụng con dấu để đóng lên các tài liệu, chứng từ của bất cứ người nào khác.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.guidance.seal-register-documents",
+              "text": "Người giữ dấu theo dõi các văn bản thuộc nhóm quy định, như hợp đồng và văn bản phát hành ra ngoài Công ty, trong Bảng theo dõi đóng dấu.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 11,
+                  "content_sha256": "98ebdaf464b9e6b37e4b98320699d4a5cbd0e13e5a6ca1b5d0cef7c50c3fc0b3",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.9. Quản lý phòng Hành chánh – Nhân sự phải lập sổ/ bảng theo dõi chi tiết về con dấu của Công ty (số lượng con dấu của Công ty, thông tin nhân viên được phân công phụ trách quản lý và sử dụng con dấu (họ tên, chức vụ, CMND, số lượng con dấu phụ trách, ngày bàn giao dấu…) v.v…)\nĐiều 3.10. Người giữ dấu phải lập bảng theo dõi chi tiết về các văn bản như: Hợp đồng, giấy ủy quyền, văn bản/ công văn phát hành ra ngoài Công ty, hồ sơ khởi kiện, các hồ sơ liên quan đến các cơ quan hành chính nhà nước (sở kế hoạch, ủy ban, công an, tòa án, sở lao động…) cần đóng dấu mỗi ngày (tên văn bản, số lượng, người cần đóng dấu, ngày/tháng/năm đóng dấu, loại dấu yêu cầu đóng...).\nBẢNG THEO DÕI ĐÓNG DẤU\nSTT | Ngày/tháng/năm | Tên văn bản | Số lượng | Loại dấu cần đóng (đánh dấu (x)): Dấu vào chữ kí; Dấu giáp lai; Dấu treo; Dấu khống; Dấu sao y | Tên con dấu sử dụng | Người đề nghị | ký tên | Ghi chú\n[Các dòng dữ liệu để trống]",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy chế nêu người phụ trách và các bước kiểm tra. Nguồn này chưa nêu nơi nộp yêu cầu đóng dấu hoặc một quy trình duyệt riêng cho người đề nghị."
+          ]
+        },
+        "paperwork": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.seal-paperwork",
+              "text": "Văn bản, hồ sơ, chứng từ hoặc giấy tờ cần đóng dấu phải đầy đủ nội dung và có chữ ký đúng thẩm quyền. Bảng theo dõi đóng dấu do người giữ dấu lập cho các nhóm văn bản được nêu trong quy chế.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 6,
+                  "content_sha256": "59b68920df121c62a55a28f44e86dbec66294894c83c4fde2da5d7ad9ddfb70f",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.2. Phải tự tay trực tiếp đóng dấu vào các văn bản, giấy tờ của Công ty. Trước khi đóng dấu phải kiểm tra thể thức trình bày và nội dung văn bản, chữ ký trên văn bản là đúng của người có thẩm quyền ký văn bản.\n3. Chỉ được đóng dấu vào văn bản, giấy tờ sau khi đã có chữ ký của người có thẩm quyền trong phạm vi được quyền được quy định tại Điều 6 Quy chế này.\nĐiều 4. Sử dụng con dấu\n1. Chỉ có người quản lý, sử dụng con dấu mới được sử dụng con dấu đóng trên văn bản có chữ ký của người có thẩm quyền như quy định tại Điều 6 Quy chế này.\n2. Trước khi đóng dấu, người quản lý, sử dụng con dấu phải kiểm tra chữ ký của người có thẩm quyền với chữ ký mẫu của người này để đảm bảo tính chính xác thực sự của chữ ký. Đồng thời, phải rà soát nội dung của văn bản, tài liệu, chứng từ có liên quan để đảm bảo rằng văn bản, tài liệu, chứng từ này đã được ký đúng thẩm quyền của người ký.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                },
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 11,
+                  "content_sha256": "98ebdaf464b9e6b37e4b98320699d4a5cbd0e13e5a6ca1b5d0cef7c50c3fc0b3",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.9. Quản lý phòng Hành chánh – Nhân sự phải lập sổ/ bảng theo dõi chi tiết về con dấu của Công ty (số lượng con dấu của Công ty, thông tin nhân viên được phân công phụ trách quản lý và sử dụng con dấu (họ tên, chức vụ, CMND, số lượng con dấu phụ trách, ngày bàn giao dấu…) v.v…)\nĐiều 3.10. Người giữ dấu phải lập bảng theo dõi chi tiết về các văn bản như: Hợp đồng, giấy ủy quyền, văn bản/ công văn phát hành ra ngoài Công ty, hồ sơ khởi kiện, các hồ sơ liên quan đến các cơ quan hành chính nhà nước (sở kế hoạch, ủy ban, công an, tòa án, sở lao động…) cần đóng dấu mỗi ngày (tên văn bản, số lượng, người cần đóng dấu, ngày/tháng/năm đóng dấu, loại dấu yêu cầu đóng...).\nBẢNG THEO DÕI ĐÓNG DẤU\nSTT | Ngày/tháng/năm | Tên văn bản | Số lượng | Loại dấu cần đóng (đánh dấu (x)): Dấu vào chữ kí; Dấu giáp lai; Dấu treo; Dấu khống; Dấu sao y | Tên con dấu sử dụng | Người đề nghị | ký tên | Ghi chú\n[Các dòng dữ liệu để trống]",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Nguồn này chưa nêu một mẫu phiếu xin đóng dấu riêng cho người đề nghị."
+          ]
+        },
+        "conditions": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.seal-conditions",
+              "text": "Chỉ người được phân công quản lý, sử dụng con dấu được đóng dấu. Văn bản phải có chữ ký của người có thẩm quyền theo Điều 6; trường hợp ký theo ủy quyền phải nằm trong phạm vi ủy quyền.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 6,
+                  "content_sha256": "59b68920df121c62a55a28f44e86dbec66294894c83c4fde2da5d7ad9ddfb70f",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.2. Phải tự tay trực tiếp đóng dấu vào các văn bản, giấy tờ của Công ty. Trước khi đóng dấu phải kiểm tra thể thức trình bày và nội dung văn bản, chữ ký trên văn bản là đúng của người có thẩm quyền ký văn bản.\n3. Chỉ được đóng dấu vào văn bản, giấy tờ sau khi đã có chữ ký của người có thẩm quyền trong phạm vi được quyền được quy định tại Điều 6 Quy chế này.\nĐiều 4. Sử dụng con dấu\n1. Chỉ có người quản lý, sử dụng con dấu mới được sử dụng con dấu đóng trên văn bản có chữ ký của người có thẩm quyền như quy định tại Điều 6 Quy chế này.\n2. Trước khi đóng dấu, người quản lý, sử dụng con dấu phải kiểm tra chữ ký của người có thẩm quyền với chữ ký mẫu của người này để đảm bảo tính chính xác thực sự của chữ ký. Đồng thời, phải rà soát nội dung của văn bản, tài liệu, chứng từ có liên quan để đảm bảo rằng văn bản, tài liệu, chứng từ này đã được ký đúng thẩm quyền của người ký.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                },
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 16,
+                  "content_sha256": "625ead805025ec37095c0f9741418ccbd77072a3ecd140b044332bbea264f4d9",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 6. Thẩm quyền ký và đóng dấu\n1. Chủ tịch Hội đồng thành viên và Tổng Giám Đốc có thẩm quyền ký tất cả các loại văn bản, chứng từ của Công ty theo quy định của Luật doanh nghiệp và điều lệ Công ty.\n2. Phó Tổng Giám đốc, Giám đốc, Phó Giám đốc ký văn bản, chứng từ khi được Tổng Giám đốc, Chủ tịch Hội đồng thành viên ủy quyền.\n3. Các trưởng/ phó phòng chuyên môn được kí các văn bản liên quan đến chuyên môn nghiệp vụ thuộc thẩm quyền và các bản bản khác khi được ủy quyền bằng văn bản.\n4. Người được ủy quyền phải chịu trách nhiệm trước Tổng Giám đốc, Chủ tịch Hội đồng thành viên và trước pháp luật về nội dung các văn bản giấy tờ mà mình đã ký.\n5. Ngoài các cá nhân có thẩm quyền ký tên nêu trên, nhân viên được phân công quản lý và sử dụng con dấu không được sử dụng con dấu để đóng lên các tài liệu, chứng từ của bất cứ người nào khác.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Đây là điều kiện chung. Việc phân công và thẩm quyền với từng văn bản do Công ty xác nhận."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -11560,7 +12147,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "con dấu",
+        "dấu mộc",
+        "giấy tờ đóng dấu"
+      ]
     },
     {
       "id": "task.business.seal-blank.293575cf",
@@ -11680,6 +12272,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.293575cf.9",
+              "text": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.6. Nếu nét dấu bị mòn, biến dạng, hỏng hoặc có sự thay đổi về thông tin của Doanh nghiệp, hủy dấu cũ và đổi dấu mới thì Quản lý Phòng Hành chánh – Nhân sự phải báo cáo, trình Chủ tịch/ Tổng Giám đốc cho ý kiến làm thủ tục đổi dấu. Trường hợp con dấu bị mất, trong vòng 01 ngày làm việc kể từ khi phát hiện mất dấu thì Quản lý phòng Hành chánh – Nhân sự phải lập biên bản làm rõ nguyên nhân và xử lý trách nhiệm của người quản lý con dấu và báo cáo với Ban lãnh đạo và Ban kiểm soát nội bộ công ty.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 9,
+                  "content_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.6. Nếu nét dấu bị mòn, biến dạng, hỏng hoặc có sự thay đổi về thông tin của Doanh nghiệp, hủy dấu cũ và đổi dấu mới thì Quản lý Phòng Hành chánh – Nhân sự phải báo cáo, trình Chủ tịch/ Tổng Giám đốc cho ý kiến làm thủ tục đổi dấu. Trường hợp con dấu bị mất, trong vòng 01 ngày làm việc kể từ khi phát hiện mất dấu thì Quản lý phòng Hành chánh – Nhân sự phải lập biên bản làm rõ nguyên nhân và xử lý trách nhiệm của người quản lý con dấu và báo cáo với Ban lãnh đạo và Ban kiểm soát nội bộ công ty.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.293575cf.10",
+              "text": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.7. Khi có quyết định thay đổi con dấu của Chủ tịch/ Tổng Giám Đốc thì Quản lý phòng Hành chánh – Nhân sự phải lưu giữ lại con dấu cũ, bảo quản như Điều 3.5 và làm thủ tục xin khắc con dấu mới.\n8. Người giữ dấu phải gửi thông báo đến Phòng Kiểm Soát Nội Bộ, Phòng tài chính – kế toán và các phòng ban liên quan khác Quyết định của Chủ tịch/ Tổng Giám Đốc về việc sử dụng mẫu con dấu của Công ty/ thay đổi con dấu của Công ty để các phòng ban liên quan nắm thông tin và thực hiện.\nĐiều 3.5. Phải bảo quản con dấu trong tủ có khóa tại phòng làm việc của Hành chánh – Nhân sự, không được mang con dấu ra khỏi phòng làm việc khi chưa được sự phê duyệt của Ban lãnh đạo Công ty.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 10,
+                  "content_sha256": "318022e1909bec9d193f034574292b66ef015f7e30d173c4030eb63ef944f87c",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 3.7. Khi có quyết định thay đổi con dấu của Chủ tịch/ Tổng Giám Đốc thì Quản lý phòng Hành chánh – Nhân sự phải lưu giữ lại con dấu cũ, bảo quản như Điều 3.5 và làm thủ tục xin khắc con dấu mới.\n8. Người giữ dấu phải gửi thông báo đến Phòng Kiểm Soát Nội Bộ, Phòng tài chính – kế toán và các phòng ban liên quan khác Quyết định của Chủ tịch/ Tổng Giám Đốc về việc sử dụng mẫu con dấu của Công ty/ thay đổi con dấu của Công ty để các phòng ban liên quan nắm thông tin và thực hiện.\nĐiều 3.5. Phải bảo quản con dấu trong tủ có khóa tại phòng làm việc của Hành chánh – Nhân sự, không được mang con dấu ra khỏi phòng làm việc khi chưa được sự phê duyệt của Ban lãnh đạo Công ty.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Ph?n n?y ?p d?ng khi m?t d?u ho?c ph?i thay d?u, theo ?i?u 3 c?a HCNS-QC01."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -11710,7 +12354,9 @@
       ],
       "aliases": [
         "cách đóng dấu",
-        "cách đóng mộc"
+        "cách đóng mộc",
+        "cách đóng dấu lên chữ ký",
+        "cách đóng dấu vào chữ ký"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -11782,7 +12428,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "dấu lên chữ ký",
+        "chữ ký đóng dấu"
+      ]
     },
     {
       "id": "task.business.seal-hanging.293575cf",
@@ -11793,7 +12443,9 @@
       ],
       "aliases": [
         "đóng dấu treo",
-        "đóng mộc treo"
+        "đóng mộc treo",
+        "cách đóng dấu treo",
+        "cách đóng mộc treo"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -11824,6 +12476,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.293575cf.14",
+              "text": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 5.3. Đóng dấu treo:\n- Cách đóng dấu treo: dấu được đóng lên trang đầu của văn bản, trùm lên một phần tên của Doanh nghiệp hoặc tên của phụ lục.\n- Văn bản được đóng dấu treo:\n+ Những văn bản nội bộ của Công ty được đóng dấu treo theo sự phê duyệt của Chủ tịch/ Tổng Giám Đốc.\n+ Đối với văn bản/ phụ lục là bản chính (đi kèm theo văn bản chính/ Hợp đồng chính) cần đóng dấu treo thì Trưởng bộ phận/ người được ủy quyền ký tên trên văn bản chính/ Hợp đồng chính phải kí nháy xác nhận vào văn bản cần đóng dấu treo đó. Trường hợp người kí trên văn bản chính/ Hợp đồng chính là Chủ tịch/ Tổng Giám Đốc thì Trưởng Phòng/ Trưởng Bộ Phận/ Người chịu trách nhiệm phụ trách chính công việc liên quan đến văn bản cần đóng dấu treo sẽ chịu trách nhiệm kí nháy.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 14,
+                  "content_sha256": "84897bcbe7c471548165508c1d025d98e629e2d9c9587e33c1fa0b1c9767bddf",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 5.3. Đóng dấu treo:\n- Cách đóng dấu treo: dấu được đóng lên trang đầu của văn bản, trùm lên một phần tên của Doanh nghiệp hoặc tên của phụ lục.\n- Văn bản được đóng dấu treo:\n+ Những văn bản nội bộ của Công ty được đóng dấu treo theo sự phê duyệt của Chủ tịch/ Tổng Giám Đốc.\n+ Đối với văn bản/ phụ lục là bản chính (đi kèm theo văn bản chính/ Hợp đồng chính) cần đóng dấu treo thì Trưởng bộ phận/ người được ủy quyền ký tên trên văn bản chính/ Hợp đồng chính phải kí nháy xác nhận vào văn bản cần đóng dấu treo đó. Trường hợp người kí trên văn bản chính/ Hợp đồng chính là Chủ tịch/ Tổng Giám Đốc thì Trưởng Phòng/ Trưởng Bộ Phận/ Người chịu trách nhiệm phụ trách chính công việc liên quan đến văn bản cần đóng dấu treo sẽ chịu trách nhiệm kí nháy.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Phần này chỉ nêu cách đóng dấu treo theo Điều 5 của HCNS-QC01."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -11838,7 +12520,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "dấu treo",
+        "mộc treo"
+      ]
     },
     {
       "id": "task.business.seal-overlap.293575cf",
@@ -11849,7 +12535,9 @@
       ],
       "aliases": [
         "đóng dấu giáp lai",
-        "đóng mộc giáp lai"
+        "đóng mộc giáp lai",
+        "cách đóng dấu giáp lai",
+        "cách đóng mộc giáp lai"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -11880,6 +12568,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.293575cf.15",
+              "text": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 5.4. Nếu văn bản có từ 02 trang trở lên thì phải đóng dấu giáp lai, dấu giáp lai được đóng vào khoảng giữa các mép phải của văn bản, trùm lên tất cả các trang văn bản. Trường hợp có nhiều trang, không thể đóng dấu giáp lai 01 lần thì chia ra đóng nhiều dấu giáp lai, các dấu giáp lai đều được đóng vào khoảng giữa các mép phải của văn bản nối tiếp nhau, không được bỏ sót trang khi đóng dấu giáp lai, đảm bảo khi khớp các trang lại với nhau thì dấu giáp lai trùng với con dấu của Doanh nghiệp.",
+              "refs": [
+                {
+                  "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+                  "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+                  "source_sha256": "5570f2b43c0be71ea584df1f2e8808aeebc1d07dfd299972dff8f7e4ab5905ad",
+                  "chunk_index": 15,
+                  "content_sha256": "7719fb6a41301f337ce2adb8eef362d297bd02b368102bf58e879a0f4d4b9967",
+                  "quote": "Quy chế quản lý và sử dụng con dấu — HCNS-QC01\nĐiều 5.4. Nếu văn bản có từ 02 trang trở lên thì phải đóng dấu giáp lai, dấu giáp lai được đóng vào khoảng giữa các mép phải của văn bản, trùm lên tất cả các trang văn bản. Trường hợp có nhiều trang, không thể đóng dấu giáp lai 01 lần thì chia ra đóng nhiều dấu giáp lai, các dấu giáp lai đều được đóng vào khoảng giữa các mép phải của văn bản nối tiếp nhau, không được bỏ sót trang khi đóng dấu giáp lai, đảm bảo khi khớp các trang lại với nhau thì dấu giáp lai trùng với con dấu của Doanh nghiệp.",
+                  "metadata": {
+                    "title": "Quy chế quản lý và sử dụng con dấu",
+                    "applicability": "Nhân sự quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc hoặc đã nghỉ việc tại Công ty TNHH Tập Đoàn Rita Võ nhưng có liên quan đến quản lý và sử dụng con dấu, theo Điều 1.2.",
+                    "effective_from": "2022-12-01",
+                    "effective_to": null,
+                    "version_label": "HCNS-QC01; 01/QC/RTV; lần ban hành 01",
+                    "source_path": "noi-quy-qui-dinh/quy-che-quan-ly-su-dung-con-dau/quy-che-quan-ly-va-su-dung-con-dau-01-12-2022.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Phần này chỉ nêu cách đóng dấu giáp lai theo Điều 5 của HCNS-QC01."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -11894,7 +12612,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "giáp lai",
+        "dấu các trang"
+      ]
     },
     {
       "id": "task.business.seal-authority.293575cf",
@@ -12432,6 +13154,15 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
+      },
+      "discovery_terms": [
+        "đồ cũ",
+        "đồ không còn dùng",
+        "tài sản hỏng",
+        "thanh lý đồ"
+      ],
+      "related_aspects": {
+        "paperwork": "task.business.asset-disposal-records.c7065069"
       }
     },
     {
@@ -12564,7 +13295,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "duyệt bỏ tài sản",
+        "phê duyệt tài sản hỏng"
+      ]
     },
     {
       "id": "task.business.asset-disposal-records.c7065069",
@@ -12811,7 +13546,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "giấy tờ bỏ tài sản",
+        "biên bản thanh lý"
+      ]
     },
     {
       "id": "task.business.uniform.b020eea1",
@@ -13248,7 +13987,8 @@
       "source_type": "type_a",
       "label": "sử dụng xe tập đoàn",
       "concept_ids": [
-        "vehicle-use"
+        "vehicle-use",
+        "query.topic.vehicle-use-natural"
       ],
       "aliases": [
         "sử dụng xe tập đoàn",
@@ -13327,6 +14067,112 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.vehicle-purpose",
+              "text": "Dùng xe cho công việc, sản xuất hoặc kinh doanh của Tập đoàn. Không dùng xe cho việc riêng khi chưa được Ban lãnh đạo cho phép.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 7,
+                  "content_sha256": "39c335f3768ffc5ae6241270965131a72662d28f550245bdbb44249ac86f437f",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương II — NỘI DUNG QUY ĐỊNH\nĐiều 4. Nội dung quy định\n1. Quy định cụ thể trách nhiệm cá nhân, tổ chức khi được giao quản lý, sử dụng xe, xử lý nghiêm những hành vi thiếu tinh thần trách nhiệm hoặc cố ý vi phạm nguyên tắc quản lý làm hư hại, mất mát tài sản của Tập đoàn.\n2. Xe chỉ được sử dụng phục vụ cho mục đích công việc, hoạt động sản xuất, kinh doanh của Tập đoàn, đảm bảo việc trang bị xe phục vụ cho việc đi lại, công tác cho các bộ phận theo những điều khoản được quy định trong quy định này. Chi phí xăng, dầu xe phải được hạch toán đầy đủ cho các đối tượng và công việc đã sử dụng.\n3. Quản lý điều xe chịu trách nhiệm trước Ban lãnh đạo, GĐ. HCNS, TP. HCNS về quản lý sử dụng xe. Việc điều động, tổ chức, điều hành, quản lý và sử dụng xe phải được thực hiện đúng quy định này trên tinh thần hiệu quả, tiết kiệm và an toàn.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                },
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 9,
+                  "content_sha256": "51466424ca07219e1de62591eedfa7a2275c80ac59c21cc2f7356892b8b32a70",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.6. Không sử dụng xe để chuyên chở các loại thực phẩm, trái cây có mùi đặc trưng như: sầu riêng, mít, khô cá, mắm, nước mắm các loại…\n7. Nghiêm cấm việc sử dụng xe của Tập đoàn vào việc riêng như: bán, trao đổi, cho mượn, cầm cố, thế chấp, sử dụng không đúng mục đích, …. khi chưa được sự chấp thuận hoặc cho phép của Ban lãnh đạo.\n8. Không sử dụng xe để chuyên chở hóa chất độc hại, dễ nổ, dễ cháy, hàng quốc cấm, chất kích thích, ma túy...\n9. Không được mang, chuyên chở hàng hóa cồng kềnh, vượt mức quy định của pháp luật cho phép gây cản trở giao thông và nguy hiểm cho người ngồi trên xe. Tải trọng cho phép chở cả người và hàng hóa tối đa (dựa theo kiểm định xe).",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.procedure.vehicle-request-approval",
+              "text": "Khi cần xe, liên hệ Admin hoặc Quản lý điều xe và xin phê duyệt của cấp có thẩm quyền. Quy định này ngoại trừ Ban lãnh đạo và cá nhân được Tập đoàn cấp xe riêng. Phòng, ban đề xuất xe cho công việc đã được cấp quản lý phê duyệt, đúng mục đích và thời gian quy định. Nếu cần tự lái, người sử dụng phải đáp ứng tiêu chuẩn, điều kiện lái ô tô theo quy định pháp luật và được Ban lãnh đạo đồng ý, phê duyệt.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 8,
+                  "content_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.4. Tất cả các đối tượng (trừ Ban lãnh đạo và những cá nhân được Tập đoàn cấp xe riêng) khi có nhu cầu sử dụng xe thì liên hệ Admin/ Quản lý điều xe và phải được cấp có thẩm quyền phê duyệt theo quy định của Tập đoàn.\n5. Người sử dụng xe chỉ được tự lái xe khi có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban lãnh đạo đồng ý, phê duyệt dưới mọi hình thức.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                },
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "chunk_index": 30,
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "content_sha256": "090239b6211af00518f90ec50b68b17477799b95ac14a8bd775025968f43104c",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 7.2. Đối tượng được đề xuất sử dụng xe của Tập đoàn:\na) Ban lãnh đạo.\nb) Nhân viên P. KT đi thu/lĩnh tiền mặt, thu hồi công nợ, chuyển lương…\nc) Các phòng, ban sử dụng xe phục vụ công việc đã được cấp quản lý phê duyệt, sử dụng đúng mục đích sử dụng và thời gian theo quy định.\nd) Khách mời của Ban lãnh đạo được đưa đón trong quá trình công tác tại tập đoàn với thời gian và lộ trình theo yêu cầu từ Ban lãnh đạo.\ne) Đối tượng khác theo yêu cầu và sự điều động của P. HCNS.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.procedure.vehicle-availability",
+              "text": "Chờ Phòng Hành chính Nhân sự thông báo xe và tài xế có đáp ứng được nhu cầu hay không. Khi không có xe, Phòng Hành chính Nhân sự phụ trách phương án vận chuyển tương tự như taxi hoặc Grab cho công việc.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 18,
+                  "content_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 5.2.c) Thông báo với người đề xuất xe về tình hình xe và tài xế có đáp ứng được nhu cầu hay không. Trường hợp đột xuất, cấp thiết GĐ. HCNS/TP. HCNS được quyền điều động sử dụng xe từ các phòng ban để phục vụ công việc theo chỉ đạo của Ban lãnh đạo hoặc công việc chung của Tập đoàn mà không cần thông qua ý kiến của các phòng ban, bộ phận điều xe.\nd) Trường hợp xe không có sẵn, P. HCNS có trách nhiệm cung cấp các dịch vụ vận chuyển tương tự như Taxi/Grab... được sử dụng cho việc di chuyển phục vụ mục đích công việc.\ne) Trong những trường hợp cấp cứu, Tổ nhân viên giao hàng, lái xe có thể sử dụng xe theo đề nghị của nhân viên y tế để kịp thời xử lý công việc, ngay sau đó thông báo, xin ý kiến của Ban lãnh đạo và P. HCNS để xử lý các bước tiếp theo.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Đây là hướng dẫn chung theo HCNS-QT02. Việc có xe và phê duyệt cho chuyến đi cụ thể do đơn vị có thẩm quyền xác nhận."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -13341,7 +14187,15 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "related_aspects": {
+        "paperwork": "task.topic.vehicle-forms"
+      },
+      "discovery_terms": [
+        "mượn xe",
+        "xe của cơ quan",
+        "nhờ xe đi làm"
+      ]
     },
     {
       "id": "task.business.vehicle-dispatch.b114fe60",
@@ -13404,6 +14258,58 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.b114fe60.17",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương III — CHẾ ĐỘ QUẢN LÝ XE\nĐiều 5. Thẩm quyền điều xe\n1. Ban lãnh đạo:\nBan lãnh đạo có toàn quyền quản lý, giao xe và điều xe thông qua các hình thức: truyền đạt miệng, qua điện thoại, phân công trong các cuộc họp, ý kiến chỉ đạo giải quyết sự việc tại các văn bản liên quan đến sử dụng xe…\n2. Phòng Hành Chánh Nhân Sự:\na) GĐ. HCNS/TP. HCNS có quyền quản lý, bàn giao xe cho tài xế và điều xe thông qua các hình thức: phân công trong các cuộc họp, ý kiến chỉ đạo giải quyết sự việc tại các văn bản liên quan đến sử dụng xe…\nb) Quản lý về tình hình sử dụng xe của Tập đoàn theo quy định của Tập đoàn và Luật hiện hành. Bố trí xe phù hợp, tiết kiệm, đảm bảo xe sẵn sàng phục vụ công việc khi cần thiết, đảm bảo thời gian, kế hoạch công tác của người sử dụng xe.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 17,
+                  "content_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương III — CHẾ ĐỘ QUẢN LÝ XE\nĐiều 5. Thẩm quyền điều xe\n1. Ban lãnh đạo:\nBan lãnh đạo có toàn quyền quản lý, giao xe và điều xe thông qua các hình thức: truyền đạt miệng, qua điện thoại, phân công trong các cuộc họp, ý kiến chỉ đạo giải quyết sự việc tại các văn bản liên quan đến sử dụng xe…\n2. Phòng Hành Chánh Nhân Sự:\na) GĐ. HCNS/TP. HCNS có quyền quản lý, bàn giao xe cho tài xế và điều xe thông qua các hình thức: phân công trong các cuộc họp, ý kiến chỉ đạo giải quyết sự việc tại các văn bản liên quan đến sử dụng xe…\nb) Quản lý về tình hình sử dụng xe của Tập đoàn theo quy định của Tập đoàn và Luật hiện hành. Bố trí xe phù hợp, tiết kiệm, đảm bảo xe sẵn sàng phục vụ công việc khi cần thiết, đảm bảo thời gian, kế hoạch công tác của người sử dụng xe.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.b114fe60.18",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 5.2.c) Thông báo với người đề xuất xe về tình hình xe và tài xế có đáp ứng được nhu cầu hay không. Trường hợp đột xuất, cấp thiết GĐ. HCNS/TP. HCNS được quyền điều động sử dụng xe từ các phòng ban để phục vụ công việc theo chỉ đạo của Ban lãnh đạo hoặc công việc chung của Tập đoàn mà không cần thông qua ý kiến của các phòng ban, bộ phận điều xe.\nd) Trường hợp xe không có sẵn, P. HCNS có trách nhiệm cung cấp các dịch vụ vận chuyển tương tự như Taxi/Grab... được sử dụng cho việc di chuyển phục vụ mục đích công việc.\ne) Trong những trường hợp cấp cứu, Tổ nhân viên giao hàng, lái xe có thể sử dụng xe theo đề nghị của nhân viên y tế để kịp thời xử lý công việc, ngay sau đó thông báo, xin ý kiến của Ban lãnh đạo và P. HCNS để xử lý các bước tiếp theo.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 18,
+                  "content_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 5.2.c) Thông báo với người đề xuất xe về tình hình xe và tài xế có đáp ứng được nhu cầu hay không. Trường hợp đột xuất, cấp thiết GĐ. HCNS/TP. HCNS được quyền điều động sử dụng xe từ các phòng ban để phục vụ công việc theo chỉ đạo của Ban lãnh đạo hoặc công việc chung của Tập đoàn mà không cần thông qua ý kiến của các phòng ban, bộ phận điều xe.\nd) Trường hợp xe không có sẵn, P. HCNS có trách nhiệm cung cấp các dịch vụ vận chuyển tương tự như Taxi/Grab... được sử dụng cho việc di chuyển phục vụ mục đích công việc.\ne) Trong những trường hợp cấp cứu, Tổ nhân viên giao hàng, lái xe có thể sử dụng xe theo đề nghị của nhân viên y tế để kịp thời xử lý công việc, ngay sau đó thông báo, xin ý kiến của Ban lãnh đạo và P. HCNS để xử lý các bước tiếp theo.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Ph?n n?y n?u th?m quy?n ?i?u xe v? ph??ng ?n th?ng b?o t?nh tr?ng xe."
           ]
         }
       },
@@ -13738,6 +14644,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.b114fe60.11",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12. Những biểu mẫu liên quan đến sử dụng xe:\na) Sổ nhật trình xe: nhân viên tài xế mỗi xe ghi chép lộ trình chuyến đi vào sổ nhật trình xe (ngoại trừ xe riêng của Ban lãnh đạo). Sổ nhật trình là cơ sở để P. KT kiểm tra, soát xét chi phí chuyến đi, chi thanh toán cho các bộ phận, và cũng để P. HCNS đánh giá tình hình quản lý, sử dụng xe. Cụ thể:\n- Nhân viên tài xế mỗi xe, lập 01 sổ nhật trình ghi chép cho 01 kỳ thanh toán.\n- Khi nhận yêu cầu điều xe, nhân viên tài xế phải ghi rõ ràng, đầy đủ, chính xác thông tin lộ trình xe vào sổ nhật trình và phải có chữ ký xác nhận của người sử dụng xe.\n- Trường hợp chở khách của Ban lãnh đạo, phục vụ các công việc theo sự điều động của P. HCNS, thì P. HCNS ký xác nhận vào sổ. Trường hợp, xe của các chi nhánh ở tỉnh có thể gửi P. HCNS xác nhận bằng thư điện tử.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 11,
+                  "content_sha256": "b13953e62547bca10c9daee18534ce07d9e502efd0e645e5d1da6d3cb1499ff6",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12. Những biểu mẫu liên quan đến sử dụng xe:\na) Sổ nhật trình xe: nhân viên tài xế mỗi xe ghi chép lộ trình chuyến đi vào sổ nhật trình xe (ngoại trừ xe riêng của Ban lãnh đạo). Sổ nhật trình là cơ sở để P. KT kiểm tra, soát xét chi phí chuyến đi, chi thanh toán cho các bộ phận, và cũng để P. HCNS đánh giá tình hình quản lý, sử dụng xe. Cụ thể:\n- Nhân viên tài xế mỗi xe, lập 01 sổ nhật trình ghi chép cho 01 kỳ thanh toán.\n- Khi nhận yêu cầu điều xe, nhân viên tài xế phải ghi rõ ràng, đầy đủ, chính xác thông tin lộ trình xe vào sổ nhật trình và phải có chữ ký xác nhận của người sử dụng xe.\n- Trường hợp chở khách của Ban lãnh đạo, phục vụ các công việc theo sự điều động của P. HCNS, thì P. HCNS ký xác nhận vào sổ. Trường hợp, xe của các chi nhánh ở tỉnh có thể gửi P. HCNS xác nhận bằng thư điện tử.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.b114fe60.12",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.a) Sổ nhật trình xe (tiếp):\n- Quản lý điều xe/P. HCNS phải theo dõi số Km đầu và cuối mỗi kỳ thanh toán của sổ nhật trình.\n- Vào ngày đầu tiên của kỳ thanh toán, nhân viên tài xế cung cấp sổ nhật trình xe cùng với hồ sơ thanh toán kỳ liền kề trước cho P. HCNS/ quản lý điều xe kiểm tra và quyết toán các chi phí theo quy định (không quá 3 ngày kể từ ngày đầu kỳ).",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 12,
+                  "content_sha256": "f94f05bae9ee1927e244e0cb4f2500abb350c7271c3a2203f8f9cf3a1102e54c",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.a) Sổ nhật trình xe (tiếp):\n- Quản lý điều xe/P. HCNS phải theo dõi số Km đầu và cuối mỗi kỳ thanh toán của sổ nhật trình.\n- Vào ngày đầu tiên của kỳ thanh toán, nhân viên tài xế cung cấp sổ nhật trình xe cùng với hồ sơ thanh toán kỳ liền kề trước cho P. HCNS/ quản lý điều xe kiểm tra và quyết toán các chi phí theo quy định (không quá 3 ngày kể từ ngày đầu kỳ).",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Ph?n n?y ?p d?ng cho vi?c ghi v? n?p s? nh?t tr?nh c?a t?i x? theo HCNS-QT02."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -13968,7 +14926,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "xe công ty bị hỏng",
+        "xe tập đoàn cần sửa"
+      ]
     },
     {
       "id": "task.business.vehicle-fuel.b114fe60",
@@ -14210,7 +15172,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "tiền đổ xăng",
+        "chứng từ xăng"
+      ]
     },
     {
       "id": "task.business.vehicle-tolls.b114fe60",
@@ -14295,6 +15261,80 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.b114fe60.36",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.3. Các loại phí đường bộ, cầu đường\n- Phí kiểm định, phí đường bộ, bảo hiểm dân sự bắt buộc: Nhân viên lái xe chịu trách nhiệm theo dõi thời hạn các loại phí bắt buộc khi sử dụng xe để có kế hoạch đăng ký với cơ quan liên quan và báo với P.HCNS khi hết hạn các loại phí sau:\n  - Phí kiểm định\n  - Phí sử dụng đường bộ\n  - Bảo hiểm dân sự bắt buộc\n  - Phí cầu đường/ phí không dừng qua trạm thu phí\n- Nếu nhân viên lái xe không đăng ký sử dụng các loại phí trên đúng thời hạn, nếu bị phạt, thì phải chịu trách nhiệm tất cả các khoản phạt theo quy định.\n- Dán thẻ qua trạm thu phí không dừng",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 36,
+                  "content_sha256": "dec742001c5226237ae57a8e27c141ff5f2d51ba842f95736099cf0fd637b689",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.3. Các loại phí đường bộ, cầu đường\n- Phí kiểm định, phí đường bộ, bảo hiểm dân sự bắt buộc: Nhân viên lái xe chịu trách nhiệm theo dõi thời hạn các loại phí bắt buộc khi sử dụng xe để có kế hoạch đăng ký với cơ quan liên quan và báo với P.HCNS khi hết hạn các loại phí sau:\n  - Phí kiểm định\n  - Phí sử dụng đường bộ\n  - Bảo hiểm dân sự bắt buộc\n  - Phí cầu đường/ phí không dừng qua trạm thu phí\n- Nếu nhân viên lái xe không đăng ký sử dụng các loại phí trên đúng thời hạn, nếu bị phạt, thì phải chịu trách nhiệm tất cả các khoản phạt theo quy định.\n- Dán thẻ qua trạm thu phí không dừng",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.b114fe60.37",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.4. Đối với xe đang sử dụng:\n- Tất cả các xe văn phòng đều được dán thẻ qua TTPKĐ.\n- Nhân viên lái xe có trách nhiệm bảo quản thẻ, không xé, cào rách hoặc làm hư hỏng thẻ.\n- Nếu thẻ VETC bị hư hỏng do tác động của nhân viên lái xe hoặc người đi cùng trên xe, phải chịu trách nhiệm bồi thường chi phí dán lại thẻ VETC.\n- Nhân viên quản lý tài khoản thẻ qua trạm không dừng (thẻ VETC) phải thường xuyên kiểm tra số tiền còn trong tài khoản, số tiền còn lại không được dưới 50.000đ (bằng chữ: Năm mươi ngàn đồng). Nếu số tiền trong tài khoản còn lại thấp hơn số tiền phí xe qua trạm, dẫn đến xe qua trạm bị phạt theo quy định. Nhân viên quản lý tài khoản phải chịu trách nhiệm tất cả các khoản phạt theo quy định.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 37,
+                  "content_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.4. Đối với xe đang sử dụng:\n- Tất cả các xe văn phòng đều được dán thẻ qua TTPKĐ.\n- Nhân viên lái xe có trách nhiệm bảo quản thẻ, không xé, cào rách hoặc làm hư hỏng thẻ.\n- Nếu thẻ VETC bị hư hỏng do tác động của nhân viên lái xe hoặc người đi cùng trên xe, phải chịu trách nhiệm bồi thường chi phí dán lại thẻ VETC.\n- Nhân viên quản lý tài khoản thẻ qua trạm không dừng (thẻ VETC) phải thường xuyên kiểm tra số tiền còn trong tài khoản, số tiền còn lại không được dưới 50.000đ (bằng chữ: Năm mươi ngàn đồng). Nếu số tiền trong tài khoản còn lại thấp hơn số tiền phí xe qua trạm, dẫn đến xe qua trạm bị phạt theo quy định. Nhân viên quản lý tài khoản phải chịu trách nhiệm tất cả các khoản phạt theo quy định.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.b114fe60.38",
+              "text": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9. Đối với xe mới mua:\n- Nhân viên lái xe liên hệ P. HCNS để được hướng dẫn thực hiện thủ tục dán mới thẻ qua trạm không dừng (thẻ VETC) cho xe theo quy định.\n- Quản lý điều xe sử dụng 01 tài khoản VETC, cho tất cả các xe thuộc phòng ban quản lý và điều động.",
+              "refs": [
+                {
+                  "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+                  "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+                  "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+                  "chunk_index": 38,
+                  "content_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779",
+                  "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9. Đối với xe mới mua:\n- Nhân viên lái xe liên hệ P. HCNS để được hướng dẫn thực hiện thủ tục dán mới thẻ qua trạm không dừng (thẻ VETC) cho xe theo quy định.\n- Quản lý điều xe sử dụng 01 tài khoản VETC, cho tất cả các xe thuộc phòng ban quản lý và điều động.",
+                  "metadata": {
+                    "title": "Quy định sử dụng xe của Tập đoàn",
+                    "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                    "effective_from": "2023-04-07",
+                    "effective_to": null,
+                    "version_label": "HCNS-QT02 — 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Ph?n n?y n?u tr?ch nhi?m theo d?i v? ??ng k? ph? ho?c th? VETC theo HCNS-QT02."
           ]
         }
       },
@@ -15188,6 +16228,74 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.tay-do-entry",
+              "text": "Tại tòa nhà Rita Võ Tây Đô – Cần Thơ, dùng cửa chính ở mặt đường Quang Trung hoặc Nguyễn Ngọc Bích. Tòa nhà bố trí một cửa chính và một cửa thoát hiểm ở mỗi mặt đường. Tuân thủ hướng dẫn của Người quản lý tòa nhà và Bảo vệ.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 7,
+                  "content_sha256": "d441fa5a45ba64b4ddb39107cace1fbbf4c0ac128c9708654abc2077ccc497a2",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nIV.1.r. Tòa nhà có 04 cửa ra vào, bao gồm:\n- 01 cửa chính & 01 cửa thoát hiểm mặt đường Quang Trung.\n- 01 cửa chính & 01 cửa thoát hiểm mặt đường Nguyễn Ngọc Bích.\n- Hàng hóa tùy theo kích thước được vận chuyển ưu tiên theo cửa chính và & cửa thoát hiểm mặt đường Quang Trung.\ns. CBNV thực hiện niêm phong theo quy định Thông báo số 11/2020/TB-HCNS.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                },
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 8,
+                  "content_sha256": "426a716a6132ba63895c7df95d309590b86a7444e3ff35627b3d83f84a0ba8db",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nIV.2. Người quản lý, Bảo vệ có quyền từ chối quyền ra, vào tòa nhà đối với những đối tượng sau đây, bao gồm cả CBNV và khách:\na. Đối tượng gây ồn ào, mất trật tự hoặc có ngôn ngữ/cử chỉ thiếu văn hóa hoặc đe dọa, lăng mạ, tấn công người khác.\nb. Đối tượng có trạng thái bất bình thường: căng thẳng, trầm cảm, tuyệt vọng….\nc. Đối tượng say xỉn hoặc khả nghi có sử dụng chất ma túy.\nd. Đối tượng sở hữu vũ khí tấn công, các vật/chất nguy hiểm hoặc dễ cháy.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.guidance.tay-do-child-visitors",
+              "text": "Con của nhân viên chỉ được vào khi tham dự sự kiện do Tập đoàn tổ chức có cho phép. Khi trẻ em đi cùng khách hàng, nhân viên kinh doanh phải theo sát để tránh va chạm vào sản phẩm.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 6,
+                  "content_sha256": "0ea27df06e5bd773b0b2b7cba46966ad48b94786ecd29aeb0fa33f90767213d0",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nIV.1.q. Trẻ em là con CBNV không được phép vào tòa nhà, trừ các sự kiện do Tập đoàn tổ chức cho phép trẻ em vào. Nếu trẻ em đi cùng khách hàng thì nhân viên kinh doanh luôn phải theo sát, tránh va chạm sản phẩm gây hư hỏng.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Phạm vi là tòa nhà Tây Đô – Cần Thơ. Nguồn này chưa nêu thủ tục cấp hoặc cấp lại thẻ ra vào."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -15207,7 +16315,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "tòa nhà tây đô",
+        "vào tây đô"
+      ]
     },
     {
       "id": "task.business.elevator.95b9cbfe",
@@ -15269,6 +16381,58 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.11",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.2. Thang máy\na. Tòa nhà có 02 thang máy, khi sử dụng phải lưu ý tải trọng của thang và không được chở quá tải trọng cho phép.\n- Một thang máy đi từ Tầng 01 đến Tầng 06 (sân thượng)\n- Một thang máy đi từ Tầng 01 đến Tầng 05\nb. Luôn ưu tiên thang máy dùng cho khách hàng.\nc. Khi vận chuyển hàng hóa trong thang máy phải bao bọc cẩn thận, tránh va đập xe đẩy hay đồ vật vào cửa và vách thang máy.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 11,
+                  "content_sha256": "0e217009e3f4831b057ba914719124afae1c1acc79c76a5ad9ab1b5be759b24d",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.2. Thang máy\na. Tòa nhà có 02 thang máy, khi sử dụng phải lưu ý tải trọng của thang và không được chở quá tải trọng cho phép.\n- Một thang máy đi từ Tầng 01 đến Tầng 06 (sân thượng)\n- Một thang máy đi từ Tầng 01 đến Tầng 05\nb. Luôn ưu tiên thang máy dùng cho khách hàng.\nc. Khi vận chuyển hàng hóa trong thang máy phải bao bọc cẩn thận, tránh va đập xe đẩy hay đồ vật vào cửa và vách thang máy.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.95b9cbfe.12",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.2. Thang máy (tiếp):\nd. Để tiết kiệm điện năng, nhân viên nên dùng thang bộ di chuyển giữa các tầng không sử dụng thang máy khi di chuyển giữa hai tầng liền nhau ngoại trừ trường hợp dẫn khách tham quan, phụ nữ có thai và người bị thương tật.\ne. Trong trường hợp bị kẹt trong thang máy, nhấn nút trợ giúp khẩn cấp trong thang máy để báo cho bộ phận kỹ thuật/bảo vệ, sẽ hỗ trợ giải thoát bạn ra khỏi thang máy trong thời gian sớm nhất, không nên tự mình cố gắng thoát ra ngoài RẤT NGUY HIỂM.\nf. Không được sử dụng thang máy khi có sự cố cháy nổ, nguy hiểm,….",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 12,
+                  "content_sha256": "c0c64ab8aac4d640bc5cf0f3c0c0cf7eeba60258373497fd52086817e9b435de",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.2. Thang máy (tiếp):\nd. Để tiết kiệm điện năng, nhân viên nên dùng thang bộ di chuyển giữa các tầng không sử dụng thang máy khi di chuyển giữa hai tầng liền nhau ngoại trừ trường hợp dẫn khách tham quan, phụ nữ có thai và người bị thương tật.\ne. Trong trường hợp bị kẹt trong thang máy, nhấn nút trợ giúp khẩn cấp trong thang máy để báo cho bộ phận kỹ thuật/bảo vệ, sẽ hỗ trợ giải thoát bạn ra khỏi thang máy trong thời gian sớm nhất, không nên tự mình cố gắng thoát ra ngoài RẤT NGUY HIỂM.\nf. Không được sử dụng thang máy khi có sự cố cháy nổ, nguy hiểm,….",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy ??nh v? c?ch b?o cho b? ph?n k? thu?t ho?c B?o v? ?p d?ng t?i t?a nh? T?y ?? ? C?n Th?."
           ]
         }
       },
@@ -15395,6 +16559,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.guidance.tay-do-aircon-office",
+              "text": "Tại văn phòng tầng 5 tòa nhà Rita Võ Tây Đô – Cần Thơ, điều hòa có lịch mở 08:00 và tắt 17:00. Chỉ mở khu vực nhân viên đang làm việc; khu vực khác mở khi cần. Nguồn quy định điều chỉnh 27°C vào mùa mưa và 25–26°C vào mùa hè.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 16,
+                  "content_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.3.e. Lịch tắt mở điều hòa. Tầng 5 - Văn phòng làm việc: Mở 8h00; Tắt 17h00. Ghi chú: Chỉ mở khu vực CBNV làm việc. Các khu vực khác khi có nhu cầu mới mở. Không tự động. Mùa mưa 27°, mùa hè 25 - 26°.\nTầng 6 - Sân thượng: Không có máy lạnh.\nV.3. Máy Điều Hòa\na. Đóng kín cửa ra vào và cửa sổ khi điều hoà ở chế độ mở.\nb. Bật luân phiên trong tầng nếu thời tiết không quá nóng, không nhất thiết mở toàn bộ điều hoà có trong tầng. Ưu tiên bật điều hoà ở các tầng có sofa, sản phẩm làm từ da.\nc. Tắt điều hoà trước khi ra về hoặc giờ nghỉ trưa nếu không còn ai trong phòng.\nd. Để tiết kiệm điện năng, khuyến khích CBNV nên tắt điều hoà trước khi ra về 30 phút.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.guidance.tay-do-aircon-saving",
+              "text": "Khi mở điều hòa, đóng cửa ra vào và các cửa sổ. Bật luân phiên nếu thời tiết không quá nóng. Tắt khi ra về hoặc khi nghỉ trưa nếu trong phòng không còn ai.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 13,
+                  "content_sha256": "4e14f2a31f0027c79d3514a62f14cbae4e6351cb715dc35c7746dd925ee5d1fc",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.3. Máy Điều Hòa\na. Đóng kín cửa ra vào và cửa sổ khi điều hoà ở chế độ mở.\nb. Bật luân phiên trong tầng nếu thời tiết không quá nóng, không nhất thiết mở toàn bộ điều hoà có trong tầng. Ưu tiên bật điều hoà ở các tầng có sofa, sản phẩm làm từ da.\nc. Tắt điều hoà trước khi ra về hoặc giờ nghỉ trưa nếu không còn ai trong phòng.\nd. Để tiết kiệm điện năng, khuyến khích CBNV nên tắt điều hoà trước khi ra về 30 phút.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy định áp dụng cho tòa nhà Tây Đô – Cần Thơ. Lịch khác nhau giữa các tầng. Nguồn không hướng dẫn nút bấm hoặc điều khiển của từng loại máy."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -15409,7 +16625,12 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "máy lạnh tây đô",
+        "điều hoà tây đô",
+        "điều hòa tây đô"
+      ]
     },
     {
       "id": "task.business.building-light.95b9cbfe",
@@ -15472,6 +16693,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.17",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.4. Đèn điện\na. Mở đèn điện khu vực cần thiết hoặc khi khách hàng tham quan xem sản phẩm.\nb. Tắt bớt đèn khi không cần thiết.\nc. Thời gian mở - tắt đèn điện:\n- Khu sát cửa kính mặt tiền: mở đèn sau 9h00 khi rèm được hạ xuống\n- Khu vực phía trong: mở đèn bắt đầu giờ làm việc và tắt khi kết thúc giờ làm việc",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 17,
+                  "content_sha256": "0a27eea2a7469d354429cb1e28d97c4acd21fd3c1bafeca6757974fca6a6a899",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.4. Đèn điện\na. Mở đèn điện khu vực cần thiết hoặc khi khách hàng tham quan xem sản phẩm.\nb. Tắt bớt đèn khi không cần thiết.\nc. Thời gian mở - tắt đèn điện:\n- Khu sát cửa kính mặt tiền: mở đèn sau 9h00 khi rèm được hạ xuống\n- Khu vực phía trong: mở đèn bắt đầu giờ làm việc và tắt khi kết thúc giờ làm việc",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.95b9cbfe.18",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.5. Rèm\na. Điều chỉnh rèm để tận dụng ánh sáng tự nhiên, giảm bớt tiêu thụ đèn điện.\nb. Rèm che nắng, tránh ánh sáng trực tiếp làm hỏng sản phẩm.\nc. Thời gian nâng – hạ rèm:\n- Mùa hè: rèm được nâng lên từ 7h00 – 9h00, sau đó hạ rèm\n- Mùa mưa: rèm được nâng lên từ 7h00 – 10h00, sau đó hạ rèm\nTrường hợp nắng sớm hơn thời gian quy định, NSD điều chỉnh cho phù hợp.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 18,
+                  "content_sha256": "a64a38e5b70a85b89a1fd4363f27065f7a2ddf8dc3a1b1e9fbcaac06e430ac24",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.5. Rèm\na. Điều chỉnh rèm để tận dụng ánh sáng tự nhiên, giảm bớt tiêu thụ đèn điện.\nb. Rèm che nắng, tránh ánh sáng trực tiếp làm hỏng sản phẩm.\nc. Thời gian nâng – hạ rèm:\n- Mùa hè: rèm được nâng lên từ 7h00 – 9h00, sau đó hạ rèm\n- Mùa mưa: rèm được nâng lên từ 7h00 – 10h00, sau đó hạ rèm\nTrường hợp nắng sớm hơn thời gian quy định, NSD điều chỉnh cho phù hợp.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "L?ch m? ??n v? ?i?u ch?nh r?m ?p d?ng t?i t?a nh? T?y ?? ? C?n Th?."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -15528,6 +16801,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.19",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.6. Trường hợp mất điện\na. Khi xảy ra sự cố mất điện, cần thông báo ngay cho bộ phận kỹ thuật của tòa nhà về vị trí xảy ra sự cố.\nb. Giữ bình tĩnh tại khu vực xảy ra sự cố để có thể báo cáo hiện trạng. Không được thử bằng bất kỳ hình thức nào nhằm mục đích thắp sáng khu vực mất điện.\nc. Sử dụng đèn khẩn cấp đã được trang bị sẵn ở các hành lang và cầu thang thoát hiểm.\nd. Khi tòa nhà xảy ra sự cố mất điện lưới, hệ thống máy phát điện dự phòng phải kích hoạt và vận hành theo quy trình nghiêm ngặt để đảm bảo an toàn điện và duy trì nguồn điện liên tục cho các phụ tải ưu tiên.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 19,
+                  "content_sha256": "13984b667b542c91358b86bac84d543e4aecfed61fb2743169df5f6f25262157",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.6. Trường hợp mất điện\na. Khi xảy ra sự cố mất điện, cần thông báo ngay cho bộ phận kỹ thuật của tòa nhà về vị trí xảy ra sự cố.\nb. Giữ bình tĩnh tại khu vực xảy ra sự cố để có thể báo cáo hiện trạng. Không được thử bằng bất kỳ hình thức nào nhằm mục đích thắp sáng khu vực mất điện.\nc. Sử dụng đèn khẩn cấp đã được trang bị sẵn ở các hành lang và cầu thang thoát hiểm.\nd. Khi tòa nhà xảy ra sự cố mất điện lưới, hệ thống máy phát điện dự phòng phải kích hoạt và vận hành theo quy trình nghiêm ngặt để đảm bảo an toàn điện và duy trì nguồn điện liên tục cho các phụ tải ưu tiên.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "??y l? h??ng d?n n?i b? t?i t?a nh? T?y ?? ? C?n Th?."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -15542,7 +16845,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "cúp điện tây đô",
+        "điện tòa nhà tây đô"
+      ]
     },
     {
       "id": "task.business.building-assets.95b9cbfe",
@@ -15627,6 +16934,58 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.20",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.7. Vận chuyển hàng hóa, tài sản\na. Tất cả việc vận chuyển hàng hóa, sản phẩm ra vào tòa nhà phải thực hiện đúng quy định của Tập đoàn, thông qua sự phê duyệt của Người QLTN và được thực hiện dưới sự hướng dẫn, kiểm soát của bộ phận Bảo vệ. Khi có nhu cầu vận chuyển hàng hóa, tài sản, NSD phải đăng ký và sử dụng mẫu “Đăng ký chuyển tài sản vào – ra tòa nhà”.\nb. Để bảo quản chất lượng nền nhà, mọi vật tư xây dựng, hàng hóa, sản phẩm cồng kềnh được đưa ra vào tòa nhà phải được vận chuyển bằng xe đẩy phải gắn bánh cao su.\nc. Tất cả tài xế phải tuân theo sự hướng dẫn của bộ phận bảo vệ khi lưu thông trong tòa nhà.\nd. Phương tiện đi lại không được đậu ở những vị trí gây cản trở lưu thông trong bất kỳ trường hợp nào để đảm bảo mọi lối đi được thông thoáng.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 20,
+                  "content_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.7. Vận chuyển hàng hóa, tài sản\na. Tất cả việc vận chuyển hàng hóa, sản phẩm ra vào tòa nhà phải thực hiện đúng quy định của Tập đoàn, thông qua sự phê duyệt của Người QLTN và được thực hiện dưới sự hướng dẫn, kiểm soát của bộ phận Bảo vệ. Khi có nhu cầu vận chuyển hàng hóa, tài sản, NSD phải đăng ký và sử dụng mẫu “Đăng ký chuyển tài sản vào – ra tòa nhà”.\nb. Để bảo quản chất lượng nền nhà, mọi vật tư xây dựng, hàng hóa, sản phẩm cồng kềnh được đưa ra vào tòa nhà phải được vận chuyển bằng xe đẩy phải gắn bánh cao su.\nc. Tất cả tài xế phải tuân theo sự hướng dẫn của bộ phận bảo vệ khi lưu thông trong tòa nhà.\nd. Phương tiện đi lại không được đậu ở những vị trí gây cản trở lưu thông trong bất kỳ trường hợp nào để đảm bảo mọi lối đi được thông thoáng.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.95b9cbfe.21",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.8. Quản lý tài sản & vệ sinh tòa nhà\na. Tất cả CBNV không có nhiệm vụ không tự ý vào kho chứa hàng/ phòng kỹ thuật (nếu có).\nb. Tất cả hàng hóa, TS, CCDC, thiết bị văn phòng…không được phép mang ra khỏi tòa nhà khi chưa được sự đồng ý của QLTN hoặc Ban tổng giám đốc.\nc. Tất cả CBNV phải có trách nhiệm, ý thức tiết kiệm và bảo vệ tài sản chung.\nd. Không tự ý sử dụng tài sản riêng của người khác.\ne. Không được ngồi, sử dụng, làm trầy xước…sản phẩm trưng bày của Tập đoàn. Bất cứ nhân viên nào vi phạm sẽ phải bồi thường theo quy định của Tập đoàn và tùy theo từng trường hợp cụ thể.\nf. Nhân viên tạp vụ sẽ vệ sinh sàn nhà thường xuyên trong ngày.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 21,
+                  "content_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.8. Quản lý tài sản & vệ sinh tòa nhà\na. Tất cả CBNV không có nhiệm vụ không tự ý vào kho chứa hàng/ phòng kỹ thuật (nếu có).\nb. Tất cả hàng hóa, TS, CCDC, thiết bị văn phòng…không được phép mang ra khỏi tòa nhà khi chưa được sự đồng ý của QLTN hoặc Ban tổng giám đốc.\nc. Tất cả CBNV phải có trách nhiệm, ý thức tiết kiệm và bảo vệ tài sản chung.\nd. Không tự ý sử dụng tài sản riêng của người khác.\ne. Không được ngồi, sử dụng, làm trầy xước…sản phẩm trưng bày của Tập đoàn. Bất cứ nhân viên nào vi phạm sẽ phải bồi thường theo quy định của Tập đoàn và tùy theo từng trường hợp cụ thể.\nf. Nhân viên tạp vụ sẽ vệ sinh sàn nhà thường xuyên trong ngày.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "H??ng d?n ?p d?ng t?i t?a nh? T?y ?? ? C?n Th?, theo quy ??nh c?a t?a nh?."
           ]
         }
       },
@@ -15840,6 +17199,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.25",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10. Bãi đỗ xe\na. Xe máy của CBNV phải để gọn gàng, đúng nơi quy định theo sự hướng dẫn của Bảo vệ tòa nhà.\nb. Không được để trước lối ra vào hoặc tại những nơi gây cản trở, tắc nghẽn cho các tài xế khác.\nc. Người để xe tại khu vực gửi xe không nên để đồ đạc quý giá hay đồ dùng cá nhân tại xe của mình.\nd. Không rửa xe, sửa chữa trong bãi để xe trừ phi được sự chấp thuận của QLTN.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 25,
+                  "content_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10. Bãi đỗ xe\na. Xe máy của CBNV phải để gọn gàng, đúng nơi quy định theo sự hướng dẫn của Bảo vệ tòa nhà.\nb. Không được để trước lối ra vào hoặc tại những nơi gây cản trở, tắc nghẽn cho các tài xế khác.\nc. Người để xe tại khu vực gửi xe không nên để đồ đạc quý giá hay đồ dùng cá nhân tại xe của mình.\nd. Không rửa xe, sửa chữa trong bãi để xe trừ phi được sự chấp thuận của QLTN.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.business.95b9cbfe.26",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10.e. Thẻ hay vé xe các loại sẽ được phát tại trạm/ bảo vệ kiểm soát khi xe đến và sẽ được trả lại cho bảo vệ/ trạm khi xe chạy ra khỏi bãi để xe.\nf. Bảo vệ/ nhân viên trông giữ xe chỉ giao xe cho đúng người đang giữ thẻ xe/ vé xe. CBNV/Khách hàng phải tự chịu trách nhiệm giữ thẻ xe/vé xe của mình. Trường hợp làm mất thẻ xe/vé xe thì mọi tổn thất mất mát liên quan (xe, tài sản trên xe…) CBNV/ Khách hàng phải tự chịu trách nhiệm. Khi muốn nhận lại xe, phải xuất trình giấy tờ tùy thân và giấy tờ xe để chứng minh mình là chủ xe. Bảo vệ/nhân viên trông giữ xe sẽ lập biên bản để ghi nhận sự việc và bàn giao xe.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "chunk_index": 26,
+                  "content_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10.e. Thẻ hay vé xe các loại sẽ được phát tại trạm/ bảo vệ kiểm soát khi xe đến và sẽ được trả lại cho bảo vệ/ trạm khi xe chạy ra khỏi bãi để xe.\nf. Bảo vệ/ nhân viên trông giữ xe chỉ giao xe cho đúng người đang giữ thẻ xe/ vé xe. CBNV/Khách hàng phải tự chịu trách nhiệm giữ thẻ xe/vé xe của mình. Trường hợp làm mất thẻ xe/vé xe thì mọi tổn thất mất mát liên quan (xe, tài sản trên xe…) CBNV/ Khách hàng phải tự chịu trách nhiệm. Khi muốn nhận lại xe, phải xuất trình giấy tờ tùy thân và giấy tờ xe để chứng minh mình là chủ xe. Bảo vệ/nhân viên trông giữ xe sẽ lập biên bản để ghi nhận sự việc và bàn giao xe.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "H??ng d?n g?i xe v? s? d?ng th? ho?c v? xe ?p d?ng t?i t?a nh? T?y ?? ? C?n Th?."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -15854,7 +17265,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "bãi xe tây đô",
+        "gửi xe tây đô"
+      ]
     },
     {
       "id": "task.business.fire-safety.95b9cbfe",
@@ -16398,7 +17813,11 @@
       ],
       "aliases": [
         "quên chấm công",
-        "quên bấm công"
+        "quên bấm công",
+        "lỡ không bấm vân tay",
+        "quên quẹt vân tay",
+        "quên chấm vân tay",
+        "lỡ quên quét vân tay"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -16476,7 +17895,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "lỡ quên quét",
+        "quên máy vân tay",
+        "quên giờ vào"
+      ]
     },
     {
       "id": "task.business.shift.c9973704",
@@ -17709,7 +19133,10 @@
       "aliases": [
         "tạm ứng công tác phí",
         "ứng trước công tác phí",
-        "tạm ứng chi phí công tác"
+        "tạm ứng chi phí công tác",
+        "lấy trước tiền để đi công tác",
+        "xin tạm ứng tiền đi công tác",
+        "xin ứng tiền cho chuyến công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -17762,6 +19189,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.travel-advance-approval.1c42626a",
+              "text": "Khi cần tạm ứng cho chuyến công tác, trình phiếu đề xuất đi công tác hoặc email và phiếu đề nghị tạm ứng nếu có cho Trưởng Đơn vị hoặc cấp có thẩm quyền phê duyệt. Thực hiện thủ tục tạm ứng và thanh toán tạm ứng theo quy định công ty.",
+              "refs": [
+                {
+                  "document_id": "1c42626a-099e-463f-8097-4b64afe29bac",
+                  "revision_id": "606eca44-b15c-4b7c-ae02-e80e7e05353c",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 32,
+                  "content_sha256": "0465a0808a96b030dae517dbbbbd93c074e8a2bcb2b23d98453ed28d2a9d9bac",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7. Thủ tục đi công tác\n1. Khi CBNV phát sinh nhu cầu đi công tác hoặc được cử đi công tác, căn cứ vào thời gian, địa điểm, nội dung công tác, CBNV có trách nhiệm gửi phiếu đề xuất đi công tác (theo mẫu Công ty) hoặc mail và/ hoặc phiếu đề nghị tạm ứng công tác phí (nếu có) trình Trưởng Đơn vị, cấp có thẩm quyền phê duyệt.\nĐiều 7.2. Sau khi được Cấp có thẩm quyền phê duyệt, CBNV chuyển phiếu đề xuất công tác hoặc mail cho Phòng HCNS thực hiện việc đặt phương tiện di chuyển/thực hiện thủ tục thanh toán chi phí vé máy bay. Nếu CBNV có tạm ứng công tác phí, thì CBNV làm thủ tục tạm ứng và thanh toán tạm ứng theo quy định Công ty.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/6-qd-che-do-cong-tac-phi-2020-compressed.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.procedure.travel-advance-files.1c42626a",
+              "text": "Sau khi có đủ chữ ký xác nhận, Phòng Kế toán – Tài chính lưu bản chính nếu nhân viên có nhu cầu tạm ứng. Nhân viên giữ bản sao để làm thủ tục thanh toán khi hoàn thành chuyến công tác.",
+              "refs": [
+                {
+                  "document_id": "1c42626a-099e-463f-8097-4b64afe29bac",
+                  "revision_id": "606eca44-b15c-4b7c-ae02-e80e7e05353c",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 33,
+                  "content_sha256": "a421f54124b292c9e23a1d9d39839d2beacecf62fcf3579a06934634b84b9c77",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7.3. Phiếu đề xuất đi công tác và tạm ứng công tác phí sau khi có đầy đủ chữ ký xác nhận theo quy định, Phòng KT-TC sẽ lưu giữ bản chính nếu CBNV có nhu cầu tạm ứng tiền cho chuyến công tác, CBNV sẽ lưu giữ bản sao để làm thủ tục thanh toán sau khi hoàn thành chuyến công tác.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/6-qd-che-do-cong-tac-phi-2020-compressed.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Nguồn này nêu bước phê duyệt và lưu hồ sơ, chưa đủ để xác nhận mức hoặc thời điểm nhận tiền của từng chuyến."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -17781,7 +19260,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "ứng tiền chuyến đi",
+        "lấy tiền trước chuyến đi"
+      ]
     },
     {
       "id": "task.business.travel-allowance.1c42626a",
@@ -18265,6 +19748,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.1c42626a.21",
+              "text": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+              "refs": [
+                {
+                  "document_id": "1c42626a-099e-463f-8097-4b64afe29bac",
+                  "revision_id": "606eca44-b15c-4b7c-ae02-e80e7e05353c",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 21,
+                  "content_sha256": "52d31056d2a53d96d9965ed2edcc8721e36ed9adc70c4f5a0124df2a608837a9",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/6-qd-che-do-cong-tac-phi-2020-compressed.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy ??nh n?u ??u m?i ??t d?ch v?, ch?a n?u chi ti?t thao t?c ??t ho?c th?i h?n."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -18641,7 +20154,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "đi tỉnh làm việc",
+        "đề xuất chuyến công tác"
+      ]
     },
     {
       "id": "task.business.travel-settlement.1c42626a",
@@ -18651,7 +20168,9 @@
         "travel-settlement"
       ],
       "aliases": [
-        "thanh toán công tác phí"
+        "thanh toán công tác phí",
+        "quyết toán tiền đi công tác",
+        "thanh toán tiền sau chuyến công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -18816,7 +20335,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "quyết toán chuyến đi",
+        "nộp chi phí chuyến đi"
+      ]
     },
     {
       "id": "task.business.travel-invoices.1c42626a",
@@ -19872,7 +21395,10 @@
       "aliases": [
         "tạm ứng công tác phí",
         "ứng trước công tác phí",
-        "tạm ứng chi phí công tác"
+        "tạm ứng chi phí công tác",
+        "lấy trước tiền để đi công tác",
+        "xin tạm ứng tiền đi công tác",
+        "xin ứng tiền cho chuyến công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -19925,6 +21451,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.travel-advance-approval.91ae6b2d",
+              "text": "Khi cần tạm ứng cho chuyến công tác, trình phiếu đề xuất đi công tác hoặc email và phiếu đề nghị tạm ứng nếu có cho Trưởng Đơn vị hoặc cấp có thẩm quyền phê duyệt. Thực hiện thủ tục tạm ứng và thanh toán tạm ứng theo quy định công ty.",
+              "refs": [
+                {
+                  "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+                  "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 32,
+                  "content_sha256": "0465a0808a96b030dae517dbbbbd93c074e8a2bcb2b23d98453ed28d2a9d9bac",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7. Thủ tục đi công tác\n1. Khi CBNV phát sinh nhu cầu đi công tác hoặc được cử đi công tác, căn cứ vào thời gian, địa điểm, nội dung công tác, CBNV có trách nhiệm gửi phiếu đề xuất đi công tác (theo mẫu Công ty) hoặc mail và/ hoặc phiếu đề nghị tạm ứng công tác phí (nếu có) trình Trưởng Đơn vị, cấp có thẩm quyền phê duyệt.\nĐiều 7.2. Sau khi được Cấp có thẩm quyền phê duyệt, CBNV chuyển phiếu đề xuất công tác hoặc mail cho Phòng HCNS thực hiện việc đặt phương tiện di chuyển/thực hiện thủ tục thanh toán chi phí vé máy bay. Nếu CBNV có tạm ứng công tác phí, thì CBNV làm thủ tục tạm ứng và thanh toán tạm ứng theo quy định Công ty.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.procedure.travel-advance-files.91ae6b2d",
+              "text": "Sau khi có đủ chữ ký xác nhận, Phòng Kế toán – Tài chính lưu bản chính nếu nhân viên có nhu cầu tạm ứng. Nhân viên giữ bản sao để làm thủ tục thanh toán khi hoàn thành chuyến công tác.",
+              "refs": [
+                {
+                  "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+                  "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 33,
+                  "content_sha256": "a421f54124b292c9e23a1d9d39839d2beacecf62fcf3579a06934634b84b9c77",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 7.3. Phiếu đề xuất đi công tác và tạm ứng công tác phí sau khi có đầy đủ chữ ký xác nhận theo quy định, Phòng KT-TC sẽ lưu giữ bản chính nếu CBNV có nhu cầu tạm ứng tiền cho chuyến công tác, CBNV sẽ lưu giữ bản sao để làm thủ tục thanh toán sau khi hoàn thành chuyến công tác.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Nguồn này nêu bước phê duyệt và lưu hồ sơ, chưa đủ để xác nhận mức hoặc thời điểm nhận tiền của từng chuyến."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -19944,7 +21522,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "ứng tiền chuyến đi",
+        "lấy tiền trước chuyến đi"
+      ]
     },
     {
       "id": "task.business.travel-allowance.91ae6b2d",
@@ -20428,6 +22010,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.91ae6b2d.21",
+              "text": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+              "refs": [
+                {
+                  "document_id": "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+                  "revision_id": "142d56ad-0fda-41ea-b621-e9eb2546bf3b",
+                  "source_sha256": "ce1531e6ecd9266c4be4b22c0b4d41eb7100f841c4af059947326a1d01294863",
+                  "chunk_index": 21,
+                  "content_sha256": "52d31056d2a53d96d9965ed2edcc8721e36ed9adc70c4f5a0124df2a608837a9",
+                  "quote": "Quy định về chế độ công tác phí, chi phí tiếp khách — 02/QĐ-01-BM01\nĐiều 5.15. Phòng HCNS chịu trách nhiệm đặt phương tiện di chuyển và khách sạn, dịch vụ visa... cho CBNV được cử đi công tác.",
+                  "metadata": {
+                    "title": "Quy định về chế độ công tác phí, chi phí tiếp khách",
+                    "applicability": "Toàn thể Người lao động có giao kết các hình thức Hợp đồng lao động với Công ty TNHH RI TA VÕ từ cấp Phó TGĐ trở xuống.",
+                    "effective_from": null,
+                    "effective_to": null,
+                    "version_label": "02/QĐ-01-BM01; soát xét 01",
+                    "source_path": "noi-quy-qui-dinh/quy-dinh-che-do-cong-tac-phi/6-qd-che-do-cong-tac-phi-01-01-2020.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy ??nh n?u ??u m?i ??t d?ch v?, ch?a n?u chi ti?t thao t?c ??t ho?c th?i h?n."
+          ]
         }
       },
       "clarification": "Bạn hãy nêu rõ nội dung, đối tượng và nguồn cần hỏi; các đoạn hiện có chỉ chứng minh một phần.",
@@ -20804,7 +22416,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "đi tỉnh làm việc",
+        "đề xuất chuyến công tác"
+      ]
     },
     {
       "id": "task.business.travel-settlement.91ae6b2d",
@@ -20814,7 +22430,9 @@
         "travel-settlement"
       ],
       "aliases": [
-        "thanh toán công tác phí"
+        "thanh toán công tác phí",
+        "quyết toán tiền đi công tác",
+        "thanh toán tiền sau chuyến công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -20979,7 +22597,11 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "quyết toán chuyến đi",
+        "nộp chi phí chuyến đi"
+      ]
     },
     {
       "id": "task.business.travel-invoices.91ae6b2d",
@@ -21499,7 +23121,13 @@
       "aliases": [
         "xem phiếu lương Workit",
         "xem phiếu tiền lương Workit",
-        "tra cứu phiếu lương Workit"
+        "tra cứu phiếu lương Workit",
+        "coi bảng lương của mình trên Workit",
+        "xem phiếu lương của mình trên Workit",
+        "xem phiếu lương của tôi trên Workit",
+        "xem phiếu lương trên Workit",
+        "coi phiếu lương trên Workit",
+        "mở phiếu lương trên Workit"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -21571,7 +23199,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "phiếu tiền lương workit",
+        "bảng lương workit"
+      ]
     },
     {
       "id": "task.business.workit-attendance.bcc9e137",
@@ -21972,7 +23604,10 @@
       "aliases": [
         "đổi mật khẩu Workit Mobile",
         "thay mật khẩu Workit Mobile",
-        "đổi pass Workit Mobile"
+        "đổi pass Workit Mobile",
+        "thay mật khẩu trên Workit Mobile",
+        "đổi mật khẩu tài khoản Workit Mobile",
+        "đổi pass trên Workit Mobile"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -22044,7 +23679,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "pass workit mobile",
+        "tài khoản workit mobile"
+      ]
     },
     {
       "id": "task.business.systems.mobile-missing-menu.2cb00d36",
@@ -24258,7 +25897,14 @@
       "aliases": [
         "đặt xe công tác Workit",
         "đặt xe đi công tác Workit",
-        "đăng ký xe công tác Workit"
+        "đăng ký xe công tác Workit",
+        "đặt xe trên Workit",
+        "đăng ký xe trên Workit",
+        "đăng ký xe công tác trên Workit",
+        "đặt xe công tác trên Workit",
+        "đặt xe đi công tác trên Workit",
+        "đăng ký xe của công ty trên Workit",
+        "đăng ký xe của tập đoàn trên Workit"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -24332,7 +25978,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "xe trên workit",
+        "workit đặt xe",
+        "xe công tác workit"
+      ]
     },
     {
       "id": "task.business.workit-room.d906cfac",
@@ -24345,7 +25996,12 @@
         "đặt phòng họp Workit",
         "đặt phòng họp trên Workit",
         "đăng ký phòng họp Workit",
-        "đặt lịch phòng họp Workit"
+        "đặt lịch phòng họp Workit",
+        "mượn phòng họp của công ty",
+        "mượn được phòng họp của công ty",
+        "đặt một phòng họp trên Workit",
+        "book phòng họp trên Workit",
+        "đặt phòng họp bằng Workit"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -24419,7 +26075,12 @@
         "note": "Read only fields needed for contextual guidance. Actual entitlement/authority requires the declared additional evidence.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "phòng trên workit",
+        "phòng họp workit",
+        "lịch họp workit"
+      ]
     },
     {
       "id": "task.business.workit-meal.d906cfac",
@@ -27887,6 +29548,36 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.29",
+              "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.12. Quy định sử dụng phòng Chủ tịch\na. Phòng Chủ tịch là khu vực hạn chế; CBNV và khách chỉ được ra vào khi được Chủ tịch hoặc Người có thẩm quyền cho phép.\nb. Người được phép sử dụng phải giữ gìn vệ sinh, tài sản, thiết bị, hồ sơ và tài liệu; không tự ý di chuyển, mang ra ngoài hoặc sử dụng ngoài phạm vi được phép.\nc. Không được tự ý chụp ảnh, quay phim, ghi âm, sao chụp, cung cấp hoặc tiết lộ hồ sơ, tài liệu, thông tin trong phòng.\nd. Sau khi sử dụng, phải sắp xếp lại khu vực, tắt thiết bị điện, điều hòa, đèn và đóng, khóa cửa phòng theo quy định.\ne. Chìa khóa phòng do Quản lý tòa nhà quản và tạp vụ thực hiện vệ sinh hằng ngày.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "chunk_index": 29,
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "content_sha256": "d23d73c43368fce9aa9524dcebda0cb47a41e0fbc30a72c9613b5bc07a496a97",
+                  "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.12. Quy định sử dụng phòng Chủ tịch\na. Phòng Chủ tịch là khu vực hạn chế; CBNV và khách chỉ được ra vào khi được Chủ tịch hoặc Người có thẩm quyền cho phép.\nb. Người được phép sử dụng phải giữ gìn vệ sinh, tài sản, thiết bị, hồ sơ và tài liệu; không tự ý di chuyển, mang ra ngoài hoặc sử dụng ngoài phạm vi được phép.\nc. Không được tự ý chụp ảnh, quay phim, ghi âm, sao chụp, cung cấp hoặc tiết lộ hồ sơ, tài liệu, thông tin trong phòng.\nd. Sau khi sử dụng, phải sắp xếp lại khu vực, tắt thiết bị điện, điều hòa, đèn và đóng, khóa cửa phòng theo quy định.\ne. Chìa khóa phòng do Quản lý tòa nhà quản và tạp vụ thực hiện vệ sinh hằng ngày.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Ph?n n?y n?u vi?c xin ph?p v? tr?ch nhi?m s? d?ng ph?ng Ch? t?ch t?i T?y ?? ? C?n Th?."
+          ]
         }
       },
       "context": {
@@ -27969,6 +29660,36 @@
                 }
               ]
             }
+          ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.business.95b9cbfe.30",
+              "text": "Quy định tòa nhà Tây Đô – Cần Thơ, VI.1–2: Nguồn ghi dịch vụ bảo vệ 24/24 và camera giám sát an ninh. Khi phát hiện bảo vệ phục vụ không chuyên nghiệp hoặc gian lận, thông báo ngay Ban an ninh để xử lý. Số hotline in trong nguồn chưa được xác minh hiện tại. Quản lý tòa nhà giữ chìa khóa. Người rời tòa nhà cuối cùng phải niêm phong cùng Bảo vệ theo quy định niêm phong đã ban hành.",
+              "refs": [
+                {
+                  "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+                  "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+                  "chunk_index": 30,
+                  "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+                  "content_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65",
+                  "quote": "Quy định tòa nhà Tây Đô – Cần Thơ, VI.1–2: Nguồn ghi dịch vụ bảo vệ 24/24 và camera giám sát an ninh. Khi phát hiện bảo vệ phục vụ không chuyên nghiệp hoặc gian lận, thông báo ngay Ban an ninh để xử lý. Số hotline in trong nguồn chưa được xác minh hiện tại. Quản lý tòa nhà giữ chìa khóa. Người rời tòa nhà cuối cùng phải niêm phong cùng Bảo vệ theo quy định niêm phong đã ban hành.",
+                  "metadata": {
+                    "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                    "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                    "effective_from": "2026-09-01",
+                    "effective_to": null,
+                    "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "C?c ??u m?i v? vi?c ni?m phong trong t?i li?u ?p d?ng t?i t?a nh? T?y ?? ? C?n Th?."
           ]
         }
       },
@@ -30768,7 +32489,10 @@
       ],
       "aliases": [
         "Chấm công khi đi công tác bên ngoài",
-        "quét vân tay khi đi công tác"
+        "quét vân tay khi đi công tác",
+        "đi công tác bên ngoài thì chấm công",
+        "chấm công lúc đi công tác bên ngoài",
+        "ghi nhận giờ công khi đi công tác bên ngoài"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -30870,6 +32594,58 @@
               ]
             }
           ]
+        },
+        "procedure": {
+          "complete": false,
+          "units": [
+            {
+              "id": "evidence.procedure.attendance-outside",
+              "text": "Khi đi công tác bên ngoài trước 08 giờ hoặc ra về trước 17 giờ, quét vân tay khi vào hoặc ra Tập đoàn và dùng mẫu xác nhận ngày công. Nếu đi công tác từ một ngày trở lên, lập phiếu đề xuất đi công tác.",
+              "refs": [
+                {
+                  "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+                  "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+                  "chunk_index": 3,
+                  "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+                  "content_sha256": "bbbb67f9039631f8e88f12ca132aebfd43bac0f4db9cc9ad0f77050d5aa15003",
+                  "quote": "Quy định chấm công — 02/2023/TB-HCNS\nIV.2. Đối với CBNV đi công tác bên ngoài (đi gặp khách hàng, đi sửa chữa, xử lý công việc…) trước 08 giờ hoặc ra về trước 17 giờ, khi vào/ra Tập đoàn, bắt buộc thực hiện quét vân tay ghi nhận giờ vào/ra (Áp dụng mẫu xác nhận ngày công). Nếu đi công tác từ 01 ngày trở lên phải có phiếu đề xuất đi công tác (Áp dụng Mẫu đề xuất đi công tác).\nIV.3. Phiếu đề xuất đi công tác hoặc Phiếu xác nhận ngày công chỉ được chấp nhận khi có chữ ký xác nhận/email xác nhận của Trưởng Phòng/Ban hoặc cấp Quản lý trực tiếp và phải được chuyển về phòng Hành chính nhân sự (HCNS) theo các kỳ nộp bảng tổng hợp công, để làm cơ sở ghi nhận công",
+                  "metadata": {
+                    "title": "Thông báo quy định chấm công",
+                    "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                    "effective_from": "2023-04-01",
+                    "effective_to": null,
+                    "version_label": "02/2023/TB-HCNS",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "evidence.procedure.attendance-confirmation",
+              "text": "Xin Trưởng Phòng/Ban hoặc quản lý trực tiếp xác nhận bằng chữ ký hoặc email. Chuyển phiếu về Phòng Hành chính Nhân sự theo kỳ nộp bảng tổng hợp công để ghi nhận công.",
+              "refs": [
+                {
+                  "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+                  "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+                  "chunk_index": 3,
+                  "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+                  "content_sha256": "bbbb67f9039631f8e88f12ca132aebfd43bac0f4db9cc9ad0f77050d5aa15003",
+                  "quote": "Quy định chấm công — 02/2023/TB-HCNS\nIV.2. Đối với CBNV đi công tác bên ngoài (đi gặp khách hàng, đi sửa chữa, xử lý công việc…) trước 08 giờ hoặc ra về trước 17 giờ, khi vào/ra Tập đoàn, bắt buộc thực hiện quét vân tay ghi nhận giờ vào/ra (Áp dụng mẫu xác nhận ngày công). Nếu đi công tác từ 01 ngày trở lên phải có phiếu đề xuất đi công tác (Áp dụng Mẫu đề xuất đi công tác).\nIV.3. Phiếu đề xuất đi công tác hoặc Phiếu xác nhận ngày công chỉ được chấp nhận khi có chữ ký xác nhận/email xác nhận của Trưởng Phòng/Ban hoặc cấp Quản lý trực tiếp và phải được chuyển về phòng Hành chính nhân sự (HCNS) theo các kỳ nộp bảng tổng hợp công, để làm cơ sở ghi nhận công",
+                  "metadata": {
+                    "title": "Thông báo quy định chấm công",
+                    "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                    "effective_from": "2023-04-01",
+                    "effective_to": null,
+                    "version_label": "02/2023/TB-HCNS",
+                    "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+                  }
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Quy định nêu các trường hợp công tác bên ngoài ở trên. Hãy đối chiếu thời gian làm việc áp dụng cho vị trí của bạn."
+          ]
         }
       },
       "context": {
@@ -30883,7 +32659,11 @@
         "note": "General document/software instruction; personnel cannot establish current permissions or operational state.",
         "facts": [],
         "family_summary": false
-      }
+      },
+      "discovery_terms": [
+        "chấm công bên ngoài",
+        "đi gặp khách chấm công"
+      ]
     },
     {
       "id": "task.topic.attendance-responsibility",
@@ -32358,8 +34138,8 @@
     {
       "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
       "chunk_index": 17,
-      "disposition": "excerpt",
-      "note": "[source_context] Explicit source lookup only. Not live facts, automatic policy precedence, or a complete business answer."
+      "disposition": "template",
+      "note": "Article 7 establishes the assigned seal keeper and supervision for the general seal procedure."
     },
     {
       "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",

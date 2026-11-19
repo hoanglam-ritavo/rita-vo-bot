@@ -152,6 +152,8 @@ def create_app(settings=None, *, service_factory=ApiService):
                          description='Internal service credential; never a user authorization token.')):
         service = request.app.state.retrieval_service
         if isinstance(body, ConversationRequest):
+            logger.info('conversation_answer_received message_id=%s expected_context_version=%d top_k=%d has_choice=%s',
+                        body.message_id, body.expected_context_version, body.top_k, body.choice is not None)
             conversations = request.app.state.conversation_service
             conversations.require_enabled()
             response.headers['Cache-Control'] = 'no-store'

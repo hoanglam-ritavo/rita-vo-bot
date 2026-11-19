@@ -120,8 +120,8 @@ previous source choice, and changing tasks discards task-bound inputs.
 A user can name a related scope to switch while keeping the requested aspects.
 Numbered selections apply only to the active task prompt.
 
-Unrecognized replies and acknowledgements preserve the active request.
-Cancellation and recognized topic changes end it. A numbered reference to a
+Short unrecognized replies and acknowledgements preserve the active request.
+Cancellation and self-contained new requests end it. A numbered reference to a
 previous answer can select a displayed, uniquely mapped document claim. The
 bot reads its declared evidence again and asks for clarification when the
 reference is ambiguous. Self-work field follow-ups may
@@ -162,6 +162,14 @@ childbirth paperwork can receive the supported company-benefit answer with an
 explicit limit on maternity-insurance paperwork. The release preserves schema 2
 and the existing optional clarification fields.
 
+An unmatched single-aspect document question with an authored topic cue can
+receive up to three suggested catalog topics. Discovery uses one bounded
+retrieval and at most one batch of exact live references. The prompt contains
+labels only. A choice binds to the current prompt and context version, and the
+bot rechecks citations before rendering general guidance. Explicit document
+lookup, including phrasing such as “cho mình xem tài liệu”, uses the excerpt
+path. Discovery logs candidate outcomes and elapsed time without question text.
+
 ## Deletion and verification
 
 Backend hides a room and durably queues purge before returning 202. Purge removes
@@ -190,6 +198,25 @@ and deletion before enabling users. For the choice UI, deploy the compatible
 bot, Backend and Portal in that order. After accepting bound choices, keep the
 bot and Backend compatible with stored choice payloads if the Portal is rolled
 back. Keep the purge worker and credentials operational. See [current verification](../README.md#current-verification-status).
+
+For the natural Vietnamese routing release, deploy the bot and its generated
+catalogs together. In an authenticated staging room, send both company-vehicle
+question variants and confirm that the reply cites HCNS-QT02 and gives the
+contact and approval steps without a clarification menu. In the same room,
+ask what paperwork is needed, then ask explicitly about booking a company
+vehicle in Workit. Confirm that each reply cites the corresponding source.
+Ask about travel-expense settlement with both verified copies published and
+confirm that one source-backed answer is returned. These checks exercise the
+conversation payload and current published evidence. Roll back the bot and
+catalogs as a set.
+
+For seal and topic discovery verification, confirm that the general seal
+question cites HCNS-QC01 and that a request for a hanging or spanning seal stays
+on the respective procedure. In the same room, ask what paperwork is needed and
+then change to an unrelated subject. Submit an unmatched document question about
+disposing of old office assets, check that the suggested topic has no answer
+claims yet, then confirm it and check its citations. Use a disposable staging
+fixture to confirm that withdrawing the selected source prevents an answer.
 
 ## Contextual answer revision
 

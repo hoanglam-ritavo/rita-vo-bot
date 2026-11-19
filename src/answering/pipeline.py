@@ -120,8 +120,15 @@ def resolve_policy(question, catalog, lexicon, policy):
 
 
 def is_document_lookup(question):
-    return any(phrase_matches(p, question) for p in (
-        'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
+    from src.type_b.tasks import normalized, phrase
+    if any(phrase_matches(p, question) for p in (
+            'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu')):
+        return True
+    query = normalized(question)
+    if any(phrase(query, term) for term in ('cua toi', 'cua minh', 'cua dong nghiep', 'cua nguoi khac')):
+        return False
+    return bool(re.match(r'^(?:(?:cho (?:toi|minh)|vui long|xin|(?:toi|minh) muon) )?'
+                         r'(?:xem|doc|mo) tai lieu ', query))
 
 
 def section_units(section, analysis):
@@ -226,8 +233,10 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         requested = ', '.join(aspect_labels[aspect] for aspect in analysis.aspects)
         message = f'Mình hiểu bạn đang hỏi về {requested} của chủ đề “{cards[0].label}”.'
         if all(aspect not in cards[0].sections for aspect in analysis.aspects):
+            available = ', '.join(aspect_labels[aspect] for aspect in cards[0].sections)
             row.update(reason='answer_section_unavailable', limitations=[
-                f'{message} Tài liệu đã duyệt hiện chưa đủ để hướng dẫn phần này.'])
+                f'{message} Tài liệu đã duyệt hiện chưa đủ để hướng dẫn phần này. '
+                f'Bạn có thể hỏi về: {available}.'])
         else:
             row.update(reason='answer_reference_unavailable', limitations=[
                 f'{message} Căn cứ đã khai báo cho phần này hiện không khả dụng.'])

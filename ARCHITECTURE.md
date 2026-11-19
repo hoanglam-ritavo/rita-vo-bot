@@ -6,8 +6,9 @@
 manually started bot; it does not participate in serving. Its CLI separates local
 inventory, future SELECT-only HRM/corpus binding preparation and future sequential
 socket HTTP execution. Endpoint-specific oracles reuse question-bank expectations
-without mutating them; per-profile values and publication prerequisites are frozen
-before requests. Conversations and controlled source failures are reported outside
+without mutating them. The selected full or smoke matrix, expected HRM values
+and publication prerequisites are frozen before requests. Conversations and
+controlled source failures are reported outside
 the stateless scope, not silently split or marked passed. Source fingerprint
 rechecks, health gating and private reports protect interpretation of results.
 Runtime configuration, models, migrations and service processes are unchanged.
@@ -37,19 +38,34 @@ Explicit document lookup bypasses task ambiguity and never implicitly reads
 personnel fields mentioned in an instruction. A separately requested self-profile
 lookup in the same message is retained and executed only when every part is clear.
 General guidance selects a source-bound general route first; registry-owned
-platform terms or an explicit system select software instructions. Ordinary policy answers still
-require exact eligible authored references, without a vector fallback on unknown
-tasks. For ambiguous document or leave-platform requests, the answer coordinator
+platform terms or an explicit system select software instructions. For example,
+common ways of asking to use company vehicles resolve to HCNS-QT02, while a
+request to book a vehicle in Workit selects the Workit instructions. The
+recognition-only vehicle expressions never rewrite retrieval searches. Policy
+answers require exact eligible authored references. An unmatched document-only
+conversation can use authored discovery terms to narrow an existing retrieval
+search. Ranked hits nominate catalog units for the requested aspect. One batch
+checks their exact references before the bot offers up to three topics. This
+branch publishes labels and no excerpts or claims. A bound selection then reads
+current evidence again and gives general document guidance. An unmatched query
+without a verified topic receives a targeted clarification or an explicit lookup
+prompt. For ambiguous document or leave-platform requests, the answer coordinator
 checks candidates against the requested aspects and reads their declared references
-in one eligible snapshot. One viable scope receives a labeled answer with the
-remaining limitations. Multiple viable scopes produce a grounded choice. The
+in one eligible snapshot. Equivalent scopes with the same document hash, rendered
+units, citations and conditions are collapsed only when that snapshot confirms a
+`duplicate_of` relation. The most supported copy wins and the relation target
+breaks coverage ties. One viable scope receives a labeled answer with the
+remaining limitations. Multiple distinct viable scopes produce a grounded choice,
+using source filenames if their usual metadata cannot distinguish the labels. The
 answer path reuses the request-local snapshot and reads current evidence again
 on a later selection. Unsupported comparisons and totals ask for a narrower
 request. Numbered, named and UI-bound conversation choices retain the original
-subject and aspects. Aspect-only
-follow-ups replace the active aspect unless the user explicitly requests an
-addition. Pending requests survive unrecognized replies until resolved, cancelled
-or replaced by a recognized new topic. Ambiguous unaccented owners such as
+subject and aspects. Aspect-only follow-ups replace the active aspect unless the
+user explicitly requests an addition. A card can declare one related task per
+missing aspect with evidence from the same revision and the same context rules.
+The vehicle and asset-disposal policies link to their paperwork guides. Explicit new
+requests can replace the active request even before task recognition. Short
+unrecognized replies preserve pending context. Ambiguous unaccented owners such as
 "Minh/minh" require clarification; accent folding never establishes identity.
 Reducer schema 9 validates the shape, size and catalog compatibility of the
 active request. Compatible schema 7/8 state keeps its original question and

@@ -6,18 +6,29 @@
       "case_id": "q.policy.travel.001",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence"
+        "partial"
       ],
-      "task_ids_any": [],
+      "task_ids_any": [
+        "task.bcde0d3e54aa504c8056eb8779471c57",
+        "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+      ],
       "forbidden_task_ids": [],
-      "required_source_groups": [],
+      "required_source_groups": [
+        [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ]
+      ],
       "forbidden_documents": [],
       "employee_fields": [],
       "null_fields": [],
-      "claims": "none",
+      "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.002",
@@ -34,7 +45,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.003",
@@ -51,24 +66,39 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.004",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence"
+        "partial"
       ],
-      "task_ids_any": [],
+      "task_ids_any": [
+        "task.bcde0d3e54aa504c8056eb8779471c57",
+        "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+      ],
       "forbidden_task_ids": [],
-      "required_source_groups": [],
+      "required_source_groups": [
+        [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ]
+      ],
       "forbidden_documents": [],
       "employee_fields": [],
       "null_fields": [],
-      "claims": "none",
+      "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.005",
@@ -85,7 +115,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.travel.006",
@@ -205,7 +239,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     },
     {
       "case_id": "q.policy.travel.011",
@@ -222,41 +260,67 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.012",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence"
+        "partial"
       ],
-      "task_ids_any": [],
+      "task_ids_any": [
+        "task.bcde0d3e54aa504c8056eb8779471c57",
+        "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+      ],
       "forbidden_task_ids": [],
-      "required_source_groups": [],
+      "required_source_groups": [
+        [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ]
+      ],
       "forbidden_documents": [],
       "employee_fields": [],
       "null_fields": [],
-      "claims": "none",
+      "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.013",
       "turn": 0,
       "statuses": [
-        "needs_clarification",
-        "insufficient_evidence"
+        "partial"
       ],
-      "task_ids_any": [],
+      "task_ids_any": [
+        "task.bcde0d3e54aa504c8056eb8779471c57",
+        "task.a3ab6cf5c32c573baa9cb59a4444a1f6"
+      ],
       "forbidden_task_ids": [],
-      "required_source_groups": [],
+      "required_source_groups": [
+        [
+          "91ae6b2d-ec63-4463-bafc-d9c8370fa722",
+          "1c42626a-099e-463f-8097-4b64afe29bac"
+        ]
+      ],
       "forbidden_documents": [],
       "employee_fields": [],
       "null_fields": [],
-      "claims": "none",
+      "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.014",
@@ -273,7 +337,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "needs_clarification"
+      ],
+      "retrieve_documents": "none"
     },
     {
       "case_id": "q.policy.travel.015",
@@ -290,7 +358,11 @@
       "null_fields": [],
       "claims": "none",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ]
     }
   ]
 }

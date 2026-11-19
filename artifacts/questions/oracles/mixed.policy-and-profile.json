@@ -26,7 +26,10 @@
       "fixture": "current",
       "expected_values": {
         "job_title": "Fictional job_title"
-      }
+      },
+      "expected_employee_claim_fields": [
+        "job_title"
+      ]
     },
     {
       "case_id": "q.mixed.policy-and-profile.002",
