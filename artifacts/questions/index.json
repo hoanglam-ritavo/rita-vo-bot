@@ -421,8 +421,8 @@
     {
       "path": "conversation/context-and-followups.json",
       "group_id": "conversation.context-and-followups",
-      "case_count": 10,
-      "turn_count": 23
+      "case_count": 21,
+      "turn_count": 49
     },
     {
       "path": "employee/self-work-profile.json",
@@ -445,8 +445,8 @@
     {
       "path": "policy/benefits.json",
       "group_id": "policy.benefits",
-      "case_count": 36,
-      "turn_count": 39
+      "case_count": 37,
+      "turn_count": 41
     },
     {
       "path": "policy/labor-rules.json",
@@ -523,11 +523,11 @@
   ],
   "totals": {
     "groups": 21,
-    "cases": 855,
-    "turns": 873,
+    "cases": 867,
+    "turns": 901,
     "observed_task_cards": 279,
     "documents": 29,
-    "employee_fields": 9,
+    "employee_fields": 12,
     "retrieval_routes": 285
   },
   "coverage": {
@@ -954,11 +954,15 @@
           "q.boundaries.evidence-availability.003",
           "q.boundaries.evidence-availability.004",
           "q.boundaries.evidence-availability.005",
-          "q.boundaries.evidence-availability.011"
+          "q.boundaries.evidence-availability.011",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ],
         "aspects": {
           "overview": [
-            "q.policy.benefits.011"
+            "q.policy.benefits.011",
+            "q.conversation.context-and-followups.015",
+            "q.conversation.context-and-followups.020"
           ],
           "amount": [
             "q.policy.benefits.016"
@@ -1093,20 +1097,25 @@
           "q.policy.benefits.024",
           "q.policy.benefits.025",
           "q.policy.benefits.026",
-          "q.conversation.context-and-followups.003"
+          "q.conversation.context-and-followups.003",
+          "q.conversation.context-and-followups.014",
+          "q.policy.benefits.037"
         ],
         "aspects": {
           "overview": [
-            "q.policy.benefits.019"
+            "q.policy.benefits.019",
+            "q.conversation.context-and-followups.014"
           ],
           "amount": [
-            "q.policy.benefits.024"
+            "q.policy.benefits.024",
+            "q.policy.benefits.037"
           ],
           "conditions": [
             "q.policy.benefits.025"
           ],
           "paperwork": [
-            "q.policy.benefits.026"
+            "q.policy.benefits.026",
+            "q.policy.benefits.037"
           ]
         }
       },
@@ -1395,11 +1404,16 @@
           "q.software.eleave.012",
           "q.software.eleave.021",
           "q.software.eleave.025",
-          "q.software.eleave.026"
+          "q.software.eleave.026",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.013",
+          "q.conversation.context-and-followups.018"
         ],
         "aspects": {
           "overview": [
-            "q.software.eleave.006"
+            "q.software.eleave.006",
+            "q.conversation.context-and-followups.011",
+            "q.conversation.context-and-followups.013"
           ],
           "procedure": [
             "q.software.eleave.011",
@@ -1410,7 +1424,8 @@
           ],
           "paperwork": [
             "q.software.eleave.021",
-            "q.software.eleave.026"
+            "q.software.eleave.026",
+            "q.conversation.context-and-followups.018"
           ]
         }
       },
@@ -1428,11 +1443,13 @@
           "q.software.eleave.020",
           "q.boundaries.evidence-availability.009",
           "q.software.eleave.022",
-          "q.software.eleave.024"
+          "q.software.eleave.024",
+          "q.conversation.context-and-followups.013"
         ],
         "aspects": {
           "overview": [
-            "q.software.eleave.013"
+            "q.software.eleave.013",
+            "q.conversation.context-and-followups.013"
           ],
           "procedure": [
             "q.software.eleave.018",
@@ -1486,11 +1503,13 @@
           "q.policy.leave.011",
           "q.policy.leave.012",
           "q.policy.leave.013",
-          "q.policy.leave.014"
+          "q.policy.leave.014",
+          "q.conversation.context-and-followups.021"
         ],
         "aspects": {
           "overview": [
-            "q.policy.leave.008"
+            "q.policy.leave.008",
+            "q.conversation.context-and-followups.021"
           ],
           "procedure": [
             "q.policy.leave.013"
@@ -1518,11 +1537,17 @@
           "q.mixed.policy-and-profile.006",
           "q.mixed.policy-and-profile.008",
           "q.software.workit.096",
-          "q.software.workit.097"
+          "q.software.workit.097",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.018"
         ],
         "aspects": {
           "overview": [
-            "q.software.workit.036"
+            "q.software.workit.036",
+            "q.conversation.context-and-followups.011",
+            "q.conversation.context-and-followups.012",
+            "q.conversation.context-and-followups.018"
           ],
           "procedure": [
             "q.software.workit.041",
@@ -1552,21 +1577,30 @@
           "q.software.workit.048",
           "q.software.workit.049",
           "q.software.workit.094",
-          "q.software.workit.098"
+          "q.software.workit.098",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.019",
+          "q.conversation.context-and-followups.021"
         ],
         "aspects": {
           "overview": [
-            "q.software.workit.043"
+            "q.software.workit.043",
+            "q.conversation.context-and-followups.012"
           ],
           "procedure": [
-            "q.software.workit.048"
+            "q.software.workit.048",
+            "q.conversation.context-and-followups.019",
+            "q.conversation.context-and-followups.021"
           ],
           "conditions": [
-            "q.software.workit.049"
+            "q.software.workit.049",
+            "q.conversation.context-and-followups.019"
           ],
           "paperwork": [
             "q.software.workit.094",
-            "q.software.workit.098"
+            "q.software.workit.098",
+            "q.conversation.context-and-followups.019",
+            "q.conversation.context-and-followups.021"
           ]
         }
       },
@@ -5418,7 +5452,10 @@
           "q.software.eleave.024",
           "q.software.eleave.025",
           "q.software.eleave.026",
-          "q.boundaries.evidence-availability.012"
+          "q.boundaries.evidence-availability.012",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.013",
+          "q.conversation.context-and-followups.018"
         ]
       },
       {
@@ -5537,7 +5574,10 @@
           "q.policy.business-expansion.7e7be9cebe5b59b9",
           "q.mixed.policy-and-profile.005",
           "q.mixed.policy-and-profile.007",
-          "q.policy.leave.015"
+          "q.policy.leave.015",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.019",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {
@@ -6027,7 +6067,11 @@
           "q.policy.business-expansion.a78807b07520b192",
           "q.policy.business-expansion.ca2d00d3aac2a247",
           "q.policy.business-expansion.bf2a33979aa6b54f",
-          "q.policy.business-expansion.77937cc3295246f8"
+          "q.policy.business-expansion.77937cc3295246f8",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020",
+          "q.policy.benefits.037"
         ]
       },
       {
@@ -6087,7 +6131,12 @@
           "q.software.workit.096",
           "q.software.workit.097",
           "q.software.workit.098",
-          "q.boundaries.evidence-availability.013"
+          "q.boundaries.evidence-availability.013",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.018",
+          "q.conversation.context-and-followups.019",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {
@@ -6136,7 +6185,10 @@
           "q.employee.self-work-profile.002",
           "q.employee.self-work-profile.003",
           "q.mixed.policy-and-profile.008",
-          "q.mixed.policy-and-profile.006"
+          "q.mixed.policy-and-profile.006",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6146,7 +6198,10 @@
           "q.employee.self-work-profile.005",
           "q.employee.self-work-profile.006",
           "q.mixed.policy-and-profile.008",
-          "q.mixed.policy-and-profile.006"
+          "q.mixed.policy-and-profile.006",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6161,7 +6216,11 @@
           "q.mixed.policy-and-profile.001",
           "q.mixed.policy-and-profile.005",
           "q.mixed.policy-and-profile.008",
-          "q.mixed.policy-and-profile.006"
+          "q.mixed.policy-and-profile.006",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.016",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6177,7 +6236,10 @@
           "q.employee.self-work-profile.031",
           "q.mixed.policy-and-profile.003",
           "q.mixed.policy-and-profile.008",
-          "q.mixed.policy-and-profile.006"
+          "q.mixed.policy-and-profile.006",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6198,7 +6260,10 @@
           "q.employee.self-work-profile.016",
           "q.employee.self-work-profile.017",
           "q.employee.self-work-profile.018",
-          "q.employee.self-work-profile.029"
+          "q.employee.self-work-profile.029",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6206,7 +6271,10 @@
         "case_ids": [
           "q.employee.self-work-profile.019",
           "q.employee.self-work-profile.020",
-          "q.employee.self-work-profile.021"
+          "q.employee.self-work-profile.021",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6222,7 +6290,10 @@
           "q.employee.self-work-profile.032",
           "q.employee.self-work-profile.033",
           "q.employee.self-work-profile.034",
-          "q.employee.self-work-profile.035"
+          "q.employee.self-work-profile.035",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6230,7 +6301,33 @@
         "case_ids": [
           "q.employee.self-work-profile.025",
           "q.employee.self-work-profile.026",
-          "q.employee.self-work-profile.027"
+          "q.employee.self-work-profile.027",
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
+        ]
+      },
+      {
+        "field": "manager_email",
+        "case_ids": [
+          "q.mixed.policy-and-profile.006",
+          "q.mixed.policy-and-profile.008"
+        ]
+      },
+      {
+        "field": "employee_type",
+        "case_ids": [
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
+        ]
+      },
+      {
+        "field": "contract_kind",
+        "case_ids": [
+          "q.conversation.context-and-followups.014",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       }
     ],
@@ -6253,7 +6350,10 @@
           "q.mixed.policy-and-profile.006",
           "q.mixed.policy-and-profile.008",
           "q.software.workit.096",
-          "q.software.workit.097"
+          "q.software.workit.097",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.018"
         ]
       },
       {
@@ -6268,7 +6368,10 @@
           "q.software.workit.048",
           "q.software.workit.049",
           "q.software.workit.094",
-          "q.software.workit.098"
+          "q.software.workit.098",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.019",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {
@@ -6284,7 +6387,10 @@
           "q.software.eleave.012",
           "q.software.eleave.021",
           "q.software.eleave.025",
-          "q.software.eleave.026"
+          "q.software.eleave.026",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.013",
+          "q.conversation.context-and-followups.018"
         ]
       },
       {
@@ -6301,7 +6407,8 @@
           "q.software.eleave.019",
           "q.software.eleave.020",
           "q.software.eleave.022",
-          "q.software.eleave.024"
+          "q.software.eleave.024",
+          "q.conversation.context-and-followups.013"
         ]
       },
       {
@@ -6330,7 +6437,8 @@
           "q.policy.leave.011",
           "q.policy.leave.012",
           "q.policy.leave.013",
-          "q.policy.leave.014"
+          "q.policy.leave.014",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {
@@ -6722,7 +6830,9 @@
           "q.policy.benefits.016",
           "q.policy.benefits.017",
           "q.policy.benefits.018",
-          "q.policy.benefits.035"
+          "q.policy.benefits.035",
+          "q.conversation.context-and-followups.015",
+          "q.conversation.context-and-followups.020"
         ]
       },
       {
@@ -6737,7 +6847,9 @@
           "q.policy.benefits.023",
           "q.policy.benefits.024",
           "q.policy.benefits.025",
-          "q.policy.benefits.026"
+          "q.policy.benefits.026",
+          "q.conversation.context-and-followups.014",
+          "q.policy.benefits.037"
         ]
       },
       {
@@ -8312,7 +8424,10 @@
           "q.mixed.policy-and-profile.006",
           "q.mixed.policy-and-profile.008",
           "q.software.workit.096",
-          "q.software.workit.097"
+          "q.software.workit.097",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.018"
         ]
       },
       {
@@ -8327,7 +8442,10 @@
           "q.software.workit.048",
           "q.software.workit.049",
           "q.software.workit.094",
-          "q.software.workit.098"
+          "q.software.workit.098",
+          "q.conversation.context-and-followups.012",
+          "q.conversation.context-and-followups.019",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {
@@ -8343,7 +8461,10 @@
           "q.software.eleave.012",
           "q.software.eleave.021",
           "q.software.eleave.025",
-          "q.software.eleave.026"
+          "q.software.eleave.026",
+          "q.conversation.context-and-followups.011",
+          "q.conversation.context-and-followups.013",
+          "q.conversation.context-and-followups.018"
         ]
       },
       {
@@ -8360,7 +8481,8 @@
           "q.software.eleave.019",
           "q.software.eleave.020",
           "q.software.eleave.022",
-          "q.software.eleave.024"
+          "q.software.eleave.024",
+          "q.conversation.context-and-followups.013"
         ]
       },
       {
@@ -8389,7 +8511,8 @@
           "q.policy.leave.011",
           "q.policy.leave.012",
           "q.policy.leave.013",
-          "q.policy.leave.014"
+          "q.policy.leave.014",
+          "q.conversation.context-and-followups.021"
         ]
       },
       {

@@ -53,6 +53,9 @@ and pairing. See [runtime artifact operations](runtime-artifacts.md#git-lfs-chec
 
 Use the committed [environment example](../.env.example) to configure private
 values through the deployment environment or a protected checkout-local `.env`.
+Fill in `CHAT_BOT_SERVICE_KEY` or omit the blank assignment when the launcher
+provides it. Keep `TEST_*` variables in the dedicated
+[pytest environment](../README.md#testing).
 
 | Before | Configuration | Check |
 | --- | --- | --- |

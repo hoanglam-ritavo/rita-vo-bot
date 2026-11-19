@@ -44,17 +44,33 @@ async def room(db, room_id, owner_id, *, create=False):
     return row
 
 
+async def latest_context(db, current):
+    return await db.scalar(select(ChatTurn.context_delta).where(
+        ChatTurn.room_id == current.room_id, ChatTurn.state == 'COMPLETED',
+        ChatTurn.context_version > current.checkpoint_version
+    ).order_by(ChatTurn.context_version.desc()).limit(1))
+
+
 class ConversationStore:
     async def recover(self):
         async with conversation_scope() as db:
             await db.execute(update(ChatTurn).where(ChatTurn.state == 'PROCESSING').values(
                 state='INTERRUPTED', error_code='process_interrupted'))
 
-    async def begin(self, request, *, retry=False):
-        payload = request.model_dump()
+    async def begin(self, request, *, retry=False, choice_is_current=None):
+        payload = request.stored_payload()
         async with conversation_scope() as db:
             current = await room(db, request.room_id, request.user_id, create=True)
             turn = await db.get(ChatTurn, (request.room_id, request.message_id))
+
+            async def verify_choice():
+                if request.choice is None:
+                    return
+                state = await latest_context(db, current)
+                if choice_is_current is None or not choice_is_current(
+                        state if state is not None else current.checkpoint):
+                    raise ApiError('context_conflict', 409)
+
             if turn is not None:
                 if turn.fingerprint != fingerprint(payload):
                     raise ApiError('message_conflict', 409)
@@ -62,6 +78,7 @@ class ConversationStore:
                     return response(turn), False
                 if turn.sequence != current.sequence or turn.context_version != current.version:
                     raise ApiError('retry_context_conflict', 409)
+                await verify_choice()
                 turn.attempt += 1
                 turn.state, turn.error_code = 'PROCESSING', None
             else:
@@ -73,6 +90,7 @@ class ConversationStore:
                     ChatTurn.room_id == request.room_id, ChatTurn.state == 'PROCESSING').limit(1))
                 if active:
                     raise ApiError('busy', 429)
+                await verify_choice()
                 current.sequence += 1
                 turn = ChatTurn(room_id=request.room_id, message_id=request.message_id,
                     sequence=current.sequence, fingerprint=fingerprint(payload), payload=payload,
@@ -87,10 +105,8 @@ class ConversationStore:
     async def context(self, room_id, owner_id):
         async with conversation_scope() as db:
             current = await room(db, room_id, owner_id)
-            deltas = list(await db.scalars(select(ChatTurn.context_delta).where(
-                ChatTurn.room_id == room_id, ChatTurn.state == 'COMPLETED',
-                ChatTurn.context_version > current.checkpoint_version).order_by(ChatTurn.context_version)))
-            return current.version, current.checkpoint, deltas
+            state = await latest_context(db, current)
+            return current.version, current.checkpoint, [state] if state is not None else []
 
     async def version(self, room_id, owner_id):
         async with conversation_scope() as db:

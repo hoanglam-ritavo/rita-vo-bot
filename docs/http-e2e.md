@@ -37,22 +37,30 @@ confirmed absent in the snapshot. Missing suitable roles are blocked.
 | Endpoint | Expectations |
 | --- | --- |
 | Both | Expected HTTP status, no-store, strict schema 2, exact employee fields/subjects/values/nulls, declared application states, required/forbidden sources and input provenance |
-| Retrieve | Separate retrieval status rules, top-K 5, unassessed matches/completeness warning, exact snapshot content/provenance and first linked task/aspect evidence for authored positive targets; no answer/calculation evidence |
-| Answer | Existing authored status tolerances, policy claims/numbers, task/aspect evidence, citation quotes/metadata, evidence graph integrity and forbidden-task evidence |
-| Calculation | Explicit work-date arithmetic checked independently for input field, days/months, value/unit/date and policy-rule provenance when declared |
+| Retrieve | Endpoint-specific status and lookup expectations, top-K 5, unassessed matches, completeness warning, snapshot provenance and first linked task/aspect evidence for authored positive targets |
+| Answer | Claim-to-display consistency, declared exact policy claims and limitations, task/aspect evidence, citation quotes/metadata, graph integrity and forbidden-task evidence |
+| Calculation | Independent work-date arithmetic, expected value and unit, HRM date and `as_of` inputs, and a claim linked to the calculation. Retrieve rejects calculation evidence |
 
-There is no public selected-task ID; the harness checks task evidence instead of
-introducing a debug API. Exact template claim texts and required limitations
-are checked by the local question evaluator where authored. The socket harness
-checks claims and citations using the endpoint rules above and does not compare
-response prose, raw rank scores or timing values as snapshots. Existing broad fixture status tolerances are retained, not promoted
-into an independent semantic gold standard. Unsupported/ambiguous retrieval can
-return unassessed candidates under its separate contract; it is not an answer.
+The socket harness uses authored aspects when selecting task evidence and checks
+exact policy claim text and required limitations where the oracle declares them.
+It checks the displayed answer against the response's claims or limitations.
+For explicitly authored lookup cases, it checks the `document_lookup` fallback,
+unassessed limitation, source metadata and full excerpt hash against the frozen
+publication. Template claims use authored references. Scores and timings are
+outside the scoring rules.
 
-The initial local inventory on 2026-11-18 contained 832 cases and 1,696 checks:
-1,664 bank checks plus 32 additional checks, with 1,650 pending preparation and
-46 not applicable (24 conversation, 22 controlled fixture). Counts are recomputed
-from current inputs. Inventory is not execution or passing evidence.
+Reviewed Retrieve cases can require a specific outcome and forbid document
+lookup. Platform contrast cases verify the expected first candidate while
+allowing unassessed secondary candidates. Inventory reports the number of
+applicable Retrieve checks still using the broad default `unresolved` rule.
+
+The 2026-11-19 local inventory covers 867 question cases and 1,766 checks. It
+lists 1,692 pending preparation and 74 outside the stateless run (50 conversation,
+24 controlled fixture). The 25 multi-turn cases are marked
+`conversation_required` for each endpoint. Their per-turn conversation checks
+run in the offline [question fixture](../artifacts/questions/README.md#record-format).
+Of the applicable Retrieve checks, 65 retain the broad default. Counts are
+recomputed from the selected inputs and describe planning coverage.
 
 ## Configuration
 
@@ -124,8 +132,12 @@ case. Identities and values are chosen before HTTP, not from bot responses.
 The corpus snapshot reads eligible current/public/active publications compatible
 with the inventory's E5 pin. Exact chunk hashes, authored quotes and metadata
 establish task/aspect prerequisites independently of HTTP output. Missing source
-groups/references block relevant cases. No embedding vectors are generated, no
-models are loaded and document bodies are never written to disk.
+groups/references block relevant cases. Complete template answers require the
+whole relevant section. A partial answer with exact claim expectations requires
+all references for those claims. Other claim-bearing partial cases require one
+fully supported claim and the declared source groups. Retrieve prerequisites
+follow the required source groups and expected task evidence. Snapshot preparation
+uses hashes and metadata without generating embeddings or loading models.
 
 The private binding contains minimal HRM expectations/references, role
 availability, corpus identities/hashes/metadata, input hashes and a snapshot
@@ -141,8 +153,8 @@ the independent snapshots and bindings are also checked before requests.
 Business requests are sequential, top-K 5, with bound positive `hrm_user_id` and
 150-second timeouts. No automatic retry. Transport failure or HTTP 429/503/504
 stops subsequent requests to avoid an undrained worker. A final source recheck
-invalidates passing conclusions on drift or unavailable final verification.
-Nothing is reset afterward.
+turns provisional passes into `blocked` on drift or any snapshot read error.
+Observed assertion failures remain in the report, and the command returns 2.
 
 The operator owns the bot's actual source/configuration. Health does not attest
 its dataset/version; matching values cannot prove identical database targets.

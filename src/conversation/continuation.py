@@ -26,6 +26,7 @@ class TurnUpdate:
     family: str | None = None
     add: bool = False
     correction: bool = False
+    replaced_slots: dict[str, str | float | None] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -39,7 +40,7 @@ def recognize(text, policy):
     # Only an explicit correction with a recognized old and replacement value
     # may consume negation. Ordinary negation must still ask for clarification.
     correction = re.fullmatch(
-        r'\s*kh(?:ô|o)ng\s+ph(?:ả|a)i\s+(.+?)\s*[,;]\s*(.+?)\s*[.!?]?\s*',
+        r'\s*kh(?:ô|o)ng\s+ph(?:ả|a)i\s+(.+?)(?:\s*[,;]\s*|\s+m(?:à|a)\s+l(?:à|a)\s+)(.+?)\s*[.!?]?\s*',
         text, re.IGNORECASE)
     if correction:
         before, after = (_recognize(part, policy) for part in correction.groups())
@@ -49,7 +50,8 @@ def recognize(text, policy):
                 and before.slots != after.slots):
             platform_only = set(after.slots) == {'system'}
             if platform_only or before.family == after.family:
-                return replace(after, correction=True, family=None if platform_only else after.family)
+                return replace(after, correction=True, family=None if platform_only else after.family,
+                               replaced_slots=before.slots)
         return None
     return _recognize(text, policy)
 
@@ -95,7 +97,7 @@ def _recognize(text, policy):
         'thu', 'tuc', 'o', 'dau', 'nop', 'gui', 'don', 'can', 'gi', 'tiep', 'the', 'nao',
         'quy', 'trinh', 'cac', 'buoc', 'hoac', 'ho', 'so', 'giay', 'to', 'gom', 'nhung',
         'dieu', 'kien', 'ap', 'cho', 'ai', 'muc', 'tro', 'thuong', 'bao', 'nhieu', 'tien',
-        'tong', 'quan', 'neu'}
+        'tong', 'quan', 'neu', 'chuan', 'bi', 'truoc', 'khi'}
     if not set(normalized(''.join(remaining)).split()) <= allowed:
         return None
     submission = any(spans(query, term) for term in ('o dau', 'nop o', 'gui don', 'huong dan tren'))

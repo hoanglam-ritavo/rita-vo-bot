@@ -94,7 +94,7 @@ def test_strict_contract_and_service_authentication():
 
 def setup_service():
     settings = SimpleNamespace(conversation=ConversationSettings(True), type_b=SimpleNamespace(enabled=False))
-    owner = SimpleNamespace(settings=settings, busy=False, answers=SimpleNamespace(catalog=catalog(), lexicon={'concepts': []}),
+    owner = SimpleNamespace(settings=settings, busy=False, _idle=asyncio.Event(), answers=SimpleNamespace(catalog=catalog(), lexicon={'concepts': []}),
                             context=SimpleNamespace(execute=AsyncMock(return_value=SimpleNamespace(model_dump=lambda **_: result()))))
     req = request()
     turn = TurnResponse(room_id=req.room_id, message_id=req.message_id, sequence=1,
@@ -152,6 +152,37 @@ def test_failure_and_disconnect_finalize_without_context_advance(failure):
         assert store.fail.await_args.args[2] == ('CANCELLED' if isinstance(failure, asyncio.CancelledError) else 'FAILED')
         store.finish.assert_not_awaited()
         assert not svc.active
+        await cache.close()
+    asyncio.run(scenario())
+
+
+def test_busy_admission_precedes_reservation_and_allows_replay():
+    async def scenario():
+        from src.api.admission import admit, release
+        req, owner, store = setup_service()
+        cache = CacheManager()
+        svc = ConversationService(owner, cache, store)
+        admit(owner)
+        store.get_turn.side_effect = ApiError('turn_unavailable', 404)
+        with pytest.raises(ApiError) as error:
+            await svc.answer(req)
+        assert error.value.status_code == 429
+        store.begin.assert_not_awaited()
+        release(owner)
+
+        async def begin(*args, **kwargs):
+            with pytest.raises(ApiError) as busy:
+                admit(owner)
+            assert busy.value.status_code == 429
+            return store.begin.return_value
+
+        store.begin.side_effect = begin
+        completed = await svc.answer(req)
+        assert not owner.busy and owner._idle.is_set()
+        admit(owner)
+        store.get_turn.side_effect = [req.stored_payload(), completed]
+        assert await svc.answer(req) == completed
+        release(owner)
         await cache.close()
     asyncio.run(scenario())
 

@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 from src.api.contracts import (ApiError, AnswerTimings, Timings, Relevance,
                                UnifiedAnswerResponse, UnifiedRetrievalResponse)
 from src.answering.contextual import prepare, requirements, compose, document_result
+from src.api.admission import admit, release
 from src.retrieval import RetrievalError
 
 if TYPE_CHECKING:
@@ -56,17 +57,15 @@ class ContextCoordinator:
         if self.employee is not None:
             await self.employee.close()
 
-    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None):
+    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None, reserved=False):
         if type(hrm_user_id) is not int or not 0 < hrm_user_id <= 2**53-1:
             raise ApiError('hrm_user_id_required', 422)
         if not self.owner.started:
             raise ApiError('not_ready')
         if answer and not self.owner.settings.answer.enabled:
             raise ApiError('answer_unavailable')
-        if self.owner.busy:
-            raise ApiError('busy', 429)
-        self.owner.busy = True
-        self.owner._idle.clear()
+        if not reserved:
+            admit(self.owner)
         started, request_id = time.perf_counter(), uuid4().hex
         try:
             async with asyncio.timeout(DEADLINE_SECONDS):
@@ -190,6 +189,6 @@ class ContextCoordinator:
             logger.warning('context_processing_failed request_id=%s exception_type=%s', request_id, type(error).__name__)
             raise ApiError('answer_unavailable' if answer else 'retrieval_failed') from None
         finally:
-            self.owner.busy = False
-            self.owner._idle.set()
+            if not reserved:
+                release(self.owner)
             logger.info('context_finished request_id=%s seconds=%.3f', request_id, time.perf_counter()-started)

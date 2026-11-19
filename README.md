@@ -53,6 +53,53 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Bound HRM clarification choices - 2026-11-19
+
+Bot `33c9a33` plus the clarification working tree. The focused conversation,
+planning, answers, retrieval-policy and cache checks passed **295 tests**.
+The evaluator and HTTP harness suites passed **57 tests**, and the source-fixture
+question bank passed **901/901 turns across 867 cases**.
+The disposable PostgreSQL fixture skipped because its separate test URL was
+unavailable. No deployed service or live cache latency was measured.
+See [conversation contracts and rollout](docs/conversations.md).
+
+### Multi-turn question bank expansion - 2026-11-19
+
+The bank adds eight two-turn and four three-turn conversations. The fixture
+evaluator checks retained and cleared routing slots, user-provided dates,
+pending inputs, cancellation and per-turn evidence. See the
+[question bank](artifacts/questions/README.md#current-executable-coverage).
+
+On `33c9a33` plus working-tree edits, the source-fixture evaluator passed
+**901/901 turns across 867 cases**. The answer evaluation, structured
+conversation and HTTP E2E harness suites passed **133 tests**, with the existing
+Starlette/AnyIO deprecation warning. The artifact build check reported zero
+changed files and runtime inventory verified **22 files**.
+
+The stateless inventory enumerated **1,766 planned checks**. It lists 1,692
+pending preparation and 74 outside the stateless run, including 50 requiring
+conversation context. Socket HTTP execution, PostgreSQL and independent holdout
+remain separate verification runs. See the [HTTP E2E guide](docs/http-e2e.md#scenario-matrix).
+
+### HTTP E2E oracle and question expansion - 2026-11-19
+
+The external harness checks authored policy claims, limitations and aspects,
+compares the displayed answer with its evidence-linked claims and verifies
+document excerpts against the pinned publication. Preflight treats complete
+sections and partial claims separately. Final snapshot failures invalidate
+provisional passes. The question bank adds 16 stateless cases, and reviewed
+Retrieve cases have narrower endpoint-specific expectations. See the
+[scenario and scoring rules](docs/http-e2e.md#scenario-matrix).
+
+Verification started at `30f4663` and finished on `33c9a33` with follow-up
+working-tree edits. The focused harness and evaluator suite passed **54 tests**
+with the existing Starlette/AnyIO deprecation warning. The source-fixture
+evaluator passed **873/873 turns across 855 cases**. Local inventory and coverage
+checks verified **1,742 planned checks**: 1,692 pending preparation and 50
+outside the stateless run. Of the applicable Retrieve checks, 65 retain the
+broad default. These are local regression and planning results. Socket HTTP,
+PostgreSQL, model inference and independent holdout remain for separate runs.
+
 ### Documentation and paperwork oracle reconciliation - 2026-11-19
 
 On `b58cae9` plus this working tree, the current guides reflect unassessed
@@ -1575,7 +1622,7 @@ if (-not (Test-Path -LiteralPath .env)) {
 }
 ```
 
-The annotated [environment example](.env.example) documents active settings. HTTP startup gives root `.env` precedence over launcher values; standalone entrypoints retain their loading policy. Restart to apply configuration. Intent/filter/profile env keys are retired and ignored, with name-only warnings if inherited. See [current catalog workflow](docs/catalog-answering.md).
+The annotated [runtime example](.env.example) covers HTTP and database maintenance. Set the private `CHAT_BOT_SERVICE_KEY` before serving HTTP. If the launcher supplies it, remove the blank assignment from `.env`. HTTP startup prefers root `.env`; standalone database commands and Alembic prefer process variables. Restart HTTP to apply changes. Intent/filter/profile env keys are retired and ignored, with name-only warnings if inherited. See [current catalog workflow](docs/catalog-answering.md).
 
 Runtime model files use durable storage under `models/embeddings/` and the existing root reranker layout. A selective Git allowlist and Git LFS preserve the pinned model inventory; the selected current runtime JSON and provenance can be tracked at stable paths under `artifacts/`. Git retains prior versions; see the [release and rollback rules](docs/runtime-artifacts.md#release-recovery-and-rollback) before restarting an older configuration. After checkout, install Git LFS, run `git lfs pull`, then `python -m scripts.verify_runtime_assets` before model startup. `.tmp/`, download caches, experiment reports and machine receipts remain ignored. No accepted profile is included merely by enabling this storage policy. See [runtime artifacts](docs/runtime-artifacts.md) for checkout, artifact promotion, verified copying and independent backup/restore. Do not clear old temporary model copies until validation and recovery are complete.
 
@@ -1818,7 +1865,7 @@ Explicit `PYTEST_DEBUG_TEMPROOT` or `--basetemp` overrides are respected. Keep o
 
 On Windows, if temporary-directory permissions or long paths prevent pytest from running, use a fresh, writable directory under `.tmp/`. For example, run `New-Item -ItemType Directory -Force .tmp` and select an unused path such as `--basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\pytest-work-retry-1'`, adjusted for your checkout. Extended-length paths can address long paths but do not bypass permissions. Errors are reported without silently choosing another temporary root. Do not create new `pytest-cache-*` directories at the repository root. Remove obsolete temporary directories only after checking their contents and confirming no test session is using them; leave inaccessible directories for explicit permission troubleshooting.
 
-Integration groups use separate disposable PostgreSQL fixtures.
+Integration groups use separate disposable PostgreSQL fixtures. Use the [pytest environment example](.env.test.example) as a reference and supply only the selected suite's variables through the shell or CI secret environment. Move legacy `TEST_*` assignments out of the bot `.env`. If a legacy HRM test URL targets runtime HRM, remove it and provision a separate synthetic fixture before setting the disposable confirmation. External HTTP evaluations use an [explicit configuration file](docs/http-e2e.md) and their own example.
 
 | Group | Required configuration | Database effects |
 | --- | --- | --- |
@@ -1834,7 +1881,7 @@ for the dedicated prerequisites. With the relevant groups configured, run:
 python -m pytest -m integration
 ```
 
-Corpus integration tests modify the selected database. Their shared fixture validates `TEST_DATABASE_URL` and rejects a match with the configured application or migration host/port/database before running migrations; it cannot detect different hostname aliases for the same server. It upgrades to head twice to check idempotence. Publication/migration tests then require all application tables to be empty; that check occurs **after** the migration, not before it.
+Each group checks its PostgreSQL target before connecting. It compares host, port and database against runtime, migration and HRM URLs from both the process and `.env`, and against other test URLs set in the process. The fixture reads `.env` only for those comparisons and requires direct URLs for a reliable comparison. Different hostname aliases for the same server can evade this check. The corpus fixture upgrades to head twice to check idempotence. Publication/migration tests check for empty application tables **after** migration.
 
 Tests write synthetic documents, revisions, access rules, relations, ingestion runs and vector chunks into application tables and delete application-table rows during fixture cleanup. Migration preservation tests downgrade only the additive guards to `bce4184a7f51` and verify unchanged rows after re-upgrade. A separate empty-schema test traverses the destructive baseline only on the disposable database, preserving an unrelated synthetic table and the vector extension. Other tests create/drop randomly named tables or use temporary vector tables. Normal completion leaves application schemas, `alembic_version` and the vector extension in the disposable database. Never use production, the application database or a database containing data you need to keep.
 

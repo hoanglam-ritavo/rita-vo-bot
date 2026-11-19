@@ -4,13 +4,14 @@ from dataclasses import replace
 import hashlib
 import json
 import logging
+import re
 
-from src.answering.planning import analyze_question
+from src.answering.planning import analyze_question, choice_labels
 from src.answering.slots import SLOT_LABELS, parse_inputs
 from src.type_b.tasks import TASKS, normalized
 from .continuation import ASPECTS, recognize, input_update
 
-SCHEMA = 7
+SCHEMA = 8
 MAX_CONTEXT_BYTES = 48 * 1024
 logger = logging.getLogger(__name__)
 
@@ -61,7 +62,7 @@ def valid_context(previous):
         value = previous.get(key, [])
         if not isinstance(value, list) or len(value) > limit or any(not isinstance(v, str) or len(v) > 2000 for v in value):
             return False
-    for key in ('task_id', 'input_task_id', 'pending'):
+    for key in ('task_id', 'input_task_id', 'pending', 'task_binding'):
         if previous.get(key) is not None and not isinstance(previous[key], str):
             return False
     if set(previous.get('pending_inputs', [])) - SLOT_LABELS.keys():
@@ -71,6 +72,26 @@ def valid_context(previous):
         return False
     if any(type(previous.get(key, False)) is not bool for key in ('profile_self', 'self_reference')):
         return False
+    prompt = previous.get('choice_prompt')
+    if prompt is not None:
+        if (not isinstance(prompt, dict) or not isinstance(prompt.get('message_id'), str)
+                or not isinstance(prompt.get('options'), list) or not 1 <= len(prompt['options']) <= 5
+                or previous.get('pending') != 'task'):
+            return False
+        for index, option in enumerate(prompt['options'], 1):
+            if (not isinstance(option, dict) or type(option.get('id')) is not int or option['id'] != index
+                    or not isinstance(option.get('label'), str) or not 1 <= len(option['label']) <= 240
+                    or not isinstance(option.get('task_id'), str)
+                    or option['task_id'] not in previous.get('candidates', [])):
+                return False
+    claims = previous.get('claim_scopes', [])
+    if not isinstance(claims, list) or len(claims) > 12:
+        return False
+    for scope in claims:
+        if scope is not None and (not isinstance(scope, list) or len(scope) != 2
+                or not isinstance(scope[0], str) or scope[0] not in ASPECTS
+                or not isinstance(scope[1], str) or not 1 <= len(scope[1]) <= 100):
+            return False
     return True
 
 
@@ -81,14 +102,32 @@ def identity(catalog, lexicon, policy=None, *, schema=SCHEMA):
         getattr(policy, 'fingerprint', None)], sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
 
+def _task_binding(card):
+    if not hasattr(card, 'model_dump'):
+        return None
+    return hashlib.sha256(json.dumps(card.model_dump(), sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
+def _revalidate_task(previous, catalog, lexicon, policy):
+    prior = previous.get('request')
+    task_id = previous.get('task_id') or previous.get('input_task_id')
+    if not prior or not task_id or not previous.get('task_binding') or previous.get('pending') in ('task', 'slots'):
+        return False
+    request = {key: value for key, value in prior.items() if key != 'selected_task'}
+    plan = analyze_question(prior['question'], catalog, lexicon, policy, request=request)
+    if plan.unsupported_person or plan.unresolved or (plan.ambiguous and prior.get('selected_task') != task_id):
+        return False
+    return any(card.id == task_id and _task_binding(card) == previous['task_binding'] for card in plan.cards)
+
+
 def _state(analysis, request, recent, stamp):
     ready = not analysis.clarification and not analysis.unsupported_person
     task = analysis.cards[0].id if ready and len(analysis.cards) == 1 and not analysis.ambiguous else None
-    choosing_task = analysis.ambiguous and analysis.cards and not analysis.unresolved and not analysis.unsupported_person
+    choosing_task = bool(analysis.choice_options) and not analysis.unresolved and not analysis.unsupported_person
     pending = ('slots' if analysis.missing_slots else 'task' if choosing_task else
                'request' if analysis.clarification else 'unsupported' if analysis.document_message else None)
     return dict(schema=SCHEMA, identity=stamp, request=request, task_id=task,
-        candidates=[card.id for card in analysis.cards][:5] if pending == 'task' else [],
+        candidates=[task_id for task_id, _ in analysis.choice_options] if pending == 'task' else [],
         requested_aspects=list(analysis.aspects), pending=pending,
         pending_question=analysis.question if pending else None,
         task_question=analysis.question if task else None,
@@ -97,10 +136,58 @@ def _state(analysis, request, recent, stamp):
         user_inputs={key: {'value': value, 'origin': 'user_input'} for key, value in analysis.user_inputs})
 
 
-def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=None):
+def current_choice(state, choice, text, stamp):
+    if (choice is None or not valid_context(state) or state.get('schema') != SCHEMA
+            or state.get('identity') != stamp):
+        return None
+    prompt = state.get('choice_prompt')
+    if not prompt or prompt['message_id'] != choice.prompt_message_id:
+        return None
+    for option in prompt['options']:
+        if option['id'] == choice.option_id and option['label'] == text:
+            return option['task_id']
+    return None
+
+
+def published_options(analysis, state, message_id, result):
+    if state['pending'] != 'task' or result['status'] != 'needs_clarification':
+        return []
+    options = [{'id': index, 'label': label, 'task_id': task_id}
+               for index, (task_id, label) in enumerate(analysis.choice_options, 1)]
+    state['choice_prompt'] = {'message_id': message_id, 'options': options}
+    return [{'id': item['id'], 'label': item['label']} for item in options]
+
+
+def _typed_choice(query, candidates, policy):
+    choice, separator, tail = query.partition(' hoi them ')
+    if not separator:
+        choice, separator, tail = query.partition(' toi can ')
+    choice = re.sub(r'^(?:(?:toi (?:hoi|chon|muon hoi)(?: ve)?|chon(?: phuong an)?|phuong an|muc so|so) )', '', choice)
+    choice = re.sub(r' (?:a|nhe|nha|voi)$', '', choice).strip()
+    if not choice:
+        return [], ()
+    if separator:
+        update = recognize(tail, policy)
+        if update is None or not update.aspects or update.slots or update.conflict:
+            return [], ()
+        aspects = update.aspects
+    else:
+        aspects = ()
+    labels = dict(choice_labels(candidates))
+    return [card for index, card in enumerate(candidates, 1) if choice in {
+        str(index), normalized(card.label), normalized(labels.get(card.id, '')), normalized(card.id),
+        *(normalized(alias) for alias in card.aliases)}], aspects
+
+
+def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_identity_stamp=None,
+              policy=None, selected_task=None):
     stamp = identity_stamp if identity_stamp is not None else identity(catalog, lexicon, policy)
-    compatible = (valid_context(previous) and previous.get('schema') == SCHEMA
-                  and previous.get('identity') == stamp)
+    valid = valid_context(previous)
+    legacy = (legacy_identity_stamp if legacy_identity_stamp is not None else
+              identity(catalog, lexicon, policy, schema=7)) if valid and previous.get('schema') == 7 else None
+    compatible = valid and ((previous.get('schema'), previous.get('identity')) in (
+        (SCHEMA, stamp), (7, legacy)) or (previous.get('schema') == SCHEMA
+        and _revalidate_task(previous, catalog, lexicon, policy)))
     old = deepcopy(previous) if compatible else {}
     recent = old.get('recent', [])[-3:] + [text]
     query = normalized(text)
@@ -115,14 +202,30 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
         return analysis, state
     by_id = {card.id: card for card in catalog.cards} if catalog is not None else {}
     candidates = [by_id[key] for key in old.get('candidates', []) if key in by_id]
-    chosen = [card for index, card in enumerate(candidates, 1) if query in {
-        str(index), normalized(card.label), normalized(card.id), *(normalized(alias) for alias in card.aliases)}]
+    chosen, added_aspects = _typed_choice(query, candidates, policy)
+    focus_unit = None
+    if selected_task is not None:
+        chosen, added_aspects = [card for card in candidates if card.id == selected_task], ()
     active_task = old.get('task_id') or old.get('input_task_id')
+    item = re.fullmatch(r'(?:(?:con|ve|giai thich) )?muc (?:thu |so )?(\d+)(?: (?:trong|o|cua) cau tra loi truoc)?(?: thi sao)?', query)
     if prior and len(chosen) == 1:
         request = {**prior, 'selected_task': chosen[0].id}
+        if added_aspects:
+            request['aspects'] = list(dict.fromkeys([*prior.get('aspects', []), *added_aspects]))
         if active_task != chosen[0].id:
             request.pop('source_id', None)
         continuation, turn_kind = True, 'selection'
+    elif item and prior:
+        position = int(item[1]) if len(item[1]) <= 2 else 0
+        claims = old.get('claim_scopes', [])
+        request = deepcopy(prior)
+        continuation, turn_kind = True, 'answer_reference'
+        if (old.get('pending') in ('task', 'slots', 'inputs') or not active_task
+                or not 1 <= position <= len(claims) or not claims[position - 1]):
+            issue = 'Bạn hãy nêu rõ mục hoặc ý muốn hỏi thêm trong câu trả lời trước.'
+        else:
+            aspect, focus_unit = claims[position - 1]
+            request.update(selected_task=active_task, aspects=[aspect])
     elif prior:
         update = recognize(text, policy)
         inputs = input_update(text, old.get('pending_inputs', []), prior.get('user_inputs', {}))
@@ -151,6 +254,8 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
                 slots['intent'] = 'submission'
             elif 'procedure' in update.aspects and update.slots.get('system'):
                 slots['intent'] = 'procedure'
+            elif update.aspects and 'procedure' not in request['aspects']:
+                slots.pop('intent', None)
             route_changed = changed or slots.get('intent') != prior.get('slots', {}).get('intent')
             if route_changed:
                 request.pop('selected_task', None)
@@ -159,7 +264,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
                 request['selected_task'] = active_task
             continuation = True
             turn_kind = 'correction' if update.correction else 'followup' if update.aspects else 'slot_update'
-            if update.conflict:
+            previous_slots = prior.get('slots', {})
+            conflicts_with_prior = any(previous_slots.get(key) not in (None, value)
+                                       for key, value in update.replaced_slots.items())
+            if update.conflict or conflicts_with_prior:
                 request = deepcopy(prior)
                 issue = 'Mình chưa xác định được một giá trị phù hợp. Bạn hãy nêu rõ một lựa chọn.'
         elif inputs.error:
@@ -177,12 +285,22 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
     independent = bool(analysis.parts or analysis.unsupported_person or analysis.cards
                        or analysis.document_lookup or analysis.missing_slots)
     retained = False
-    if not continuation and prior and not independent and (old.get('pending') or old.get('pending_inputs') or issue):
+    ambiguous_pending_target = (candidates and analysis.clarification
+        and any(card.id in old['candidates'] for card in analysis.cards))
+    if not continuation and prior and (not independent or len(chosen) > 1 or ambiguous_pending_target):
         request, retained, turn_kind = deepcopy(prior), True, 'clarification'
-        analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
-        issue = issue or 'Mình vẫn cần làm rõ yêu cầu trước đó. ' + (
-            ' '.join(old.get('pending_prompts', [])) or analysis.clarification or
-            'Bạn hãy chọn nội dung hoặc cung cấp thông tin đang được hỏi.')
+        if old.get('pending') or old.get('pending_inputs'):
+            retained_plan = analyze_question(request['question'], catalog, lexicon, policy, request=request)
+            analysis = (replace(retained_plan, question=analysis.question)
+                        if ambiguous_pending_target and len(chosen) < 2 else retained_plan)
+        if query in ('cam on', 'xin cam on', 'cam on ban'):
+            issue = 'Bạn có thể hỏi tiếp về chủ đề đang trao đổi.'
+            if analysis.clarification or old.get('pending_prompts'):
+                issue += ' ' + (' '.join(old.get('pending_prompts', [])) or analysis.clarification)
+        else:
+            issue = issue or ('Mình vẫn cần làm rõ yêu cầu trước đó. ' + (
+                ' '.join(old.get('pending_prompts', [])) or analysis.clarification or
+                'Bạn hãy nêu rõ phần muốn hỏi tiếp.'))
     elif not continuation and independent:
         issue = None
     # Switching tasks also invalidates inputs embedded in the original question.
@@ -192,12 +310,26 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
         analysis = replace(analysis, user_inputs=())
     if issue:
         analysis = replace(analysis, clarification=issue, clarification_reason='task_needs_clarification')
+    elif focus_unit is not None:
+        analysis = replace(analysis, focus_unit=focus_unit)
     elif not continuation and not (analysis.parts or analysis.clarification or analysis.unsupported_person):
         analysis = replace(analysis, clarification='Bạn hãy nêu rõ chủ đề, đối tượng và thông tin cần hỏi.')
-    if previous and not compatible and not independent:
+    invalid_pending_choice = (not compatible and valid and previous.get('pending') == 'task'
+                              and (_typed_choice(query, [by_id[key] for key in previous.get('candidates', [])
+                                    if key in by_id], policy)[0] or query.isdecimal()))
+    if invalid_pending_choice and previous.get('request'):
+        question = previous['request']['question']
+        request = dict(question=question, slots={}, user_inputs=parse_inputs(question))
+        refreshed = analyze_question(question, catalog, lexicon, policy, request=request)
+        message = ('Ngữ cảnh hội thoại đã thay đổi. ' + refreshed.clarification if refreshed.clarification
+                   else 'Ngữ cảnh hội thoại đã thay đổi. Bạn hãy xác nhận lại chủ đề và phần cần hỏi.')
+        analysis = replace(refreshed, clarification=message, clarification_reason='context_needs_restatement')
+        new_task = None
+    elif previous and not compatible and not independent:
         analysis = replace(analysis, clarification='Ngữ cảnh hội thoại đã thay đổi hoặc không còn hợp lệ. Bạn hãy nêu lại câu hỏi đầy đủ.',
-                           clarification_reason='context_needs_restatement')
-    request['aspects'] = list(analysis.aspects)
+                           clarification_reason='context_needs_restatement', choice_options=())
+    if not retained or old.get('pending') or old.get('pending_inputs'):
+        request['aspects'] = list(analysis.aspects)
     if policy is not None and policy.catalog is not None and not analysis.unsupported_person:
         root = policy.analyze(request['question'])
         slots = {key: value for key, value in vars(root).items()
@@ -207,6 +339,11 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, policy=N
         request['slots'] = {**slots, **request.get('slots', {})}
     state = _state(analysis, request, recent, stamp)
     state['input_task_id'] = new_task if not issue else active_task
+    bound_card = by_id.get(state['input_task_id'])
+    if bound_card is not None:
+        state['task_binding'] = _task_binding(bound_card)
+    if prior and active_task and (retained or (continuation and new_task == active_task)):
+        state['claim_scopes'] = old.get('claim_scopes', [])
     state['turn_kind'] = turn_kind
     logger.info('conversation_plan kind=%s inherited=%s clarification=%s route_changed=%s',
                 turn_kind, continuation, bool(analysis.clarification), old.get('task_id') != state['task_id'])
@@ -221,9 +358,24 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
     return analysis.question, state
 
 
-def compact(state, result):
+def compact(state, result, *, analysis=None):
     state = {**state, 'recent': list(state['recent'])}
     state['outcome'] = result['status']
+    if result.get('claims'):
+        aspects = {}
+        if analysis is not None and len(analysis.cards) == 1 and state.get('task_id'):
+            for name, section in getattr(analysis.cards[0], 'sections', {}).items():
+                if name in analysis.aspects:
+                    for unit in section.units:
+                        aspects.setdefault(unit.text, set()).add((name, unit.id))
+        document_ids = {item['id'] for item in result.get('evidence', []) if item['kind'] == 'document'}
+        claim_scopes = []
+        for claim in result['claims']:
+            scopes = aspects.get(claim['text'], ())
+            refs = claim.get('evidence_refs', [])
+            claim_scopes.append(list(next(iter(scopes))) if len(scopes) == 1 and refs
+                                and document_ids.issuperset(refs) else None)
+        state['claim_scopes'] = claim_scopes
     state['profile_self'] = state.get('self_reference', False) and result.get('application', {}).get('state') in ('applied', 'partial')
     missing = result.get('application', {}).get('missing_inputs', [])
     if missing or result['status'] != 'needs_clarification':

@@ -979,6 +979,40 @@
           "expectation": "Dùng lại chủ đề sinh con và chỉ nêu mức hỗ trợ theo nguồn hiện hành."
         }
       ]
+    },
+    {
+      "id": "q.policy.benefits.037",
+      "title": "Hỏi giấy tờ sau khi hỏi mức hỗ trợ con nhân viên kết hôn",
+      "tags": [
+        "multi-turn",
+        "aspect:amount",
+        "aspect:paperwork",
+        "aspect-followup"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Con nhân viên kết hôn được hỗ trợ bao nhiêu tiền?",
+          "expectation": "Trả mức theo nguồn phúc lợi cho trường hợp con nhân viên kết hôn."
+        },
+        {
+          "text": "Còn giấy tờ cần nộp?",
+          "expectation": "Giữ đối tượng con nhân viên, nêu giấy chứng thực quan hệ và giấy đăng ký kết hôn."
+        }
+      ]
     }
   ]
 }

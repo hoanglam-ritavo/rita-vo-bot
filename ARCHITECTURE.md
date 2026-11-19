@@ -40,16 +40,18 @@ General guidance selects a source-bound general route first; registry-owned
 platform terms or an explicit system select software instructions. Ordinary policy answers still
 require exact eligible authored references, without a vector fallback on unknown
 tasks. Generic childbirth wording has two declared policy candidates, rather
-than an implicit company-benefit default. Numbered or exact-label conversation
-choices retain the original subject, dates, assertions and aspects. Aspect-only
+than an implicit company-benefit default. Numbered, named and UI-bound
+conversation choices retain the original subject, dates, assertions and aspects. Aspect-only
 follow-ups replace the active aspect unless the user explicitly requests an
 addition. Pending requests survive unrecognized replies until resolved, cancelled
 or replaced by a recognized new topic. Ambiguous unaccented owners such as
 "Minh/minh" require clarification; accent folding never establishes identity.
-Reducer schema 7 validates the shape, size and catalog identity of the one active
-request before applying a continuation. An explicit correction can update the
+Reducer schema 8 validates the shape, size and catalog compatibility of the
+active request before applying a continuation. Compatible schema 7 state still
+supports textual follow-ups. An explicit correction can update the
 route, and a task change discards inputs bound to the previous task. A dependent
-reply to invalid or obsolete context asks for a complete restatement. Stored
+reply to obsolete context either refreshes the options or asks for a restatement.
+Stored
 schema-2 results and message fingerprints remain intact.
 
 Employee-source startup/connection failures allow a bounded recheck on subsequent
@@ -104,16 +106,18 @@ and a durable purge outbox belong to Backend, without cross-database FKs.
 The existing `/api/v1/answer` accepts either legacy stateless input or complete
 authenticated conversation identity. History/turn/retry/purge routes are separate.
 
-Turn reservations precede inference; atomic completion persists answer, assistant
+The shared inference gate is acquired before reserving a new turn. An explicit
+choice is validated under the room transaction before recording that turn.
+Atomic completion persists answer, assistant
 message, context delta/version and every-eighth-turn checkpoint before caching.
 Room advisory locks serialize absent-room/purge and completion races. Startup
 marks abandoned processing attempts interrupted; shutdown cancels/drains owned
 conversation work before closing engine/database resources. One stopped/drained
 old process and one replacement are required. No background inference resumes.
 
-Current database version validates cache hits. Misses rebuild from checkpoint
-and completed deltas; reducer/catalog identity prevents stale task inheritance.
-Only exact bounded follow-ups inherit context. Every new answer rechecks source
+Current database version validates cache hits. Misses read the newest completed
+snapshot after the checkpoint or use the checkpoint if there is none. A reply
+can reference the current prompt or a uniquely mapped displayed document item. Every new answer rechecks source
 evidence; history and user assertions are not authoritative facts. Purge clears
 messages/context/owner and retains only an empty deleted room tombstone.
 See [contracts, limitations and rollout](docs/conversations.md).
@@ -157,7 +161,7 @@ no A/B/mixed response branch remains. Missing HRM never fabricates facts or bloc
 otherwise grounded policy. Exact date intervals are distinguished from policy
 entitlement. Manager lookup shares the subject's readonly transaction.
 
-Reducer schema 7 stores bounded user assertions and task references. Cache
+Reducer schema 8 stores bounded user assertions, task and displayed claim references. Cache
 namespace v2 scopes derived state, and the reducer validates checkpoint schema
 and artifact identity before reuse. Portal renders one answer/evidence view.
 An explicit CLI handles development chat reset. See the
@@ -180,7 +184,7 @@ Retired with learned scoring/calibration/profile promotion. E5 and raw ONNX rera
 Cross-domain routing and ordering live in `src/retrieval/policy.py`, sharing the
 lexical registry with source-bound answers. Retrieval schema 2 adds declared
 families and per-task/aspect bindings; addressed supplementation shares vector
-search transactions and eligibility. Reducer schema 7 retains bounded user slots
+search transactions and eligibility. The reducer retains bounded user slots
 and includes the selected artifact identities. No SQL migration or personnel-field
 expansion is involved. See [cross-domain contracts and evaluation](docs/business-topics.md).
 

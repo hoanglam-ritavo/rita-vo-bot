@@ -165,6 +165,9 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
             display = result['limitations']
         if not display or normalize_whitespace(result['answer']) != normalize_whitespace(' '.join(display)):
             failures.append('answer_display')
+        cited_ids = {key for claim in result['claims'] for key in claim['evidence_refs']}
+        if any(node['id'] not in cited_ids for node in employee):
+            failures.append('employee_claim_evidence')
         for n in evidence:
             if n['kind'] != 'document':
                 continue

@@ -43,15 +43,17 @@ class MemoryStore:
     async def recover(self):
         pass
 
-    async def begin(self, request, *, retry=False):
+    async def begin(self, request, *, retry=False, choice_is_current=None):
         key = request.message_id
         if key in self.turns:
-            if self.payloads[key] != request.model_dump():
+            if self.payloads[key] != request.stored_payload():
                 raise ApiError('message_conflict', 409)
             return self.turns[key], False
         if request.expected_context_version != self.version_number:
             raise ApiError('context_conflict', 409)
-        self.payloads[key] = deepcopy(request.model_dump())
+        if request.choice and not (choice_is_current and choice_is_current(self.delta)):
+            raise ApiError('context_conflict', 409)
+        self.payloads[key] = deepcopy(request.stored_payload())
         self.turns[key] = TurnResponse(room_id=request.room_id, message_id=key, sequence=len(self.turns)+1,
             state='PROCESSING', attempt=1, context_version=self.version_number)
         return self.turns[key], True
@@ -69,6 +71,17 @@ class MemoryStore:
             'state':'COMPLETED', 'context_version':self.version_number, 'result':result})
         self.turns[request.message_id] = value
         return value
+
+    async def get_turn(self, room_id, owner_id, message_id, *, payload=False):
+        value = self.payloads.get(message_id) if payload else self.turns.get(message_id)
+        if value is None:
+            raise ApiError('turn_unavailable', 404)
+        return value
+
+    async def messages(self, room_id, owner_id, after, limit):
+        return {'items': [turn.model_dump() | {'text': self.payloads[turn.message_id]['text']}
+                          for turn in self.turns.values()],
+                'next_cursor': None, 'context_version': self.version_number}
 
     async def fail(self, *args):
         raise AssertionError('Unexpected failure in fictional conversation')
@@ -290,7 +303,8 @@ def test_old_context_requires_restatement_even_with_identical_bindings(routing, 
     _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
     legacy = {**state, 'schema':schema, 'identity':identity(cat, lex, policy, schema=schema)}
     plan, current = plan_turn('Workit', legacy, cat, lex, policy=policy)
-    assert current['schema'] == 7 and not plan.cards
+    from src.conversation.context import SCHEMA
+    assert current['schema'] == SCHEMA and not plan.cards
     assert plan.clarification_reason == 'context_needs_restatement'
     assert not current['request']['slots'].get('subtype')
     plan, _ = plan_turn('Workit', {**legacy, 'identity':'changed'}, cat, lex, policy=policy)
@@ -332,6 +346,134 @@ def test_http_leave_chain_cache_recovery_and_replay(sample, routing, monkeypatch
         assert client.post('/api/v1/answer', json=payload).json() == response.json()
         assert owner.retrieval.read_evidence.await_count == reads
     employee.read_context.assert_not_awaited()
+
+
+@pytest.mark.parametrize('reply', ['2', 'phương án 2', 'chế độ thai sản ạ',
+                                   'Tôi hỏi về chế độ thai sản', 'Chọn 2, hỏi thêm điều kiện'])
+def test_childbirth_typed_replies_preserve_paperwork(routing, reply):
+    cat, lex, policy = routing
+    question = 'Hồ sơ hưởng chế độ khi sinh con gồm những gì?'
+    _, state = plan_turn(question, {}, cat, lex, policy=policy)
+    plan, state = plan_turn(reply, state, cat, lex, policy=policy)
+    assert state['turn_kind'] == 'selection' and plan.question == question
+    assert plan.cards[0].id == 'task.business.maternity-policy.7f1f2cf6'
+    assert plan.aspects == (('paperwork', 'conditions') if 'điều kiện' in reply else ('paperwork',))
+
+
+def test_mismatched_explicit_correction_preserves_the_recorded_duration(routing):
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi muốn xin nghỉ phép năm 2 ngày trên Workit', {}, cat, lex, policy=policy)
+    plan, kept = plan_turn('Không phải 9 ngày, 3 ngày', state, cat, lex, policy=policy)
+    assert plan.clarification and kept['request']['slots']['days'] == 2
+    plan, changed = plan_turn('Không phải 2 ngày mà là 3 ngày', kept, cat, lex, policy=policy)
+    assert not plan.clarification and changed['request']['slots']['days'] == 3
+
+
+def test_unrecognized_turn_keeps_active_request_and_previous_item(sample):
+    cat, lex = sample.catalog, sample.lexicon
+    _, state = plan_turn('Sinh con được bao nhiêu?', {}, cat, lex)
+    _, state = plan_turn('Cảm ơn', state, cat, lex)
+    assert state['request']['aspects'] == ['amount']
+    _, state = plan_turn('Thế còn giấy tờ cần chuẩn bị?', state, cat, lex)
+    assert state['request']['aspects'] == ['paperwork'] and state['task_id'] == 'birth'
+
+    card = cat.cards[0]
+    original = card.sections['amount'].units[0]
+    second = original.model_copy(update={'id': 'evidence.fictional.second', 'text': 'Second fictional item.'})
+    section = card.sections['amount'].model_copy(update={'units': [original, second]})
+    cat = cat.model_copy(update={'cards': [card.model_copy(update={'sections': {**card.sections, 'amount': section}})]})
+    plan, state = plan_turn('Sinh con được bao nhiêu?', {}, cat, lex)
+    result = {'status': 'answered', 'evidence': [{'kind': 'document', 'id': 'D1'}],
+              'claims': [{'text': unit.text, 'evidence_refs': ['D1']} for unit in section.units]}
+    state = compact(state, result, analysis=plan)
+    plan, _ = plan_turn('Mục thứ 2 trong câu trả lời trước thì sao?', state, cat, lex)
+    from src.answering.pipeline import render
+    row = render(plan.question, sample.result, cat, lex, contextual=True, analysis=plan)
+    assert [claim['text'] for claim in row['claims']] == ['Second fictional item.']
+
+
+def test_duplicate_names_require_distinguishable_options(routing, sample):
+    cat, lex, policy = routing
+    plan, _ = plan_turn('Thủ tục đi công tác gồm những gì?', {}, cat, lex, policy=policy)
+    assert len(plan.cards) == 2 and not plan.choice_options and plan.clarification
+
+    from src.answering.planning import choice_labels
+    first = sample.catalog.cards[0]
+    section = first.sections['paperwork']
+    unit = section.units[0]
+    ref = unit.refs[0].model_copy(update={'metadata': {**unit.refs[0].metadata, 'title': 'Second fictional policy'}})
+    other_section = section.model_copy(update={'units': [unit.model_copy(update={'refs': [ref]})]})
+    second = first.model_copy(update={'id': 'second', 'sections': {'paperwork': other_section}})
+    options = choice_labels([first, second])
+    assert len(options) == 2 and options[0][1] != options[1][1]
+
+
+def test_new_catalog_ambiguity_requires_restatement_for_an_implicit_task(sample):
+    cat, lex = sample.catalog, sample.lexicon
+    _, state = plan_turn('Sinh con được bao nhiêu?', {}, cat, lex)
+    other = cat.cards[0].model_copy(update={'id': 'second', 'label': 'Second fictional policy'})
+    changed = cat.model_copy(update={'cards': [cat.cards[0], other]})
+    plan, _ = plan_turn('Hồ sơ?', state, changed, lex)
+    assert plan.clarification_reason == 'context_needs_restatement'
+
+
+def test_v7_prompt_is_read_when_catalog_matches(routing):
+    from src.conversation.context import identity
+    cat, lex, policy = routing
+    _, state = plan_turn('Hồ sơ hưởng chế độ khi sinh con gồm những gì?', {}, cat, lex, policy=policy)
+    previous = {**state, 'schema': 7, 'identity': identity(cat, lex, policy, schema=7)}
+    plan, state = plan_turn('2', previous, cat, lex, policy=policy)
+    assert plan.aspects == ('paperwork',) and state['turn_kind'] == 'selection'
+    plan, refreshed = plan_turn('chế độ thai sản', {**previous, 'identity': 'old'}, cat, lex, policy=policy)
+    assert plan.clarification_reason == 'context_needs_restatement'
+    assert refreshed['input_task_id'] is None and len(plan.choice_options) == 2
+    plan, updated = plan_turn('Hồ sơ?', state, cat, lex, identity_stamp='unrelated-change', policy=policy)
+    assert plan.aspects == ('paperwork',)
+    assert updated['task_id'] == 'task.business.maternity-policy.7f1f2cf6'
+
+
+def test_http_published_choice_checks_prompt_before_acceptance(sample, routing, monkeypatch):
+    catalog, lexicon, policy = routing
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    def body(text, **extra):
+        return dict(user_id=actor, hrm_user_id=7, room_id=room, message_id=str(uuid4()),
+                    expected_context_version=store.version_number, text=text, **extra)
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        original = body('Hồ sơ hưởng chế độ khi sinh con gồm những gì?')
+        prompt = client.post('/api/v1/answer', json=original).json()
+        assert prompt['result']['clarification_options'][1] == {'id': 2, 'label': 'chế độ thai sản'}
+        assert 'clarification_catalog' not in prompt['result']
+        svc = client.app.state.conversation_service
+        stamp = svc.identity_stamp
+        svc.identity_stamp = 'replaced-catalog'
+        history = client.get(f'/api/v1/conversations/{room}/messages', params={'user_id': actor}).json()
+        assert 'clarification_options' not in history['items'][0]['result']
+        assert client.post('/api/v1/answer', json=original).json() == {
+            **prompt, 'result': {key: value for key, value in prompt['result'].items() if key != 'clarification_options'}}
+        svc.identity_stamp = stamp
+        choice = body('chế độ thai sản', choice={'prompt_message_id': str(uuid4()), 'option_id': 2})
+        assert client.post('/api/v1/answer', json=choice).status_code == 409
+        assert len(store.turns) == 1
+        choice['choice']['prompt_message_id'] = original['message_id']
+        client.portal.call(lambda: client.app.state.cache_manager.clear(namespace='conversation-context-v2'))
+        response = client.post('/api/v1/answer', json=choice)
+        assert response.status_code == 200
+        row = response.json()['result']
+        assert row['status'] == 'insufficient_evidence' and row['fallback_reason'] == 'answer_section_unavailable'
+        assert 'hồ sơ, giấy tờ' in row['answer'] and 'chế độ thai sản' in row['answer']
+        assert client.post('/api/v1/answer', json=choice).json() == response.json()
+        choice['message_id'] = str(uuid4())
+        choice['expected_context_version'] = store.version_number
+        assert client.post('/api/v1/answer', json=choice).status_code == 409
+    owner.retrieval.read_evidence.assert_not_awaited()
 
 
 def test_document_limits_stay_separate_from_answer(sample):

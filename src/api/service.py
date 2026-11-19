@@ -5,6 +5,7 @@ import time
 
 from src.retrieval import RetrievalService, RetrievalError
 from .contracts import ApiError, RetrievalResponse, Timings, Match
+from .admission import admit, release
 from .answer import AnswerService
 from src.type_b.service import ContextCoordinator
 
@@ -92,10 +93,7 @@ class ApiService:
         if not self.started:
             raise ApiError('not_ready')
         # No await between checking and taking ownership on the owning loop.
-        if self.busy:
-            raise ApiError('busy', 429)
-        self.busy = True
-        self._idle.clear()
+        admit(self)
         started = time.perf_counter()
         outcome = 'failed'
         try:
@@ -118,6 +116,5 @@ class ApiService:
         except Exception:
             raise ApiError('retrieval_failed') from None
         finally:
-            self.busy = False
-            self._idle.set()
+            release(self)
             logger.info('retrieval_finished status=%s seconds=%.3f', outcome, time.perf_counter() - started)

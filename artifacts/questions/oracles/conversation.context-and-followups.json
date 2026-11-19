@@ -478,6 +478,1046 @@
       "claims": "none",
       "fixture": "catalog_changed",
       "expected_values": {}
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.011",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.011",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "eleave",
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "forbidden_task_ids": [
+        "task.leave.workit.annual"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.012",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "annual",
+          "days": 3,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.012",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 3,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "forbidden_task_ids": [
+        "task.leave.workit.annual"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.013",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "eleave",
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.013",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.sessions"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "eleave",
+          "subtype": "annual",
+          "days": null,
+          "sessions": 1,
+          "granularity": "session"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "forbidden_task_ids": [
+        "task.leave.eleave.annual"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.014",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "forbidden_task_ids": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": null
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "as_of",
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.014",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "forbidden_task_ids": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": "2026-12-01"
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.015",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": "2026-12-01"
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.015",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": "2026-12-02"
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.016",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [
+        "job_title"
+      ],
+      "claims": "none",
+      "application_state": "applied",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "expected_values": {
+        "job_title": "Fictional job_title"
+      },
+      "expected_context": {
+        "has_request": true
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.016",
+      "turn": 1,
+      "statuses": [
+        "unsupported"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [],
+      "claims": "none",
+      "application_state": "not_needed",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": null,
+          "subtype": null,
+          "days": null,
+          "sessions": null,
+          "granularity": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.017",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [],
+      "claims": "none",
+      "application_state": "not_needed",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": null,
+          "subtype": "annual",
+          "days": 1,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [
+          "system"
+        ],
+        "pending_inputs": [],
+        "pending": "slots"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.017",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [],
+      "claims": "none",
+      "application_state": "not_needed",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "expected_context": {
+        "has_request": false,
+        "slots": {
+          "system": null,
+          "subtype": null,
+          "days": null,
+          "sessions": null,
+          "granularity": null
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.018",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [],
+      "claims": "none",
+      "application_state": "not_needed",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": null,
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [
+          "system"
+        ],
+        "pending_inputs": [],
+        "pending": "slots"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.018",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.018",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "eleave",
+          "subtype": "annual",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "forbidden_task_ids": [
+        "task.leave.workit.annual"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.019",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "conditions"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "forbidden_task_ids": [
+        "task.leave.policy.unpaid"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.019",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "expected_policy_claim_texts": [
+        "Phiếu nghỉ trong Workit có người nghỉ, loại nghỉ, lý do và các dòng thời gian từ ngày đến ngày, kèm lựa chọn Sáng, Chiều hoặc Nguyên ngày. Hướng dẫn có mục người thay thế và chức năng tải tệp đính kèm.",
+        "Trong danh mục loại nghỉ trên Workit, K là nghỉ không hưởng lương."
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.019",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "paperwork",
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null
+      },
+      "expected_policy_claim_texts": [
+        "Phiếu nghỉ trong Workit có người nghỉ, loại nghỉ, lý do và các dòng thời gian từ ngày đến ngày, kèm lựa chọn Sáng, Chiều hoặc Nguyên ngày. Hướng dẫn có mục người thay thế và chức năng tải tệp đính kèm.",
+        "Trong danh mục loại nghỉ trên Workit, K là nghỉ không hưởng lương.",
+        "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy."
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.020",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": null
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "as_of",
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.020",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "employee_fields": [],
+      "claims": "none",
+      "application_state": "not_needed",
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": null
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "as_of",
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.020",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+      ],
+      "forbidden_task_ids": [
+        "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [
+        "employee_name",
+        "employee_code",
+        "job_title",
+        "department_name",
+        "probation_date",
+        "probation_end_date",
+        "official_date",
+        "resignation_date",
+        "employee_type",
+        "contract_kind"
+      ],
+      "claims": "required",
+      "application_state": "partial",
+      "expected_context": {
+        "has_request": true,
+        "user_inputs": {
+          "as_of": "2026-12-05"
+        },
+        "missing_slots": [],
+        "pending_inputs": [
+          "contract_at_date",
+          "benefit_event"
+        ],
+        "pending": "inputs"
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.021",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.policy.unpaid"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": null,
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null,
+        "user_inputs": {
+          "as_of": "2026-12-01"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.021",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day",
+          "intent": "submission"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null,
+        "user_inputs": {
+          "as_of": null
+        }
+      },
+      "forbidden_task_ids": [
+        "task.leave.policy.unpaid"
+      ]
+    },
+    {
+      "case_id": "q.conversation.context-and-followups.021",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "claims": "required",
+      "application_state": "not_needed",
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "subtype": "unpaid",
+          "days": 2,
+          "sessions": null,
+          "granularity": "day"
+        },
+        "missing_slots": [],
+        "pending_inputs": [],
+        "pending": null,
+        "user_inputs": {
+          "as_of": null
+        }
+      },
+      "forbidden_task_ids": [
+        "task.leave.policy.unpaid"
+      ]
     }
   ]
 }

@@ -3,12 +3,12 @@ import os
 import pytest
 from alembic import command
 from alembic.config import Config
-from dotenv import load_dotenv
 from sqlalchemy import create_engine, func, select, text
 from src.database import Base, close_database, session_scope
 from src.database import models  # Register all tables before fixture cleanup.
-from src.database.config import ROOT, validate_url
+from src.database.config import ROOT
 from src.database.runtime import run_async
+from src.tests.database_targets import require_disposable_database
 
 
 @pytest.hookimpl(tryfirst=True)
@@ -30,17 +30,9 @@ def pytest_configure(config):
 
 @pytest.fixture
 def test_database(monkeypatch):
-    load_dotenv(ROOT / '.env', override=False)
-    value = os.environ.get('TEST_DATABASE_URL')
-    if not value:
-        pytest.skip('Set TEST_DATABASE_URL to a dedicated PostgreSQL test database.')
-    url = validate_url(value, 'TEST_DATABASE_URL')
-    for name in ('DATABASE_URL', 'MIGRATION_DATABASE_URL'):
-        existing = os.environ.get(name)
-        if existing:
-            other = validate_url(existing, name)
-            if (url.host, url.port or 5432, url.database) == (other.host, other.port or 5432, other.database):
-                pytest.fail('TEST_DATABASE_URL must use a separate database.')
+    url = require_disposable_database('TEST_DATABASE_URL')
+    value = os.environ['TEST_DATABASE_URL']
+    monkeypatch.setenv('PYTHON_DOTENV_DISABLED', '1')
     monkeypatch.setenv('DATABASE_URL', value)
     monkeypatch.setenv('MIGRATION_DATABASE_URL', value)
     # Provision vector before the immutable baseline creates vector columns.

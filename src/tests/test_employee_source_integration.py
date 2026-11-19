@@ -5,8 +5,8 @@ import pytest
 from sqlalchemy import text
 from sqlalchemy.exc import DBAPIError
 
-from src.database.config import validate_url
 from src.database.runtime import run_async
+from src.tests.database_targets import require_disposable_database
 from src.type_b.employee_store import EmployeeSourceService, EmployeeSourceSettings
 from src.type_b.employee_store.connection import ReadOnlySource
 
@@ -15,18 +15,9 @@ pytestmark = pytest.mark.integration
 
 @pytest.fixture
 def hrm_fixture_settings():
-    value = os.environ.get('TEST_HRM_DATABASE_URL')
-    if not value:
-        pytest.skip('Set TEST_HRM_DATABASE_URL to a preprovisioned disposable readonly HRM fixture.')
+    url = require_disposable_database('TEST_HRM_DATABASE_URL')
     if os.environ.get('TEST_HRM_DISPOSABLE_CONFIRMED') != 'true':
         pytest.fail('TEST_HRM_DISPOSABLE_CONFIRMED=true is required for the isolated fixture.')
-    url = validate_url(value, 'TEST_HRM_DATABASE_URL')
-    for name in ('DATABASE_URL', 'MIGRATION_DATABASE_URL', 'HRM_DATABASE_URL', 'TEST_DATABASE_URL'):
-        existing = os.environ.get(name)
-        if existing:
-            other = validate_url(existing, name)
-            if (url.host, url.port or 5432, url.database) == (other.host, other.port or 5432, other.database):
-                pytest.fail('TEST_HRM_DATABASE_URL must name a separate disposable database.')
     return EmployeeSourceSettings(url, os.environ.get('TEST_HRM_DATABASE_SCHEMA', 'public'))
 
 

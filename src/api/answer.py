@@ -5,6 +5,7 @@ import time
 from uuid import uuid4
 from src.answering.catalog import load_catalog
 from src.answering.pipeline import evaluate_question, render, evidence_result
+from .admission import admit, release
 from src.retrieval import RetrievalError
 from .contracts import AnswerResponse, AnswerTimings, ApiError
 
@@ -94,10 +95,7 @@ class AnswerService:
     async def answer(self, text, top_k):
         if not self.owner.started or not self.available:
             raise ApiError('answer_unavailable')
-        if self.owner.busy:
-            raise ApiError('busy', 429)
-        self.owner.busy = True
-        self.owner._idle.clear()
+        admit(self.owner)
         started, request_id, outcome = time.perf_counter(), uuid4().hex, 'failed'
         try:
             async with asyncio.timeout(DEADLINE_SECONDS):
@@ -116,7 +114,6 @@ class AnswerService:
                            request_id, type(exc).__name__)
             raise ApiError('answer_unavailable') from None
         finally:
-            self.owner.busy = False
-            self.owner._idle.set()
+            release(self.owner)
             logger.info('answer_finished request_id=%s status=%s seconds=%.3f',
                         request_id, outcome, time.perf_counter() - started)

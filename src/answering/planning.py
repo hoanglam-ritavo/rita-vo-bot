@@ -26,6 +26,28 @@ class RequestAnalysis:
     parts: tuple[str, ...] = ()
     general_guidance: bool = False
     personal_request: bool = False
+    choice_options: tuple[tuple[str, str], ...] = ()
+    focus_unit: str | None = None
+
+
+def choice_labels(cards):
+    options = [(card.id, card.label.strip()) for card in cards]
+    duplicates = {normalized(label) for _, label in options
+                  if sum(normalized(other) == normalized(label) for _, other in options) > 1}
+    if duplicates:
+        options = []
+        for card in cards:
+            label = card.label.strip()
+            if normalized(label) in duplicates:
+                sources = sorted({', '.join(filter(None, (ref.metadata.get('title'),
+                    ref.metadata.get('version_label'), ref.metadata.get('applicability'))))
+                    for section in getattr(card, 'sections', {}).values()
+                    for unit in section.units for ref in unit.refs} - {''})
+                if sources:
+                    label = (label + ' — ' + ' / '.join(sources))[:240].rstrip()
+            options.append((card.id, label))
+    labels = {normalized(label) for _, label in options}
+    return tuple(options) if '' not in labels and len(labels) == len(options) else ()
 
 
 def _covered_fragment(text, query, cards, lexicon):
@@ -169,6 +191,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
             else:
                 independent_task = True
     clarification = None
+    options = ()
     if route_question(question).reason == 'ambiguous_employment_date':
         clarification = 'Bạn muốn dùng ngày bắt đầu thử việc, kết thúc thử việc hay ngày chính thức?'
     # Preserve a recognized policy even when it shares a noun with a profile field.
@@ -190,12 +213,14 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     elif unclear or unresolved:
         clarification = 'Bạn hãy nêu rõ từng thông tin cần hỏi và đối tượng; mình chưa xác định đủ toàn bộ yêu cầu.'
     elif ambiguous:
-        labels = [f'{index}. {card.label}' for index, card in enumerate(cards[:5], 1)]
+        options = choice_labels(cards[:5])
+        labels = [f'{index}. {label}' for index, (_, label) in enumerate(options, 1)]
         clarification = ('Bạn muốn hỏi nội dung nào? Hãy chọn số hoặc tên đầy đủ: ' + '; '.join(labels)
-                         if labels else 'Bạn hãy nêu rõ chủ đề, đối tượng và thông tin cần hỏi.')
-        if policy is not None:
-            if resolution is not None and resolution.state == 'clarify' and (getattr(resolution, 'missing_slots', ()) or not labels):
-                clarification = resolution.message
+                         if labels else 'Bạn hãy nêu rõ chủ đề, đối tượng hoặc tài liệu bạn muốn hỏi.')
+        if resolution is not None and resolution.state == 'clarify' and (
+                getattr(resolution, 'missing_slots', ()) or not labels):
+            clarification = resolution.message
+            options = ()
     reason = ('leave_needs_clarification' if policy is not None and ambiguous and
               policy.analyze(question).involves_leave else 'task_needs_clarification')
     # Conversation reducers may deliberately discard inputs owned by a previous
@@ -219,6 +244,6 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         missing_slots=tuple(resolution.missing_slots) if resolution is not None else (),
         document_message=resolution.message if unsupported else None,
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
-        parts=parts, personal_request=personal_request,
+        parts=parts, personal_request=personal_request, choice_options=options,
         general_guidance=bool(general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

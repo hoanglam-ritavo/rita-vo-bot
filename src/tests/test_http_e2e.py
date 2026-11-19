@@ -167,6 +167,9 @@ def test_two_endpoint_expectations_are_independent():
     assert check_response(a,b,200,answer_body(),{'cache-control':'no-store'},{'cards':[]},'2026-11-18')==[]
     assert check_response(r,b,200,retrieval_body(),{'cache-control':'no-store'},{'cards':[]},'2026-11-18')==[]
     assert 'response_schema' in check_response(r,b,200,answer_body(),{}, {'cards':[]},'2026-11-18')
+    undisplayed = answer_body() | {'answer':'Fictional limitation','claims':[],'limitations':['Fictional limitation']}
+    assert 'employee_claim_evidence' in check_response(a,b,200,undisplayed,
+        {'cache-control':'no-store'},{'cards':[]},'2026-11-18')
 
 
 @pytest.mark.parametrize('mutation,expected', [

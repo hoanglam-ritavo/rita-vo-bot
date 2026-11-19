@@ -15,6 +15,24 @@ from src.artifact_authoring.sources import checked, decode
 from src.paths import REPOSITORY_ROOT
 
 
+class ExpectedSlots(Strict):
+    system: str | None = None
+    subtype: str | None = None
+    days: int | float | None = None
+    sessions: int | float | None = None
+    granularity: Literal['day', 'session'] | None = None
+    intent: Literal['policy', 'submission', 'procedure'] | None = None
+
+
+class ExpectedContext(Strict):
+    has_request: bool | None = None
+    slots: ExpectedSlots | None = None
+    user_inputs: dict[str, str | None] = Field(default_factory=dict)
+    missing_slots: list[str] | None = None
+    pending_inputs: list[str] | None = None
+    pending: Literal['slots', 'task', 'request', 'unsupported', 'inputs'] | None = None
+
+
 class Oracle(Strict):
     case_id: str
     turn: int = Field(ge=0)
@@ -24,6 +42,7 @@ class Oracle(Strict):
     forbidden_task_ids: list[str] = Field(default_factory=list)
     expected_aspects: list[Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure']] | None = Field(
         default=None, min_length=1, max_length=5)
+    expected_context: ExpectedContext | None = None
     required_source_groups: list[list[str]] = Field(default_factory=list)
     forbidden_documents: list[str] = Field(default_factory=list)
     employee_fields: list[str] = Field(default_factory=list)
@@ -97,6 +116,38 @@ def policy_content_failures(expected_texts, required_limits, claims, limitations
     if required_limits is not None and not set(map(normalize_whitespace, required_limits)).issubset(
             map(normalize_whitespace, limitations)):
         failures.append('required_limitations')
+    return failures
+
+
+def context_failures(expected, state):
+    """Compare compacted fixture state without adding its values to reports."""
+    if expected is None:
+        return []
+    if 'request' not in state:
+        return ['context_unavailable']
+    failures = []
+    request = state['request']
+    if expected.has_request is not None and (request is not None) != expected.has_request:
+        failures.append('context_request')
+    request = request or {}
+    slots = request.get('slots', {})
+    if expected.slots is not None and any(
+            slots.get(key) != value or isinstance(slots.get(key), bool)
+            for key, value in expected.slots.model_dump(exclude_unset=True).items()):
+        failures.append('context_slots')
+    raw_inputs = request.get('user_inputs', {})
+    inputs = state.get('user_inputs', {})
+    if any(
+            (key in raw_inputs or key in inputs) if value is None else
+            (raw_inputs.get(key) != value or inputs.get(key) != {'value': value, 'origin': 'user_input'})
+            for key, value in expected.user_inputs.items()):
+        failures.append('context_user_inputs')
+    for key in ('missing_slots', 'pending_inputs'):
+        expected_slots = getattr(expected, key)
+        if expected_slots is not None and Counter(state.get(key, [])) != Counter(expected_slots):
+            failures.append(f'context_{key}')
+    if 'pending' in expected.model_fields_set and state.get('pending') != expected.pending:
+        failures.append('context_pending')
     return failures
 
 
@@ -312,14 +363,22 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                 owner.context.available = oracle.fixture != 'employee_unavailable'
                 for field in oracle.null_fields:
                     fields[field] = None
-                stamp = 'changed-evaluation-context' if oracle.fixture == 'catalog_changed' else base_stamp
-                analysis, state = plan_turn(turn['text'], state, catalog, lexicon, policy=policy, identity_stamp=stamp)
+                turn_catalog, stamp = catalog, base_stamp
+                if oracle.fixture == 'catalog_changed':
+                    # Change the active binding, not just the overall stamp. A
+                    # compatible task can survive an unrelated catalog change.
+                    active_task = state.get('task_id') or state.get('input_task_id')
+                    turn_catalog = catalog.model_copy(update={
+                        'cards': [card for card in catalog.cards if card.id != active_task]})
+                    stamp = identity(turn_catalog, lexicon, policy)
+                owner.answers.catalog = turn_catalog
+                analysis, state = plan_turn(turn['text'], state, turn_catalog, lexicon, policy=policy, identity_stamp=stamp)
                 question = analysis.question
                 owner.context.execute = partial(execute, analysis=analysis)
                 selected, ambiguous = analysis.cards, analysis.ambiguous
                 if analysis.document_lookup:
                     # Lookup task labels annotate fixture recall only, never authorize a template answer.
-                    selected, ambiguous = select_cards(question, catalog, lexicon, policy, contextual=True)
+                    selected, ambiguous = select_cards(question, turn_catalog, lexicon, policy, contextual=True)
                 body = {'text': question, 'hrm_user_id': 7, 'top_k': 5}
                 if oracle.fixture == 'feature_disabled':
                     # Model the documented disabled HTTP guard, not fake facts.
@@ -338,7 +397,8 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                     failures.extend(calculation_failures(scenario, {'expected_values': oracle.expected_values},
                                                         value, catalog.model_dump(), None))
                 if response.status_code == 200:
-                    state = compact(state, value)
+                    state = compact(state, value, analysis=analysis)
+                failures.extend(context_failures(oracle.expected_context, state if response.status_code == 200 else {}))
                 rows.append(dict(case_id=case['id'], turn=n, passed=not failures, failures=failures,
                                  **turn_metadata(value, () if analysis.document_lookup else selected, analysis.aspects)))
     failed = sum(not row['passed'] for row in rows)

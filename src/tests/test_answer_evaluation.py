@@ -3,7 +3,44 @@ import json
 from copy import deepcopy
 import pytest
 from src.answering.catalog import validate_catalog
+from src.evaluation.questions import ExpectedContext, context_failures
 from src.tests.test_answering import sample
+
+
+def test_context_oracle_rejects_stale_routing_and_checks_only_authored_slots():
+    expected = ExpectedContext.model_validate({
+        'has_request': True, 'slots': {'system': 'eleave', 'days': None, 'sessions': 1,
+                                       'granularity': 'session'},
+    })
+    slots = {'system': 'eleave', 'sessions': 1, 'granularity': 'session', 'subtype': 'annual'}
+    assert context_failures(expected, {'request': {'slots': slots}}) == []
+    for stale in ({'system': 'workit'}, {'days': 2}, {'sessions': None}, {'sessions': True}):
+        assert context_failures(expected, {'request': {'slots': {**slots, **stale}}}) == ['context_slots']
+
+
+def test_context_oracle_distinguishes_cleared_inputs_from_omitted_assertions():
+    entry = {'value': '2026-12-01', 'origin': 'user_input'}
+    state = {'request': {'user_inputs': {'as_of': entry['value']}}, 'user_inputs': {'as_of': entry}}
+    assert context_failures(ExpectedContext(), state) == []
+    assert context_failures(ExpectedContext(user_inputs={'as_of': entry['value']}), state) == []
+    assert context_failures(ExpectedContext(user_inputs={'as_of': '2026-12-02'}), state) == [
+        'context_user_inputs']
+    assert context_failures(ExpectedContext(user_inputs={'as_of': entry['value']}),
+                            {**state, 'user_inputs': {'as_of': {**entry, 'origin': 'employee'}}}) == [
+        'context_user_inputs']
+    cleared = ExpectedContext(user_inputs={'as_of': None})
+    assert context_failures(cleared, {'request': {}}) == []
+    for stale in (state, {**state, 'user_inputs': {}}, {**state, 'request': {}}):
+        assert context_failures(cleared, stale) == ['context_user_inputs']
+
+
+def test_context_oracle_requires_cancelled_request_and_empty_pending_slots():
+    expected = ExpectedContext(has_request=False, missing_slots=[], pending_inputs=[], pending=None)
+    assert context_failures(expected, {'request': None}) == []
+    assert context_failures(expected, {}) == ['context_unavailable']
+    assert context_failures(expected, {'request': {'slots': {}}, 'missing_slots': ['system'],
+                                       'pending_inputs': ['as_of'], 'pending': 'inputs'}) == [
+        'context_request', 'context_missing_slots', 'context_pending_inputs', 'context_pending']
 
 
 @pytest.mark.parametrize('failure',[None,'fingerprint','lexicon','quote','revision','hash','coverage','duplicate','metadata'])

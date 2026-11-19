@@ -334,6 +334,426 @@
           "expectation": "Không kế thừa task cũ sau khi định danh catalog đổi; hỏi lại khi không đủ chủ đề."
         }
       ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.011",
+      "title": "Sửa hệ thống nộp phép từ Workit sang E-Leave",
+      "tags": [
+        "multi-turn",
+        "platform-correction"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual",
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Hướng dẫn trên Workit để xin nghỉ phép năm 2 ngày",
+          "expectation": "Chọn hướng dẫn phép năm Workit và giữ thời lượng hai ngày."
+        },
+        {
+          "text": "Không phải Workit, dùng E-Leave.",
+          "expectation": "Chuyển sang hướng dẫn phép năm E-Leave, giữ loại nghỉ và hai ngày, bỏ nguồn Workit."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.012",
+      "title": "Sửa loại nghỉ trên cùng hệ thống Workit",
+      "tags": [
+        "multi-turn",
+        "subtype-correction"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual",
+          "task.leave.workit.unpaid"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Xin nghỉ phép năm 3 ngày trên Workit thế nào?",
+          "expectation": "Thiết lập phép năm ba ngày trên Workit."
+        },
+        {
+          "text": "Không phải nghỉ phép năm, đổi thành nghỉ không lương.",
+          "expectation": "Áp dụng hướng dẫn nghỉ không lương, giữ Workit và ba ngày."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.013",
+      "title": "Đổi thời lượng trên E-Leave từ ngày sang buổi",
+      "tags": [
+        "multi-turn",
+        "duration-correction"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual",
+          "task.leave.eleave.sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Hướng dẫn trên E-Leave để xin nghỉ phép năm 2 ngày",
+          "expectation": "Định tuyến theo ngày và giữ thời lượng hai ngày trong ngữ cảnh."
+        },
+        {
+          "text": "Không phải 2 ngày, đổi thành 1 buổi.",
+          "expectation": "Định tuyến theo buổi trên E-Leave, lưu một buổi và xóa số ngày cũ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.014",
+      "title": "Bổ sung ngày xét cho chính sách con nhân viên kết hôn",
+      "tags": [
+        "multi-turn",
+        "contextual-input",
+        "date-supply"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bb6f8ccbd1cc56a0833026eaff50d0e8"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "employee_name",
+          "employee_code",
+          "job_title",
+          "department_name",
+          "probation_date",
+          "probation_end_date",
+          "official_date",
+          "resignation_date",
+          "employee_type",
+          "contract_kind"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tra cứu hỗ trợ khi con nhân viên lập gia đình.",
+          "expectation": "Giải thích chính sách và yêu cầu bổ sung ngày xét cùng các thông tin còn thiếu."
+        },
+        {
+          "text": "Ngày xét: 01/12/2026",
+          "expectation": "Chuẩn hóa ngày 01/12/2026 thành ngày do người dùng cung cấp cho cùng chính sách, giữ yêu cầu bổ sung các dữ kiện khác."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.015",
+      "title": "Sửa ngày xét đã cung cấp cho cùng chính sách",
+      "tags": [
+        "multi-turn",
+        "contextual-input",
+        "date-correction"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "employee_name",
+          "employee_code",
+          "job_title",
+          "department_name",
+          "probation_date",
+          "probation_end_date",
+          "official_date",
+          "resignation_date",
+          "employee_type",
+          "contract_kind"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn hỏi chính sách hỗ trợ nhân viên kết hôn; Ngày xét: 2026-12-01",
+          "expectation": "Ghi nhận ngày xét ban đầu dưới dạng thông tin do người dùng cung cấp."
+        },
+        {
+          "text": "Ngày xét: 02/12/2026",
+          "expectation": "Thay ngày xét thành 02/12/2026, giữ chính sách nhân viên kết hôn và các dữ kiện còn thiếu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.016",
+      "title": "Không kế thừa quyền xem chức danh sang người quản lý",
+      "tags": [
+        "multi-turn",
+        "type-b",
+        "privacy"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Chức danh của tôi là gì?",
+          "expectation": "Trả đúng trường chức danh thuộc hồ sơ người dùng giả lập."
+        },
+        {
+          "text": "Còn chức danh của quản lý trực tiếp của tôi thì sao?",
+          "expectation": "Thông báo chức danh quản lý ngoài phạm vi hỗ trợ, không trả dữ liệu nhân viên hoặc dùng chức danh của người hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.017",
+      "title": "Hủy yêu cầu nghỉ đang chờ chọn hệ thống",
+      "tags": [
+        "multi-turn",
+        "cancellation",
+        "pending-slot"
+      ],
+      "support": "implemented",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Nộp đơn xin nghỉ phép năm 1 ngày ở đâu?",
+          "expectation": "Hỏi cần nộp trên hệ thống nào và giữ phép năm một ngày."
+        },
+        {
+          "text": "Hủy yêu cầu",
+          "expectation": "Xóa yêu cầu đang chờ, gồm các thông tin định tuyến và mục cần làm rõ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.018",
+      "title": "Chọn Workit rồi sửa sang E-Leave và hỏi giấy tờ",
+      "tags": [
+        "multi-turn",
+        "pending-slot",
+        "platform-correction",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual",
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Nộp đơn nghỉ phép năm 2 ngày ở đâu?",
+          "expectation": "Yêu cầu chọn hệ thống để hướng dẫn nộp đơn; ghi nhận phép năm hai ngày."
+        },
+        {
+          "text": "Workit",
+          "expectation": "Chọn Workit cho yêu cầu đang chờ và giữ hai ngày."
+        },
+        {
+          "text": "Không phải Workit, dùng E-Leave. Cần giấy tờ gì?",
+          "expectation": "Đổi sang E-Leave, giữ phép năm hai ngày và trả phần giấy tờ của E-Leave."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.019",
+      "title": "Bổ sung thủ tục sau khi hỏi giấy tờ nghỉ không lương Workit",
+      "tags": [
+        "multi-turn",
+        "aspect-followup",
+        "aspect:conditions",
+        "aspect:paperwork",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.unpaid"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Về đăng ký nghỉ không lương Workit, điều kiện áp dụng cho 2 ngày là gì?",
+          "expectation": "Chọn điều kiện của hướng dẫn nghỉ không lương Workit và giữ hai ngày."
+        },
+        {
+          "text": "Còn giấy tờ thì sao?",
+          "expectation": "Chuyển sang phần giấy tờ của cùng yêu cầu Workit."
+        },
+        {
+          "text": "Thêm thủ tục",
+          "expectation": "Giữ phần giấy tờ và bổ sung các bước Workit, vẫn theo yêu cầu nghỉ không lương hai ngày."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.020",
+      "title": "Khôi phục sau khi nhập ngày xét không hợp lệ",
+      "tags": [
+        "multi-turn",
+        "contextual-input",
+        "invalid-date",
+        "recovery"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.7b0f47d9f7ff5af59e6314f7207d0d47"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": [
+          "employee_name",
+          "employee_code",
+          "job_title",
+          "department_name",
+          "probation_date",
+          "probation_end_date",
+          "official_date",
+          "resignation_date",
+          "employee_type",
+          "contract_kind"
+        ]
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Type B được bật và sẵn sàng; backend gắn danh tính người dùng đã xác thực; chỉ dùng hồ sơ giả lập.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn hỏi chính sách hỗ trợ nhân viên kết hôn.",
+          "expectation": "Hỏi bổ sung ngày xét và giữ chủ đề hỗ trợ nhân viên kết hôn."
+        },
+        {
+          "text": "Ngày xét: 31/02/2026",
+          "expectation": "Yêu cầu ngày hợp lệ, tiếp tục chờ ngày xét và chưa lưu giá trị hoặc trả dữ liệu HRM."
+        },
+        {
+          "text": "Ngày xét: 05/12/2026",
+          "expectation": "Dùng ngày đã sửa cho cùng chính sách, giữ yêu cầu bổ sung hợp đồng và sự kiện."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.context-and-followups.021",
+      "title": "Bỏ ngày xét cũ khi chuyển từ quy định sang hướng dẫn Workit",
+      "tags": [
+        "multi-turn",
+        "task-change",
+        "contextual-input",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.unpaid",
+          "task.leave.workit.unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn Type A liên quan đã được xuất bản, đang hợp lệ và được phép truy cập; tính năng trả lời được bật.",
+        "Hội thoại được bật; bắt đầu phòng mới với người dùng giả lập đã xác thực."
+      ],
+      "turns": [
+        {
+          "text": "Xin nghỉ không lương 2 ngày; Ngày xét: 2026-12-01",
+          "expectation": "Giữ quy định chung về nghỉ không lương, thời lượng hai ngày và ngày xét do người dùng cung cấp."
+        },
+        {
+          "text": "Hướng dẫn trên Workit",
+          "expectation": "Chuyển tác vụ sang thủ tục Workit và bỏ ngày xét của tác vụ cũ, giữ loại nghỉ và số ngày."
+        },
+        {
+          "text": "Còn giấy tờ thì sao?",
+          "expectation": "Trả giấy tờ Workit cho cùng loại nghỉ và số ngày, không khôi phục ngày xét cũ."
+        }
+      ]
     }
   ]
 }

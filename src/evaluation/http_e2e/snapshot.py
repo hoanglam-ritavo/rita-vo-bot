@@ -187,6 +187,7 @@ def reference_inventory(scenarios, catalog):
 
 async def read_snapshot(config, scenarios, catalog, root):
     """Network/DB use only on explicit prepare/run, using bounded readonly scopes."""
+    refs, requirements = reference_inventory(scenarios, catalog)
     from sqlalchemy import text
     from sqlalchemy.ext.asyncio import create_async_engine
     from src.database.config import validate_url
@@ -220,7 +221,6 @@ async def read_snapshot(config, scenarios, catalog, root):
         finally:
             await source.close()
 
-    refs, requirements = reference_inventory(scenarios, catalog)
     manifest = decode(checked(Path(root) / 'artifacts/runtime-assets.json').read_bytes())
     pin = manifest['models']['e5']
     url = validate_url(config.corpus_url, 'DATABASE_URL')

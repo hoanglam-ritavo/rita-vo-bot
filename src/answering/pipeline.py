@@ -117,6 +117,14 @@ def is_document_lookup(question):
         'tìm tài liệu', 'tra cứu tài liệu', 'tìm văn bản', 'trích đoạn tài liệu', 'tìm trong tài liệu'))
 
 
+def section_units(section, analysis):
+    if section is None:
+        return ()
+    if analysis.focus_unit is None:
+        return section.units
+    return [unit for unit in section.units if unit.id == analysis.focus_unit]
+
+
 def render(question, result, catalog, lexicon, policy=None, *, contextual=False, analysis=None):
     if analysis is None:
         from .planning import analyze_question
@@ -170,7 +178,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                 reasons.add('section_incomplete')
                 limitations.extend(section.limitations or [
                     'Nguồn hiện có chỉ hỗ trợ một phần nội dung này; chưa đủ để hướng dẫn toàn bộ yêu cầu.'])
-            for unit in section.units:
+            for unit in section_units(section, analysis):
                 citations = []
                 for ref in unit.refs:
                     match = next((m for m in result['matches'] if matches_reference(ref, m)), None)
@@ -205,6 +213,18 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                        reason=None if complete else 'incomplete_template_evidence',
                        limitations=[] if complete else list(dict.fromkeys(limitations)))
             return row
+    if contextual and len(cards) == 1:
+        aspect_labels = {'paperwork': 'hồ sơ, giấy tờ', 'conditions': 'điều kiện',
+                         'amount': 'mức hưởng hoặc hỗ trợ', 'procedure': 'thủ tục', 'overview': 'tổng quan'}
+        requested = ', '.join(aspect_labels[aspect] for aspect in analysis.aspects)
+        message = f'Mình hiểu bạn đang hỏi về {requested} của chủ đề “{cards[0].label}”.'
+        if all(aspect not in cards[0].sections for aspect in analysis.aspects):
+            row.update(reason='answer_section_unavailable', limitations=[
+                f'{message} Tài liệu đã duyệt hiện chưa đủ để hướng dẫn phần này.'])
+        else:
+            row.update(reason='answer_reference_unavailable', limitations=[
+                f'{message} Căn cứ đã khai báo cho phần này hiện không khả dụng.'])
+        return row
     row.update(reason='template_evidence_missing', limitations=[cards[0].clarification,
         'Chưa đủ bằng chứng hiện hành để trả lời theo mẫu.'])
     return row
@@ -231,7 +251,7 @@ async def evidence_result(question, retrieval, catalog, lexicon, top_k=5, *, con
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}
     aspects = analysis.aspects
     refs = [ref for card in cards for aspect in aspects
-            for unit in (card.sections[aspect].units if aspect in card.sections else []) for ref in unit.refs]
+            for unit in section_units(card.sections.get(aspect), analysis) for ref in unit.refs]
     if not refs:
         logger.info('document_evidence state=not_requested reason=%s', 'task_unavailable' if not cards else 'section_missing')
         return {'matches': [], 'fallback_reason': None, 'relevance': relevance([])}

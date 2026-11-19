@@ -1,4 +1,4 @@
-"""Opt-in UUID-schema PostgreSQL checks; never reads application .env.
+"""Opt-in UUID-schema PostgreSQL checks configured through the process environment.
 
 Set TEST_CONVERSATION_DATABASE_URL to an explicitly disposable PostgreSQL URL.
 The fixture creates/drops only its own random schema and uses the chat migration.
@@ -6,7 +6,6 @@ The fixture creates/drops only its own random schema and uses the chat migration
 import asyncio
 from contextlib import asynccontextmanager
 import importlib
-import os
 from uuid import uuid4
 
 import pytest
@@ -18,17 +17,13 @@ from src.api.contracts import ApiError
 from src.conversation.contracts import ConversationRequest
 from src.conversation import storage
 from src.database.runtime import run_async
+from src.tests.database_targets import require_disposable_database
 
 pytestmark = pytest.mark.integration
 
 
 def test_postgres_turn_lifecycle_checkpoint_purge_and_constraints(monkeypatch):
-    url = os.environ.get('TEST_CONVERSATION_DATABASE_URL')
-    if not url:
-        pytest.skip('Set TEST_CONVERSATION_DATABASE_URL to a disposable PostgreSQL database.')
-    if not url.startswith('postgresql+psycopg://') or url in {
-            os.environ.get('DATABASE_URL'), os.environ.get('MIGRATION_DATABASE_URL')}:
-        pytest.fail('A separate explicit disposable PostgreSQL URL is required.')
+    url = require_disposable_database('TEST_CONVERSATION_DATABASE_URL')
 
     async def scenario():
         schema = 'chat_' + uuid4().hex
@@ -56,7 +51,7 @@ def test_postgres_turn_lifecycle_checkpoint_purge_and_constraints(monkeypatch):
                 owner, room = str(uuid4()), str(uuid4())
                 def req(version=0):
                     return ConversationRequest(text='Fictional question', user_id=owner, room_id=room,
-                        message_id=str(uuid4()), expected_context_version=version)
+                        message_id=str(uuid4()), expected_context_version=version, hrm_user_id=7)
                 first = req()
                 processing, accepted = await store.begin(first)
                 assert accepted and processing.state == 'PROCESSING'
@@ -82,14 +77,24 @@ def test_postgres_turn_lifecycle_checkpoint_purge_and_constraints(monkeypatch):
                     current = req(version)
                     await store.begin(current)
                     await store.finish(current, 1, {'answer': 'Fictional'}, {'version': version + 1})
+                    if version == 3:
+                        assert await store.context(room, owner) == (4, {}, [{'version': 4}])
                 version, checkpoint, deltas = await store.context(room, owner)
                 assert version == 8 and checkpoint == {'version': 8} and deltas == []
                 with pytest.raises(ApiError):
                     await store.begin(failed, retry=True)
                 page = await store.messages(room, owner, limit=2)
                 assert len(page['items']) == 2 and page['next_cursor'] is not None
-                pending = req(8)
-                await store.begin(pending)
+                from src.conversation.contracts import ClarificationChoice
+                pending = req(8).model_copy(update={'choice': ClarificationChoice(
+                    prompt_message_id=first.message_id, option_id=1)})
+                with pytest.raises(ApiError) as stale:
+                    await store.begin(pending, choice_is_current=lambda _: False)
+                assert stale.value.status_code == 409
+                with pytest.raises(ApiError) as absent:
+                    await store.get_turn(room, owner, pending.message_id)
+                assert absent.value.status_code == 404
+                await store.begin(pending, choice_is_current=lambda state: state == {'version': 8})
                 await store.recover()
                 assert (await store.get_turn(room, owner, pending.message_id)).state == 'INTERRUPTED'
                 with pytest.raises(ApiError):

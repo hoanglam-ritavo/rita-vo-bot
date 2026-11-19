@@ -38,12 +38,27 @@ class Identity(StrictModel):
             raise ValueError('invalid_user_id') from None
 
 
+class ClarificationChoice(StrictModel):
+    prompt_message_id: str
+    option_id: int = Field(ge=1, le=5)
+
+    @field_validator('prompt_message_id')
+    @classmethod
+    def uuid_prompt(cls, value):
+        return Identity.uuid_identity(value)
+
+
 class ConversationRequest(RetrieveRequest):
     user_id: str
     room_id: str
     message_id: str
     expected_context_version: int = Field(ge=0, le=2**53 - 1)
     text: str = Field(min_length=1, max_length=2000)
+    choice: ClarificationChoice | None = None
+
+    def stored_payload(self):
+        # Preserve the existing fingerprint and retry payload for text-only turns.
+        return self.model_dump(exclude={'choice'} if self.choice is None else None)
 
     @field_validator('user_id', 'room_id', 'message_id')
     @classmethod

@@ -53,6 +53,13 @@ means that same message is processing. The envelope contains `room_id`,
 and nullable controlled `error_code`. COMPLETED has an answer result; other
 states have no result. Answer outcomes remain distinct from transport state.
 
+A task clarification can include optional `result.clarification_options` with
+one to five ordered `{id, label}` entries. An explicit selection adds
+`choice: {prompt_message_id, option_id}` and sends the displayed label as
+`text`. The bot validates the prompt, option, label and context version before
+reserving a new turn. Stale choices return 409, and history hides actionable options from a
+replaced catalog. Numbered and textual replies remain supported. Text-only requests keep their original replay fingerprint.
+
 | Route | Input / purpose |
 | --- | --- |
 | `POST /api/v1/answer` | Complete conversation request above, or stateless body with required hrm_user_id |
@@ -78,8 +85,9 @@ States are PROCESSING, COMPLETED, FAILED, CANCELLED and INTERRUPTED. Same ID and
 payload replay the saved outcome; changed payload returns 409. Context version
 conflicts also return 409. Only the latest failed/cancelled/interrupted turn can
 be retried, with unchanged identity/payload and a new attempt number. Inference
-shares the existing single-process busy gate; other new work receives 429.
-Turn/history reads and purge remain available during inference.
+uses one single-process gate for conversations and standalone requests.
+A busy rejection returns 429 before a new turn is stored. Stored duplicate
+results and turn/history reads and purge remain available during inference.
 
 Disconnects cancel and drain owned work. A timeout or lost HTTP response does
 not establish whether a transaction committed: inspect the turn before retry.
@@ -103,23 +111,25 @@ contextual values use labels, and relative dates require clarification. Inputs
 remain user assertions and stay with their task. Changing the route clears a
 previous source choice, and changing tasks discards task-bound inputs.
 
-Unrecognized replies to a pending request keep its clarification. Cancellation
-and recognized topic changes end the request. Self-work field follow-ups may
+Unrecognized replies and acknowledgements preserve the active request.
+Cancellation and recognized topic changes end it. A numbered reference to a
+previous answer can select a displayed, uniquely mapped document claim. The
+bot reads its declared evidence again and asks for clarification when the
+reference is ambiguous. Self-work field follow-ups may
 reuse self-reference after an applied or partial employee context. Unsupported
 subjects or eligibility decisions do not inherit permission to read HRM data.
 Original messages are stored separately. The resulting plan drives contextual
 reads, evidence selection and rendering.
 
 Completed turns carry a context delta snapshot. Every eighth completion saves a
-checkpoint; a cache miss rebuilds from that checkpoint and newer completed
-deltas. Failed turns do not advance context. Context retains up to four recent
-user texts, task/candidate/aspect state, reducer/catalog identity and bounded
-evidence references and user-text slot origins. It does not store assistant prose
-or employee facts as authoritative context. Reducer schema 7 validates the
-shape, byte budget and catalog identity before inheritance. Older reducers,
-changed fingerprints and invalid payloads require a complete restatement for
-dependent replies. Independent questions still proceed. Completed messages and
-answers stay readable through the existing schema 2 API, with no table migration.
+checkpoint. A cache miss reads the newest completed snapshot after the
+checkpoint or uses the checkpoint if there is none. Failed turns do not advance
+context. Reducer schema 8 stores bounded task, prompt and displayed document
+claim references alongside user slot provenance. It reads compatible schema 7
+state. After a catalog change, active tasks can be reused when their bindings
+still match. Numbered choices from an old prompt must be confirmed against a
+fresh prompt. Completed messages and answers remain readable through the
+schema 2 API, with no table migration.
 
 The app-owned memory helper uses namespace `conversation-context-v2`, owner/room
 keys, its existing 300-second TTL and a 48 KiB context payload budget. A small DB
@@ -127,6 +137,12 @@ version read validates every cache hit. Stale/missing entries rebuild; cache
 failures do not undo a committed answer. Current document eligibility/revisions
 and requested HRM fields are read again for new answers. Historical citations
 and user assertions do not authorize present business conclusions.
+
+When a chosen task has no section for the requested aspect, the reply confirms
+the topic and returns `answer_section_unavailable`. A declared reference that
+cannot support any claim returns `answer_reference_unavailable`. A request for
+maternity-benefit paperwork stays in the maternity-policy task. Its catalog
+currently supplies an overview, so it cannot list the paperwork.
 
 ## Deletion and verification
 
@@ -137,10 +153,11 @@ attempts cannot commit or recreate that room. Backend deletes its room metadata
 after acknowledgement and retries purge across restarts. There is no read-only
 closed room or automatic age-based retention in this version.
 
-Unit/HTTP tests use fictional sources. The optional PostgreSQL fixture uses only
-`TEST_CONVERSATION_DATABASE_URL`, creates a UUID-named schema, applies the chat
-migration and drops its schema in cleanup. It never loads application `.env`.
-Missing configuration is skipped, not live database verification.
+Unit/HTTP tests use fictional sources. The optional PostgreSQL fixture takes its
+target from `TEST_CONVERSATION_DATABASE_URL` in the pytest process environment.
+It checks [database isolation](../README.md#testing), creates a UUID-named schema,
+applies the chat migration and drops its schema in cleanup. The suite skips
+without a test URL.
 
 ```powershell
 python -m pytest src/tests/test_conversation.py -q
@@ -149,9 +166,10 @@ python -m pytest src/tests/test_conversation_integration.py -m integration -q
 
 Deploy schema then bot then Backend, initially disabled. Check readiness and a
 designated synthetic end-to-end conversation, timeout lookup, context rebuild
-and deletion before enabling users. Roll back by disabling new conversation
-entrypoints while keeping purge credentials and worker operational; do not drop
-tables or tombstones. See [current verification](../README.md#current-verification-status).
+and deletion before enabling users. For the choice UI, deploy the compatible
+bot, Backend and Portal in that order. After accepting bound choices, keep the
+bot and Backend compatible with stored choice payloads if the Portal is rolled
+back. Keep the purge worker and credentials operational. See [current verification](../README.md#current-verification-status).
 
 ## Contextual answer revision
 

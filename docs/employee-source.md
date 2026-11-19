@@ -332,11 +332,12 @@ Unit checks: `python -m pytest src/tests/test_employee_source.py src/tests/test_
 Regression: `python -m pytest -m 'not integration'`.
 
 Integration: `python -m pytest src/tests/test_employee_source_integration.py -q`.
-It skips unless `TEST_HRM_DATABASE_URL` is set. It never loads `.env` and requires
-`TEST_HRM_DISPOSABLE_CONFIRMED=true`; schema defaults to public or
-`TEST_HRM_DATABASE_SCHEMA`. The database must differ from all configured app,
-migration and other test databases. The flag is an operator assertion, not proof
-of isolation: never configure shared or production storage.
+Provide `TEST_HRM_DATABASE_URL` and `TEST_HRM_DISPOSABLE_CONFIRMED=true` in the
+pytest process environment. The schema defaults to `public` unless the process
+sets `TEST_HRM_DATABASE_SCHEMA`. The suite skips without a test URL. Its fixture
+must differ from runtime HRM, application, migration, and other configured test
+databases. See the [shared target check and setup](../README.md#testing).
+Verify the fixture's isolation before setting the confirmation flag.
 
 A DBA/test harness must separately provision a disposable database, the readonly
 login described above, and a table with all 64 typed columns. Seed only fictional
