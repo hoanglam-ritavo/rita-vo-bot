@@ -58,7 +58,6 @@ async def run(config, scenarios, inputs, catalog, root, binding, binding_hash, *
     import httpx
     rows = [result_row(s, 'not_applicable' if s.reason else 'blocked',
                        s.reason or 'preflight_not_completed') for s in scenarios]
-    snapshot_started = False
     problem = None
     try:
         if (type(binding.get('schema_version')) is not int or binding['schema_version'] != 1
@@ -94,7 +93,6 @@ async def run(config, scenarios, inputs, catalog, root, binding, binding_hash, *
             if (expected_bindings != binding['bindings'] or expected_roles != binding.get('roles')
                     or current.get('corpus_records', {}) != binding.get('corpus_records')):
                 raise EvaluationError('binding_expectations_changed')
-            snapshot_started = True
             stopped = False
             for i, s in enumerate(scenarios):
                 if s.reason:
@@ -125,21 +123,21 @@ async def run(config, scenarios, inputs, catalog, root, binding, binding_hash, *
                         problem = 'http_transport'
                     except Exception:
                         rows[i] = result_row(s, 'failed', assertions=['invalid_response'])
-            final = await snapshot_reader(config, scenarios, catalog, root)
-            if final['fingerprint'] != binding['snapshot_fingerprint']:
-                problem = 'snapshot_drift_after_run'
-                # Responses still existed, but no passing conclusion survives drift.
+            final_problem = None
+            try:
+                final = await snapshot_reader(config, scenarios, catalog, root)
+                if (final['fingerprint'] != binding['snapshot_fingerprint']
+                        or final['business_day'] != binding['business_day']):
+                    final_problem = 'snapshot_drift_after_run'
+            except Exception:
+                final_problem = 'final_snapshot_unavailable'
+            if final_problem:
+                problem = final_problem
                 for row in rows:
                     if row['state'] == 'passed':
-                        row.update(state='blocked', reason='snapshot_drift_after_run')
+                        row.update(state='blocked', reason=final_problem)
     except EvaluationError as error:
         problem = str(error)
     except Exception:
         problem = 'execution_unavailable'
-    if problem and snapshot_started:
-        # A failed final snapshot cannot leave earlier passes as verified.
-        if problem == 'execution_unavailable':
-            for row in rows:
-                if row['state'] == 'passed':
-                    row.update(state='blocked', reason='final_snapshot_unavailable')
     return report(rows, inputs, binding_hash, problem)

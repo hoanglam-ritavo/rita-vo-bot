@@ -338,6 +338,35 @@
       "claims": "required",
       "fixture": "current",
       "expected_values": {}
+    },
+    {
+      "case_id": "q.policy.leave.015",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.policy.annual"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_limitations": [
+        "Nguồn hiện có chỉ hỗ trợ một phần nội dung này; chưa đủ để hướng dẫn toàn bộ yêu cầu."
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy lao động — Điều 12, thủ tục xin nghỉ phép: xin nghỉ bằng đơn gửi công ty/quản lý, có thể qua phần mềm/web. Nghỉ 1–3 ngày: gửi trước 3 ngày làm việc; 4–7 ngày: trước 6 ngày làm việc; hơn 7 ngày: trước 12 ngày làm việc. Đột xuất do bệnh/sự cố: gọi quản lý và Nhân sự trước giờ làm, muộn nhất 1 giờ sau bắt đầu, rồi nộp đơn khi trở lại. Nghỉ bệnh có thể nhờ người thân báo, bổ sung chứng nhận hợp lệ. Tự nghỉ khi chưa xong thủ tục/chưa được đồng ý có thể bị kỷ luật, không trả lương. Quản lý trực tiếp ký duyệt nhân viên; TGĐ duyệt Trưởng phòng, Phó/Giám đốc, Phó TGĐ; Chủ tịch HĐTV duyệt TGĐ. Quản lý từ Phó phòng trở lên đã được duyệt còn báo email/SMS Ban TGĐ và Chủ tịch trước nghỉ. Nhân sự lưu hồ sơ."
+      ]
     }
   ]
 }

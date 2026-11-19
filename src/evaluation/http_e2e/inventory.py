@@ -104,11 +104,14 @@ def public_inventory(scenarios, inputs):
     return {'schema_version': 1, 'mode': 'external-http-inventory',
             'independent_acceptance': False, 'inputs': inputs,
             'inventory_fingerprint': digest(rows), 'results': rows,
-            'counts': dict(Counter(r['state'] for r in rows))}
+            'counts': dict(Counter(r['state'] for r in rows)),
+            'retrieve_unresolved_default': sum(r['state'] == 'pending' and r['oracle'] == 'unresolved' for r in rows)}
 
 
 def retrieval_rule(scenario):
     o = scenario.oracle
+    if o.get('retrieve_statuses'):
+        return 'explicit'
     if o.get('application_state') == 'not_found':
         return 'null_profile'
     if o.get('required_source_groups'):
@@ -120,3 +123,11 @@ def retrieval_rule(scenario):
     if o.get('statuses') == ['needs_clarification']:
         return 'clarification'
     return 'unresolved'
+
+
+def task_sections(scenario, card):
+    """Use the same authored aspect selection for preflight and response checks."""
+    aspects = scenario.oracle.get('expected_aspects') or [
+        tag.removeprefix('aspect:') for tag in scenario.tags if tag.startswith('aspect:')]
+    return {key: section for key, section in card['sections'].items()
+            if key in (aspects or ['overview'])}

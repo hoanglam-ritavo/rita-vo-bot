@@ -786,6 +786,111 @@
           "expectation": "Nêu giới hạn nguồn thông tin cá nhân; không thay bằng câu trả lời từ tài liệu chính sách."
         }
       ]
+    },
+    {
+      "id": "q.employee.self-work-profile.032",
+      "title": "Khoảng ngày đến mốc cố định",
+      "tags": [
+        "http-e2e-regression",
+        "type-b",
+        "calculation"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Từ ngày chính thức của tôi đến 30/06/2028 là bao nhiêu ngày?",
+          "expectation": "Tính số ngày từ mốc hồ sơ đến ngày xét, kèm ngày và nguồn của hai đầu vào."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.033",
+      "title": "Tháng tròn đến cuối tháng Hai",
+      "tags": [
+        "http-e2e-regression",
+        "type-b",
+        "calculation"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Từ ngày chính thức của tôi đến 29/02/2028 là bao nhiêu tháng?",
+          "expectation": "Tính số tháng tròn tại mốc cuối tháng Hai và đối chiếu mốc hồ sơ, ngày xét và đơn vị."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.034",
+      "title": "Hỏi số ngày khi chưa có ngày xét",
+      "tags": [
+        "http-e2e-regression",
+        "type-b",
+        "calculation"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Từ ngày chính thức của tôi là bao nhiêu ngày?",
+          "expectation": "Trả mốc hồ sơ và yêu cầu ngày xét trước khi tính."
+        }
+      ]
+    },
+    {
+      "id": "q.employee.self-work-profile.035",
+      "title": "Hỏi số tháng khi hồ sơ thiếu mốc",
+      "tags": [
+        "http-e2e-regression",
+        "type-b",
+        "calculation",
+        "null"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Ngày chính thức của tôi đến 31/12/2028 là bao nhiêu tháng?",
+          "expectation": "Giữ mốc hồ sơ là null và không sinh phép tính."
+        }
+      ]
     }
   ]
 }

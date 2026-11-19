@@ -635,6 +635,65 @@
         "7f1f2cf6-e181-42a8-8caf-f9429094e661"
       ],
       "claims": "required"
+    },
+    {
+      "case_id": "q.software.eleave.025",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "retrieve_forbidden_documents": [],
+      "expected_policy_claim_texts": [
+        "E-Leave (Office 365), phiên bản 1.0, cập nhật 08.09.2023 — nhân viên xin nghỉ phép online qua https://forms.office.com/r/chBGKrWhb2 hoặc quét QR bằng điện thoại. Điền công ty, khu vực Miền Bắc/Miền Nam, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, từ/đến ngày (dd/MM/yyyy), buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ phép. Chức vụ và ủy quyền gửi đơn không bắt buộc; có thể thêm Email CC. Người gửi nhận email đã gửi đơn, rồi email kết quả khi cấp trên duyệt/từ chối."
+      ]
+    },
+    {
+      "case_id": "q.software.eleave.026",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.eleave.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_limitations": [
+        "Nguồn E-Leave mô tả các trường của mẫu. Nguồn này chưa nêu danh sách chứng từ bắt buộc cho từng trường hợp nghỉ."
+      ],
+      "expected_policy_claim_texts": [
+        "Mẫu E-Leave hỏi công ty, khu vực, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, ngày bắt đầu và kết thúc, buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ. Chức vụ và ủy quyền gửi đơn không bắt buộc. Có thể thêm email CC."
+      ]
     }
   ]
 }

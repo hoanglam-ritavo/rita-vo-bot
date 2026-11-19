@@ -1558,6 +1558,8 @@ Final non-integration verification: `python -m pytest -m 'not integration' -q` w
 
 ## Setup (PowerShell)
 
+For a first production deployment, follow the [production bootstrap runbook](docs/production-bootstrap.md).
+
 Provision a separate empty PostgreSQL database for the current schema. Do not point the new publisher at an older database; see [initialization and boundaries](docs/database-design.md#initialization-and-boundaries).
 
 Run from the project root with Python 3.14 installed. Create the virtual environment if absent:
@@ -1647,6 +1649,9 @@ Author cases before examining retrieval rankings. A case file contains `revision
 The target is at least 90% complete evidence among detail/condition cases with every marked supported critical case passing. Aggregate results are reported separately. Exit codes are 0 for meeting this target, 1 for missing it, and 2 for evaluation/input/storage failures (argument errors also use 2). An unsupported-only set cannot meet the target. This evaluates evidence retrieval, not generated answers or fallback behavior. Agent review must still assess ambiguous wording, missing operational facts and semantic sufficiency. Package changes require re-pinning cases and a matching publication; retain baseline reports and disclose any tuning on the evaluation questions.
 
 ## HTTP service operation and rollout
+
+See the [production cutover checklist](docs/production-bootstrap.md#release-checks-and-recovery)
+for a fresh environment.
 
 FastAPI is the only service transport. Run `python -m src.cli.serve_api` with the
 repository virtual environment activated; see [HTTP setup](#local-retrieval-api-and-swagger)

@@ -34,6 +34,11 @@ class Oracle(Strict):
     claims: str = Field(default='any', pattern='^(any|none|required)$')
     expected_policy_claim_texts: list[str] | None = Field(default=None, min_length=1)
     required_limitations: list[str] | None = Field(default=None, min_length=1)
+    retrieve_statuses: list[Literal['evidence_found', 'partial_evidence', 'no_evidence', 'needs_clarification', 'unsupported']] | None = Field(default=None, min_length=1)
+    retrieve_documents: Literal['required', 'none'] | None = None
+    retrieve_forbidden_documents: list[str] | None = None
+    answer_kind: Literal['excerpt'] | None = None
+    calculation_required: bool | None = None
     fixture: str = Field(default='current', pattern='^(current|missing|withdrawn|changed|denied|partial|unrelated_changed|catalog_unavailable|catalog_changed|employee_unavailable|feature_disabled|missing_policy)$')
 
 
@@ -80,8 +85,19 @@ def load_dataset(root=REPOSITORY_ROOT, *, questions_dir=None):
     return cases, oracles, inputs
 
 
-def _normalize_whitespace(text):
+def normalize_whitespace(text):
     return ' '.join(text.split())
+
+
+def policy_content_failures(expected_texts, required_limits, claims, limitations):
+    failures = []
+    if expected_texts is not None and Counter(map(normalize_whitespace, expected_texts)) != Counter(
+            normalize_whitespace(claim['text']) for claim in claims):
+        failures.append('policy_claim_texts')
+    if required_limits is not None and not set(map(normalize_whitespace, required_limits)).issubset(
+            map(normalize_whitespace, limitations)):
+        failures.append('required_limitations')
+    return failures
 
 
 def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
@@ -120,16 +136,8 @@ def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
     claims = [claim for claim in result.get('claims', []) if any(nodes[ref]['kind']=='document' for ref in claim['evidence_refs'])]
     if oracle.claims == 'none' and claims or oracle.claims == 'required' and not claims:
         failures.append('claims')
-    if oracle.expected_policy_claim_texts is not None:
-        expected_claims = Counter(map(_normalize_whitespace, oracle.expected_policy_claim_texts))
-        actual_claims = Counter(_normalize_whitespace(claim['text']) for claim in claims)
-        if actual_claims != expected_claims:
-            failures.append('policy_claim_texts')
-    if oracle.required_limitations is not None:
-        expected_limitations = set(map(_normalize_whitespace, oracle.required_limitations))
-        actual_limitations = set(map(_normalize_whitespace, result.get('limitations', [])))
-        if not expected_limitations.issubset(actual_limitations):
-            failures.append('required_limitations')
+    failures.extend(policy_content_failures(oracle.expected_policy_claim_texts, oracle.required_limitations,
+                                            claims, result.get('limitations', [])))
     text = ' '.join(claim['text'] for claim in claims)
     observed_numbers = {int(re.sub(r'[.,]', '', token)) for token in
                         re.findall(r'\d{1,3}(?:[.,]\d{3})+(?!\d)|\d+', text)}
@@ -323,6 +331,12 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                 selected = [] if ambiguous else selected
                 failures = check_turn(oracle, response.status_code, value,
                                       [c.id for c in selected], aspects=analysis.aspects)
+                if oracle.calculation_required is not None and response.status_code == 200:
+                    from src.evaluation.http_e2e.assertions import calculation_failures
+                    from src.evaluation.http_e2e.inventory import Scenario
+                    scenario = Scenario(case['id'], '', '/api/v1/answer', turn['text'], oracle.model_dump())
+                    failures.extend(calculation_failures(scenario, {'expected_values': oracle.expected_values},
+                                                        value, catalog.model_dump(), None))
                 if response.status_code == 200:
                     state = compact(state, value)
                 rows.append(dict(case_id=case['id'], turn=n, passed=not failures, failures=failures,

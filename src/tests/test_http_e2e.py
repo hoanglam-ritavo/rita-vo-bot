@@ -16,7 +16,7 @@ from src.evaluation.http_e2e.config import (
 )
 from src.evaluation.http_e2e.inventory import Scenario, build_inventory, public_inventory
 from src.evaluation.http_e2e.runner import prepare, run, request_for
-from src.evaluation.http_e2e.snapshot import build_bindings, representatives
+from src.evaluation.http_e2e.snapshot import build_bindings, representatives, reference_inventory, reference_key
 from src.evaluation.http_e2e.assertions import check_response
 
 
@@ -47,7 +47,7 @@ async def fake_snapshot(*args):
 
 
 def answer_body(value='Analyst'):
-    return {'schema_version': 2, 'status': 'answered', 'answer': 'Fictional answer',
+    return {'schema_version': 2, 'status': 'answered', 'answer': 'Fictional job title [C1]',
         'claims': [{'id':'C1','text':'Fictional job title','evidence_refs':['F1']}], 'sources': [],
         'evidence': [{'kind':'employee','id':'F1','field':'job_title','subject':'self',
                      'label':'Chức danh','value':value,'observed_at':'2026-11-18T00:00:00Z','updated_at':None}],
@@ -283,17 +283,19 @@ def test_missing_role_does_not_become_pass_or_trigger_request():
     assert len(calls)==3 and result['exit_code']==2 and result['counts']=={'blocked':1}
 
 
-def test_missing_final_snapshot_invalidates_previous_pass():
+@pytest.mark.parametrize('error', [RuntimeError('PRIVATE_CONNECTION_STRING'), EvaluationError('employee_survey_too_large')])
+def test_missing_final_snapshot_invalidates_previous_pass(error):
     n=0
     async def reader(*args):
         nonlocal n
         n+=1
-        if n==2:raise RuntimeError('PRIVATE_CONNECTION_STRING')
+        if n==2:raise error
         return snapshot()
     def handler(req):
         return httpx.Response(200,json={'status':'alive' if req.url.path.endswith('/live') else 'ready'} if req.method=='GET' else answer_body(),headers={'Cache-Control':'no-store'})
     result=run_fake([scenario()],handler,reader=reader)
-    assert result['counts']=={'blocked':1} and 'PRIVATE_CONNECTION_STRING' not in json.dumps(result)
+    assert result['counts']=={'blocked':1} and result['exit_code']==2
+    assert result['problem']=='final_snapshot_unavailable' and 'PRIVATE_CONNECTION_STRING' not in json.dumps(result)
 
 
 def test_calculation_expected_from_pinned_profile_and_explicit_date():
@@ -305,10 +307,14 @@ def test_calculation_expected_from_pinned_profile_and_explicit_date():
     assert expected=={'operation':'completed_months','value':'1','unit':'month','as_of':'2026-02-28','field':'official_date','policy_rule':False}
     body=answer_body()
     body['evidence'][0].update(field='official_date',value='2026-01-31')
+    body['evidence'].append({'kind':'user_input','id':'U1','slot':'as_of','label':'Date',
+        'value':'2026-02-28','hypothetical':False})
     body['evidence'].append({'kind':'calculation','id':'K1','operation':'completed_months','label':'Fictional months',
-        'value':'1','unit':'month','input_refs':['F1'],'rule_refs':[],'as_of':'2026-02-28'})
+        'value':'1','unit':'month','input_refs':['F1','U1'],'rule_refs':[],'as_of':'2026-02-28'})
+    body['claims'].append({'id':'C2','text':'1 month','evidence_refs':['K1']})
+    body['answer']+='\n\n1 month [C2]'
     assert check_response(s,binding,200,body,{'cache-control':'no-store'},{'cards':[]},'2026-11-18')==[]
-    body['evidence'][1]['value']='2'
+    body['evidence'][-1]['value']='2'
     assert 'calculation_value' in check_response(s,binding,200,body,{'cache-control':'no-store'},{'cards':[]},'2026-11-18')
     r=replace(s,endpoint='/api/v1/retrieve')
     retrieve=retrieval_body();retrieve['evidence']=body['evidence']
@@ -398,7 +404,7 @@ def test_document_citations_and_retrieval_content_match_pinned_sql_snapshot():
     origin={k:pinned[k] for k in ('chunk_id','document_id','revision_id','run_id','source_path','source_spans')}
     s=scenario(employee_fields=[],task_ids_any=['task.policy'],required_source_groups=[['doc']],claims='required',statuses=['partial'])
     b={'expected_values':{}}
-    body=answer_body();body.update(status='partial',evidence=[{'kind':'document','id':'D1','source_id':'S1','quote':text}],
+    body=answer_body();body.update(status='partial',answer=text+' [C1]',evidence=[{'kind':'document','id':'D1','source_id':'S1','quote':text}],
         claims=[{'id':'C1','text':text,'evidence_refs':['D1']}],sources=[{'source_id':'S1',**{k:v for k,v in metadata.items() if k!='source_path'},'origins':[deepcopy(origin)]}])
     assert check_response(s,b,200,body,{'cache-control':'no-store'},catalog,'2026-11-18',corpus_records={'chunk':pinned})==[]
     body['sources'][0]['origins'][0]['run_id']='wrong-run'
@@ -412,3 +418,87 @@ def test_document_citations_and_retrieval_content_match_pinned_sql_snapshot():
     assert check_response(r,b,200,data,{'cache-control':'no-store'},catalog,'2026-11-18',corpus_records={'chunk':pinned})==[]
     data['matches'][0]['content']='Wrong source content'
     assert 'retrieval_snapshot_provenance' in check_response(r,b,200,data,{'cache-control':'no-store'},catalog,'2026-11-18',corpus_records={'chunk':pinned})
+
+
+def test_answer_checks_display_claim_limitations_and_explicit_aspect():
+    ref = {'document_id':'doc', 'revision_id':'rev', 'chunk_index':1, 'quote':'Fictional proof', 'metadata':{}}
+    other = ref | {'chunk_index':0, 'quote':'Different aspect'}
+    unit = {'text':'Fictional condition', 'refs':[ref]}
+    catalog = {'cards':[{'id':'task.policy', 'sections':{'conditions':{'units':[unit]},
+        'overview':{'units':[unit | {'refs':[other]}]}}}]}
+    s = scenario(employee_fields=[], claims='required', task_ids_any=['task.policy'],
+        expected_aspects=['conditions'], expected_policy_claim_texts=['Fictional condition'],
+        required_limitations=['Fictional limit'])
+    s.tags = ('aspect:overview',)  # The explicit oracle wins.
+    body = answer_body()
+    body.update(answer='Fictional condition [C1]', claims=[dict(id='C1', text='Fictional condition', evidence_refs=['D1'])],
+        limitations=['  Fictional   limit  '], evidence=[dict(kind='document', id='D1', source_id='S1', quote=ref['quote'])],
+        sources=[dict(source_id='S1', title=None, applicability=None, effective_from=None, effective_to=None,
+                      version_label=None, origins=[dict(document_id='doc', revision_id='rev', chunk_index=1)])])
+    def failures(payload):
+        return check_response(s, {'expected_values':{}}, 200, payload, {'cache-control':'no-store'}, catalog, '2026-11-19')
+    assert failures(body) == []
+    assert 'answer_display' in failures(body | {'answer':'Unrelated conclusion'})
+    assert 'required_limitations' in failures(body | {'limitations':[]})
+    claim = body['claims'][0] | {'text':'Different condition'}
+    assert 'policy_claim_texts' in failures(body | {'claims':[claim], 'answer':'Different condition [C1]'})
+    assert 'policy_claim_texts' in failures(body | {'claims':body['claims'] + [body['claims'][0] | {'id':'C2'}]})
+    body['evidence'][0]['quote'] = other['quote']
+    body['sources'][0]['origins'][0]['chunk_index'] = 0
+    assert 'required_task_evidence' in failures(body)
+
+
+def test_authored_excerpt_checks_snapshot_even_without_template():
+    import hashlib
+    text = 'Fictional excerpt'
+    limit = 'Fictional unassessed limitation'
+    s = scenario(employee_fields=[], statuses=['partial'], claims='required', answer_kind='excerpt',
+                 required_source_groups=[['doc']], required_limitations=[limit])
+    origin = dict(chunk_id='chunk', revision_id='rev', document_id='doc', run_id='run', source_path='f.pdf', source_spans=[])
+    body = answer_body() | dict(status='partial', answer=text+' [C1]', fallback_reason='document_lookup',
+        claims=[dict(id='C1', text=text, evidence_refs=['D1'])], limitations=[limit],
+        evidence=[dict(kind='document', id='D1', source_id='S1', quote=text)],
+        sources=[dict(source_id='S1', title=None, applicability=None, effective_from=None,
+                      effective_to=None, version_label=None, origins=[origin])])
+    pinned = origin | {'content_hash':hashlib.sha256(text.encode()).hexdigest()}
+    def failures(payload):
+        return check_response(s, {'expected_values':{}}, 200, payload, {'cache-control':'no-store'},
+                              {'cards':[]}, '2026-11-19', corpus_records={'chunk':pinned})
+    assert failures(body) == []
+    assert 'answer_kind' in failures(body | {'fallback_reason':None})
+    assert 'required_limitations' in failures(body | {'limitations':[]})
+    body['evidence'][0]['quote'] = 'Altered excerpt'
+    assert {'excerpt_snapshot_content','excerpt_claim_text'} <= set(failures(body))
+
+
+def test_preflight_partial_requires_a_complete_claim_and_not_a_complete_section():
+    def ref(n):
+        return dict(document_id='doc', revision_id='rev', chunk_index=n, content_sha256=str(n)*64)
+    a,b,c = [ref(n) for n in (1,2,3)]
+    catalog = {'cards':[{'id':'task.test', 'sections':{'overview':{'units':[
+        dict(text='First claim',refs=[a,b]), dict(text='Second claim',refs=[c])]}}}]}
+    s = scenario(employee_fields=[], task_ids_any=['task.test'], claims='required', statuses=['partial'],
+                 required_source_groups=[['doc']])
+    r = replace(s,endpoint='/api/v1/retrieve')
+    full = replace(s,case_id='q.complete',oracle=s.oracle | {'statuses':['answered']})
+    exact = replace(s,case_id='q.exact',oracle=s.oracle | {'expected_policy_claim_texts':['First claim']})
+    scenarios = [s,r,full,exact]
+    _, requirements = reference_inventory(scenarios,catalog)
+    data = snapshot() | {'task_requirements':requirements,'documents':['doc'],'valid_references':[reference_key(c)]}
+    bindings,_ = build_bindings(scenarios,data)
+    assert [bindings[x.key]['state'] for x in scenarios] == ['ready','ready','blocked','blocked']
+    data['valid_references']=[reference_key(a)]
+    bindings,_ = build_bindings(scenarios,data)
+    assert bindings[s.key]['state']=='blocked' and bindings[r.key]['state']=='ready'
+
+
+def test_retrieve_explicit_denial_rejects_documents_and_employee_evidence():
+    s = scenario('/api/v1/retrieve', employee_fields=[], retrieve_statuses=['unsupported'], retrieve_documents='none')
+    body = retrieval_body() | {'status':'unsupported','evidence':[]}
+    def failures(payload):
+        return check_response(s, {'expected_values':{}}, 200, payload, {'cache-control':'no-store'},
+                              {'cards':[]}, '2026-11-19')
+    assert failures(body) == []
+    assert 'status' in failures(body | {'status':'evidence_found'})
+    assert 'retrieve_document_lookup' in failures(body | {'document_status':'no_matches'})
+    assert 'employee_fields' in failures(body | {'evidence':retrieval_body()['evidence']})

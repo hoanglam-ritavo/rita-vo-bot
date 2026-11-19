@@ -379,6 +379,35 @@
           "expectation": "Nêu điều kiện áp dụng cho đúng chủ đề Điều kiện xin nghỉ không lương chung và dẫn nguồn; chỉ nêu phần có bằng chứng, không tuyên bố hướng dẫn đầy đủ vì section chưa khai báo complete."
         }
       ]
+    },
+    {
+      "id": "q.policy.leave.015",
+      "title": "Nội quy và nghỉ phép đột xuất do bệnh",
+      "tags": [
+        "http-e2e-regression",
+        "type-a",
+        "exception",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo."
+      ],
+      "turns": [
+        {
+          "text": "Theo nội quy, thủ tục xin nghỉ phép đột xuất do bệnh là gì?",
+          "expectation": "Giữ ngoại lệ báo quản lý và Nhân sự, mốc thời gian báo và hồ sơ bổ sung khi trở lại."
+        }
+      ]
     }
   ]
 }

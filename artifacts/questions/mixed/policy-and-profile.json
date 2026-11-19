@@ -121,6 +121,142 @@
           "expectation": "Không bịa ngày chính thức; giữ riêng phần chính sách có bằng chứng, không kết luận điều kiện của cá nhân."
         }
       ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.005",
+      "title": "Thủ tục chung và chức danh hiện tại",
+      "tags": [
+        "http-e2e-regression",
+        "mixed",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.policy.annual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": [
+          "job_title"
+        ]
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo.",
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Chỉ quy định chung về thủ tục xin nghỉ phép năm. Chức danh của tôi là gì?",
+          "expectation": "Dẫn nội quy chung và trả đúng chức danh từ hồ sơ, giữ hai loại bằng chứng riêng."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.006",
+      "title": "Hướng dẫn Workit và quản lý trực tiếp",
+      "tags": [
+        "http-e2e-regression",
+        "mixed",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": [
+          "employee_name",
+          "employee_code",
+          "job_title",
+          "department_name",
+          "manager_name",
+          "manager_email"
+        ]
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo.",
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Cách đăng ký nghỉ phép năm trên Workit như thế nào? Quản lý trực tiếp của tôi là ai?",
+          "expectation": "Dẫn hướng dẫn Workit và đối chiếu quản lý trực tiếp. Tên trong hồ sơ không xác lập quyền phê duyệt."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.007",
+      "title": "Nội quy tăng ca khi thiếu ngày chính thức",
+      "tags": [
+        "http-e2e-regression",
+        "mixed",
+        "null",
+        "aspect:conditions"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.2612d9edbba852749f08364f291225c2"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": [
+          "official_date"
+        ]
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo.",
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Điều kiện tổ chức tăng ca theo nội quy là gì? Ngày chính thức của tôi là ngày nào?",
+          "expectation": "Giữ hướng dẫn tăng ca có nguồn và ngày chính thức là null. Không suy ra mốc công việc."
+        }
+      ]
+    },
+    {
+      "id": "q.mixed.policy-and-profile.008",
+      "title": "Hồ sơ hiện tại và hướng dẫn có điều kiện",
+      "tags": [
+        "http-e2e-regression",
+        "mixed",
+        "eligibility-boundary",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": [
+          "employee_name",
+          "employee_code",
+          "job_title",
+          "department_name",
+          "manager_name",
+          "manager_email"
+        ]
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo.",
+        "Dùng hồ sơ giả lập đã chốt cho người dùng hiện tại và giữ giá trị null theo oracle."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xin nghỉ phép năm trên Workit thì cần làm gì? Chức danh của tôi là gì?",
+          "expectation": "Tách hướng dẫn và hồ sơ hiện tại. Nêu rõ các điều kiện còn thiếu để áp dụng và chưa xác nhận quyền lợi."
+        }
+      ]
     }
   ]
 }

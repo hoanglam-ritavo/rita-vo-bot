@@ -180,7 +180,15 @@
       "null_fields": [],
       "claims": "required",
       "fixture": "current",
-      "expected_values": {}
+      "expected_values": {},
+      "answer_kind": "excerpt",
+      "required_limitations": [
+        "Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ."
+      ],
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required"
     },
     {
       "case_id": "q.boundaries.evidence-availability.010",
@@ -216,6 +224,48 @@
       "fixture": "catalog_unavailable",
       "http_status": 503,
       "expected_values": {}
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.012",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_limitations": [
+        "Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ."
+      ],
+      "answer_kind": "excerpt"
+    },
+    {
+      "case_id": "q.boundaries.evidence-availability.013",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_limitations": [
+        "Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ."
+      ],
+      "answer_kind": "excerpt"
     }
   ]
 }

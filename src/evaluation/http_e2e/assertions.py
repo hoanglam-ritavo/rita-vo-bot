@@ -1,10 +1,15 @@
 """Black-box assertions: authored evidence requirements, not response-derived baselines."""
 from datetime import date, datetime
 from calendar import monthrange
+import hashlib
 import re
 import unicodedata
 
-from .inventory import RETRIEVAL_RULES, retrieval_rule
+from src.evaluation.questions import normalize_whitespace, policy_content_failures
+from .inventory import RETRIEVAL_RULES, retrieval_rule, task_sections
+
+SOURCE_METADATA = ('title', 'applicability', 'effective_from', 'effective_to', 'version_label')
+ORIGIN_FIELDS = ('chunk_id', 'revision_id', 'document_id', 'run_id', 'source_path', 'source_spans')
 
 
 def folded(value):
@@ -75,7 +80,8 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
     if body.get('schema_version') != 2:
         failures.append('schema_version')
     answer = scenario.endpoint.endswith('/answer')
-    statuses = o.get('statuses', []) if answer else RETRIEVAL_RULES[retrieval_rule(scenario)]
+    statuses = o.get('statuses', []) if answer else (
+        o.get('retrieve_statuses') or RETRIEVAL_RULES[retrieval_rule(scenario)])
     if result['status'] not in statuses:
         failures.append('status')
     if o.get('application_state') and result['application']['state'] != o['application_state']:
@@ -107,10 +113,12 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
             failures.append('retrieval_semantics')
         if not result['matches'] and result['document_status'] == 'matches_found':
             failures.append('document_status')
+        if (o.get('retrieve_documents') == 'none' and (result['matches'] or result['document_status'] is not None)
+                or o.get('retrieve_documents') == 'required' and not result['matches']):
+            failures.append('retrieve_document_lookup')
         if result['matches'] and 'evidence_completeness_not_assessed' not in result['relevance']['warnings']:
             failures.append('retrieval_warning')
         if corpus_records is not None:
-            import hashlib
             for match in result['matches']:
                 pinned = corpus_records.get(match['chunk_id'])
                 if (pinned is None or pinned['content_hash'] != hashlib.sha256(match['content'].encode()).hexdigest()
@@ -120,17 +128,19 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
             failures.append('retrieve_does_not_answer')
     if any(not documents.intersection(group) for group in o.get('required_source_groups', [])):
         failures.append('required_source')
-    if documents.intersection(o.get('forbidden_documents', [])):
+    forbidden_documents = o.get('forbidden_documents', [])
+    if not answer and o.get('retrieve_forbidden_documents') is not None:
+        forbidden_documents = o['retrieve_forbidden_documents']
+    if documents.intersection(forbidden_documents):
         failures.append('forbidden_source')
     # Exact policy provenance comes from authored refs, never from nearest matches.
     cardmap = {c['id']: c for c in catalog['cards']}
     target_ids = set(o.get('task_ids_any', []))
     relevant = [r for c in cardmap.values() for section in c['sections'].values()
                 for unit in section['units'] for r in unit['refs']]
-    aspects = {t.split(':', 1)[1] for t in scenario.tags if t.startswith('aspect:')}
-    target_refs = [r for tid in target_ids for aspect, section in cardmap[tid]['sections'].items()
-                   if not aspects or aspect in aspects
-                   for unit in section['units'] for r in unit['refs']]
+    units = [unit for tid in target_ids for section in task_sections(scenario, cardmap[tid]).values()
+             for unit in section['units']]
+    target_refs = [ref for unit in units for ref in unit['refs']]
     def address(origin, ref):
         # Answer origins expose chunk_id, not chunk_index. Resolve that ID from
         # the independently pinned SQL snapshot; retrieval matches expose both.
@@ -147,27 +157,51 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
     policy_claims = []
     if answer:
         source_map = {s['source_id']: s for s in sources}
+        excerpt = o.get('answer_kind') == 'excerpt'
+        if (result['fallback_reason'] == 'document_lookup') != excerpt:
+            failures.append('answer_kind')
+        display = [f"{claim['text']} [{claim['id']}]" for claim in result['claims']]
+        if not display:
+            display = result['limitations']
+        if not display or normalize_whitespace(result['answer']) != normalize_whitespace(' '.join(display)):
+            failures.append('answer_display')
         for n in evidence:
             if n['kind'] != 'document':
                 continue
             source = source_map[n['source_id']]
-            if corpus_records is not None:
+            if corpus_records is not None or excerpt:
                 for origin in source['origins']:
-                    pinned = corpus_records.get(origin.get('chunk_id'))
-                    if pinned is None or any(origin.get(k) != pinned.get(k) for k in
-                            ('chunk_id','revision_id','document_id','run_id','source_path','source_spans')):
+                    pinned = (corpus_records or {}).get(origin.get('chunk_id'))
+                    if pinned is None or any(origin.get(k) != pinned.get(k) for k in ORIGIN_FIELDS):
                         failures.append('answer_snapshot_provenance')
+                    elif excerpt and (pinned['content_hash'] != hashlib.sha256(n['quote'].encode()).hexdigest()
+                            or any(source.get(k) != pinned.get(k) for k in SOURCE_METADATA)):
+                        failures.append('excerpt_snapshot_content')
+            if excerpt:
+                if not source['origins']:
+                    failures.append('answer_snapshot_provenance')
+                continue
             candidates = [r for r in relevant if any(address(origin, r) for origin in source['origins'])]
-            if not any(n['quote'] in r['quote'] and all(source.get(k) == r['metadata'].get(k)
-                       for k in ('title','applicability','effective_from','effective_to','version_label')) for r in candidates):
+            if not any(n['quote'] == r['quote'] and all(source.get(k) == r['metadata'].get(k)
+                       for k in SOURCE_METADATA) for r in candidates):
                 failures.append('citation_provenance')
         policy_claims = [c for c in result['claims'] if any(nodes[k]['kind'] == 'document' for k in c['evidence_refs'])]
-        cited = {key for c in policy_claims for key in c['evidence_refs'] if nodes[key]['kind'] == 'document'}
-        if target_refs and o.get('claims') == 'required' and not any(
-                nodes[key]['quote'] in ref['quote'] and any(address(origin, ref)
-                    for origin in source_map[nodes[key]['source_id']]['origins'])
-                for key in cited for ref in target_refs):
-            failures.append('required_task_evidence')
+        failures.extend(policy_content_failures(o.get('expected_policy_claim_texts'), o.get('required_limitations'),
+                                                policy_claims, result['limitations']))
+        if excerpt:
+            if any(len(c['evidence_refs']) != 1 or c['text'] != nodes[c['evidence_refs'][0]]['quote']
+                   for c in policy_claims):
+                failures.append('excerpt_claim_text')
+        elif target_refs and o.get('claims') == 'required':
+            def backed(claim):
+                cited = [nodes[key] for key in claim['evidence_refs'] if nodes[key]['kind'] == 'document']
+                return any(all(any(node['quote'] == ref['quote'] and any(address(origin, ref)
+                    for origin in source_map[node['source_id']]['origins']) for node in cited)
+                    for ref in unit['refs']) and (not o.get('expected_policy_claim_texts')
+                    or normalize_whitespace(claim['text']) == normalize_whitespace(unit.get('text', '')))
+                    for unit in units)
+            if not any(map(backed, policy_claims)) or (o.get('expected_aspects') or o.get('expected_policy_claim_texts')) and not all(map(backed, policy_claims)):
+                failures.append('required_task_evidence')
         if o.get('claims') == 'required' and not policy_claims or o.get('claims') == 'none' and policy_claims:
             failures.append('policy_claims')
         text = ' '.join(c['text'] for c in policy_claims)
@@ -185,17 +219,33 @@ def check_response(scenario, binding, status, body, headers, catalog, business_d
             dates = question_dates(scenario.text)
             if folded(n['value']) not in folded(scenario.text) and n['value'] not in dates:
                 failures.append('user_input_provenance')
-    expected_calc = calculation_expectation(scenario, binding, catalog, business_day)
-    calculations = [n for n in evidence if n['kind'] == 'calculation']
-    if answer and expected_calc:
-        if len(calculations) != 1 or any(calculations[0].get(k) != expected_calc[k]
-                                       for k in ('operation','value','unit','as_of')):
-            failures.append('calculation_value')
-        elif not any(nodes[k]['kind'] == 'employee' and nodes[k]['field'] == expected_calc['field']
-                     for k in calculations[0]['input_refs']):
-            failures.append('calculation_input')
-        elif expected_calc['policy_rule'] and not calculations[0]['rule_refs']:
-            failures.append('calculation_rule')
-    elif calculations:
-        failures.append('unexpected_calculation')
+    if answer:
+        failures.extend(calculation_failures(scenario, binding, result, catalog, business_day))
     return sorted(set(failures))
+
+
+def calculation_failures(scenario, binding, result, catalog, business_day):
+    """Check the result and both provenance inputs against independent expectations."""
+    nodes = {node['id']: node for node in result['evidence']}
+    calculations = [node for node in nodes.values() if node['kind'] == 'calculation']
+    required = scenario.oracle.get('calculation_required')
+    expected = None if required is False else calculation_expectation(scenario, binding, catalog, business_day)
+    if expected is None:
+        if required:
+            return ['calculation_expectation_missing']
+        return ['unexpected_calculation'] if calculations else []
+    if len(calculations) != 1:
+        return ['calculation_value']
+    calculation = calculations[0]
+    if any(calculation[key] != expected[key] for key in ('operation', 'value', 'unit', 'as_of')):
+        return ['calculation_value']
+    inputs = [nodes[key] for key in calculation['input_refs'] if key in nodes]
+    if (not any(n['kind'] == 'employee' and n['field'] == expected['field'] for n in inputs)
+            or not any(n['kind'] == 'user_input' and n['slot'] == 'as_of' and n['value'] == expected['as_of']
+                       for n in inputs)):
+        return ['calculation_input']
+    if expected['policy_rule'] and not calculation['rule_refs']:
+        return ['calculation_rule']
+    if not any(calculation['id'] in claim['evidence_refs'] for claim in result['claims']):
+        return ['calculation_claim']
+    return []

@@ -651,6 +651,64 @@
           "expectation": "Giữ tác vụ theo buổi, chuyển sang phần trường biểu mẫu và giữ giới hạn nguồn."
         }
       ]
+    },
+    {
+      "id": "q.software.eleave.025",
+      "title": "Đối chiếu nền tảng: E-Leave",
+      "tags": [
+        "http-e2e-regression",
+        "type-a",
+        "contrast",
+        "aspect:procedure"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo."
+      ],
+      "turns": [
+        {
+          "text": "Cách đăng ký nghỉ phép năm trên E-Leave như thế nào?",
+          "expectation": "Chỉ dùng hướng dẫn thuộc nền tảng được nêu và kiểm tra đủ các claim của quy trình."
+        }
+      ]
+    },
+    {
+      "id": "q.software.eleave.026",
+      "title": "Trường của mẫu và chứng từ bắt buộc",
+      "tags": [
+        "http-e2e-regression",
+        "type-a",
+        "source-limitation",
+        "aspect:paperwork"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Tài liệu đủ điều kiện publication cho nguồn đã khai báo."
+      ],
+      "turns": [
+        {
+          "text": "Trong hướng dẫn đăng ký nghỉ phép năm trên E-Leave, hồ sơ nêu những gì về thông tin phải nhập?",
+          "expectation": "Nêu các trường theo mẫu và giữ giới hạn về danh sách chứng từ bắt buộc."
+        }
+      ]
     }
   ]
 }

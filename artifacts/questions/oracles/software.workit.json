@@ -2212,6 +2212,105 @@
         "7f1f2cf6-e181-42a8-8caf-f9429094e661"
       ],
       "fixture": "missing"
+    },
+    {
+      "case_id": "q.software.workit.096",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "retrieve_forbidden_documents": [],
+      "expected_policy_claim_texts": [
+        "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+        "Trên Workit, loại P là Nghỉ phép (Annual). Danh mục phần mềm không tự xác lập điều kiện được nghỉ."
+      ]
+    },
+    {
+      "case_id": "q.software.workit.097",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "retrieve_forbidden_documents": [],
+      "required_limitations": [
+        "Nguồn Workit mô tả các trường và chức năng đính kèm. Nguồn này chưa nêu danh sách chứng từ bắt buộc cho từng trường hợp nghỉ."
+      ],
+      "expected_policy_claim_texts": [
+        "Phiếu nghỉ trong Workit có người nghỉ, loại nghỉ, lý do và các dòng thời gian từ ngày đến ngày, kèm lựa chọn Sáng, Chiều hoặc Nguyên ngày. Hướng dẫn có mục người thay thế và chức năng tải tệp đính kèm.",
+        "Trên Workit, loại P là Nghỉ phép (Annual). Danh mục phần mềm không tự xác lập điều kiện được nghỉ."
+      ]
+    },
+    {
+      "case_id": "q.software.workit.098",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "required",
+      "task_ids_any": [
+        "task.leave.workit.unpaid"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "retrieve_forbidden_documents": [],
+      "required_limitations": [
+        "Nguồn Workit mô tả các trường và chức năng đính kèm. Nguồn này chưa nêu danh sách chứng từ bắt buộc cho từng trường hợp nghỉ."
+      ],
+      "expected_policy_claim_texts": [
+        "Phiếu nghỉ trong Workit có người nghỉ, loại nghỉ, lý do và các dòng thời gian từ ngày đến ngày, kèm lựa chọn Sáng, Chiều hoặc Nguyên ngày. Hướng dẫn có mục người thay thế và chức năng tải tệp đính kèm.",
+        "Trong danh mục loại nghỉ trên Workit, K là nghỉ không hưởng lương."
+      ]
     }
   ]
 }

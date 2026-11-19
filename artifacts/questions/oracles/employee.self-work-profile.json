@@ -633,6 +633,88 @@
       "http_status": 200,
       "expected_values": {},
       "application_state": "disabled"
+    },
+    {
+      "case_id": "q.employee.self-work-profile.032",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "none",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "none",
+      "employee_fields": [
+        "official_date"
+      ],
+      "calculation_required": true,
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
+    },
+    {
+      "case_id": "q.employee.self-work-profile.033",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "none",
+      "retrieve_statuses": [
+        "evidence_found"
+      ],
+      "retrieve_documents": "none",
+      "employee_fields": [
+        "official_date"
+      ],
+      "calculation_required": true,
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
+    },
+    {
+      "case_id": "q.employee.self-work-profile.034",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "none",
+      "retrieve_statuses": [
+        "partial_evidence"
+      ],
+      "retrieve_documents": "none",
+      "employee_fields": [
+        "official_date"
+      ],
+      "required_limitations": [
+        "Cần ngày xét cụ thể để tính khoảng thời gian từ mốc hồ sơ."
+      ],
+      "calculation_required": false,
+      "expected_values": {
+        "official_date": "2020-01-01"
+      }
+    },
+    {
+      "case_id": "q.employee.self-work-profile.035",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "retrieve_statuses": [
+        "no_evidence"
+      ],
+      "retrieve_documents": "none",
+      "employee_fields": [
+        "official_date"
+      ],
+      "null_fields": [
+        "official_date"
+      ],
+      "calculation_required": false,
+      "expected_values": {
+        "official_date": null
+      }
     }
   ]
 }

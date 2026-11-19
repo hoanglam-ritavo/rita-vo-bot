@@ -5,6 +5,9 @@ from pathlib import Path
 import hashlib
 
 from .config import EvaluationError, digest
+from .inventory import task_sections
+from .assertions import question_dates
+from src.evaluation.questions import normalize_whitespace
 
 
 def display(value):
@@ -99,6 +102,12 @@ def build_bindings(scenarios, snapshot):
         nulls = set(s.oracle.get('null_fields', []))
         choices = [(uid, row, values) for uid, row, values in profiles
                    if all(values.get(k) is None if k in nulls else values.get(k) is not None for k in fields)]
+        if s.oracle.get('calculation_required'):
+            dates = question_dates(s.text)
+            date_fields = [key for key in fields if key.endswith('_date')]
+            if not dates or len(date_fields) != 1:
+                raise EvaluationError('invalid_calculation_scenario')
+            choices = [item for item in choices if item[2][date_fields[0]] <= dates[-1]]
         entry = {'role': 'self:' + digest([sorted(fields), sorted(nulls)])[:12],
                  'hrm_user_id': base, 'expected_values': {}, 'null_fields': sorted(nulls),
                  'state': 'ready', 'reason': None}
@@ -119,7 +128,7 @@ def build_bindings(scenarios, snapshot):
         groups = s.oracle.get('required_source_groups', [])
         if any(not set(group).intersection(snapshot['documents']) for group in groups):
             entry.update(state='blocked', reason='policy_source_missing')
-        bundles = snapshot.get('task_requirements', {}).get(s.case_id, [])
+        bundles = snapshot.get('task_requirements', {}).get(s.key, [])
         if bundles and not any(set(bundle) <= set(snapshot['valid_references']) for bundle in bundles):
             entry.update(state='blocked', reason='policy_reference_missing')
         records[s.key] = entry
@@ -127,30 +136,52 @@ def build_bindings(scenarios, snapshot):
 
 
 def reference_key(ref):
-    return digest({k: ref[k] for k in ('document_id', 'revision_id', 'chunk_index', 'content_sha256')})
+    return digest(ref)
 
 
 def reference_inventory(scenarios, catalog):
     cards = {c['id']: c for c in catalog['cards']}
     refs, requirements = {}, {}
     for s in scenarios:
-        if s.reason or s.protocol:
+        if s.reason or s.protocol or s.oracle.get('answer_kind') == 'excerpt':
+            continue
+        oracle = s.oracle
+        retrieve = s.endpoint.endswith('/retrieve')
+        if retrieve and not oracle.get('required_source_groups'):
             continue
         bundles = []
-        for tid in s.oracle.get('task_ids_any', []):
-            card = cards[tid]
-            aspects = [t.split(':', 1)[1] for t in s.tags if t.startswith('aspect:')]
-            sections = [v for k, v in card['sections'].items() if k in (aspects or ['overview'])]
-            bundle = []
-            for section in sections:
+        for tid in oracle.get('task_ids_any', []):
+            units = []
+            for section in task_sections(s, cards[tid]).values():
                 for unit in section['units']:
+                    keys = []
                     for ref in unit['refs']:
                         key = reference_key(ref)
                         refs[key] = ref
-                        bundle.append(key)
-            if bundle:
-                bundles.append(sorted(set(bundle)))
-        requirements[s.case_id] = bundles
+                        keys.append(key)
+                    units.append((unit.get('text', ''), keys))
+            if not units:
+                continue
+            exact = oracle.get('expected_policy_claim_texts')
+            if retrieve:
+                bundles.extend([key] for _, keys in units for key in keys)
+            elif exact:
+                # A claim may occur in more than one section or source. Keep
+                # alternative sufficient reference sets for that text.
+                authored = defaultdict(list)
+                for text, keys in units:
+                    authored[normalize_whitespace(text)].append(set(keys))
+                choices = [authored[normalize_whitespace(text)] for text in exact]
+                if all(choices):
+                    from itertools import product
+                    bundles.extend(sorted(set().union(*selection)) for selection in product(*choices))
+            elif oracle.get('claims') == 'required' and 'partial' in oracle.get('statuses', []):
+                bundles.extend(sorted(set(keys)) for _, keys in units)
+            elif oracle.get('claims') == 'required' or oracle.get('statuses') == ['answered']:
+                bundles.append(sorted({key for _, keys in units for key in keys}))
+        if (oracle.get('expected_policy_claim_texts') and not retrieve and not bundles):
+            raise EvaluationError('unknown_policy_claim_reference')
+        requirements[s.key] = bundles
     return refs, requirements
 
 
