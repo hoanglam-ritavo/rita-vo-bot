@@ -201,7 +201,8 @@ async def run_fixture(root=REPOSITORY_ROOT):
     for relative in ('artifacts/answers/catalog.json', 'artifacts/semantics/lexicon.json', 'artifacts/retrieval/catalog.json'):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
-                     'src/conversation/context.py', 'src/type_b/tasks.py', 'src/type_b/service.py',
+                     'src/conversation/context.py', 'src/conversation/continuation.py',
+                     'src/type_b/tasks.py', 'src/type_b/service.py',
                      'src/answering/contextual.py', 'src/answering/planning.py', 'src/answering/context_spec.py',
                      'src/answering/context_contracts.py', 'src/answering/calculations.py',
                      'src/answering/slots.py', 'src/api/contracts.py',
@@ -216,6 +217,8 @@ async def run_fixture(root=REPOSITORY_ROOT):
     if policy.catalog is None:
         raise ValueError('evaluation_policy_unavailable')
     records = fixture_records(root)
+    from src.conversation.context import identity
+    base_stamp = identity(catalog, lexicon, policy)
     rows = []
     for case in cases:
         # One owner/client/state per case; there are no durable writes or DB IO.
@@ -253,7 +256,7 @@ async def run_fixture(root=REPOSITORY_ROOT):
                 owner.context.available = oracle.fixture != 'employee_unavailable'
                 for field in oracle.null_fields:
                     fields[field] = None
-                stamp = 'changed-evaluation-context' if oracle.fixture == 'catalog_changed' else None
+                stamp = 'changed-evaluation-context' if oracle.fixture == 'catalog_changed' else base_stamp
                 analysis, state = plan_turn(turn['text'], state, catalog, lexicon, policy=policy, identity_stamp=stamp)
                 question = analysis.question
                 owner.context.execute = partial(execute, analysis=analysis)

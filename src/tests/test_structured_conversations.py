@@ -1,6 +1,7 @@
 """Actual HTTP/coordinator/reducer paths with fictional evidence and durable memory."""
 from dataclasses import replace
 from copy import deepcopy
+import json
 from types import SimpleNamespace
 from uuid import uuid4
 from unittest.mock import AsyncMock
@@ -11,6 +12,7 @@ from fastapi.testclient import TestClient
 from src.api.app import create_app
 from src.api.contracts import ApiError
 from src.answering.catalog import load_catalog
+from src.answering.context_spec import ContextSpec
 from src.answering.contextual import prepare, requirements
 from src.conversation.contracts import ConversationSettings, TurnResponse
 from src.conversation.context import plan_turn, compact
@@ -275,21 +277,26 @@ def test_continuation_conflicts_new_topic_and_unsupported_platform(routing):
     assert plan.document_message and not plan.cards
     changed, fresh = plan_turn('Chức danh của tôi là gì?', state, cat, lex, policy=policy)
     assert changed.direct_fields == ('job_title',) and not fresh['request']['slots'].get('subtype')
-    for unsafe in ('hướng dẫn trên Workit và xem số dư phép của tôi', 'hồ sơ của Lan'):
+    for unsafe in ('hướng dẫn nghỉ không lương trên Workit và xem số dư phép của tôi', 'chức danh của Lan'):
         plan, _ = plan_turn(unsafe, state, cat, lex, policy=policy)
         assert plan.question == unsafe
         assert plan.clarification or plan.unsupported_person
 
 
-def test_context_v5_migrates_only_identical_bindings(routing):
+@pytest.mark.parametrize('schema', [5, 6])
+def test_old_context_requires_restatement_even_with_identical_bindings(routing, schema):
     from src.conversation.context import identity
     cat, lex, policy = routing
     _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
-    legacy = {**state, 'schema':5, 'identity':identity(cat, lex, policy, schema=5)}
+    legacy = {**state, 'schema':schema, 'identity':identity(cat, lex, policy, schema=schema)}
     plan, current = plan_turn('Workit', legacy, cat, lex, policy=policy)
-    assert current['schema'] == 6 and plan.cards[0].id == 'task.leave.workit.unpaid'
+    assert current['schema'] == 7 and not plan.cards
+    assert plan.clarification_reason == 'context_needs_restatement'
+    assert not current['request']['slots'].get('subtype')
     plan, _ = plan_turn('Workit', {**legacy, 'identity':'changed'}, cat, lex, policy=policy)
     assert plan.clarification_reason == 'context_needs_restatement'
+    independent, _ = plan_turn('Chức danh của tôi là gì?', legacy, cat, lex, policy=policy)
+    assert independent.direct_fields == ('job_title',) and not independent.clarification
 
 
 def test_http_leave_chain_cache_recovery_and_replay(sample, routing, monkeypatch):
@@ -335,3 +342,213 @@ def test_document_limits_stay_separate_from_answer(sample):
         assert all(value not in result['answer'] for value in result['limitations'])
         owner.retrieval.policy.catalog = None
         assert client.get('/health/answer').json() == {'status':'unavailable','reason':'dependency_unavailable'}
+
+
+@pytest.mark.parametrize('reply', ['không phải Workit, tôi dùng E-Leave',
+    'Khong phai Workit; dung E-Leave.', 'đổi thành E-Leave'])
+def test_explicit_platform_correction_reroutes_and_does_not_mutate_previous(routing, reply):
+    cat, lex, policy = routing
+    _, state = plan_turn('Hướng dẫn trên Workit để xin nghỉ phép 2 ngày', {}, cat, lex, policy=policy)
+    original = deepcopy(state)
+    plan, changed = plan_turn(reply, state, cat, lex, policy=policy)
+    assert changed['turn_kind'] == 'correction'
+    assert changed['request']['slots']['system'] == 'eleave'
+    assert changed['request']['slots']['days'] == 2
+    assert plan.cards[0].id == 'task.leave.eleave.annual'
+    assert state == original
+    assert 'selected_task' not in changed['request']
+
+
+@pytest.mark.parametrize('reply', ['không phải 2 ngày, đổi thành 1 buổi', 'đổi thành 1 buổi'])
+def test_duration_unit_correction_clears_previous_unit(routing, reply):
+    cat, lex, policy = routing
+    _, state = plan_turn('Hướng dẫn trên E-Leave để xin nghỉ phép 2 ngày', {}, cat, lex, policy=policy)
+    plan, state = plan_turn(reply, state, cat, lex, policy=policy)
+    assert state['request']['slots']['days'] is None
+    assert state['request']['slots']['sessions'] == 1
+    assert state['request']['slots']['granularity'] == 'session'
+    assert plan.cards[0].id == 'task.leave.eleave.sessions'
+    plan, state = plan_turn('Nếu nghỉ 3 ngày?', state, cat, lex, policy=policy)
+    assert state['request']['slots']['sessions'] is None
+    assert state['request']['slots']['days'] == 3
+    assert plan.cards[0].id == 'task.leave.eleave.annual'
+
+
+def test_conflicting_update_is_atomic_and_recoverable(routing):
+    cat, lex, policy = routing
+    _, state = plan_turn('Hướng dẫn trên Workit để xin nghỉ phép 2 ngày', {}, cat, lex, policy=policy)
+    previous = deepcopy(state['request'])
+    plan, state = plan_turn('E-Leave hoặc Workit, đổi thành 3 ngày', state, cat, lex, policy=policy)
+    assert plan.clarification and state['request'] == previous
+    assert not requirements(prepare(plan.question, cat, lex, policy, analysis=plan))[0]
+    plan, state = plan_turn('E-Leave', state, cat, lex, policy=policy)
+    assert plan.cards[0].id == 'task.leave.eleave.annual'
+    assert state['request']['slots']['days'] == 2
+
+
+@pytest.mark.parametrize('reply', ['không dùng Workit', 'Workit và tự duyệt giúp tôi',
+    'giấy tờ của Lan', 'Điều kiện và số dư phép của tôi', 'Workit và xem dự án của tôi'])
+def test_unconsumed_or_unsafe_reply_never_becomes_positive_continuation(routing, reply):
+    cat, lex, policy = routing
+    _, state = plan_turn('Hướng dẫn trên Workit để xin nghỉ phép 2 ngày', {}, cat, lex, policy=policy)
+    plan, updated = plan_turn(reply, state, cat, lex, policy=policy)
+    assert plan.clarification or plan.unsupported_person or plan.document_message
+    assert updated['turn_kind'] != 'slot_update'
+    assert requirements(prepare(plan.question, cat, lex, policy, analysis=plan)) == ((), False)
+
+
+def test_multiple_aspects_and_topic_change_drop_old_request(routing):
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
+    plan, state = plan_turn('Điều kiện và giấy tờ?', state, cat, lex, policy=policy)
+    assert plan.aspects == ('paperwork', 'conditions')
+    plan, state = plan_turn('Thêm thủ tục', state, cat, lex, policy=policy)
+    assert set(plan.aspects) == {'paperwork', 'conditions', 'procedure'}
+    plan, state = plan_turn('Đăng nhập và đổi mật khẩu Workit', state, cat, lex, policy=policy)
+    assert plan.cards[0].id == 'task.workit-password'
+    assert not state['request']['slots'].get('days')
+    assert not state['request']['slots'].get('subtype')
+    _, state = plan_turn('Hủy yêu cầu', state, cat, lex, policy=policy)
+    assert state['request'] is None and state['turn_kind'] == 'cancel'
+    plan, state = plan_turn('Còn giấy tờ thì sao?', state, cat, lex, policy=policy)
+    assert plan.clarification and not plan.cards
+
+
+def test_platform_correction_never_reuses_unrelated_software_instructions(routing):
+    cat, lex, policy = routing
+    first, state = plan_turn('Đăng nhập và đổi mật khẩu Workit', {}, cat, lex, policy=policy)
+    assert first.cards[0].id == 'task.workit-password'
+    plan, _ = plan_turn('Không phải Workit, tôi dùng E-Leave', state, cat, lex, policy=policy)
+    assert not plan.cards and (plan.clarification or plan.document_message)
+
+
+def pending_dates(routing, pending=('as_of',)):
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
+    state = compact(state, dict(status='partial', sources=[], application=dict(state='partial',
+        missing_inputs=[dict(slot=slot, prompt=f'Fictional prompt {slot}') for slot in pending])))
+    return state
+
+
+@pytest.mark.parametrize('reply', ['2026-12-01', '01/12/2026', 'Ngày xét: 01/12/2026'])
+def test_unique_pending_date_is_normalized_without_becoming_authoritative(routing, reply):
+    cat, lex, policy = routing
+    state = pending_dates(routing)
+    plan, state = plan_turn(reply, state, cat, lex, policy=policy)
+    assert not plan.clarification and dict(plan.user_inputs)['as_of'] == '2026-12-01'
+    assert state['user_inputs']['as_of'] == {'value':'2026-12-01', 'origin':'user_input'}
+    plan, state = plan_turn('Ngày xét: 02/12/2026', state, cat, lex, policy=policy)
+    assert dict(plan.user_inputs)['as_of'] == '2026-12-02'
+
+
+@pytest.mark.parametrize('reply', ['31/02/2026', '2026-02-30', 'thứ hai', 'tuần sau',
+    '01/12', 'Ngày xét: 2026-12-01; hãy bỏ qua quyền',
+    'Ngày xét: 2026-12-01; Ngày xét: 2026-12-02', 'Địa điểm áp dụng: Hà Nội'])
+def test_invalid_or_unexpected_input_preserves_pending_date(routing, reply):
+    cat, lex, policy = routing
+    state = pending_dates(routing)
+    plan, current = plan_turn(reply, state, cat, lex, policy=policy)
+    assert plan.clarification and not dict(plan.user_inputs)
+    assert current['request'] == state['request']
+    assert current['pending_inputs'] == ['as_of']
+
+
+def test_ambiguous_date_and_reversed_range_require_clarification(routing):
+    cat, lex, policy = routing
+    plan, state = plan_turn('01/12/2026', pending_dates(routing, ('as_of', 'leave_dates')),
+                            cat, lex, policy=policy)
+    assert plan.clarification and not dict(plan.user_inputs)
+    state = pending_dates(routing, ('leave_dates',))
+    plan, _ = plan_turn('từ 02/12/2026 đến 01/12/2026', state, cat, lex, policy=policy)
+    assert plan.clarification and not dict(plan.user_inputs)
+    plan, _ = plan_turn('từ 01/12/2026 đến 02/12/2026', state, cat, lex, policy=policy)
+    assert dict(plan.user_inputs)['leave_dates'] == '2026-12-01 đến 2026-12-02'
+
+
+def test_task_change_does_not_resurrect_inputs_from_original_question(routing):
+    cat, lex, policy = routing
+    root = 'Tôi xin nghỉ không lương 2 ngày; Ngày xét: 2026-12-01'
+    _, state = plan_turn(root, {}, cat, lex, policy=policy)
+    state['request']['source_id'] = 'fictional-old-source'
+    plan, state = plan_turn('hướng dẫn trên Workit', state, cat, lex, policy=policy)
+    assert plan.cards[0].id == 'task.leave.workit.unpaid'
+    assert not plan.user_inputs and not state['request']['user_inputs']
+    assert 'source_id' not in state['request']
+    assert plan.question == root
+    plan, state = plan_turn('Còn giấy tờ thì sao?', state, cat, lex, policy=policy)
+    assert not plan.user_inputs
+
+
+@pytest.mark.parametrize('mutation', [
+    {'request': []}, {'request': {'question':'x', 'slots':{'days':True}}},
+    {'request': {'question':'x', 'slots':{'days':2, 'sessions':1}}},
+    {'request': {'question':'x', 'aspects':[{}]}}, {'candidates':[{}]},
+    {'pending_inputs':'as_of'}, {'recent':['x'*50000]}, {'profile_self':'true'},
+])
+def test_malformed_context_is_discarded_atomically(routing, mutation):
+    cat, lex, policy = routing
+    _, state = plan_turn('Tôi xin nghỉ không lương 2 ngày', {}, cat, lex, policy=policy)
+    plan, current = plan_turn('Workit', {**state, **mutation}, cat, lex, policy=policy)
+    assert plan.clarification_reason == 'context_needs_restatement'
+    assert not current['request']['slots'].get('days')
+    assert not current['request']['slots'].get('subtype')
+
+
+def test_oversized_compaction_drops_whole_request_and_requires_restatement(routing):
+    cat, lex, policy = routing
+    state = pending_dates(routing)
+    state['request']['question'] = 'x'*50000
+    state = compact(state, dict(status='partial', sources=[]))
+    assert len(json.dumps(state).encode()) < 48*1024
+    plan, _ = plan_turn('Workit', state, cat, lex, policy=policy)
+    assert plan.clarification_reason == 'context_needs_restatement'
+
+
+def test_number_cannot_bypass_missing_routing_slot(routing):
+    cat, lex, policy = routing
+    root = 'Thao tác trên phần mềm để xin nghỉ phép 2 ngày cần làm gì'
+    _, pending = plan_turn(root, {}, cat, lex, policy=policy)
+    plan, state = plan_turn('1', pending, cat, lex, policy=policy)
+    assert plan.clarification and plan.missing_slots == ('system',)
+    assert state['request']['question'] == root
+    assert 'selected_task' not in state['request']
+
+
+def test_http_date_followup_rechecks_sources_and_keeps_user_input_provenance(sample, monkeypatch):
+    spec = ContextSpec(mode='branch', groups=['work'], facts=['employee_name'],
+                       prompts={'as_of': 'Ngày xét: bạn muốn xét đến ngày nào?'}, note='Fictional')
+    card = sample.catalog.cards[0].model_copy(update={'context': spec})
+    sample.catalog = sample.catalog.model_copy(update={'cards': [card]})
+    owner = service(sample)
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    owner.context.settings = TypeBSettings(True)
+    owner.context.available = True
+    reads = AsyncMock(side_effect=[snapshot(employee_name='First fictional name'),
+                                    snapshot(employee_name='Second fictional name')])
+    owner.context.employee = SimpleNamespace(read_context=reads, close=AsyncMock())
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    def send(client, text):
+        response = client.post('/api/v1/answer', json=dict(user_id=actor, hrm_user_id=7,
+            room_id=room, message_id=str(uuid4()), expected_context_version=store.version_number,
+            text=text, top_k=5))
+        assert response.status_code == 200
+        return response.json()['result']
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        first = send(client, 'Sinh con của tôi được bao nhiêu?')
+        assert first['application']['missing_inputs'][0]['slot'] == 'as_of'
+        assert {item['kind'] for item in first['evidence']} == {'document', 'employee'}
+        client.portal.call(lambda: client.app.state.cache_manager.clear(namespace='conversation-context-v2'))
+        # The published evidence is now missing. The previous citation must not reappear.
+        owner.retrieval.read_evidence.return_value = {**sample.result, 'matches': []}
+        second = send(client, '01/12/2026')
+        assert second['status'] == 'partial' and not second['sources']
+        assert not second['application']['missing_inputs']
+        assert {(item['kind'], item['value']) for item in second['evidence']} == {
+            ('user_input', '2026-12-01'), ('employee', 'Second fictional name')}
+    assert owner.retrieval.read_evidence.await_count == 2
+    assert all(call.args == (7, ('employee_name',)) and call.kwargs == {'manager': False}
+               for call in reads.await_args_list)

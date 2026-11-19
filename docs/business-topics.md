@@ -53,15 +53,15 @@ computation, business mutation or live software-status lookup.
 
 ## Conversation and personnel boundaries
 
-Context JSON schema 2 stores task/candidate/aspect state, bounded pending queries
-and user-text slot values with their origin. Exact slot replies finish a pending
-question; explicit changes replace previous slots. Unknown clauses, negation or
-third-person requests are not appended to positive tasks. Source UUIDs survive
-normalization; topic changes discard incompatible state.
+Conversation context stores one active request, its task candidates and aspects,
+and bounded slot values with their origin. The routing registry recognizes
+platform, type and duration in explicit follow-ups. See the [conversation rules](conversations.md#context-and-evidence)
+for corrections, ambiguities, date input and when task changes discard context.
 
 Identity includes reducer version, answer/lexical catalogs and retrieval
-fingerprint. Incompatible context starts fresh without rewriting completed
-messages/results. Existing JSONB columns need no migration. Reservations,
+fingerprint. A reply that depends on incompatible context requires a complete
+restatement. Completed messages and results remain available. Existing JSONB
+columns need no migration. Reservations,
 ownership, idempotency, versions, atomic completion, checkpoints, cache recovery
 and purge/tombstones are preserved. See [conversations](conversations.md).
 

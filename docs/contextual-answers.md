@@ -88,6 +88,11 @@ employee values. Backend and portal independently validate and allowlist output.
 Backend maps the root to schemaVersion and source metadata to camel case; evidence
 node property names remain unchanged.
 
+For responses with claims, the answer text presents the cited content. The
+limitations list preserves coverage notes and contextual prompts separately.
+For a response without claims, the answer text carries the clarification or
+fallback. The portal suppresses full paragraphs repeated in the notes.
+
 Application mode is general/personalized/conditional/hypothetical. State is
 not_needed/applied/partial/unavailable/disabled/not_found/conflict. It includes
 bounded missing_inputs and conflicts. User assertions do not overwrite HRM facts.
@@ -101,9 +106,10 @@ remains unassessed, independent of employee lookup.
 
 ## Conversations and rollout
 
-Reducer schema 5/cache namespace v2 stores bounded user-input slots, task identity
-and document references. Each turn re-reads personnel facts. History and assertions
-are not authoritative evidence. See [conversations](conversations.md).
+Reducer schema 7 and cache namespace v2 store bounded user-input slots, task
+identity and document references. Each turn re-reads personnel facts. The
+[conversation context rules](conversations.md#context-and-evidence) describe
+which values can be inherited and when a restatement is required.
 
 For the original schema-1 to schema-2 contract replacement, deploy compatible bot
 and Backend before portal; incompatible old development results require the

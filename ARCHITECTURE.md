@@ -41,9 +41,11 @@ follow-ups replace the active aspect unless the user explicitly requests an
 addition. Pending requests survive unrecognized replies until resolved, cancelled
 or replaced by a recognized new topic. Ambiguous unaccented owners such as
 "Minh/minh" require clarification; accent folding never establishes identity.
-Reducer identity/schema 5 invalidates old derived context only; short replies to
-an incompatible context ask for a complete restatement. Stored schema-2 results
-and message fingerprints remain intact.
+Reducer schema 7 validates the shape, size and catalog identity of the one active
+request before applying a continuation. An explicit correction can update the
+route, and a task change discards inputs bound to the previous task. A dependent
+reply to invalid or obsolete context asks for a complete restatement. Stored
+schema-2 results and message fingerprints remain intact.
 
 Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between

@@ -82,6 +82,20 @@ def test_invalid_requests(body, caplog):
     svc.retrieval.retrieve.assert_not_awaited()
 
 
+def test_validation_reports_the_limit_for_each_answer_request_shape():
+    svc = service()
+    room = '11111111-1111-4111-8111-111111111111'
+    with TestClient(create_app(svc.settings, service_factory=lambda _: svc), headers=SERVICE_HEADERS) as client:
+        independent = client.post('/api/v1/answer', json={'text':'x' * 8001, 'hrm_user_id':7})
+        conversation = client.post('/api/v1/answer', json={
+            'text':'x' * 2001, 'hrm_user_id':7, 'user_id':room, 'room_id':room,
+            'message_id':room, 'expected_context_version':0})
+    assert independent.status_code == conversation.status_code == 422
+    assert '8.000' in independent.json()['error']['message']
+    assert '2.000' in conversation.json()['error']['message']
+    assert 'x' * 100 not in independent.text + conversation.text
+
+
 @pytest.mark.parametrize('status', ['no_eligible_documents', 'no_matches', 'model_mismatch'])
 def test_empty_and_mismatch(status):
     svc = service()

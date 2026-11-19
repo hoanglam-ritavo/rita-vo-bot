@@ -89,31 +89,37 @@ replacement; concurrent bot instances are not a supported deployment.
 
 ## Context and evidence
 
-`src/conversation` maintains a deterministic structured reducer. It supports
-exact bounded aspect follow-ups such as “Còn hồ sơ thì sao?”, explicit selection
-of a candidate task by label/alias and explicit topic changes. Schema-2 context
-also completes bounded pending task slots and replaces explicit slot changes;
-source choices survive normalization. See [cross-domain handling](business-topics.md).
-Bounded self-work
-field follow-ups reuse self-reference only after an applied/partial employee context. It does not
-resolve arbitrary pronouns or turn negated/third-person/eligibility requests
-into positive policy queries. Unclear requests keep the existing clarification
-or unsupported outcomes. Original messages remain stored separately from the
-structured request. Task/source choices and slot replies update that request
-without rewriting the original message. Numbered choices preserve self-reference,
-dates and assertions; aspect follow-ups replace the requested aspect by default.
-Unrecognized pending replies (including "I do not know") keep the pending request.
-Explicit cancellation and recognized topic changes end it. The same plan is used
-for contextual reads, evidence selection and rendering.
+`src/conversation` uses deterministic rules and keeps one active request per
+room. Aspect follow-ups replace the requested aspects unless the user asks to
+add them. Platform, leave type and duration use the routing registry. An explicit
+correction replaces its value and rechecks the route. Changing between days and
+sessions clears the other unit. Competing values prompt for a choice without
+applying the update. Task selection is limited to the options offered by a task
+clarification. A routing-slot prompt still requires the requested slot.
+
+An unlabelled `YYYY-MM-DD` or `DD/MM/YYYY` date is accepted when exactly one
+date slot is pending. Only the leave dates slot accepts a date range. Other
+contextual values use labels, and relative dates require clarification. Inputs
+remain user assertions and stay with their task. Changing the route clears a
+previous source choice, and changing tasks discards task-bound inputs.
+
+Unrecognized replies to a pending request keep its clarification. Cancellation
+and recognized topic changes end the request. Self-work field follow-ups may
+reuse self-reference after an applied or partial employee context. Unsupported
+subjects or eligibility decisions do not inherit permission to read HRM data.
+Original messages are stored separately. The resulting plan drives contextual
+reads, evidence selection and rendering.
 
 Completed turns carry a context delta snapshot. Every eighth completion saves a
 checkpoint; a cache miss rebuilds from that checkpoint and newer completed
 deltas. Failed turns do not advance context. Context retains up to four recent
 user texts, task/candidate/aspect state, reducer/catalog identity and bounded
 evidence references and user-text slot origins. It does not store assistant prose
-or employee facts as authoritative context. Identity includes reducer version,
-answer/lexical catalogs and retrieval fingerprint; changes invalidate inherited
-task state without rewriting completed turns. This needs no JSONB/table migration.
+or employee facts as authoritative context. Reducer schema 7 validates the
+shape, byte budget and catalog identity before inheritance. Older reducers,
+changed fingerprints and invalid payloads require a complete restatement for
+dependent replies. Independent questions still proceed. Completed messages and
+answers stay readable through the existing schema 2 API, with no table migration.
 
 The app-owned memory helper uses namespace `conversation-context-v2`, owner/room
 keys, its existing 300-second TTL and a 48 KiB context payload budget. A small DB
@@ -150,7 +156,7 @@ tables or tombstones. See [current verification](../README.md#current-verificati
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified
-schema 2 evidence graph; reducer schema 5 and cache namespace v2 keep task-bound
-user assertions without caching employee facts. Labelled follow-ups only fill
-pending slots, remain unverified and trigger fresh personnel reads. See
+schema 2 evidence graph. Cache namespace v2 stores the derived request described
+under [context and evidence](#context-and-evidence). User assertions remain
+unverified and personnel reads are fresh. See
 [contextual answers and compatible development rollout](contextual-answers.md).

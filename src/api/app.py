@@ -102,13 +102,17 @@ def create_app(settings=None, *, service_factory=ApiService):
     @app.exception_handler(RequestValidationError)
     async def input_error(request, exc):
         # Do not echo the submitted text in validation errors.
-        conversation = request.url.path.startswith('/api/v1/conversations/') or any(
-            'ConversationRequest' in str(item.get('loc', ())) and item.get('loc', ())[-1:] == ('expected_context_version',)
-            for item in exc.errors())
-        message = ('Thông tin hội thoại không hợp lệ; câu hỏi hội thoại tối đa 2.000 ký tự. '
-                   'Truy vấn độc lập tối đa 8.000 ký tự; top_k từ 1 đến 20; hrm_user_id phải là số nguyên dương.')
+        identity_fields = {'room_id', 'user_id', 'message_id', 'expected_context_version'}
+        path = request.url.path
+        conversation = '/api/v1/conversations/' in path or (
+            path.endswith('/api/v1/answer') and any(
+                item['type'] == 'extra_forbidden' and item['loc'][-1] in identity_fields
+                for item in exc.errors()))
+        message = ('Thông tin hội thoại không hợp lệ. Câu hỏi tối đa 2.000 ký tự.' if conversation else
+                   'Truy vấn độc lập cần câu hỏi không rỗng, tối đa 8.000 ký tự. '
+                   'top_k từ 1 đến 20 và hrm_user_id là số nguyên dương.')
         return JSONResponse(status_code=422, headers={'Cache-Control': 'no-store'}, content={'error': {
-            'code': 'invalid_request', 'message': 'Thông tin hội thoại không hợp lệ; câu hỏi tối đa 2.000 ký tự.' if conversation else message}})
+            'code': 'invalid_request', 'message': message}})
 
     @app.post('/api/v1/retrieve', response_model=UnifiedRetrievalResponse,
         description='Retrieve at most top_k unassessed source candidates. '

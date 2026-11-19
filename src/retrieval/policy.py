@@ -377,6 +377,23 @@ class RetrievalPolicy:
         routes = {hit[2].task_id: hit[2] for hit in hits}
         if not routes:
             return Resolution()
+        original = self.analyze(question)
+        replacement_system = (slots or {}).get('system')
+        if replacement_system and replacement_system != original.system:
+            # A platform tied to the original wording cannot authorize its
+            # instructions on the replacement platform. Use the route or its
+            # source bindings to check platform-specific coverage.
+            bound_systems = {key: set() for key in routes}
+            for binding in self.catalog.bindings:
+                if binding.system:
+                    for key in bound_systems.keys() & set(binding.task_ids):
+                        bound_systems[key].add(binding.system)
+            routes = {key: route for key, route in routes.items() if (
+                replacement_system in ({route.system} if route.system else bound_systems[key])
+                or not (original.system or route.system or bound_systems[key]))}
+            if not routes:
+                return Resolution('unsupported', message='Chưa có hướng dẫn tương ứng trên hệ thống bạn vừa chọn. '
+                                  'Bạn hãy nêu rõ thao tác hoặc yêu cầu tìm tài liệu của hệ thống đó.')
         # Only a literal source identifier may disambiguate otherwise identical
         # tasks. Neither filename age nor a clarification memo chooses policy.
         selected = [r for r in routes.values() if any(
@@ -404,8 +421,7 @@ class RetrievalPolicy:
                               'Vui lòng nêu rõ đối tượng, thao tác và nguồn cần dùng.',
                               candidates=tuple(sorted(routes)))
         route = next(iter(routes.values()))
-        query = self.analyze(question)
-        query = self.apply_slots(query, slots)
+        query = self.apply_slots(original, slots)
         if route.family == 'leave' and (len({hit[2] for hit in rule_matches(text, self.catalog.subtypes, self.concepts)}) > 1
                                         or duration(text)[3]):
             return Resolution('clarify', message='Bạn hãy nêu riêng loại nghỉ và khoảng thời gian cần hỏi.',

@@ -2,8 +2,8 @@
   "schema_version": 1,
   "artifact": {
     "path": "artifacts/retrieval/catalog.json",
-    "sha256": "90dc471705a51465bdf7ae459665f58c846e4e06989a89e82e2f31f8a04b04b5",
-    "size_bytes": 976045
+    "sha256": "8f9e240775a0a9610829cb9c137c730820a7c70cbf2d5a4baa1e8270add55500",
+    "size_bytes": 976158
   },
   "lexicon_sha256": "2bffb272db3ef7488d3028de15e9d5a8b02137141c6004b51315f683507a275d",
   "bindings": 446,
@@ -31,35 +31,6 @@
     "independent_acceptance": false
   },
   "catalog_schema_version": 2,
-  "observed_regression": {
-    "date": "2026-11-18",
-    "independent_acceptance": false,
-    "fixture": {
-      "cases": 832,
-      "turns": 849,
-      "passed": 849,
-      "failed": 0,
-      "database_verified": false,
-      "report_sha256": "9d55e41abfa9fd5c9f02cacb7d0b5620205230a01e9a2819c6ae59b8f55647e8"
-    },
-    "paraphrases": {
-      "cases": 14,
-      "passed": 14,
-      "independent_acceptance": false,
-      "report_sha256": "05cd1ec37773ace47ddaec0e99413c571ffcf0e2ade7ee2ac51fb1f2922b1afa"
-    },
-    "non_integration": {
-      "passed": 1088,
-      "skipped": 1,
-      "integration_deselected": 57
-    },
-    "oracle_reconciliation": [
-      "q.boundaries.ambiguity.002",
-      "q.policy.leave.012"
-    ],
-    "readonly": "Not run for this structured-conversation revision.",
-    "scope": "Fictional HTTP/durable-memory regressions and source-fixture plans; not live HRM/model/database, publication, deployment or independent business acceptance."
-  },
   "historical_pre_request_planning_regression": {
     "date": "2026-11-18",
     "independent_acceptance": false,
@@ -88,13 +59,6 @@
     "scope": "Exposed source-bound regressions only; deferred cases are not passes. Integration and deployment unexecuted.",
     "catalog_sha256": "528c33e3c5a767874ca43784caeabc03aa58ec4018507c5ccff2075dbfa81670"
   },
-  "request_planning": {
-    "date": "2026-11-18",
-    "response_schema_version": 2,
-    "reducer_schema_version": 5,
-    "automatic_answer_replay": false,
-    "source_evidence_changed": false
-  },
   "historical_pre_structured_turn_regression": {
     "date": "2026-11-18",
     "independent_acceptance": false,
@@ -116,7 +80,59 @@
     "scope": "Unchanged source-fixture oracles and targeted paraphrases only; no live HRM/model/database, migration, publication or deployment validation.",
     "catalog_sha256": "a66220f24667b7edc6178cc2bae7f72cfb0b8899c29a5c6c31af538dba99faa2"
   },
-  "structured_conversations": {
+  "historical_request_planning": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "reducer_schema_version": 4,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
+  },
+  "historical_pre_leave_continuations_regression": {
+    "date": "2026-11-18",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "9d55e41abfa9fd5c9f02cacb7d0b5620205230a01e9a2819c6ae59b8f55647e8"
+    },
+    "paraphrases": {
+      "cases": 14,
+      "passed": 14,
+      "independent_acceptance": false,
+      "report_sha256": "05cd1ec37773ace47ddaec0e99413c571ffcf0e2ade7ee2ac51fb1f2922b1afa"
+    },
+    "non_integration": {
+      "passed": 1088,
+      "skipped": 1,
+      "integration_deselected": 57
+    },
+    "oracle_reconciliation": [
+      "q.boundaries.ambiguity.002",
+      "q.policy.leave.012"
+    ],
+    "readonly": "Not run for this structured-conversation revision.",
+    "scope": "Fictional HTTP/durable-memory regressions and source-fixture plans; not live HRM/model/database, publication, deployment or independent business acceptance.",
+    "catalog_sha256": "90dc471705a51465bdf7ae459665f58c846e4e06989a89e82e2f31f8a04b04b5"
+  },
+  "leave_continuations": {
+    "date": "2026-11-19",
+    "response_schema_version": 2,
+    "context_schema_version": 7,
+    "automatic_answer_replay": false,
+    "source_references_changed": false,
+    "runtime_verified": false
+  },
+  "historical_v5_request_planning": {
+    "date": "2026-11-18",
+    "response_schema_version": 2,
+    "reducer_schema_version": 5,
+    "automatic_answer_replay": false,
+    "source_evidence_changed": false
+  },
+  "historical_v5_structured_conversations": {
     "date": "2026-11-18",
     "response_schema_version": 2,
     "context_schema_version": 5,
@@ -124,11 +140,28 @@
     "automatic_answer_replay": false,
     "source_evidence_changed": false
   },
-  "historical_request_planning": {
-    "date": "2026-11-18",
-    "response_schema_version": 2,
-    "reducer_schema_version": 4,
-    "automatic_answer_replay": false,
-    "source_evidence_changed": false
+  "observed_regression": {
+    "date": "2026-11-19",
+    "independent_acceptance": false,
+    "fixture": {
+      "cases": 832,
+      "turns": 849,
+      "passed": 849,
+      "failed": 0,
+      "database_verified": false,
+      "report_sha256": "5f65bd391003812c968fad29bb25ac2c3295b46744a472f2b20465bfaf762ea0"
+    },
+    "focused": {
+      "passed": 141
+    },
+    "scope": "Source fixtures and local non-live checks. No production readiness or database acceptance.",
+    "non_integration": {
+      "passed": 1176,
+      "skipped": 1,
+      "integration_deselected": 57
+    },
+    "final_validation_checks": {
+      "passed": 14
+    }
   }
 }

@@ -209,6 +209,12 @@ def compose(plan, snapshot, state, evidence, claims, *, calculate_values=True):
             application.state = 'partial'
             limitations.extend(item.prompt for item in application.missing_inputs)
     query = normalized(plan.question)
+    inputs = dict(plan.analysis.user_inputs) if plan.analysis is not None else parse_inputs(plan.question)
+    # Explicit labelled dates are owned by the structured request. Once a
+    # reducer discards them, raw text must not reintroduce them into arithmetic.
+    unlabelled_dates = explicit_dates(' '.join(part for part in re.split(r'[;\n]', plan.question)
+                                               if not parse_inputs(part)))
+    dates = explicit_dates(inputs.get('as_of', '')) or unlabelled_dates
     if phrase(query, 'toi da chinh thuc') and values.get('official_date') is None:
         application.state = 'conflict'
         application.conflicts = ['Bạn cho biết đã chính thức nhưng hồ sơ chưa có ngày chính thức.']
@@ -217,14 +223,13 @@ def compose(plan, snapshot, state, evidence, claims, *, calculate_values=True):
         application.state = 'partial'
         limitations.append('Chưa xác định duy nhất được liên kết quản lý; không tự chọn người duyệt thay thế.')
     if any(phrase(query, term) for term in ('tham nien', 'bao lau', 'bao nhieu ngay', 'bao nhieu thang')):
-        if not explicit_dates(plan.question) and not dict(plan.analysis.user_inputs if plan.analysis else ()).get('as_of') and not phrase(query, 'hom nay'):
+        if not dates and not phrase(query, 'hom nay'):
             application.state = 'partial'
             application.missing_inputs.append(MissingInput(slot='as_of', prompt='Ngày xét: bạn muốn tính đến ngày nào?'))
             limitations.append('Cần ngày xét cụ thể để tính khoảng thời gian từ mốc hồ sơ.')
         if phrase(query, 'tham nien'):
             application.state = 'partial'
             limitations.append('Chưa xác nhận mốc và quy tắc thâm niên của chính sách; không mặc định ngày chính thức là thâm niên hưởng chế độ.')
-    dates = explicit_dates(dict(plan.analysis.user_inputs if plan.analysis else ()).get('as_of', '')) or explicit_dates(plan.question)
     date_field = plan.spec.date_field
     operation = plan.spec.operation
     # Explicit work-date arithmetic is distinct from policy tenure or leave balances.

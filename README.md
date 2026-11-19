@@ -53,6 +53,53 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Leave submission follow-up and answer presentation - 2026-11-19
+
+On `6a9dbea` plus the current working tree, a follow-up asking where to submit
+retains the leave type and duration. Workit instructions use exact source
+references. E-Leave unpaid leave has no matching procedure template. The
+standalone question bank retains its existing contextual evidence requirements.
+Incompatible derived context requires restatement for dependent replies.
+Existing schema 2 answers remain available for history and replay.
+
+The full non-integration run passed **1,176 tests**, with one skipped, 57
+integration tests deselected and the existing Starlette/AnyIO warning. The
+focused conversation, contextual answer and retrieval HTTP run passed **141
+tests**. The final route-specific validation guard passed **14 focused checks**
+after that full run began. The private source-fixture report
+`.tmp/leave-resume-questions-03.json` passed **849/849 turns across 832 cases**
+with unchanged oracles. A six-turn local check used the current templates and
+source chunks to cover the unpaid leave flow, change of duration and unsupported
+E-Leave path. Artifact build/check, catalog validation, all **1,346** source
+references and the **22-file** runtime inventory passed. These checks did not
+exercise deployed HTTP, production data, HRM, a real model or PostgreSQL.
+
+### Conversation continuations and corrections - 2026-11-19
+
+Plan 1 on `6a9dbea` plus the working tree extends the active conversation
+request with explicit slot corrections, multiple aspect follow-ups and bounded
+date replies. The [conversation context rules](docs/conversations.md#context-and-evidence)
+describe how task changes, conflicting replies and older context are handled.
+Reducer schema 7 applies to derived context. The stored answer and HTTP evidence
+contract remain schema 2.
+
+The full non-integration suite passed **1,176 tests**, with **1 skipped and 57
+deselected** and the existing Starlette/AnyIO warning. The first run using the
+default temporary path hit 16 Windows path-length fixture errors. All passed on
+the rerun with a fresh extended-length `.tmp` path. The HTTP date follow-up
+regression uses fictional sources and checks that rebuilding context requests
+fresh HRM values and does not reuse a missing document citation.
+
+After an adjacent request-planning change in the shared tree, the focused
+conversation, policy and contextual suites passed **118 tests**. The separate
+source-fixture evaluator passed **849/849 turns across 832 cases** on that
+snapshot. An earlier snapshot had 23 employee-field mismatches, reproduced with
+the pre-Plan 1 code for all 23 turns. The fixture result does not measure
+independent language coverage, live retrieval or database behavior.
+
+The disposable PostgreSQL conversation URL was unavailable. This verification
+did not exercise live PostgreSQL, Backend, HRM, the model or a service rollout.
+
 ### External stateless HTTP E2E harness construction - 2026-11-18
 
 The new [external HTTP harness](docs/http-e2e.md) constructs question-bank and

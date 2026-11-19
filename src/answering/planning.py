@@ -198,11 +198,20 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
                 clarification = resolution.message
     reason = ('leave_needs_clarification' if policy is not None and ambiguous and
               policy.analyze(question).involves_leave else 'task_needs_clarification')
-    inputs = {**parse_inputs(question), **request.get('user_inputs', {})}
+    # Conversation reducers may deliberately discard inputs owned by a previous
+    # task. Do not resurrect those values from the original stored question.
+    inputs = dict(request['user_inputs']) if 'user_inputs' in request else parse_inputs(question)
     aspects = tuple(request.get('aspects') or requested_aspects(question))
     unsupported = resolution is not None and resolution.state == 'unsupported' and not fields and not cards
     parts = tuple((['documents'] if lookup or cards or unsupported else []) +
                   (['profile'] if fields or unclear or ambiguous_owner else []) + (['unresolved'] if unresolved else []))
+    leave_query = policy.analyze(question) if catalog and lexicon and policy is not None else None
+    slots = request.get('slots', {})
+    # A continuation explicitly asking where to submit needs only authored
+    # instructions. Preserve established profiles for other standalone tasks.
+    general_leave = (leave_query is not None and leave_query.involves_leave and (
+        slots.get('intent') == 'submission' or
+        (not leave_query.platform_requested and not slots.get('system'))))
     return RequestAnalysis(cards=tuple(cards), ambiguous=ambiguous, direct_fields=tuple(dict.fromkeys(fields)),
         document_lookup=lookup, unsupported_person=other, clarification=clarification, unresolved=unresolved,
         clarification_reason=reason, question=question, aspects=aspects,
@@ -211,5 +220,5 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         document_message=resolution.message if unsupported else None,
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
         parts=parts, personal_request=personal_request,
-        general_guidance=bool(catalog and lexicon and policy is not None and policy.analyze(question).involves_leave and
+        general_guidance=bool(general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))
