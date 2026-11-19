@@ -292,7 +292,7 @@ For a Portal chat release, enable both template answers and HRM conversations.
 | Retrieval only | Start with `ANSWER_ENABLED=false`, `CONVERSATION_ENABLED=false`, `TYPE_B_ENABLED=false` and `SEMANTIC_MODE=off`. |
 | Template answers | Set `ANSWER_ENABLED=true`, `SEMANTIC_MODE=expand` and `RERANK_ENABLED=true`. Set `SEMANTIC_ARTIFACT_PATH=artifacts/semantics/lexicon.json` and use the matching `ANSWER_CATALOG_PATH=artifacts/answers/catalog.json`. Semantic expansion requires the pinned AVX2 CPU reranker. |
 | HRM conversations | Enable template answers and set `CONVERSATION_ENABLED=true`. Provision the compatible Backend chat schema and configure Backend's `CHAT_BOT_BASE_URL` and the matching `CHAT_BOT_SERVICE_KEY`. |
-| HRM personnel evidence | With the HRM SELECT-only connection configured in `HRM_DATABASE_URL` and `HRM_DATABASE_SCHEMA` as applicable, run `python -m src.cli.check_employee_source`. After a successful preflight, set `TYPE_B_ENABLED=true` if this rollout includes personnel evidence. |
+| HRM personnel evidence | Configure `HRM_DATABASE_URL` and `HRM_DATABASE_SCHEMA` as applicable. Use a dedicated SELECT-only login in production. Run `python -m src.cli.check_employee_source` to verify readonly access and the projection. After a successful preflight, set `TYPE_B_ENABLED=true` if this rollout includes personnel evidence. |
 
 See [model and reranker requirements](../docs/online-reranking.md#local-model-and-configuration)
 and [HRM source provisioning](../docs/employee-source.md#readonly-boundary-and-provisioning).

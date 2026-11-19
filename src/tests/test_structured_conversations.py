@@ -685,7 +685,7 @@ def test_document_discovery_reuses_bound_options_and_reads_evidence_again(sample
     owner = service(sample)
     owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
     owner.retrieval.policy = policy
-    owner.retrieval.retrieve = AsyncMock(return_value={'matches': [hit]})
+    owner.retrieval.discover = AsyncMock(return_value={'matches': [hit]})
     owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
     owner.context._lookup_employee = AsyncMock(side_effect=AssertionError('Discovery only offers general guidance'))
     owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
@@ -700,13 +700,13 @@ def test_document_discovery_reuses_bound_options_and_reads_evidence_again(sample
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
         unknown = client.post('/api/v1/answer', json=body('sao trời xanh')).json()['result']
         assert not unknown['claims'] and 'clarification_options' not in unknown
-        assert not owner.retrieval.retrieve.called
+        assert not owner.retrieval.discover.called
 
         question = body('Văn phòng muốn bỏ mấy đồ cũ thì cần làm gì?')
         prompt = client.post('/api/v1/answer', json=question).json()['result']
         assert prompt['status'] == 'needs_clarification' and not prompt['claims'] and not prompt['sources']
         assert prompt['clarification_options'] == [{'id': 1, 'label': 'thanh lý tài sản'}]
-        assert owner.retrieval.retrieve.await_count == owner.retrieval.read_evidence.await_count == 1
+        assert owner.retrieval.discover.await_count == owner.retrieval.read_evidence.await_count == 1
         assert 'topic_discovery_suggestions_only' in prompt['relevance']['warnings']
 
         selection = body('thanh lý tài sản', choice={'prompt_message_id': str(uuid4()), 'option_id': 1})
@@ -722,7 +722,7 @@ def test_document_discovery_reuses_bound_options_and_reads_evidence_again(sample
         else:
             assert row['status'] == 'partial' and row['claims']
             assert store.delta['task_id'] == asset.id
-        assert owner.retrieval.retrieve.await_count == 1
+        assert owner.retrieval.discover.await_count == 1
         assert owner.retrieval.read_evidence.await_count == 2
         assert not owner.context._lookup_employee.called
 
@@ -740,19 +740,45 @@ def test_document_discovery_requires_a_matching_current_unit(routing, mode):
     card = next(card for card in catalog.cards if card.id == 'task.business.asset-disposal.c7065069')
     ref = card.sections['procedure'].units[0].refs[0]
     row = records[(ref.document_id, ref.revision_id, ref.chunk_index)]
-    retrieval = SimpleNamespace(policy=policy, retrieve=AsyncMock(), read_evidence=AsyncMock())
+    retrieval = SimpleNamespace(policy=policy, discover=AsyncMock(), read_evidence=AsyncMock())
     if mode == 'lookup_unavailable':
-        retrieval.retrieve.side_effect = RetrievalError('database_search_failed', 2)
+        retrieval.discover.side_effect = RetrievalError('database_search_failed', 2)
     else:
         hit = row if mode == 'changed_quote' else {**row, 'revision_id': str(uuid4())}
-        retrieval.retrieve.return_value = {'matches': [hit]}
+        retrieval.discover.return_value = {'matches': [hit]}
     retrieval.read_evidence.return_value = {'matches': [{**row, 'content': 'Replaced input'}]}
     analysis = RequestAnalysis(question='Bỏ đồ cũ thì cần làm gì?', aspects=('procedure',),
                                topic_unmatched=True, clarification='Fictional clarification')
     resolved, _ = asyncio.run(suggest_document_topics(analysis, catalog, retrieval))
     assert resolved == analysis and not resolved.choice_options
-    assert retrieval.retrieve.await_args.kwargs == {'top_k': 8}
+    assert retrieval.discover.await_args.kwargs == {'top_k': 8}
+    assert len(retrieval.discover.await_args.args[1]) <= 10
     assert retrieval.read_evidence.await_count == (1 if mode == 'changed_quote' else 0)
+
+
+def test_discovery_shortlist_uses_exact_references_in_vector_snapshot(routing, monkeypatch):
+    import asyncio
+    from unittest.mock import Mock
+    from src.evaluation.questions import fixture_records
+    from src.retrieval import storage
+    from src.retrieval.service import RetrievalService
+
+    catalog, _, policy = routing
+    asset = next(card for card in catalog.cards if card.id == 'task.business.asset-disposal.c7065069')
+    ref = asset.sections['procedure'].units[0].refs[0]
+    records = fixture_records(REPOSITORY_ROOT)
+    row = records[(ref.document_id, ref.revision_id, ref.chunk_index)]
+    unrelated = {**row, 'revision_id': str(uuid4()), 'cosine_distance': 0.0}
+    search = AsyncMock(return_value={'status': 'matches_found', 'matches': [unrelated, row.copy()]})
+    monkeypatch.setattr(storage, 'search', search)
+    service = RetrievalService(model_path='unused', model_revision='a' * 40, policy=policy)
+    service._model, service._fingerprint = object(), 'fictional'
+    service._encode = Mock(return_value=[1.] + [0.] * 383)
+
+    result = asyncio.run(service.discover('Bỏ đồ cũ thì cần làm gì?', [ref]))
+    assert search.await_args.args[3] == 30 and search.await_args.kwargs['references'] == [ref]
+    assert [match['revision_id'] for match in result['matches']] == [ref.revision_id]
+    assert 'source_sha256' not in result['matches'][0]
 
 
 @pytest.mark.parametrize(('verified_relation', 'eligible', 'expected'), [

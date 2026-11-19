@@ -43,8 +43,9 @@ common ways of asking to use company vehicles resolve to HCNS-QT02, while a
 request to book a vehicle in Workit selects the Workit instructions. The
 recognition-only vehicle expressions never rewrite retrieval searches. Policy
 answers require exact eligible authored references. An unmatched document-only
-conversation can use authored discovery terms to narrow an existing retrieval
-search. Ranked hits nominate catalog units for the requested aspect. One batch
+conversation can use authored discovery terms to select up to ten references
+for the requested aspect. Retrieval checks those addresses in the same eligible
+snapshot as the vector search and reranks the checked shortlist. One batch
 checks their exact references before the bot offers up to three topics. This
 branch publishes labels and no excerpts or claims. A bound selection then reads
 current evidence again and gives general document guidance. An unmatched query
@@ -153,9 +154,10 @@ authenticated HTTP identity requirements and the nine exposed facts are unchange
 The module owns contracts, field registry, normalization, selector, repository,
 connection, errors and service; there is no separate source implementation.
 HRM_DATABASE_URL never falls back to the
-Type A database; schema defaults to public. All source relations are readonly:
-dedicated externally provisioned SELECT-only privileges, readonly connection
-defaults and REPEATABLE READ / READ ONLY transactions. No ORM/Alembic registration,
+Type A database; schema defaults to public. The source uses readonly connection
+defaults and verifies REPEATABLE READ / READ ONLY transaction access before
+querying. Preflight verifies required column types and a zero-row SELECT. Use a
+dedicated SELECT-only role in production. No ORM/Alembic registration,
 source writes, preload, cache, authentication-alias/account access or synchronization is added.
 The backend's microsecond timestamp/completeness/employee_id selector is ported,
 including inactive winners and conflict failures before normalization.

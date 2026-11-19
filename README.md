@@ -8,9 +8,10 @@ contracts and service reads by user_id or employee_id (one or up to 200 IDs),
 plus bounded one-hop manager resolution. Implementation is owned by
 `src/type_b/employee_store/`; manager work summaries can include unlinked managers
 without exposing private profiles through HTTP. Configure
-`HRM_DATABASE_URL` with an externally provisioned SELECT-only role and optionally
-`HRM_DATABASE_SCHEMA` (default public); it never uses the Type A URL or Alembic.
-Run `python -m src.cli.check_employee_source` for a metadata-only preflight.
+`HRM_DATABASE_URL` and optionally `HRM_DATABASE_SCHEMA` (default public).
+Use a dedicated SELECT-only role in production. Run
+`python -m src.cli.check_employee_source` to verify the readonly transaction and
+64-column projection with a zero-row SELECT.
 Every relation on this connection is readonly. The opt-in
 [Type B HTTP adapter](docs/type-b-http.md) requires trusted hrm_user_id for retrieve/answer,
 with TYPE_B_ENABLED=false by default and X-Rita-Service-Key required for employee
@@ -52,6 +53,28 @@ before catalog/inventory release checks. Runtime still reads the same monolithic
 files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 ## Current verification status
+
+### Seal procedures and evidence-backed topic suggestions - 2026-11-19
+
+On `84b8bec` plus the final working-tree changes, the non-integration suite
+passed **1,279 tests**, with **1 skipped** and **59 deselected**. The HTTP
+source-fixture evaluator passed **901/901 turns across 867 cases**, and a
+separate 17-turn set passed **17/17**. It covers general company-seal use,
+hanging and spanning seals, paperwork follow-ups, source lookup, topic
+changes, and confirmation with either current or withdrawn evidence.
+
+The 279-card review added cited procedure sections to 26 cards. The resulting
+catalog contains 164 cards with a procedure section and 115 without one.
+For the synthetic “how do I” variant of each card, 81 still select the card
+with a missing procedure. That measure records catalog coverage. The bot
+retains a partial answer or a missing-section outcome based on the evidence.
+
+Artifact regeneration and catalog checks passed, as did the 22-file runtime
+inventory and the impact check for 1,413 existing references. A local pinned
+E5 and ONNX smoke test selected the expected authored evidence for all three
+topic-discovery prompts using an in-memory candidate snapshot. PostgreSQL
+integration, published evidence and authenticated Portal staging were outside
+these runs. See the [staging checks](docs/conversations.md#deletion-and-verification).
 
 ### Natural Vietnamese catalog routing - 2026-11-19
 

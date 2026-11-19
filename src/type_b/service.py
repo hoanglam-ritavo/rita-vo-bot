@@ -13,7 +13,6 @@ from src.answering.contextual import prepare, requirements, compose, document_re
 from src.answering.discovery import suggest_document_topics
 from src.answering.scope import resolve_document_scopes
 from src.api.admission import admit, release
-from src.database.config import ConfigurationError
 from src.retrieval import RetrievalError
 
 if TYPE_CHECKING:
@@ -22,7 +21,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 DEADLINE_SECONDS = 120
 EMPLOYEE_ERROR_CODES = frozenset({
-    'schema_incompatible', 'unsafe_database_role', 'readonly_required', 'source_access_denied',
+    'schema_incompatible', 'readonly_required', 'source_access_denied',
     'source_closed', 'source_timeout', 'source_unavailable', 'invalid_batch', 'invalid_data',
     'invalid_identity', 'invalid_list', 'invalid_projection', 'invalid_timestamp',
     'unexpected_identity', 'conflicting_rows',
@@ -48,6 +47,8 @@ class ContextCoordinator:
         await self.check_source()
 
     def _source_error_code(self, error):
+        from src.database.config import ConfigurationError
+
         if isinstance(error, ConfigurationError):
             return 'invalid_source_configuration'
         if isinstance(error, TimeoutError):

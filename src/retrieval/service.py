@@ -155,6 +155,10 @@ class RetrievalService:
     async def retrieve(self, question, top_k=5):
         return await self._retrieve(question, top_k, assessment=True)
 
+    async def discover(self, question, references, top_k=8):
+        """Rank only eligible references supplied by the topic discovery catalog."""
+        return await self._retrieve(question, top_k, assessment=True, topic_references=references)
+
     async def read_evidence(self, references):
         async with self._lock:
             if self._model is None:
@@ -185,7 +189,7 @@ class RetrievalService:
     async def retrieve_prepared(self, prepared, top_k=5):
         return await self._retrieve(prepared.question, top_k, assessment=True, prepared=prepared)
 
-    async def _retrieve(self, question, top_k=5, *, assessment, prepared=None):
+    async def _retrieve(self, question, top_k=5, *, assessment, prepared=None, topic_references=None):
         # Offline assessment=False exposes candidate diagnostics; public output always uses finalization.
         question = validate_request(question, top_k)
         
@@ -220,7 +224,7 @@ class RetrievalService:
                 raise RetrievalError('query_embedding_failed', 2) from None
             from .storage import search
             try:
-                references = self.policy.references(question)
+                references = self.policy.references(question) if topic_references is None else topic_references
                 count = 30 if self._reranker or references else top_k
                 kwargs = {'extra_vectors': extra} if extra else {}
                 if references:
@@ -231,6 +235,9 @@ class RetrievalService:
             result['top_k'] = top_k
             result['rerank_seconds'] = 0.0
             candidates = result['matches']
+            if topic_references is not None:
+                from src.answering.pipeline import matches_reference
+                candidates = [match for match in candidates if any(matches_reference(ref, match) for ref in references)]
             for match in candidates:
                 match.setdefault('rerank_score', None)
             # IDs and ranks only; evaluator can inspect recall without retaining text.

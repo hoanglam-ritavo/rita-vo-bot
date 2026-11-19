@@ -26,6 +26,14 @@ def test_preprovisioned_projection_reads_and_missing(hrm_fixture_settings):
         service = EmployeeSourceService(hrm_fixture_settings)
         try:
             assert (await service.check_source())['readonly'] is True
+            current = await service.read_context(910001, ('job_title',))
+            assert current is not None
+            assert dict(current.values) == {'job_title': 'Synthetic Engineer'}
+            inactive = await service.read_context(910002, ('job_title', 'active'))
+            assert inactive is not None
+            assert dict(inactive.values) == {'job_title': None, 'active': False}
+            assert await service.read_context(910099, ('job_title',)) is None
+
             result = await service.find_many_by_user_ids([910001, 910002, 910099])
             assert set(result) == {910001, 910002}
             assert result[910001].employee_name == 'Synthetic HRM Fixture'
@@ -69,13 +77,19 @@ def test_postgresql_rejects_write_even_with_empty_target(hrm_fixture_settings):
         source = ReadOnlySource(hrm_fixture_settings)
         relation = f'"{hrm_fixture_settings.schema}"."employee_sso_store"'
         try:
+            async with source._read_scope() as connection:
+                can_write = await connection.scalar(text('''
+                    SELECT has_table_privilege(:relation, 'UPDATE')
+                       AND has_table_privilege(:relation, 'DELETE')
+                '''), {'relation': relation})
+                assert can_write is True, 'Grant UPDATE and DELETE on the synthetic fixture table.'
             # Test-only write probes have no target rows and must still be rejected.
             for statement in (f'UPDATE {relation} SET active = active WHERE false',
                               f'DELETE FROM {relation} WHERE false'):
                 with pytest.raises(DBAPIError) as error:
                     async with source._read_scope() as connection:
                         await connection.execute(text(statement))
-                assert getattr(error.value.orig, 'sqlstate', None) in ('25006', '42501')
+                assert getattr(error.value.orig, 'sqlstate', None) == '25006'
         finally:
             await source.close()
     run_async(exercise())

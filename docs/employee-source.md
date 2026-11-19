@@ -61,8 +61,8 @@ Missing IDs are omitted from profile lookup mappings. Manager mappings instead
 include `employee_not_found` for absent subjects. A malformed selected profile
 fails the entire batch. No arbitrary SQL/session interface is exported.
 
-Run `python -m src.cli.check_employee_source` for connectivity, readonly transaction,
-role-capability and required-column checks. It selects zero employee rows, prints
+Run `python -m src.cli.check_employee_source` to verify connectivity, the readonly
+transaction, required column types and access to the 64-column projection. It selects zero employee rows, prints
 only safe technical status and exits 0 on success or 1 on failure. It does not
 require pgvector, write schema, grant permissions or run migrations. A successful
 check does not prove business meanings, source completeness, freshness, caller
@@ -73,29 +73,20 @@ authorization or schema compatibility of every stored value.
 **Every relation reached through this HRM connection is readonly, not just
 employee_sso_store. Never write data or schema using this connection.**
 
-Provision a dedicated non-owner, non-superuser login outside this application.
-It needs CONNECT to the intended database, USAGE on the intended schema and
-SELECT on the source relation. Do not grant write/DDL privileges, sequence
-USAGE/UPDATE, privileged memberships, or execution of routines that can write.
-Review inherited/PUBLIC permissions too, including database CREATE/TEMP and
-schema CREATE. PostgreSQL commonly grants TEMP to PUBLIC: restricting only the
-login's direct grants is insufficient. A DBA must review any privilege changes;
-the application never executes GRANT, REVOKE or source migrations.
+For production, provision a dedicated, least-privilege login outside this
+application with CONNECT on the intended database, USAGE on the intended schema
+and SELECT on the source relation. The DBA manages direct, inherited and PUBLIC
+grants for that login. Apply PostgreSQL privilege changes and source migrations
+through the database's normal administration process.
 
 The source sets `default_transaction_read_only=on` at connection startup, sets
 `READ ONLY` on every transaction and checks `transaction_read_only`. Fixed SELECT
 queries use bound IDs and a validated, quoted schema. Source types are plain
 dataclasses, never ORM entities, and are not registered in Alembic metadata.
 
-The preflight rejects superuser/role-creation/database-creation/replication/RLS
-bypass capabilities, CREATE/TEMP, non-system schema CREATE, owned or writable
-non-system relations/sequences and executable volatile non-system routines. It
-also examines memberships usable with SET ROLE. This is a conservative diagnostic,
-not a complete security proof: stable/immutable routine declarations can be
-incorrect, RLS/views/FDWs may have additional behavior, and privileges can change
-after checking. A DBA must verify the actual upstream relation and routines.
-The service always enforces readonly transactions; a powerful DB account is not
-made least-privilege merely by setting a readonly transaction.
+Preflight relies on PostgreSQL to authorize the zero-row projection query. The
+transaction settings protect the statements the bot executes through this
+connection. Any other session using the same login retains its database grants.
 
 ## Selection, normalization and failures
 
@@ -135,7 +126,7 @@ profiles to logs.
 
 Stable errors distinguish invalid_identity, invalid_batch, invalid_projection,
 invalid_data, invalid_list, invalid_timestamp, unexpected_identity,
-conflicting_rows, schema_incompatible, unsafe_database_role, readonly_required,
+conflicting_rows, schema_incompatible, readonly_required,
 source_timeout, source_access_denied, source_unavailable, source_closed and source_cleanup_failed.
 Configuration errors name settings without printing URLs. Unknown database errors
 are sanitized. Absence is never inferred from errors. No payload, raw SQL error,
@@ -339,18 +330,22 @@ must differ from runtime HRM, application, migration, and other configured test
 databases. See the [shared target check and setup](../README.md#testing).
 Verify the fixture's isolation before setting the confirmation flag.
 
-A DBA/test harness must separately provision a disposable database, the readonly
-login described above, and a table with all 64 typed columns. Seed only fictional
-data: user 910001 has employee_name `Synthetic HRM Fixture`, official_date
-`2020-01-02`; user 910002 has two records with distinct zoned updated_at values,
-the newer inactive and the older active; user 910099 is absent. Provide distinct
+A DBA/test harness must separately provision a disposable database and a table
+with all 64 typed columns. The fixture login needs SELECT, UPDATE and DELETE on
+that synthetic table so the write probes verify the readonly transaction rather
+than an ACL denial. Seed only fictional data. User 910001 has employee_name
+`Synthetic HRM Fixture`, official_date
+`2020-01-02` and job_title `Synthetic Engineer`. User 910002 has two records
+with distinct zoned updated_at values. The newer record is inactive with a null
+job_title and the older record is active with job_title `Synthetic previous title`.
+User 910099 is absent. Provide distinct
 positive employee IDs across selected users, nonnull integer id and valid known
 child structures or null collections. The tests do not seed, migrate, grant,
 truncate or clean up source storage. Disposable provisioning/destruction belongs
 to its external owner.
 
 Two test-only UPDATE/DELETE probes use WHERE false inside readonly transactions
-and must fail with PostgreSQL 25006/42501; no rows are targeted. These probes are
+and must fail with PostgreSQL `25006`. Both statements target zero rows. These probes are
 never part of runtime code or preflight. Unit doubles do not establish PostgreSQL
 privilege, rollback or live-schema guarantees. Unconfigured integration is skipped,
 not passed. Source data and schema have not been verified against a live HRM

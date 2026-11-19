@@ -49,36 +49,11 @@ class EmployeeRepository:
             SELECT column_name, udt_name FROM information_schema.columns
             WHERE table_schema = :schema AND table_name = 'employee_sso_store'
         '''), {'schema': self._schema})
-        columns = dict(result.tuples())
+        columns = {name: pg_type for name, pg_type in result}
         for name in PROFILE_FIELDS:
             allowed = FIELD_REGISTRY[name].postgres_types
             if columns.get(name) not in allowed:
                 raise EmployeeSourceError('schema_incompatible')
-        # Inspect effective role capabilities, including memberships usable with SET ROLE.
-        unsafe = await connection.scalar(text('''
-            SELECT EXISTS (
-              SELECT 1 FROM pg_roles r
-              WHERE pg_has_role(current_user, r.oid, 'MEMBER') AND (
-                r.rolsuper OR r.rolcreatedb OR r.rolcreaterole OR r.rolreplication OR r.rolbypassrls
-                OR has_database_privilege(r.oid, current_database(), 'CREATE,TEMP')
-                OR EXISTS (SELECT 1 FROM pg_namespace n
-                  WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname <> 'information_schema'
-                    AND has_schema_privilege(r.oid, n.oid, 'CREATE'))
-                OR EXISTS (SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
-                  WHERE c.relkind IN ('r','p','v','m','f','S')
-                    AND n.nspname NOT LIKE 'pg_%' AND n.nspname <> 'information_schema'
-                    AND (c.relowner=r.oid OR CASE WHEN c.relkind = 'S'
-                      THEN has_sequence_privilege(r.oid, c.oid, 'USAGE,UPDATE')
-                      ELSE has_table_privilege(r.oid, c.oid,
-                        'INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER') END))
-                OR EXISTS (SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
-                  WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname <> 'information_schema'
-                    AND p.provolatile='v' AND has_function_privilege(r.oid, p.oid, 'EXECUTE'))
-              )
-            )
-        '''))
-        if unsafe:
-            raise EmployeeSourceError('unsafe_database_role')
         # Resolve projection and SELECT privileges without returning any employee rows.
         await connection.execute(text(f'SELECT ' + ', '.join(f'"{name}"' for name in PROFILE_FIELDS)
                                       + f' FROM {self._relation} WHERE false'))

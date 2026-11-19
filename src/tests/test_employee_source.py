@@ -7,6 +7,7 @@ import json
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from sqlalchemy import create_engine, literal, select, union_all
 from sqlalchemy.dialects import postgresql
 from sqlalchemy.exc import OperationalError
 
@@ -337,27 +338,53 @@ with patch('dotenv.load_dotenv', side_effect=AssertionError('dotenv')), \\
     assert not result.stdout
 
 
-def test_check_metadata_and_projection_only():
+@pytest.mark.parametrize('notes_type,reason', [
+    ('text', None),
+    (None, 'schema_incompatible'),
+    ('int4', 'schema_incompatible'),
+    ('text', 'source_access_denied'),
+])
+def test_check_metadata_and_projection_only(notes_type, reason):
+    class SelectDenied(Exception):
+        sqlstate = '42501'
+
     async def exercise():
-        repository = EmployeeRepository('public')
-        connection = AsyncMock()
-        metadata = MagicMock()
+        service, connection, events = mocked_service([])
+        connection.scalar = AsyncMock()
+        # Use SQLAlchemy's real result protocol for metadata without connecting to HRM.
         types = {name: 'text' for name in PROFILE_FIELDS}
         types.update({name: 'int4' for name in INTEGER_FIELDS})
         types.update({name: 'date' for name in DATE_FIELDS})
         types.update(updated_at='timestamptz', active='bool', height='numeric', weight='numeric')
-        metadata.tuples.return_value = list(types.items())
-        connection.execute.return_value = metadata
-        connection.scalar.return_value = False
-        assert await repository._check(connection) == {'status': 'ok', 'readonly': True, 'projection_columns': 64}
-        assert 'WHERE false' in str(connection.execute.call_args.args[0])
-        connection.scalar.return_value = True
-        with pytest.raises(EmployeeSourceError, match='unsafe_database_role'):
-            await repository._check(connection)
-        types.pop('notes')
-        metadata.tuples.return_value = list(types.items())
-        with pytest.raises(EmployeeSourceError, match='schema_incompatible'):
-            await repository._check(connection)
+        if notes_type is None:
+            del types['notes']
+        else:
+            types['notes'] = notes_type
+        metadata = union_all(*(select(literal(name).label('column_name'), literal(kind).label('udt_name'))
+                               for name, kind in types.items()))
+        projection_result = (OperationalError('private SQL', {}, SelectDenied('private error'))
+                             if reason == 'source_access_denied' else None)
+        engine = create_engine('sqlite://')
+        try:
+            with engine.connect() as sqlite:
+                connection.execute.side_effect = [sqlite.execute(metadata), projection_result]
+                if reason is None:
+                    assert await service.check_source() == {'status': 'ok', 'readonly': True, 'projection_columns': 64}
+                else:
+                    with pytest.raises(EmployeeSourceError) as error:
+                        await service.check_source()
+                    assert error.value.code == reason
+                    assert 'private' not in str(error.value)
+                connection.scalar.assert_not_awaited()
+                assert 'information_schema.columns' in str(connection.execute.await_args_list[0].args[0])
+                if reason == 'schema_incompatible':
+                    connection.execute.assert_awaited_once()
+                else:
+                    assert connection.execute.await_count == 2
+                    assert 'WHERE false' in str(connection.execute.await_args.args[0])
+                assert events == ['begin', 'rollback' if reason else 'commit', 'close']
+        finally:
+            engine.dispose()
     run_async(exercise())
 
 

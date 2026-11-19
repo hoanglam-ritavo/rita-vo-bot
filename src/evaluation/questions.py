@@ -267,6 +267,11 @@ class FixtureRetrieval:
     async def prepare_query(self, question, top_k=5):
         return question
 
+    async def discover(self, question, references, top_k=8):
+        # Fixture checks exercise declared source addresses without ranking claims.
+        raw = await self.read_evidence(references)
+        return {**raw, 'matches': raw['matches'][:top_k]}
+
     async def retrieve_prepared(self, prepared, top_k=5):
         return await self.retrieve(prepared, top_k)
 
