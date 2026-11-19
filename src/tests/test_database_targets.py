@@ -5,8 +5,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from src.database import config as database_config
-from src.tests import conftest, database_targets
-from src.tests.test_employee_source_integration import hrm_fixture_settings
+from src.tests import conftest, database_targets, test_employee_source_integration
 
 
 CORPUS_URL = 'postgresql+psycopg://corpus_tester:fictional@localhost/corpus_test'
@@ -18,7 +17,7 @@ RUNTIME_URL = 'postgresql+psycopg://runtime_user:fictional@localhost/app'
 def isolated_environment(monkeypatch, tmp_path):
     for name in (*database_targets.RUNTIME_URLS, *database_targets.TEST_URLS,
                  'TEST_HRM_DISPOSABLE_CONFIRMED', 'TEST_HRM_DATABASE_SCHEMA',
-                 'PYTHON_DOTENV_DISABLED', 'TEST_PRIVATE_MARKER'):
+                 'PYTHON_DOTENV_DISABLED', 'TEST_PRIVATE_MARKER', 'FIXTURE_DB_NAME'):
         monkeypatch.delenv(name, raising=False)
     monkeypatch.setattr(database_targets, 'ROOT', tmp_path)
     monkeypatch.setattr(database_config, 'ROOT', tmp_path)
@@ -41,6 +40,19 @@ def test_file_and_process_targets_checked_independently(monkeypatch, isolated_en
     with pytest.raises(pytest.fail.Exception, match='separate database from HRM_DATABASE_URL'):
         database_targets.require_disposable_database('TEST_HRM_DATABASE_URL')
     assert os.environ['HRM_DATABASE_URL'] == RUNTIME_URL
+
+
+@pytest.mark.parametrize('target', ['file_database', 'process_database'])
+def test_dotenv_interpolation_uses_both_loading_policies(monkeypatch, isolated_environment, target):
+    isolated_environment.write_text(
+        'FIXTURE_DB_NAME=file_database\n'
+        'DATABASE_URL=postgresql+psycopg://runtime_user:fictional@localhost/${FIXTURE_DB_NAME}\n',
+        encoding='utf-8',
+    )
+    monkeypatch.setenv('FIXTURE_DB_NAME', 'process_database')
+    monkeypatch.setenv('TEST_DATABASE_URL', f'postgresql+psycopg://tester:fictional@localhost/{target}')
+    with pytest.raises(pytest.fail.Exception, match='separate database from DATABASE_URL'):
+        database_targets.require_disposable_database('TEST_DATABASE_URL')
 
 
 @pytest.mark.parametrize('other_name', ['DATABASE_URL', 'MIGRATION_DATABASE_URL', 'TEST_DATABASE_URL'])
@@ -91,6 +103,6 @@ def test_hrm_confirmation_must_come_from_process(monkeypatch, isolated_environme
     isolated_environment.write_text('TEST_HRM_DISPOSABLE_CONFIRMED=true\n', encoding='utf-8')
     monkeypatch.setenv('TEST_HRM_DATABASE_URL', HRM_URL)
     with pytest.raises(pytest.fail.Exception, match='TEST_HRM_DISPOSABLE_CONFIRMED=true'):
-        hrm_fixture_settings.__wrapped__()
+        test_employee_source_integration.hrm_fixture_settings.__wrapped__()
     monkeypatch.setenv('TEST_HRM_DISPOSABLE_CONFIRMED', 'true')
-    assert hrm_fixture_settings.__wrapped__().schema == 'public'
+    assert test_employee_source_integration.hrm_fixture_settings.__wrapped__().schema == 'public'

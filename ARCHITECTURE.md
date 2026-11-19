@@ -39,16 +39,21 @@ lookup in the same message is retained and executed only when every part is clea
 General guidance selects a source-bound general route first; registry-owned
 platform terms or an explicit system select software instructions. Ordinary policy answers still
 require exact eligible authored references, without a vector fallback on unknown
-tasks. Generic childbirth wording has two declared policy candidates, rather
-than an implicit company-benefit default. Numbered, named and UI-bound
-conversation choices retain the original subject, dates, assertions and aspects. Aspect-only
+tasks. For ambiguous document or leave-platform requests, the answer coordinator
+checks candidates against the requested aspects and reads their declared references
+in one eligible snapshot. One viable scope receives a labeled answer with the
+remaining limitations. Multiple viable scopes produce a grounded choice. The
+answer path reuses the request-local snapshot and reads current evidence again
+on a later selection. Unsupported comparisons and totals ask for a narrower
+request. Numbered, named and UI-bound conversation choices retain the original
+subject and aspects. Aspect-only
 follow-ups replace the active aspect unless the user explicitly requests an
 addition. Pending requests survive unrecognized replies until resolved, cancelled
 or replaced by a recognized new topic. Ambiguous unaccented owners such as
 "Minh/minh" require clarification; accent folding never establishes identity.
-Reducer schema 8 validates the shape, size and catalog compatibility of the
-active request before applying a continuation. Compatible schema 7 state still
-supports textual follow-ups. An explicit correction can update the
+Reducer schema 9 validates the shape, size and catalog compatibility of the
+active request. Compatible schema 7/8 state keeps its original question and
+user data. Old numbered menus expire and are evaluated again before replacement. An explicit correction can update the
 route, and a task change discards inputs bound to the previous task. A dependent
 reply to obsolete context either refreshes the options or asks for a restatement.
 Stored
@@ -161,7 +166,7 @@ no A/B/mixed response branch remains. Missing HRM never fabricates facts or bloc
 otherwise grounded policy. Exact date intervals are distinguished from policy
 entitlement. Manager lookup shares the subject's readonly transaction.
 
-Reducer schema 8 stores bounded user assertions, task and displayed claim references. Cache
+Reducer schema 9 stores bounded user assertions, related task scopes and displayed claim references. Cache
 namespace v2 scopes derived state, and the reducer validates checkpoint schema
 and artifact identity before reuse. Portal renders one answer/evidence view.
 An explicit CLI handles development chat reset. See the

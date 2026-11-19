@@ -102,8 +102,8 @@ def setup_service():
     completed = turn.model_copy(update={'state': 'COMPLETED', 'context_version': 1, 'result': result()})
     store = AsyncMock()
     store.begin.return_value = (turn, True)
-    store.version.side_effect = [0, 1]
-    store.context.return_value = (0, {}, [])
+    store.version.return_value = 1
+    store.context.return_value = ({}, 'checkpoint')
     store.finish.return_value = completed
     return req, owner, store
 
@@ -127,14 +127,14 @@ def test_service_commits_before_cache_and_replays_without_inference():
 def test_cache_replay_bypass_and_failed_cache_write():
     async def scenario():
         req, owner, store = setup_service()
-        store.context.return_value = (0, {'old': True}, [{'latest': True}])
+        store.context.return_value = ({'latest': True}, 'snapshot')
         cache = AsyncMock()
         cache.get.return_value = {'version': -1, 'state': {'stale': True}}
         cache.set.side_effect = ValueError('fictional oversized value')
         svc = ConversationService(owner, cache, store)
         assert await svc.context(req) == {'latest': True}
-        store.version.side_effect = None
-        store.version.return_value = 0
+        store.context.assert_awaited_once_with(req.room_id, req.user_id, {'version': -1, 'state': {'stale': True}})
+        store.version.assert_not_awaited()
         assert (await svc.answer(req)).state == 'COMPLETED'
         store.fail.assert_not_awaited()
     asyncio.run(scenario())
@@ -190,7 +190,7 @@ def test_busy_admission_precedes_reservation_and_allows_replay():
 def test_deleted_during_completion_evicts_late_cache():
     async def scenario():
         req, owner, store = setup_service()
-        store.version.side_effect = [0, ApiError('room_unavailable', 404)]
+        store.version.side_effect = ApiError('room_unavailable', 404)
         cache = CacheManager()
         svc = ConversationService(owner, cache, store)
         with pytest.raises(ApiError):
@@ -216,3 +216,31 @@ def test_http_requires_full_identity_key_and_preserves_stateless():
             response = client.post('/api/v1/answer', json=req.model_dump(), headers=SERVICE_HEADERS)
             assert response.status_code == 202 and response.headers['cache-control'] == 'no-store'
             svc.answer.assert_awaited_once()
+
+
+def test_history_http_preserves_ascending_and_validates_descending_cursors():
+    settings = Settings(Path('unused'), 'a' * 40, conversation=ConversationSettings(True), service_key=SERVICE_KEY)
+    fake = SimpleNamespace(settings=settings, start=AsyncMock(), close=AsyncMock())
+    app = create_app(settings, service_factory=lambda _: fake)
+    req = request()
+    path = f'/api/v1/conversations/{req.room_id}/messages'
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(ConversationService, 'start', AsyncMock())
+        with TestClient(app) as client:
+            svc = app.state.conversation_service
+            svc.store.messages = AsyncMock(return_value=({'items': [], 'next_cursor': None, 'context_version': 0}, 0))
+            for query, after, order, before in [
+                ({'after': 2}, 2, 'asc', None),
+                ({'order': 'desc'}, None, 'desc', None),
+                ({'order': 'desc', 'before': 5}, None, 'desc', 5),
+            ]:
+                response = client.get(path, params={'user_id': req.user_id, **query}, headers=SERVICE_HEADERS)
+                assert response.status_code == 200 and response.headers['cache-control'] == 'no-store'
+                svc.store.messages.assert_awaited_with(req.room_id, req.user_id, after, 20, order=order, before=before)
+            for query in [
+                {'before': 5}, {'order': 'desc', 'after': 0}, {'order': 'desc', 'before': 0},
+                {'order': 'desc', 'before': 5, 'after': 3}, {'order': 'invalid'},
+            ]:
+                response = client.get(path, params={'user_id': req.user_id, **query}, headers=SERVICE_HEADERS)
+                assert response.status_code in (400, 422)
+            assert svc.store.messages.await_count == 3

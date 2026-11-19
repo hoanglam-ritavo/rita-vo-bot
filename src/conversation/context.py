@@ -11,7 +11,8 @@ from src.answering.slots import SLOT_LABELS, parse_inputs
 from src.type_b.tasks import TASKS, normalized
 from .continuation import ASPECTS, recognize, input_update
 
-SCHEMA = 8
+SCHEMA = 9
+LEGACY_SCHEMAS = (7, 8)
 MAX_CONTEXT_BYTES = 48 * 1024
 logger = logging.getLogger(__name__)
 
@@ -57,7 +58,7 @@ def valid_context(previous):
         if not isinstance(aspects, list) or len(aspects) > len(ASPECTS) or any(
                 not isinstance(a, str) or a not in ASPECTS for a in aspects):
             return False
-    for key, limit in (('recent', 4), ('candidates', 5), ('pending_inputs', 32),
+    for key, limit in (('recent', 4), ('candidates', 5), ('scope_task_ids', 5), ('pending_inputs', 32),
                        ('pending_prompts', 32), ('missing_slots', 32), ('requested_aspects', 5)):
         value = previous.get(key, [])
         if not isinstance(value, list) or len(value) > limit or any(not isinstance(v, str) or len(v) > 2000 for v in value):
@@ -68,7 +69,8 @@ def valid_context(previous):
     if set(previous.get('pending_inputs', [])) - SLOT_LABELS.keys():
         return False
     if request is None and (previous.get('pending') or previous.get('task_id') or previous.get('candidates')
-                            or previous.get('pending_inputs') or previous.get('profile_self')):
+                            or previous.get('scope_task_ids') or previous.get('pending_inputs')
+                            or previous.get('profile_self')):
         return False
     if any(type(previous.get(key, False)) is not bool for key in ('profile_self', 'self_reference')):
         return False
@@ -112,12 +114,14 @@ def _revalidate_task(previous, catalog, lexicon, policy):
     prior = previous.get('request')
     task_id = previous.get('task_id') or previous.get('input_task_id')
     if not prior or not task_id or not previous.get('task_binding') or previous.get('pending') in ('task', 'slots'):
-        return False
+        return None
     request = {key: value for key, value in prior.items() if key != 'selected_task'}
     plan = analyze_question(prior['question'], catalog, lexicon, policy, request=request)
     if plan.unsupported_person or plan.unresolved or (plan.ambiguous and prior.get('selected_task') != task_id):
-        return False
-    return any(card.id == task_id and _task_binding(card) == previous['task_binding'] for card in plan.cards)
+        return None
+    if any(card.id == task_id and _task_binding(card) == previous['task_binding'] for card in plan.cards):
+        return {card.id for card in plan.cards}
+    return None
 
 
 def _state(analysis, request, recent, stamp):
@@ -158,11 +162,11 @@ def published_options(analysis, state, message_id, result):
     return [{'id': item['id'], 'label': item['label']} for item in options]
 
 
-def _typed_choice(query, candidates, policy):
+def _typed_choice(query, candidates, policy, *, allow_number=True):
     choice, separator, tail = query.partition(' hoi them ')
     if not separator:
         choice, separator, tail = query.partition(' toi can ')
-    choice = re.sub(r'^(?:(?:toi (?:hoi|chon|muon hoi)(?: ve)?|chon(?: phuong an)?|phuong an|muc so|so) )', '', choice)
+    choice = re.sub(r'^(?:(?:toi (?:hoi|chon|muon hoi)(?: ve)?|doi sang|chuyen sang|chon(?: phuong an)?|phuong an|muc so|so) )', '', choice)
     choice = re.sub(r' (?:a|nhe|nha|voi)$', '', choice).strip()
     if not choice:
         return [], ()
@@ -175,20 +179,35 @@ def _typed_choice(query, candidates, policy):
         aspects = ()
     labels = dict(choice_labels(candidates))
     return [card for index, card in enumerate(candidates, 1) if choice in {
-        str(index), normalized(card.label), normalized(labels.get(card.id, '')), normalized(card.id),
-        *(normalized(alias) for alias in card.aliases)}], aspects
+        *((str(index),) if allow_number else ()), normalized(card.label),
+        normalized(labels.get(card.id, '')), *(normalized(alias) for alias in card.aliases)}], aspects
 
 
-def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_identity_stamp=None,
+def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_identity_stamps=None,
               policy=None, selected_task=None):
     stamp = identity_stamp if identity_stamp is not None else identity(catalog, lexicon, policy)
     valid = valid_context(previous)
-    legacy = (legacy_identity_stamp if legacy_identity_stamp is not None else
-              identity(catalog, lexicon, policy, schema=7)) if valid and previous.get('schema') == 7 else None
-    compatible = valid and ((previous.get('schema'), previous.get('identity')) in (
-        (SCHEMA, stamp), (7, legacy)) or (previous.get('schema') == SCHEMA
-        and _revalidate_task(previous, catalog, lexicon, policy)))
+    schema = previous.get('schema') if valid else None
+    compatible, revalidated = False, None
+    if type(schema) is int and schema in (*LEGACY_SCHEMAS, SCHEMA):
+        if schema == SCHEMA:
+            expected = stamp
+        else:
+            expected = (legacy_identity_stamps[schema] if legacy_identity_stamps else
+                        identity(catalog, lexicon, policy, schema=schema))
+        compatible = previous.get('identity') == expected
+        if not compatible:
+            revalidated = _revalidate_task(previous, catalog, lexicon, policy)
+            compatible = revalidated is not None
+    if previous and not compatible:
+        logger.info('conversation_context_discard reason=%s', 'incompatible' if valid else 'invalid')
     old = deepcopy(previous) if compatible else {}
+    if revalidated is not None:
+        old['scope_task_ids'] = [key for key in old.get('scope_task_ids', []) if key in revalidated]
+    legacy_prompt = bool(compatible and schema in LEGACY_SCHEMAS and old.get('pending') == 'task')
+    if legacy_prompt:
+        old.pop('choice_prompt', None)
+        old['scope_task_ids'] = old.pop('candidates', [])
     recent = old.get('recent', [])[-3:] + [text]
     query = normalized(text)
     request = dict(question=text, slots={}, user_inputs=parse_inputs(text))
@@ -203,6 +222,9 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
     by_id = {card.id: card for card in catalog.cards} if catalog is not None else {}
     candidates = [by_id[key] for key in old.get('candidates', []) if key in by_id]
     chosen, added_aspects = _typed_choice(query, candidates, policy)
+    related = [by_id[key] for key in old.get('scope_task_ids', []) if key in by_id]
+    if not chosen and selected_task is None and related:
+        chosen, added_aspects = _typed_choice(query, related, policy, allow_number=False)
     focus_unit = None
     if selected_task is not None:
         chosen, added_aspects = [card for card in candidates if card.id == selected_task], ()
@@ -215,6 +237,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         if active_task != chosen[0].id:
             request.pop('source_id', None)
         continuation, turn_kind = True, 'selection'
+    elif prior and related and not candidates and not legacy_prompt and query.isdecimal():
+        request = deepcopy(prior)
+        continuation, turn_kind = True, 'clarification'
+        issue = 'Số thứ tự chỉ dùng khi có danh sách đang chờ. Bạn hãy nêu tên phạm vi muốn đổi sang.'
     elif item and prior:
         position = int(item[1]) if len(item[1]) <= 2 else 0
         claims = old.get('claim_scopes', [])
@@ -314,18 +340,23 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         analysis = replace(analysis, focus_unit=focus_unit)
     elif not continuation and not (analysis.parts or analysis.clarification or analysis.unsupported_person):
         analysis = replace(analysis, clarification='Bạn hãy nêu rõ chủ đề, đối tượng và thông tin cần hỏi.')
-    invalid_pending_choice = (not compatible and valid and previous.get('pending') == 'task'
-                              and (_typed_choice(query, [by_id[key] for key in previous.get('candidates', [])
-                                    if key in by_id], policy)[0] or query.isdecimal()))
-    if invalid_pending_choice and previous.get('request'):
-        question = previous['request']['question']
-        request = dict(question=question, slots={}, user_inputs=parse_inputs(question))
-        refreshed = analyze_question(question, catalog, lexicon, policy, request=request)
-        message = ('Ngữ cảnh hội thoại đã thay đổi. ' + refreshed.clarification if refreshed.clarification
-                   else 'Ngữ cảnh hội thoại đã thay đổi. Bạn hãy xác nhận lại chủ đề và phần cần hỏi.')
-        analysis = replace(refreshed, clarification=message, clarification_reason='context_needs_restatement')
-        new_task = None
-    elif previous and not compatible and not independent:
+    if (legacy_prompt or not compatible) and valid and previous.get('pending') == 'task' and previous.get('request'):
+        previous_cards = [by_id[key] for key in previous.get('candidates', []) if key in by_id]
+        old_choice, _ = _typed_choice(query, previous_cards, policy)
+        old_name, _ = _typed_choice(query, previous_cards, policy, allow_number=False)
+        if not continuation and (old_choice or query.isdecimal()):
+            previous_request = previous['request']
+            question = previous_request['question']
+            request = (deepcopy(previous_request) if compatible else
+                       dict(question=question, slots={}, user_inputs=parse_inputs(question)))
+            refreshed = analyze_question(question, catalog, lexicon, policy, request=request)
+            message = 'Danh sách lựa chọn đã thay đổi. Bạn hãy nêu lại phạm vi cần hỏi.'
+            analysis = replace(refreshed, clarification=message, clarification_reason='context_needs_restatement',
+                               check_scopes=refreshed.check_scopes and not old_name,
+                               refresh_choices=True, choice_options=())
+            new_task = None
+            independent = True
+    if previous and not compatible and not independent:
         analysis = replace(analysis, clarification='Ngữ cảnh hội thoại đã thay đổi hoặc không còn hợp lệ. Bạn hãy nêu lại câu hỏi đầy đủ.',
                            clarification_reason='context_needs_restatement', choice_options=())
     if not retained or old.get('pending') or old.get('pending_inputs'):
@@ -338,6 +369,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
             slots['granularity'] = root.granularity
         request['slots'] = {**slots, **request.get('slots', {})}
     state = _state(analysis, request, recent, stamp)
+    if (analysis.check_scopes or analysis.refresh_choices) and len(analysis.cards) <= 5:
+        state['scope_task_ids'] = [card.id for card in analysis.cards]
+    elif prior and (continuation or retained) and related:
+        state['scope_task_ids'] = [card.id for card in related]
     state['input_task_id'] = new_task if not issue else active_task
     bound_card = by_id.get(state['input_task_id'])
     if bound_card is not None:
@@ -356,6 +391,20 @@ def reduce_question(text, previous, catalog, lexicon, *, identity_stamp=None, po
     """Compatibility reader: executing callers must consume plan_turn's plan."""
     analysis, state = plan_turn(text, previous, catalog, lexicon, identity_stamp=identity_stamp, policy=policy)
     return analysis.question, state
+
+
+def finalize_scope(state, analysis):
+    """Persist the options actually offered and any scope used to answer."""
+    request = deepcopy(state['request'])
+    if analysis.scope_intro and request is not None:
+        request['selected_task'] = analysis.cards[0].id
+        if analysis.scope_system:
+            request['slots']['system'] = analysis.scope_system
+    state = {**state, **_state(analysis, request, state['recent'], state['identity'])}
+    if analysis.scope_intro:
+        state['input_task_id'] = analysis.cards[0].id
+        state['task_binding'] = _task_binding(analysis.cards[0])
+    return state
 
 
 def compact(state, result, *, analysis=None):
@@ -389,5 +438,6 @@ def compact(state, result, *, analysis=None):
         state['recent'].pop(0)
     if len(json.dumps(state, ensure_ascii=False).encode()) > MAX_CONTEXT_BYTES:
         # Keep an invalidation marker rather than a partially retained request.
+        logger.info('conversation_context_discard reason=budget_exceeded')
         return {'schema': SCHEMA, 'identity': 'context_budget_exceeded', 'recent': []}
     return state

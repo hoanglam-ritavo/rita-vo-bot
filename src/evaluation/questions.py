@@ -295,7 +295,7 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
     from src.answering.catalog import load_catalog
     from src.answering.config import AnswerSettings
     from src.answering.pipeline import select_cards
-    from src.conversation.context import plan_turn, compact
+    from src.conversation.context import plan_turn, compact, finalize_scope
     from functools import partial
     from src.type_b.employee_store.fields import PROFILE_FIELDS
     from src.type_b.employee_store.normalization import normalize_profile
@@ -308,7 +308,7 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
     for relative in ('artifacts/answers/catalog.json', 'artifacts/semantics/lexicon.json', 'artifacts/retrieval/catalog.json'):
         inputs[relative] = hashlib.sha256((root / relative).read_bytes()).hexdigest()
     for relative in ('src/retrieval/policy.py', 'src/retrieval/language.py', 'src/answering/pipeline.py',
-                     'src/conversation/context.py', 'src/conversation/continuation.py',
+                     'src/conversation/context.py', 'src/conversation/continuation.py', 'src/answering/scope.py',
                      'src/type_b/tasks.py', 'src/type_b/service.py',
                      'src/answering/contextual.py', 'src/answering/planning.py', 'src/answering/context_spec.py',
                      'src/answering/context_contracts.py', 'src/answering/calculations.py',
@@ -374,11 +374,12 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                 owner.answers.catalog = turn_catalog
                 analysis, state = plan_turn(turn['text'], state, turn_catalog, lexicon, policy=policy, identity_stamp=stamp)
                 question = analysis.question
-                owner.context.execute = partial(execute, analysis=analysis)
-                selected, ambiguous = analysis.cards, analysis.ambiguous
-                if analysis.document_lookup:
-                    # Lookup task labels annotate fixture recall only, never authorize a template answer.
-                    selected, ambiguous = select_cards(question, turn_catalog, lexicon, policy, contextual=True)
+                def resolved_plan(resolved):
+                    nonlocal analysis, state
+                    if analysis is not resolved:
+                        analysis, state = resolved, finalize_scope(state, resolved)
+
+                owner.context.execute = partial(execute, analysis=analysis, on_resolved=resolved_plan)
                 body = {'text': question, 'hrm_user_id': 7, 'top_k': 5}
                 if oracle.fixture == 'feature_disabled':
                     # Model the documented disabled HTTP guard, not fake facts.
@@ -387,6 +388,10 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
                     owner.context.available = False
                 response = await client.post('/api/v1/answer', json=body)
                 value = response.json()
+                selected, ambiguous = analysis.cards, analysis.ambiguous
+                if analysis.document_lookup:
+                    # Lookup task labels annotate fixture recall, not template authorization.
+                    selected, ambiguous = select_cards(question, turn_catalog, lexicon, policy, contextual=True)
                 selected = [] if ambiguous else selected
                 failures = check_turn(oracle, response.status_code, value,
                                       [c.id for c in selected], aspects=analysis.aspects)

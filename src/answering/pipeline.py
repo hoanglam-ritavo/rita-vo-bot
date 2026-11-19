@@ -41,12 +41,19 @@ def requested_aspects(question):
     from src.retrieval.language import positive_question
     from src.type_b.tasks import normalized, phrase
     query = normalized(positive_question(question))
-    terms = {'amount': ('bao nhiêu tiền', 'mức hỗ trợ', 'mức thưởng', 'bao nhiêu', 'số tiền'),
+    duration = bool(re.search(
+        r'\b(?:bao lau|bao nhieu (?:ngay|buoi|tuan|thang|nam|gio|phut)|'
+        r'(?:thoi gian|thoi han|thoi luong)\b.*\bbao nhieu)\b', query))
+    terms = {'amount': ('bao nhiêu tiền', 'mức hỗ trợ', 'mức thưởng', 'số tiền'),
              'conditions': ('điều kiện', 'áp dụng cho', 'đối tượng'),
              'paperwork': ('giấy tờ', 'hồ sơ', 'giấy gì'),
              'procedure': ('cách', 'thủ tục', 'các bước', 'làm thế nào', 'cần làm gì', 'phải làm gì')}
     terms['procedure'] += ('làm sao',)
+    if not duration:
+        terms['amount'] += ('bao nhiêu',)
     aspects = [key for key, phrases in terms.items() if any(phrase(query, normalized(p)) for p in phrases)]
+    if duration and 'amount' in aspects:
+        aspects.append('overview')
     return aspects or (['procedure'] if any(phrase(query, p) for p in ('quy trinh', 'dang ky')) else ['overview'])
 
 
@@ -137,7 +144,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
             reason='other_employee_unsupported' if analysis.unsupported_person else analysis.clarification_reason,
             limitations=['Chỉ sử dụng hồ sơ của người đang đăng nhập.' if analysis.unsupported_person else analysis.clarification])
         return row
-    if analysis is not None and analysis.document_message:
+    if analysis.document_message:
         row.update(reason=analysis.document_reason, limitations=[analysis.document_message])
         return row
     if analysis.document_lookup:

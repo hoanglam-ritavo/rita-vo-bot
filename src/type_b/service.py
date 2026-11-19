@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 from src.api.contracts import (ApiError, AnswerTimings, Timings, Relevance,
                                UnifiedAnswerResponse, UnifiedRetrievalResponse)
 from src.answering.contextual import prepare, requirements, compose, document_result
+from src.answering.scope import resolve_document_scopes
 from src.api.admission import admit, release
 from src.retrieval import RetrievalError
 
@@ -57,7 +58,8 @@ class ContextCoordinator:
         if self.employee is not None:
             await self.employee.close()
 
-    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None, reserved=False):
+    async def execute(self, text, top_k, hrm_user_id=None, *, answer=False, analysis=None, reserved=False,
+                      on_resolved=None):
         if type(hrm_user_id) is not int or not 0 < hrm_user_id <= 2**53-1:
             raise ApiError('hrm_user_id_required', 422)
         if not self.owner.started:
@@ -74,6 +76,14 @@ class ContextCoordinator:
                 answers = self.owner.answers
                 policy = getattr(self.owner.retrieval, 'policy', None)
                 plan = prepare(text, answers.catalog, answers.lexicon, policy, analysis=analysis)
+                scoped_evidence = None
+                if answer and answers.available:
+                    resolved, scoped_evidence = await resolve_document_scopes(plan.analysis, answers.catalog,
+                                                                              self.owner.retrieval)
+                    if resolved is not plan.analysis:
+                        plan = prepare(text, answers.catalog, answers.lexicon, policy, analysis=resolved)
+                if on_resolved is not None:
+                    on_resolved(plan.analysis)
                 text = plan.question
                 if answer and not answers.available and not plan.direct_fields:
                     raise ApiError('answer_unavailable')
@@ -115,7 +125,9 @@ class ContextCoordinator:
                 direct_only = bool(plan.direct_fields) and plan.card is None and not plan.analysis.document_lookup
                 if not direct_only:
                     if answer and answers.available:
-                        raw = await answers.document_evidence(text, top_k, contextual=True, analysis=plan.analysis)
+                        raw = scoped_evidence
+                        if raw is None:
+                            raw = await answers.document_evidence(text, top_k, contextual=True, analysis=plan.analysis)
                         document = answers.render_documents(text, raw, started,
                             time.perf_counter()-started, contextual=True, analysis=plan.analysis)
                     elif not answer:
@@ -140,6 +152,7 @@ class ContextCoordinator:
                         timings=Timings(retrieval_seconds=elapsed, rerank_seconds=documents.timings.rerank_seconds if documents else 0., total_seconds=elapsed))
                 limitations = list(document.limitations) if document else []
                 limitations.extend(context_limits)
+                limitations.extend(plan.analysis.scope_limits)
                 if plan.clarification:
                     limitations.append(plan.clarification)
                 if plan.unsupported_person:
@@ -171,9 +184,11 @@ class ContextCoordinator:
                     status = 'insufficient_evidence'
                 if not claims and not limitations:
                     limitations.append('Chưa xác định được bằng chứng hoặc tác vụ phù hợp; bạn hãy nêu rõ yêu cầu.')
+                lines = [f'{claim["text"]} [{claim["id"]}]' for claim in claims]
+                if claims and plan.analysis.scope_intro:
+                    lines.insert(0, plan.analysis.scope_intro)
                 return UnifiedAnswerResponse(status=status,
-                    answer='\n\n'.join([f'{claim["text"]} [{claim["id"]}]' for claim in claims]
-                        if claims else list(dict.fromkeys(limitations))),
+                    answer='\n\n'.join(lines if claims else list(dict.fromkeys(limitations))),
                     claims=claims, sources=[source for source in document.sources if source.source_id in {item['source_id'] for item in evidence if item['kind']=='document'}] if document else [], evidence=evidence,
                     application=application, limitations=list(dict.fromkeys(limitations)),
                     fallback_reason=document.fallback_reason if document else None, relevance=relevance,

@@ -6,7 +6,8 @@ from src.api.admission import try_admit, release
 from src.api.contracts import ApiError
 from src.api.answer import drain
 from .contracts import ConversationRequest
-from .context import plan_turn, compact, identity, current_choice, published_options
+from .context import (LEGACY_SCHEMAS, plan_turn, compact, identity, current_choice,
+                      published_options, finalize_scope)
 
 logger = logging.getLogger(__name__)
 NAMESPACE = 'conversation-context-v2'
@@ -25,14 +26,15 @@ class ConversationService:
         self.stopping = False
         self.task = None
         self.identity_stamp = None
-        self.legacy_identity_stamp = None
+        self.legacy_identity_stamps = None
 
     def require_enabled(self):
         self.settings.require_enabled()
 
     async def start(self):
         if self.settings.enabled:
-            await self.store.recover()
+            interrupted = await self.store.recover()
+            logger.info('conversation_recovery interrupted=%s', interrupted)
 
     async def close(self):
         self.stopping = True
@@ -53,16 +55,10 @@ class ConversationService:
 
     async def context(self, request):
         started = time.perf_counter()
-        version = await self.store.version(request.room_id, request.user_id)
         cached = await self.cached('get', self.key(request.room_id, request.user_id))
-        if isinstance(cached, dict) and cached.get('version') == version and isinstance(cached.get('state'), dict):
-            logger.info('conversation_cache state=hit elapsed_ms=%.1f', (time.perf_counter() - started) * 1000)
-            return cached['state']
-        _, state, deltas = await self.store.context(request.room_id, request.user_id)
-        for delta in deltas:
-            state = delta
-        logger.info('conversation_cache state=rebuild snapshots=%d elapsed_ms=%.1f',
-                    len(deltas), (time.perf_counter() - started) * 1000)
+        state, source = await self.store.context(request.room_id, request.user_id, cached)
+        logger.info('conversation_context source=%s elapsed_ms=%.1f', source,
+                    (time.perf_counter() - started) * 1000)
         return state
 
     def catalog_identity(self):
@@ -70,7 +66,8 @@ class ConversationService:
             policy = getattr(getattr(self.owner, 'retrieval', None), 'policy', None)
             catalog, lexicon = self.owner.answers.catalog, self.owner.answers.lexicon
             self.identity_stamp = identity(catalog, lexicon, policy)
-            self.legacy_identity_stamp = identity(catalog, lexicon, policy, schema=7)
+            self.legacy_identity_stamps = {schema: identity(catalog, lexicon, policy, schema=schema)
+                                           for schema in LEGACY_SCHEMAS}
         return self.identity_stamp
 
     def public_result(self, result):
@@ -87,8 +84,12 @@ class ConversationService:
     async def turn(self, room_id, owner_id, message_id):
         return self.public_turn(await self.store.get_turn(room_id, owner_id, message_id))
 
-    async def messages(self, room_id, owner_id, after, limit):
-        page = await self.store.messages(room_id, owner_id, after, limit)
+    async def messages(self, room_id, owner_id, after, limit, *, order='asc', before=None):
+        started = time.perf_counter()
+        page, item_bytes = await self.store.messages(room_id, owner_id, after, limit, order=order, before=before)
+        logger.info('conversation_history order=%s first_page=%s items=%d item_bytes=%d elapsed_ms=%.1f',
+                    order, after in (None, 0) and before is None, len(page['items']), item_bytes,
+                    (time.perf_counter() - started) * 1000)
         return {**page, 'items': [
             {**turn, 'result': self.public_result(turn['result'])} for turn in page['items']]}
 
@@ -144,13 +145,19 @@ class ConversationService:
             if state is None:
                 state = await self.context(request)
             analysis, delta = plan_turn(request.text, state, catalog, lexicon,
-                identity_stamp=stamp, legacy_identity_stamp=self.legacy_identity_stamp,
+                identity_stamp=stamp, legacy_identity_stamps=self.legacy_identity_stamps,
                 policy=policy, selected_task=selected)
+
+            def resolved_plan(resolved):
+                nonlocal analysis, delta
+                if resolved is not analysis:
+                    analysis, delta = resolved, finalize_scope(delta, resolved)
+
             # The shared HTTP boundary already authenticated the service caller.
             stage = 'answer'
             result = await self.owner.context.execute(request.text, request.top_k,
                 request.hrm_user_id,
-                answer=True, analysis=analysis, reserved=True)
+                answer=True, analysis=analysis, reserved=True, on_resolved=resolved_plan)
             value = result.model_dump(mode='json')
             options = published_options(analysis, delta, request.message_id, value)
             if options:

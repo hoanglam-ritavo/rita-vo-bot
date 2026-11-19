@@ -69,8 +69,8 @@ def test_ambiguity_never_silently_selects_a_business_branch(policy, question):
 def test_clarification_is_specific_and_retains_two_days(policy):
     r = policy.resolve('làm sao để đăng ký nghỉ 2 hôm.')
     assert r.state == 'clarify'
-    assert r.message == ('Bạn muốn đăng ký nghỉ phép hay nghỉ không lương trong 2 ngày? '
-                         'Bạn đang dùng Workit hay E-Leave để gửi đơn?')
+    assert r.missing_slots == ('subtype',)
+    assert r.message == 'Bạn muốn đăng ký nghỉ phép hay nghỉ không lương trong 2 ngày?'
     r = policy.resolve('Xin nghỉ phép 2 ngày')
     assert r.state == 'task' and r.task_id == 'task.leave.policy.annual'
     r = policy.resolve('Thao tác trên phần mềm để xin nghỉ phép 2 ngày')
@@ -238,7 +238,7 @@ def test_http_answer_clarifies_without_reading_personnel_or_document_evidence(po
     assert response.status_code==200
     body=response.json()
     assert body['status']=='needs_clarification' and body['fallback_reason']=='leave_needs_clarification'
-    assert '2 ngày' in body['answer'] and 'Workit hay E-Leave' in body['answer']
+    assert body['answer'] == 'Bạn muốn đăng ký nghỉ phép hay nghỉ không lương trong 2 ngày?'
     assert body['claims']==body['sources']==[]
     retrieval.retrieve.assert_not_awaited();retrieval.read_evidence.assert_not_awaited()
     employee.find_by_user_id.assert_not_awaited()

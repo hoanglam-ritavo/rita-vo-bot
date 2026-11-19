@@ -1,7 +1,7 @@
 """Select disposable pytest targets without loading runtime configuration."""
 import os
 
-from dotenv import dotenv_values
+from dotenv.main import DotEnv
 import pytest
 
 from src.database.config import ConfigurationError, ROOT, validate_url
@@ -17,13 +17,27 @@ def _direct_url(value, name):
         url = validate_url(value, name)
     except ConfigurationError as exc:
         pytest.fail(str(exc), pytrace=False)
-    if ROUTING_OPTIONS.intersection(key.casefold() for key in url.query):
+    if ',' in url.host or ROUTING_OPTIONS.intersection(key.casefold() for key in url.query):
         pytest.fail(f'{name} must specify its PostgreSQL target directly in the URL.', pytrace=False)
     return url
 
 
 def _target(url):
     return url.host.casefold(), url.port or 5432, url.database
+
+
+def _runtime_file_values():
+    # Resolve interpolation the same way as HTTP and standalone DB commands.
+    try:
+        with (ROOT / '.env').open(encoding='utf-8') as stream:
+            http_values = DotEnv(None, stream=stream, override=True).dict()
+            stream.seek(0)
+            cli_values = DotEnv(None, stream=stream, override=False).dict()
+    except FileNotFoundError:
+        return ()
+    except (OSError, UnicodeError):
+        pytest.fail('Cannot inspect runtime .env for PostgreSQL target conflicts.', pytrace=False)
+    return http_values, cli_values
 
 
 def require_disposable_database(name):
@@ -33,16 +47,9 @@ def require_disposable_database(name):
     url = _direct_url(value, name)
     target = _target(url)
 
-    # Compare both sources: HTTP and standalone database commands have different precedence.
-    try:
-        with (ROOT / '.env').open(encoding='utf-8') as stream:
-            runtime_file = dotenv_values(stream=stream)
-    except FileNotFoundError:
-        runtime_file = {}
-    except (OSError, UnicodeError):
-        pytest.fail('Cannot inspect runtime .env for PostgreSQL target conflicts.', pytrace=False)
-
-    for source, keys in ((os.environ, (*RUNTIME_URLS, *TEST_URLS)), (runtime_file, RUNTIME_URLS)):
+    sources = [(os.environ, (*RUNTIME_URLS, *TEST_URLS))]
+    sources.extend((values, RUNTIME_URLS) for values in _runtime_file_values())
+    for source, keys in sources:
         for other_name in keys:
             other = source.get(other_name)
             if other_name != name and other and _target(_direct_url(other, other_name)) == target:

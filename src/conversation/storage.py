@@ -3,6 +3,7 @@ import hashlib
 import json
 from contextlib import asynccontextmanager
 from sqlalchemy import select, text, update, delete
+from sqlalchemy.orm import defer
 from src.database import session_scope
 from src.database.models.conversation import Conversation, ChatTurn, ChatMessage
 from src.api.contracts import ApiError
@@ -54,8 +55,9 @@ async def latest_context(db, current):
 class ConversationStore:
     async def recover(self):
         async with conversation_scope() as db:
-            await db.execute(update(ChatTurn).where(ChatTurn.state == 'PROCESSING').values(
+            result = await db.execute(update(ChatTurn).where(ChatTurn.state == 'PROCESSING').values(
                 state='INTERRUPTED', error_code='process_interrupted'))
+            return result.rowcount
 
     async def begin(self, request, *, retry=False, choice_is_current=None):
         payload = request.stored_payload()
@@ -102,11 +104,14 @@ class ConversationStore:
             await db.flush()
             return response(turn), True
 
-    async def context(self, room_id, owner_id):
+    async def context(self, room_id, owner_id, cached=None):
         async with conversation_scope() as db:
             current = await room(db, room_id, owner_id)
+            if (isinstance(cached, dict) and cached.get('version') == current.version
+                    and isinstance(cached.get('state'), dict)):
+                return cached['state'], 'hit'
             state = await latest_context(db, current)
-            return current.version, current.checkpoint, [state] if state is not None else []
+            return (state, 'snapshot') if state is not None else (current.checkpoint, 'checkpoint')
 
     async def version(self, room_id, owner_id):
         async with conversation_scope() as db:
@@ -143,21 +148,30 @@ class ConversationStore:
                 raise ApiError('turn_unavailable', 404)
             return turn.payload if payload else response(turn)
 
-    async def messages(self, room_id, owner_id, after=0, limit=20):
+    async def messages(self, room_id, owner_id, after=None, limit=20, *, order='asc', before=None):
         async with conversation_scope() as db:
             current = await room(db, room_id, owner_id, create=True)
-            rows = list(await db.scalars(select(ChatTurn).where(ChatTurn.room_id == room_id,
-                ChatTurn.sequence > after).order_by(ChatTurn.sequence).limit(limit + 1)))
+            query = select(ChatTurn).options(defer(ChatTurn.context_delta)).where(ChatTurn.room_id == room_id)
+            if order == 'desc':
+                if before is not None:
+                    query = query.where(ChatTurn.sequence < before)
+                query = query.order_by(ChatTurn.sequence.desc())
+            else:
+                query = query.where(ChatTurn.sequence > (after or 0)).order_by(ChatTurn.sequence)
+            rows = list(await db.scalars(query.limit(limit + 1)))
             items, used = [], 0
             for turn in rows[:limit]:
                 item = response(turn).model_dump() | {'text': turn.payload['text']}
                 size = len(json.dumps(item, ensure_ascii=False).encode())
                 if used + size > 1_900_000:
+                    if not items:
+                        raise ApiError('conversation_history_item_too_large')
                     break
                 items.append(item)
                 used += size
-            return {'items': items, 'next_cursor': items[-1]['sequence'] if items and len(items) < len(rows) else None,
+            page = {'items': items, 'next_cursor': items[-1]['sequence'] if items and len(items) < len(rows) else None,
                     'context_version': current.version}
+            return page, used
 
     async def purge(self, room_id, owner_id):
         async with conversation_scope() as db:

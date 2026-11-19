@@ -65,13 +65,15 @@ replaced catalog. Numbered and textual replies remain supported. Text-only reque
 | `POST /api/v1/answer` | Complete conversation request above, or stateless body with required hrm_user_id |
 | `GET /api/v1/conversations/{room_id}/turns/{message_id}` | `user_id` query; inspect without inference |
 | `POST /api/v1/conversations/{room_id}/turns/{message_id}/retry` | `{user_id, hrm_user_id}`; explicit retry |
-| `GET /api/v1/conversations/{room_id}/messages` | `user_id`, `after` sequence (default 0), `limit` (20, max 50) |
+| `GET /api/v1/conversations/{room_id}/messages` | `user_id`, `limit` (20, max 50), `order=asc` (default) with exclusive `after` (default 0), or `order=desc` with exclusive `before` (omit for newest). |
 | `POST /api/v1/conversations/{room_id}/purge` | `{user_id}`; idempotent permanent purge |
 
 Message pages are turn records with the original `text`, stored result and turn
 state, plus `next_cursor` and `context_version`. They do not regenerate answers.
-Page serialization is bounded below 2 MiB; use the returned cursor. Empty rooms
-are materialized on the bot only after an authorized history/answer request.
+Page serialization is bounded below 2 MiB. Follow the returned cursor in the
+same direction even when the page is shorter than `limit`. The latest page and
+its context version are read under the same room lock. Empty rooms are
+materialized on the bot only after an authorized history/answer request.
 
 ## Processing and recovery
 
@@ -102,14 +104,21 @@ room. Aspect follow-ups replace the requested aspects unless the user asks to
 add them. Platform, leave type and duration use the routing registry. An explicit
 correction replaces its value and rechecks the route. Changing between days and
 sessions clears the other unit. Competing values prompt for a choice without
-applying the update. Task selection is limited to the options offered by a task
-clarification. A routing-slot prompt still requires the requested slot.
+applying the update. The bot checks requested aspects before offering document
+or platform choices, then reads the declared references for up to five candidate
+scopes in one eligible snapshot. One viable scope gets a labeled answer with the
+remaining limitations. Zero viable scopes get an evidence limitation. With
+several, the prompt lists the viable scopes and marks partial coverage.
+A routing-slot prompt still requires the requested input. Leave requests resolve
+the subtype before asking which platform the user uses.
 
 An unlabelled `YYYY-MM-DD` or `DD/MM/YYYY` date is accepted when exactly one
 date slot is pending. Only the leave dates slot accepts a date range. Other
 contextual values use labels, and relative dates require clarification. Inputs
 remain user assertions and stay with their task. Changing the route clears a
 previous source choice, and changing tasks discards task-bound inputs.
+A user can name a related scope to switch while keeping the requested aspects.
+Numbered selections apply only to the active task prompt.
 
 Unrecognized replies and acknowledgements preserve the active request.
 Cancellation and recognized topic changes end it. A numbered reference to a
@@ -124,25 +133,34 @@ reads, evidence selection and rendering.
 Completed turns carry a context delta snapshot. Every eighth completion saves a
 checkpoint. A cache miss reads the newest completed snapshot after the
 checkpoint or uses the checkpoint if there is none. Failed turns do not advance
-context. Reducer schema 8 stores bounded task, prompt and displayed document
-claim references alongside user slot provenance. It reads compatible schema 7
-state. After a catalog change, active tasks can be reused when their bindings
+context. Reducer schema 9 stores bounded task, related scope, prompt and displayed
+document claim references alongside user slot provenance. It reads compatible
+schema 7/8 state and expires the numbering of their old task prompts. After a catalog change, active tasks can be reused when their bindings
 still match. Numbered choices from an old prompt must be confirmed against a
 fresh prompt. Completed messages and answers remain readable through the
 schema 2 API, with no table migration.
 
 The app-owned memory helper uses namespace `conversation-context-v2`, owner/room
-keys, its existing 300-second TTL and a 48 KiB context payload budget. A small DB
-version read validates every cache hit. Stale/missing entries rebuild; cache
+keys, its existing 300-second TTL and a 48 KiB context payload budget. One DB
+transaction checks room ownership and version and uses the matching cache entry
+or reads the latest snapshot/checkpoint. Stale/missing entries rebuild; cache
 failures do not undo a committed answer. Current document eligibility/revisions
 and requested HRM fields are read again for new answers. Historical citations
 and user assertions do not authorize present business conclusions.
+
+Structured logs record history direction, first-page status, item count,
+item bytes and read latency. Context logs report cache/snapshot/checkpoint
+source, read latency, rejected snapshot reasons and the startup count of
+interrupted turns.
 
 When a chosen task has no section for the requested aspect, the reply confirms
 the topic and returns `answer_section_unavailable`. A declared reference that
 cannot support any claim returns `answer_reference_unavailable`. A request for
 maternity-benefit paperwork stays in the maternity-policy task. Its catalog
-currently supplies an overview, so it cannot list the paperwork.
+currently supplies an overview, so it cannot list the paperwork. Ambiguous
+childbirth paperwork can receive the supported company-benefit answer with an
+explicit limit on maternity-insurance paperwork. The release preserves schema 2
+and the existing optional clarification fields.
 
 ## Deletion and verification
 
@@ -156,8 +174,10 @@ closed room or automatic age-based retention in this version.
 Unit/HTTP tests use fictional sources. The optional PostgreSQL fixture takes its
 target from `TEST_CONVERSATION_DATABASE_URL` in the pytest process environment.
 It checks [database isolation](../README.md#testing), creates a UUID-named schema,
-applies the chat migration and drops its schema in cleanup. The suite skips
-without a test URL.
+applies the chat migration and drops its schema in cleanup. The process restart
+test starts fresh conversation services against that schema to check snapshot
+and checkpoint restoration, a killed inference and explicit retry. Fixture
+inference uses fictional data. The suite skips without a test URL.
 
 ```powershell
 python -m pytest src/tests/test_conversation.py -q

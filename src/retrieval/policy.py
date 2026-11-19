@@ -185,6 +185,7 @@ class Resolution:
     message: str = ''
     candidates: tuple[str, ...] = ()
     missing_slots: tuple[str, ...] = ()
+    requires_restatement: bool = False
 
 
 def rule_matches(text, rules, concepts):
@@ -419,13 +420,13 @@ class RetrievalPolicy:
         if unsafe or len(routes) != 1:
             return Resolution('clarify', message='Bạn muốn hỏi riêng nội dung hoặc nguồn nào? '
                               'Vui lòng nêu rõ đối tượng, thao tác và nguồn cần dùng.',
-                              candidates=tuple(sorted(routes)))
+                              candidates=tuple(sorted(routes)), requires_restatement=unsafe)
         route = next(iter(routes.values()))
         query = self.apply_slots(original, slots)
         if route.family == 'leave' and (len({hit[2] for hit in rule_matches(text, self.catalog.subtypes, self.concepts)}) > 1
                                         or duration(text)[3]):
             return Resolution('clarify', message='Bạn hãy nêu riêng loại nghỉ và khoảng thời gian cần hỏi.',
-                              candidates=(route.task_id,))
+                              candidates=(route.task_id,), requires_restatement=True)
         missing = tuple(slot for slot in route.required_slots if getattr(query, slot) is None)
         if missing:
             return Resolution('clarify', message=route.prompt, candidates=(route.task_id,), missing_slots=missing)
@@ -446,11 +447,7 @@ class RetrievalPolicy:
             f' trong {query.sessions:g} buổi' if query.sessions is not None else '')
         if query.subtype is None:
             message = 'Bạn muốn đăng ký nghỉ phép hay nghỉ không lương'+duration_text+'?'
-            if query.system is None and query.operation != 'policy':
-                message += ' Bạn đang dùng Workit hay E-Leave để gửi đơn?'
-            return Resolution('clarify', message=message,
-                              missing_slots=('subtype', 'system') if query.system is None and query.operation != 'policy'
-                              else ('subtype',))
+            return Resolution('clarify', message=message, missing_slots=('subtype',))
         if query.system is None and query.operation != 'policy':
             return Resolution('clarify', message='Bạn đang dùng Workit hay E-Leave để đăng ký nghỉ'+duration_text+'?',
                               missing_slots=('system',))

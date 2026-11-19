@@ -28,6 +28,12 @@ class RequestAnalysis:
     personal_request: bool = False
     choice_options: tuple[tuple[str, str], ...] = ()
     focus_unit: str | None = None
+    check_scopes: bool = False
+    refresh_choices: bool = False
+    leave_platforms: tuple[tuple[str, str | None], ...] = ()
+    scope_intro: str | None = None
+    scope_limits: tuple[str, ...] = ()
+    scope_system: str | None = None
 
 
 def choice_labels(cards):
@@ -91,6 +97,8 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         if request.get('slots') and resolution is not None:
             cards = [card for card in catalog.cards if card.id == resolution.task_id or card.id in resolution.candidates]
             ambiguous = resolution.state == 'clarify'
+    restatement_message = resolution.message if resolution and resolution.requires_restatement else None
+    needs_restatement = bool(restatement_message)
     if request.get('selected_task') and catalog is not None:
         cards = [card for card in catalog.cards if card.id == request['selected_task']]
         ambiguous = not bool(cards)
@@ -208,8 +216,22 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         resolution = None
     unresolved = (bool(fields or cards or lookup) and unknown or
                   bool(fields) and (negated or ambiguous or policy_request and not cards and not lookup))
+    operation = re.search(
+        r'\b(?:so sanh|tinh chinh xac|tinh tong|cong tong|tong cong|'
+        r'tong (?:muc|tien|so|chi phi|cac|khoan|ho tro|phu cap|tro cap)|'
+        r'bao nhieu (?:muc|loai)|co may loai)\b', query)
+    selected_context = getattr(cards[0], 'context', None) if len(cards) == 1 and not ambiguous else None
+    supported_calculation = ((fields and all(field.endswith('_date') for field in fields))
+                             or getattr(selected_context, 'mode', None) == 'calculation')
     if other:
         fields = []
+    elif not lookup and operation and (operation[0] != 'tinh chinh xac' or not supported_calculation):
+        clarification = 'Mình chưa hỗ trợ so sánh, cộng tổng hoặc tính chính xác cho yêu cầu này. Bạn có thể hỏi riêng từng quy định hoặc phần cần tra cứu.'
+        needs_restatement = True
+    elif restatement_message and ambiguous:
+        clarification = restatement_message
+    elif needs_restatement and request.get('selected_task'):
+        clarification = 'Bạn hãy nêu lại phần muốn xem theo quy định chung, hoặc chỉ rõ trường hợp cần hỏi.'
     elif unclear or unresolved:
         clarification = 'Bạn hãy nêu rõ từng thông tin cần hỏi và đối tượng; mình chưa xác định đủ toàn bộ yêu cầu.'
     elif ambiguous:
@@ -230,6 +252,15 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     unsupported = resolution is not None and resolution.state == 'unsupported' and not fields and not cards
     parts = tuple((['documents'] if lookup or cards or unsupported else []) +
                   (['profile'] if fields or unclear or ambiguous_owner else []) + (['unresolved'] if unresolved else []))
+    check_scopes = (ambiguous and len(cards) > 1 and not needs_restatement and not unresolved
+                    and not unclear and not other and not fields
+                    and not (resolution and resolution.missing_slots))
+    leave_platforms = ()
+    if (catalog and policy is not None and resolution is not None
+            and resolution.missing_slots == ('system',) and not (other or fields or unresolved or needs_restatement)):
+        platforms = ('workit', 'eleave')
+        leave_platforms = tuple((system, policy.resolve_leave(
+            question, slots={**request.get('slots', {}), 'system': system}).task_id) for system in platforms)
     leave_query = policy.analyze(question) if catalog and lexicon and policy is not None else None
     slots = request.get('slots', {})
     # A continuation explicitly asking where to submit needs only authored
@@ -244,6 +275,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         missing_slots=tuple(resolution.missing_slots) if resolution is not None else (),
         document_message=resolution.message if unsupported else None,
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
-        parts=parts, personal_request=personal_request, choice_options=options,
+        parts=parts, personal_request=personal_request, choice_options=options, check_scopes=check_scopes,
+        leave_platforms=leave_platforms,
         general_guidance=bool(general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

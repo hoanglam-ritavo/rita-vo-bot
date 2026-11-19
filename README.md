@@ -53,6 +53,37 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Recent-first history and process recovery - 2026-11-19
+
+Bot `b8428f5` plus the conversation changes and concurrent working tree.
+**117 tests passed** across conversation, structured context, contextual
+answers and integration suites. The PostgreSQL 17 fixture used a disposable
+local cluster and checked bidirectional cursors, byte-limited pages, context
+restoration across separate processes and explicit retry after a killed
+worker. The process fixture uses fictional inference. See
+[conversation storage and rollout](docs/conversations.md#deletion-and-verification)
+for authenticated staging checks.
+
+### Evidence-backed clarification scopes - 2026-11-19
+
+Bot `b8428f5` plus the scope and existing working-tree changes passed
+**1,214 tests**, with **1 skipped** and **58 deselected**, in the non-integration
+suite. The separate source-fixture question runner passed **901/901 turns**
+across **867 cases**. A scan of **1,465** catalog-based variants verified that
+the **24** offered options all produced a claim against the package fixture.
+The conversation and retrieval PostgreSQL suites skipped **17 tests** because
+disposable URLs were unavailable. Authenticated Portal verification and live
+database latency remain unmeasured. See [conversation behavior](docs/conversations.md).
+
+### Runtime and pytest environment separation - 2026-11-19
+
+On `b8428f5` with the final target-check changes, `python -m pytest -m 'not integration'`
+passed **1,210 tests**, with **1 skipped** and **57 deselected**. The first sandboxed
+run hit Windows temporary-directory permissions. The passing run used a fresh
+extended-length `.tmp` path outside the sandbox with pytest's cache provider disabled.
+Template and local parser checks passed. PostgreSQL integration and external HTTP
+E2E were not run.
+
 ### Bound HRM clarification choices - 2026-11-19
 
 Bot `33c9a33` plus the clarification working tree. The focused conversation,

@@ -41,7 +41,7 @@ class MemoryStore:
         self.version_number, self.delta, self.turns, self.payloads = 0, {}, {}, {}
 
     async def recover(self):
-        pass
+        return 0
 
     async def begin(self, request, *, retry=False, choice_is_current=None):
         key = request.message_id
@@ -61,8 +61,10 @@ class MemoryStore:
     async def version(self, *args):
         return self.version_number
 
-    async def context(self, *args):
-        return self.version_number, deepcopy(self.delta), []
+    async def context(self, room_id, owner_id, cached=None):
+        if cached and cached['version'] == self.version_number:
+            return cached['state'], 'hit'
+        return deepcopy(self.delta), 'snapshot'
 
     async def finish(self, request, attempt, result, delta):
         self.version_number += 1
@@ -78,10 +80,15 @@ class MemoryStore:
             raise ApiError('turn_unavailable', 404)
         return value
 
-    async def messages(self, room_id, owner_id, after, limit):
-        return {'items': [turn.model_dump() | {'text': self.payloads[turn.message_id]['text']}
-                          for turn in self.turns.values()],
-                'next_cursor': None, 'context_version': self.version_number}
+    async def messages(self, room_id, owner_id, after, limit, *, order, before):
+        turns = sorted(self.turns.values(), key=lambda turn: turn.sequence, reverse=order == 'desc')
+        if order == 'desc':
+            turns = [turn for turn in turns if before is None or turn.sequence < before]
+        else:
+            turns = [turn for turn in turns if turn.sequence > (after or 0)]
+        items = [turn.model_dump() | {'text': self.payloads[turn.message_id]['text']} for turn in turns[:limit]]
+        return {'items': items, 'next_cursor': items[-1]['sequence'] if len(turns) > limit else None,
+                'context_version': self.version_number}, 0
 
     async def fail(self, *args):
         raise AssertionError('Unexpected failure in fictional conversation')
@@ -123,10 +130,10 @@ def test_http_pending_platform_survives_punctuation_and_cache_rebuild(sample, ro
         assert store.delta['request']['slots']['system'] == 'workit'
         assert store.delta['requested_aspects'] == ['procedure']
         assert store.delta['pending'] is None
-        assert owner.retrieval.read_evidence.await_count == 1
+        assert owner.retrieval.read_evidence.await_count == 3
         again = client.post('/api/v1/answer', json=final_body)
         assert again.json()['result'] == final.json()['result']
-        assert owner.retrieval.read_evidence.await_count == 1
+        assert owner.retrieval.read_evidence.await_count == 3
 
 
 def test_general_leave_does_not_require_platform(routing):
@@ -333,7 +340,7 @@ def test_http_leave_chain_cache_recovery_and_replay(sample, routing, monkeypatch
             expected_context_version=store.version_number, text=text, top_k=5)
     with TestClient(create_app(owner.settings, service_factory=lambda _:owner), headers=SERVICE_HEADERS) as client:
         for text, expected in [('tôi muốn xin nghỉ 2 ngày cần làm thủ tục gì','needs_clarification'),
-                ('nghỉ không lương nhé','answered'), ('làm thủ tục xin nghỉ ở đâu.','needs_clarification'),
+                ('nghỉ không lương nhé','answered'), ('làm thủ tục xin nghỉ ở đâu.','partial'),
                 ('hướng dẫn trên Workit','answered'), ('đổi thành 3 ngày','answered')]:
             payload = body(text)
             response = client.post('/api/v1/answer', json=payload)
@@ -417,16 +424,19 @@ def test_new_catalog_ambiguity_requires_restatement_for_an_implicit_task(sample)
     assert plan.clarification_reason == 'context_needs_restatement'
 
 
-def test_v7_prompt_is_read_when_catalog_matches(routing):
+@pytest.mark.parametrize('legacy_schema', [7, 8])
+def test_legacy_prompt_preserves_request_but_expires_numbering(routing, legacy_schema):
     from src.conversation.context import identity
     cat, lex, policy = routing
     _, state = plan_turn('Hồ sơ hưởng chế độ khi sinh con gồm những gì?', {}, cat, lex, policy=policy)
-    previous = {**state, 'schema': 7, 'identity': identity(cat, lex, policy, schema=7)}
-    plan, state = plan_turn('2', previous, cat, lex, policy=policy)
-    assert plan.aspects == ('paperwork',) and state['turn_kind'] == 'selection'
+    previous = {**state, 'schema': legacy_schema, 'identity': identity(cat, lex, policy, schema=legacy_schema)}
+    plan, refreshed = plan_turn('2', previous, cat, lex, policy=policy)
+    assert plan.aspects == ('paperwork',) and plan.refresh_choices
+    assert refreshed['input_task_id'] is None and not plan.choice_options
     plan, refreshed = plan_turn('chế độ thai sản', {**previous, 'identity': 'old'}, cat, lex, policy=policy)
     assert plan.clarification_reason == 'context_needs_restatement'
-    assert refreshed['input_task_id'] is None and len(plan.choice_options) == 2
+    assert refreshed['input_task_id'] is None and not plan.check_scopes
+    _, state = plan_turn('chế độ thai sản', previous, cat, lex, policy=policy)
     plan, updated = plan_turn('Hồ sơ?', state, cat, lex, identity_stamp='unrelated-change', policy=policy)
     assert plan.aspects == ('paperwork',)
     assert updated['task_id'] == 'task.business.maternity-policy.7f1f2cf6'
@@ -435,8 +445,11 @@ def test_v7_prompt_is_read_when_catalog_matches(routing):
 def test_http_published_choice_checks_prompt_before_acceptance(sample, routing, monkeypatch):
     catalog, lexicon, policy = routing
     owner = service(sample)
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+    documents = FixtureRetrieval(policy, fixture_records(REPOSITORY_ROOT))
     owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
     owner.retrieval.policy = policy
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
     owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
     store = MemoryStore()
     monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
@@ -447,8 +460,10 @@ def test_http_published_choice_checks_prompt_before_acceptance(sample, routing, 
                     expected_context_version=store.version_number, text=text, **extra)
 
     with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
-        original = body('Hồ sơ hưởng chế độ khi sinh con gồm những gì?')
+        original = body('chế độ sinh con')
         prompt = client.post('/api/v1/answer', json=original).json()
+        assert owner.retrieval.read_evidence.await_count == 1
+        assert 'trả lời một phần' in prompt['result']['answer']
         assert prompt['result']['clarification_options'][1] == {'id': 2, 'label': 'chế độ thai sản'}
         assert 'clarification_catalog' not in prompt['result']
         svc = client.app.state.conversation_service
@@ -463,17 +478,124 @@ def test_http_published_choice_checks_prompt_before_acceptance(sample, routing, 
         assert client.post('/api/v1/answer', json=choice).status_code == 409
         assert len(store.turns) == 1
         choice['choice']['prompt_message_id'] = original['message_id']
+        documents.fixture = 'withdrawn'
         client.portal.call(lambda: client.app.state.cache_manager.clear(namespace='conversation-context-v2'))
         response = client.post('/api/v1/answer', json=choice)
         assert response.status_code == 200
         row = response.json()['result']
-        assert row['status'] == 'insufficient_evidence' and row['fallback_reason'] == 'answer_section_unavailable'
-        assert 'hồ sơ, giấy tờ' in row['answer'] and 'chế độ thai sản' in row['answer']
+        assert row['status'] == 'insufficient_evidence' and row['fallback_reason'] == 'answer_reference_unavailable'
+        assert 'tổng quan' in row['answer'] and 'chế độ thai sản' in row['answer']
         assert client.post('/api/v1/answer', json=choice).json() == response.json()
         choice['message_id'] = str(uuid4())
         choice['expected_context_version'] = store.version_number
         assert client.post('/api/v1/answer', json=choice).status_code == 409
-    owner.retrieval.read_evidence.assert_not_awaited()
+    assert owner.retrieval.read_evidence.await_count == 2
+
+
+def test_document_lookup_stays_available_when_search_text_mentions_comparison(routing):
+    catalog, lexicon, policy = routing
+    plan, _ = plan_turn('Tìm tài liệu về so sánh các chế độ sinh con', {}, catalog, lexicon, policy=policy)
+    assert plan.document_lookup and not plan.clarification
+    assert not plan.check_scopes
+
+
+def test_scope_precheck_answers_supported_parts_and_keeps_named_switches(sample, routing, monkeypatch):
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+    catalog, lexicon, policy = routing
+    documents = FixtureRetrieval(policy, fixture_records(REPOSITORY_ROOT))
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+    question = 'Hồ sơ hưởng chế độ khi sinh con gồm những gì?'
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        def send(text, *, persistent=False):
+            body = {'text': text, 'hrm_user_id': 7}
+            if persistent:
+                body.update(user_id=actor, room_id=room, message_id=str(uuid4()),
+                            expected_context_version=store.version_number)
+            response = client.post('/api/v1/answer', json=body)
+            assert response.status_code == 200, response.json()
+            return response.json()['result'] if persistent else response.json()
+
+        row = send(question, persistent=True)
+        assert row['status'] == 'partial' and row['claims'] and 'clarification_options' not in row
+        assert row['answer'].startswith('Phạm vi trả lời là Khoản hỗ trợ nhân viên nữ sinh con')
+        assert any('chế độ thai sản' in limit for limit in row['limitations'])
+        assert owner.retrieval.read_evidence.await_count == 1
+        assert store.delta['request']['aspects'] == ['paperwork'] and not store.delta['candidates']
+
+        expired = send('2', persistent=True)
+        assert expired['status'] == 'needs_clarification'
+        assert 'nêu tên phạm vi' in expired['answer'] and 'clarification_options' not in expired
+
+        client.portal.call(lambda: client.app.state.cache_manager.clear(namespace='conversation-context-v2'))
+        row = send('Đổi sang chế độ thai sản', persistent=True)
+        assert row['fallback_reason'] == 'answer_section_unavailable'
+        assert store.delta['request']['question'] == question and store.delta['request']['aspects'] == ['paperwork']
+        assert owner.retrieval.read_evidence.await_count == 1
+
+        row = send('Mức hỗ trợ nằm viện là bao nhiêu?')
+        assert row['status'] == 'partial' and row['claims'] and 'trợ cấp nằm viện' in row['answer']
+        assert owner.retrieval.read_evidence.await_count == 2
+
+        for text in ('Hồ sơ hỗ trợ nằm viện gồm những gì?',
+                     'Hồ sơ hưởng chế độ khi sinh con theo BHXH gồm những gì?'):
+            row = send(text)
+            assert row['fallback_reason'] == 'answer_section_unavailable' and not row['claims']
+        assert owner.retrieval.read_evidence.await_count == 2
+
+        row = send('Làm thủ tục xin nghỉ không lương 2 ngày ở đâu?', persistent=True)
+        assert row['status'] == 'partial' and row['answer'].startswith('Phạm vi trả lời là Workit')
+        assert any('E-Leave' in limit for limit in row['limitations'])
+        assert owner.retrieval.read_evidence.await_count == 3
+        row = send('Đổi sang E-Leave', persistent=True)
+        assert row['fallback_reason'] == 'leave_task_unsupported' and not row['claims']
+        assert store.delta['request']['slots']['system'] == 'eleave'
+        assert store.delta['request']['slots']['days'] == 2
+        row = send('Làm thủ tục xin nghỉ không lương 2 ngày trên E-Leave ở đâu?')
+        assert row['status'] == 'insufficient_evidence' and not row['claims']
+        assert owner.retrieval.read_evidence.await_count == 3
+
+        row = send('Thời gian thử việc tối đa là bao nhiêu ngày?')
+        assert any('ngày' in claim['text'] for claim in row['claims'])
+        assert owner.retrieval.read_evidence.await_count == 4
+        for text in ('So sánh khoản hỗ trợ nhân viên nữ sinh con và chế độ thai sản',
+                     'Tính tổng các khoản hỗ trợ sinh con',
+                     'Tôi đã làm thêm hôm qua, tính chính xác tiền tăng ca cho tôi.'):
+            row = send(text)
+            assert row['status'] == 'needs_clarification' and 'chưa hỗ trợ' in row['answer']
+            assert not row['claims'] and 'clarification_options' not in row
+        assert owner.retrieval.read_evidence.await_count == 4
+
+        maternity = next(card for card in catalog.cards if card.label == 'chế độ thai sản')
+        withdrawn = {ref.document_id for unit in maternity.sections['overview'].units for ref in unit.refs}
+
+        async def without_maternity(references):
+            return await documents.read_evidence([ref for ref in references if ref.document_id not in withdrawn])
+
+        owner.retrieval.read_evidence.side_effect = without_maternity
+        row = send('chế độ sinh con')
+        assert row['status'] == 'partial' and 'clarification_options' not in row
+        assert row['answer'].startswith('Phạm vi trả lời là Khoản hỗ trợ nhân viên nữ sinh con')
+        assert owner.retrieval.read_evidence.await_count == 5
+        assert withdrawn & {ref.document_id for ref in owner.retrieval.read_evidence.await_args.args[0]}
+        assert not withdrawn & {origin['document_id'] for source in row['sources'] for origin in source['origins']}
+
+        documents.fixture = 'withdrawn'
+        row = send('chế độ sinh con')
+        assert row['fallback_reason'] == 'answer_reference_unavailable' and not row['claims']
+        assert owner.retrieval.read_evidence.await_count == 6
+
+        from src.retrieval import RetrievalError
+        owner.retrieval.read_evidence.side_effect = RetrievalError('database_evidence_failed', 2)
+        outage = client.post('/api/v1/answer', json={'text': question, 'hrm_user_id': 7})
+        assert outage.status_code == 503
 
 
 def test_document_limits_stay_separate_from_answer(sample):

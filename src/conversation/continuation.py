@@ -93,7 +93,7 @@ def _recognize(text, policy):
                     remaining[start:end] = ' ' * (end-start)
     allowed = {'tren', 'toi', 'minh', 'dung', 'dang', 'hien', 'tai', 'su', 'la', 'va',
         'loai', 'he', 'thong', 'nghi', 'muon', 'xin', 'chon', 'nhe', 'nha', 'a', 'vay',
-        'thi', 'sao', 'con', 've', 'them', 'doi', 'thanh', 'lai', 'huong', 'dan', 'lam',
+        'thi', 'sao', 'con', 've', 'them', 'doi', 'thanh', 'sang', 'chuyen', 'lai', 'huong', 'dan', 'lam',
         'thu', 'tuc', 'o', 'dau', 'nop', 'gui', 'don', 'can', 'gi', 'tiep', 'the', 'nao',
         'quy', 'trinh', 'cac', 'buoc', 'hoac', 'ho', 'so', 'giay', 'to', 'gom', 'nhung',
         'dieu', 'kien', 'ap', 'cho', 'ai', 'muc', 'tro', 'thuong', 'bao', 'nhieu', 'tien',
@@ -107,7 +107,7 @@ def _recognize(text, policy):
     if not (updates or aspects or conflict):
         return None
     return TurnUpdate(updates, tuple(aspects), submission, conflict, family,
-                      query.startswith('them '), bool(spans(query, 'doi') or spans(query, 'thanh')))
+                      query.startswith('them '), any(spans(query, term) for term in ('doi', 'thanh', 'chuyen sang')))
 
 
 def _dates(value, slot):
