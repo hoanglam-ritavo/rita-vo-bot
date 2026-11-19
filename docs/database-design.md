@@ -142,10 +142,10 @@ Corpus fingerprint **version 2** includes run/revision/configuration plus curren
 status, indexing decision, effective dates, sorted access groups, applicability,
 source path, title and version label. Attempts, audit events, owner and metadata
 timestamps are excluded. Access labels are fetched in one additional batch query,
-not per publication. An applicability/access/provenance change can therefore
-invalidate calibration without creating a new run. Old fingerprints are not
-rewritten or automatically accepted. Recollect/review/calibrate for the target
-corpus; retain `relevance_unavailable` without a matching accepted profile.
+not per publication. An applicability, access or provenance change can therefore
+change the fingerprint without creating a new run. Preserve historical fingerprints
+and pin the current corpus for new evaluations. The retired relevance profile
+does not participate in retrieval.
 
 Exact cosine search, 384-dimensional E5 storage and the global publication lock
 remain deliberate defaults. No ANN index, multi-model storage, partitioning,

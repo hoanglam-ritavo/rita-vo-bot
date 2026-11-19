@@ -18,9 +18,9 @@ neither filenames nor equal source bytes establish policy precedence.
 
 Retrieval schema 2 replaces the closed leave-only enums with declared business
 families, platforms, subtypes, operations, guarded routes and source bindings.
-Source index envelopes remain schema 1; answer and lexical schemas remain 2.
-The loader retains retrieval schema-1 compatibility for isolated older sets; the
-selected artifact is authored as schema 2. No automatic artifact migration,
+Source index envelopes use schema 1. The selected answer catalog uses schema 3
+and the lexical artifact uses schema 2. The retrieval loader retains schema-1
+compatibility for isolated older sets. The selected retrieval artifact uses schema 2. No automatic artifact migration,
 training, learned scoring profile, hosted model or additional env is introduced.
 
 Routes declare aliases/concepts, context guards, optional required platform/type
@@ -155,7 +155,10 @@ python -m src.cli.evaluate_questions --questions-dir .tmp/<private-set> --readon
 
 Use the second command with an authorized SELECT-only Type A test connection.
 The optional `expected_aspects` oracle compares the requested aspects in the
-internal plan. The socket HTTP API has no aspect field. Reports include task IDs,
+internal plan. Deterministic paperwork oracles can also check document-backed
+claim text and required limitations in fixture and eligible readonly cases. See
+the [oracle format](../artifacts/questions/README.md#record-format) and the
+[separate socket HTTP assertions](http-e2e.md#scenario-matrix). Reports include task IDs,
 aspects, cited document IDs, employee field names and per-group counts. They omit
 question text, response bodies and field values. Pass, fail and deferred counts
 remain separate. New phases require public regressions, at least 90% holdout
@@ -166,8 +169,8 @@ offline result separately if target publication checks are still deferred.
 
 ## Historical verification
 
-Final verification on 2026-11-18 passed 1,010 non-integration tests and all 849
-fixture turns. Readonly Type A passed 785 turns, deferred 64 isolated/personnel
+The pre-pilot verification snapshot on 2026-11-18 passed 1,010 non-integration
+tests and all 849 fixture turns. Readonly Type A passed 785 turns, deferred 64 isolated/personnel
 cases and recorded no failures. Forty stratified retrieval tasks had 100% recall
 at 30 and expected-first 24/40 before to 40/40 after ordering; metadata p95 was
 10.81 ms. All 1,346 source references matched, and 22 runtime assets verified.

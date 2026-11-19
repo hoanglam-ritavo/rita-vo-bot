@@ -157,10 +157,11 @@ no A/B/mixed response branch remains. Missing HRM never fabricates facts or bloc
 otherwise grounded policy. Exact date intervals are distinguished from policy
 entitlement. Manager lookup shares the subject's readonly transaction.
 
-Reducer schema 3 stores bounded user assertions and task references, never cached
-employee authority; cache namespace v2 isolates old checkpoints. Portal renders
-one answer/evidence view. See [contextual contract, limits and development chat
-reset](docs/contextual-answers.md). The reset is an explicit CLI, not startup work.
+Reducer schema 7 stores bounded user assertions and task references. Cache
+namespace v2 scopes derived state, and the reducer validates checkpoint schema
+and artifact identity before reuse. Portal renders one answer/evidence view.
+An explicit CLI handles development chat reset. See the
+[contextual contract and reset procedure](docs/contextual-answers.md).
 
 ## Command ownership
 
@@ -179,24 +180,26 @@ Retired with learned scoring/calibration/profile promotion. E5 and raw ONNX rera
 Cross-domain routing and ordering live in `src/retrieval/policy.py`, sharing the
 lexical registry with source-bound answers. Retrieval schema 2 adds declared
 families and per-task/aspect bindings; addressed supplementation shares vector
-search transactions and eligibility. Context schema 2 retains bounded user slots
-and includes all three artifact identities. No SQL migration or personnel-field
+search transactions and eligibility. Reducer schema 7 retains bounded user slots
+and includes the selected artifact identities. No SQL migration or personnel-field
 expansion is involved. See [cross-domain contracts and evaluation](docs/business-topics.md).
 
 `src.artifact_authoring.sources` owns the standard-library-only declared source
 layout, duplicate/path checks and deterministic assembly. The runtime inventory
 checker uses that module to permit exact authoring paths outside the runtime
-asset inventory, without importing retrieval, ML or database libraries. Runtime output metadata uses schema 2; the source index envelope remains schema 1.
+asset inventory, without importing retrieval, ML or database libraries. Source
+index envelopes use schema 1. The selected answer catalog uses schema 3, while
+the lexical and retrieval artifacts use schema 2.
+
 `src.artifact_authoring.workflow` owns explicit offline import/build and invokes
 the existing semantic/catalog validators against the current package snapshot;
 `src.cli.build_artifacts` is its CLI. Importing these modules performs no IO.
 
 Concepts and cards are authored by ID; coverage is authored by document ID.
-Version-1 source indexes retain metadata and ordered references. Assembly uses
-selected schema-2 runtime interfaces, computes the catalog's lexicon byte hash and
-preserves record/field order. Runtime never loads source indexes. Generated
-outputs remain tracked; source changes require build/check and separately
-reviewed provenance/inventory reconciliation, not automatic acceptance.
+Version-1 source indexes retain metadata and ordered references. Assembly computes
+the catalog's lexicon byte hash and preserves record and field order. Runtime never
+loads source indexes. Generated outputs remain tracked. Source changes require
+build/check and separate review of provenance and inventory.
 See [authoring and recovery](docs/runtime-artifacts.md#split-source-authoring).
 
 `artifacts/questions` is a separate authored question/oracle dataset. Its explicit
@@ -284,14 +287,20 @@ Structured scopes, items and values remain supported by package validation, publ
 
 ## Local retrieval HTTP API
 
-`src.api` owns HTTP configuration, typed request/response contracts and application lifecycle. `POST /api/v1/retrieve` reuses `RetrievalService.retrieve()` and returns source matches plus retrieval/total timings. Optional request `top_k` overrides `RETRIEVAL_TOP_K`; strict validation rejects extra fields and invalid types. The former `/api/v1/ask` route is removed without an alias.
+`src.api` owns HTTP configuration, typed request/response contracts and application
+lifecycle. `POST /api/v1/retrieve` requires the shared service key and a trusted
+Backend-derived `hrm_user_id`. It uses `RetrievalService.retrieve()` for unassessed
+source matches, reports retrieval and total timings, and can include bounded HRM
+evidence when configured. Optional `top_k` overrides `RETRIEVAL_TOP_K`. Strict
+validation rejects extra fields and invalid types. The former `/api/v1/ask`
+route has been retired.
 
 HTTP configuration loading in `src/api/config.py` applies repository `.env`
 before process environment, then defaults for absent keys. All loaded keys,
 including downstream database URLs, follow this HTTP startup policy; standalone
 database/CLI loaders are unchanged. No configuration is hot-reloaded. Logs expose
-only the effective source/value of the three allowlisted answer/semantic/filter
-switches and fixed conflict warnings, never arbitrary environment values.
+the effective source and value of `ANSWER_ENABLED` and `SEMANTIC_MODE`, fixed
+conflict warnings, and the names of ignored retired keys.
 
 `AnswerService` owns answer startup state/reason and clears its catalog/lexicon
 on failure or shutdown. `/health/answer` checks retrieval/database readiness and
@@ -307,7 +316,12 @@ Readiness checks model initialization and database availability, not semantic qu
 
 ## Planned operational retrieval and extended answering
 
-Current deterministic policy answering lives in `src.answering`: schema-v2 catalogs have stable task/evidence IDs, scoped aliases/concepts, clarification prompts, aspect sections and exact references. Schema-v2 lexical artifacts remain hash-paired with the catalog; snapshot fingerprints are authoring provenance rather than a global runtime gate. Schema-1 runtime pairs are rejected.
+Current deterministic policy answering lives in `src.answering`. The selected
+schema-3 answer catalog has stable task and evidence IDs, scoped aliases and
+concepts, clarification prompts, aspect sections, exact references and contextual
+requirements. The schema-2 lexical artifact is hash-paired with the catalog.
+Snapshot fingerprints record authoring provenance. Schema-1 runtime pairs are
+rejected.
 
 An unambiguous task reads its declared evidence directly from current eligible DB publications, independently of top-K. Claims require every reference; partial evidence can yield independently supported partial claims. Unknown tasks expose no nearest excerpts. Explicit document lookups can return labeled unassessed excerpts. Multi-task, unsupported personal eligibility, aggregate and ambiguous questions ask for clarification. This changes the old top-K-only evidence policy intentionally.
 
@@ -332,25 +346,31 @@ Source update/reconciliation is owned by `src.artifact_authoring.impact`; determ
 | Phase | Deliverable | Validation focus |
 | --- | --- | --- |
 | 0 — implemented | Database foundation, explicit migrations, package-owned Type A metadata, agent-authored JSON batch ingestion, atomic validated-package publication and loopback HTTP transport | Database behavior; source identity, consistency, history and metadata validation; HTTP health and lifecycle |
-| 1 — partial | Public retrieval function/CLI/HTTP, offline evaluation tools and real-model diagnostics implemented; independent catalog quality acceptance and follow-up handling remain outstanding | Correct evidence, extraction quality, exact table answers, obsolete-document handling, unsupported B requests |
-| 2 — partial, opt-in | Service-authenticated self work-profile evidence; backend owns user authorization | Broader entity resolution, project tools and user rollout remain separate |
-| 3 — planned | Combined A/B questions | Rule-to-person resolution, ordering of dependent calls, conflicting or incomplete evidence |
+| 1 — implemented, acceptance pending | Public-document retrieval, source-bound template answers, offline evaluation and real-model diagnostics | Correct evidence, extraction quality, obsolete-document handling and independent catalog quality acceptance |
+| 2 — limited, opt-in | Service-authenticated work-profile evidence for the authenticated employee and bounded manager summaries. Backend owns user authorization | Readonly source contracts, field selection, unavailable data and user rollout |
+| 3 — limited, opt-in | Supported policy and HRM evidence in one answer, with independently opt-in durable structured follow-ups | Context recovery, fresh source reads, conflicting or incomplete evidence and consumer compatibility |
 
-Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous requests, and unanswerable questions. Measure retrieval quality and answer grounding separately, alongside latency and resource use. Phase 1 must not claim live personnel/project knowledge before Phase 2 exists.
+Broader employee lookup, project tools, personal entitlement decisions and
+general-purpose rule-to-person automation remain outside the implemented scope.
+
+Use representative Vietnamese questions, paraphrases, follow-ups, ambiguous
+requests and unanswerable questions. Measure retrieval quality and answer grounding
+separately, alongside latency and resource use. Live employee facts require the
+configured readonly source and authorized identity.
 
 FastAPI, local E5/ONNX runtimes and source-bound templates are implemented; their existence does not establish production acceptance. Authenticated conversation integration is opt-in; production sizing and live rollout acceptance remain outstanding. The current 17-table schema (14 source/evidence tables plus three chat tables) and 384-dimensional embeddings establish storage only. Fine-tuning should follow a measured need rather than be an initial prerequisite.
 
 ## Verification boundaries
 
-See [current verification](README.md#current-verification-status) for the latest checked working tree and test limits. The public filtered evaluator has a [known reporting gap](docs/retrieval-evaluation.md#known-evaluator-reporting-gap); its legacy candidate fields do not establish candidate recall.
+See [current verification](README.md#current-verification-status) for the latest checked working tree and test limits. The retrieval evaluator has a [known reporting gap](docs/retrieval-evaluation.md#known-evaluator-reporting-gap); its legacy candidate fields do not establish candidate recall.
 
 Answer HTTP lifecycle regressions drive the actual ASGI route with fictional
 retrieval workers and explicit disconnect events. They check timeout/disconnect
 draining, watcher cleanup, shared busy ownership and lifespan shutdown, plus
 catalog-failure isolation from retrieval/health. This complements service-level
 repeated-cancellation tests; it does not establish proxy/network behavior or
-real-model cancellation latency. CLI coverage retains filtering even when the
-HTTP-only environment setting disables it.
+real-model cancellation latency. HTTP and CLI regressions cover unassessed
+candidates with retired relevance-filter settings ignored.
 
 The [2026-11-13 offline corpus preparation](docs/chunk-coverage-verification.md) adds source-authored policy and software-procedure evidence without changing runtime composition. Its in-memory CPU diagnostic includes held packages and is deliberately separate from eligible-publication retrieval and passage-relevance calibration. It does not establish live API quality or current personnel facts.
 

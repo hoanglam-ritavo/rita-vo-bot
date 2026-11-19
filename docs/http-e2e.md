@@ -15,8 +15,8 @@ load and failure-injection testing are outside this scope. Exposed implementatio
 regressions are not independent business acceptance.
 
 The domain package is `src/evaluation/http_e2e/`; the entrypoint is
-`src/cli/evaluate_http_e2e.py`. Question text and existing fixture oracles remain
-unchanged. This client is separate from the
+`src/cli/evaluate_http_e2e.py`. The harness reads the current question bank and
+uses endpoint-specific assertions. This client is separate from the
 [existing evaluators](business-topics.md#authoring-evaluation-and-release).
 
 ## Scenario matrix
@@ -42,8 +42,10 @@ confirmed absent in the snapshot. Missing suitable roles are blocked.
 | Calculation | Explicit work-date arithmetic checked independently for input field, days/months, value/unit/date and policy-rule provenance when declared |
 
 There is no public selected-task ID; the harness checks task evidence instead of
-introducing a debug API. Prose, raw rank scores and timing values are not golden
-snapshots. Existing broad fixture status tolerances are retained, not promoted
+introducing a debug API. Exact template claim texts and required limitations
+are checked by the local question evaluator where authored. The socket harness
+checks claims and citations using the endpoint rules above and does not compare
+response prose, raw rank scores or timing values as snapshots. Existing broad fixture status tolerances are retained, not promoted
 into an independent semantic gold standard. Unsupported/ambiguous retrieval can
 return unassessed candidates under its separate contract; it is not an answer.
 

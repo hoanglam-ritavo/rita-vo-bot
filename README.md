@@ -53,6 +53,24 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Documentation and paperwork oracle reconciliation - 2026-11-19
+
+On `b58cae9` plus this working tree, the current guides reflect unassessed
+retrieval, the selected artifact and conversation schemas, and the three
+integration fixtures. The five source-backed paperwork turns now check
+document-linked claim text and required source limitations. The regression
+rejects missing limitations and substituted or additional unsupported claims.
+
+The non-integration suite passed **1,178 tests**, with **1 skipped**,
+**57 deselected** and the existing Starlette/AnyIO deprecation warning.
+The source-fixture evaluator passed **857/857 turns across 839 cases**.
+`build_artifacts check`, `check_answer_catalog` and `verify_runtime_assets`
+passed with **22 runtime files** verified.
+
+This run used local fixtures. Live PostgreSQL and HRM integration, the
+`--readonly` evaluator, socket HTTP E2E, independent holdout and deployment
+were outside the verification scope.
+
 ### Template coverage pilot - 2026-11-19
 
 On `1bfbe6b` plus this working tree, the coverage inventory maps 279 tasks and
@@ -1492,7 +1510,7 @@ No integration DB tests, migrations, publication, asset migration, model trainin
 
 ### Earlier verification snapshots
 
-The separately authorized clear-content publication on 2026-11-13 added **200 vectors from fifteen formerly held packages**. PostgreSQL read-back verified **28 current active publications / 524 active chunks** and preservation of all pre-existing bot-table rows. All fifteen repeated publications skipped as `identical_active_run`. Real local E5 preflight passed for the selected 200 chunks; focused package/publication/preflight suites passed **106 tests, 1 deselected**. No relevance profile or API restart was performed; public retrieval can still return `relevance_unavailable`. See [publication evidence, exclusions and limits](docs/chunk-coverage-verification.md#clear-content-publication-follow-up--2026-11-13). The documentation/test reconciliation below is separate verification with its own limits.
+The separately authorized clear-content publication on 2026-11-13 added **200 vectors from fifteen formerly held packages**. PostgreSQL read-back verified **28 current active publications / 524 active chunks** and preservation of all pre-existing bot-table rows. All fifteen repeated publications skipped as `identical_active_run`. Real local E5 preflight passed for the selected 200 chunks; focused package/publication/preflight suites passed **106 tests, 1 deselected**. No relevance profile or API restart was performed; the retrieval contract at that snapshot could still return `relevance_unavailable`. See [publication evidence, exclusions and limits](docs/chunk-coverage-verification.md#clear-content-publication-follow-up--2026-11-13). The documentation/test reconciliation below is separate verification with its own limits.
 
 Documentation/test reconciliation of the 2026-11-13 working tree based on `e656991`, including existing uncommitted runtime, intent, answer-evaluation and corpus changes. Those results superseded earlier test counts at that time; the command documentation/refactor entry above now provides the latest suite results. Historical verification entries remain snapshots of their own tasks.
 
@@ -1795,19 +1813,29 @@ Explicit `PYTEST_DEBUG_TEMPROOT` or `--basetemp` overrides are respected. Keep o
 
 On Windows, if temporary-directory permissions or long paths prevent pytest from running, use a fresh, writable directory under `.tmp/`. For example, run `New-Item -ItemType Directory -Force .tmp` and select an unused path such as `--basetemp '\\?\D:\sources\rita-id\rita-vo-bot\.tmp\pytest-work-retry-1'`, adjusted for your checkout. Extended-length paths can address long paths but do not bypass permissions. Errors are reported without silently choosing another temporary root. Do not create new `pytest-cache-*` directories at the repository root. Remove obsolete temporary directories only after checking their contents and confirming no test session is using them; leave inaccessible directories for explicit permission troubleshooting.
 
-For integration tests, configure `TEST_DATABASE_URL` to a dedicated disposable PostgreSQL database with pgvector installed on its server, then run:
+Integration groups use separate disposable PostgreSQL fixtures.
+
+| Group | Required configuration | Database effects |
+| --- | --- | --- |
+| Corpus, retrieval and publication | `TEST_DATABASE_URL` identifies a dedicated test database on a server with pgvector available. | Provisions the extension, applies migrations and writes or cleans up synthetic data. |
+| Conversations | `TEST_CONVERSATION_DATABASE_URL` identifies a separate disposable database with schema creation privileges. | Applies the chat migration and exercises turns in a test-owned schema, then drops that schema. |
+| Readonly HRM | `TEST_HRM_DATABASE_URL` identifies a preprovisioned disposable fixture. Set `TEST_HRM_DISPOSABLE_CONFIRMED=true` and optionally `TEST_HRM_DATABASE_SCHEMA` (default `public`). | Reads synthetic employee data and checks readonly behavior. The harness performs no fixture DDL, seeding or cleanup writes. |
+
+See [conversation verification](docs/conversations.md#deletion-and-verification)
+and [HRM verification](docs/employee-source.md#verification-and-disposable-fixture)
+for the dedicated prerequisites. With the relevant groups configured, run:
 
 ```powershell
 python -m pytest -m integration
 ```
 
-Integration tests modify the selected database. The fixture validates `TEST_DATABASE_URL` and rejects a match with the configured application or migration host/port/database before running migrations; it cannot detect different hostname aliases for the same server. It upgrades to head twice to check idempotence. Publication/migration tests then require all application tables to be empty; that check occurs **after** the migration, not before it.
+Corpus integration tests modify the selected database. Their shared fixture validates `TEST_DATABASE_URL` and rejects a match with the configured application or migration host/port/database before running migrations; it cannot detect different hostname aliases for the same server. It upgrades to head twice to check idempotence. Publication/migration tests then require all application tables to be empty; that check occurs **after** the migration, not before it.
 
 Tests write synthetic documents, revisions, access rules, relations, ingestion runs and vector chunks into application tables and delete application-table rows during fixture cleanup. Migration preservation tests downgrade only the additive guards to `bce4184a7f51` and verify unchanged rows after re-upgrade. A separate empty-schema test traverses the destructive baseline only on the disposable database, preserving an unrelated synthetic table and the vector extension. Other tests create/drop randomly named tables or use temporary vector tables. Normal completion leaves application schemas, `alembic_version` and the vector extension in the disposable database. Never use production, the application database or a database containing data you need to keep.
 
 Publication integration tests use synthetic embeddings and a synthetic local model directory to exercise PostgreSQL behavior, including rollback after metadata writes and at chunk insertion. They do not validate a real embedding model or tokenizer.
 
-The fixture provisions `vector` before the baseline; a fresh test database therefore also exercises the extension prerequisite. Reruns retain the existing extension. Missing `TEST_DATABASE_URL` causes integration tests to be skipped; a skipped run does not verify real PostgreSQL connectivity. Do not substitute SQLite for these checks.
+The fixture provisions `vector` before the baseline; a fresh test database therefore also exercises the extension prerequisite. Reruns retain the existing extension. A group skips when its test URL is absent. A skipped group provides no database verification. Use PostgreSQL for all three groups.
 
 Historical source-utility compatibility tests are separate from v2 ingestion. The standalone PowerShell test is not collected by pytest and uses only synthetic temporary sources:
 

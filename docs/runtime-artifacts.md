@@ -47,9 +47,11 @@ eligibility does not stage files, commit them or push a release.
 ## Split source authoring
 
 Author concepts in `artifacts/semantics/source/` and tasks/evidence/coverage in
-`artifacts/answers/source/`; optional cross-domain ordering metadata lives under `artifacts/retrieval/source/`. The builder supports two or three groups. The source index envelope is schema 1; selected runtime metadata
-is schema 2. Declared small JSON inputs assemble deterministically into the selected
-lexicon/catalog; the catalog binds the generated lexical SHA-256.
+`artifacts/answers/source/`. Optional cross-domain ordering metadata lives under
+`artifacts/retrieval/source/`. The builder supports two or three groups. Source
+index envelopes use schema 1. The selected answer catalog uses schema 3, while
+the lexical and retrieval artifacts use schema 2. The builder assembles declared
+JSON inputs deterministically and binds the generated lexical SHA-256.
 
 ```powershell
 python -m src.cli.build_artifacts impact

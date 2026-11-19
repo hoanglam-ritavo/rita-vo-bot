@@ -63,6 +63,15 @@ set against the planned aspects for that turn. Private review sets use the same
 indexed layout under `.tmp` and run via `--questions-dir`. See the
 [holdout procedure](../../docs/business-topics.md#template-coverage-and-holdout).
 
+For deterministic template content, optional `expected_policy_claim_texts`
+checks the exact texts of claims linked to document evidence, including
+multiplicity. Optional `required_limitations` lists complete limitation entries
+that must appear. Both fields use nonempty lists, normalize whitespace and ignore
+list order. Additional limitation entries are allowed. Author only the relevant
+claim and limitation text. The report records assertion codes without response
+text. These checks apply to fixture mode and evaluated `--readonly` turns. The
+[socket HTTP harness](../../docs/http-e2e.md#scenario-matrix) uses its own assertions.
+
 Support classifications:
 
 - `implemented`: the current contract describes this clarification or protective
@@ -106,9 +115,11 @@ The tags used by a case are literal strings; no runtime matcher is implied.
   partial declarations, conditions, exceptions and unresolved applicability.
 - Do not infer present employee facts from a document, user assertion, historical
   turn or previously cached answer. Never decide individual entitlement.
-- Do not add private conversations, personnel values, source quotations,
-  credentials, wire identities, transport assertions or expected response bodies.
-  The example.invalid email and named employees in questions are fictional.
+- Keep private conversations, personnel values, credentials and wire identities
+  out of the bank. Use the dedicated oracle fields for reviewed deterministic
+  claim and limitation text. Raw citation excerpts, full response snapshots and
+  transport assertions belong outside question cases. The example.invalid email
+  and named employees in questions are fictional.
 - Keep future retry, timeout, duplicate-message and infrastructure execution
   scenarios in the separate test-integration plan.
 
@@ -137,11 +148,12 @@ mode grants quality acceptance. The original snapshot below is historical.
 
 ## Current executable coverage
 
-The current set contains **832 cases / 849 turns in 21 groups** and 21 oracle
+The current set contains **839 cases / 857 turns in 21 groups** and 21 oracle
 files. Original 416 cases and their prose/IDs are preserved. Additional direct
 wiring and aspect cases cover 279 tasks; source-label alternatives use explicit
-source IDs where needed. These additions are wiring regressions, not independent
-paraphrase coverage or a claim that all possible business questions are supported.
+source IDs where needed. The paperwork pilot exercises template claims and source
+limitations for Workit and E-Leave. These are authored regressions. Independent
+paraphrase coverage and business acceptance require separate evaluation.
 The original input snapshot remains historical; evaluator hashes identify actual
 selected catalog and question/oracle bytes.
 

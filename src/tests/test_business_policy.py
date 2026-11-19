@@ -198,6 +198,37 @@ def test_private_question_set_checks_aspects_and_rejects_directory_escape(tmp_pa
         load_dataset(tmp_path, questions_dir=folder)
 
 
+def test_paperwork_oracle_checks_grounded_claims_and_retains_limitations():
+    form_fields = 'The request form asks for dates and a reason.'
+    upload_option = 'The form provides an upload option.'
+    source_limit = 'The guide does not establish which supporting documents are mandatory.'
+    unsupported_claim = 'Supporting documents are always mandatory.'
+    oracle = Oracle(
+        case_id='fictional', turn=0, statuses=['partial'], task_ids_any=['fictional.leave'],
+        expected_aspects=['paperwork'], required_source_groups=[['fictional.guide']],
+        claims='required', expected_policy_claim_texts=[form_fields, upload_option],
+        required_limitations=[source_limit],
+    )
+    response = {
+        'status': 'partial',
+        'sources': [{'source_id': 'S1', 'origins': [{'document_id': 'fictional.guide'}]}],
+        'evidence': [{'id': 'D1', 'kind': 'document', 'quote': 'Fictional source', 'source_id': 'S1'}],
+    }
+
+    cases = [
+        ([upload_option, form_fields + '\n'], [' ' + source_limit, 'Additional limit.'], []),
+        ([form_fields, upload_option], [], ['required_limitations']),
+        ([form_fields, unsupported_claim], [source_limit], ['policy_claim_texts']),
+        ([form_fields, upload_option, unsupported_claim], [source_limit], ['policy_claim_texts']),
+        ([form_fields], [source_limit], ['policy_claim_texts']),
+        ([form_fields, upload_option, upload_option], [source_limit], ['policy_claim_texts']),
+    ]
+    for claim_texts, limitations, expected in cases:
+        claims = [{'text': claim, 'evidence_refs': ['D1']} for claim in claim_texts]
+        result = dict(response, claims=claims, limitations=limitations)
+        assert check_turn(oracle, 200, result, ['fictional.leave'], aspects=['paperwork']) == expected
+
+
 def test_value_oracles_do_not_accept_swapped_fictional_employee_values():
     o=Oracle(case_id='fictional',turn=0,statuses=['answered'],employee_fields=['job_title'],
              expected_values={'job_title':'Fictional role'})

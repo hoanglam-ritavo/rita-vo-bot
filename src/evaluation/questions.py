@@ -32,6 +32,8 @@ class Oracle(Strict):
     application_state: str | None = None
     required_numbers: list[int] = Field(default_factory=list)
     claims: str = Field(default='any', pattern='^(any|none|required)$')
+    expected_policy_claim_texts: list[str] | None = Field(default=None, min_length=1)
+    required_limitations: list[str] | None = Field(default=None, min_length=1)
     fixture: str = Field(default='current', pattern='^(current|missing|withdrawn|changed|denied|partial|unrelated_changed|catalog_unavailable|catalog_changed|employee_unavailable|feature_disabled|missing_policy)$')
 
 
@@ -78,6 +80,10 @@ def load_dataset(root=REPOSITORY_ROOT, *, questions_dir=None):
     return cases, oracles, inputs
 
 
+def _normalize_whitespace(text):
+    return ' '.join(text.split())
+
+
 def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
     """Assert authored per-turn contracts, never infer an oracle from output."""
     failures = []
@@ -114,6 +120,16 @@ def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
     claims = [claim for claim in result.get('claims', []) if any(nodes[ref]['kind']=='document' for ref in claim['evidence_refs'])]
     if oracle.claims == 'none' and claims or oracle.claims == 'required' and not claims:
         failures.append('claims')
+    if oracle.expected_policy_claim_texts is not None:
+        expected_claims = Counter(map(_normalize_whitespace, oracle.expected_policy_claim_texts))
+        actual_claims = Counter(_normalize_whitespace(claim['text']) for claim in claims)
+        if actual_claims != expected_claims:
+            failures.append('policy_claim_texts')
+    if oracle.required_limitations is not None:
+        expected_limitations = set(map(_normalize_whitespace, oracle.required_limitations))
+        actual_limitations = set(map(_normalize_whitespace, result.get('limitations', [])))
+        if not expected_limitations.issubset(actual_limitations):
+            failures.append('required_limitations')
     text = ' '.join(claim['text'] for claim in claims)
     observed_numbers = {int(re.sub(r'[.,]', '', token)) for token in
                         re.findall(r'\d{1,3}(?:[.,]\d{3})+(?!\d)|\d+', text)}

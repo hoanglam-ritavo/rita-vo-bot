@@ -89,8 +89,9 @@ runtime still validates coverage strictly. For private import, add optional
 Regenerate from source, update the artifact manifests/inventory and deploy code plus
 all selected artifacts together in an isolated checkout. A Git rollback does not
 roll back DB publication. This change does not publish, migrate or restart anything.
-Conversation schema-2 slot handling shares the policy; storage/cache ownership
-remains governed by the conversation contract.
+Reducer schema 7 shares the policy for conversation slots. See the
+[conversation contract](conversations.md#context-and-evidence) for storage and
+cache ownership.
 
 ## Verification
 

@@ -45,11 +45,22 @@ templates; it does not activate the stored scope/item expansion helpers describe
 here. No package/schema/publication change is required. See the
 [current answer contract](answer-evaluation.md#semantic-template-answer-api).
 
-`POST /api/v1/retrieve` accepts `text` and optional `top_k`, and returns ranked source chunks with provenance and timings. It searches vector candidates across all eligible chunk roles and optionally reranks them on CPU. With filtering enabled by default, only passages accepted by a matching relevance profile are returned and missing assessment withholds candidates. Explicitly unfiltered HTTP/direct-service results remain unassessed and still enforce eligibility/access; see [filtering and fallback](online-reranking.md#retrieval-and-response-semantics). There is no LLM planner, scope selection, item expansion, generated prose, verification verdict or aggregate answer. Authored coverage is stored but is not a completeness claim made by the API.
+`POST /api/v1/retrieve` accepts `text`, a trusted Backend-derived `hrm_user_id` and
+optional `top_k`. It requires [HTTP service authentication](http-service-auth.md)
+and returns ranked source chunks with provenance and timings. Vector retrieval
+searches across eligible chunk roles, enforces access and optionally reranks on
+CPU. Matches are `unassessed`. Empty document outcomes distinguish `no_candidates`
+and `no_eligible_documents`. Relevance profiles and their filter settings are
+retired. Authored coverage is stored for internal readers. See
+[retrieval semantics](online-reranking.md#retrieval-and-response-semantics).
 
 The structured storage helpers remain available internally and covered by storage tests; they are not exposed as API operations. Stored `operations`, `comparison` and `ambiguous` fields describe source-backed semantics for possible future consumers. They do not cause the retrieval endpoint to count, compare or evaluate conditions. Top-K matches cannot establish a complete inventory or individual entitlement.
 
-`scripts/try_retrieval.py` uses the public filtered contract and renders accepted matches with source locations, without starting the API or writing the database. Its default vector-only configuration cannot accept candidates and returns `relevance_unavailable` when candidates exist. Its compact display currently uses a generic no-match message rather than displaying the fallback reason; use the retrieval CLI JSON or HTTP response to inspect that reason. Use separate case files under `.tmp/` for evaluation rather than changing its user-owned `QUESTION`. See [retrieval evaluation](retrieval-evaluation.md).
+`scripts/try_retrieval.py` displays unassessed candidates with source locations
+through the local Python retrieval service. It runs without an HTTP server or
+database writes. Use retrieval CLI JSON or HTTP to inspect the exact empty
+fallback reason. Keep evaluation cases in separate files under `.tmp/`. See
+[retrieval evaluation](retrieval-evaluation.md).
 
 ## Verification
 
