@@ -1,0 +1,40 @@
+{
+  "id": "route.office-365.leave-mail",
+  "family": "software",
+  "task_id": "task.office-365.leave-mail",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sau 9 giờ sáng hôm sau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi đơn rồi chưa thấy email"
+        ],
+        [
+          "chờ bao lâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "9 giờ sáng hôm sau"
+        ],
+        [
+          "không thấy thư",
+          "không thấy email",
+          "chưa có phản hồi"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "email-help"
+  }
+}

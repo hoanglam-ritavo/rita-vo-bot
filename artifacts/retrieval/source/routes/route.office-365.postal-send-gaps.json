@@ -1,0 +1,63 @@
+{
+  "id": "route.office-365.postal-send-gaps",
+  "family": "software",
+  "task_id": "task.office-365.postal-send-gaps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "số vận đơn"
+        ],
+        [
+          "có thể xác nhận gửi",
+          "chưa được cấp số"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhập sai số vận đơn",
+          "dùng nhầm qr receiving"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bảng giá"
+        ],
+        [
+          "tra phí",
+          "tính cước"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trạng thái đã gửi"
+        ],
+        [
+          "tra cứu giao hàng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhiều bưu phẩm",
+          "nhiều số vận đơn"
+        ],
+        [
+          "lập chung",
+          "tách từng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "sending"
+  }
+}

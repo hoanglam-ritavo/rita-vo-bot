@@ -1,0 +1,46 @@
+{
+  "id": "task.office-365.bravo-sharepoint",
+  "label": "Office 365 · Xử lý lỗi",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.bravo-sharepoint.1",
+          "text": "Dùng thư mục Office 365 SharePoint hoặc đường dẫn Public theo email KSNB IT System công bố. Khi không có quyền hoặc cần cài đặt, liên hệ KSNB IT System hoặc HCNS IT. Quyền dùng Bravo được cấp riêng.",
+          "refs": [
+            {
+              "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+              "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+              "chunk_index": 3,
+              "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+              "content_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07",
+              "quote": "Bravo 8 — cài/cập nhật phần mềm: dùng phiên bản mới nhất theo email P. KSNB IT System. Tài liệu cung cấp link ổ mạng Public hoặc thư mục Office 365 SharePoint để tải và giải nén; cũng có thể nhờ KSNB IT System hoặc HCNS IT cài đặt. Sau giải nén chạy Bravo8.exe với phân quyền do KSNB IT System cấp. Hướng dẫn không cấp thêm quyền truy cập chỉ bằng việc cài phần mềm.",
+              "metadata": {
+                "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 11.11.2023",
+                "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

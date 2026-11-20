@@ -1,0 +1,44 @@
+{
+  "id": "route.office-365.office-approval-queue",
+  "family": "software",
+  "task_id": "task.office-365.office-approval-queue",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "power automate không thấy mục approvals"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phân biệt đơn nghỉ phép"
+        ],
+        [
+          "đơn đi trễ"
+        ],
+        [
+          "approvals"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "approvals"
+        ],
+        [
+          "đơn nghỉ phép"
+        ],
+        [
+          "đơn đi trễ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "approval"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "task.office-365.default-leave",
+  "label": "E-Leave · Lập và gửi yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Leave"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Leave?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.default-leave.1",
+          "text": "E-Leave có hướng dẫn lập đơn nghỉ phép qua biểu mẫu Office 365.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 0,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3bb1b7b7ec157981bed12fde19e21c2fec09d929aed0b0464eb2b4689e268db4",
+              "quote": "E-Leave (Office 365), phiên bản 1.0, cập nhật 08.09.2023 — nhân viên xin nghỉ phép online qua https://forms.office.com/r/chBGKrWhb2 hoặc quét QR bằng điện thoại. Điền công ty, khu vực Miền Bắc/Miền Nam, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, từ/đến ngày (dd/MM/yyyy), buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ phép. Chức vụ và ủy quyền gửi đơn không bắt buộc; có thể thêm Email CC. Người gửi nhận email đã gửi đơn, rồi email kết quả khi cấp trên duyệt/từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -9,6 +9,7 @@ import re
 from src.answering.planning import analyze_question, choice_labels, unknown_topic_prompt
 from src.answering.slots import SLOT_LABELS, parse_inputs
 from src.retrieval.policy import workit_surface_reply, workit_surfaces
+from src.retrieval.office import CHANNEL_TERMS, WORKFLOW_LABELS, continuation as office_continuation
 from src.type_b.tasks import TASKS, normalized
 from .continuation import ASPECTS, recognize, input_update, starts_new_request
 
@@ -41,7 +42,8 @@ def valid_context(previous):
             return False
         slots = request.get('slots', {})
         if not isinstance(slots, dict) or set(slots) - {
-                'system', 'subtype', 'days', 'sessions', 'granularity', 'intent', 'surface', 'workit_action'}:
+                'system', 'subtype', 'days', 'sessions', 'granularity', 'intent', 'surface', 'workit_action',
+                'office_workflow', 'office_action', 'office_channel'}:
             return False
         for key, value in slots.items():
             if key in ('days', 'sessions'):
@@ -51,6 +53,10 @@ def valid_context(previous):
                 return False
         if (slots.get('surface') not in (None, 'web', 'mobile')
                 or (slots.get('surface') or slots.get('workit_action')) and slots.get('system') != 'workit'):
+            return False
+        if (slots.get('office_workflow') not in (None, *WORKFLOW_LABELS)
+                or slots.get('office_channel') not in (None, *CHANNEL_TERMS)
+                or (slots.get('office_channel') or slots.get('office_action')) and not slots.get('office_workflow')):
             return False
         if slots.get('days') is not None and slots.get('sessions') is not None:
             return False
@@ -238,7 +244,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
     item = re.fullmatch(r'(?:(?:con|ve|giai thich) )?muc (?:thu |so )?(\d+)(?: (?:trong|o|cua) cau tra loi truoc)?(?: thi sao)?', query)
     surface_query = re.sub(r'^con |^minh dung |^toi dung | thi sao$| thi the nao$| thoi$| nhe$| a$', '', query)
     next_surface = workit_surface_reply(surface_query)
-    if prior and prior.get('slots', {}).get('workit_action') and next_surface and not selected_task:
+    if prior and not selected_task and (office_slots := office_continuation(text, prior.get('slots', {}))):
+        request = dict(question=text, slots=office_slots, user_inputs={})
+        continuation, turn_kind = True, 'followup'
+    elif prior and prior.get('slots', {}).get('workit_action') and next_surface and not selected_task:
         request = deepcopy(prior)
         request['slots']['surface'] = next_surface
         request.pop('source_id', None)
@@ -271,7 +280,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
     elif prior and (aspect := getattr(policy, 'focused_follow_up', lambda *_: None)(active_task, query)):
         request = {**prior, 'selected_task': active_task, 'aspects': [aspect]}
         continuation, turn_kind = True, 'followup'
-    elif prior and not getattr(policy, 'focused_task', lambda _: None)(text):
+    elif prior and not getattr(policy, 'focused_task', lambda _: None)(text) and not (
+            query == normalized(prior['question']) and getattr(policy, 'resolve_office', lambda _: None)(text)):
+        # A repeated, complete Office request goes through routing again so
+        # the inferred Workit preference never becomes a user selection.
         update = recognize(text, policy)
         inputs = input_update(text, old.get('pending_inputs', []), prior.get('user_inputs', {}))
         root_family = policy.analyze(prior['question']).family if policy is not None and policy.catalog is not None else None
@@ -410,6 +422,11 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         if root.days is not None or root.sessions is not None:
             slots['granularity'] = root.granularity
         request['slots'] = {**slots, **request.get('slots', {})}
+        if analysis.office_workflow and not analysis.office_prefer_workit:
+            request['slots'].update(office_workflow=analysis.office_workflow, office_action=analysis.office_action)
+            request['slots'].pop('office_channel', None)
+            if analysis.office_channel:
+                request['slots']['office_channel'] = analysis.office_channel
         if analysis.workit_action:
             request['slots'].update(system='workit', workit_action=analysis.workit_action)
             if analysis.workit_surface:

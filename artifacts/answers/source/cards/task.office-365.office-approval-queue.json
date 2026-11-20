@@ -1,0 +1,82 @@
+{
+  "id": "task.office-365.office-approval-queue",
+  "label": "Office 365 · Xử lý yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.office-approval-queue.1",
+          "text": "Mở Power Automate bằng tài khoản O365, vào Approvals và mở đúng tên yêu cầu E-Leave, E-Workdate hoặc E-Postal. Đọc chi tiết để phân biệt trước khi xử lý.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 7,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc",
+              "quote": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 5,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "97371c94f836fa34c39ff419489b3f32da5e5980d169deec5cd622e842d0a402",
+              "quote": "E-Workdate — duyệt bằng điện thoại: tải Power Automate của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365, vào Approvals > chọn đơn xác nhận đi trễ/về sớm > đọc chi tiết và Duyệt/Từ chối; có ô comments. Danh sách có thể chứa nhiều loại E-Office, cần chọn đúng đơn.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 5,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466",
+              "quote": "E-Postal — xác nhận bằng MS Teams hoặc điện thoại: Teams với O365 hiện popup, chọn Đã nhận/Từ chối nhận, Comment được gửi HC nếu có. Trên điện thoại cài Power Automate của Microsoft, đăng nhập O365 > Approvals > đúng thông báo thư > xem chi tiết và xác nhận. Không nhầm với các loại yêu cầu khác cùng danh sách.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nếu không có Approvals hoặc không thấy yêu cầu, nhờ HCNS IT xác nhận tài khoản hoặc quyền. Nguồn không xác nhận quyền thực tế."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

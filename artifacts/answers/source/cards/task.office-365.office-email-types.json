@@ -1,0 +1,78 @@
+{
+  "id": "task.office-365.office-email-types",
+  "label": "Office 365 · Thông báo và trạng thái",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.office-email-types.1",
+          "text": "Email xác nhận ghi đã gửi yêu cầu. Thông báo xử lý dành cho người có thẩm quyền. Email nhắc xuất hiện khi chưa được xử lý theo từng nghiệp vụ. Email kết quả ghi quyết định hoặc trạng thái cuối của bước được hỏi.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 11,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+              "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 6,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "406172125844c139959419d33f4b4002506e92b71c0223e289bc3ce30f7a1e09",
+              "quote": "E-Workdate — nhắc duyệt và kết quả: hệ thống nhắc vào ngày hôm sau (24 tiếng) nếu người nhận chưa xác nhận, cho đến khi Duyệt hoặc Từ chối. Người gửi nhận email tự động Đã duyệt/Bị từ chối với lý do, thời gian, người duyệt và nội dung duyệt/từ chối. Gửi đơn không đồng nghĩa đã được chấp thuận.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 6,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "26f3972070ab3db1fa7217f6dd4e82b13f831b9b5f827d05e07b72f550c5e460",
+              "quote": "E-Postal — email và nhắc nhận thư: chưa xác nhận thì được nhắc ngày hôm sau (24 giờ) đến khi Đã nhận hoặc Từ chối nhận. Khi Hành chính thông báo qua SharePoint/PhoneList, bạn nhận yêu cầu xác nhận từ Microsoft Automate; sau xác nhận có email kết quả từ itsystems@ritavo.com gửi bạn và CC Hành chính. Với QR, hệ thống gửi trạng thái Đã nhận/Từ chối nhận/Đã gửi.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

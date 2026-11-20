@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.default-leave",
+  "family": "software",
+  "task_id": "task.office-365.default-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "muốn nộp đơn phép năm"
+        ],
+        [
+          "ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "muốn đăng ký phép năm"
+        ],
+        [
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "submission",
+    "prefer_workit": "task.leave.workit.annual"
+  }
+}

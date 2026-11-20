@@ -1,0 +1,36 @@
+{
+  "id": "route.office-365.booking-own",
+  "family": "software",
+  "task_id": "task.office-365.booking-own",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sửa giờ họp",
+          "đổi phòng cho cuộc họp"
+        ],
+        [
+          "do mình tổ chức"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hủy cuộc họp của mình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xóa cuộc họp trong calendar cá nhân"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "change"
+  }
+}

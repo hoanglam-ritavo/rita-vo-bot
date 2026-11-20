@@ -106,6 +106,12 @@ the absence of evidence from the other interface, and the action and
 interface retained in conversation context. Cases in the original Workit
 bank whose expected outcome is interface selection retain their original IDs.
 
+The Office 365 bank retains the 193 requested questions and their original
+topic identifiers. Oracles distinguish the four workflows, channel-specific
+steps, documented limits and operational verification. Conversation cases
+cover explicit workflow changes, short channel switches, and Workit
+preference with either source withdrawn.
+
 For Retrieve, `retrieve_statuses` declares allowed endpoint outcomes and
 `retrieve_documents` can require matches or require the absence of document
 lookup, including `document_status: null`. `retrieve_forbidden_documents` can

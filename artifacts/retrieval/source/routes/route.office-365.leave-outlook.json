@@ -1,0 +1,34 @@
+{
+  "id": "route.office-365.leave-outlook",
+  "family": "software",
+  "task_id": "task.office-365.leave-outlook",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt từ outlook"
+        ],
+        [
+          "máy tính",
+          "tablet",
+          "điện thoại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "từ chối đơn trong outlook"
+        ],
+        [
+          "lý do"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "approval",
+    "channel": "outlook"
+  }
+}

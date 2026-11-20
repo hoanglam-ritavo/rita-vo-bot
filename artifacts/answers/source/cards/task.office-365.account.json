@@ -1,0 +1,98 @@
+{
+  "id": "task.office-365.account",
+  "label": "Office 365 · Xử lý lỗi",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.account.1",
+          "text": "HCNS IT cấp hoặc hỗ trợ kiểm tra tài khoản email công ty theo các hướng dẫn. Khi xác thực lần đầu, dùng email Rita Võ theo yêu cầu của công cụ. Nếu Outlook khác ảnh hướng dẫn, liên hệ IT kiểm tra phiên bản đang áp dụng.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 4,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "5980938a43dabbb54fbc1f5adb5cfc44816db91a638de90c8f593697dd9fe490",
+              "quote": "E-Leave — duyệt đơn lần đầu: bấm Approve/Reject sẽ chuyển đến Power Automate trên web; làm theo chỉ dẫn xác thực email Rita Võ. Nguồn ghi người duyệt không có tài khoản O365 có thể duyệt bằng Power Automate trên trình duyệt và nên liên hệ HCNS IT kiểm tra tài khoản O365. Đây là hướng dẫn phiên bản 1.0; không suy ra rằng ứng dụng điện thoại không cần tài khoản O365.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 2,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "ec515faf5ef061a4709c38827753234ab4e19e14162502b9ae1a7c70810dbce4",
+              "quote": "E-Workdate — tài khoản email: hướng dẫn yêu cầu email do HCNS IT cấp, không dùng email cá nhân. Người chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhập hộ; hệ thống vẫn cần email công ty gửi trạng thái. Email quản lý cần đúng người có thẩm quyền, không lấy tên người trong ảnh làm người duyệt mặc định.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 7,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "c051e74abe25119992259aac2052c95b8ec60c8752e2e4adf9b6e656fa88e5ec",
+              "quote": "E-Postal — lỗi email: phải dùng email HCNS IT cấp, không dùng email cá nhân. Chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhận hộ. Không thấy email thì đợi 10–20 phút; sau 24 giờ vẫn không có phản hồi, liên hệ KSNB IT System ksnb_it.system@ritavo.com.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 4,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "f6e9aa46c801a5972cddf8a644934ba6f61671ffecdda88e29526527a2bf72bc",
+              "quote": "E-Booking — không xóa được lịch phòng: người dùng chỉ xóa lịch trên Calendar của mình và do mình tạo, không xóa lịch người khác trên Calendar phòng họp. Nếu lịch của bạn bị xóa, liên hệ HC Admin kiểm tra; HC Admin/IT có quyền xóa và thông báo tạo lịch mới. Outlook khác ảnh hướng dẫn thì liên hệ IT kiểm tra/cập nhật phiên bản đang ban hành.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn không mô tả cách chuyển tài khoản cho mọi trình duyệt hoặc quyền của từng người. Kiểm tra tài khoản công ty đang đăng nhập và nhờ HCNS IT xác nhận quyền."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

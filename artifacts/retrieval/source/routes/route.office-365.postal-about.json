@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.postal-about",
+  "family": "software",
+  "task_id": "task.office-365.postal-about",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e postal"
+        ],
+        [
+          "quản lý những loại",
+          "quản lý thư và bưu phẩm"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "overview"
+  }
+}

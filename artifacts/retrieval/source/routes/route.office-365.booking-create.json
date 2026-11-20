@@ -1,0 +1,59 @@
+{
+  "id": "route.office-365.booking-create",
+  "family": "software",
+  "task_id": "task.office-365.booking-create",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo một cuộc họp"
+        ],
+        [
+          "có phòng họp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhập tiêu đề"
+        ],
+        [
+          "người tham gia"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mở scheduling assistant"
+        ],
+        [
+          "add rooms"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lọc phòng theo location",
+          "chọn phòng trong add rooms"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bấm send"
+        ],
+        [
+          "gửi lời mời họp"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "booking"
+  }
+}

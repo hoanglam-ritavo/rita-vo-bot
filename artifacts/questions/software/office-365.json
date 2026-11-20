@@ -1,0 +1,5487 @@
+{
+  "schema_version": 1,
+  "group_id": "software.office-365",
+  "description": "Exact requested Office 365 workflow questions.",
+  "cases": [
+    {
+      "id": "q.software.office-365.o365-01",
+      "title": "O365-01 · Office 365 · Tổng quan",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.tools"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Rita Võ dùng những công cụ Office 365 nào cho các quy trình nội bộ?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-02",
+      "title": "O365-02 · Office 365 · Tổng quan",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.tools"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Leave, E-Workdate, E-Postal và E-Booking dùng cho những việc gì?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-03",
+      "title": "O365-03 · Office 365 · Tổng quan",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.tools"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Công cụ nào dùng Microsoft Forms, công cụ nào dùng trực tiếp Outlook hoặc SharePoint?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-04",
+      "title": "O365-04 · Office 365 · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.access"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi tìm đường dẫn biểu mẫu hoặc mã QR chính thức của từng công cụ ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-05",
+      "title": "O365-05 · Office 365 · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.access"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể mở và gửi biểu mẫu Office 365 bằng điện thoại không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-06",
+      "title": "O365-06 · Office 365 · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.access"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu camera không quét được mã QR, tôi có thể mở biểu mẫu bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-07",
+      "title": "O365-07 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên mới chưa có tài khoản Office 365 cần liên hệ bộ phận nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-08",
+      "title": "O365-08 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account-email"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Công cụ nào cho dùng email cá nhân, công cụ nào yêu cầu email công ty?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-09",
+      "title": "O365-09 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account-email"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tài khoản dùng để mở biểu mẫu có cần trùng với email nhận kết quả không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-10",
+      "title": "O365-10 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu trình duyệt tự mở tài khoản Microsoft cá nhân, tôi kiểm tra và chuyển sang tài khoản công ty thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-11",
+      "title": "O365-11 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu mở được biểu mẫu nhưng bị báo không có quyền truy cập, tôi cần kiểm tra gì?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.o365-12",
+      "title": "O365-12 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "o365"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.account"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi giao diện hiện tại khác ảnh hướng dẫn Office 365, tôi liên hệ ai để xác nhận dùng đúng phiên bản?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-01",
+      "title": "EL-01 · E-Leave · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-entry"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi gửi đơn nghỉ phép năm bằng E-Leave ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-02",
+      "title": "EL-02 · E-Leave · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-entry"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Gửi đơn E-Leave qua đường dẫn, mã QR hoặc SharePoint khác nhau thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-03",
+      "title": "EL-03 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Đơn E-Leave có những trường bắt buộc và tùy chọn nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-04",
+      "title": "EL-04 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-entity"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chọn công ty và khu vực Miền Bắc hoặc Miền Nam theo nơi làm việc hay theo đơn vị ký hợp đồng?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-05",
+      "title": "EL-05 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi lấy mã nhân viên ở đâu nếu chưa biết mã để điền đơn?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-06",
+      "title": "EL-06 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể để trống chức vụ khi gửi đơn E-Leave không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-07",
+      "title": "EL-07 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-email-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email nhận kết quả khác email của người duyệt thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-08",
+      "title": "EL-08 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-personal-email"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng email cá nhân để gửi đơn nghỉ phép và nhận kết quả không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-09",
+      "title": "EL-09 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-email-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi phải nhập email quản lý trực tiếp hay email của người được phân quyền duyệt?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-10",
+      "title": "EL-10 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-substitute-approver"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp đang nghỉ thì tôi nhập email nào để đơn được gửi đúng người?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-11",
+      "title": "EL-11 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-fields"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nhập ngày bắt đầu và ngày kết thúc theo định dạng nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-12",
+      "title": "EL-12 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-one-day"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chỉ nghỉ một ngày thì điền trường Từ ngày và Đến ngày thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-13",
+      "title": "EL-13 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-types"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Trường loại nghỉ trên E-Leave có những lựa chọn nào theo hướng dẫn?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-14",
+      "title": "EL-14 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-types"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Leave có hướng dẫn riêng cho nghỉ không lương, nghỉ chế độ hoặc nghỉ thai sản không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-15",
+      "title": "EL-15 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-reason-docs"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần khai những thông tin gì trong ô lý do nghỉ?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-16",
+      "title": "EL-16 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-reason-docs"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Lập đơn nghỉ trên E-Leave có bắt buộc đính kèm giấy tờ hoặc chứng từ không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-17",
+      "title": "EL-17 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-cc"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi thêm nhiều người vào Email CC bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-18",
+      "title": "EL-18 · E-Leave · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-cc"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người được CC có quyền duyệt đơn hay chỉ nhận thông báo?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-19",
+      "title": "EL-19 · E-Leave · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-delegate"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chưa có email công ty thì có thể nhờ đồng nghiệp gửi đơn E-Leave hộ không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-20",
+      "title": "EL-20 · E-Leave · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-delegate"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi gửi hộ, tôi nhập mã và họ tên của người gửi hay của người nghỉ?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-21",
+      "title": "EL-21 · E-Leave · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-delegate-receipt"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi gửi hộ, ai nhận email xác nhận đã gửi và email kết quả?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-22",
+      "title": "EL-22 · E-Leave · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-delegate"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Bật tùy chọn Ủy quyền gửi đơn có đồng thời ủy quyền cho người khác duyệt đơn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-23",
+      "title": "EL-23 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Leave có cho đăng ký nghỉ cả ngày, buổi sáng và buổi chiều không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-24",
+      "title": "EL-24 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chỉ nghỉ buổi sáng hoặc buổi chiều trong một ngày thì điền mẫu thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-25",
+      "title": "EL-25 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ chiều thứ Sáu và sáng thứ Bảy thì gửi một đơn hay hai đơn?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-26",
+      "title": "EL-26 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên hành chính nghỉ sáng thứ Hai và sáng thứ Ba có thể gửi chung một đơn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-27",
+      "title": "EL-27 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions-gaps"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nghỉ một ngày nguyên ngày và một ngày nửa buổi thì nên tách đơn thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-28",
+      "title": "EL-28 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions-gaps"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ cùng một buổi trong hai ngày không liên tiếp có thể gộp vào một đơn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-29",
+      "title": "EL-29 · E-Leave · Chọn buổi nghỉ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions-gaps"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu khoảng ngày nghỉ có ngày lễ hoặc ngày nghỉ hằng tuần, E-Leave có tự loại những ngày đó không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-30",
+      "title": "EL-30 · E-Leave · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-change"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã chọn nhầm buổi hoặc nhầm loại nghỉ thì sửa được trên biểu mẫu đã gửi không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-31",
+      "title": "EL-31 · E-Leave · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-change"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nhập sai email quản lý hoặc sai ngày nghỉ, tôi nên sửa đơn cũ hay gửi đơn mới?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-32",
+      "title": "EL-32 · E-Leave · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-change"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Đơn chưa duyệt thì tôi có tự hủy được không và cần báo ai?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-33",
+      "title": "EL-33 · E-Leave · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-change"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đổi kế hoạch sau khi đơn đã duyệt thì xử lý ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-34",
+      "title": "EL-34 · E-Leave · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-change"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi vô tình gửi hai đơn trùng nhau thì cần làm gì để quản lý và HCNS xử lý đúng đơn?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-35",
+      "title": "EL-35 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-channels"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người quản lý có thể duyệt E-Leave qua Outlook, Teams và Power Automate như thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-36",
+      "title": "EL-36 · E-Leave · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-first"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Lần đầu bấm Approve hoặc Reject trong Outlook, vì sao tôi được chuyển sang Power Automate trên trình duyệt?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-37",
+      "title": "EL-37 · E-Leave · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-first"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người duyệt cần xác thực email Rita Võ ở bước nào trong lần duyệt đầu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-38",
+      "title": "EL-38 · E-Leave · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-first"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người duyệt chưa có tài khoản O365 có thể dùng Power Automate trên trình duyệt theo hướng dẫn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-39",
+      "title": "EL-39 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-outlook"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Có thể duyệt từ Outlook trên máy tính, điện thoại hoặc tablet không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-40",
+      "title": "EL-40 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-outlook"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi từ chối đơn trong Outlook, lý do được nhập ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-41",
+      "title": "EL-41 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-teams"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở yêu cầu E-Leave trên Teams và chọn Duyệt hoặc Từ chối thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-42",
+      "title": "EL-42 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-teams"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Bình luận khi duyệt qua Teams có được gửi tới người đề nghị không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-43",
+      "title": "EL-43 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-teams"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xem lại các đơn đã duyệt hoặc từ chối trong Teams ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-44",
+      "title": "EL-44 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-mobile"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Muốn duyệt trên điện thoại thì tải app Power Automate nào và đăng nhập bằng tài khoản nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-45",
+      "title": "EL-45 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-mobile"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Trong app Power Automate, tôi tìm các đơn nghỉ đang chờ duyệt, đã duyệt hoặc bị từ chối ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-46",
+      "title": "EL-46 · E-Leave · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-channels"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đã duyệt trên Outlook, tôi có cần xác nhận lại trên Teams hoặc Power Automate không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-47",
+      "title": "EL-47 · E-Leave · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-status"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người gửi nhận những email nào từ lúc gửi đơn đến lúc có kết quả?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-48",
+      "title": "EL-48 · E-Leave · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-status"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email “đã gửi đơn” có đồng nghĩa đơn nghỉ đã được chấp thuận không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-49",
+      "title": "EL-49 · E-Leave · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-status"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email kết quả được gửi từ địa chỉ nào và cho những người nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-50",
+      "title": "EL-50 · E-Leave · Nhắc xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-reminder"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý nhận email nhắc duyệt E-Leave thì xử lý bằng công cụ nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-51",
+      "title": "EL-51 · E-Leave · Nhắc xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-reminder"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hướng dẫn E-Leave có quy định thời điểm và tần suất gửi email nhắc duyệt không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-52",
+      "title": "EL-52 · E-Leave · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-mail"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi gửi đơn rồi chưa thấy email, nên chờ bao lâu trước khi kiểm tra lại?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-53",
+      "title": "EL-53 · E-Leave · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-mail"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Sau 9 giờ sáng hôm sau vẫn chưa có email phản hồi E-Leave thì liên hệ bộ phận nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-54",
+      "title": "EL-54 · E-Leave · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-status"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi thấy email duyệt nhưng HCNS chưa cập nhật nghỉ phép thì cần đối chiếu trạng thái nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.el-55",
+      "title": "EL-55 · E-Leave · Luồng xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "el"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-workflow"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Từ lúc gửi Forms đến khi HCNS xuất Excel và đánh dấu đã xử lý, đơn E-Leave đi qua những bước nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-01",
+      "title": "EW-01 · E-Workdate · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-entry"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở biểu mẫu xác nhận đi trễ hoặc về sớm E-Workdate ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-02",
+      "title": "EW-02 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-vs-leave"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Workdate khác đơn nghỉ phép E-Leave như thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-03",
+      "title": "EW-03 · E-Workdate · Lập và gửi yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-entry"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi dùng E-Workdate trên máy tính và điện thoại bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-04",
+      "title": "EW-04 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-fields"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Mẫu E-Workdate bắt buộc nhập những thông tin nào và có thể bỏ trống chức vụ không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-05",
+      "title": "EW-05 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-fields"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chọn loại đi trễ hoặc về sớm và nhập lý do ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-06",
+      "title": "EW-06 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-fields"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu chỉ đi trễ một ngày, tôi nhập khoảng Từ ngày và Đến ngày thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-07",
+      "title": "EW-07 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-date-gap"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu cùng một ngày vừa đi trễ vừa về sớm thì gửi một hay hai đơn?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-08",
+      "title": "EW-08 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-date-gap"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nhiều ngày có cùng lý do đi trễ, tôi có thể khai chung một khoảng ngày không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-09",
+      "title": "EW-09 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-fields"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Mẫu E-Workdate có yêu cầu nhập giờ cụ thể hoặc đính kèm giấy xác nhận không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-10",
+      "title": "EW-10 · Email cho đơn E-Workdate",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng Gmail hoặc email cá nhân để gửi E-Workdate không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-11",
+      "title": "EW-11 · Email cho đơn E-Workdate",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chưa có email công ty thì cấp trên hoặc đồng nghiệp có thể lập hộ theo cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-12",
+      "title": "EW-12 · Email cho đơn E-Workdate",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.eworkdate-email"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi người khác nhập hộ, trường email công ty dùng để nhận trạng thái cần điền thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-13",
+      "title": "EW-13 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-cc"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xác định email người có thẩm quyền duyệt và thêm nhiều email CC bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-14",
+      "title": "EW-14 · E-Workdate · Thông tin trong biểu mẫu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-cc"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Mục Ủy quyền Có trên E-Workdate dùng trong trường hợp nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-15",
+      "title": "EW-15 · E-Workdate · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-change"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nhập sai lý do, ngày hoặc email người duyệt, tôi có thể chỉnh hay hủy đơn E-Workdate không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-16",
+      "title": "EW-16 · E-Workdate · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-channels"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người có quyền duyệt có thể mở E-Workdate bằng Outlook, Teams và Power Automate thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-17",
+      "title": "EW-17 · E-Workdate · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-first"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Lần đầu duyệt E-Workdate, xác thực email Rita Võ trong trình duyệt ra sao?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-18",
+      "title": "EW-18 · E-Workdate · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-outlook"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi duyệt hoặc từ chối E-Workdate trong Outlook, quản lý nhập ý kiến ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-19",
+      "title": "EW-19 · E-Workdate · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-teams"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xử lý thông báo E-Workdate hiện trong Teams thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-20",
+      "title": "EW-20 · Duyệt E-Workdate bằng điện thoại",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.topic.eworkdate-mobile"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Trong Approvals trên điện thoại, làm sao chọn đúng đơn E-Workdate giữa nhiều loại yêu cầu E-Office?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-21",
+      "title": "EW-21 · E-Workdate · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-first"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Chưa có tài khoản O365 thì người duyệt E-Workdate có thể thực hiện qua trình duyệt không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-22",
+      "title": "EW-22 · E-Workdate · Nhắc xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-reminder"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hệ thống nhắc duyệt E-Workdate sau bao lâu và khi nào dừng nhắc?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-23",
+      "title": "EW-23 · E-Workdate · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-status"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email Đã duyệt hoặc Bị từ chối ghi những thông tin nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-24",
+      "title": "EW-24 · E-Workdate · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-status"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email kết quả E-Workdate được gửi từ địa chỉ nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-25",
+      "title": "EW-25 · E-Workdate · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-status"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Gửi đơn E-Workdate rồi có đồng nghĩa việc đi trễ hoặc về sớm đã được chấp thuận không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-26",
+      "title": "EW-26 · E-Workdate · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-mail"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Chưa thấy email kết quả thì nên chờ bao lâu và liên hệ ai nếu đã quá 24 giờ?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ew-27",
+      "title": "EW-27 · E-Workdate · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ew"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-mail"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã có email Đã duyệt nhưng bảng công chưa cập nhật thì cần đối chiếu ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-01",
+      "title": "EP-01 · E-Postal · Tổng quan",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-about"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Postal dùng để quản lý những loại thư và bưu phẩm nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-02",
+      "title": "EP-02 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-receive"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi dùng QR Receiving hay QR Sending khi đến lễ tân hoặc phòng bảo vệ nhận bưu phẩm?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-03",
+      "title": "EP-03 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-receive"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi mở QR Receiving, tôi cần nhập công ty, thông tin nhân viên và tiêu đề thư thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-04",
+      "title": "EP-04 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-receive"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nội dung chi tiết và ghi chú khi nhận thư có bắt buộc không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-05",
+      "title": "EP-05 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-receive"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi nhận hộ đồng nghiệp, tôi phải đánh dấu mục nào và khai thông tin của ai?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-06",
+      "title": "EP-06 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-email-account"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chưa có email công ty thì có thể nhờ cấp trên hoặc đồng nghiệp nhận hộ không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-07",
+      "title": "EP-07 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-email-account"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi được dùng email cá nhân để xác nhận nhận thư không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-08",
+      "title": "EP-08 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-actual"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chỉ nên bấm Đã nhận khi đã cầm thư hay có thể bấm trước khi đến nhận?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-09",
+      "title": "EP-09 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-actual"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu bưu phẩm sai tên, không thuộc phòng ban của tôi hoặc tôi không nhận, cần chọn trạng thái nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-10",
+      "title": "EP-10 · E-Postal · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-comment"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi từ chối nhận thư, tôi nhập lý do ở đâu và ai nhận được lý do đó?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-11",
+      "title": "EP-11 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-example"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email yêu cầu nhận thư trong 2–3 ngày làm việc là nội dung mẫu hay thời hạn áp dụng cho mọi bưu phẩm?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-12",
+      "title": "EP-12 · E-Postal · Nhận bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-actual"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi đã nhận thư nhưng chưa bấm xác nhận, cần thực hiện bước nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-13",
+      "title": "EP-13 · E-Postal · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-edit"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã bấm nhầm Đã nhận hoặc Từ chối nhận thì có thể sửa trạng thái ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-14",
+      "title": "EP-14 · Gửi thư E-Postal",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xác nhận gửi thư hoặc bưu phẩm ra ngoài bằng QR Sending thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-15",
+      "title": "EP-15 · Gửi thư E-Postal",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Mẫu gửi thư đi yêu cầu nhập những trường nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-16",
+      "title": "EP-16 · Gửi thư E-Postal",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chọn phân loại cước theo nhà vận chuyển ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-17",
+      "title": "EP-17 · E-Postal · Gửi bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-send-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi lấy số vận đơn từ đâu và có thể xác nhận gửi khi chưa được cấp số không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-18",
+      "title": "EP-18 · Gửi thư E-Postal",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Có bắt buộc ghi chú khi xác nhận gửi thư không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-19",
+      "title": "EP-19 · E-Postal · Gửi bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-send-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nhập sai số vận đơn hoặc dùng nhầm QR Receiving khi gửi thư thì xử lý thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-20",
+      "title": "EP-20 · E-Postal · Gửi bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-send-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Postal có bảng giá để tính cước gửi thư hoặc tra phí theo số vận đơn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-21",
+      "title": "EP-21 · E-Postal · Gửi bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-send-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Email Thông báo thư đi có trạng thái Đã gửi thì tôi tra cứu giao hàng ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-22",
+      "title": "EP-22 · E-Postal · Gửi bưu phẩm",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-send-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi gửi nhiều bưu phẩm hoặc nhiều số vận đơn thì lập chung hay tách từng lần xác nhận?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-23",
+      "title": "EP-23 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên Hành chính có thể nhập thư đến và thư đi bằng những cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-24",
+      "title": "EP-24 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "SharePoint Form và SharePoint PhoneList khác nhau thế nào trong E-Postal?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-25",
+      "title": "EP-25 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hành chính có dùng PhoneList để ghi nhận thư hoặc bưu phẩm gửi đi được không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-26",
+      "title": "EP-26 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi Hành chính ghi nhận bưu phẩm, người nhận được thông báo qua công cụ nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-27",
+      "title": "EP-27 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu người nhận thuộc chi nhánh khác hoặc chưa có email công ty, Hành chính ghi nhận theo cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-28",
+      "title": "EP-28 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin-gaps"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hành chính xem bưu phẩm chưa xác nhận và xuất danh sách Excel ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-29",
+      "title": "EP-29 · E-Postal · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Trạng thái xác nhận trên Outlook hoặc Teams được cập nhật về danh sách SharePoint thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-30",
+      "title": "EP-30 · E-Postal · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-outlook"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xác nhận Đã nhận hoặc Từ chối nhận từ email Outlook như thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-31",
+      "title": "EP-31 · E-Postal · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-first"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Lần đầu xác nhận nhận thư, vì sao Outlook yêu cầu mở Power Automate và xác thực email?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-32",
+      "title": "EP-32 · E-Postal · Xác thực lần đầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-first"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người chưa có O365 có thể xác nhận bằng trình duyệt theo hướng dẫn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-33",
+      "title": "EP-33 · E-Postal · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-teams"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xử lý thông báo E-Postal xuất hiện trong Microsoft Teams như thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-34",
+      "title": "EP-34 · E-Postal · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-mobile"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Trong Power Automate trên điện thoại, làm sao chọn đúng yêu cầu nhận thư giữa các yêu cầu khác?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-35",
+      "title": "EP-35 · E-Postal · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-edit"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đã xác nhận bằng QR hoặc Outlook, tôi có cần xác nhận lại trong Teams không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-36",
+      "title": "EP-36 · E-Postal · Nhắc xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-reminder"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Hệ thống nhắc nhận thư sau bao lâu và trong những trường hợp nào sẽ dừng nhắc?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-37",
+      "title": "EP-37 · E-Postal · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-status"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi tôi xác nhận, ai nhận email kết quả và Hành chính có được CC không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-38",
+      "title": "EP-38 · E-Postal · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-status"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Thông báo do Hành chính tạo trên SharePoint khác email kết quả sau khi quét QR thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-39",
+      "title": "EP-39 · E-Postal · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-mail"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chưa thấy email E-Postal thì đợi bao lâu trước khi liên hệ IT?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-40",
+      "title": "EP-40 · E-Postal · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-edit"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã xác nhận nhưng vẫn nhận email nhắc, cần đối chiếu trạng thái ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.ep-41",
+      "title": "EP-41 · E-Postal · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "ep"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-edit"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nhận được thông báo về bưu phẩm của người khác thì cần xử lý thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-01",
+      "title": "EB-01 · Thêm lịch phòng họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi thêm lịch phòng họp vào Outlook Calendar để theo dõi bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-02",
+      "title": "EB-02 · Thêm lịch phòng họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-room-calendar"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở From Room List và tìm phòng theo khu vực hoặc văn phòng ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-03",
+      "title": "EB-03 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-availability"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã thêm lịch phòng nhưng làm sao biết phòng còn trống vào khung giờ cần dùng?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-04",
+      "title": "EB-04 · E-Booking · Xem lịch phòng",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-reservation-distinction"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Thêm lịch phòng vào Calendar có đồng thời giữ chỗ hoặc đặt phòng không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-05",
+      "title": "EB-05 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tạo một cuộc họp có phòng họp trên Outlook bắt đầu từ menu nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-06",
+      "title": "EB-06 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần nhập tiêu đề, người tham gia, giờ bắt đầu và giờ kết thúc ở bước nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-07",
+      "title": "EB-07 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở Scheduling Assistant và Add Rooms ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-08",
+      "title": "EB-08 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi lọc phòng theo Location và Capacity thế nào để chọn đúng địa điểm và sức chứa?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-09",
+      "title": "EB-09 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-availability"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra giờ trống của phòng và giờ trống của người tham gia trong cùng màn hình thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-10",
+      "title": "EB-10 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-availability"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu phòng trống nhưng một số người bận, tôi đổi khung giờ ở đâu trước khi gửi?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-11",
+      "title": "EB-11 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Chọn phòng trong Add Rooms có đồng nghĩa phòng đã được đặt chưa?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-12",
+      "title": "EB-12 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-create"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần bấm Send ở bước nào để gửi lời mời họp?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-13",
+      "title": "EB-13 · E-Booking · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-confirm"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Gửi lời mời họp rồi thì tôi kiểm tra ở đâu để biết đặt phòng đã được chấp nhận?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-14",
+      "title": "EB-14 · E-Booking · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-confirm"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi đã gửi lời mời nhưng không thấy lịch trên Calendar của phòng thì cần đối chiếu gì?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-15",
+      "title": "EB-15 · E-Booking · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-multiple"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể đặt nhiều phòng hoặc đặt phòng cho cuộc họp định kỳ không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-16",
+      "title": "EB-16 · E-Booking · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-client"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Các bước đặt phòng trong Outlook Web, Outlook Mobile và Outlook trên máy tính có giống nhau không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-17",
+      "title": "EB-17 · E-Booking · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-client"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu Outlook của tôi không có Open Calendar, From Room List hoặc Add Rooms thì kiểm tra ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-18",
+      "title": "EB-18 · Đăng ký thiết bị và nước họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi thêm thiết bị cho cuộc họp qua Address Book và All equipments thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-19",
+      "title": "EB-19 · Đăng ký thiết bị và nước họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chọn thiết bị hoặc Water Conference theo khu vực phòng họp ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-20",
+      "title": "EB-20 · E-Booking · Thiết bị và nước họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-equipment-gap"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể chọn nhiều thiết bị cho một cuộc họp không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-21",
+      "title": "EB-21 · Đăng ký thiết bị và nước họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Chọn Water Conference trên Outlook có đủ để đăng ký nước họp chưa?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-22",
+      "title": "EB-22 · Đăng ký thiết bị và nước họp Outlook",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi phải báo số lượng nước cho lễ tân hoặc HC Admin bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-23",
+      "title": "EB-23 · E-Booking · Thiết bị và nước họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-equipment-gap"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đổi phòng hoặc đổi số người họp, tôi cần cập nhật thiết bị và nước họp ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-24",
+      "title": "EB-24 · E-Booking · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-own"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi sửa giờ họp hoặc đổi phòng cho cuộc họp do mình tổ chức như thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-25",
+      "title": "EB-25 · E-Booking · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-own"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể hủy cuộc họp của mình trên Calendar và thông báo cho người tham gia thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-26",
+      "title": "EB-26 · E-Booking · Thay đổi hoặc hủy",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-own"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Xóa cuộc họp trong Calendar cá nhân và xóa lịch đặt trên Calendar phòng khác nhau ra sao?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-27",
+      "title": "EB-27 · E-Booking · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-room-rights"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Vì sao tôi xem được lịch của người khác trên Calendar phòng nhưng không xóa được?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-28",
+      "title": "EB-28 · E-Booking · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-room-rights"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Ai có quyền thay đổi hoặc xóa lịch đặt phòng của người khác?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-29",
+      "title": "EB-29 · HC Admin thay đổi lịch phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "HC Admin cần kiểm tra lịch phòng và thực hiện các bước xóa lịch thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-30",
+      "title": "EB-30 · HC Admin thay đổi lịch phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi xóa lịch phòng, HC Admin dùng Edit the response before sending để làm gì?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-31",
+      "title": "EB-31 · HC Admin thay đổi lịch phòng họp",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi đổi hoặc xóa lịch phòng, ai phải thông báo cho người tổ chức và nội dung cần thông báo là gì?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-32",
+      "title": "EB-32 · E-Booking · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-room-rights"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu lịch đặt phòng của tôi bị xóa, tôi cần liên hệ ai để biết lý do hoặc đặt lại?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.eb-33",
+      "title": "EB-33 · E-Booking · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "eb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.booking-room-rights"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Người được mời họp hoặc người đặt hộ có quyền đổi phòng hay hủy cuộc họp của người tổ chức không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-01",
+      "title": "NT-01 · Office 365 · Luồng xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-data"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Microsoft Forms, Power Automate, SharePoint và Outlook đảm nhiệm bước nào từ lúc gửi biểu mẫu đến khi nhận kết quả?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-02",
+      "title": "NT-02 · Office 365 · Luồng xử lý",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-data"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Dữ liệu nhập qua mã QR có đi vào cùng danh sách SharePoint với dữ liệu mở bằng đường dẫn không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-03",
+      "title": "NT-03 · Office 365 · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-email-types"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi phân biệt email xác nhận đã gửi, email yêu cầu xử lý, email nhắc và email kết quả thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-04",
+      "title": "NT-04 · Office 365 · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-mail-check"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nên kiểm tra Hộp thư đến, thư rác và email đã khai thế nào khi chưa thấy thông báo?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-05",
+      "title": "NT-05 · Office 365 · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-email-folders"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể tạo thư mục hoặc quy tắc trong Outlook để gom email từ từng công cụ E-Office không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-06",
+      "title": "NT-06 · Office 365 · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-approval-channel"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu Teams không hiện thông báo nhưng Outlook đã có email yêu cầu, tôi có thể xử lý từ Outlook không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-07",
+      "title": "NT-07 · Office 365 · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-approval-queue"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu Power Automate không thấy mục Approvals, tôi cần kiểm tra tài khoản hoặc quyền nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-08",
+      "title": "NT-08 · Office 365 · Xử lý yêu cầu",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-approval-queue"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi phân biệt đơn nghỉ phép, đơn đi trễ/về sớm và yêu cầu nhận thư trong danh sách Approvals thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-09",
+      "title": "NT-09 · Office 365 · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-mail-check"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Vì sao người gửi thấy đã gửi trong Forms còn người duyệt chưa nhận được yêu cầu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-10",
+      "title": "NT-10 · Office 365 · Kiểm tra email",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-mail-check"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu Outlook đã có email kết quả nhưng SharePoint vẫn hiển thị chờ xử lý thì cần báo bộ phận nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-11",
+      "title": "NT-11 · Office 365 · Xử lý theo vai trò",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-list-access"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Ai được xem danh sách hồ sơ trên SharePoint và xuất dữ liệu ra Excel?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-12",
+      "title": "NT-12 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.bravo-sharepoint"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Làm sao tìm đúng thư mục SharePoint Office 365 do IT công bố để tải bộ cài Bravo?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.nt-13",
+      "title": "NT-13 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "nt"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.bravo-sharepoint"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu mở được liên kết SharePoint tải Bravo nhưng bị báo không có quyền, tôi cần liên hệ ai?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-01",
+      "title": "PB-01 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-leave"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi cần xin nghỉ phép, tôi xác định đơn vị mình dùng E-Leave hay Workit bằng cách nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-02",
+      "title": "PB-02 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-workdate"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ hoặc về sớm thì nộp E-Workdate hay lập phiếu Đi trễ/Về sớm trên Workit?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-03",
+      "title": "PB-03 · Office 365 · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-duplicate"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã gửi yêu cầu qua một hệ thống, có cần gửi lại qua hệ thống còn lại không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-04",
+      "title": "PB-04 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-postal"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "E-Postal quản lý thư và bưu phẩm khác Văn bản đi/đến trong Văn phòng số Workit thế nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-05",
+      "title": "PB-05 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-booking"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Đặt phòng qua Outlook E-Booking khác đặt phòng trong Quy trình số Workit ở điểm nào?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-06",
+      "title": "PB-06 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-booking"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu lịch phòng trên Outlook và Workit khác nhau, tôi xác minh lịch đang áp dụng với ai?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-07",
+      "title": "PB-07 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-delegate"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nhận hộ bưu phẩm và gửi hộ đơn nghỉ phép có dùng cùng một cơ chế ủy quyền không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-08",
+      "title": "PB-08 · Office 365 · Đối chiếu công cụ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-notifications"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian nhắc và ngưỡng liên hệ IT khác nhau thế nào giữa E-Leave, E-Workdate và E-Postal?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-09",
+      "title": "PB-09 · Office 365 · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-self-verify"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể xem tiến độ đơn, bưu phẩm hoặc lịch phòng của mình ở đâu mà không cần gửi mật khẩu cho bot?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-10",
+      "title": "PB-10 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-no-action"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Bot có thể gửi đơn, duyệt thay tôi, xác nhận đã nhận thư hoặc đặt phòng trực tiếp không?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-11",
+      "title": "PB-11 · Office 365 · Thông báo và trạng thái",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-self-verify"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Nếu hướng dẫn có ảnh chụp chứa tên, số phiếu hoặc lịch phòng mẫu, tôi kiểm tra dữ liệu thực tế của mình ở đâu?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    },
+    {
+      "id": "q.software.office-365.pb-12",
+      "title": "PB-12 · Office 365 · Xử lý lỗi",
+      "tags": [
+        "type-a",
+        "office-365",
+        "pb"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.office-report"
+        ],
+        "document_ids": [
+          "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Trả theo đúng nguồn và kênh hiện hành được truy cập."
+      ],
+      "turns": [
+        {
+          "text": "Khi báo lỗi một công cụ Office 365, tôi nên cung cấp tên công cụ, thời điểm thao tác và thông báo lỗi nào để bộ phận phụ trách kiểm tra?",
+          "expectation": "Chọn đúng nghiệp vụ và kênh, dẫn nguồn và nêu giới hạn khi có."
+        }
+      ]
+    }
+  ]
+}

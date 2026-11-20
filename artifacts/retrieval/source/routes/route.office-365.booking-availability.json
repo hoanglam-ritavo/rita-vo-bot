@@ -1,0 +1,42 @@
+{
+  "id": "route.office-365.booking-availability",
+  "family": "software",
+  "task_id": "task.office-365.booking-availability",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phòng còn trống"
+        ],
+        [
+          "khung giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giờ trống"
+        ],
+        [
+          "của phòng",
+          "của người tham gia"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phòng trống"
+        ],
+        [
+          "một số người bận"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "booking"
+  }
+}

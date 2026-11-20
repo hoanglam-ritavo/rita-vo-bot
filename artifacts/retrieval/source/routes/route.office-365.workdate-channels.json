@@ -1,0 +1,27 @@
+{
+  "id": "route.office-365.workdate-channels",
+  "family": "software",
+  "task_id": "task.office-365.workdate-channels",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "outlook"
+        ],
+        [
+          "teams"
+        ],
+        [
+          "power automate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "approval"
+  }
+}

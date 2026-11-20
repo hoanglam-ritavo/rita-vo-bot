@@ -1,0 +1,24 @@
+{
+  "id": "route.office-365.office-email-types",
+  "family": "software",
+  "task_id": "task.office-365.office-email-types",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email xác nhận đã gửi"
+        ],
+        [
+          "email yêu cầu xử lý"
+        ],
+        [
+          "email nhắc"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "status"
+  }
+}

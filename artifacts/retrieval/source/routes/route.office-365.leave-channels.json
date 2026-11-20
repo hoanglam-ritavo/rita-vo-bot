@@ -1,0 +1,41 @@
+{
+  "id": "route.office-365.leave-channels",
+  "family": "software",
+  "task_id": "task.office-365.leave-channels",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt e leave"
+        ],
+        [
+          "outlook"
+        ],
+        [
+          "teams"
+        ],
+        [
+          "power automate"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã duyệt trên outlook"
+        ],
+        [
+          "xác nhận lại"
+        ],
+        [
+          "teams",
+          "power automate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "approval"
+  }
+}

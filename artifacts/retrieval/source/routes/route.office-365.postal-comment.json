@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.postal-comment",
+  "family": "software",
+  "task_id": "task.office-365.postal-comment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "từ chối nhận thư"
+        ],
+        [
+          "nhập lý do",
+          "ai nhận được lý do"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "approval"
+  }
+}

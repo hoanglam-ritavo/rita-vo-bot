@@ -1,0 +1,50 @@
+{
+  "id": "route.office-365.booking-room-rights",
+  "family": "software",
+  "task_id": "task.office-365.booking-room-rights",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lịch của người khác"
+        ],
+        [
+          "không xóa được"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ai có quyền"
+        ],
+        [
+          "đổi hoặc xóa lịch đặt",
+          "xóa lịch đặt phòng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lịch đặt phòng của tôi bị xóa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người đặt hộ"
+        ],
+        [
+          "đổi phòng",
+          "hủy cuộc họp"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "administration"
+  }
+}

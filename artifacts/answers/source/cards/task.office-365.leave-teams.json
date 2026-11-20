@@ -1,0 +1,46 @@
+{
+  "id": "task.office-365.leave-teams",
+  "label": "E-Leave · Xử lý yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Leave"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Leave?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.leave-teams.1",
+          "text": "Mở thông báo E-Leave trong Teams, chọn Duyệt hoặc Từ chối. Bình luận nếu có được gửi người đề nghị. Mở Activity để xem lại thông tin đã xử lý.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 6,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "b289834c166c65a64c097edd300f21ffaf1df8822f7ad0f9a3200e1308193078",
+              "quote": "E-Leave — duyệt bằng Microsoft Teams: khi có đơn, Teams hiện thông tin cần duyệt. Chọn Duyệt hoặc Từ chối; Comment nếu có sẽ gửi tới người đề nghị. Có thể xem lại thông tin đã duyệt/từ chối trong Activity.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

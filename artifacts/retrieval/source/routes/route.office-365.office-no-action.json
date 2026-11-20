@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.office-no-action",
+  "family": "software",
+  "task_id": "task.office-365.office-no-action",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bot có thể gửi đơn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "duyệt thay tôi"
+        ],
+        [
+          "xác nhận"
+        ],
+        [
+          "đặt phòng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "support"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "task.office-365.postal-first",
+  "label": "E-Postal · Xác thực lần đầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Postal"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Postal?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.postal-first.1",
+          "text": "Lần đầu xác nhận, Outlook chuyển sang Power Automate để xác thực email Rita Võ. Tài liệu nêu người chưa có O365 có thể dùng trình duyệt. App điện thoại yêu cầu đăng nhập O365.",
+          "refs": [
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 4,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "170b865d377c2c86d8854380e857b40b96b1dff4f0f23dccdf7c1edb0d457b24",
+              "quote": "E-Postal — xác nhận nhận thư qua Outlook: mở thông báo, chọn Đã nhận hoặc Từ chối nhận; ghi Comments lý do từ chối. Mẫu email hướng dẫn nhận trong 2–3 ngày làm việc, mang điện thoại và nhấn Đã nhận khi đến nhận. Lần đầu làm theo Power Automate để xác thực email Rita Võ; người không có O365 có thể dùng trình duyệt theo hướng dẫn, liên hệ HCNS IT nếu chưa rõ.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 5,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466",
+              "quote": "E-Postal — xác nhận bằng MS Teams hoặc điện thoại: Teams với O365 hiện popup, chọn Đã nhận/Từ chối nhận, Comment được gửi HC nếu có. Trên điện thoại cài Power Automate của Microsoft, đăng nhập O365 > Approvals > đúng thông báo thư > xem chi tiết và xác nhận. Không nhầm với các loại yêu cầu khác cùng danh sách.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

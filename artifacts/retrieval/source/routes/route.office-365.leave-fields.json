@@ -1,0 +1,55 @@
+{
+  "id": "route.office-365.leave-fields",
+  "family": "software",
+  "task_id": "task.office-365.leave-fields",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đơn e leave"
+        ],
+        [
+          "trường bắt buộc",
+          "tùy chọn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "để trống chức vụ"
+        ],
+        [
+          "e leave",
+          "đơn nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mã nhân viên"
+        ],
+        [
+          "chưa biết mã",
+          "mã để điền đơn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "định dạng nào"
+        ],
+        [
+          "ngày bắt đầu",
+          "ngày kết thúc"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

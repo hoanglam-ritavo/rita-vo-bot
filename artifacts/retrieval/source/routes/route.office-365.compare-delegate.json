@@ -1,0 +1,21 @@
+{
+  "id": "route.office-365.compare-delegate",
+  "family": "software",
+  "task_id": "task.office-365.compare-delegate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhận hộ bưu phẩm"
+        ],
+        [
+          "gửi hộ đơn nghỉ phép"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "compare"
+  }
+}

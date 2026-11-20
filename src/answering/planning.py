@@ -43,6 +43,10 @@ class RequestAnalysis:
     workit_action: str | None = None
     workit_surface: str | None = None
     workit_comparison_labels: tuple[tuple[str, str], ...] = ()
+    office_workflow: str | None = None
+    office_action: str | None = None
+    office_channel: str | None = None
+    office_prefer_workit: bool = False
 
 
 def choice_labels(cards, *, include_filenames=False):
@@ -154,6 +158,37 @@ def _workit_analysis(question, catalog, scope, request):
                            scope_intro=intro or None, scope_limits=limits, workit_comparison_labels=labels)
 
 
+def _office_analysis(question, catalog, resolution, request):
+    from src.retrieval.office import WORKFLOW_LABELS
+    from .pipeline import requested_aspects
+
+    if resolution.clarification:
+        return RequestAnalysis(question=question, parts=('documents',), clarification=resolution.clarification)
+    if resolution.unavailable:
+        label = WORKFLOW_LABELS[request['slots']['office_workflow']]
+        return RequestAnalysis(question=question, parts=('documents',), document_reason='answer_section_unavailable',
+                               document_message=f'Chưa có hướng dẫn có căn cứ cho phần này trên {label}.')
+    route = resolution.route
+    spec = route.office
+    cards = {card.id: card for card in catalog.cards}
+    scope = [cards[key] for key in (spec.prefer_workit, route.task_id) if key and key in cards]
+    if not scope or route.task_id not in cards:
+        return RequestAnalysis(question=question, parts=('documents',), document_reason='answer_section_unavailable',
+                               document_message='Chưa có mẫu hướng dẫn Office 365 phù hợp.')
+    aspects = tuple(request.get('aspects') or requested_aspects(question))
+    if not all(all(aspect in card.sections for aspect in aspects) for card in scope):
+        aspects = ('overview',)
+    refs = {(ref.document_id, ref.revision_id, ref.chunk_index) for card in scope
+            for aspect in aspects for unit in card.sections[aspect].units for ref in unit.refs}
+    if len(refs) > 10:
+        return RequestAnalysis(question=question, parts=('documents',),
+                               clarification='Bạn hãy hỏi riêng từng công cụ hoặc từng thao tác.')
+    return RequestAnalysis(question=question, cards=tuple(scope), parts=('documents',), focused_policy=True,
+                           aspects=aspects, general_guidance=True, check_scopes=len(scope) == 2,
+                           office_workflow=spec.workflow, office_action=spec.action, office_channel=spec.channel,
+                           office_prefer_workit=len(scope) == 2)
+
+
 def analyze_question(question, catalog=None, lexicon=None, policy=None, *, request=None):
     from .pipeline import select_cards, is_document_lookup, requested_aspects, resolve_policy
     from src.retrieval.language import positive_question
@@ -164,6 +199,12 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     query = normalized(question)
     lookup = is_document_lookup(question)
     registry = policy if policy is not None and catalog is not None and lexicon is not None else None
+    office = getattr(registry, 'resolve_office', None)
+    if (not lookup and office and not (request.get('selected_task') or request.get('source_id'))
+            and len([part for part in re.split(r'[?!;\n]', question) if part.strip()]) == 1):
+        scope = office(question, slots=request.get('slots'))
+        if scope:
+            return _office_analysis(question, catalog, scope, request)
     workit = getattr(registry, 'resolve_workit', None)
     workit_choices = None
     if not lookup and workit and len([p for p in re.split(r'[?!;\n]', question) if p.strip()]) == 1:

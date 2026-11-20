@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.booking-client",
+  "family": "software",
+  "task_id": "task.office-365.booking-client",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đặt phòng trong outlook web",
+          "outlook mobile"
+        ],
+        [
+          "giống nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không có open calendar",
+          "không có from room list",
+          "không có add rooms"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "support"
+  }
+}

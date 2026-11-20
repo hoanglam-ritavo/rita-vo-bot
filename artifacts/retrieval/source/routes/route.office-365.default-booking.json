@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.default-booking",
+  "family": "software",
+  "task_id": "task.office-365.default-booking",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tôi muốn đặt phòng họp"
+        ],
+        [
+          "làm ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "muốn đăng ký phòng họp"
+        ],
+        [
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "booking",
+    "prefer_workit": "task.workit-surface.room.web"
+  }
+}

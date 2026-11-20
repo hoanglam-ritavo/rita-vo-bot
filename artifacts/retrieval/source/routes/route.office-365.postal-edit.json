@@ -1,0 +1,49 @@
+{
+  "id": "route.office-365.postal-edit",
+  "family": "software",
+  "task_id": "task.office-365.postal-edit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bấm nhầm đã nhận",
+          "từ chối nhận"
+        ],
+        [
+          "sửa trạng thái"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã xác nhận bằng qr"
+        ],
+        [
+          "xác nhận lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã xác nhận"
+        ],
+        [
+          "vẫn nhận email nhắc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thông báo về bưu phẩm của người khác"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "support"
+  }
+}

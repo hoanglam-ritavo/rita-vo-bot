@@ -1,0 +1,26 @@
+{
+  "id": "route.office-365.bravo-sharepoint",
+  "family": "software",
+  "task_id": "task.office-365.bravo-sharepoint",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sharepoint"
+        ],
+        [
+          "bravo"
+        ],
+        [
+          "thư mục",
+          "không có quyền",
+          "bộ cài"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "support"
+  }
+}

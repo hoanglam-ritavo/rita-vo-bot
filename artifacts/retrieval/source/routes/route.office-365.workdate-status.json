@@ -1,0 +1,41 @@
+{
+  "id": "route.office-365.workdate-status",
+  "family": "software",
+  "task_id": "task.office-365.workdate-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email đã duyệt hoặc bị từ chối"
+        ],
+        [
+          "thông tin nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email kết quả e workdate"
+        ],
+        [
+          "địa chỉ nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi đơn e workdate"
+        ],
+        [
+          "được chấp thuận"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "status"
+  }
+}

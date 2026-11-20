@@ -1,0 +1,50 @@
+{
+  "id": "task.office-365.postal-send-gaps",
+  "label": "E-Postal · Gửi bưu phẩm",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Postal"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Postal?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.postal-send-gaps.1",
+          "text": "QR Sending yêu cầu số vận đơn do hãng vận chuyển cấp. Email Đã gửi phản ánh trạng thái ghi nhận gửi thư trong E-Postal.",
+          "refs": [
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 2,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "f922d237204acb9b6a3baf45e7555b70508d0f3055ed9ab855c4bd85ebfa9986",
+              "quote": "E-Postal — gửi thư/bưu phẩm: dùng QR Sending; khai công ty, mã nhân viên HCNS cấp, họ tên, email công ty HCNS IT cấp, phòng ban, phân loại cước theo nhà vận chuyển và số vận đơn được cấp; ghi chú tùy chọn. Hệ thống có email Thông báo thư đi với trạng thái Đã gửi. Tài liệu không cung cấp bảng giá cước để tính tiền.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Hướng dẫn không nêu cách sửa số, gộp nhiều kiện, bảng giá hay xác nhận giao tận nơi. Đối chiếu mã với hãng hoặc nhờ Hành chính kiểm tra."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

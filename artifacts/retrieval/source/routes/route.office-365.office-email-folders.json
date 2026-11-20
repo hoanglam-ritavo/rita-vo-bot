@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.office-email-folders",
+  "family": "software",
+  "task_id": "task.office-365.office-email-folders",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo thư mục hoặc quy tắc"
+        ],
+        [
+          "outlook"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gom email"
+        ],
+        [
+          "từng công cụ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "email-help"
+  }
+}

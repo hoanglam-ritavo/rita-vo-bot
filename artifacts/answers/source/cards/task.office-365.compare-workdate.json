@@ -1,0 +1,66 @@
+{
+  "id": "task.office-365.compare-workdate",
+  "label": "Office 365 · Đối chiếu công cụ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.compare-workdate.1",
+          "text": "E-Workdate dùng Forms hoặc QR, khai loại đi trễ hoặc về sớm và email quản lý. Workit có Quy trình số → Đi trễ/Về sớm và các ô giờ tương ứng. Với thao tác chưa chọn hệ thống, bot ưu tiên Workit khi đủ căn cứ.",
+          "refs": [
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 1,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "c61778b0afeaf870ca508ade6f1784151a38ca487e025a2a6c80e3193824b7e6",
+              "quote": "E-Workdate — gửi đơn đi trễ/về sớm bằng máy tính hoặc điện thoại: truy cập https://forms.office.com/r/pmRgRY4gHw hoặc QR trong tài liệu. Điền công ty, khu vực Bắc/Nam, mã nhân viên HCNS cấp, họ tên đầy đủ, email công ty HCNS IT cấp, số điện thoại, từ ngày/đến ngày, loại đi trễ hoặc về sớm và lý do. Chức vụ không bắt buộc. Nhập chính xác email quản lý có thẩm quyền; nhiều email CC ngăn cách bằng dấu chấm phẩy (;); tick Ủy quyền Có nếu ủy quyền cho người khác.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 5,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712",
+              "quote": "Workit — đăng ký đi trễ/về sớm: Quy trình số > Đi trễ/Về sớm > Thêm/F2. Chọn loại Lý do cá nhân hoặc Lý do công việc, nhập lý do, thêm dòng, chọn ngày. Đến trễ nhập ô Giờ đến trễ; về sớm nhập ô Giờ về sớm; nhập diễn giải và Lưu/F8. Có đính kèm. Hệ thống lấy quản lý trực tiếp của người lập phiếu: Đăng ký > Duyệt Đi trễ/Về sớm > Thông báo nhân sự; theo dõi trạng thái ở các tab.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Xác nhận với quản lý hoặc HCNS về quy trình áp dụng cho đơn vị."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

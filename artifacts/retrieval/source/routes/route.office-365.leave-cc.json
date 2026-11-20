@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.leave-cc",
+  "family": "software",
+  "task_id": "task.office-365.leave-cc",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thêm nhiều người"
+        ],
+        [
+          "email cc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người được cc"
+        ],
+        [
+          "quyền duyệt",
+          "nhận thông báo"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

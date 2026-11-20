@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.workdate-outlook",
+  "family": "software",
+  "task_id": "task.office-365.workdate-outlook",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt hoặc từ chối e workdate"
+        ],
+        [
+          "outlook"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quản lý nhập ý kiến"
+        ],
+        [
+          "e workdate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "approval",
+    "channel": "outlook"
+  }
+}

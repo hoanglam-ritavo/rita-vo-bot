@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.postal-teams",
+  "family": "software",
+  "task_id": "task.office-365.postal-teams",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thông báo e postal"
+        ],
+        [
+          "microsoft teams"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xác nhận nhận thư"
+        ],
+        [
+          "teams"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "approval",
+    "channel": "teams"
+  }
+}

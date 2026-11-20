@@ -1,0 +1,37 @@
+{
+  "id": "route.office-365.leave-types",
+  "family": "software",
+  "task_id": "task.office-365.leave-types",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trường loại nghỉ"
+        ],
+        [
+          "e leave",
+          "lựa chọn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e leave"
+        ],
+        [
+          "nghỉ thai sản",
+          "nghỉ chế độ",
+          "nghỉ không lương"
+        ],
+        [
+          "hướng dẫn riêng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

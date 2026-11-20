@@ -1,0 +1,47 @@
+{
+  "id": "route.office-365.postal-send",
+  "family": "software",
+  "task_id": "task.epostal-send",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "qr sending"
+        ],
+        [
+          "xác nhận gửi",
+          "gửi thư",
+          "bưu phẩm ra ngoài"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mẫu gửi thư đi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phân loại cước theo nhà vận chuyển"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ghi chú"
+        ],
+        [
+          "khi xác nhận gửi thư"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "sending"
+  }
+}

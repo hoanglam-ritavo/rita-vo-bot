@@ -1,0 +1,64 @@
+{
+  "id": "route.office-365.tools",
+  "family": "software",
+  "task_id": "task.office-365.tools",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "công cụ office 365"
+        ],
+        [
+          "các quy trình nội bộ",
+          "những công cụ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e leave"
+        ],
+        [
+          "e workdate"
+        ],
+        [
+          "e postal"
+        ],
+        [
+          "e booking"
+        ],
+        [
+          "dùng cho"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "công cụ nào"
+        ],
+        [
+          "microsoft forms"
+        ],
+        [
+          "trực tiếp outlook"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "office 365"
+        ],
+        [
+          "luồng nội bộ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "overview"
+  }
+}

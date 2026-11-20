@@ -1,0 +1,36 @@
+{
+  "id": "route.office-365.leave-personal-email",
+  "family": "software",
+  "task_id": "task.office-365.leave-personal-email",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email cá nhân"
+        ],
+        [
+          "gửi đơn nghỉ phép",
+          "e leave",
+          "email nhận kết quả"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gmail"
+        ],
+        [
+          "gửi đơn nghỉ phép"
+        ],
+        [
+          "e leave"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "route.office-365.office-mail-check",
+  "family": "software",
+  "task_id": "task.office-365.office-mail-check",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hộp thư đến"
+        ],
+        [
+          "thư rác"
+        ],
+        [
+          "email đã khai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thấy đã gửi trong forms"
+        ],
+        [
+          "người duyệt chưa nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "outlook đã có email kết quả"
+        ],
+        [
+          "sharepoint"
+        ],
+        [
+          "chờ xử lý"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "email-help"
+  }
+}

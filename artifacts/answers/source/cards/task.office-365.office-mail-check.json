@@ -1,0 +1,98 @@
+{
+  "id": "task.office-365.office-mail-check",
+  "label": "Office 365 · Kiểm tra email",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.office-mail-check.1",
+          "text": "Kiểm tra đúng hộp thư và email người duyệt đã khai. Tài liệu đề nghị đợi 10–20 phút khi thư tới chậm. Đối chiếu email xác nhận và email kết quả của đúng hồ sơ.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 9,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "a0bda4331a23660d89796e0c3dd7dcf074fd3f8f5e904cfa254130ea07f7824b",
+              "quote": "E-Leave — không nhận được email đơn nghỉ phép: có thể do gửi mail/mạng chậm, đợi 10–20 phút. Nếu sau 9h sáng hôm sau vẫn không có email phản hồi, liên hệ KSNB IT System qua ksnb_it.system@ritavo.com theo tài liệu. Khi không quét được QR, kiểm tra chức năng camera, dùng ứng dụng quét QR/Zalo hoặc dùng đường link https://forms.office.com/r/chBGKrWhb2.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 11,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9",
+              "quote": "E-Leave — thông báo trạng thái: người gửi nhận email xác nhận đã gửi tới người duyệt, rồi email thứ hai sau duyệt/từ chối. Người duyệt nhận thông báo Power Automate; khi hoàn tất, email từ itsystems@ritavo.com gửi cho người gửi, người duyệt và người CC. Người tạo nên gom email vào mục quản lý; người duyệt dùng Power Automate để theo dõi đơn.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 7,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "dc66b6330551442892b660b9c39f4f747414b8ad398dbda98a0a0fadb5cf8a4b",
+              "quote": "E-Workdate — không nhận email phản hồi: theo FAQ, chờ 10–20 phút do email/mạng có thể chậm; sau 24 giờ vẫn không có phản hồi, liên hệ KSNB IT System tại ksnb_it.system@ritavo.com. FAQ nêu email trạng thái duyệt/từ chối từ itsystems@ritavo.com. Cần khai đúng email công ty và email quản lý khi lập đơn.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 7,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "c051e74abe25119992259aac2052c95b8ec60c8752e2e4adf9b6e656fa88e5ec",
+              "quote": "E-Postal — lỗi email: phải dùng email HCNS IT cấp, không dùng email cá nhân. Chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhận hộ. Không thấy email thì đợi 10–20 phút; sau 24 giờ vẫn không có phản hồi, liên hệ KSNB IT System ksnb_it.system@ritavo.com.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn không xác minh nguyên nhân chậm hoặc trạng thái SharePoint. Nếu lệch trạng thái, báo bộ phận phụ trách nghiệp vụ và IT theo hướng dẫn của công cụ."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

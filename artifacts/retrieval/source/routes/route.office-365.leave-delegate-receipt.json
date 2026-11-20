@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.leave-delegate-receipt",
+  "family": "software",
+  "task_id": "task.office-365.leave-delegate-receipt",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khi gửi hộ"
+        ],
+        [
+          "ai nhận email",
+          "xác nhận đã gửi"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "status"
+  }
+}

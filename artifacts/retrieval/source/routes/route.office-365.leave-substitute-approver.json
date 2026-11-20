@@ -1,0 +1,21 @@
+{
+  "id": "route.office-365.leave-substitute-approver",
+  "family": "software",
+  "task_id": "task.office-365.leave-substitute-approver",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý trực tiếp đang nghỉ"
+        ],
+        [
+          "email nào"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

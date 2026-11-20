@@ -240,7 +240,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
             reason = (next(iter(limits)) if reasons == {'section_incomplete'} and len(limits) == 1
                       else 'incomplete_template_evidence')
             row.update(status='answered' if complete else 'partial', claims=claims[:12 if complete else 3], sources=sources,
-                       intro=analysis.scope_intro or '' if analysis.workit_action else '',
+                       intro=analysis.scope_intro or '' if analysis.workit_action or analysis.scope_system == 'workit' else '',
                        reason=None if complete else reason,
                        limitations=[] if complete else list(dict.fromkeys(limitations)))
             return row
@@ -301,7 +301,12 @@ async def evaluate_question(question, retrieval, catalog, lexicon, *, top_k=5, a
     if analysis is None:
         from .planning import analyze_question
         analysis = analyze_question(question, catalog, lexicon, getattr(retrieval, 'policy', None))
-    result = await evidence_result(question, retrieval, catalog, lexicon, top_k, analysis=analysis)
+    result = None
+    if analysis.office_prefer_workit:
+        from .scope import resolve_document_scopes
+        analysis, result = await resolve_document_scopes(analysis, catalog, retrieval)
+    if result is None:
+        result = await evidence_result(question, retrieval, catalog, lexicon, top_k, analysis=analysis)
     row = render(question, result, catalog, lexicon, getattr(retrieval, 'policy', None), analysis=analysis)
     return {**row, 'retrieval_seconds': time.perf_counter() - started,
             'generation_seconds': 0.0, 'verification_seconds': 0.0}

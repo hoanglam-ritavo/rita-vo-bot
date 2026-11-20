@@ -1,0 +1,45 @@
+{
+  "id": "route.office-365.booking-water",
+  "family": "software",
+  "task_id": "task.outlook-equipment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chọn water conference"
+        ],
+        [
+          "đủ",
+          "đăng ký nước"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số lượng nước"
+        ],
+        [
+          "lễ tân",
+          "hc admin"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "water conference"
+        ],
+        [
+          "báo lễ tân",
+          "báo nước",
+          "có cần báo"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "equipment"
+  }
+}

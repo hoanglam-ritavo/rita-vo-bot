@@ -1,0 +1,46 @@
+{
+  "id": "task.office-365.leave-mobile",
+  "label": "E-Leave · Xử lý yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Leave"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Leave?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.leave-mobile.1",
+          "text": "Tải Microsoft Power Automate từ cửa hàng ứng dụng, đăng nhập tài khoản O365, mở thông báo hoặc danh sách chờ duyệt và chọn đúng đơn E-Leave. Danh sách cho xem trạng thái chờ, duyệt và từ chối.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 7,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc",
+              "quote": "E-Leave — duyệt trên điện thoại bằng Microsoft Power Automate: tải ứng dụng của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365. Mở thông báo hoặc danh sách chờ duyệt để xem và Duyệt/Từ chối đơn. Ứng dụng cho theo dõi trạng thái chờ duyệt, đã duyệt, từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

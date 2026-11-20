@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.workdate-mail",
+  "family": "software",
+  "task_id": "task.office-365.workdate-mail",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chưa thấy email kết quả"
+        ],
+        [
+          "quá 24 giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email đã duyệt"
+        ],
+        [
+          "bảng công chưa cập nhật"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "email-help"
+  }
+}

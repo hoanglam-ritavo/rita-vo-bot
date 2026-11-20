@@ -1,0 +1,47 @@
+{
+  "id": "route.office-365.workdate-mobile",
+  "family": "software",
+  "task_id": "task.topic.eworkdate-mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "approvals trên điện thoại"
+        ],
+        [
+          "đúng đơn e workdate"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "power automate"
+        ],
+        [
+          "điện thoại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "approvals"
+        ],
+        [
+          "chọn yêu cầu e workdate",
+          "đơn e workdate",
+          "đúng đơn e workdate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "approval",
+    "channel": "automate-mobile"
+  }
+}

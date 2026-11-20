@@ -1,0 +1,82 @@
+{
+  "id": "task.office-365.booking-client",
+  "label": "E-Booking · Xử lý lỗi",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Booking"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Booking?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.booking-client.1",
+          "text": "Hướng dẫn minh họa Calendar, From Room List và Scheduling Assistant trong Outlook.",
+          "refs": [
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 0,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "bc611c7d8a63f2ad1dd09c0ba5ec5e52a297b00fe76ad3aaa5ddc6e2c78eac7b",
+              "quote": "E-Booking 1.0 ngày 30.09.2023 — đặt và theo dõi phòng họp bằng Outlook. Thêm lịch phòng: mở Calendar > Open Calendar > From Room List… > chọn phòng theo khu vực/văn phòng > OK. Danh sách cho theo dõi tình trạng phòng; không xác lập phòng nào còn trống hiện tại.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 1,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "8104b9049ca723ba44267e0ec70a42f3026f1c2fb988780468e8c932374d6ce6",
+              "quote": "E-Booking — đặt cuộc họp trên Outlook: Home > New Items > Meeting; nhập Title, danh sách người tham gia, giờ bắt đầu/kết thúc. Mở Scheduling Assistant > Add Rooms, chọn phòng theo Location và Capacity > OK. Kiểm tra thời gian trống của các thành viên trong Scheduling Assistant rồi Send gửi lời mời.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 4,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "f6e9aa46c801a5972cddf8a644934ba6f61671ffecdda88e29526527a2bf72bc",
+              "quote": "E-Booking — không xóa được lịch phòng: người dùng chỉ xóa lịch trên Calendar của mình và do mình tạo, không xóa lịch người khác trên Calendar phòng họp. Nếu lịch của bạn bị xóa, liên hệ HC Admin kiểm tra; HC Admin/IT có quyền xóa và thông báo tạo lịch mới. Outlook khác ảnh hướng dẫn thì liên hệ IT kiểm tra/cập nhật phiên bản đang ban hành.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu không xác nhận các nút giống nhau ở Web, Mobile và máy tính. Nếu giao diện khác, nhờ IT kiểm tra phiên bản đang áp dụng."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

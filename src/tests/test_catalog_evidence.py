@@ -151,10 +151,11 @@ def test_current_catalog_inventory_and_authored_aliases():
     policy = RetrievalPolicy()
     policy.start()
     assert policy.catalog is not None
-    focused_tasks = {route.task_id for route in policy.catalog.routes if route.question_terms and not route.surface}
-    workit_tasks = {route.task_id for route in policy.catalog.routes if route.surface}
+    focused_tasks = {route.task_id for route in policy.catalog.routes
+                     if route.question_terms and not (route.surface or route.office)}
+    scoped_tasks = {route.task_id for route in policy.catalog.routes if route.surface or route.office}
     routed_only = {card.id for card in catalog.cards if card.routed_only}
-    assert focused_tasks <= routed_only <= focused_tasks | workit_tasks
+    assert focused_tasks <= routed_only <= focused_tasks | scoped_tasks
     for card in catalog.cards:
         cards, ambiguous = select_cards(card.aliases[0], catalog, lexicon)
         if card.routed_only:

@@ -1,0 +1,25 @@
+{
+  "id": "route.office-365.compare-workdate",
+  "family": "software",
+  "task_id": "task.office-365.compare-workdate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "workit"
+        ],
+        [
+          "đi trễ",
+          "về sớm"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "compare"
+  }
+}

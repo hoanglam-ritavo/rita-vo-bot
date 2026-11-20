@@ -28774,6 +28774,3422 @@
       ],
       "surface": "web",
       "workit_action": "leave-approval"
+    },
+    {
+      "id": "route.office-365.tools",
+      "family": "software",
+      "task_id": "task.office-365.tools",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "công cụ office 365"
+            ],
+            [
+              "các quy trình nội bộ",
+              "những công cụ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e leave"
+            ],
+            [
+              "e workdate"
+            ],
+            [
+              "e postal"
+            ],
+            [
+              "e booking"
+            ],
+            [
+              "dùng cho"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "công cụ nào"
+            ],
+            [
+              "microsoft forms"
+            ],
+            [
+              "trực tiếp outlook"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "office 365"
+            ],
+            [
+              "luồng nội bộ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "route.office-365.access",
+      "family": "software",
+      "task_id": "task.office-365.access",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biểu mẫu office 365"
+            ],
+            [
+              "điện thoại",
+              "mở và gửi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đường dẫn biểu mẫu"
+            ],
+            [
+              "mã qr"
+            ],
+            [
+              "chính thức",
+              "của từng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "camera không quét được mã qr"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mã qr"
+            ],
+            [
+              "link chính thức",
+              "đường dẫn biểu mẫu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không đọc được mã qr",
+              "không quét được mã qr"
+            ],
+            [
+              "máy ảnh",
+              "camera",
+              "mở mẫu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "submission"
+      }
+    },
+    {
+      "id": "route.office-365.account",
+      "family": "software",
+      "task_id": "task.office-365.account",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân viên mới chưa có tài khoản office 365"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tài khoản microsoft cá nhân"
+            ],
+            [
+              "chuyển sang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "báo không có quyền truy cập"
+            ],
+            [
+              "biểu mẫu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giao diện hiện tại"
+            ],
+            [
+              "khác ảnh hướng dẫn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phiên bản office 365"
+            ],
+            [
+              "liên hệ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.account-email",
+      "family": "software",
+      "task_id": "task.office-365.account-email",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "công cụ nào cho dùng email cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tài khoản dùng để mở biểu mẫu"
+            ],
+            [
+              "trùng với email nhận kết quả"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mail cá nhân",
+              "email cá nhân"
+            ],
+            [
+              "công cụ nào",
+              "chấp nhận"
+            ],
+            [
+              "email công ty"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.leave-entry",
+      "family": "software",
+      "task_id": "task.office-365.leave-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gửi đơn nghỉ phép năm"
+            ],
+            [
+              "ở đâu",
+              "e leave"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi đơn e leave"
+            ],
+            [
+              "sharepoint",
+              "mã qr"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đường dẫn mã qr"
+            ],
+            [
+              "sharepoint"
+            ],
+            [
+              "đơn nghỉ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "submission"
+      }
+    },
+    {
+      "id": "route.office-365.leave-fields",
+      "family": "software",
+      "task_id": "task.office-365.leave-fields",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đơn e leave"
+            ],
+            [
+              "trường bắt buộc",
+              "tùy chọn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "để trống chức vụ"
+            ],
+            [
+              "e leave",
+              "đơn nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mã nhân viên"
+            ],
+            [
+              "chưa biết mã",
+              "mã để điền đơn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "định dạng nào"
+            ],
+            [
+              "ngày bắt đầu",
+              "ngày kết thúc"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-entity",
+      "family": "software",
+      "task_id": "task.office-365.leave-entity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khu vực miền bắc"
+            ],
+            [
+              "miền nam"
+            ],
+            [
+              "nơi làm việc",
+              "đơn vị ký hợp đồng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-email-fields",
+      "family": "software",
+      "task_id": "task.office-365.leave-email-fields",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email nhận kết quả"
+            ],
+            [
+              "email của người duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email quản lý trực tiếp"
+            ],
+            [
+              "email của người được phân quyền"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-personal-email",
+      "family": "software",
+      "task_id": "task.office-365.leave-personal-email",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email cá nhân"
+            ],
+            [
+              "gửi đơn nghỉ phép",
+              "e leave",
+              "email nhận kết quả"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gmail"
+            ],
+            [
+              "gửi đơn nghỉ phép"
+            ],
+            [
+              "e leave"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-substitute-approver",
+      "family": "software",
+      "task_id": "task.office-365.leave-substitute-approver",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý trực tiếp đang nghỉ"
+            ],
+            [
+              "email nào"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-one-day",
+      "family": "software",
+      "task_id": "task.office-365.leave-one-day",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chỉ nghỉ một ngày"
+            ],
+            [
+              "mẫu",
+              "điền trường từ ngày",
+              "đến ngày"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "sessions"
+      }
+    },
+    {
+      "id": "route.office-365.leave-types",
+      "family": "software",
+      "task_id": "task.office-365.leave-types",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trường loại nghỉ"
+            ],
+            [
+              "e leave",
+              "lựa chọn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e leave"
+            ],
+            [
+              "nghỉ thai sản",
+              "nghỉ chế độ",
+              "nghỉ không lương"
+            ],
+            [
+              "hướng dẫn riêng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-reason-docs",
+      "family": "software",
+      "task_id": "task.office-365.leave-reason-docs",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ô lý do nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đơn nghỉ trên e leave"
+            ],
+            [
+              "giấy tờ",
+              "chứng từ",
+              "đính kèm"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-cc",
+      "family": "software",
+      "task_id": "task.office-365.leave-cc",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thêm nhiều người"
+            ],
+            [
+              "email cc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người được cc"
+            ],
+            [
+              "quyền duyệt",
+              "nhận thông báo"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.leave-delegate",
+      "family": "software",
+      "task_id": "task.office-365.leave-delegate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đồng nghiệp gửi đơn e leave hộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khi gửi hộ"
+            ],
+            [
+              "mã và họ tên",
+              "mã nhân viên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ủy quyền gửi đơn"
+            ],
+            [
+              "ủy quyền cho người khác duyệt"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "submission"
+      }
+    },
+    {
+      "id": "route.office-365.leave-delegate-receipt",
+      "family": "software",
+      "task_id": "task.office-365.leave-delegate-receipt",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khi gửi hộ"
+            ],
+            [
+              "ai nhận email",
+              "xác nhận đã gửi"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.leave-sessions",
+      "family": "software",
+      "task_id": "task.office-365.leave-sessions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ theo buổi"
+            ],
+            [
+              "e leave",
+              "cả ngày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đăng ký nghỉ cả ngày"
+            ],
+            [
+              "buổi sáng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "buổi sáng hoặc buổi chiều"
+            ],
+            [
+              "trong một ngày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chiều thứ sáu"
+            ],
+            [
+              "sáng thứ bảy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chiều thứ 6"
+            ],
+            [
+              "sáng thứ 7"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sáng thứ hai"
+            ],
+            [
+              "sáng thứ ba"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sáng thứ 2"
+            ],
+            [
+              "sáng thứ 3"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "sessions"
+      }
+    },
+    {
+      "id": "route.office-365.leave-sessions-gaps",
+      "family": "software",
+      "task_id": "task.office-365.leave-sessions-gaps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "một ngày nguyên ngày"
+            ],
+            [
+              "một ngày nửa buổi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hai ngày không liên tiếp"
+            ],
+            [
+              "cùng một buổi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khoảng ngày nghỉ"
+            ],
+            [
+              "ngày lễ",
+              "ngày nghỉ hằng tuần"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "sessions"
+      }
+    },
+    {
+      "id": "route.office-365.leave-change",
+      "family": "software",
+      "task_id": "task.office-365.leave-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chọn nhầm buổi",
+              "sai email quản lý",
+              "đơn chưa duyệt"
+            ],
+            [
+              "ai",
+              "có tự hủy",
+              "đơn cũ",
+              "biểu mẫu đã gửi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi kế hoạch"
+            ],
+            [
+              "đơn đã duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi hai đơn trùng nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đơn nghỉ phép chưa duyệt"
+            ],
+            [
+              "tự hủy",
+              "báo cấp trên"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "change"
+      }
+    },
+    {
+      "id": "route.office-365.leave-channels",
+      "family": "software",
+      "task_id": "task.office-365.leave-channels",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt e leave"
+            ],
+            [
+              "outlook"
+            ],
+            [
+              "teams"
+            ],
+            [
+              "power automate"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã duyệt trên outlook"
+            ],
+            [
+              "xác nhận lại"
+            ],
+            [
+              "teams",
+              "power automate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.leave-first",
+      "family": "software",
+      "task_id": "task.office-365.leave-first",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lần đầu bấm approve"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuyển sang power automate"
+            ],
+            [
+              "trình duyệt"
+            ],
+            [
+              "xác thực"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người duyệt cần xác thực email rita võ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người duyệt chưa có tài khoản o365"
+            ],
+            [
+              "qua trình duyệt",
+              "trên trình duyệt"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "first",
+        "channel": "automate-browser"
+      }
+    },
+    {
+      "id": "route.office-365.leave-outlook",
+      "family": "software",
+      "task_id": "task.office-365.leave-outlook",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt từ outlook"
+            ],
+            [
+              "máy tính",
+              "tablet",
+              "điện thoại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "từ chối đơn trong outlook"
+            ],
+            [
+              "lý do"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "approval",
+        "channel": "outlook"
+      }
+    },
+    {
+      "id": "route.office-365.leave-teams",
+      "family": "software",
+      "task_id": "task.office-365.leave-teams",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "yêu cầu e leave trên teams"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "duyệt qua teams"
+            ],
+            [
+              "bình luận",
+              "có được gửi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã duyệt hoặc từ chối trong teams"
+            ],
+            [
+              "xem lại"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "approval",
+        "channel": "teams"
+      }
+    },
+    {
+      "id": "route.office-365.leave-mobile",
+      "family": "software",
+      "task_id": "task.office-365.leave-mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tải app power automate"
+            ],
+            [
+              "muốn duyệt",
+              "tài khoản nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "app power automate"
+            ],
+            [
+              "đơn nghỉ đang chờ duyệt"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "approval",
+        "channel": "automate-mobile"
+      }
+    },
+    {
+      "id": "route.office-365.leave-status",
+      "family": "software",
+      "task_id": "task.office-365.leave-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người gửi nhận những email nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email đã gửi đơn"
+            ],
+            [
+              "được chấp thuận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email kết quả được gửi từ địa chỉ nào"
+            ],
+            [
+              "những người nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hcns chưa cập nhật nghỉ phép"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.leave-reminder",
+      "family": "software",
+      "task_id": "task.office-365.leave-reminder",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email nhắc duyệt e leave"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thời điểm và tần suất"
+            ],
+            [
+              "nhắc duyệt"
+            ],
+            [
+              "e leave"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "reminder"
+      }
+    },
+    {
+      "id": "route.office-365.leave-mail",
+      "family": "software",
+      "task_id": "task.office-365.leave-mail",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sau 9 giờ sáng hôm sau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi đơn rồi chưa thấy email"
+            ],
+            [
+              "chờ bao lâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "9 giờ sáng hôm sau"
+            ],
+            [
+              "không thấy thư",
+              "không thấy email",
+              "chưa có phản hồi"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "email-help"
+      }
+    },
+    {
+      "id": "route.office-365.leave-workflow",
+      "family": "software",
+      "task_id": "task.office-365.leave-workflow",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hcns xuất excel"
+            ],
+            [
+              "đánh dấu đã xử lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "forms"
+            ],
+            [
+              "đơn e leave"
+            ],
+            [
+              "đi qua những bước"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "workflow"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-entry",
+      "family": "software",
+      "task_id": "task.office-365.workdate-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mở biểu mẫu xác nhận đi trễ",
+              "e workdate trên máy tính",
+              "đơn đi trễ ở đâu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "submission"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-vs-leave",
+      "family": "software",
+      "task_id": "task.office-365.workdate-vs-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "khác đơn nghỉ phép",
+              "e leave"
+            ],
+            [
+              "khác",
+              "như thế nào"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-fields",
+      "family": "software",
+      "task_id": "task.office-365.workdate-fields",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mẫu e workdate"
+            ],
+            [
+              "thông tin nào",
+              "bỏ trống chức vụ",
+              "giờ cụ thể",
+              "giấy xác nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chọn loại đi trễ"
+            ],
+            [
+              "về sớm"
+            ],
+            [
+              "nhập lý do"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chỉ đi trễ một ngày"
+            ],
+            [
+              "từ ngày",
+              "đến ngày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mẫu e workdate"
+            ],
+            [
+              "trường bắt buộc",
+              "có cần chức vụ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-date-gap",
+      "family": "software",
+      "task_id": "task.office-365.workdate-date-gap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vừa đi trễ vừa về sớm"
+            ],
+            [
+              "hai đơn",
+              "nộp một"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cùng lý do đi trễ"
+            ],
+            [
+              "khoảng ngày"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-account",
+      "family": "software",
+      "task_id": "task.eworkdate-email",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gmail",
+              "email cá nhân"
+            ],
+            [
+              "e workdate"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cấp trên hoặc đồng nghiệp"
+            ],
+            [
+              "có thể lập hộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhập hộ"
+            ],
+            [
+              "trường email công ty"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-cc",
+      "family": "software",
+      "task_id": "task.office-365.workdate-cc",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email người có thẩm quyền duyệt"
+            ],
+            [
+              "nhiều email cc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mục ủy quyền có"
+            ],
+            [
+              "e workdate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "fields"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-change",
+      "family": "software",
+      "task_id": "task.office-365.workdate-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "chỉnh hay hủy",
+              "sai lý do"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "change"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-channels",
+      "family": "software",
+      "task_id": "task.office-365.workdate-channels",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "outlook"
+            ],
+            [
+              "teams"
+            ],
+            [
+              "power automate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-first",
+      "family": "software",
+      "task_id": "task.office-365.workdate-first",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xác thực email rita võ"
+            ],
+            [
+              "e workdate",
+              "chưa có tài khoản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa có tài khoản o365"
+            ],
+            [
+              "người duyệt e workdate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "first",
+        "channel": "automate-browser"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-outlook",
+      "family": "software",
+      "task_id": "task.office-365.workdate-outlook",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt hoặc từ chối e workdate"
+            ],
+            [
+              "outlook"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quản lý nhập ý kiến"
+            ],
+            [
+              "e workdate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "approval",
+        "channel": "outlook"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-teams",
+      "family": "software",
+      "task_id": "task.office-365.workdate-teams",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thông báo e workdate"
+            ],
+            [
+              "teams"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "duyệt e workdate"
+            ],
+            [
+              "teams"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "approval",
+        "channel": "teams"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-mobile",
+      "family": "software",
+      "task_id": "task.topic.eworkdate-mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "approvals trên điện thoại"
+            ],
+            [
+              "đúng đơn e workdate"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "power automate"
+            ],
+            [
+              "điện thoại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "approvals"
+            ],
+            [
+              "chọn yêu cầu e workdate",
+              "đơn e workdate",
+              "đúng đơn e workdate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "approval",
+        "channel": "automate-mobile"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-reminder",
+      "family": "software",
+      "task_id": "task.office-365.workdate-reminder",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhắc duyệt e workdate"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "sau bao lâu"
+            ],
+            [
+              "khi nào dừng nhắc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "nhắc duyệt"
+            ],
+            [
+              "sau mấy tiếng",
+              "khi nào dừng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "reminder"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-status",
+      "family": "software",
+      "task_id": "task.office-365.workdate-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email đã duyệt hoặc bị từ chối"
+            ],
+            [
+              "thông tin nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email kết quả e workdate"
+            ],
+            [
+              "địa chỉ nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi đơn e workdate"
+            ],
+            [
+              "được chấp thuận"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.workdate-mail",
+      "family": "software",
+      "task_id": "task.office-365.workdate-mail",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chưa thấy email kết quả"
+            ],
+            [
+              "quá 24 giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email đã duyệt"
+            ],
+            [
+              "bảng công chưa cập nhật"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "email-help"
+      }
+    },
+    {
+      "id": "route.office-365.postal-about",
+      "family": "software",
+      "task_id": "task.office-365.postal-about",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e postal"
+            ],
+            [
+              "quản lý những loại",
+              "quản lý thư và bưu phẩm"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "overview"
+      }
+    },
+    {
+      "id": "route.office-365.postal-receive",
+      "family": "software",
+      "task_id": "task.office-365.postal-receive",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "qr receiving"
+            ],
+            [
+              "qr sending"
+            ],
+            [
+              "nhận bưu phẩm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khi mở qr receiving"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội dung chi tiết"
+            ],
+            [
+              "ghi chú"
+            ],
+            [
+              "khi nhận thư"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khi nhận hộ đồng nghiệp"
+            ],
+            [
+              "đánh dấu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "receiving"
+      }
+    },
+    {
+      "id": "route.office-365.postal-email-account",
+      "family": "software",
+      "task_id": "task.office-365.postal-email-account",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đồng nghiệp nhận hộ"
+            ],
+            [
+              "chưa có email công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email cá nhân"
+            ],
+            [
+              "xác nhận nhận thư"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "receiving"
+      }
+    },
+    {
+      "id": "route.office-365.postal-actual",
+      "family": "software",
+      "task_id": "task.office-365.postal-actual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bấm đã nhận"
+            ],
+            [
+              "khi đã cầm thư",
+              "khi đến nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bưu phẩm sai tên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tôi đã nhận thư"
+            ],
+            [
+              "chưa bấm xác nhận"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "receiving"
+      }
+    },
+    {
+      "id": "route.office-365.postal-comment",
+      "family": "software",
+      "task_id": "task.office-365.postal-comment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "từ chối nhận thư"
+            ],
+            [
+              "nhập lý do",
+              "ai nhận được lý do"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.postal-example",
+      "family": "software",
+      "task_id": "task.office-365.postal-example",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "2 3 ngày làm việc"
+            ],
+            [
+              "nhận thư",
+              "bưu phẩm"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "receiving"
+      }
+    },
+    {
+      "id": "route.office-365.postal-edit",
+      "family": "software",
+      "task_id": "task.office-365.postal-edit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bấm nhầm đã nhận",
+              "từ chối nhận"
+            ],
+            [
+              "sửa trạng thái"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã xác nhận bằng qr"
+            ],
+            [
+              "xác nhận lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã xác nhận"
+            ],
+            [
+              "vẫn nhận email nhắc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thông báo về bưu phẩm của người khác"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.postal-send",
+      "family": "software",
+      "task_id": "task.epostal-send",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "qr sending"
+            ],
+            [
+              "xác nhận gửi",
+              "gửi thư",
+              "bưu phẩm ra ngoài"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mẫu gửi thư đi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phân loại cước theo nhà vận chuyển"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ghi chú"
+            ],
+            [
+              "khi xác nhận gửi thư"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "sending"
+      }
+    },
+    {
+      "id": "route.office-365.postal-send-gaps",
+      "family": "software",
+      "task_id": "task.office-365.postal-send-gaps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "số vận đơn"
+            ],
+            [
+              "có thể xác nhận gửi",
+              "chưa được cấp số"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhập sai số vận đơn",
+              "dùng nhầm qr receiving"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bảng giá"
+            ],
+            [
+              "tra phí",
+              "tính cước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trạng thái đã gửi"
+            ],
+            [
+              "tra cứu giao hàng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhiều bưu phẩm",
+              "nhiều số vận đơn"
+            ],
+            [
+              "lập chung",
+              "tách từng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "sending"
+      }
+    },
+    {
+      "id": "route.office-365.postal-admin",
+      "family": "software",
+      "task_id": "task.office-365.postal-admin",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hành chính"
+            ],
+            [
+              "nhập thư đến",
+              "ghi nhận bưu phẩm",
+              "phong list"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sharepoint form"
+            ],
+            [
+              "phonelist"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ghi nhận thư hoặc bưu phẩm gửi đi"
+            ],
+            [
+              "phonelist"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "outlook hoặc teams"
+            ],
+            [
+              "cập nhật về danh sách sharepoint"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "administration"
+      }
+    },
+    {
+      "id": "route.office-365.postal-admin-gaps",
+      "family": "software",
+      "task_id": "task.office-365.postal-admin-gaps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người nhận thuộc chi nhánh khác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hành chính"
+            ],
+            [
+              "xem bưu phẩm chưa xác nhận",
+              "xuất danh sách excel"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "administration"
+      }
+    },
+    {
+      "id": "route.office-365.postal-outlook",
+      "family": "software",
+      "task_id": "task.office-365.postal-outlook",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xác nhận đã nhận hoặc từ chối nhận"
+            ],
+            [
+              "email outlook"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xác nhận bưu phẩm qua outlook"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "approval",
+        "channel": "outlook"
+      }
+    },
+    {
+      "id": "route.office-365.postal-first",
+      "family": "software",
+      "task_id": "task.office-365.postal-first",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lần đầu xác nhận nhận thư"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người chưa có o365"
+            ],
+            [
+              "có thể xác nhận bằng trình duyệt"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "first",
+        "channel": "automate-browser"
+      }
+    },
+    {
+      "id": "route.office-365.postal-teams",
+      "family": "software",
+      "task_id": "task.office-365.postal-teams",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thông báo e postal"
+            ],
+            [
+              "microsoft teams"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xác nhận nhận thư"
+            ],
+            [
+              "teams"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "approval",
+        "channel": "teams"
+      }
+    },
+    {
+      "id": "route.office-365.postal-mobile",
+      "family": "software",
+      "task_id": "task.office-365.postal-mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "power automate trên điện thoại"
+            ],
+            [
+              "đúng yêu cầu nhận thư"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "approval",
+        "channel": "automate-mobile"
+      }
+    },
+    {
+      "id": "route.office-365.postal-reminder",
+      "family": "software",
+      "task_id": "task.office-365.postal-reminder",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hệ thống nhắc nhận thư"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau bao lâu"
+            ],
+            [
+              "nhắc nhận thư"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "reminder"
+      }
+    },
+    {
+      "id": "route.office-365.postal-status",
+      "family": "software",
+      "task_id": "task.office-365.postal-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sau khi tôi xác nhận"
+            ],
+            [
+              "ai nhận email",
+              "hành chính"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thông báo do hành chính tạo"
+            ],
+            [
+              "email kết quả sau khi quét qr"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.postal-mail",
+      "family": "software",
+      "task_id": "task.office-365.postal-mail",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chưa thấy email e postal"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không nhận email e postal"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "email-help"
+      }
+    },
+    {
+      "id": "route.office-365.booking-calendar",
+      "family": "software",
+      "task_id": "task.outlook-room-calendar",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thêm lịch phòng họp",
+              "from room list"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "calendar"
+      }
+    },
+    {
+      "id": "route.office-365.booking-availability",
+      "family": "software",
+      "task_id": "task.office-365.booking-availability",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng còn trống"
+            ],
+            [
+              "khung giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giờ trống"
+            ],
+            [
+              "của phòng",
+              "của người tham gia"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phòng trống"
+            ],
+            [
+              "một số người bận"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "booking"
+      }
+    },
+    {
+      "id": "route.office-365.booking-create",
+      "family": "software",
+      "task_id": "task.office-365.booking-create",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo một cuộc họp"
+            ],
+            [
+              "có phòng họp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhập tiêu đề"
+            ],
+            [
+              "người tham gia"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mở scheduling assistant"
+            ],
+            [
+              "add rooms"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lọc phòng theo location",
+              "chọn phòng trong add rooms"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bấm send"
+            ],
+            [
+              "gửi lời mời họp"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "booking"
+      }
+    },
+    {
+      "id": "route.office-365.booking-confirm",
+      "family": "software",
+      "task_id": "task.office-365.booking-confirm",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gửi lời mời họp"
+            ],
+            [
+              "được chấp nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã gửi lời mời"
+            ],
+            [
+              "không thấy lịch"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.booking-multiple",
+      "family": "software",
+      "task_id": "task.office-365.booking-multiple",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt nhiều phòng",
+              "cuộc họp định kỳ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "booking"
+      }
+    },
+    {
+      "id": "route.office-365.booking-client",
+      "family": "software",
+      "task_id": "task.office-365.booking-client",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt phòng trong outlook web",
+              "outlook mobile"
+            ],
+            [
+              "giống nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không có open calendar",
+              "không có from room list",
+              "không có add rooms"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.booking-equipment",
+      "family": "software",
+      "task_id": "task.outlook-equipment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "all equipments",
+              "address book"
+            ],
+            [
+              "thêm thiết bị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chọn thiết bị hoặc water conference"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "equipment"
+      }
+    },
+    {
+      "id": "route.office-365.booking-water",
+      "family": "software",
+      "task_id": "task.outlook-equipment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chọn water conference"
+            ],
+            [
+              "đủ",
+              "đăng ký nước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số lượng nước"
+            ],
+            [
+              "lễ tân",
+              "hc admin"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "water conference"
+            ],
+            [
+              "báo lễ tân",
+              "báo nước",
+              "có cần báo"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "equipment"
+      }
+    },
+    {
+      "id": "route.office-365.booking-equipment-gap",
+      "family": "software",
+      "task_id": "task.office-365.booking-equipment-gap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chọn nhiều thiết bị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi phòng hoặc đổi số người họp"
+            ],
+            [
+              "thiết bị",
+              "nước họp"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "equipment"
+      }
+    },
+    {
+      "id": "route.office-365.booking-own",
+      "family": "software",
+      "task_id": "task.office-365.booking-own",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sửa giờ họp",
+              "đổi phòng cho cuộc họp"
+            ],
+            [
+              "do mình tổ chức"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hủy cuộc họp của mình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xóa cuộc họp trong calendar cá nhân"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "change"
+      }
+    },
+    {
+      "id": "route.office-365.booking-room-rights",
+      "family": "software",
+      "task_id": "task.office-365.booking-room-rights",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lịch của người khác"
+            ],
+            [
+              "không xóa được"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ai có quyền"
+            ],
+            [
+              "đổi hoặc xóa lịch đặt",
+              "xóa lịch đặt phòng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lịch đặt phòng của tôi bị xóa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người đặt hộ"
+            ],
+            [
+              "đổi phòng",
+              "hủy cuộc họp"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "administration"
+      }
+    },
+    {
+      "id": "route.office-365.booking-admin",
+      "family": "software",
+      "task_id": "task.outlook-admin-room",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hc admin"
+            ],
+            [
+              "các bước xóa lịch"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "edit the response before sending"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau khi đổi hoặc xóa lịch phòng"
+            ],
+            [
+              "thông báo"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "administration"
+      }
+    },
+    {
+      "id": "route.office-365.office-data",
+      "family": "software",
+      "task_id": "task.office-365.office-data",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "microsoft forms"
+            ],
+            [
+              "power automate"
+            ],
+            [
+              "sharepoint"
+            ],
+            [
+              "đảm nhiệm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dữ liệu nhập qua mã qr"
+            ],
+            [
+              "cùng danh sách sharepoint"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "workflow"
+      }
+    },
+    {
+      "id": "route.office-365.office-email-types",
+      "family": "software",
+      "task_id": "task.office-365.office-email-types",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email xác nhận đã gửi"
+            ],
+            [
+              "email yêu cầu xử lý"
+            ],
+            [
+              "email nhắc"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.office-mail-check",
+      "family": "software",
+      "task_id": "task.office-365.office-mail-check",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hộp thư đến"
+            ],
+            [
+              "thư rác"
+            ],
+            [
+              "email đã khai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thấy đã gửi trong forms"
+            ],
+            [
+              "người duyệt chưa nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "outlook đã có email kết quả"
+            ],
+            [
+              "sharepoint"
+            ],
+            [
+              "chờ xử lý"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "email-help"
+      }
+    },
+    {
+      "id": "route.office-365.office-email-folders",
+      "family": "software",
+      "task_id": "task.office-365.office-email-folders",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo thư mục hoặc quy tắc"
+            ],
+            [
+              "outlook"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gom email"
+            ],
+            [
+              "từng công cụ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "email-help"
+      }
+    },
+    {
+      "id": "route.office-365.office-approval-channel",
+      "family": "software",
+      "task_id": "task.office-365.office-approval-channel",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "teams không hiện thông báo"
+            ],
+            [
+              "outlook"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.office-approval-queue",
+      "family": "software",
+      "task_id": "task.office-365.office-approval-queue",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "power automate không thấy mục approvals"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phân biệt đơn nghỉ phép"
+            ],
+            [
+              "đơn đi trễ"
+            ],
+            [
+              "approvals"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "approvals"
+            ],
+            [
+              "đơn nghỉ phép"
+            ],
+            [
+              "đơn đi trễ"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.office-list-access",
+      "family": "software",
+      "task_id": "task.office-365.office-list-access",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ai được xem danh sách hồ sơ"
+            ],
+            [
+              "sharepoint"
+            ],
+            [
+              "xuất dữ liệu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "administration"
+      }
+    },
+    {
+      "id": "route.office-365.bravo-sharepoint",
+      "family": "software",
+      "task_id": "task.office-365.bravo-sharepoint",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sharepoint"
+            ],
+            [
+              "bravo"
+            ],
+            [
+              "thư mục",
+              "không có quyền",
+              "bộ cài"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.compare-leave",
+      "family": "software",
+      "task_id": "task.office-365.compare-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e leave"
+            ],
+            [
+              "workit"
+            ],
+            [
+              "xác định đơn vị",
+              "dùng hệ thống nào",
+              "hay"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.compare-workdate",
+      "family": "software",
+      "task_id": "task.office-365.compare-workdate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e workdate"
+            ],
+            [
+              "workit"
+            ],
+            [
+              "đi trễ",
+              "về sớm"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.compare-duplicate",
+      "family": "software",
+      "task_id": "task.office-365.compare-duplicate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đã gửi yêu cầu qua một hệ thống"
+            ],
+            [
+              "gửi lại"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.compare-postal",
+      "family": "software",
+      "task_id": "task.office-365.compare-postal",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "e postal"
+            ],
+            [
+              "văn phòng số"
+            ],
+            [
+              "workit"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.compare-booking",
+      "family": "software",
+      "task_id": "task.office-365.compare-booking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "outlook e booking"
+            ],
+            [
+              "quy trình số workit"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lịch phòng trên outlook và workit khác nhau"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.compare-delegate",
+      "family": "software",
+      "task_id": "task.office-365.compare-delegate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhận hộ bưu phẩm"
+            ],
+            [
+              "gửi hộ đơn nghỉ phép"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.compare-notifications",
+      "family": "software",
+      "task_id": "task.office-365.compare-notifications",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thời gian nhắc"
+            ],
+            [
+              "ngưỡng liên hệ it"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "e leave"
+            ],
+            [
+              "e workdate"
+            ],
+            [
+              "e postal"
+            ],
+            [
+              "nhắc"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "compare"
+      }
+    },
+    {
+      "id": "route.office-365.office-self-verify",
+      "family": "software",
+      "task_id": "task.office-365.office-self-verify",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiến độ đơn"
+            ],
+            [
+              "bưu phẩm"
+            ],
+            [
+              "lịch phòng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ảnh chụp"
+            ],
+            [
+              "tên số phiếu",
+              "lịch phòng mẫu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "status"
+      }
+    },
+    {
+      "id": "route.office-365.office-no-action",
+      "family": "software",
+      "task_id": "task.office-365.office-no-action",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bot có thể gửi đơn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "duyệt thay tôi"
+            ],
+            [
+              "xác nhận"
+            ],
+            [
+              "đặt phòng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.office-report",
+      "family": "software",
+      "task_id": "task.office-365.office-report",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "báo lỗi một công cụ office 365"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thời điểm thao tác"
+            ],
+            [
+              "thông báo lỗi"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "office",
+        "action": "support"
+      }
+    },
+    {
+      "id": "route.office-365.default-leave",
+      "family": "software",
+      "task_id": "task.office-365.default-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "muốn nộp đơn phép năm"
+            ],
+            [
+              "ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "muốn đăng ký phép năm"
+            ],
+            [
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eleave",
+        "action": "submission",
+        "prefer_workit": "task.leave.workit.annual"
+      }
+    },
+    {
+      "id": "route.office-365.default-workdate",
+      "family": "software",
+      "task_id": "task.office-365.default-workdate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "muốn đăng ký đi trễ"
+            ],
+            [
+              "ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "muốn nộp đơn đi trễ"
+            ],
+            [
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "eworkdate",
+        "action": "submission",
+        "prefer_workit": "task.workit-surface.late-early.web"
+      }
+    },
+    {
+      "id": "route.office-365.default-booking",
+      "family": "software",
+      "task_id": "task.office-365.default-booking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tôi muốn đặt phòng họp"
+            ],
+            [
+              "làm ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "muốn đăng ký phòng họp"
+            ],
+            [
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "booking",
+        "prefer_workit": "task.workit-surface.room.web"
+      }
+    },
+    {
+      "id": "route.office-365.postal-channel-choice",
+      "family": "software",
+      "task_id": "task.office-365.postal-channel-choice",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xác nhận bưu phẩm"
+            ],
+            [
+              "outlook"
+            ],
+            [
+              "power automate"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xác nhận thư"
+            ],
+            [
+              "outlook"
+            ],
+            [
+              "power automate"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "epostal",
+        "action": "approval"
+      }
+    },
+    {
+      "id": "route.office-365.booking-reservation-distinction",
+      "family": "software",
+      "task_id": "task.office-365.booking-reservation-distinction",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thêm lịch phòng vào calendar"
+            ],
+            [
+              "giữ chỗ",
+              "đặt phòng"
+            ]
+          ]
+        }
+      ],
+      "office": {
+        "workflow": "outlook",
+        "action": "calendar"
+      }
     }
   ]
 }

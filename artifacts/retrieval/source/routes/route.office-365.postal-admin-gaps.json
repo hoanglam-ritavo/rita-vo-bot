@@ -1,0 +1,29 @@
+{
+  "id": "route.office-365.postal-admin-gaps",
+  "family": "software",
+  "task_id": "task.office-365.postal-admin-gaps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người nhận thuộc chi nhánh khác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hành chính"
+        ],
+        [
+          "xem bưu phẩm chưa xác nhận",
+          "xuất danh sách excel"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "administration"
+  }
+}

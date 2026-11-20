@@ -1,0 +1,50 @@
+{
+  "id": "task.office-365.booking-equipment-gap",
+  "label": "E-Booking · Thiết bị và nước họp",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Booking"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Booking?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.booking-equipment-gap.1",
+          "text": "Hướng dẫn chọn thiết bị hoặc nước theo khu vực trong All equipments. Đối với nước, báo số lượng cho lễ tân hoặc HC Admin.",
+          "refs": [
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 2,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "a82d2fe677a3aaf796f461357965697c12c9d99060f171f50380e951745c80b8",
+              "quote": "E-Booking — đăng ký thiết bị/nước họp: Add Room > Address Book > All equipments; chọn thiết bị hoặc Water Conference theo khu vực > OK. Đặt nước còn phải liên hệ lễ tân/HC Admin báo số lượng cụ thể trước; chọn Water trên Outlook chưa thay thế bước báo số lượng.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn không nêu quy tắc nhiều thiết bị hoặc bước cập nhật khi đổi phòng hay số người. Đối chiếu lại với đầu mối phục vụ phòng."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

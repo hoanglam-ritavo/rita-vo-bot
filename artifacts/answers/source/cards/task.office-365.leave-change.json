@@ -1,0 +1,50 @@
+{
+  "id": "task.office-365.leave-change",
+  "label": "E-Leave · Thay đổi hoặc hủy",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Leave"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Leave?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.leave-change.1",
+          "text": "Phiên bản 1.0 chỉ cho người gửi lập đơn qua Forms. Khi đơn chưa duyệt và cần hủy, liên hệ cấp trên để yêu cầu hủy đơn online.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 8,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "7cf1af230a7b0126d743a2194e9601868b0920a62507505067dd7a573e741bed",
+              "quote": "E-Leave — muốn thay đổi/hủy kế hoạch nghỉ: hướng dẫn giai đoạn 1 chỉ cho nhân viên vào MS Form tạo đơn, không cho tự hủy. Nếu đơn chưa duyệt, liên hệ cấp trên yêu cầu hủy đơn online. Nguồn này không hướng dẫn cách hủy đơn đã duyệt.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa hướng dẫn chỉnh đơn, xử lý đơn trùng hoặc hủy đơn đã duyệt. Kiểm tra trạng thái với người duyệt và HCNS trước khi gửi lại."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

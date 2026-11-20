@@ -1,0 +1,37 @@
+{
+  "id": "route.office-365.postal-channel-choice",
+  "family": "software",
+  "task_id": "task.office-365.postal-channel-choice",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xác nhận bưu phẩm"
+        ],
+        [
+          "outlook"
+        ],
+        [
+          "power automate"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xác nhận thư"
+        ],
+        [
+          "outlook"
+        ],
+        [
+          "power automate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "approval"
+  }
+}

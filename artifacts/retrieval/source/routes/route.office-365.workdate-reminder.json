@@ -1,0 +1,45 @@
+{
+  "id": "route.office-365.workdate-reminder",
+  "family": "software",
+  "task_id": "task.office-365.workdate-reminder",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhắc duyệt e workdate"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "sau bao lâu"
+        ],
+        [
+          "khi nào dừng nhắc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "nhắc duyệt"
+        ],
+        [
+          "sau mấy tiếng",
+          "khi nào dừng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "reminder"
+  }
+}

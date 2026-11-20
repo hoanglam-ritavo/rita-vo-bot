@@ -1,0 +1,78 @@
+{
+  "id": "task.office-365.workdate-channels",
+  "label": "E-Workdate · Xử lý yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Workdate"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Workdate?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.workdate-channels.1",
+          "text": "E-Workdate hỗ trợ Outlook, Microsoft Teams và Power Automate. Mở đúng yêu cầu, đọc nội dung, chọn Duyệt hoặc Từ chối và ghi ý kiến khi cần.",
+          "refs": [
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 3,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "1118c6b78932fb155a99a03b3afbac29438676dc6da1a367aa91bc60ec146872",
+              "quote": "E-Workdate — người có quyền duyệt có ba cách: Outlook; MS Teams dùng O365; Power Automate điện thoại dùng O365. Lần đầu làm theo chỉ dẫn Power Automate trên trình duyệt để xác thực email Rita Võ. Nguồn nói người duyệt không có O365 có thể dùng Power Automate trên trình duyệt; nếu chưa rõ tài khoản liên hệ HCNS IT.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 4,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "966198654d4de31acf579504ffa504e27729293a522a168e5e3b48cf37a8d0ca",
+              "quote": "E-Workdate — duyệt từ Outlook trên máy tính/điện thoại/tablet: mở email hệ thống gửi đến email quản lý người lập đã khai, chọn Duyệt hoặc Từ chối, ghi lý do từ chối trong Comments để theo dõi. MS Teams dùng O365 hiển thị popup đơn; cũng chọn Duyệt/Từ chối và ghi Comment nếu có.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 5,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "97371c94f836fa34c39ff419489b3f32da5e5980d169deec5cd622e842d0a402",
+              "quote": "E-Workdate — duyệt bằng điện thoại: tải Power Automate của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365, vào Approvals > chọn đơn xác nhận đi trễ/về sớm > đọc chi tiết và Duyệt/Từ chối; có ô comments. Danh sách có thể chứa nhiều loại E-Office, cần chọn đúng đơn.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

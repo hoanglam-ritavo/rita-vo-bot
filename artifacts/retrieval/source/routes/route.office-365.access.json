@@ -1,0 +1,67 @@
+{
+  "id": "route.office-365.access",
+  "family": "software",
+  "task_id": "task.office-365.access",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "biểu mẫu office 365"
+        ],
+        [
+          "điện thoại",
+          "mở và gửi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đường dẫn biểu mẫu"
+        ],
+        [
+          "mã qr"
+        ],
+        [
+          "chính thức",
+          "của từng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "camera không quét được mã qr"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mã qr"
+        ],
+        [
+          "link chính thức",
+          "đường dẫn biểu mẫu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không đọc được mã qr",
+          "không quét được mã qr"
+        ],
+        [
+          "máy ảnh",
+          "camera",
+          "mở mẫu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "submission"
+  }
+}

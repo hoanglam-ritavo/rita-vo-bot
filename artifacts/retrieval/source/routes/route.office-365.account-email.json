@@ -1,0 +1,43 @@
+{
+  "id": "route.office-365.account-email",
+  "family": "software",
+  "task_id": "task.office-365.account-email",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "công cụ nào cho dùng email cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tài khoản dùng để mở biểu mẫu"
+        ],
+        [
+          "trùng với email nhận kết quả"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mail cá nhân",
+          "email cá nhân"
+        ],
+        [
+          "công cụ nào",
+          "chấp nhận"
+        ],
+        [
+          "email công ty"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "support"
+  }
+}

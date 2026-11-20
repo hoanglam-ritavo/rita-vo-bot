@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.postal-status",
+  "family": "software",
+  "task_id": "task.office-365.postal-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sau khi tôi xác nhận"
+        ],
+        [
+          "ai nhận email",
+          "hành chính"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thông báo do hành chính tạo"
+        ],
+        [
+          "email kết quả sau khi quét qr"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "status"
+  }
+}

@@ -19,6 +19,9 @@ class ExpectedSlots(Strict):
     system: str | None = None
     surface: Literal['web', 'mobile'] | None = None
     workit_action: str | None = None
+    office_workflow: str | None = None
+    office_action: str | None = None
+    office_channel: str | None = None
     subtype: str | None = None
     days: int | float | None = None
     sessions: int | float | None = None

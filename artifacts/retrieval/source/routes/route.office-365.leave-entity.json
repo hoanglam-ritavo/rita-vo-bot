@@ -1,0 +1,25 @@
+{
+  "id": "route.office-365.leave-entity",
+  "family": "software",
+  "task_id": "task.office-365.leave-entity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khu vực miền bắc"
+        ],
+        [
+          "miền nam"
+        ],
+        [
+          "nơi làm việc",
+          "đơn vị ký hợp đồng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

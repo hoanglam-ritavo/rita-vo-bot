@@ -1,0 +1,28 @@
+{
+  "id": "route.office-365.office-report",
+  "family": "software",
+  "task_id": "task.office-365.office-report",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "báo lỗi một công cụ office 365"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thời điểm thao tác"
+        ],
+        [
+          "thông báo lỗi"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "support"
+  }
+}

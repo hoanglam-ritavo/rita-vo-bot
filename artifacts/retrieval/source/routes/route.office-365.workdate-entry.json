@@ -1,0 +1,20 @@
+{
+  "id": "route.office-365.workdate-entry",
+  "family": "software",
+  "task_id": "task.office-365.workdate-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mở biểu mẫu xác nhận đi trễ",
+          "e workdate trên máy tính",
+          "đơn đi trễ ở đâu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "submission"
+  }
+}

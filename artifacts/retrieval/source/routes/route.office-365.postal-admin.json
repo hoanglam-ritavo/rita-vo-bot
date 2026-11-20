@@ -1,0 +1,53 @@
+{
+  "id": "route.office-365.postal-admin",
+  "family": "software",
+  "task_id": "task.office-365.postal-admin",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hành chính"
+        ],
+        [
+          "nhập thư đến",
+          "ghi nhận bưu phẩm",
+          "phong list"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sharepoint form"
+        ],
+        [
+          "phonelist"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ghi nhận thư hoặc bưu phẩm gửi đi"
+        ],
+        [
+          "phonelist"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "outlook hoặc teams"
+        ],
+        [
+          "cập nhật về danh sách sharepoint"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "administration"
+  }
+}

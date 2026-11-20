@@ -1,0 +1,42 @@
+{
+  "id": "route.office-365.workdate-account",
+  "family": "software",
+  "task_id": "task.eworkdate-email",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gmail",
+          "email cá nhân"
+        ],
+        [
+          "e workdate"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cấp trên hoặc đồng nghiệp"
+        ],
+        [
+          "có thể lập hộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhập hộ"
+        ],
+        [
+          "trường email công ty"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "fields"
+  }
+}

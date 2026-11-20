@@ -1,0 +1,21 @@
+{
+  "id": "route.office-365.office-approval-channel",
+  "family": "software",
+  "task_id": "task.office-365.office-approval-channel",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "teams không hiện thông báo"
+        ],
+        [
+          "outlook"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "approval"
+  }
+}

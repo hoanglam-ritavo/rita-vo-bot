@@ -1,0 +1,50 @@
+{
+  "id": "route.office-365.leave-first",
+  "family": "software",
+  "task_id": "task.office-365.leave-first",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lần đầu bấm approve"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuyển sang power automate"
+        ],
+        [
+          "trình duyệt"
+        ],
+        [
+          "xác thực"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người duyệt cần xác thực email rita võ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người duyệt chưa có tài khoản o365"
+        ],
+        [
+          "qua trình duyệt",
+          "trên trình duyệt"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "first",
+    "channel": "automate-browser"
+  }
+}

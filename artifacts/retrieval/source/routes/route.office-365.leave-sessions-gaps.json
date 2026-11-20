@@ -1,0 +1,42 @@
+{
+  "id": "route.office-365.leave-sessions-gaps",
+  "family": "software",
+  "task_id": "task.office-365.leave-sessions-gaps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "một ngày nguyên ngày"
+        ],
+        [
+          "một ngày nửa buổi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hai ngày không liên tiếp"
+        ],
+        [
+          "cùng một buổi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khoảng ngày nghỉ"
+        ],
+        [
+          "ngày lễ",
+          "ngày nghỉ hằng tuần"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "sessions"
+  }
+}

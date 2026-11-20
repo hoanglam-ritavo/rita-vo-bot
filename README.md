@@ -54,6 +54,30 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Office 365 - 2026-11-20
+
+On `d172a2f` plus the Office 365 changes, 96 routes use 89 new cards and
+existing cards. The cards cite all 34 chunks from the four Office manuals,
+one Bravo chunk and four Workit chunks. Explicit workflow and channel names
+guide routing. For shared procedures with no named tool, the bot prefers
+eligible Workit evidence. If only the Office guide is available, the bot
+offers it for an explicit follow-up.
+
+The baseline asked for clarification on 186 of the 193 requested questions
+and returned sources in four turns. The current local HTTP and reducer run
+passed **1,805/1,805 turns across 1,694 cases**, including **193 original
+questions**, **37 conversation turns** and **1,575 existing regression
+turns**. All 193 original questions now cite sources. The run returned 101
+complete answers and 92 partial answers. A separately authored local set
+used to refine routing passed **28/28**, four per group.
+
+The non-integration suite passed **1,321 tests**, with **1 skipped** and
+**59 deselected**. Artifact build and reproducibility, catalog validation,
+all **2,218 reference checks** and the **22-file runtime inventory** passed.
+The answer evaluation uses local source fixtures. An authorized target
+PostgreSQL connection and authenticated Portal staging were unavailable. See the
+[staging procedure](docs/conversations.md#deletion-and-verification).
+
 ### Workit Web and Mobile - 2026-11-20
 
 On `4577f57` plus the Workit changes, 105 interface-specific routes cover

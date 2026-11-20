@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.workdate-date-gap",
+  "family": "software",
+  "task_id": "task.office-365.workdate-date-gap",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vừa đi trễ vừa về sớm"
+        ],
+        [
+          "hai đơn",
+          "nộp một"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cùng lý do đi trễ"
+        ],
+        [
+          "khoảng ngày"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "fields"
+  }
+}

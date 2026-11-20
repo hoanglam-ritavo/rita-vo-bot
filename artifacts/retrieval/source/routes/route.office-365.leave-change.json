@@ -1,0 +1,54 @@
+{
+  "id": "route.office-365.leave-change",
+  "family": "software",
+  "task_id": "task.office-365.leave-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chọn nhầm buổi",
+          "sai email quản lý",
+          "đơn chưa duyệt"
+        ],
+        [
+          "ai",
+          "có tự hủy",
+          "đơn cũ",
+          "biểu mẫu đã gửi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi kế hoạch"
+        ],
+        [
+          "đơn đã duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi hai đơn trùng nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đơn nghỉ phép chưa duyệt"
+        ],
+        [
+          "tự hủy",
+          "báo cấp trên"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "change"
+  }
+}

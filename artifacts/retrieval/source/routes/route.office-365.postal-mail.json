@@ -1,0 +1,25 @@
+{
+  "id": "route.office-365.postal-mail",
+  "family": "software",
+  "task_id": "task.office-365.postal-mail",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chưa thấy email e postal"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không nhận email e postal"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "email-help"
+  }
+}

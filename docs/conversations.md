@@ -257,6 +257,15 @@ an already-approved form that shows In Progress in the manual. On disposable
 data, withdraw one interface's source and repeat the corresponding request.
 Release and roll back the bot and generated catalogs together.
 
+For Office 365, verify the E-Leave, E-Workdate, E-Postal and E-Booking
+publications in staging, plus the Workit and Bravo references used for
+comparisons. In an authenticated room, ask about the two-session E-Leave
+example, switch to Teams and ask about a missing result email. Test a
+Workit-first overlapping request and withdraw its Workit evidence in a
+disposable fixture. Confirm the bot offers the available Office guide
+without presenting its steps as the Workit procedure. Release and roll
+back the bot and generated catalogs together.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

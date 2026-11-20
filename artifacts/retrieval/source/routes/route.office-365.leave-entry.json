@@ -1,0 +1,46 @@
+{
+  "id": "route.office-365.leave-entry",
+  "family": "software",
+  "task_id": "task.office-365.leave-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gửi đơn nghỉ phép năm"
+        ],
+        [
+          "ở đâu",
+          "e leave"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi đơn e leave"
+        ],
+        [
+          "sharepoint",
+          "mã qr"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đường dẫn mã qr"
+        ],
+        [
+          "sharepoint"
+        ],
+        [
+          "đơn nghỉ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "submission"
+  }
+}

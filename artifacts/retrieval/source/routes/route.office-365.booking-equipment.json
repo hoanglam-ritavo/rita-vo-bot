@@ -1,0 +1,29 @@
+{
+  "id": "route.office-365.booking-equipment",
+  "family": "software",
+  "task_id": "task.outlook-equipment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "all equipments",
+          "address book"
+        ],
+        [
+          "thêm thiết bị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chọn thiết bị hoặc water conference"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "equipment"
+  }
+}

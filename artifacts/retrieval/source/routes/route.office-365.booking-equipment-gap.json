@@ -1,0 +1,29 @@
+{
+  "id": "route.office-365.booking-equipment-gap",
+  "family": "software",
+  "task_id": "task.office-365.booking-equipment-gap",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chọn nhiều thiết bị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi phòng hoặc đổi số người họp"
+        ],
+        [
+          "thiết bị",
+          "nước họp"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "equipment"
+  }
+}

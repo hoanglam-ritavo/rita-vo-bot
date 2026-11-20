@@ -1,0 +1,33 @@
+{
+  "id": "route.office-365.workdate-first",
+  "family": "software",
+  "task_id": "task.office-365.workdate-first",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xác thực email rita võ"
+        ],
+        [
+          "e workdate",
+          "chưa có tài khoản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa có tài khoản o365"
+        ],
+        [
+          "người duyệt e workdate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "first",
+    "channel": "automate-browser"
+  }
+}

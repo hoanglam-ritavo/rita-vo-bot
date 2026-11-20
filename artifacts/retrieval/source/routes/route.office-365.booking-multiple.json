@@ -1,0 +1,19 @@
+{
+  "id": "route.office-365.booking-multiple",
+  "family": "software",
+  "task_id": "task.office-365.booking-multiple",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đặt nhiều phòng",
+          "cuộc họp định kỳ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "booking"
+  }
+}

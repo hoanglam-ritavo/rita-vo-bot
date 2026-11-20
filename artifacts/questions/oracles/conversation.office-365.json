@@ -1,0 +1,1416 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.office-365",
+  "turns": [
+    {
+      "case_id": "q.conversation.office-365.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-sessions"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "5ab8837d4a0be7cbcabe5198d478c9cbb12bab77bf4ff4e089e4dace901c0a85"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chọn Cả ngày, Buổi sáng hoặc Buổi chiều. Ví dụ chiều thứ Sáu và sáng thứ Bảy cần hai đơn. Nhân viên hành chính nghỉ sáng thứ Hai và sáng thứ Ba có thể dùng một đơn và chọn Buổi sáng."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "sessions",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.001",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-teams"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "b289834c166c65a64c097edd300f21ffaf1df8822f7ad0f9a3200e1308193078"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở thông báo E-Leave trong Teams, chọn Duyệt hoặc Từ chối. Bình luận nếu có được gửi người đề nghị. Mở Activity để xem lại thông tin đã xử lý."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "approval",
+          "office_channel": "teams"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.001",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-outlook"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "d611911227d53a2f07ff4c68606915ea11115259a156ececa39f9b65f1596ffa"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở email E-Leave trong Outlook trên máy tính, điện thoại hoặc tablet. Chọn Duyệt hoặc Từ chối và nhập lý do từ chối trong Comments."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "approval",
+          "office_channel": "outlook"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.001",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tải Microsoft Power Automate từ cửa hàng ứng dụng, đăng nhập tài khoản O365, mở thông báo hoặc danh sách chờ duyệt và chọn đúng đơn E-Leave. Danh sách cho xem trạng thái chờ, duyệt và từ chối."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "approval",
+          "office_channel": "automate-mobile"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.001",
+      "turn": 4,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-first"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "3e70e7546e3d563fc407765d11b0eeda9ccea4a64fb856a0925de3c35cdd1fbc"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "5980938a43dabbb54fbc1f5adb5cfc44816db91a638de90c8f593697dd9fe490"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "d611911227d53a2f07ff4c68606915ea11115259a156ececa39f9b65f1596ffa"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Lần đầu chọn Approve hoặc Reject, làm theo Power Automate trên trình duyệt để xác thực email Rita Võ. Hướng dẫn v1.0 nêu trường hợp người duyệt chưa có O365 có thể dùng trình duyệt và liên hệ HCNS IT. App Power Automate yêu cầu tài khoản O365."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "first",
+          "office_channel": "automate-browser"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-outlook"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "966198654d4de31acf579504ffa504e27729293a522a168e5e3b48cf37a8d0ca"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở email E-Workdate trong Outlook của người được chọn duyệt. Chọn Duyệt hoặc Từ chối và ghi lý do từ chối vào Comments."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "approval",
+          "office_channel": "outlook"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.002",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-mail"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "406172125844c139959419d33f4b4002506e92b71c0223e289bc3ce30f7a1e09"
+        },
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "dc66b6330551442892b660b9c39f4f747414b8ad398dbda98a0a0fadb5cf8a4b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Với email E-Workdate bị chậm, đợi 10–20 phút và kiểm tra địa chỉ email công ty, email quản lý. Nếu sau 24 giờ vẫn thiếu phản hồi, liên hệ KSNB IT System."
+      ],
+      "required_limitations": [
+        "Email Đã duyệt chưa xác nhận bảng công đã cập nhật. Hỏi HCNS về kỳ công cần đối chiếu."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "email-help",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.002",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-teams"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "966198654d4de31acf579504ffa504e27729293a522a168e5e3b48cf37a8d0ca"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Dùng tài khoản O365 trong Teams. Mở thông báo E-Workdate, đọc đơn, chọn Duyệt hoặc Từ chối và nhập Comment nếu cần."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "approval",
+          "office_channel": "teams"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.002",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.topic.eworkdate-mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "97371c94f836fa34c39ff419489b3f32da5e5980d169deec5cd622e842d0a402"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Workdate — duyệt bằng điện thoại: tải Power Automate của Microsoft từ Google Play/Apple Store, đăng nhập tài khoản O365, vào Approvals > chọn đơn xác nhận đi trễ/về sớm > đọc chi tiết và Duyệt/Từ chối; có ô comments. Danh sách có thể chứa nhiều loại E-Office, cần chọn đúng đơn."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "approval",
+          "office_channel": "automate-mobile"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-reminder"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "26f3972070ab3db1fa7217f6dd4e82b13f831b9b5f827d05e07b72f550c5e460"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Postal nhắc vào ngày hôm sau, sau 24 giờ nếu người nhận chưa phản hồi. Nhắc dừng khi chọn Đã nhận hoặc Từ chối nhận."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "reminder",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.003",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-reminder"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "406172125844c139959419d33f4b4002506e92b71c0223e289bc3ce30f7a1e09"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Workdate nhắc vào ngày hôm sau, sau 24 giờ nếu chưa xử lý. Nhắc dừng khi người có thẩm quyền Duyệt hoặc Từ chối."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "reminder",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.003",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-reminder"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "202a8ac258b68a699afc871a220fbdec8ec10e9f48463f3f17513bd32c85dece"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người duyệt mở Outlook hoặc Power Automate để xử lý email nhắc duyệt E-Leave."
+      ],
+      "required_limitations": [
+        "Đoạn hướng dẫn này không ấn định thời điểm hoặc tần suất nhắc."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "reminder",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.004",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-admin"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "26f3972070ab3db1fa7217f6dd4e82b13f831b9b5f827d05e07b72f550c5e460"
+        },
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "a42aa9bd96cb0d7de0a1bd929dbc638069c21f68ab3c7a3ec8d3a5de1e115f89"
+        },
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f43d49f6c35591e63836ec8373bfd140ae60347d98e208e9d0fe476abf261a4a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "SharePoint Form dùng cho thư đến và thư đi. PhoneList chỉ dùng thông báo thư đến. Hệ thống gửi thông báo tới người nhận và ghi nhận trạng thái xác nhận về SharePoint."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "administration",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.004",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-channel-choice"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "170b865d377c2c86d8854380e857b40b96b1dff4f0f23dccdf7c1edb0d457b24"
+        },
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Có thể xác nhận qua email E-Postal trong Outlook hoặc mục Approvals trong app Power Automate dùng tài khoản O365. Mở đúng yêu cầu và chọn Đã nhận hoặc Từ chối nhận."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "approval",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.004",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-teams"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở thông báo E-Postal trong Teams với tài khoản O365, chọn Đã nhận hoặc Từ chối nhận. Comment nếu có được gửi Hành chính."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "approval",
+          "office_channel": "teams"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.004",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở Power Automate trên điện thoại, đăng nhập O365, vào Approvals, chọn đúng thông báo thư và đọc chi tiết trước khi xác nhận."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "approval",
+          "office_channel": "automate-mobile"
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.005",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "9f94c35720b6583b87811bf89806dde693dca2ad3a155123a3732ef15a5b9922"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+        "Trên Workit, loại P là Nghỉ phép (Annual). Danh mục phần mềm không tự xác lập điều kiện được nghỉ."
+      ],
+      "forbidden_documents": [],
+      "unavailable_documents": []
+    },
+    {
+      "case_id": "q.conversation.office-365.005",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "3bb1b7b7ec157981bed12fde19e21c2fec09d929aed0b0464eb2b4689e268db4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Để gửi E-Leave, mở https://forms.office.com/r/chBGKrWhb2 hoặc quét QR trong hướng dẫn. Tài liệu cũng nêu lối vào qua SharePoint. Các lối này đưa dữ liệu vào quy trình duyệt E-Leave."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "submission",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.005",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-mail"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "a0bda4331a23660d89796e0c3dd7dcf074fd3f8f5e904cfa254130ea07f7824b"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "ffab55b55a952e5c3859fb36043462447065e310ff31de3114059dc4f5374bd9"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn E-Leave, chờ 10–20 phút nếu email hoặc mạng chậm. Nếu sau 9 giờ sáng hôm sau vẫn chưa có phản hồi, liên hệ KSNB IT System theo đầu mối trong tài liệu."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "email-help",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.late-early.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đi trễ/Về sớm → Thêm. Chọn lý do cá nhân hoặc công việc, thêm ngày, điền đúng ô Giờ đến trễ hoặc Giờ về sớm, nhập diễn giải và lưu. Xem trạng thái để theo dõi quản lý duyệt và thông báo Nhân sự."
+      ],
+      "forbidden_documents": [],
+      "unavailable_documents": []
+    },
+    {
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "unavailable_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "required_limitations": [
+        "Chưa đủ căn cứ hiện hành cho Workit. Bạn có thể hỏi hướng dẫn trên E-Workdate."
+      ],
+      "case_id": "q.conversation.office-365.006",
+      "turn": 1
+    },
+    {
+      "case_id": "q.conversation.office-365.006",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "79dbf942c225e11af1cd6741dcfaeef6dc5040c46b66c2f1ca916d8f9aeeab4d"
+        },
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "c61778b0afeaf870ca508ade6f1784151a38ca487e025a2a6c80e3193824b7e6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mở https://forms.office.com/r/pmRgRY4gHw hoặc quét QR E-Workdate trong hướng dẫn bằng máy tính hoặc điện thoại. Dùng mẫu này để xác nhận đi trễ hoặc về sớm."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "submission",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.room.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "72003e8d83ea29e84120365518358f24df2821a1638a1b6fb42a41a247baee4f"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Phòng họp → Thêm. Chọn phòng, ngày giờ, số người, nội dung và người tham gia. Có thể chọn nhiều tiện ích rồi lưu và kiểm tra lịch."
+      ],
+      "forbidden_documents": [],
+      "unavailable_documents": []
+    },
+    {
+      "case_id": "q.conversation.office-365.007",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.outlook-room-calendar"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "bc611c7d8a63f2ad1dd09c0ba5ec5e52a297b00fe76ad3aaa5ddc6e2c78eac7b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Booking 1.0 ngày 30.09.2023 — đặt và theo dõi phòng họp bằng Outlook. Thêm lịch phòng: mở Calendar > Open Calendar > From Room List… > chọn phòng theo khu vực/văn phòng > OK. Danh sách cho theo dõi tình trạng phòng; không xác lập phòng nào còn trống hiện tại."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "outlook",
+          "office_action": "calendar",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.007",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "a82d2fe677a3aaf796f461357965697c12c9d99060f171f50380e951745c80b8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Booking — đăng ký thiết bị/nước họp: Add Room > Address Book > All equipments; chọn thiết bị hoặc Water Conference theo khu vực > OK. Đặt nước còn phải liên hệ lễ tân/HC Admin báo số lượng cụ thể trước; chọn Water trên Outlook chưa thay thế bước báo số lượng."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "outlook",
+          "office_action": "equipment",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.007",
+      "turn": 3,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.outlook-equipment"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "none",
+      "required_source_groups": [],
+      "required_citations": [],
+      "unavailable_documents": [
+        "6dae224a-0c75-41c3-a057-5d9530de769c"
+      ],
+      "forbidden_documents": [
+        "6dae224a-0c75-41c3-a057-5d9530de769c"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "outlook",
+          "office_action": "equipment",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.008",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "none",
+      "required_source_groups": [],
+      "required_citations": [],
+      "unavailable_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "forbidden_documents": [
+        "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "submission",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.008",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.office-365.workdate-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "none",
+      "required_source_groups": [],
+      "required_citations": [],
+      "unavailable_documents": [
+        "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+      ],
+      "forbidden_documents": [
+        "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "submission",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.008",
+      "turn": 2,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "none",
+      "required_source_groups": [],
+      "required_citations": [],
+      "unavailable_documents": [
+        "d95b8527-786e-4ce7-b404-a52691da8e1c"
+      ],
+      "forbidden_documents": [
+        "d95b8527-786e-4ce7-b404-a52691da8e1c"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "sending",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.008",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.epostal-send"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f922d237204acb9b6a3baf45e7555b70508d0f3055ed9ab855c4bd85ebfa9986"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Postal — gửi thư/bưu phẩm: dùng QR Sending; khai công ty, mã nhân viên HCNS cấp, họ tên, email công ty HCNS IT cấp, phòng ban, phân loại cước theo nhà vận chuyển và số vận đơn được cấp; ghi chú tùy chọn. Hệ thống có email Thông báo thư đi với trạng thái Đã gửi. Tài liệu không cung cấp bảng giá cước để tính tiền."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "sending",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.009",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.leave-personal-email"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "61c6e305c168766ae1745279b00c5158dd8d2ffbff5940f3495e89f2ef81a7bc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn E-Leave, có thể dùng email cá nhân để làm đơn. Điền email nhận kết quả và kiểm tra đúng email người có thẩm quyền duyệt."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eleave",
+          "office_action": "fields",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.009",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.eworkdate-email"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "ec515faf5ef061a4709c38827753234ab4e19e14162502b9ae1a7c70810dbce4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Workdate — tài khoản email: hướng dẫn yêu cầu email do HCNS IT cấp, không dùng email cá nhân. Người chưa có email công ty có thể nhờ cấp trên/đồng nghiệp nhập hộ; hệ thống vẫn cần email công ty gửi trạng thái. Email quản lý cần đúng người có thẩm quyền, không lấy tên người trong ảnh làm người duyệt mặc định."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "eworkdate",
+          "office_action": "fields",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.009",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.office-365.postal-email-account"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "7815395522827e6e74b820186d62dddd0d6a48dfc0ff29ef53ac42a999600d76"
+        },
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "c051e74abe25119992259aac2052c95b8ec60c8752e2e4adf9b6e656fa88e5ec"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Postal yêu cầu email do HCNS IT cấp. Nếu chưa có email công ty, có thể nhờ cấp trên hoặc đồng nghiệp nhận hộ và dùng tùy chọn Nhận hộ khi xác nhận."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "epostal",
+          "office_action": "receiving",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.009",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.office-365.office-no-action"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "8104b9049ca723ba44267e0ec70a42f3026f1c2fb988780468e8c932374d6ce6"
+        },
+        {
+          "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+          "quote_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b"
+        },
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "1118c6b78932fb155a99a03b3afbac29438676dc6da1a367aa91bc60ec146872"
+        },
+        {
+          "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+          "quote_sha256": "f2cde075b08b580ba5a0c70a9f928a3cffad8542d181c8d209f0f3e272dd0466"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mình có thể hướng dẫn cách gửi đơn, phê duyệt, xác nhận nhận thư hoặc đặt phòng. Bạn thực hiện trong công cụ tương ứng bằng tài khoản và quyền của mình."
+      ],
+      "required_limitations": [
+        "Bot không thực hiện các thao tác này hoặc xác nhận giao dịch đã hoàn thành."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "office",
+          "office_action": "support",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.010",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.office-365.compare-workdate"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+          "quote_sha256": "c61778b0afeaf870ca508ade6f1784151a38ca487e025a2a6c80e3193824b7e6"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Workdate dùng Forms hoặc QR, khai loại đi trễ hoặc về sớm và email quản lý. Workit có Quy trình số → Đi trễ/Về sớm và các ô giờ tương ứng. Với thao tác chưa chọn hệ thống, bot ưu tiên Workit khi đủ căn cứ."
+      ],
+      "required_limitations": [
+        "Xác nhận với quản lý hoặc HCNS về quy trình áp dụng cho đơn vị."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "office",
+          "office_action": "compare",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.010",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.office-365.booking-room-rights"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "578df91d609f8cfe21ea2fd0e337e9ff685a99ea2dc1bc9f599a854117ce2019"
+        },
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "f6e9aa46c801a5972cddf8a644934ba6f61671ffecdda88e29526527a2bf72bc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người dùng chỉ xóa lịch của mình và do mình tạo. HC Admin quản lý lịch phòng, FAQ cũng nêu IT có quyền xóa và phải thông báo. Nếu lịch bị xóa, hỏi HC Admin kiểm tra."
+      ],
+      "required_limitations": [
+        "Quyền của người được mời hoặc người đặt hộ cần đối chiếu với quyền thực tế."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "outlook",
+          "office_action": "administration",
+          "office_channel": null
+        }
+      }
+    },
+    {
+      "case_id": "q.conversation.office-365.010",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.outlook-admin-room"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+          "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+          "quote_sha256": "578df91d609f8cfe21ea2fd0e337e9ff685a99ea2dc1bc9f599a854117ce2019"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "E-Booking — HC Admin thay đổi/xóa đặt phòng: Calendar > kiểm tra lịch đặt > chuột phải lịch > Delete > Yes > Edit the response before sending > soạn và gửi email người tổ chức, thông báo đổi phòng/tạo lịch mới. Quyền quản lý này dành HC Admin; FAQ cũng nêu IT có quyền xóa và phải thông báo nhân viên."
+      ],
+      "expected_context": {
+        "slots": {
+          "office_workflow": "outlook",
+          "office_action": "administration",
+          "office_channel": null
+        }
+      }
+    }
+  ]
+}

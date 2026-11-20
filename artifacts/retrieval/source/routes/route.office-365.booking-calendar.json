@@ -1,0 +1,19 @@
+{
+  "id": "route.office-365.booking-calendar",
+  "family": "software",
+  "task_id": "task.outlook-room-calendar",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thêm lịch phòng họp",
+          "from room list"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "calendar"
+  }
+}

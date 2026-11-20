@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.booking-reservation-distinction",
+  "family": "software",
+  "task_id": "task.office-365.booking-reservation-distinction",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thêm lịch phòng vào calendar"
+        ],
+        [
+          "giữ chỗ",
+          "đặt phòng"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "calendar"
+  }
+}

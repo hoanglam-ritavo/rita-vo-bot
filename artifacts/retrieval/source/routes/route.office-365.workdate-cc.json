@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.workdate-cc",
+  "family": "software",
+  "task_id": "task.office-365.workdate-cc",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email người có thẩm quyền duyệt"
+        ],
+        [
+          "nhiều email cc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mục ủy quyền có"
+        ],
+        [
+          "e workdate"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "fields"
+  }
+}

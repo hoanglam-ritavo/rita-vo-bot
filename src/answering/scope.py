@@ -5,6 +5,7 @@ from time import perf_counter
 
 from .pipeline import matches_reference, section_units
 from .planning import choice_labels
+from src.retrieval.office import WORKFLOW_LABELS
 
 logger = logging.getLogger(__name__)
 MAX_OPTIONS = 5
@@ -148,6 +149,18 @@ async def resolve_document_scopes(analysis, catalog, retrieval):
                        document_message=evidence_limit(analysis, unavailable)), None
 
     limits = (evidence_limit(analysis, unavailable),) if unavailable else ()
+    if analysis.office_prefer_workit:
+        primary = scopes[0]
+        if all(scope is not primary for scope, _ in available):
+            alternate = WORKFLOW_LABELS[analysis.office_workflow]
+            return replace(analysis, cards=(), check_scopes=False, office_prefer_workit=False,
+                           document_reason='answer_reference_unavailable',
+                           document_message=f'Chưa đủ căn cứ hiện hành cho Workit. Bạn có thể hỏi hướng dẫn trên {alternate}.'), None
+        chosen = {address(ref) for ref in primary.references(analysis)}
+        raw = {**raw, 'matches': [match for key, match in matches.items() if key in chosen]}
+        return replace(analysis, cards=(primary.card,), check_scopes=False, office_prefer_workit=False,
+                       office_workflow=None, office_action=None, scope_system='workit',
+                       scope_intro='Hướng dẫn trên Workit.'), raw
     if len(available) == 1 and not analysis.refresh_choices:
         scope, _ = available[0]
         # Keep the request snapshot and expose only rows for the chosen scope.

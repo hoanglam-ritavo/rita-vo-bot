@@ -108,6 +108,16 @@ references before rendering. Menu-only sources produce limited guidance.
 The optional context slots fit reducer schema 9 and the existing response
 contract.
 
+Office 365 routes declare the workflow, action and optional channel. The
+planner can identify E-Postal in an Outlook confirmation question while
+recognizing Outlook room scheduling as E-Booking. Short continuation
+updates retain the active workflow and can change the channel or ask about
+result email. An explicit workflow switch retains the action and checks the
+new source. Optional slots use the existing conversation contract.
+Declared overlapping requests can prefer Workit after one exact source read.
+When Workit lacks eligible references, the answer only offers an available
+Office guide for a subsequent explicit request.
+
 Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between
 checks, with a 15-second check deadline. Record validation/conflict failures remain

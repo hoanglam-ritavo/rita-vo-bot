@@ -15,7 +15,8 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
     from src.api.answer import format_answer
     from src.answering.catalog import load_catalog
     from src.answering.pipeline import evaluate_question, select_cards, requested_aspects, matches_reference
-    from src.conversation.context import plan_turn, compact
+    from src.answering.scope import resolve_document_scopes
+    from src.conversation.context import plan_turn, compact, finalize_scope
     from src.database import close_database
     from src.retrieval import RetrievalService
     from src.type_b.tasks import route_question
@@ -66,6 +67,10 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
                         rows.append({**key, 'state': 'deferred', 'reason': 'requires_isolated_fixture'})
                         continue
                 state = next_state
+                scoped_evidence = None
+                if analysis.office_prefer_workit:
+                    analysis, scoped_evidence = await resolve_document_scopes(analysis, catalog, service)
+                    state = finalize_scope(state, analysis)
                 question = analysis.question
                 cards, ambiguous = analysis.cards, analysis.ambiguous
                 refs = [ref for card in cards for aspect in analysis.aspects
@@ -76,7 +81,12 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
                         rows.append({**key, 'state': 'deferred', 'reason': 'eligible_publication_missing_or_changed'})
                         continue
                 started = time.perf_counter()
-                rendered = await evaluate_question(question, service, catalog, lexicon, analysis=analysis)
+                if scoped_evidence is None:
+                    rendered = await evaluate_question(question, service, catalog, lexicon, analysis=analysis)
+                else:
+                    from src.answering.pipeline import render
+                    rendered = render(question, scoped_evidence, catalog, lexicon, service.policy, analysis=analysis)
+                    rendered.update(retrieval_seconds=0., generation_seconds=0., verification_seconds=0.)
                 response = format_answer(rendered, started).model_dump(mode='json')
                 selected = () if ambiguous else cards
                 failures = check_turn(oracle, 200, response, [c.id for c in selected], aspects=analysis.aspects)

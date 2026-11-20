@@ -1,0 +1,24 @@
+{
+  "id": "route.office-365.compare-postal",
+  "family": "software",
+  "task_id": "task.office-365.compare-postal",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e postal"
+        ],
+        [
+          "văn phòng số"
+        ],
+        [
+          "workit"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "compare"
+  }
+}

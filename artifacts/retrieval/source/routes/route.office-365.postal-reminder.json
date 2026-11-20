@@ -1,0 +1,28 @@
+{
+  "id": "route.office-365.postal-reminder",
+  "family": "software",
+  "task_id": "task.office-365.postal-reminder",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hệ thống nhắc nhận thư"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau bao lâu"
+        ],
+        [
+          "nhắc nhận thư"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "reminder"
+  }
+}

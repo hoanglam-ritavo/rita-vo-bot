@@ -1,0 +1,21 @@
+{
+  "id": "route.office-365.compare-duplicate",
+  "family": "software",
+  "task_id": "task.office-365.compare-duplicate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đã gửi yêu cầu qua một hệ thống"
+        ],
+        [
+          "gửi lại"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "status"
+  }
+}

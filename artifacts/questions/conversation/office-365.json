@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.office-365",
+  "description": "Office channels, workflow switches, Workit preference and source withdrawal.",
+  "cases": [
+    {
+      "id": "q.conversation.office-365.001",
+      "title": "Giữ E-Leave khi hỏi cách tách đơn rồi đổi kênh",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-sessions",
+          "task.office-365.leave-teams",
+          "task.office-365.leave-outlook",
+          "task.office-365.leave-mobile",
+          "task.office-365.leave-first"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi chỉ nghỉ chiều thứ Sáu và sáng thứ Bảy, gửi mấy đơn E-Leave?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua Teams thì duyệt thế nào?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua Outlook?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn trên app Power Automate?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua Power Automate trên trình duyệt?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.002",
+      "title": "Từ duyệt sang email kết quả E-Workdate",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.workdate-outlook",
+          "task.office-365.workdate-mail",
+          "task.office-365.workdate-teams",
+          "task.topic.eworkdate-mobile"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Khi duyệt hoặc từ chối E-Workdate trong Outlook, quản lý nhập ý kiến ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Nếu chưa thấy email kết quả thì sao?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua Teams thì duyệt thế nào?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn trên Power Automate trên điện thoại?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.003",
+      "title": "Đổi nghiệp vụ khi hỏi về thời gian nhắc",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-reminder",
+          "task.office-365.workdate-reminder",
+          "task.office-365.leave-reminder"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Hệ thống nhắc nhận thư E-Postal sau bao lâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn E-Workdate thì sao?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn E-Leave thì sao?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.004",
+      "title": "E-Postal ghi nhận theo vai trò và kênh",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.postal-admin",
+          "task.office-365.postal-channel-choice",
+          "task.office-365.postal-teams",
+          "task.office-365.postal-mobile"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "SharePoint Form và SharePoint PhoneList khác nhau thế nào trong E-Postal?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi xác nhận bưu phẩm qua Outlook hay dùng Power Automate?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua Teams thì sao?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Còn qua app Power Automate?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.005",
+      "title": "Ưu tiên Workit và giữ yêu cầu Office được nêu rõ",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual",
+          "task.office-365.leave-entry",
+          "task.office-365.leave-mail"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn nộp đơn phép năm, gửi ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi gửi đơn nghỉ phép năm bằng E-Leave ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Nếu chưa thấy email kết quả thì sao?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.006",
+      "title": "Kiểm tra nguồn trước khi ưu tiên Workit",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.late-early.web",
+          "task.office-365.workdate-entry"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đăng ký đi trễ, nộp ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi muốn đăng ký đi trễ, nộp ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi mở biểu mẫu xác nhận đi trễ hoặc về sớm E-Workdate ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.007",
+      "title": "E-Booking: ưu tiên Workit cho yêu cầu chung và kiểm tra nguồn riêng",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.room.web",
+          "task.outlook-room-calendar",
+          "task.outlook-equipment"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn đặt phòng họp, làm ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi thêm lịch phòng họp vào Outlook Calendar để theo dõi bằng cách nào?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Chọn Water Conference trên Outlook có đủ để đăng ký nước họp chưa?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Chọn Water Conference trên Outlook có đủ để đăng ký nước họp chưa?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.008",
+      "title": "Các nghiệp vụ nêu rõ giữ nguyên khi nguồn bị rút",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-entry",
+          "task.office-365.workdate-entry",
+          "task.epostal-send"
+        ],
+        "document_ids": [
+          "d95b8527-786e-4ce7-b404-a52691da8e1c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi gửi đơn nghỉ phép năm bằng E-Leave ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi mở biểu mẫu xác nhận đi trễ hoặc về sớm E-Workdate ở đâu?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi xác nhận gửi thư hoặc bưu phẩm ra ngoài bằng QR Sending thế nào?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi xác nhận gửi thư hoặc bưu phẩm ra ngoài bằng QR Sending thế nào?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.009",
+      "title": "Phân biệt nguồn chứng minh email và quyền thực tế",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.leave-personal-email",
+          "task.eworkdate-email",
+          "task.office-365.postal-email-account",
+          "task.office-365.office-no-action"
+        ],
+        "document_ids": [
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d95b8527-786e-4ce7-b404-a52691da8e1c",
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng email cá nhân để gửi đơn nghỉ phép E-Leave không?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi có thể dùng Gmail hoặc email cá nhân để gửi E-Workdate không?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Tôi được dùng email cá nhân để xác nhận nhận thư không?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Bot có thể gửi đơn, duyệt thay tôi, xác nhận đã nhận thư hoặc đặt phòng trực tiếp không?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.office-365.010",
+      "title": "Đối chiếu quy trình và quyền quản lý lịch",
+      "tags": [
+        "type-a",
+        "office-365",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.office-365.compare-workdate",
+          "task.office-365.booking-room-rights",
+          "task.outlook-admin-room"
+        ],
+        "document_ids": [
+          "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "6dae224a-0c75-41c3-a057-5d9530de769c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Kiểm tra đúng tài liệu đang khả dụng ở từng lượt."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ hoặc về sớm thì nộp E-Workdate hay lập phiếu Đi trễ/Về sớm trên Workit?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Vì sao tôi xem được lịch của người khác trên Calendar phòng nhưng không xóa được?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        },
+        {
+          "text": "Khi xóa lịch phòng, HC Admin dùng Edit the response before sending để làm gì?",
+          "expectation": "Giữ đúng nghiệp vụ, kênh và tình trạng căn cứ của lượt hỏi."
+        }
+      ]
+    }
+  ]
+}

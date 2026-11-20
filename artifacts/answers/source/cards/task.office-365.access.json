@@ -1,0 +1,110 @@
+{
+  "id": "task.office-365.access",
+  "label": "Office 365 · Lập và gửi yêu cầu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.access.1",
+          "text": "E-Leave và E-Workdate có đường dẫn Forms hoặc mã QR trong hướng dẫn. E-Postal dùng QR Receiving khi nhận và QR Sending khi gửi. E-Booking mở Calendar trong Outlook. Nếu không quét được QR, mở đường dẫn của đúng biểu mẫu khi tài liệu có cung cấp.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 0,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "3bb1b7b7ec157981bed12fde19e21c2fec09d929aed0b0464eb2b4689e268db4",
+              "quote": "E-Leave (Office 365), phiên bản 1.0, cập nhật 08.09.2023 — nhân viên xin nghỉ phép online qua https://forms.office.com/r/chBGKrWhb2 hoặc quét QR bằng điện thoại. Điền công ty, khu vực Miền Bắc/Miền Nam, mã và họ tên nhân viên, email nhận kết quả, số điện thoại, từ/đến ngày (dd/MM/yyyy), buổi nghỉ, lý do, email quản lý có quyền duyệt và loại nghỉ phép. Chức vụ và ủy quyền gửi đơn không bắt buộc; có thể thêm Email CC. Người gửi nhận email đã gửi đơn, rồi email kết quả khi cấp trên duyệt/từ chối.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 9,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "a0bda4331a23660d89796e0c3dd7dcf074fd3f8f5e904cfa254130ea07f7824b",
+              "quote": "E-Leave — không nhận được email đơn nghỉ phép: có thể do gửi mail/mạng chậm, đợi 10–20 phút. Nếu sau 9h sáng hôm sau vẫn không có email phản hồi, liên hệ KSNB IT System qua ksnb_it.system@ritavo.com theo tài liệu. Khi không quét được QR, kiểm tra chức năng camera, dùng ứng dụng quét QR/Zalo hoặc dùng đường link https://forms.office.com/r/chBGKrWhb2.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "be3059e2-4e94-49bf-8d32-4f98eb0af9e2",
+              "revision_id": "84927cc8-af15-4c6b-8f88-4f9d352c6133",
+              "chunk_index": 1,
+              "source_sha256": "7d272ace6db915a14daaa65a68f1772c21f689c45fd5c3a510007e8d66b63699",
+              "content_sha256": "c61778b0afeaf870ca508ade6f1784151a38ca487e025a2a6c80e3193824b7e6",
+              "quote": "E-Workdate — gửi đơn đi trễ/về sớm bằng máy tính hoặc điện thoại: truy cập https://forms.office.com/r/pmRgRY4gHw hoặc QR trong tài liệu. Điền công ty, khu vực Bắc/Nam, mã nhân viên HCNS cấp, họ tên đầy đủ, email công ty HCNS IT cấp, số điện thoại, từ ngày/đến ngày, loại đi trễ hoặc về sớm và lý do. Chức vụ không bắt buộc. Nhập chính xác email quản lý có thẩm quyền; nhiều email CC ngăn cách bằng dấu chấm phẩy (;); tick Ủy quyền Có nếu ủy quyền cho người khác.",
+              "metadata": {
+                "title": "RTV/O365/E-Workdate — Đơn xác nhận đi trễ về sớm",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 18.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-workdate/rtv-um-o365-e-workdate-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 0,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "a42aa9bd96cb0d7de0a1bd929dbc638069c21f68ab3c7a3ec8d3a5de1e115f89",
+              "quote": "E-Postal 1.0 ngày 07.11.2023 — quản lý thư/bưu phẩm đến và đi qua Office 365. Có 4 cách nhập: Hành chính dùng SharePoint Form hoặc Phone List; nhân viên dùng QR Receiving để nhận/từ chối nhận, QR Sending để xác nhận gửi. Dữ liệu qua Power Automate/SharePoint, gửi email, cập nhật trạng thái và Hành chính xuất Excel. Đây là quản lý bưu phẩm, không phải nghỉ phép.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 0,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "bc611c7d8a63f2ad1dd09c0ba5ec5e52a297b00fe76ad3aaa5ddc6e2c78eac7b",
+              "quote": "E-Booking 1.0 ngày 30.09.2023 — đặt và theo dõi phòng họp bằng Outlook. Thêm lịch phòng: mở Calendar > Open Calendar > From Room List… > chọn phòng theo khu vực/văn phòng > OK. Danh sách cho theo dõi tình trạng phòng; không xác lập phòng nào còn trống hiện tại.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "route.office-365.office-self-verify",
+  "family": "software",
+  "task_id": "task.office-365.office-self-verify",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tiến độ đơn"
+        ],
+        [
+          "bưu phẩm"
+        ],
+        [
+          "lịch phòng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ảnh chụp"
+        ],
+        [
+          "tên số phiếu",
+          "lịch phòng mẫu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "status"
+  }
+}

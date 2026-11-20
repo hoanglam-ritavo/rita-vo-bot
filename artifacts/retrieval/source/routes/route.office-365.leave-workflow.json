@@ -1,0 +1,34 @@
+{
+  "id": "route.office-365.leave-workflow",
+  "family": "software",
+  "task_id": "task.office-365.leave-workflow",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hcns xuất excel"
+        ],
+        [
+          "đánh dấu đã xử lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "forms"
+        ],
+        [
+          "đơn e leave"
+        ],
+        [
+          "đi qua những bước"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "workflow"
+  }
+}

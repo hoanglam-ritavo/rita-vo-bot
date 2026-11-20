@@ -1,0 +1,46 @@
+{
+  "id": "task.office-365.postal-about",
+  "label": "E-Postal · Tổng quan",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Postal"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Postal?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.office-365.postal-about.1",
+          "text": "E-Postal ghi nhận thư và bưu phẩm đến hoặc đi. Hành chính dùng SharePoint Form hoặc PhoneList. Nhân viên dùng mã QR đúng chiều nhận hoặc gửi để ghi nhận trạng thái.",
+          "refs": [
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 0,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "a42aa9bd96cb0d7de0a1bd929dbc638069c21f68ab3c7a3ec8d3a5de1e115f89",
+              "quote": "E-Postal 1.0 ngày 07.11.2023 — quản lý thư/bưu phẩm đến và đi qua Office 365. Có 4 cách nhập: Hành chính dùng SharePoint Form hoặc Phone List; nhân viên dùng QR Receiving để nhận/từ chối nhận, QR Sending để xác nhận gửi. Dữ liệu qua Power Automate/SharePoint, gửi email, cập nhật trạng thái và Hành chính xuất Excel. Đây là quản lý bưu phẩm, không phải nghỉ phép.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

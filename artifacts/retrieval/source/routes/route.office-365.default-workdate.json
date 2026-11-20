@@ -1,0 +1,32 @@
+{
+  "id": "route.office-365.default-workdate",
+  "family": "software",
+  "task_id": "task.office-365.default-workdate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "muốn đăng ký đi trễ"
+        ],
+        [
+          "ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "muốn nộp đơn đi trễ"
+        ],
+        [
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "submission",
+    "prefer_workit": "task.workit-surface.late-early.web"
+  }
+}

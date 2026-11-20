@@ -1,0 +1,37 @@
+{
+  "id": "route.office-365.compare-notifications",
+  "family": "software",
+  "task_id": "task.office-365.compare-notifications",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thời gian nhắc"
+        ],
+        [
+          "ngưỡng liên hệ it"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "e leave"
+        ],
+        [
+          "e workdate"
+        ],
+        [
+          "e postal"
+        ],
+        [
+          "nhắc"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "compare"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "route.office-365.postal-receive",
+  "family": "software",
+  "task_id": "task.office-365.postal-receive",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "qr receiving"
+        ],
+        [
+          "qr sending"
+        ],
+        [
+          "nhận bưu phẩm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khi mở qr receiving"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nội dung chi tiết"
+        ],
+        [
+          "ghi chú"
+        ],
+        [
+          "khi nhận thư"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khi nhận hộ đồng nghiệp"
+        ],
+        [
+          "đánh dấu"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "receiving"
+  }
+}

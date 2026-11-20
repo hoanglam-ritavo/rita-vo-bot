@@ -1,0 +1,82 @@
+{
+  "id": "route.office-365.leave-sessions",
+  "family": "software",
+  "task_id": "task.office-365.leave-sessions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ theo buổi"
+        ],
+        [
+          "e leave",
+          "cả ngày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đăng ký nghỉ cả ngày"
+        ],
+        [
+          "buổi sáng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "buổi sáng hoặc buổi chiều"
+        ],
+        [
+          "trong một ngày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chiều thứ sáu"
+        ],
+        [
+          "sáng thứ bảy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chiều thứ 6"
+        ],
+        [
+          "sáng thứ 7"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sáng thứ hai"
+        ],
+        [
+          "sáng thứ ba"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sáng thứ 2"
+        ],
+        [
+          "sáng thứ 3"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "sessions"
+  }
+}

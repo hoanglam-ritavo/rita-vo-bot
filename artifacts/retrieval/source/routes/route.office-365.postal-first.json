@@ -1,0 +1,29 @@
+{
+  "id": "route.office-365.postal-first",
+  "family": "software",
+  "task_id": "task.office-365.postal-first",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lần đầu xác nhận nhận thư"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người chưa có o365"
+        ],
+        [
+          "có thể xác nhận bằng trình duyệt"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "first",
+    "channel": "automate-browser"
+  }
+}

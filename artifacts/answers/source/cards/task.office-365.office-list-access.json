@@ -1,0 +1,82 @@
+{
+  "id": "task.office-365.office-list-access",
+  "label": "Office 365 · Xử lý theo vai trò",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Office 365"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong Office 365?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.office-list-access.1",
+          "text": "Hướng dẫn nêu HCNS xuất danh sách E-Leave và Hành chính ghi nhận, xuất danh sách E-Postal qua SharePoint.",
+          "refs": [
+            {
+              "document_id": "7d4d2428-52c1-48f3-82ac-1e044e6927ab",
+              "revision_id": "03b949bc-9b57-45e9-b937-e07b03595b02",
+              "chunk_index": 12,
+              "source_sha256": "a42a2df6d2c9497544da1be78b39e36e4b12cd66e3151e11fce2743779bc1abf",
+              "content_sha256": "046ea182ff1b0f88502a0402da4bc54294567308df35dec924346a5b6c2de80b",
+              "quote": "E-Leave — tổng quan quy trình Office 365: người dùng nhập MS Form/QR hoặc SharePoint Link; Power Automate đưa thông tin vào SharePoint List và gửi email cho cấp trên duyệt. Trạng thái duyệt cập nhật về danh sách; HR xuất Excel và cập nhật trạng thái đã xử lý HR. Tài liệu hướng dẫn 3 cách duyệt: Outlook, Microsoft Teams, Power Automate trên điện thoại; có nhắc duyệt và xử lý tình huống.",
+              "metadata": {
+                "title": "E-Leave — Hướng dẫn sử dụng đơn nghỉ phép online",
+                "applicability": "Nhân viên gửi đơn nghỉ phép và người có thẩm quyền duyệt trên E-Leave Office 365; HR xử lý thông tin nghỉ phép.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "RTV/O365/E-Leave v1.0; cập nhật 08.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-leave/rtv-um-o365-e-leave-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 0,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "a42aa9bd96cb0d7de0a1bd929dbc638069c21f68ab3c7a3ec8d3a5de1e115f89",
+              "quote": "E-Postal 1.0 ngày 07.11.2023 — quản lý thư/bưu phẩm đến và đi qua Office 365. Có 4 cách nhập: Hành chính dùng SharePoint Form hoặc Phone List; nhân viên dùng QR Receiving để nhận/từ chối nhận, QR Sending để xác nhận gửi. Dữ liệu qua Power Automate/SharePoint, gửi email, cập nhật trạng thái và Hành chính xuất Excel. Đây là quản lý bưu phẩm, không phải nghỉ phép.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "d95b8527-786e-4ce7-b404-a52691da8e1c",
+              "revision_id": "25735ecc-960b-4681-8c54-f7d790e4907c",
+              "chunk_index": 3,
+              "source_sha256": "10f104050bb1d38d389b0eacd1bb12b5fa585e066ec1f0b926aae379c5c413ae",
+              "content_sha256": "f43d49f6c35591e63836ec8373bfd140ae60347d98e208e9d0fe476abf261a4a",
+              "quote": "E-Postal — nhân viên Hành chính ghi nhận thư: SharePoint nhập trực tiếp hỗ trợ thông báo cả thư đến và thư đi; SharePoint PhoneList chỉ dùng thông báo thư đến, không dùng gửi thư/bưu phẩm. Người nhận được email Outlook từ hệ thống.",
+              "metadata": {
+                "title": "RTV/O365/E-Postal — Quản lý thư đến, thư đi",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 07.11.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-postal/rtv-um-o365-e-postal-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Quyền đọc danh sách và xuất dữ liệu từng tài khoản do đơn vị quản lý, cần xác nhận theo nghiệp vụ."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

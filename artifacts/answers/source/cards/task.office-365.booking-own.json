@@ -1,0 +1,66 @@
+{
+  "id": "task.office-365.booking-own",
+  "label": "E-Booking · Thay đổi hoặc hủy",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Booking"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Booking?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.booking-own.1",
+          "text": "Người dùng tự quản lý lịch do mình tạo trong Calendar cá nhân. Lịch đặt của người khác trên Calendar phòng do HC Admin hoặc IT quản lý theo hướng dẫn.",
+          "refs": [
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 1,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "8104b9049ca723ba44267e0ec70a42f3026f1c2fb988780468e8c932374d6ce6",
+              "quote": "E-Booking — đặt cuộc họp trên Outlook: Home > New Items > Meeting; nhập Title, danh sách người tham gia, giờ bắt đầu/kết thúc. Mở Scheduling Assistant > Add Rooms, chọn phòng theo Location và Capacity > OK. Kiểm tra thời gian trống của các thành viên trong Scheduling Assistant rồi Send gửi lời mời.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 4,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "f6e9aa46c801a5972cddf8a644934ba6f61671ffecdda88e29526527a2bf72bc",
+              "quote": "E-Booking — không xóa được lịch phòng: người dùng chỉ xóa lịch trên Calendar của mình và do mình tạo, không xóa lịch người khác trên Calendar phòng họp. Nếu lịch của bạn bị xóa, liên hệ HC Admin kiểm tra; HC Admin/IT có quyền xóa và thông báo tạo lịch mới. Outlook khác ảnh hướng dẫn thì liên hệ IT kiểm tra/cập nhật phiên bản đang ban hành.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn không mô tả đầy đủ các nút sửa giờ, đổi phòng hoặc gửi thông báo hủy trên từng phiên bản Outlook."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

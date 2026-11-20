@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.leave-reminder",
+  "family": "software",
+  "task_id": "task.office-365.leave-reminder",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email nhắc duyệt e leave"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thời điểm và tần suất"
+        ],
+        [
+          "nhắc duyệt"
+        ],
+        [
+          "e leave"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "reminder"
+  }
+}

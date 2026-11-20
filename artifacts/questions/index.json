@@ -561,6 +561,18 @@
       "group_id": "conversation.workit-surfaces",
       "cases": 10,
       "turns": 30
+    },
+    {
+      "path": "software/office-365.json",
+      "group_id": "software.office-365",
+      "cases": 193,
+      "turns": 193
+    },
+    {
+      "path": "conversation/office-365.json",
+      "group_id": "conversation.office-365",
+      "cases": 10,
+      "turns": 37
     }
   ],
   "totals": {
@@ -8998,7 +9010,9 @@
     "oracles/policy.welfare-and-referrals.json",
     "oracles/conversation.welfare-and-referrals.json",
     "oracles/software.workit-surfaces.json",
-    "oracles/conversation.workit-surfaces.json"
+    "oracles/conversation.workit-surfaces.json",
+    "oracles/software.office-365.json",
+    "oracles/conversation.office-365.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

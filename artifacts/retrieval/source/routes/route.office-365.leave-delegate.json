@@ -1,0 +1,39 @@
+{
+  "id": "route.office-365.leave-delegate",
+  "family": "software",
+  "task_id": "task.office-365.leave-delegate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đồng nghiệp gửi đơn e leave hộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khi gửi hộ"
+        ],
+        [
+          "mã và họ tên",
+          "mã nhân viên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ủy quyền gửi đơn"
+        ],
+        [
+          "ủy quyền cho người khác duyệt"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "submission"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "route.office-365.booking-admin",
+  "family": "software",
+  "task_id": "task.outlook-admin-room",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hc admin"
+        ],
+        [
+          "các bước xóa lịch"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "edit the response before sending"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau khi đổi hoặc xóa lịch phòng"
+        ],
+        [
+          "thông báo"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "outlook",
+    "action": "administration"
+  }
+}

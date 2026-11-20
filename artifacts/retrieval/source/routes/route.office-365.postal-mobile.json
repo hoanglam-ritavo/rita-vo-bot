@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.postal-mobile",
+  "family": "software",
+  "task_id": "task.office-365.postal-mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "power automate trên điện thoại"
+        ],
+        [
+          "đúng yêu cầu nhận thư"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "approval",
+    "channel": "automate-mobile"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "task.office-365.booking-availability",
+  "label": "E-Booking · Đặt phòng họp",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "E-Booking"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần thao tác nào trong E-Booking?",
+  "context": {
+    "mode": "none",
+    "note": "Office workflow guidance from exact references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.office-365.booking-availability.1",
+          "text": "Mở Calendar phòng để đối chiếu lịch. Khi tạo cuộc họp, xem thời gian phòng và người tham gia trong Scheduling Assistant, đổi giờ bắt đầu và kết thúc trước khi gửi nếu cần.",
+          "refs": [
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 0,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "bc611c7d8a63f2ad1dd09c0ba5ec5e52a297b00fe76ad3aaa5ddc6e2c78eac7b",
+              "quote": "E-Booking 1.0 ngày 30.09.2023 — đặt và theo dõi phòng họp bằng Outlook. Thêm lịch phòng: mở Calendar > Open Calendar > From Room List… > chọn phòng theo khu vực/văn phòng > OK. Danh sách cho theo dõi tình trạng phòng; không xác lập phòng nào còn trống hiện tại.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            },
+            {
+              "document_id": "6dae224a-0c75-41c3-a057-5d9530de769c",
+              "revision_id": "1432773e-11b7-4d08-8986-f43363fa7532",
+              "chunk_index": 1,
+              "source_sha256": "f43ef64c3758a963d0d12113a9a35bc45f3310d7ac7e0307772fea5183330ee5",
+              "content_sha256": "8104b9049ca723ba44267e0ec70a42f3026f1c2fb988780468e8c932374d6ce6",
+              "quote": "E-Booking — đặt cuộc họp trên Outlook: Home > New Items > Meeting; nhập Title, danh sách người tham gia, giờ bắt đầu/kết thúc. Mở Scheduling Assistant > Add Rooms, chọn phòng theo Location và Capacity > OK. Kiểm tra thời gian trống của các thành viên trong Scheduling Assistant rồi Send gửi lời mời.",
+              "metadata": {
+                "title": "RTV/O365/E-Booking — Đặt phòng họp online",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 30.09.2023",
+                "source_path": "huong-dan-su-dung/e-office/e-booking/rtv-um-o365-outlookmeetingroom-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu hướng dẫn kiểm tra lịch. Nó không cho biết phòng đang trống thực tế."
+      ]
+    }
+  },
+  "scope_limit": "verify_operational_data"
+}

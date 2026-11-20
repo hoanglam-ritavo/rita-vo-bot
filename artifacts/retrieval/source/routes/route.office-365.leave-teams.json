@@ -1,0 +1,40 @@
+{
+  "id": "route.office-365.leave-teams",
+  "family": "software",
+  "task_id": "task.office-365.leave-teams",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "yêu cầu e leave trên teams"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "duyệt qua teams"
+        ],
+        [
+          "bình luận",
+          "có được gửi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã duyệt hoặc từ chối trong teams"
+        ],
+        [
+          "xem lại"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "approval",
+    "channel": "teams"
+  }
+}

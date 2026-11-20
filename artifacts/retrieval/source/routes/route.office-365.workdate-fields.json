@@ -1,0 +1,59 @@
+{
+  "id": "route.office-365.workdate-fields",
+  "family": "software",
+  "task_id": "task.office-365.workdate-fields",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mẫu e workdate"
+        ],
+        [
+          "thông tin nào",
+          "bỏ trống chức vụ",
+          "giờ cụ thể",
+          "giấy xác nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chọn loại đi trễ"
+        ],
+        [
+          "về sớm"
+        ],
+        [
+          "nhập lý do"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chỉ đi trễ một ngày"
+        ],
+        [
+          "từ ngày",
+          "đến ngày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mẫu e workdate"
+        ],
+        [
+          "trường bắt buộc",
+          "có cần chức vụ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "fields"
+  }
+}

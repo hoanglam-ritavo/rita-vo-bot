@@ -1,0 +1,26 @@
+{
+  "id": "route.office-365.compare-leave",
+  "family": "software",
+  "task_id": "task.office-365.compare-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e leave"
+        ],
+        [
+          "workit"
+        ],
+        [
+          "xác định đơn vị",
+          "dùng hệ thống nào",
+          "hay"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "compare"
+  }
+}

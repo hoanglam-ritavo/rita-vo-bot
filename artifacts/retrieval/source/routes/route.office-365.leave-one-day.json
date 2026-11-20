@@ -1,0 +1,23 @@
+{
+  "id": "route.office-365.leave-one-day",
+  "family": "software",
+  "task_id": "task.office-365.leave-one-day",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chỉ nghỉ một ngày"
+        ],
+        [
+          "mẫu",
+          "điền trường từ ngày",
+          "đến ngày"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "sessions"
+  }
+}

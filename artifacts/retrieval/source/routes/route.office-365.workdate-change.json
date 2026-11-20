@@ -1,0 +1,22 @@
+{
+  "id": "route.office-365.workdate-change",
+  "family": "software",
+  "task_id": "task.office-365.workdate-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "e workdate"
+        ],
+        [
+          "chỉnh hay hủy",
+          "sai lý do"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eworkdate",
+    "action": "change"
+  }
+}

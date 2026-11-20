@@ -1,0 +1,39 @@
+{
+  "id": "route.office-365.postal-actual",
+  "family": "software",
+  "task_id": "task.office-365.postal-actual",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bấm đã nhận"
+        ],
+        [
+          "khi đã cầm thư",
+          "khi đến nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bưu phẩm sai tên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tôi đã nhận thư"
+        ],
+        [
+          "chưa bấm xác nhận"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "epostal",
+    "action": "receiving"
+  }
+}

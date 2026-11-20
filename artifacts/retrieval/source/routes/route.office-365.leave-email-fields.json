@@ -1,0 +1,31 @@
+{
+  "id": "route.office-365.leave-email-fields",
+  "family": "software",
+  "task_id": "task.office-365.leave-email-fields",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email nhận kết quả"
+        ],
+        [
+          "email của người duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email quản lý trực tiếp"
+        ],
+        [
+          "email của người được phân quyền"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "fields"
+  }
+}

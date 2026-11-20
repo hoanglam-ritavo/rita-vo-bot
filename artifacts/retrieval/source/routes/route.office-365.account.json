@@ -1,0 +1,58 @@
+{
+  "id": "route.office-365.account",
+  "family": "software",
+  "task_id": "task.office-365.account",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhân viên mới chưa có tài khoản office 365"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tài khoản microsoft cá nhân"
+        ],
+        [
+          "chuyển sang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "báo không có quyền truy cập"
+        ],
+        [
+          "biểu mẫu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giao diện hiện tại"
+        ],
+        [
+          "khác ảnh hướng dẫn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phiên bản office 365"
+        ],
+        [
+          "liên hệ"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "office",
+    "action": "support"
+  }
+}

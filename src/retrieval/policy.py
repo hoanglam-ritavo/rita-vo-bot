@@ -12,6 +12,7 @@ from pydantic import Field, model_validator
 from src.answering.catalog import Reference, METADATA
 from src.answering.contracts import Strict
 from src.paths import REPOSITORY_ROOT
+from .office import OfficeRoute, resolve_office
 from src.semantics.corpus import decode_json
 
 logger = logging.getLogger(__name__)
@@ -134,6 +135,7 @@ class Route(Strict):
     surface: Surface | None = None
     workit_action: str | None = Field(default=None, pattern=r'^[a-z0-9.-]{1,80}$')
     surface_limited: bool = False
+    office: OfficeRoute | None = None
     follow_up_terms: list[str] = Field(default_factory=list, max_length=24)
     follow_up_aspects: dict[str, Literal['amount', 'conditions', 'paperwork', 'procedure']] = Field(
         default_factory=dict, max_length=24)
@@ -184,6 +186,9 @@ class Catalog(Strict):
             raise ValueError('surface_requires_workit')
         focused_tasks, workit_actions = set(), set()
         for route in self.routes:
+            if route.office and (not route.question_terms or route.surface or route.system or route.subtype
+                                 or route.required_slots):
+                raise ValueError('invalid_office_route')
             if route.surface:
                 key = (route.workit_action, route.surface)
                 if (route.system != 'workit' or not route.workit_action or not route.question_terms
@@ -198,7 +203,7 @@ class Catalog(Strict):
                 raise ValueError('invalid_focused_follow_up')
             if any(not p.strip() or len(p) > 240 for p in route.aliases + route.requires_any + route.excludes_any):
                 raise ValueError('invalid_policy_phrase')
-            if route.question_terms and not route.surface:
+            if route.question_terms and not (route.surface or route.office):
                 if route.task_id in focused_tasks or route.required_slots or route.system or route.subtype:
                     raise ValueError('invalid_focused_policy_route')
                 focused_tasks.add(route.task_id)
@@ -242,6 +247,10 @@ def validate_catalog(data, lexicon, lexical_hash, answers=None):
                          ref.content_sha256, ref.source_sha256) not in surface_refs
                         for section in card.sections.values() for unit in section.units for ref in unit.refs):
                     raise ValueError('invalid_workit_surface_evidence')
+            elif route.office:
+                if ('overview' not in card.sections or (route.office.prefer_workit and
+                        route.office.prefer_workit not in cards)):
+                    raise ValueError('invalid_office_route_binding')
             elif route.question_terms and (not card.routed_only or card.context is None
                                            or card.context.mode != 'none' or 'overview' not in card.sections):
                 raise ValueError('invalid_focused_policy_card')
@@ -393,6 +402,7 @@ class RetrievalPolicy:
         self._generic = []
         self._focused = {}
         self._workit = {}
+        self._office = ()
 
     def start(self):
         self.close()
@@ -411,7 +421,8 @@ class RetrievalPolicy:
                 self._bindings.setdefault((binding.ref.document_id, binding.ref.revision_id,
                                            binding.ref.chunk_index), []).append(binding)
             self._generic = [r for r in catalog.routes if (r.aliases or r.concept_ids) and not r.question_terms]
-            self._focused = {r.task_id: r for r in catalog.routes if r.question_terms and not r.surface}
+            self._focused = {r.task_id: r for r in catalog.routes if r.question_terms and not (r.surface or r.office)}
+            self._office = tuple(route for route in catalog.routes if route.office)
             for route in catalog.routes:
                 if route.surface:
                     self._workit.setdefault(route.workit_action, {})[route.surface] = route
@@ -445,6 +456,9 @@ class RetrievalPolicy:
             if question_term(term) == phrase:
                 return aspect
         return 'overview' if any(question_term(term) == phrase for term in route.follow_up_terms) else None
+
+    def resolve_office(self, question, *, slots=None):
+        return resolve_office(self._office, question, slots)
 
     def resolve_workit(self, question, *, slots=None):
         if not self._workit:
@@ -782,3 +796,4 @@ class RetrievalPolicy:
         self.fingerprint = None
         self._focused = {}
         self._workit = {}
+        self._office = ()

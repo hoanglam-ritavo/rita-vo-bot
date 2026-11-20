@@ -1,0 +1,45 @@
+{
+  "id": "route.office-365.leave-status",
+  "family": "software",
+  "task_id": "task.office-365.leave-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người gửi nhận những email nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email đã gửi đơn"
+        ],
+        [
+          "được chấp thuận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email kết quả được gửi từ địa chỉ nào"
+        ],
+        [
+          "những người nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hcns chưa cập nhật nghỉ phép"
+        ]
+      ]
+    }
+  ],
+  "office": {
+    "workflow": "eleave",
+    "action": "status"
+  }
+}
