@@ -1,0 +1,76 @@
+{
+  "id": "route.company-vehicles.driver-change",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.driver-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "từ chối chở quá tải"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thêm điểm dừng giữa chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuyến đi"
+        ],
+        [
+          "phải qua đêm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chở thêm người"
+        ],
+        [
+          "đề xuất đã duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế có được từ chối chở quá tải, đi sai mục đích hoặc thay đổi lộ trình chưa được duyệt không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu khách yêu cầu đổi điểm đến hoặc thêm điểm dừng giữa chuyến, tài xế phải xin ý kiến ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu chuyến đi kéo dài hơn dự kiến hoặc phải qua đêm, cần thông báo và bổ sung hồ sơ gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được chở thêm người không có tên trong đề xuất đã duyệt không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

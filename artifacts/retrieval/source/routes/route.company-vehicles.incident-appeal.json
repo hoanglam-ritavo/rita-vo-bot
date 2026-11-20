@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.incident-appeal",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.incident-appeal",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "không đồng ý với biên bản sự cố"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe"
+        ],
+        [
+          "mức bồi thường"
+        ],
+        [
+          "gửi giải trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu không đồng ý với biên bản sự cố hoặc mức bồi thường, tôi gửi giải trình cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.company-vehicles",
+  "cases": [
+    {
+      "id": "q.conversation.company-vehicles.001",
+      "title": "Đổi từ Workit Web sang Mobile",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.car.mobile",
+          "task.workit-surface.car.web"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tạo phiếu Xe công tác trên Workit Web ở đâu?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Tôi dùng Mobile.",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Tôi tạo phiếu Xe công tác trên Workit Web ở đâu?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.002",
+      "title": "Đổi từ người đề xuất sang người lái xe",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope",
+          "task.company-vehicles.pretrip",
+          "task.company-vehicles.self-drive"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần xe đi gặp khách hàng thì phải liên hệ ai và xin duyệt thế nào?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nhân viên không phải tài xế cần đáp ứng điều kiện gì để được tự lái?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Trước khi nhận xe, tài xế phải kiểm tra những gì?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.003",
+      "title": "Hỏi tiếp chứng từ bàn giao",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields",
+          "task.company-vehicles.trip-handover"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đổi tài xế hoặc chuyển xe sang phòng ban khác, phải lập biên bản bàn giao thế nào?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Cần giấy tờ gì?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Còn sổ nhật trình thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.004",
+      "title": "Phiếu duyệt và bố trí xe",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm",
+          "task.company-vehicles.transport-choice"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đã duyệt có đồng nghĩa xe và tài xế đã được bố trí không?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Tôi xác nhận biển số xe, tài xế, giờ đón và điểm đón với ai?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Còn nếu không có xe thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.005",
+      "title": "Điều xe khẩn cấp ngoài giờ",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch",
+          "task.company-vehicles.after-hours",
+          "task.company-vehicles.approval-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phê duyệt nhu cầu sử dụng xe và ai quyết định bố trí xe, tài xế?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Còn đi ngoài giờ thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Khi cấp cứu, ai có thể đề nghị dùng xe và phải báo cho những ai sau đó?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.006",
+      "title": "Sửa xe tại tỉnh",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-complete",
+          "task.company-vehicles.maintenance-regions",
+          "task.company-vehicles.maintenance-trigger"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trường hợp nào phải lập phiếu đề xuất sửa chữa xe?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Còn xe ở tỉnh thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Sau khi sửa, ai kiểm tra, xác nhận hạng mục, chi phí và số kilomet?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.007",
+      "title": "Công thức nhiên liệu và hóa đơn vượt mức",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-advance",
+          "task.company-vehicles.fuel-excess",
+          "task.company-vehicles.fuel-formula"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi phí xăng dầu được tính dựa trên số kilomet, định mức và hóa đơn như thế nào?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nếu hóa đơn vượt mức thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Ai lập đề nghị tạm ứng nhiên liệu và ai làm hồ sơ quyết toán?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.008",
+      "title": "VETC sai giao dịch",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-vetc",
+          "task.company-vehicles.vetc-owner",
+          "task.company-vehicles.vetc-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai quản lý tài khoản VETC và theo dõi giao dịch của các xe thuộc bộ phận mình?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nếu trạm trừ tiền hai lần thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nếu tài khoản VETC thiếu tiền trước khi đi qua trạm, tài xế liên hệ ai?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.009",
+      "title": "Va quẹt và dữ liệu xác minh",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guard-check",
+          "task.company-vehicles.incident-records",
+          "task.company-vehicles.incident-report"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu xe va quẹt hoặc tai nạn trong chuyến đi, tài xế phải báo cho ai và lập hồ sơ gì?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nếu nhiều tài xế dùng chung xe, căn cứ nào được dùng để xác định chuyến xảy ra hư hỏng?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Nếu cần xem camera thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.010",
+      "title": "Gộp hai câu rồi đề xuất xe",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.approval-dispatch",
+          "task.company-vehicles.request-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên không phải tài xế cần đáp ứng điều kiện gì để được tự lái? Tôi lấy mẫu sổ nhật trình, sổ theo dõi sửa xe, phiếu đề xuất sửa chữa và biên bản bàn giao ở đâu?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Ai phê duyệt nhu cầu sử dụng xe và ai quyết định bố trí xe, tài xế?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Khi đề xuất xe, cần khai mục đích, thời gian, địa điểm, số người và lộ trình như thế nào?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.011",
+      "title": "Mất quyền nguồn giữa các lượt",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ nhật trình dùng mẫu nào, do ai ghi và ai kiểm tra?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Cần giấy tờ gì?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Sổ nhật trình dùng mẫu nào, do ai ghi và ai kiểm tra?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.company-vehicles.012",
+      "title": "Yêu cầu đặt xe thay người dùng",
+      "tags": [
+        "conversation",
+        "company-vehicles"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm",
+          "task.workit-surface.car.web"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đã duyệt có đồng nghĩa xe và tài xế đã được bố trí không?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Đặt xe giúp tôi ngay chiều nay.",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Tôi tạo phiếu Xe công tác trên Workit Web ở đâu?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        }
+      ]
+    }
+  ]
+}

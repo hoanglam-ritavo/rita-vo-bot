@@ -1,0 +1,201 @@
+{
+  "id": "task.company-vehicles.guide-forms",
+  "label": "Biểu mẫu xe và nơi lấy",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Biểu mẫu xe và nơi lấy"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về biểu mẫu xe và nơi lấy?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.guide-forms",
+          "text": "Bảng biểu mẫu ghi tại HCNS: nhật trình xe văn phòng HCNS-QT02-S01, sổ sửa xe HCNS-QT02-S02, phiếu đề xuất sửa chữa HCNS-QT02-DXSC01 và biên bản bàn giao HCNS-QT02-BB01. Hỏi HCNS để lấy mẫu áp dụng tại đơn vị.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 16,
+              "content_sha256": "049e8642a933b51391cccbf1bec80f70902a55f70d27c70d3a88eb9b1335510a",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12. Bảng biểu mẫu/tài liệu. Cột: Stt; Tên biểu mẫu/tài liệu; Ký hiệu/ QT liên quan; Nơi lưu.\n01. Sổ nhật trình xe văn phòng — HCNS-QT02-S01 — P. HCNS\n02. Sổ theo dõi sửa chữa xe Ô tô văn phòng — HCNS-QT02-S02 — P. HCNS\n03. Phiếu đề xuất sửa chữa — HCNS-QT02-DXSC01 — P. HCNS\n04. Biên bản bàn giao — HCNS-QT02-BB01 — P. HCNS\n05. Giấy đề nghị tạm ứng — Chi 04 — P. KT\n06. Giấy đề nghị thanh toán xăng dầu — Chi 01 — P. KT",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 41,
+              "content_sha256": "e93e416136fc0077238fe47b225e6613c6d5a95cd9c6c328491e5b6c24f519ef",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nSỔ NHẬT TRÌNH - XE VĂN PHÒNG\nMã số: HCNS-QT02-S01. Ngày hiệu lực: 07/04/2023\nTrường: Loại xe; Biển số xe; Tên tài xế; Tháng; Kỳ thanh toán: Từ…đến…; Số trang …/…\nCột: NGÀY; MỤC ĐÍCH SỬ DỤNG XE (Tên - Bộ phận); ĐI (NƠI ĐI, GIỜ ĐI, KM ĐẦU); ĐẾN (NƠI ĐẾN, GIỜ ĐẾN, KM CUỐI); HÓA ĐƠN XĂNG/ DẦU; PHÍ KHÁC (phí cầu đường, sửa xe, giữ xe); XÁC NHẬN CỦA NGƯỜI SD XE.\nCác ô dữ liệu để trống.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 42,
+              "content_sha256": "a7460d48a43991adc355cd58cfa4e94b4c3d32b84432086585d530628fa01208",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nSỔ THEO DÕI SỬA CHỮA XE Ô TÔ VĂN PHÒNG\nMã số: HCNS-QT02-S02. Ngày hiệu lực: 07/04/2023\nTrường: Loại xe; Biển số xe; Tên tài xế; Số trang …/…\nCột: STT; Ngày sửa chữa; Tình trạng xe; KM hiện tại; Hạng mục sửa chữa; ĐVT; SL; Chi phí hãng (Đơn giá, Thành tiền gồm VAT); Chi phí khác (Đơn giá, Thành tiền gồm VAT); Kỹ thuật ký xác nhận; Ghi chú.\nCác ô dữ liệu để trống.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 43,
+              "content_sha256": "dd54c9f7a8681f912b6361983bbe456d89fb121e2b6b9849adb59c1a7557b474",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nPHIẾU ĐỀ XUẤT SỬA CHỮA\nMã số: HCNS-QT02-DXSC01. Ngày hiệu lực: 07/04/2023. Soát xét: 01. Số trang: 1/1.\nSố phiếu ĐX: …; Ngày… tháng… năm…; Người đề xuất: …; Biển số xe: …; Loại xe: …; Bộ phận: …; Số Km lúc đề nghị: …\nCột: STT; NỘI DUNG ĐỀ NGHỊ; ĐVT; SL; TÌNH TRẠNG HIỆN TẠI; Kết Luận (sửa chữa:S)/ (thay:T).\nGhi chú: Thay mới phải ghi rõ xuất sứ phụ tùng, vật liệu thay thế\nĐề nghị: …\nNgười đề xuất; Kỹ thuật kiểm tra; Trưởng bộ phận; Tổng Giám Đốc (Duyệt)",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 45,
+              "content_sha256": "7e6dffef625bfb26afdcc2d686bcf324df9b2b5cb130a0997110a6af611e05f6",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nCÔNG TY TNHH TẬP ĐOÀN RITA VÕ\nSố: …/20…-BBBG\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM — Độc lập - Tự do - Hạnh phúc\nBIÊN BẢN BÀN GIAO\nHôm nay, lúc … giờ, ngày … tháng … năm …, tại …\nChúng tôi gồm:\nNgười bàn giao: … Bộ phận: …\nNgười nhận bàn giao: … Bộ phận: …\nLý do bàn giao: …\nSĐT tài xế: …\nCùng bàn giao tài sản công cụ với nội dung như sau:\nCột: STT; NỘI DUNG BÀN GIAO; SỐ LƯỢNG; ĐƠN VỊ; TÌNH TRẠNG (Ghi rõ tình trạng xe hiện tại)\n1. Tên tài sản; Biển số — Chiếc\n2. Carvet xe — Cái\n3. Giấy chứng nhận kiểm định; Thời hạn — Cái\n4. Giấy chứng nhận bảo hiểm; Thời hạn — Cái\n5. Số KM: …\n6. Chìa khóa — Cái\n7. Vỏ dự phòng — Cái\n8. Dụng cụ mở bánh xe (tay quay, con đội) — Bộ\n9–10. Trống\nNgười bàn giao cam đoan rằng toàn bộ các tài sản, công cụ đã được bàn giao đầy đủ. Biên bản được lập thành 02 bản, mỗi bên giữ một bản./.\nLưu ý: người nhận có trách nhiệm bảo quản tài sản theo quy định.\nNgười bàn giao (Ký và ghi rõ họ tên); Người nhận bàn giao (Ký và ghi rõ họ tên)",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "paperwork": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.guide-forms",
+          "text": "Bảng biểu mẫu ghi tại HCNS: nhật trình xe văn phòng HCNS-QT02-S01, sổ sửa xe HCNS-QT02-S02, phiếu đề xuất sửa chữa HCNS-QT02-DXSC01 và biên bản bàn giao HCNS-QT02-BB01. Hỏi HCNS để lấy mẫu áp dụng tại đơn vị.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 16,
+              "content_sha256": "049e8642a933b51391cccbf1bec80f70902a55f70d27c70d3a88eb9b1335510a",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12. Bảng biểu mẫu/tài liệu. Cột: Stt; Tên biểu mẫu/tài liệu; Ký hiệu/ QT liên quan; Nơi lưu.\n01. Sổ nhật trình xe văn phòng — HCNS-QT02-S01 — P. HCNS\n02. Sổ theo dõi sửa chữa xe Ô tô văn phòng — HCNS-QT02-S02 — P. HCNS\n03. Phiếu đề xuất sửa chữa — HCNS-QT02-DXSC01 — P. HCNS\n04. Biên bản bàn giao — HCNS-QT02-BB01 — P. HCNS\n05. Giấy đề nghị tạm ứng — Chi 04 — P. KT\n06. Giấy đề nghị thanh toán xăng dầu — Chi 01 — P. KT",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 41,
+              "content_sha256": "e93e416136fc0077238fe47b225e6613c6d5a95cd9c6c328491e5b6c24f519ef",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nSỔ NHẬT TRÌNH - XE VĂN PHÒNG\nMã số: HCNS-QT02-S01. Ngày hiệu lực: 07/04/2023\nTrường: Loại xe; Biển số xe; Tên tài xế; Tháng; Kỳ thanh toán: Từ…đến…; Số trang …/…\nCột: NGÀY; MỤC ĐÍCH SỬ DỤNG XE (Tên - Bộ phận); ĐI (NƠI ĐI, GIỜ ĐI, KM ĐẦU); ĐẾN (NƠI ĐẾN, GIỜ ĐẾN, KM CUỐI); HÓA ĐƠN XĂNG/ DẦU; PHÍ KHÁC (phí cầu đường, sửa xe, giữ xe); XÁC NHẬN CỦA NGƯỜI SD XE.\nCác ô dữ liệu để trống.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 42,
+              "content_sha256": "a7460d48a43991adc355cd58cfa4e94b4c3d32b84432086585d530628fa01208",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nSỔ THEO DÕI SỬA CHỮA XE Ô TÔ VĂN PHÒNG\nMã số: HCNS-QT02-S02. Ngày hiệu lực: 07/04/2023\nTrường: Loại xe; Biển số xe; Tên tài xế; Số trang …/…\nCột: STT; Ngày sửa chữa; Tình trạng xe; KM hiện tại; Hạng mục sửa chữa; ĐVT; SL; Chi phí hãng (Đơn giá, Thành tiền gồm VAT); Chi phí khác (Đơn giá, Thành tiền gồm VAT); Kỹ thuật ký xác nhận; Ghi chú.\nCác ô dữ liệu để trống.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 43,
+              "content_sha256": "dd54c9f7a8681f912b6361983bbe456d89fb121e2b6b9849adb59c1a7557b474",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nPHIẾU ĐỀ XUẤT SỬA CHỮA\nMã số: HCNS-QT02-DXSC01. Ngày hiệu lực: 07/04/2023. Soát xét: 01. Số trang: 1/1.\nSố phiếu ĐX: …; Ngày… tháng… năm…; Người đề xuất: …; Biển số xe: …; Loại xe: …; Bộ phận: …; Số Km lúc đề nghị: …\nCột: STT; NỘI DUNG ĐỀ NGHỊ; ĐVT; SL; TÌNH TRẠNG HIỆN TẠI; Kết Luận (sửa chữa:S)/ (thay:T).\nGhi chú: Thay mới phải ghi rõ xuất sứ phụ tùng, vật liệu thay thế\nĐề nghị: …\nNgười đề xuất; Kỹ thuật kiểm tra; Trưởng bộ phận; Tổng Giám Đốc (Duyệt)",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 45,
+              "content_sha256": "7e6dffef625bfb26afdcc2d686bcf324df9b2b5cb130a0997110a6af611e05f6",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nCÔNG TY TNHH TẬP ĐOÀN RITA VÕ\nSố: …/20…-BBBG\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM — Độc lập - Tự do - Hạnh phúc\nBIÊN BẢN BÀN GIAO\nHôm nay, lúc … giờ, ngày … tháng … năm …, tại …\nChúng tôi gồm:\nNgười bàn giao: … Bộ phận: …\nNgười nhận bàn giao: … Bộ phận: …\nLý do bàn giao: …\nSĐT tài xế: …\nCùng bàn giao tài sản công cụ với nội dung như sau:\nCột: STT; NỘI DUNG BÀN GIAO; SỐ LƯỢNG; ĐƠN VỊ; TÌNH TRẠNG (Ghi rõ tình trạng xe hiện tại)\n1. Tên tài sản; Biển số — Chiếc\n2. Carvet xe — Cái\n3. Giấy chứng nhận kiểm định; Thời hạn — Cái\n4. Giấy chứng nhận bảo hiểm; Thời hạn — Cái\n5. Số KM: …\n6. Chìa khóa — Cái\n7. Vỏ dự phòng — Cái\n8. Dụng cụ mở bánh xe (tay quay, con đội) — Bộ\n9–10. Trống\nNgười bàn giao cam đoan rằng toàn bộ các tài sản, công cụ đã được bàn giao đầy đủ. Biên bản được lập thành 02 bản, mỗi bên giữ một bản./.\nLưu ý: người nhận có trách nhiệm bảo quản tài sản theo quy định.\nNgười bàn giao (Ký và ghi rõ họ tên); Người nhận bàn giao (Ký và ghi rõ họ tên)",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

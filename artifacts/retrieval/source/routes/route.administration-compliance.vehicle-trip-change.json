@@ -49,6 +49,40 @@
           "Người sử dụng xe phải xác nhận thông tin nào sau chuyến đi?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "người sử dụng xe"
+        ],
+        [
+          "xác nhận lịch trình sau chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người thực tế đi xe"
+        ],
+        [
+          "ai ký xác nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau chuyến đi, người sử dụng xe phải xác nhận lịch trình và chi phí phát sinh ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu người đề xuất và người thực tế đi xe khác nhau, ai ký xác nhận chuyến đi?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

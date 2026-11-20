@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.platform-outage",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-outage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hệ thống không hoạt động"
+        ],
+        [
+          "cần xe gấp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "workit lỗi"
+        ],
+        [
+          "xin xe gấp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu hệ thống không hoạt động nhưng cần xe gấp, tôi phải liên hệ ai và bổ sung phiếu thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

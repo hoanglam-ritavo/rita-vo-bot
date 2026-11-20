@@ -1,0 +1,49 @@
+{
+  "id": "route.company-vehicles.fuel-formula",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-formula",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chi phí xăng dầu được tính"
+        ],
+        [
+          "số kilomet"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "công thức"
+        ],
+        [
+          "xăng dầu"
+        ],
+        [
+          "hóa đơn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Chi phí xăng dầu được tính dựa trên số kilomet, định mức và hóa đơn như thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount",
+  "follow_up_tasks": {
+    "nếu hóa đơn vượt mức thì sao": "task.company-vehicles.fuel-excess",
+    "cần những chứng từ gì": "task.company-vehicles.fuel-receipts"
+  }
+}

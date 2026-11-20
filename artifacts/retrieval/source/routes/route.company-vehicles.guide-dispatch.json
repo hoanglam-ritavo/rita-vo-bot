@@ -1,0 +1,65 @@
+{
+  "id": "route.company-vehicles.guide-dispatch",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.guide-dispatch",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đầu mối điều xe hiện tại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tra tài xế"
+        ],
+        [
+          "biển số"
+        ],
+        [
+          "tình trạng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa có trong quy định"
+        ],
+        [
+          "quản lý điều xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tra đầu mối điều xe hiện tại của từng chi nhánh, showroom hoặc kho bằng cách nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tra tài xế, biển số và tình trạng của chuyến xe đã đề xuất bằng cách nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu tình huống của tôi chưa có trong quy định, tôi cần gửi những thông tin gì cho HCNS hoặc Quản lý điều xe để được hướng dẫn?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

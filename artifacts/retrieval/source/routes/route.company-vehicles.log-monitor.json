@@ -1,0 +1,58 @@
+{
+  "id": "route.company-vehicles.log-monitor",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.log-monitor",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "theo dõi tình trạng sử dụng xe"
+        ],
+        [
+          "lịch bảo dưỡng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ai theo dõi"
+        ],
+        [
+          "định vị gps"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gia hạn dịch vụ"
+        ],
+        [
+          "gps"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai theo dõi tình trạng sử dụng xe, lịch bảo dưỡng, chi phí và các kỳ thanh toán?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có trách nhiệm theo dõi thiết bị định vị GPS hoặc đề xuất gia hạn dịch vụ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

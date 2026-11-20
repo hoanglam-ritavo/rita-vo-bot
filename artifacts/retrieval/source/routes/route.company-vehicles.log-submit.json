@@ -1,0 +1,46 @@
+{
+  "id": "route.company-vehicles.log-submit",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.log-submit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nộp sổ nhật trình cùng chứng từ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lưu sổ nhật trình"
+        ],
+        [
+          "chuyến xe cũ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế phải nộp sổ nhật trình cùng chứng từ vào thời điểm nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai lưu sổ nhật trình và trong trường hợp nào được tra lại chuyến xe cũ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure"
+}

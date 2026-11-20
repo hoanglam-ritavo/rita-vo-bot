@@ -1,0 +1,82 @@
+{
+  "id": "route.company-vehicles.fuel-reimburse",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-reimburse",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tự ứng tiền xăng"
+        ],
+        [
+          "xin hoàn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuyến"
+        ],
+        [
+          "hai kỳ quyết toán"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chi phí xe công ty"
+        ],
+        [
+          "công tác phí cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhiều phòng ban dùng chung xe"
+        ],
+        [
+          "phân bổ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu phải tự ứng tiền xăng, cầu đường hoặc phí gửi xe, tôi xin hoàn lại ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Một chuyến kéo dài qua hai kỳ quyết toán thì chứng từ và nhật trình được đối chiếu thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Chi phí xe công ty, khoản ứng tiền của tài xế và công tác phí cá nhân được ghi nhận tách biệt thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nhiều phòng ban dùng chung xe trong một chuyến, chi phí được phân bổ và xác nhận ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

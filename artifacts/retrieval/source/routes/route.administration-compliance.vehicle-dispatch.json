@@ -60,6 +60,40 @@
           "Trong tình huống cấp cứu, việc sử dụng xe và báo cáo sau đó được thực hiện thế nào?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "điều chuyển xe"
+        ],
+        [
+          "phòng ban khác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đề nghị dùng xe"
+        ],
+        [
+          "cấp cứu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có quyền điều chuyển xe đang được phòng ban khác quản lý khi có việc cấp thiết?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi cấp cứu, ai có thể đề nghị dùng xe và phải báo cho những ai sau đó?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

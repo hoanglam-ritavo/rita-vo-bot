@@ -1,0 +1,38 @@
+{
+  "id": "route.company-vehicles.request-deadline",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.request-deadline",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gửi đề xuất trước chuyến đi bao lâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xin xe"
+        ],
+        [
+          "báo trước bao lâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có quy định phải gửi đề xuất trước chuyến đi bao lâu không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "route.company-vehicles.maintenance-complete",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.maintenance-complete",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sau khi sửa"
+        ],
+        [
+          "chi phí"
+        ],
+        [
+          "số kilomet"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sổ theo dõi bảo dưỡng"
+        ],
+        [
+          "sửa chữa xe"
+        ],
+        [
+          "mã mẫu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi sửa, ai kiểm tra, xác nhận hạng mục, chi phí và số kilomet?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sổ theo dõi bảo dưỡng, sửa chữa xe có mã mẫu gì và do ai cập nhật?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure"
+}

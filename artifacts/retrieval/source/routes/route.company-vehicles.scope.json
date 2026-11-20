@@ -1,0 +1,52 @@
+{
+  "id": "route.company-vehicles.scope",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy định sử dụng xe công ty"
+        ],
+        [
+          "chi nhánh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe tải"
+        ],
+        [
+          "xe gắn máy"
+        ],
+        [
+          "phạm vi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định sử dụng xe công ty áp dụng cho những đơn vị, chi nhánh và công ty thành viên nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe tải, ô tô và xe gắn máy thuộc tài sản Tập đoàn có cùng thuộc phạm vi quy định không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "conditions"
+}

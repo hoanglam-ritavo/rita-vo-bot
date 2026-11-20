@@ -1,0 +1,63 @@
+{
+  "id": "route.company-vehicles.vetc-receipts",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.vetc-receipts",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trừ tiền hai lần"
+        ],
+        [
+          "tài xế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu phí"
+        ],
+        [
+          "ghi nhận sai biển số"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phí qua trạm"
+        ],
+        [
+          "chứng từ đối chiếu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi trạm thu phí ghi nhận sai biển số hoặc trừ tiền hai lần, tài xế báo ai và cần cung cấp bằng chứng gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu phải trả phí qua trạm bằng hình thức khác, cần giữ chứng từ gì để đối chiếu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

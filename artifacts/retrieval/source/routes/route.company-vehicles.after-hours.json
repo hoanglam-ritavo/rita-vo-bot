@@ -1,0 +1,58 @@
+{
+  "id": "route.company-vehicles.after-hours",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.after-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mượn xe ngoài giờ"
+        ],
+        [
+          "công việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "điều xe gấp"
+        ],
+        [
+          "ngoài giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xin xe công ty"
+        ],
+        [
+          "ngày nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được mượn xe ngoài giờ, cuối tuần hoặc ngày lễ để phục vụ công việc không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi cần điều xe gấp, ngoài giờ hoặc trong ngày nghỉ, tôi liên hệ ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

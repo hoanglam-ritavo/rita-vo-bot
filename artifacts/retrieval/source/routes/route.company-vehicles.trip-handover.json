@@ -1,0 +1,76 @@
+{
+  "id": "route.company-vehicles.trip-handover",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.trip-handover",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bàn giao xe"
+        ],
+        [
+          "chìa khóa"
+        ],
+        [
+          "giấy tờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi tài xế"
+        ],
+        [
+          "biên bản bàn giao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mất chìa khóa"
+        ],
+        [
+          "giấy tờ xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế phải bàn giao xe, chìa khóa và giấy tờ xe cho ai sau chuyến?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi đổi tài xế hoặc chuyển xe sang phòng ban khác, phải lập biên bản bàn giao thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu mất chìa khóa, giấy tờ xe hoặc thiết bị đi kèm, phải báo ai và bàn giao lại thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  },
+  "follow_up_tasks": {
+    "còn sổ nhật trình thì sao": "task.company-vehicles.log-fields"
+  }
+}

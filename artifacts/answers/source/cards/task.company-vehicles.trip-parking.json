@@ -1,0 +1,66 @@
+{
+  "id": "task.company-vehicles.trip-parking",
+  "label": "Nơi để xe ngoài giờ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Nơi để xe ngoài giờ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về nơi để xe ngoài giờ?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.trip-parking",
+          "text": "HCNS bố trí nơi để xe trong và ngoài giờ, kể cả ngày nghỉ. Tài xế đưa xe về nơi quy định khi hết giờ hoặc hoàn tất chuyến ngoài giờ.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 9,
+              "content_sha256": "51466424ca07219e1de62591eedfa7a2275c80ac59c21cc2f7356892b8b32a70",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.6. Không sử dụng xe để chuyên chở các loại thực phẩm, trái cây có mùi đặc trưng như: sầu riêng, mít, khô cá, mắm, nước mắm các loại…\n7. Nghiêm cấm việc sử dụng xe của Tập đoàn vào việc riêng như: bán, trao đổi, cho mượn, cầm cố, thế chấp, sử dụng không đúng mục đích, …. khi chưa được sự chấp thuận hoặc cho phép của Ban lãnh đạo.\n8. Không sử dụng xe để chuyên chở hóa chất độc hại, dễ nổ, dễ cháy, hàng quốc cấm, chất kích thích, ma túy...\n9. Không được mang, chuyên chở hàng hóa cồng kềnh, vượt mức quy định của pháp luật cho phép gây cản trở giao thông và nguy hiểm cho người ngồi trên xe. Tải trọng cho phép chở cả người và hàng hóa tối đa (dựa theo kiểm định xe).",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 28,
+              "content_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.7. Quy định về nơi để xe\na) P. HCNS chịu trách nhiệm về nơi để xe theo quy định trong giờ hành chính, ngoài giờ hành chính và các ngày nghỉ.\nb) Lái xe có trách nhiệm đưa xe vào nơi để xe quy định của Tập đoàn khi hết giờ làm việc hoặc kết thúc chuyến công tác vào ngoài giờ hành chính.\nc) Khi lấy xe ra khỏi nơi để xe, lái xe phải kiểm tra hiện trạng trong và ngoài xe. Nếu phát hiện điều bất thường thì lái xe phải báo ngay cho tổ bảo vệ, P. HCNS.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa xác nhận ngoại lệ mang xe về nhà hoặc gửi ngoài. Hỏi HCNS/Quản lý điều xe trước khi đổi nơi đỗ."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

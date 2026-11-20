@@ -1,0 +1,105 @@
+{
+  "id": "task.company-vehicles.self-drive",
+  "label": "Điều kiện trực tiếp lái xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Điều kiện trực tiếp lái xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về điều kiện trực tiếp lái xe?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.self-drive",
+          "text": "Thành viên Ban lãnh đạo, tài xế được giao xe và nhân viên khác đủ tiêu chuẩn, điều kiện lái xe theo quy định được trực tiếp lái trong phạm vi Điều 7. Nhân viên không phải tài xế cần được Ban lãnh đạo đồng ý, phê duyệt cho tự lái.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 8,
+              "content_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.4. Tất cả các đối tượng (trừ Ban lãnh đạo và những cá nhân được Tập đoàn cấp xe riêng) khi có nhu cầu sử dụng xe thì liên hệ Admin/ Quản lý điều xe và phải được cấp có thẩm quyền phê duyệt theo quy định của Tập đoàn.\n5. Người sử dụng xe chỉ được tự lái xe khi có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban lãnh đạo đồng ý, phê duyệt dưới mọi hình thức.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 29,
+              "content_sha256": "787a6005861565052a4cc04199552c43c6cf0188e049b9fea432976f42f5aa13",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương IV — CHẾ ĐỘ SỬ DỤNG XE TẬP ĐOÀN\nĐiều 7. Đối tượng được sử dụng, đề xuất xe Tập đoàn\n1. Đối tượng được sử dụng, trực tiếp lái xe của Tập đoàn:\na) Thành viên Ban lãnh đạo.\nb) Nhân viên tài xế (được bàn giao sử dụng xe theo quy định).\nc) Nhân viên khác có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban Lãnh đạo đồng ý, phê duyệt cho tự lái xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "conditions": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.self-drive",
+          "text": "Thành viên Ban lãnh đạo, tài xế được giao xe và nhân viên khác đủ tiêu chuẩn, điều kiện lái xe theo quy định được trực tiếp lái trong phạm vi Điều 7. Nhân viên không phải tài xế cần được Ban lãnh đạo đồng ý, phê duyệt cho tự lái.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 8,
+              "content_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.4. Tất cả các đối tượng (trừ Ban lãnh đạo và những cá nhân được Tập đoàn cấp xe riêng) khi có nhu cầu sử dụng xe thì liên hệ Admin/ Quản lý điều xe và phải được cấp có thẩm quyền phê duyệt theo quy định của Tập đoàn.\n5. Người sử dụng xe chỉ được tự lái xe khi có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban lãnh đạo đồng ý, phê duyệt dưới mọi hình thức.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 29,
+              "content_sha256": "787a6005861565052a4cc04199552c43c6cf0188e049b9fea432976f42f5aa13",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương IV — CHẾ ĐỘ SỬ DỤNG XE TẬP ĐOÀN\nĐiều 7. Đối tượng được sử dụng, đề xuất xe Tập đoàn\n1. Đối tượng được sử dụng, trực tiếp lái xe của Tập đoàn:\na) Thành viên Ban lãnh đạo.\nb) Nhân viên tài xế (được bàn giao sử dụng xe theo quy định).\nc) Nhân viên khác có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban Lãnh đạo đồng ý, phê duyệt cho tự lái xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

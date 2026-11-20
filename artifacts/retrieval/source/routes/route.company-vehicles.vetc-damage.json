@@ -1,0 +1,48 @@
+{
+  "id": "route.company-vehicles.vetc-damage",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.vetc-damage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thẻ vetc"
+        ],
+        [
+          "dán lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vetc hỏng"
+        ],
+        [
+          "chi phí dán lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu thẻ VETC bị rách, mất hoặc không đọc được, ai làm thủ tục dán lại?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu thẻ VETC hỏng do tài xế hoặc người đi cùng, chi phí dán lại được xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

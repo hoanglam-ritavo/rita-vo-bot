@@ -1,0 +1,48 @@
+{
+  "id": "route.company-vehicles.maintenance-roadside",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.maintenance-roadside",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe hỏng giữa đường"
+        ],
+        [
+          "cứu hộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không thể tiếp tục chuyến"
+        ],
+        [
+          "phương tiện thay thế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe hỏng giữa đường thì ai quyết định gọi cứu hộ hoặc sửa chữa khẩn cấp?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi xe hỏng giữa đường hoặc không thể tiếp tục chuyến, ai điều phối cứu hộ và phương tiện thay thế?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

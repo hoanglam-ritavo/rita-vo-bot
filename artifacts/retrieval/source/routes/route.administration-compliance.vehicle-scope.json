@@ -80,6 +80,57 @@
           "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe riêng"
+        ],
+        [
+          "phải gửi đề xuất"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đề xuất xe"
+        ],
+        [
+          "chi nhánh"
+        ],
+        [
+          "showroom"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai được cấp xe riêng và ai phải gửi đề xuất mỗi lần sử dụng?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Cá nhân và phòng ban được đề xuất xe cho những công việc nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi cần xe đi gặp khách hàng thì phải liên hệ ai và xin duyệt thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đi giữa hai chi nhánh, showroom hoặc kho thì có phải gửi đề xuất xe không?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

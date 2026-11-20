@@ -1,0 +1,65 @@
+{
+  "id": "route.company-vehicles.transport-choice",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.transport-choice",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe tập đoàn"
+        ],
+        [
+          "thuê xe ngoài"
+        ],
+        [
+          "xe cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tự đặt taxi hoặc grab"
+        ],
+        [
+          "xe công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chi phí phương tiện thay thế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định sử dụng xe Tập đoàn khác gì so với thuê xe ngoài hoặc dùng xe cá nhân đi công tác?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi xe công ty không có sẵn, tôi có được tự đặt taxi hoặc Grab không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Chi phí phương tiện thay thế do phòng ban, HCNS hay người đi công tác làm hồ sơ thanh toán?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

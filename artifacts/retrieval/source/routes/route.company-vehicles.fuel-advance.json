@@ -1,0 +1,84 @@
+{
+  "id": "route.company-vehicles.fuel-advance",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-advance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề nghị tạm ứng nhiên liệu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tiền tạm ứng còn dư"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tạm ứng"
+        ],
+        [
+          "mẫu đề nghị thanh toán"
+        ],
+        [
+          "chi phí xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mẫu chi 04"
+        ],
+        [
+          "chi 01"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai lập đề nghị tạm ứng nhiên liệu và ai làm hồ sơ quyết toán?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu tiền tạm ứng còn dư hoặc không đủ, ai đối chiếu và xử lý chênh lệch?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào dùng mẫu đề nghị tạm ứng và khi nào dùng mẫu đề nghị thanh toán?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi lấy mẫu đề nghị tạm ứng và đề nghị thanh toán chi phí xe ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

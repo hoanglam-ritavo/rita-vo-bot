@@ -43,6 +43,33 @@
           "Ai theo dõi số kilomet đầu kỳ, cuối kỳ và ghi nhận sai lệch?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "kilomet"
+        ],
+        [
+          "hồ sơ thanh toán"
+        ],
+        [
+          "không khớp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai theo dõi số kilomet đầu kỳ, cuối kỳ thanh toán?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu số kilomet trong sổ, trên đồng hồ xe và trong hồ sơ thanh toán không khớp, ai đối chiếu?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

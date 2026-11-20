@@ -1,0 +1,51 @@
+{
+  "id": "route.company-vehicles.vetc-owner",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.vetc-owner",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý tài khoản vetc"
+        ],
+        [
+          "giao dịch"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuyển xe giữa hai phòng ban"
+        ],
+        [
+          "vetc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai quản lý tài khoản VETC và theo dõi giao dịch của các xe thuộc bộ phận mình?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi chuyển xe giữa hai phòng ban, ai cập nhật thông tin xe trong tài khoản VETC?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "nếu trạm trừ tiền hai lần thì sao": "task.company-vehicles.vetc-receipts"
+  }
+}

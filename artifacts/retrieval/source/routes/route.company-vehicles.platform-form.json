@@ -1,0 +1,96 @@
+{
+  "id": "route.company-vehicles.platform-form",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-form",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thời gian"
+        ],
+        [
+          "nơi đi"
+        ],
+        [
+          "nơi đến"
+        ],
+        [
+          "tổng số người"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người đi chính"
+        ],
+        [
+          "người đi cùng"
+        ],
+        [
+          "để biết"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người đi thuộc phòng ban khác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ghi chú về hàng hóa"
+        ],
+        [
+          "điểm đón"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi nhập thời gian, nơi đi, nơi đến và tổng số người như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người đi chính, người đi cùng và người được thêm để biết khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cần thêm người đi thuộc phòng ban khác, tôi thao tác ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể thêm ghi chú về hàng hóa, điểm đón hoặc đính kèm tài liệu không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  },
+  "follow_up_tasks": {
+    "nếu phiếu đã duyệt rồi": "task.company-vehicles.platform-edit"
+  }
+}

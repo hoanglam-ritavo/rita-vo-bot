@@ -1,0 +1,66 @@
+{
+  "id": "task.company-vehicles.fuel-scope",
+  "label": "Bảng định mức xăng dầu theo xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Bảng định mức xăng dầu theo xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về bảng định mức xăng dầu theo xe?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.fuel-scope",
+          "text": "Điều 9 áp dụng cho xe văn phòng cấp cho các cấp quản lý và phòng ban, ngoại trừ xe riêng của Ban lãnh đạo. Dùng định mức trong bảng Ban lãnh đạo đã phê duyệt.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 20,
+              "content_sha256": "5e5da72f899792bcfec9c335604a27eeeda1117e459ca5877ef9ac27934377b7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.1.d) Phối hợp với P. KT, Trưởng bộ phận sửa chữa, bảo trì xe trong việc xây dựng định mức nhiên liệu cho các loại xe, thanh toán chi phí xăng xe, cầu đường,…, hướng dẫn cho quản lý điều xe các bộ phận cách thức thanh toán chi phí xăng xe, cầu đường…. của xe thuộc bộ phận mình. Cung cấp, phối hợp với Phòng kế toán để kiểm tra, xác minh chi phí xăng xe, bảo trì, bảo dưỡng sửa chữa xe... theo đúng quy định của Tập đoàn.\ne) Kiểm tra theo dõi việc cập nhật sổ nhật trình xe, tình hình xe, chi phí sử dụng xe. Đối chiếu số liệu hệ thống định vị các xe, làm cơ sở đánh giá tình hình quản lý, sử dụng xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 33,
+              "content_sha256": "d7dd981ba117e9848365d3498f11bc300eb71c1ed21871920c90b6db1914c293",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9. Thủ tục thanh toán phí xăng dầu\n1. Đối tượng áp dụng thanh toán phí và định mức xăng dầu\n- Tất cả các xe văn phòng cấp cho các cấp quản lý và phòng ban đều được áp dụng thanh toán phí xăng dầu, các loại phí khác ngoại trừ xe riêng của cấp Lãnh Đạo.\n- Định mức xăng dầu được áp dụng là định mức tiêu hao xăng dầu trong quá trình sử dụng xe. Định mức này được áp dụng thông qua bảng định mức đã được Ban lãnh đạo phê duyệt.\n- Sau mỗi 4 năm, nhân viên lái xe làm thủ tục đề xuất gửi bộ phận kỹ thuật Ô tô kiểm tra và đề nghị mức định mức xăng dầu mới nếu xe tiêu hao nhiên liệu chênh lệch so với định mức hiện tại.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Hỏi HCNS/Quản lý điều xe và cung cấp biển số hoặc loại xe để tra mức đang áp dụng."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

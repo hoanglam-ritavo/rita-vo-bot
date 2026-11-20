@@ -1,0 +1,52 @@
+{
+  "id": "route.company-vehicles.fuel-excess",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-excess",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giá trị hóa đơn"
+        ],
+        [
+          "phần vượt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hóa đơn"
+        ],
+        [
+          "cao hơn mức tính"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vượt mức nhiên liệu"
+        ],
+        [
+          "hoàn lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu lượng nhiên liệu hoặc giá trị hóa đơn cao hơn mức tính trong kỳ, phần vượt được xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount"
+}

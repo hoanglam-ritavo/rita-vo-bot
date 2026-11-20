@@ -1,0 +1,114 @@
+{
+  "id": "task.company-vehicles.incident-liability",
+  "label": "Xử lý vi phạm và xem xét bồi thường xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xử lý vi phạm và xem xét bồi thường xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về xử lý vi phạm và xem xét bồi thường xe?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.incident-liability",
+          "text": "Quy định xe yêu cầu dùng đúng mục đích, chấp hành lộ trình, ghi nhật trình và bảo quản tài sản. Xử lý sai phạm và bồi thường phụ thuộc mức độ, tính chất, thiệt hại và thẩm quyền theo quy định. HCNS tiếp nhận và xác minh qua nhật trình, biên bản và chứng từ.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 9,
+              "content_sha256": "51466424ca07219e1de62591eedfa7a2275c80ac59c21cc2f7356892b8b32a70",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.6. Không sử dụng xe để chuyên chở các loại thực phẩm, trái cây có mùi đặc trưng như: sầu riêng, mít, khô cá, mắm, nước mắm các loại…\n7. Nghiêm cấm việc sử dụng xe của Tập đoàn vào việc riêng như: bán, trao đổi, cho mượn, cầm cố, thế chấp, sử dụng không đúng mục đích, …. khi chưa được sự chấp thuận hoặc cho phép của Ban lãnh đạo.\n8. Không sử dụng xe để chuyên chở hóa chất độc hại, dễ nổ, dễ cháy, hàng quốc cấm, chất kích thích, ma túy...\n9. Không được mang, chuyên chở hàng hóa cồng kềnh, vượt mức quy định của pháp luật cho phép gây cản trở giao thông và nguy hiểm cho người ngồi trên xe. Tải trọng cho phép chở cả người và hàng hóa tối đa (dựa theo kiểm định xe).",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 23,
+              "content_sha256": "c2e2b55588d59a2203d5d116c7f5f19fee2ce5ae919efae93e3c47012e6cdd5a",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3.c) Đậu đỗ xe đúng nơi quy định, bảo đảm an toàn cho người, phương tiện cũng như hàng hóa vận chuyển trên xe. Chịu trách nhiệm nếu vi phạm Luật giao thông đường bộ, bồi thường các thiệt hại và các phí tổn thất do lỗi lái xe gây ra.\nd) Điều khiển xe không làm trầy xước hay hư hỏng, mất mát xe. Các trường hợp xe bị trầy xước, hư hỏng do lỗi của tài xế hoặc bên thứ hai trong lúc điều khiển xe, tài xế phải chịu bồi thường 100% tổng số tiền sửa chữa.\ne) Thái độ phục vụ nghiêm túc, lịch sự, tận tình. Không uống rượu bia khi đang làm nhiệm vụ.\nf) Được quyền yêu cầu những người đi cùng trên xe phải có ý thức giữ gìn vệ sinh trên xe, không vứt rác bừa bãi trên xe.\ng) Chuẩn bị và kiểm tra kỹ thuật xe chu đáo trước mỗi chuyến đi công tác, thường xuyên giữ gìn xe tốt, sạch sẽ.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 39,
+              "content_sha256": "6ccfb2117f7fe944cb242c8c980a293ebc69ed556fd434caf239e50109d97a40",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương V — ĐIỀU KHOẢN THI HÀNH\nĐiều 10. Tổ chức thực hiện và xử lý vi phạm\n- P. HCNS chịu trách nhiệm xây dựng, ban hành các biểu mẫu và hướng dẫn các phòng/ban, nhân viên thực hiện quy định này.\n- Các Quản lý bộ phận chịu trách nhiệm phổ biến, triển khai thực hiện và đôn đốc, kiểm tra việc thực hiện Quy định này trong bộ phận mình.\n- Các cá nhân có hành vi vi phạm các quy định quản lý và sử dụng xe của Tập đoàn thì tùy theo mức độ và tính chất để xử lý và yêu cầu bồi thường thiệt hại (nếu có) theo quyết định của Ban lãnh đạo hoặc quy định của pháp luật hiện hành.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "chunk_index": 52,
+              "content_sha256": "5a8241a0abdd1477ac8c9182c604407fab2424d902ef2f3a99a22824512a1925",
+              "quote": "Nội quy lao động — Điều 29.1–3: hư hỏng/gây thiệt hại tài sản bồi thường theo giá thị trường lúc xảy ra; mất tài sản/tiêu hao quá định mức bồi thường một phần/toàn bộ theo thị trường/nội quy hoặc hợp đồng trách nhiệm. Ngoại lệ thiên tai, hỏa hoạn, địch họa, dịch bệnh, thảm họa/sự kiện khách quan không lường trước, không khắc phục dù đã áp dụng mọi biện pháp trong khả năng. Vi phạm hợp đồng đào tạo/học việc bồi thường theo hợp đồng đã ký; đây là mô tả nguồn, không tính nghĩa vụ cá nhân.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "chunk_index": 55,
+              "content_sha256": "14b2640ef58c4aadc61d62a945c26bd0de64ef803477f1f81833a44d848154a3",
+              "quote": "Nội quy lao động — Điều 31: TGĐ/người đại diện pháp luật có thẩm quyền xử lý kỷ luật và bồi thường. Nhân sự đầu mối tiếp nhận, báo cáo, thực hiện, phản hồi; KSNB hướng dẫn/tham mưu, đôn đốc, giám sát, báo cáo TGĐ. Trình tự phải theo quy định được dẫn chiếu và nội quy.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu về xe và nội quy có các điều khoản khác nhau về trách nhiệm. Gửi sự việc cho HCNS xác nhận phạm vi, lỗi và thẩm quyền trước khi kết luận mức bồi thường."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

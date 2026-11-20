@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.maintenance-change",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.maintenance-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gara"
+        ],
+        [
+          "ngoài báo giá đã duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phát sinh hạng mục"
+        ],
+        [
+          "xin duyệt lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu gara phát hiện hạng mục mới ngoài báo giá đã duyệt, có phải xin duyệt lại không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

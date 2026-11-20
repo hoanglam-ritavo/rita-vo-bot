@@ -49,6 +49,81 @@
           "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "phiếu đã duyệt"
+        ],
+        [
+          "đã được bố trí"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xác nhận biển số xe"
+        ],
+        [
+          "điểm đón"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa có thông tin điều xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "workit"
+        ],
+        [
+          "xe và tài xế thực tế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe đang sửa"
+        ],
+        [
+          "bố trí xe thay thế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phiếu đã duyệt có đồng nghĩa xe và tài xế đã được bố trí không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi xác nhận biển số xe, tài xế, giờ đón và điểm đón với ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu phiếu đã được duyệt nhưng chưa có thông tin điều xe, tôi phải làm gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu Workit báo phiếu được duyệt, tôi kiểm tra ở đâu để biết xe và tài xế thực tế?"
+        ]
+      ]
     }
   ],
   "excludes_any": [
@@ -62,6 +137,7 @@
     "cho xem hồ sơ của"
   ],
   "follow_up_tasks": {
-    "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+    "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit",
+    "còn nếu không có xe thì sao": "task.company-vehicles.transport-choice"
   }
 }

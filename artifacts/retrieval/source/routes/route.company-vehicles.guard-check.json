@@ -1,0 +1,71 @@
+{
+  "id": "route.company-vehicles.guard-check",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.guard-check",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "ghi nhận"
+        ],
+        [
+          "xe ra khỏi nơi đỗ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe về bãi"
+        ],
+        [
+          "vết xước"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhiều tài xế dùng chung xe"
+        ],
+        [
+          "hư hỏng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ phải kiểm tra và ghi nhận gì khi xe ra khỏi nơi đỗ và khi quay về?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi xe về bãi mới phát hiện vết xước hoặc mất đồ, ai kiểm tra và lập biên bản?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nhiều tài xế dùng chung xe, căn cứ nào được dùng để xác định chuyến xảy ra hư hỏng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "nếu cần xem camera thì sao": "task.company-vehicles.incident-records"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "route.company-vehicles.passenger-duties",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.passenger-duties",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người đi cùng"
+        ],
+        [
+          "giữ vệ sinh"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hành khách"
+        ],
+        [
+          "bảo quản xe công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người đi cùng có trách nhiệm gì về giữ vệ sinh và bảo quản xe?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,3646 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.company-vehicles",
+  "description": "The 140 company vehicle questions in their original order.",
+  "cases": [
+    {
+      "id": "q.policy.company-vehicles.001",
+      "title": "Phạm vi sử dụng xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng xe công ty áp dụng cho những đơn vị, chi nhánh và công ty thành viên nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.002",
+      "title": "Phạm vi sử dụng xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe tải, ô tô và xe gắn máy thuộc tài sản Tập đoàn có cùng thuộc phạm vi quy định không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.003",
+      "title": "Quản lý xe văn phòng và xe kinh doanh",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.management"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe văn phòng, xe kinh doanh và xe được cấp riêng do những bộ phận nào quản lý?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.004",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai được cấp xe riêng và ai phải gửi đề xuất mỗi lần sử dụng?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.005",
+      "title": "Điều kiện trực tiếp lái xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.self-drive"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai được trực tiếp lái xe công ty?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.006",
+      "title": "Điều kiện trực tiếp lái xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.self-drive"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên không phải tài xế cần đáp ứng điều kiện gì để được tự lái?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.007",
+      "title": "Đề xuất xe của nhân viên thử việc hoặc chi nhánh",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.onboarding"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc hoặc nhân viên chi nhánh có được đề xuất sử dụng xe không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.008",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cá nhân và phòng ban được đề xuất xe cho những công việc nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.009",
+      "title": "Nhu cầu và thứ tự ưu tiên điều xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.priority"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên Kế toán đi thu tiền, thu hồi công nợ hoặc thực hiện công việc ngân hàng có thuộc nhóm được đề xuất xe không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.010",
+      "title": "Nhu cầu và thứ tự ưu tiên điều xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.priority"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có thể dùng xe công ty để đón khách hàng, đối tác hoặc khách mời của Ban lãnh đạo không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.011",
+      "title": "Nhu cầu và thứ tự ưu tiên điều xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.priority"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nhiều bộ phận cần xe cùng lúc, thứ tự ưu tiên được xác định thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.012",
+      "title": "Mục đích sử dụng và hàng cấm chở trên xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-prohibitions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe công ty có được dùng để đi làm hằng ngày, đưa đón người thân hoặc giải quyết việc riêng không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.013",
+      "title": "Xin sử dụng xe ngoài giờ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.after-hours"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được mượn xe ngoài giờ, cuối tuần hoặc ngày lễ để phục vụ công việc không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.014",
+      "title": "Xe Tập đoàn và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "scope"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.transport-choice"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng xe Tập đoàn khác gì so với thuê xe ngoài hoặc dùng xe cá nhân đi công tác?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.015",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần xe đi gặp khách hàng thì phải liên hệ ai và xin duyệt thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.016",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đi giữa hai chi nhánh, showroom hoặc kho thì có phải gửi đề xuất xe không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.017",
+      "title": "Thông tin đề xuất xe công tác",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.request-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đề xuất xe, cần khai mục đích, thời gian, địa điểm, số người và lộ trình như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.018",
+      "title": "Thời điểm gửi đề xuất xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.request-deadline"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có quy định phải gửi đề xuất trước chuyến đi bao lâu không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.019",
+      "title": "Thẩm quyền duyệt nhu cầu và phân xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.approval-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phê duyệt nhu cầu sử dụng xe và ai quyết định bố trí xe, tài xế?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.020",
+      "title": "Thẩm quyền duyệt nhu cầu và phân xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.approval-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ban lãnh đạo, HCNS, Admin và Quản lý điều xe có thẩm quyền khác nhau thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.021",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đã duyệt có đồng nghĩa xe và tài xế đã được bố trí không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.022",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xác nhận biển số xe, tài xế, giờ đón và điểm đón với ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.023",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phiếu đã được duyệt nhưng chưa có thông tin điều xe, tôi phải làm gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.024",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.025",
+      "title": "Xe Tập đoàn và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.transport-choice"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi xe công ty không có sẵn, tôi có được tự đặt taxi hoặc Grab không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.026",
+      "title": "Xe Tập đoàn và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.transport-choice"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi phí phương tiện thay thế do phòng ban, HCNS hay người đi công tác làm hồ sơ thanh toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.027",
+      "title": "Xin sử dụng xe ngoài giờ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.after-hours"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi cần điều xe gấp, ngoài giờ hoặc trong ngày nghỉ, tôi liên hệ ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.028",
+      "title": "Thẩm quyền điều xe và trường hợp đặc biệt",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có quyền điều chuyển xe đang được phòng ban khác quản lý khi có việc cấp thiết?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.029",
+      "title": "Thẩm quyền điều xe và trường hợp đặc biệt",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi cấp cứu, ai có thể đề nghị dùng xe và phải báo cho những ai sau đó?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.030",
+      "title": "Nhiều chuyến, ghép xe và đổi lịch",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.request-combinations"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Một phòng ban có thể đề xuất nhiều xe hoặc nhiều chuyến trong cùng một phiếu không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.031",
+      "title": "Nhiều chuyến, ghép xe và đổi lịch",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.request-combinations"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hai phòng ban có thể đi chung xe không và ai xác nhận lịch chung?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.032",
+      "title": "Nhiều chuyến, ghép xe và đổi lịch",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.request-combinations"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi chuyến đi bị hủy hoặc đổi giờ, tôi phải báo ai để cập nhật lịch xe?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.033",
+      "title": "Làm rõ loại phiếu và giao diện",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "dispatch"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu bị từ chối hoặc trả lại thì xem lý do và gửi lại bằng cách nào?",
+          "expectation": "Hỏi lại loại phiếu hoặc giao diện cần thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.034",
+      "title": "Workit Web · Đặt xe công tác",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.car.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tạo phiếu Xe công tác trên Workit Web ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.035",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Xe trên Mobile",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.car.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tìm biểu mẫu Xe công tác trên Workit Mobile ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.036",
+      "title": "Xe công tác trên Web và Mobile",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-compare"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Workit Web và Mobile có hỗ trợ cùng các thao tác đặt, sửa và theo dõi phiếu xe không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.037",
+      "title": "Không thấy mục Xe công tác",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-missing"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi không thấy mục Xe công tác thì kiểm tra quyền hoặc liên hệ bộ phận nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.038",
+      "title": "Làm rõ loại phiếu và giao diện",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi tạo phiếu trên Workit, trường nào bắt buộc và trường nào có thể bổ sung sau?",
+          "expectation": "Hỏi lại loại phiếu hoặc giao diện cần thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.039",
+      "title": "Chọn xe trên Workit và xác nhận điều xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-selection"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi chọn xe và tài xế từ danh sách hay để bộ phận điều xe phân công?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.040",
+      "title": "Trường chuyến đi, người đi và ghi chú trên Workit Web",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-form"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi nhập thời gian, nơi đi, nơi đến và tổng số người như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.041",
+      "title": "Trường chuyến đi, người đi và ghi chú trên Workit Web",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-form"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người đi chính, người đi cùng và người được thêm để biết khác nhau thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.042",
+      "title": "Trường chuyến đi, người đi và ghi chú trên Workit Web",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-form"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cần thêm người đi thuộc phòng ban khác, tôi thao tác ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.043",
+      "title": "Trường chuyến đi, người đi và ghi chú trên Workit Web",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-form"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể thêm ghi chú về hàng hóa, điểm đón hoặc đính kèm tài liệu không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.044",
+      "title": "Xem lịch Workit và xác minh xe trống",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-calendar"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xem lịch xe sẵn có theo ngày hoặc dạng lưới trên Workit như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.045",
+      "title": "Làm rõ loại phiếu và giao diện",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể lưu nháp rồi bổ sung thông tin trước khi gửi duyệt không?",
+          "expectation": "Hỏi lại loại phiếu hoặc giao diện cần thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.046",
+      "title": "Làm rõ loại phiếu và giao diện",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi gửi phiếu, tôi theo dõi người đang duyệt và tình trạng xử lý ở đâu?",
+          "expectation": "Hỏi lại loại phiếu hoặc giao diện cần thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.047",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu Workit báo phiếu được duyệt, tôi kiểm tra ở đâu để biết xe và tài xế thực tế?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.048",
+      "title": "Làm rõ loại phiếu và giao diện",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đang chờ duyệt có sửa, thu hồi hoặc hủy được không?",
+          "expectation": "Hỏi lại loại phiếu hoặc giao diện cần thao tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.049",
+      "title": "Sửa thông tin xe đã duyệt",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-edit"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đã duyệt có thể đổi xe, tài xế, lộ trình hoặc người đi không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.050",
+      "title": "Xin xe gấp khi Workit gián đoạn",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "workit"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-outage"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu hệ thống không hoạt động nhưng cần xe gấp, tôi phải liên hệ ai và bổ sung phiếu thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.051",
+      "title": "Kiểm tra xe trước chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.pretrip"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trước khi nhận xe, tài xế phải kiểm tra những gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.052",
+      "title": "Bảo vệ kiểm tra xe và lập biên bản",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guard-check"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải kiểm tra và ghi nhận gì khi xe ra khỏi nơi đỗ và khi quay về?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.053",
+      "title": "Kiểm tra xe trước chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.pretrip"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện xe đã trầy xước hoặc hư hỏng trước chuyến, tài xế phải báo ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.054",
+      "title": "Kiểm tra xe trước chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.pretrip"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế cần kiểm tra giấy tờ, nhiên liệu, thiết bị an toàn và tải trọng như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.055",
+      "title": "Tải trọng, đổi lộ trình và công tác qua ngày",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.driver-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế có được từ chối chở quá tải, đi sai mục đích hoặc thay đổi lộ trình chưa được duyệt không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.056",
+      "title": "Tải trọng, đổi lộ trình và công tác qua ngày",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.driver-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu khách yêu cầu đổi điểm đến hoặc thêm điểm dừng giữa chuyến, tài xế phải xin ý kiến ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.057",
+      "title": "Tải trọng, đổi lộ trình và công tác qua ngày",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.driver-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu chuyến đi kéo dài hơn dự kiến hoặc phải qua đêm, cần thông báo và bổ sung hồ sơ gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.058",
+      "title": "Tải trọng, đổi lộ trình và công tác qua ngày",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.driver-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được chở thêm người không có tên trong đề xuất đã duyệt không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.059",
+      "title": "Mục đích sử dụng và hàng cấm chở trên xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-prohibitions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được dùng xe công ty để chở hàng riêng hoặc hàng ngoài nhiệm vụ được duyệt không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.060",
+      "title": "Mục đích sử dụng và hàng cấm chở trên xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-prohibitions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định cấm chở những loại thực phẩm hoặc hàng hóa nào trên xe công ty?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.061",
+      "title": "Trách nhiệm người đi cùng",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.passenger-duties"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người đi cùng có trách nhiệm gì về giữ vệ sinh và bảo quản xe?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.062",
+      "title": "Đổi lộ trình và xác nhận chuyến xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-trip-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau chuyến đi, người sử dụng xe phải xác nhận lịch trình và chi phí phát sinh ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.063",
+      "title": "Đổi lộ trình và xác nhận chuyến xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-trip-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu người đề xuất và người thực tế đi xe khác nhau, ai ký xác nhận chuyến đi?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.064",
+      "title": "Bổ sung xác nhận nhật trình",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-unsigned"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu người sử dụng xe chưa ký nhật trình, tài xế cần bổ sung xác nhận thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.065",
+      "title": "Bàn giao xe, giấy tờ và thiết bị",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-handover"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế phải bàn giao xe, chìa khóa và giấy tờ xe cho ai sau chuyến?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.066",
+      "title": "Nơi để xe ngoài giờ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-parking"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe phải đỗ ở đâu khi kết thúc chuyến ngoài giờ, ngày nghỉ hoặc ngày lễ?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.067",
+      "title": "Nơi để xe ngoài giờ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-parking"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được mang xe về nhà hoặc gửi ở bãi ngoài để phục vụ chuyến đi hôm sau không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.068",
+      "title": "Bàn giao xe, giấy tờ và thiết bị",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "trip"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-handover"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đổi tài xế hoặc chuyển xe sang phòng ban khác, phải lập biên bản bàn giao thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.069",
+      "title": "Mẫu nhật trình và cách ghi từng chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ nhật trình xe phải ghi những thông tin gì cho mỗi chuyến?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.070",
+      "title": "Mẫu nhật trình và cách ghi từng chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe cấp riêng cho Ban lãnh đạo có phải ghi sổ nhật trình như xe văn phòng không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.071",
+      "title": "Mẫu nhật trình và cách ghi từng chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ nhật trình dùng mẫu nào, do ai ghi và ai kiểm tra?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.072",
+      "title": "Mẫu nhật trình và cách ghi từng chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-fields"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế phải ghi kilomet đầu chuyến, cuối chuyến và từng điểm đi qua như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.073",
+      "title": "Sổ nhật trình và số kilomet",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-log"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai theo dõi số kilomet đầu kỳ, cuối kỳ thanh toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.074",
+      "title": "Sổ nhật trình và số kilomet",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-log"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu số kilomet trong sổ, trên đồng hồ xe và trong hồ sơ thanh toán không khớp, ai đối chiếu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.075",
+      "title": "Sai lộ trình hoặc chi phí trong nhật trình",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đã ghi nhầm lộ trình hoặc chi phí trong nhật trình thì sửa và xác nhận lại thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.076",
+      "title": "Nộp, lưu và tra nhật trình",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-submit"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế phải nộp sổ nhật trình cùng chứng từ vào thời điểm nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.077",
+      "title": "Nộp, lưu và tra nhật trình",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-submit"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai lưu sổ nhật trình và trong trường hợp nào được tra lại chuyến xe cũ?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.078",
+      "title": "Theo dõi tình trạng xe và GPS",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-monitor"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai theo dõi tình trạng sử dụng xe, lịch bảo dưỡng, chi phí và các kỳ thanh toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.079",
+      "title": "Theo dõi tình trạng xe và GPS",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "log"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.log-monitor"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có trách nhiệm theo dõi thiết bị định vị GPS hoặc đề xuất gia hạn dịch vụ?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.080",
+      "title": "Khi nào đề xuất bảo dưỡng hoặc sửa xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-trigger"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe đến hạn bảo dưỡng, cần thay lốp hoặc có dấu hiệu bất thường thì tài xế phải làm gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.081",
+      "title": "Khi nào đề xuất bảo dưỡng hoặc sửa xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-trigger"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trường hợp nào phải lập phiếu đề xuất sửa chữa xe?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.082",
+      "title": "Phiếu và thẩm quyền sửa xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-form"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đề xuất sửa chữa xe dùng mẫu nào và cần ghi những nội dung gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.083",
+      "title": "Sửa xe tại TP.HCM hoặc tỉnh và quy trình mua hàng",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-regions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sửa chữa xe tại TP.HCM và tại các tỉnh khác có quy trình khác nhau thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.084",
+      "title": "Sửa xe tại TP.HCM hoặc tỉnh và quy trình mua hàng",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-regions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe ở tỉnh cần vào hãng kiểm tra, lấy báo giá thì ai ký xác nhận trước?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.085",
+      "title": "Sửa xe tại TP.HCM hoặc tỉnh và quy trình mua hàng",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-regions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào hồ sơ sửa xe phải chuyển sang quy trình mua hàng?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.086",
+      "title": "Phiếu và thẩm quyền sửa xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-form"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai đánh giá báo giá và phê duyệt hạng mục sửa chữa, thay thế?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.087",
+      "title": "Báo xe hỏng giữa đường và xe thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-roadside"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe hỏng giữa đường thì ai quyết định gọi cứu hộ hoặc sửa chữa khẩn cấp?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.088",
+      "title": "Phát sinh hạng mục sửa ngoài báo giá",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu gara phát hiện hạng mục mới ngoài báo giá đã duyệt, có phải xin duyệt lại không?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.089",
+      "title": "Xác nhận sửa xe và sổ theo dõi",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-complete"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi sửa, ai kiểm tra, xác nhận hạng mục, chi phí và số kilomet?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.090",
+      "title": "Xác nhận sửa xe và sổ theo dõi",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-complete"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ theo dõi bảo dưỡng, sửa chữa xe có mã mẫu gì và do ai cập nhật?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.091",
+      "title": "Bố trí phương tiện khi xe đang sửa",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.replacement"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu xe đang sửa mà chuyến công tác vẫn phải thực hiện, ai bố trí xe thay thế?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.092",
+      "title": "Xe và phụ tùng không còn sử dụng",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "maintenance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.asset-retirement"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe hoặc phụ tùng không còn sử dụng được thì khi nào chuyển sang quy trình thanh lý?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.093",
+      "title": "Bảng định mức xăng dầu theo xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Những xe nào áp dụng định mức xăng dầu và tra bảng định mức của từng xe ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.094",
+      "title": "Xây dựng và điều chỉnh định mức",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-adjust"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "HCNS, Kế toán và bộ phận chuyên môn phối hợp xây dựng định mức nhiên liệu như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.095",
+      "title": "Xây dựng và điều chỉnh định mức",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-adjust"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đổi xe, thay đổi điều kiện vận hành hoặc mức tiêu hao bất thường, ai đề xuất điều chỉnh định mức?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.096",
+      "title": "Kỳ quyết toán chi phí xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-period"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kỳ thanh toán chi phí xe được tính từ ngày nào đến ngày nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.097",
+      "title": "Công thức tính nhiên liệu theo kỳ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-formula"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi phí xăng dầu được tính dựa trên số kilomet, định mức và hóa đơn như thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.098",
+      "title": "Tạm ứng, hoàn ứng và thanh toán xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-advance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai lập đề nghị tạm ứng nhiên liệu và ai làm hồ sơ quyết toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.099",
+      "title": "Định mức, tạm ứng và quyết toán nhiên liệu",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-fuel"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hồ sơ quyết toán xăng dầu cần sổ nhật trình, hóa đơn và chữ ký của những ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.100",
+      "title": "Hóa đơn nhiên liệu và chứng từ chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hóa đơn nhiên liệu cần ghi thông tin gì để được đưa vào hồ sơ thanh toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.101",
+      "title": "Hóa đơn nhiên liệu và chứng từ chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đổ xăng nhưng thiếu hóa đơn hoặc hóa đơn sai thông tin, tài xế phải xử lý thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.102",
+      "title": "Nhiên liệu vượt mức tính trong kỳ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-excess"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu lượng nhiên liệu hoặc giá trị hóa đơn cao hơn mức tính trong kỳ, phần vượt được xử lý thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.103",
+      "title": "Tạm ứng, hoàn ứng và thanh toán xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-advance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu tiền tạm ứng còn dư hoặc không đủ, ai đối chiếu và xử lý chênh lệch?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.104",
+      "title": "Tạm ứng, hoàn ứng và thanh toán xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-advance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào dùng mẫu đề nghị tạm ứng và khi nào dùng mẫu đề nghị thanh toán?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.105",
+      "title": "Hóa đơn nhiên liệu và chứng từ chuyến",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phí gửi xe, rửa xe, cầu đường và các khoản phát sinh trong chuyến cần chứng từ gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.106",
+      "title": "Đối chiếu chi phí xe và công tác phí",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-reimburse"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phải tự ứng tiền xăng, cầu đường hoặc phí gửi xe, tôi xin hoàn lại ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.107",
+      "title": "Đối chiếu chi phí xe và công tác phí",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-reimburse"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Một chuyến kéo dài qua hai kỳ quyết toán thì chứng từ và nhật trình được đối chiếu thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.108",
+      "title": "Đối chiếu chi phí xe và công tác phí",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-reimburse"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi phí xe công ty, khoản ứng tiền của tài xế và công tác phí cá nhân được ghi nhận tách biệt thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.109",
+      "title": "Đối chiếu chi phí xe và công tác phí",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "fuel"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-reimburse"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nhiều phòng ban dùng chung xe trong một chuyến, chi phí được phân bổ và xác nhận ra sao?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.110",
+      "title": "Theo dõi đăng kiểm, phí đường bộ và bảo hiểm",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vehicle-deadlines"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai theo dõi hạn đăng kiểm, phí sử dụng đường bộ và bảo hiểm bắt buộc của xe?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.111",
+      "title": "Theo dõi đăng kiểm, phí đường bộ và bảo hiểm",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vehicle-deadlines"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi xe sắp hết hạn đăng kiểm hoặc bảo hiểm, tài xế phải báo cho ai và chuẩn bị hồ sơ gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.112",
+      "title": "Đăng kiểm, bảo hiểm và thẻ VETC",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-vetc"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe mới mua cần đăng ký và dán thẻ VETC theo quy trình nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.113",
+      "title": "Quản lý tài khoản VETC của đơn vị",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-owner"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai quản lý tài khoản VETC và theo dõi giao dịch của các xe thuộc bộ phận mình?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.114",
+      "title": "Đăng kiểm, bảo hiểm và thẻ VETC",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-vetc"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu tài khoản VETC thiếu tiền trước khi đi qua trạm, tài xế liên hệ ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.115",
+      "title": "Thẻ VETC hỏng và dán lại",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-damage"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu thẻ VETC bị rách, mất hoặc không đọc được, ai làm thủ tục dán lại?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.116",
+      "title": "Thẻ VETC hỏng và dán lại",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-damage"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu thẻ VETC hỏng do tài xế hoặc người đi cùng, chi phí dán lại được xử lý thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.117",
+      "title": "Sai giao dịch VETC và chứng từ qua trạm",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi trạm thu phí ghi nhận sai biển số hoặc trừ tiền hai lần, tài xế báo ai và cần cung cấp bằng chứng gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.118",
+      "title": "Sai giao dịch VETC và chứng từ qua trạm",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-receipts"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phải trả phí qua trạm bằng hình thức khác, cần giữ chứng từ gì để đối chiếu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.119",
+      "title": "Quản lý tài khoản VETC của đơn vị",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "vetc"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.vetc-owner"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi chuyển xe giữa hai phòng ban, ai cập nhật thông tin xe trong tài khoản VETC?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.120",
+      "title": "Báo sự cố xe, người bị thương và hồ sơ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-report"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu xe va quẹt hoặc tai nạn trong chuyến đi, tài xế phải báo cho ai và lập hồ sơ gì?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.121",
+      "title": "Báo xe hỏng giữa đường và xe thay thế",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.maintenance-roadside"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi xe hỏng giữa đường hoặc không thể tiếp tục chuyến, ai điều phối cứu hộ và phương tiện thay thế?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.122",
+      "title": "Báo sự cố xe, người bị thương và hồ sơ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-report"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nhân viên hoặc khách bị thương trong chuyến đi, ai là đầu mối báo cáo và hỗ trợ?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.123",
+      "title": "Báo sự cố xe, người bị thương và hồ sơ",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-report"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu xe bị hư hỏng do bên thứ ba, tài xế phải ghi nhận sự việc và phối hợp bảo hiểm thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.124",
+      "title": "Bảo vệ kiểm tra xe và lập biên bản",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guard-check"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi xe về bãi mới phát hiện vết xước hoặc mất đồ, ai kiểm tra và lập biên bản?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.125",
+      "title": "Bảo vệ kiểm tra xe và lập biên bản",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guard-check"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nhiều tài xế dùng chung xe, căn cứ nào được dùng để xác định chuyến xảy ra hư hỏng?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.126",
+      "title": "Bàn giao xe, giấy tờ và thiết bị",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.trip-handover"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu mất chìa khóa, giấy tờ xe hoặc thiết bị đi kèm, phải báo ai và bàn giao lại thế nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.127",
+      "title": "Xác minh lượt lái khi có vi phạm giao thông",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-fine"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi có phạt nguội hoặc vi phạm giao thông, ai xác định người sử dụng xe và xử lý thông báo?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.128",
+      "title": "Xử lý vi phạm và xem xét bồi thường xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào tài xế hoặc người sử dụng xe phải bồi thường thiệt hại, và ai quyết định?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.129",
+      "title": "Xử lý vi phạm và xem xét bồi thường xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sử dụng xe sai mục đích, tự ý cho mượn xe hoặc làm sai nhật trình được xử lý theo quy định nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.130",
+      "title": "Giải trình biên bản xe hoặc mức bồi thường",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-appeal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu không đồng ý với biên bản sự cố hoặc mức bồi thường, tôi gửi giải trình cho ai?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.131",
+      "title": "Xác minh sự cố qua lịch xe hoặc GPS",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "incident"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.incident-records"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cần tra cứu camera, dữ liệu định vị hoặc lịch xe để xác minh sự cố, tôi phải đề nghị qua đầu mối nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.132",
+      "title": "Tra bản quy định xe và phạm vi chi nhánh",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-policy"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xem bản quy định sử dụng xe Tập đoàn đang áp dụng ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.133",
+      "title": "Tra bản quy định xe và phạm vi chi nhánh",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-policy"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu quy định chung và hướng dẫn riêng tại chi nhánh khác nhau, tôi hỏi ai để xác nhận cách áp dụng?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.134",
+      "title": "Biểu mẫu xe và nơi lấy",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-forms"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi lấy mẫu sổ nhật trình, sổ theo dõi sửa xe, phiếu đề xuất sửa chữa và biên bản bàn giao ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.135",
+      "title": "Tạm ứng, hoàn ứng và thanh toán xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.fuel-advance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi lấy mẫu đề nghị tạm ứng và đề nghị thanh toán chi phí xe ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.136",
+      "title": "Tra đầu mối hoặc tình trạng chuyến xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tra đầu mối điều xe hiện tại của từng chi nhánh, showroom hoặc kho bằng cách nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.137",
+      "title": "Xem lịch Workit và xác minh xe trống",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.platform-calendar"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra xe nào thực sự còn trống trong khung giờ cần đi ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.138",
+      "title": "Tra đầu mối hoặc tình trạng chuyến xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tra tài xế, biển số và tình trạng của chuyến xe đã đề xuất bằng cách nào?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.139",
+      "title": "Xác minh tiến độ sửa xe, tạm ứng hoặc quyết toán",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-backoffice"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra hồ sơ sửa xe, tạm ứng hoặc quyết toán xăng dầu đã xử lý đến bước nào ở đâu?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.company-vehicles.140",
+      "title": "Tra đầu mối hoặc tình trạng chuyến xe",
+      "tags": [
+        "type-a",
+        "company-vehicles",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guide-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu tình huống của tôi chưa có trong quy định, tôi cần gửi những thông tin gì cho HCNS hoặc Quản lý điều xe để được hướng dẫn?",
+          "expectation": "Trả lời đúng phạm vi, nguồn và giới hạn của câu hỏi."
+        }
+      ]
+    }
+  ]
+}

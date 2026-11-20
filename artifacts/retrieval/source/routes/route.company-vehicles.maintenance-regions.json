@@ -1,0 +1,66 @@
+{
+  "id": "route.company-vehicles.maintenance-regions",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.maintenance-regions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sửa chữa xe tại tp hcm"
+        ],
+        [
+          "các tỉnh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe ở tỉnh"
+        ],
+        [
+          "vào hãng kiểm tra"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sửa xe"
+        ],
+        [
+          "chuyển sang quy trình mua hàng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sửa chữa xe tại TP.HCM và tại các tỉnh khác có quy trình khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe ở tỉnh cần vào hãng kiểm tra, lấy báo giá thì ai ký xác nhận trước?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào hồ sơ sửa xe phải chuyển sang quy trình mua hàng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "route.company-vehicles.platform-calendar",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-calendar",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lịch xe"
+        ],
+        [
+          "dạng lưới"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe nào thực sự còn trống"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe trống"
+        ],
+        [
+          "khung giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi xem lịch xe sẵn có theo ngày hoặc dạng lưới trên Workit như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi kiểm tra xe nào thực sự còn trống trong khung giờ cần đi ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,1332 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.company-vehicles",
+  "turns": [
+    {
+      "case_id": "q.conversation.company-vehicles.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.workit-surface.car.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.001",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.workit-surface.car.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "forbidden_documents": [
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.001",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.workit-surface.car.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        }
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-scope"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7a1c0eec97cefc62dc46e3cac3d2e8f106eabe576ec710310b18ff9e0971ac22"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "787a6005861565052a4cc04199552c43c6cf0188e049b9fea432976f42f5aa13"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "090239b6211af00518f90ec50b68b17477799b95ac14a8bd775025968f43104c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định áp dụng cho các đơn vị thuộc Tập đoàn và xe tải, ô tô, xe gắn máy là tài sản Tập đoàn. Xe phục vụ công việc. Trừ Ban lãnh đạo và người được cấp xe riêng, người cần xe liên hệ Admin hoặc Quản lý điều xe và xin cấp có thẩm quyền duyệt. Điều 7 liệt kê đối tượng được cấp xe và nhóm đề xuất, gồm phòng ban có công việc được quản lý phê duyệt."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.002",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.self-drive"
+      ],
+      "expected_aspects": [
+        "conditions"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "787a6005861565052a4cc04199552c43c6cf0188e049b9fea432976f42f5aa13"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thành viên Ban lãnh đạo, tài xế được giao xe và nhân viên khác đủ tiêu chuẩn, điều kiện lái xe theo quy định được trực tiếp lái trong phạm vi Điều 7. Nhân viên không phải tài xế cần được Ban lãnh đạo đồng ý, phê duyệt cho tự lái."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.002",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.pretrip"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "1dc9c2d10689fbf0b41824fa81f51a015b6958e8e34ef43a6bfac7475637c7c7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c2e2b55588d59a2203d5d116c7f5f19fee2ce5ae919efae93e3c47012e6cdd5a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6642dbe92c48835853964ec46152a7b2042d495301d85be9aa8225d18784ded7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Kiểm tra kỹ thuật và hiện trạng trong, ngoài xe. Chở đúng tải trọng và lộ trình đã duyệt. Thấy bất thường trước khi lấy xe thì báo ngay bảo vệ và HCNS."
+      ],
+      "required_limitations": [
+        "Đối chiếu giấy tờ, nhiên liệu và thiết bị cần kiểm tra với điều xe. Điều khoản không liệt kê bảng kiểm đầy đủ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.003",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.trip-handover"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "202443b3aefd42456e6f8d2188146983ae404276ad79c64dc1acc44ffe0f570f"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "049e8642a933b51391cccbf1bec80f70902a55f70d27c70d3a88eb9b1335510a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7e6dffef625bfb26afdcc2d686bcf324df9b2b5cb130a0997110a6af611e05f6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS lập biên bản HCNS-QT02-BB01 khi giao, nhận xe với tài xế. Ghi bên giao/nhận, lý do, biển số, kilomet, tình trạng, chìa khóa, giấy tờ, phụ kiện và ký xác nhận. Mẫu lập hai bản. Nếu thiếu tài sản hoặc giấy tờ, ghi nhận và báo HCNS/Quản lý điều xe."
+      ],
+      "required_limitations": [
+        "Hỏi điều xe hoặc bảo vệ về người nhận chìa khóa sau chuyến và cách xử lý mất giấy tờ tại địa điểm."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.003",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.trip-handover"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "202443b3aefd42456e6f8d2188146983ae404276ad79c64dc1acc44ffe0f570f"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "049e8642a933b51391cccbf1bec80f70902a55f70d27c70d3a88eb9b1335510a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7e6dffef625bfb26afdcc2d686bcf324df9b2b5cb130a0997110a6af611e05f6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS lập biên bản HCNS-QT02-BB01 khi giao, nhận xe với tài xế. Ghi bên giao/nhận, lý do, biển số, kilomet, tình trạng, chìa khóa, giấy tờ, phụ kiện và ký xác nhận. Mẫu lập hai bản. Nếu thiếu tài sản hoặc giấy tờ, ghi nhận và báo HCNS/Quản lý điều xe."
+      ],
+      "required_limitations": [
+        "Hỏi điều xe hoặc bảo vệ về người nhận chìa khóa sau chuyến và cách xử lý mất giấy tờ tại địa điểm."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.003",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.log-fields"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "b13953e62547bca10c9daee18534ce07d9e502efd0e645e5d1da6d3cb1499ff6"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f94f05bae9ee1927e244e0cb4f2500abb350c7271c3a2203f8f9cf3a1102e54c"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e93e416136fc0077238fe47b225e6613c6d5a95cd9c6c328491e5b6c24f519ef"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế lập HCNS-QT02-S01 theo kỳ, ghi ngày, mục đích, người/bộ phận, nơi và giờ đi/đến, kilomet đầu/cuối, hóa đơn, phí khác và xác nhận người dùng xe. Điều 4.12.a nêu ngoại lệ xe riêng của Ban lãnh đạo. HCNS/điều xe theo dõi kilomet và Kế toán dùng sổ để soát chi phí."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-confirm"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS thông báo xe và tài xế có đáp ứng được yêu cầu hay không. Khi không có xe sẵn, HCNS bố trí dịch vụ vận chuyển tương tự như taxi hoặc Grab cho công việc."
+      ],
+      "required_limitations": [
+        "Phiếu được duyệt chưa xác nhận xe và tài xế đã được phân. Hãy hỏi Admin hoặc Quản lý điều xe, kèm mã phiếu, khung giờ và điểm đi/đến."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.004",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-confirm"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS thông báo xe và tài xế có đáp ứng được yêu cầu hay không. Khi không có xe sẵn, HCNS bố trí dịch vụ vận chuyển tương tự như taxi hoặc Grab cho công việc."
+      ],
+      "required_limitations": [
+        "Phiếu được duyệt chưa xác nhận xe và tài xế đã được phân. Hãy hỏi Admin hoặc Quản lý điều xe, kèm mã phiếu, khung giờ và điểm đi/đến."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.004",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.transport-choice"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "d63509d3cb11c99e139de0ce707b47c862e9ecba6dc0701778030ef5e8983705"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Với xe Tập đoàn, liên hệ Admin/Quản lý điều xe và xin duyệt. Khi xe không sẵn, HCNS bố trí dịch vụ tương tự taxi hoặc Grab cho công việc. Kế toán kiểm tra và thanh toán chi phí thuê xe ngoài theo quy trình."
+      ],
+      "required_limitations": [
+        "Nguồn chưa xác nhận quyền tự đặt hoặc người lập hồ sơ trong mọi trường hợp. Xác nhận trước với HCNS và Kế toán, kể cả khi dùng xe cá nhân."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.approval-dispatch"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhu cầu dùng xe cần cấp có thẩm quyền phê duyệt. Ban lãnh đạo có quyền giao và điều xe; Giám đốc hoặc Trưởng phòng HCNS quản lý, bàn giao và điều xe theo Điều 5. Admin/Quản lý điều xe tiếp nhận; HCNS thông báo khả năng bố trí xe và tài xế."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.005",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.after-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Xe dùng phục vụ công việc và cần phê duyệt theo thẩm quyền. Báo Admin hoặc Quản lý điều xe về mục đích, thời gian và mức độ khẩn. HCNS bố trí xe và quản lý nơi để xe cả ngoài giờ."
+      ],
+      "required_limitations": [
+        "Nguồn chưa nêu đầu mối trực hay thời hạn xử lý ngoài giờ tại từng đơn vị. Kiểm tra liên hệ nội bộ của cơ sở."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.005",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-dispatch"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban lãnh đạo có quyền giao và điều xe. Giám đốc hoặc Trưởng phòng HCNS quản lý, bàn giao và điều phối xe; trong việc cấp thiết có thể huy động xe của phòng ban theo quy định. Khi cấp cứu, tổ giao hàng hoặc lái xe có thể dùng xe theo đề nghị của nhân viên y tế rồi báo ngay Ban lãnh đạo và HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.maintenance-trigger"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "202443b3aefd42456e6f8d2188146983ae404276ad79c64dc1acc44ffe0f570f"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "1dc9c2d10689fbf0b41824fa81f51a015b6958e8e34ef43a6bfac7475637c7c7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế báo HCNS/Quản lý điều xe khi có dấu hiệu hỏng, cần kiểm tra, sửa, thay lốp hoặc đến kỳ bảo dưỡng. Lập HCNS-QT02-DXSC01, gửi HCNS xác nhận và thực hiện Điều 8."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.006",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.maintenance-regions"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "3709fc4cec82c667dfd2062990ac167e4bfdba47262b5c02cd4ea1cabd7529b5"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế lập DXSC01 và chuyển HCNS ký xác nhận. Tại TP.HCM, đưa xe đến bộ phận sửa xe nội bộ. Nếu phải đưa vào hãng, Kỹ thuật ký xác nhận trước khi tài xế lấy báo giá và đề xuất theo quy trình Procurement. Xe ở tỉnh đưa đến hãng kiểm tra, lấy báo giá và đề xuất theo quy trình đó sau xác nhận HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.006",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.maintenance-complete"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "513cf6be16795c3d140b9f365b46c49afa7815746ba137abac2ad353614bdb3d"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "a7460d48a43991adc355cd58cfa4e94b4c3d32b84432086585d530628fa01208"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "757234c37e8b9fbed26f8e1a7dd0d53b059c9930213595d2598549b2487e3c67"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Phiếu DXSC01 ghi kilomet sau sửa, hạng mục hoàn thành hoặc chưa hoàn thành, lý do và xác nhận người sử dụng cùng Kỹ thuật. Tài xế/HCNS cập nhật tình trạng, hạng mục, kilomet và chi phí vào HCNS-QT02-S02; chuyển HCNS xác nhận."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.fuel-formula"
+      ],
+      "expected_aspects": [
+        "amount"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "59253cd8c815c1a9907bdfe3b215fcdfa69e4bc515b49dc94341fc1afc3ff6ec"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định tính GTB = HD ÷ LHD, trong đó HD là tổng giá trị hóa đơn và LHD là tổng số lít trên hóa đơn trong kỳ. L = (K × D) ÷ 100, với K là kilomet đi trong kỳ và D là định mức duyệt theo lít/100 km. Tiền nhiên liệu theo công thức là TD = GTB × L. Đối chiếu nhật trình, định mức và hóa đơn trước khi quyết toán."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.007",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.fuel-excess"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "59253cd8c815c1a9907bdfe3b215fcdfa69e4bc515b49dc94341fc1afc3ff6ec"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đối chiếu giá trị hóa đơn và lượng nhiên liệu thực tính theo kilomet, định mức và đơn giá bình quân. Điều 9.2 ghi phần tổng giá trị hóa đơn cao hơn lượng nhiên liệu thực tính trong kỳ không được hoàn lại. Liên hệ HCNS/điều xe hoặc Kế toán để đối chiếu chứng từ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.007",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.fuel-advance"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c2c2ec3dcb0fed5663e3fa6a6d4930dc8a02b312908b7ecdbc113fdbbe8cd2c7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "049e8642a933b51391cccbf1bec80f70902a55f70d27c70d3a88eb9b1335510a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "59253cd8c815c1a9907bdfe3b215fcdfa69e4bc515b49dc94341fc1afc3ff6ec"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "84a8769e92435738d15750fd58d1f4a4d11329403663df2ea2864123d1594435"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "a693626fb1cf45e60567352a5e2c8296ef4f979716fab1929dddabc5e3678636"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS/Quản lý điều xe tạm ứng theo số xe phụ trách bằng mẫu CHI-04. Khi thanh toán, người phụ trách hồ sơ dùng CHI-01, tham chiếu phiếu chi tạm ứng nếu có và kèm chứng từ để gửi Kế toán. Cả hai mẫu lưu tại Kế toán."
+      ],
+      "required_limitations": [
+        "Số chênh lệch thực tế cần HCNS/điều xe và Kế toán đối chiếu theo phiếu chi, chứng từ và kỳ thanh toán."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.008",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.vetc-owner"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6d86b8929f373a6429c7a43e3e580cfd7b86536346b79ddbf4c51dd8e48579cc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý điều xe dùng một tài khoản VETC cho các xe bộ phận quản lý, và người quản lý tài khoản phải theo dõi số dư."
+      ],
+      "required_limitations": [
+        "Khi chuyển xe, báo Quản lý điều xe của hai đơn vị và HCNS, kèm biển số và biên bản bàn giao. Nguồn chưa mô tả các bước đổi tài khoản."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.008",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.vetc-receipts"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "d63509d3cb11c99e139de0ce707b47c862e9ecba6dc0701778030ef5e8983705"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo người quản lý tài khoản VETC/Quản lý điều xe và cung cấp biển số, thời điểm, trạm, giao dịch và chứng từ có sẵn. Giữ hóa đơn hoặc biên nhận cầu đường và nhật trình để Kế toán đối chiếu."
+      ],
+      "required_limitations": [
+        "Nguồn chưa quy định thủ tục khiếu nại từng giao dịch, thu phí sai hoặc cách hoàn của nhà cung cấp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.008",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-vetc"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6d86b8929f373a6429c7a43e3e580cfd7b86536346b79ddbf4c51dd8e48579cc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "dec742001c5226237ae57a8e27c141ff5f2d51ba842f95736099cf0fd637b689"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế theo dõi hạn đăng kiểm, phí đường bộ và bảo hiểm bắt buộc rồi báo HCNS. Xe mới liên hệ HCNS để được hướng dẫn dán thẻ VETC. Xe đang chạy cần báo Quản lý điều xe phụ trách tài khoản để kiểm tra số dư và bổ sung theo quy trình."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.009",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.incident-report"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "1dc9c2d10689fbf0b41824fa81f51a015b6958e8e34ef43a6bfac7475637c7c7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c2e2b55588d59a2203d5d116c7f5f19fee2ce5ae919efae93e3c47012e6cdd5a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo HCNS/Quản lý điều xe về vị trí, người liên quan và hiện trạng. Nếu có người bị thương, ưu tiên trợ giúp khẩn cấp tại chỗ. Bảo vệ ghi nhận tình trạng xe, đối chiếu nhật trình ra vào và lập biên bản khi phát hiện hư hỏng hoặc mất mát."
+      ],
+      "required_limitations": [
+        "Nguồn chưa liệt kê bộ hồ sơ tai nạn hoặc thủ tục bảo hiểm theo từng sự cố. Xác nhận với HCNS hoặc bên xử lý bảo hiểm khi đã bảo đảm an toàn."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.009",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.guard-check"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ kiểm tra tình trạng xe trước và sau khi dùng và ghi xe ra, vào. Khi trầy xước, hư hỏng hoặc mất mát, đối chiếu lượt sử dụng, xác định tài xế và lập biên bản để tài xế ký xác nhận."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.009",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.incident-records"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c349acf9704e3b372c5bc369f265b1f47d148fc883f9be680c9b71f9de9d9df4"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6d86b8929f373a6429c7a43e3e580cfd7b86536346b79ddbf4c51dd8e48579cc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Gửi thời gian, biển số và lý do xác minh cho HCNS/Quản lý điều xe. Bảo vệ giữ ghi nhận xe ra vào và có thể phối hợp đối chiếu. HCNS phụ trách đề xuất dịch vụ GPS."
+      ],
+      "required_limitations": [
+        "Quy định chưa xác nhận quyền xem camera hoặc dữ liệu định vị. Đầu mối quản lý phải kiểm tra quyền trước khi cung cấp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.010",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "expected_policy_claim_texts": [
+        "Thành viên Ban lãnh đạo, tài xế được giao xe và nhân viên khác đủ tiêu chuẩn, điều kiện lái xe theo quy định được trực tiếp lái trong phạm vi Điều 7. Nhân viên không phải tài xế cần được Ban lãnh đạo đồng ý, phê duyệt cho tự lái.",
+        "Bảng biểu mẫu ghi tại HCNS: nhật trình xe văn phòng HCNS-QT02-S01, sổ sửa xe HCNS-QT02-S02, phiếu đề xuất sửa chữa HCNS-QT02-DXSC01 và biên bản bàn giao HCNS-QT02-BB01. Hỏi HCNS để lấy mẫu áp dụng tại đơn vị."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.010",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.approval-dispatch"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhu cầu dùng xe cần cấp có thẩm quyền phê duyệt. Ban lãnh đạo có quyền giao và điều xe; Giám đốc hoặc Trưởng phòng HCNS quản lý, bàn giao và điều xe theo Điều 5. Admin/Quản lý điều xe tiếp nhận; HCNS thông báo khả năng bố trí xe và tài xế."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.010",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.request-fields"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nêu mục đích công việc khi liên hệ Admin hoặc Quản lý điều xe. Workit Web ghi xe, tài xế, giờ đi/về, nơi đi/đến, tổng số người và danh sách người đi. Có thể dùng ghi chú hoặc đính kèm để làm rõ lộ trình."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.011",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.log-fields"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "b13953e62547bca10c9daee18534ce07d9e502efd0e645e5d1da6d3cb1499ff6"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f94f05bae9ee1927e244e0cb4f2500abb350c7271c3a2203f8f9cf3a1102e54c"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e93e416136fc0077238fe47b225e6613c6d5a95cd9c6c328491e5b6c24f519ef"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế lập HCNS-QT02-S01 theo kỳ, ghi ngày, mục đích, người/bộ phận, nơi và giờ đi/đến, kilomet đầu/cuối, hóa đơn, phí khác và xác nhận người dùng xe. Điều 4.12.a nêu ngoại lệ xe riêng của Ban lãnh đạo. HCNS/điều xe theo dõi kilomet và Kế toán dùng sổ để soát chi phí."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.011",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "task_ids_any": [
+        "task.company-vehicles.log-fields"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "unavailable_documents": [
+        "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+      ],
+      "forbidden_documents": [
+        "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.011",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.log-fields"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "b13953e62547bca10c9daee18534ce07d9e502efd0e645e5d1da6d3cb1499ff6"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f94f05bae9ee1927e244e0cb4f2500abb350c7271c3a2203f8f9cf3a1102e54c"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e93e416136fc0077238fe47b225e6613c6d5a95cd9c6c328491e5b6c24f519ef"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế lập HCNS-QT02-S01 theo kỳ, ghi ngày, mục đích, người/bộ phận, nơi và giờ đi/đến, kilomet đầu/cuối, hóa đơn, phí khác và xác nhận người dùng xe. Điều 4.12.a nêu ngoại lệ xe riêng của Ban lãnh đạo. HCNS/điều xe theo dõi kilomet và Kế toán dùng sổ để soát chi phí."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.012",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-confirm"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS thông báo xe và tài xế có đáp ứng được yêu cầu hay không. Khi không có xe sẵn, HCNS bố trí dịch vụ vận chuyển tương tự như taxi hoặc Grab cho công việc."
+      ],
+      "required_limitations": [
+        "Phiếu được duyệt chưa xác nhận xe và tài xế đã được phân. Hãy hỏi Admin hoặc Quản lý điều xe, kèm mã phiếu, khung giờ và điểm đi/đến."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.012",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "claims": "none"
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.012",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.workit-surface.car.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        }
+      ]
+    }
+  ]
+}

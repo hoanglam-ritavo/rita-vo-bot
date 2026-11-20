@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.onboarding",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.onboarding",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thử việc"
+        ],
+        [
+          "đề xuất sử dụng xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhân viên chi nhánh"
+        ],
+        [
+          "đề xuất sử dụng xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên thử việc hoặc nhân viên chi nhánh có được đề xuất sử dụng xe không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

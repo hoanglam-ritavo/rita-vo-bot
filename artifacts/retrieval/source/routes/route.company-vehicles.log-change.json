@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.log-change",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.log-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ghi nhầm lộ trình"
+        ],
+        [
+          "nhật trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sửa sai"
+        ],
+        [
+          "sổ nhật trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đã ghi nhầm lộ trình hoặc chi phí trong nhật trình thì sửa và xác nhận lại thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.incident-records",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.incident-records",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tra cứu camera"
+        ],
+        [
+          "lịch xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "dữ liệu định vị"
+        ],
+        [
+          "xác minh sự cố"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cần tra cứu camera, dữ liệu định vị hoặc lịch xe để xác minh sự cố, tôi phải đề nghị qua đầu mối nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "route.company-vehicles.replacement",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.replacement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe đang sửa"
+        ],
+        [
+          "chuyến công tác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu xe đang sửa mà chuyến công tác vẫn phải thực hiện, ai bố trí xe thay thế?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -585,6 +585,18 @@
       "group_id": "conversation.administration-compliance",
       "cases": 12,
       "turns": 37
+    },
+    {
+      "path": "policy/company-vehicles.json",
+      "group_id": "policy.company-vehicles",
+      "cases": 140,
+      "turns": 140
+    },
+    {
+      "path": "conversation/company-vehicles.json",
+      "group_id": "conversation.company-vehicles",
+      "cases": 12,
+      "turns": 36
     }
   ],
   "totals": {
@@ -9026,7 +9038,9 @@
     "oracles/software.office-365.json",
     "oracles/conversation.office-365.json",
     "oracles/policy.administration-compliance.json",
-    "oracles/conversation.administration-compliance.json"
+    "oracles/conversation.administration-compliance.json",
+    "oracles/policy.company-vehicles.json",
+    "oracles/conversation.company-vehicles.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

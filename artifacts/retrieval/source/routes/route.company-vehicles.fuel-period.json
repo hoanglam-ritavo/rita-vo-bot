@@ -1,0 +1,54 @@
+{
+  "id": "route.company-vehicles.fuel-period",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-period",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kỳ thanh toán chi phí xe"
+        ],
+        [
+          "từ ngày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kỳ thanh toán"
+        ],
+        [
+          "ngày nào"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quyết toán xe"
+        ],
+        [
+          "ngày 15"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Kỳ thanh toán chi phí xe được tính từ ngày nào đến ngày nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

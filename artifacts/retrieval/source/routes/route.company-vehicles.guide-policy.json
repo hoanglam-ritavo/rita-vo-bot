@@ -1,0 +1,45 @@
+{
+  "id": "route.company-vehicles.guide-policy",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.guide-policy",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bản quy định sử dụng xe tập đoàn đang áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hướng dẫn riêng tại chi nhánh"
+        ],
+        [
+          "quy định chung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi xem bản quy định sử dụng xe Tập đoàn đang áp dụng ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu quy định chung và hướng dẫn riêng tại chi nhánh khác nhau, tôi hỏi ai để xác nhận cách áp dụng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

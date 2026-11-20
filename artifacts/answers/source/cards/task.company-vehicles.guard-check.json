@@ -1,0 +1,62 @@
+{
+  "id": "task.company-vehicles.guard-check",
+  "label": "Bảo vệ kiểm tra xe và lập biên bản",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Bảo vệ kiểm tra xe và lập biên bản"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về bảo vệ kiểm tra xe và lập biên bản?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.guard-check",
+          "text": "Bảo vệ kiểm tra tình trạng xe trước và sau khi dùng và ghi xe ra, vào. Khi trầy xước, hư hỏng hoặc mất mát, đối chiếu lượt sử dụng, xác định tài xế và lập biên bản để tài xế ký xác nhận.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 26,
+              "content_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.4. Trách nhiệm của Tổ bảo vệ:\na) Chịu trách nhiệm kiểm tra tình trạng xe trước khi sử dụng và sau khi sử dụng xong.\nb) Ghi chép đầy đủ thông tin lịch trình xe ra vào.\nc) Phải xác định được xe bị trầy xước, hư hỏng, mất mát là do tài xế nào sử dụng và lập biên bản yêu cầu tài xế ký xác nhận.\n5. Trách nhiệm của Nhân viên sử dụng xe:\na) Giữ gìn vệ sinh chung trên xe. Trước khi xuống xe phải kiểm tra lại đồ đạc trên xe, thu dọn tư trang, không xả rác bừa bãi trên xe.\nb) Không được sửa đổi lộ trình sử dụng xe vào mục đích cá nhân.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 28,
+              "content_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.7. Quy định về nơi để xe\na) P. HCNS chịu trách nhiệm về nơi để xe theo quy định trong giờ hành chính, ngoài giờ hành chính và các ngày nghỉ.\nb) Lái xe có trách nhiệm đưa xe vào nơi để xe quy định của Tập đoàn khi hết giờ làm việc hoặc kết thúc chuyến công tác vào ngoài giờ hành chính.\nc) Khi lấy xe ra khỏi nơi để xe, lái xe phải kiểm tra hiện trạng trong và ngoài xe. Nếu phát hiện điều bất thường thì lái xe phải báo ngay cho tổ bảo vệ, P. HCNS.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "route.company-vehicles.guide-backoffice",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.guide-backoffice",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ sửa xe"
+        ],
+        [
+          "tạm ứng"
+        ],
+        [
+          "đã xử lý đến bước nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quyết toán xăng dầu"
+        ],
+        [
+          "đến bước nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi kiểm tra hồ sơ sửa xe, tạm ứng hoặc quyết toán xăng dầu đã xử lý đến bước nào ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

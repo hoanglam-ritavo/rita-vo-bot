@@ -33770,6 +33770,57 @@
               "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe riêng"
+            ],
+            [
+              "phải gửi đề xuất"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đề xuất xe"
+            ],
+            [
+              "chi nhánh"
+            ],
+            [
+              "showroom"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai được cấp xe riêng và ai phải gửi đề xuất mỗi lần sử dụng?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Cá nhân và phòng ban được đề xuất xe cho những công việc nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần xe đi gặp khách hàng thì phải liên hệ ai và xin duyệt thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đi giữa hai chi nhánh, showroom hoặc kho thì có phải gửi đề xuất xe không?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -33893,6 +33944,81 @@
               "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "phiếu đã duyệt"
+            ],
+            [
+              "đã được bố trí"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xác nhận biển số xe"
+            ],
+            [
+              "điểm đón"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa có thông tin điều xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "xe và tài xế thực tế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe đang sửa"
+            ],
+            [
+              "bố trí xe thay thế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phiếu đã duyệt có đồng nghĩa xe và tài xế đã được bố trí không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi xác nhận biển số xe, tài xế, giờ đón và điểm đón với ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phiếu đã được duyệt nhưng chưa có thông tin điều xe, tôi phải làm gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu Workit báo phiếu được duyệt, tôi kiểm tra ở đâu để biết xe và tài xế thực tế?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -33906,7 +34032,8 @@
         "cho xem hồ sơ của"
       ],
       "follow_up_tasks": {
-        "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+        "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit",
+        "còn nếu không có xe thì sao": "task.company-vehicles.transport-choice"
       }
     },
     {
@@ -33969,6 +34096,40 @@
           "requires_all": [
             [
               "Trong tình huống cấp cứu, việc sử dụng xe và báo cáo sau đó được thực hiện thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "điều chuyển xe"
+            ],
+            [
+              "phòng ban khác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đề nghị dùng xe"
+            ],
+            [
+              "cấp cứu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có quyền điều chuyển xe đang được phòng ban khác quản lý khi có việc cấp thiết?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi cấp cứu, ai có thể đề nghị dùng xe và phải báo cho những ai sau đó?"
             ]
           ]
         }
@@ -34042,6 +34203,47 @@
               "Quy định cấm chở những loại hàng hóa hoặc thực phẩm nào trên xe công ty?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe công ty"
+            ],
+            [
+              "đưa đón người thân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe công ty"
+            ],
+            [
+              "chở hàng riêng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe công ty có được dùng để đi làm hằng ngày, đưa đón người thân hoặc giải quyết việc riêng không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được dùng xe công ty để chở hàng riêng hoặc hàng ngoài nhiệm vụ được duyệt không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định cấm chở những loại thực phẩm hoặc hàng hóa nào trên xe công ty?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -34104,6 +34306,40 @@
           "requires_all": [
             [
               "Người sử dụng xe phải xác nhận thông tin nào sau chuyến đi?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người sử dụng xe"
+            ],
+            [
+              "xác nhận lịch trình sau chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người thực tế đi xe"
+            ],
+            [
+              "ai ký xác nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau chuyến đi, người sử dụng xe phải xác nhận lịch trình và chi phí phát sinh ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu người đề xuất và người thực tế đi xe khác nhau, ai ký xác nhận chuyến đi?"
             ]
           ]
         }
@@ -34243,6 +34479,33 @@
           "requires_all": [
             [
               "Ai theo dõi số kilomet đầu kỳ, cuối kỳ và ghi nhận sai lệch?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kilomet"
+            ],
+            [
+              "hồ sơ thanh toán"
+            ],
+            [
+              "không khớp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai theo dõi số kilomet đầu kỳ, cuối kỳ thanh toán?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu số kilomet trong sổ, trên đồng hồ xe và trong hồ sơ thanh toán không khớp, ai đối chiếu?"
             ]
           ]
         }
@@ -34412,6 +34675,13 @@
               "Chi phí xe dùng mẫu đề nghị tạm ứng hay mẫu đề nghị thanh toán trong từng trường hợp?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hồ sơ quyết toán xăng dầu cần sổ nhật trình, hóa đơn và chữ ký của những ai?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -34474,6 +34744,20 @@
           "requires_all": [
             [
               "Xe mới cần dán thẻ VETC thì tài xế liên hệ ai, và xe đang dùng cần xử lý thế nào khi tài khoản thiếu tiền?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe mới mua cần đăng ký và dán thẻ VETC theo quy trình nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu tài khoản VETC thiếu tiền trước khi đi qua trạm, tài xế liên hệ ai?"
             ]
           ]
         }
@@ -38403,6 +38687,3123 @@
         "đặt xe giúp tôi",
         "hồ sơ của đồng nghiệp",
         "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.scope",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy định sử dụng xe công ty"
+            ],
+            [
+              "chi nhánh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe tải"
+            ],
+            [
+              "xe gắn máy"
+            ],
+            [
+              "phạm vi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng xe công ty áp dụng cho những đơn vị, chi nhánh và công ty thành viên nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe tải, ô tô và xe gắn máy thuộc tài sản Tập đoàn có cùng thuộc phạm vi quy định không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "conditions"
+    },
+    {
+      "id": "route.company-vehicles.management",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.management",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe văn phòng"
+            ],
+            [
+              "xe kinh doanh"
+            ],
+            [
+              "quản lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe văn phòng, xe kinh doanh và xe được cấp riêng do những bộ phận nào quản lý?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.self-drive",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.self-drive",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trực tiếp lái xe công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không phải tài xế"
+            ],
+            [
+              "tự lái"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ai được"
+            ],
+            [
+              "tự lái xe công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai được trực tiếp lái xe công ty?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên không phải tài xế cần đáp ứng điều kiện gì để được tự lái?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "conditions"
+    },
+    {
+      "id": "route.company-vehicles.onboarding",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.onboarding",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thử việc"
+            ],
+            [
+              "đề xuất sử dụng xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhân viên chi nhánh"
+            ],
+            [
+              "đề xuất sử dụng xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên thử việc hoặc nhân viên chi nhánh có được đề xuất sử dụng xe không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.priority",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.priority",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thu hồi công nợ"
+            ],
+            [
+              "đề xuất xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khách mời của ban lãnh đạo"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thứ tự ưu tiên"
+            ],
+            [
+              "cần xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên Kế toán đi thu tiền, thu hồi công nợ hoặc thực hiện công việc ngân hàng có thuộc nhóm được đề xuất xe không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có thể dùng xe công ty để đón khách hàng, đối tác hoặc khách mời của Ban lãnh đạo không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nhiều bộ phận cần xe cùng lúc, thứ tự ưu tiên được xác định thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.after-hours",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.after-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mượn xe ngoài giờ"
+            ],
+            [
+              "công việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "điều xe gấp"
+            ],
+            [
+              "ngoài giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xin xe công ty"
+            ],
+            [
+              "ngày nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được mượn xe ngoài giờ, cuối tuần hoặc ngày lễ để phục vụ công việc không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi cần điều xe gấp, ngoài giờ hoặc trong ngày nghỉ, tôi liên hệ ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.transport-choice",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.transport-choice",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe tập đoàn"
+            ],
+            [
+              "thuê xe ngoài"
+            ],
+            [
+              "xe cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tự đặt taxi hoặc grab"
+            ],
+            [
+              "xe công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chi phí phương tiện thay thế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng xe Tập đoàn khác gì so với thuê xe ngoài hoặc dùng xe cá nhân đi công tác?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi xe công ty không có sẵn, tôi có được tự đặt taxi hoặc Grab không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Chi phí phương tiện thay thế do phòng ban, HCNS hay người đi công tác làm hồ sơ thanh toán?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.request-fields",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.request-fields",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề xuất xe"
+            ],
+            [
+              "mục đích"
+            ],
+            [
+              "lộ trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xin xe"
+            ],
+            [
+              "mục đích"
+            ],
+            [
+              "điểm đón"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi đề xuất xe, cần khai mục đích, thời gian, địa điểm, số người và lộ trình như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.request-deadline",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.request-deadline",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gửi đề xuất trước chuyến đi bao lâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xin xe"
+            ],
+            [
+              "báo trước bao lâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có quy định phải gửi đề xuất trước chuyến đi bao lâu không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.approval-dispatch",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.approval-dispatch",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phê duyệt nhu cầu sử dụng xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quản lý điều xe"
+            ],
+            [
+              "thẩm quyền khác nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai phê duyệt nhu cầu sử dụng xe và ai quyết định bố trí xe, tài xế?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ban lãnh đạo, HCNS, Admin và Quản lý điều xe có thẩm quyền khác nhau thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn đi ngoài giờ thì sao": "task.company-vehicles.after-hours"
+      }
+    },
+    {
+      "id": "route.company-vehicles.request-combinations",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.request-combinations",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhiều xe hoặc nhiều chuyến"
+            ],
+            [
+              "phiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hai phòng ban"
+            ],
+            [
+              "đi chung xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuyến đi bị hủy hoặc đổi giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Một phòng ban có thể đề xuất nhiều xe hoặc nhiều chuyến trong cùng một phiếu không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hai phòng ban có thể đi chung xe không và ai xác nhận lịch chung?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi chuyến đi bị hủy hoặc đổi giờ, tôi phải báo ai để cập nhật lịch xe?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.platform-compare",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-compare",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "workit web và mobile"
+            ],
+            [
+              "phiếu xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "phiếu xe"
+            ],
+            [
+              "sửa"
+            ],
+            [
+              "theo dõi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Workit Web và Mobile có hỗ trợ cùng các thao tác đặt, sửa và theo dõi phiếu xe không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.platform-missing",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-missing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "không thấy mục xe công tác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "mất mục xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi không thấy mục Xe công tác thì kiểm tra quyền hoặc liên hệ bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.platform-selection",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-selection",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chọn xe và tài xế từ danh sách"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "tài xế"
+            ],
+            [
+              "phân công"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi chọn xe và tài xế từ danh sách hay để bộ phận điều xe phân công?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.platform-form",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thời gian"
+            ],
+            [
+              "nơi đi"
+            ],
+            [
+              "nơi đến"
+            ],
+            [
+              "tổng số người"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người đi chính"
+            ],
+            [
+              "người đi cùng"
+            ],
+            [
+              "để biết"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người đi thuộc phòng ban khác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ghi chú về hàng hóa"
+            ],
+            [
+              "điểm đón"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi nhập thời gian, nơi đi, nơi đến và tổng số người như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người đi chính, người đi cùng và người được thêm để biết khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cần thêm người đi thuộc phòng ban khác, tôi thao tác ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể thêm ghi chú về hàng hóa, điểm đón hoặc đính kèm tài liệu không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      },
+      "follow_up_tasks": {
+        "nếu phiếu đã duyệt rồi": "task.company-vehicles.platform-edit"
+      }
+    },
+    {
+      "id": "route.company-vehicles.platform-calendar",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-calendar",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lịch xe"
+            ],
+            [
+              "dạng lưới"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe nào thực sự còn trống"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe trống"
+            ],
+            [
+              "khung giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi xem lịch xe sẵn có theo ngày hoặc dạng lưới trên Workit như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi kiểm tra xe nào thực sự còn trống trong khung giờ cần đi ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.platform-edit",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-edit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu đã duyệt"
+            ],
+            [
+              "đổi xe"
+            ],
+            [
+              "lộ trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi tài xế"
+            ],
+            [
+              "phiếu đã duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phiếu đã duyệt có thể đổi xe, tài xế, lộ trình hoặc người đi không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure"
+    },
+    {
+      "id": "route.company-vehicles.platform-outage",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.platform-outage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hệ thống không hoạt động"
+            ],
+            [
+              "cần xe gấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "workit lỗi"
+            ],
+            [
+              "xin xe gấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu hệ thống không hoạt động nhưng cần xe gấp, tôi phải liên hệ ai và bổ sung phiếu thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.pretrip",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.pretrip",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trước khi nhận xe"
+            ],
+            [
+              "tài xế"
+            ],
+            [
+              "kiểm tra"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe đã trầy xước"
+            ],
+            [
+              "trước chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thiết bị an toàn"
+            ],
+            [
+              "tải trọng"
+            ],
+            [
+              "tài xế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trước khi nhận xe, tài xế phải kiểm tra những gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện xe đã trầy xước hoặc hư hỏng trước chuyến, tài xế phải báo ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế cần kiểm tra giấy tờ, nhiên liệu, thiết bị an toàn và tải trọng như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.guard-check",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.guard-check",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "ghi nhận"
+            ],
+            [
+              "xe ra khỏi nơi đỗ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe về bãi"
+            ],
+            [
+              "vết xước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhiều tài xế dùng chung xe"
+            ],
+            [
+              "hư hỏng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải kiểm tra và ghi nhận gì khi xe ra khỏi nơi đỗ và khi quay về?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi xe về bãi mới phát hiện vết xước hoặc mất đồ, ai kiểm tra và lập biên bản?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nhiều tài xế dùng chung xe, căn cứ nào được dùng để xác định chuyến xảy ra hư hỏng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "nếu cần xem camera thì sao": "task.company-vehicles.incident-records"
+      }
+    },
+    {
+      "id": "route.company-vehicles.driver-change",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.driver-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "từ chối chở quá tải"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thêm điểm dừng giữa chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuyến đi"
+            ],
+            [
+              "phải qua đêm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chở thêm người"
+            ],
+            [
+              "đề xuất đã duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế có được từ chối chở quá tải, đi sai mục đích hoặc thay đổi lộ trình chưa được duyệt không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu khách yêu cầu đổi điểm đến hoặc thêm điểm dừng giữa chuyến, tài xế phải xin ý kiến ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu chuyến đi kéo dài hơn dự kiến hoặc phải qua đêm, cần thông báo và bổ sung hồ sơ gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được chở thêm người không có tên trong đề xuất đã duyệt không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.passenger-duties",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.passenger-duties",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người đi cùng"
+            ],
+            [
+              "giữ vệ sinh"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hành khách"
+            ],
+            [
+              "bảo quản xe công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người đi cùng có trách nhiệm gì về giữ vệ sinh và bảo quản xe?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.trip-unsigned",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.trip-unsigned",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người sử dụng xe chưa ký nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thiếu chữ ký"
+            ],
+            [
+              "nhật trình xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu người sử dụng xe chưa ký nhật trình, tài xế cần bổ sung xác nhận thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.trip-handover",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.trip-handover",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bàn giao xe"
+            ],
+            [
+              "chìa khóa"
+            ],
+            [
+              "giấy tờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi tài xế"
+            ],
+            [
+              "biên bản bàn giao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mất chìa khóa"
+            ],
+            [
+              "giấy tờ xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế phải bàn giao xe, chìa khóa và giấy tờ xe cho ai sau chuyến?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi đổi tài xế hoặc chuyển xe sang phòng ban khác, phải lập biên bản bàn giao thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu mất chìa khóa, giấy tờ xe hoặc thiết bị đi kèm, phải báo ai và bàn giao lại thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      },
+      "follow_up_tasks": {
+        "còn sổ nhật trình thì sao": "task.company-vehicles.log-fields"
+      }
+    },
+    {
+      "id": "route.company-vehicles.trip-parking",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.trip-parking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe phải đỗ ở đâu"
+            ],
+            [
+              "ngày nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mang xe về nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bãi ngoài"
+            ],
+            [
+              "chuyến đi hôm sau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe phải đỗ ở đâu khi kết thúc chuyến ngoài giờ, ngày nghỉ hoặc ngày lễ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được mang xe về nhà hoặc gửi ở bãi ngoài để phục vụ chuyến đi hôm sau không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.log-fields",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.log-fields",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sổ nhật trình xe"
+            ],
+            [
+              "thông tin"
+            ],
+            [
+              "chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe cấp riêng"
+            ],
+            [
+              "ghi sổ nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sổ nhật trình dùng mẫu nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "km đầu chuyến"
+            ],
+            [
+              "cuối chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sổ nhật trình xe phải ghi những thông tin gì cho mỗi chuyến?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe cấp riêng cho Ban lãnh đạo có phải ghi sổ nhật trình như xe văn phòng không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sổ nhật trình dùng mẫu nào, do ai ghi và ai kiểm tra?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế phải ghi kilomet đầu chuyến, cuối chuyến và từng điểm đi qua như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.log-change",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.log-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ghi nhầm lộ trình"
+            ],
+            [
+              "nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sửa sai"
+            ],
+            [
+              "sổ nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đã ghi nhầm lộ trình hoặc chi phí trong nhật trình thì sửa và xác nhận lại thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.log-submit",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.log-submit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nộp sổ nhật trình cùng chứng từ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lưu sổ nhật trình"
+            ],
+            [
+              "chuyến xe cũ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế phải nộp sổ nhật trình cùng chứng từ vào thời điểm nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai lưu sổ nhật trình và trong trường hợp nào được tra lại chuyến xe cũ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure"
+    },
+    {
+      "id": "route.company-vehicles.log-monitor",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.log-monitor",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "theo dõi tình trạng sử dụng xe"
+            ],
+            [
+              "lịch bảo dưỡng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ai theo dõi"
+            ],
+            [
+              "định vị gps"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gia hạn dịch vụ"
+            ],
+            [
+              "gps"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai theo dõi tình trạng sử dụng xe, lịch bảo dưỡng, chi phí và các kỳ thanh toán?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có trách nhiệm theo dõi thiết bị định vị GPS hoặc đề xuất gia hạn dịch vụ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.maintenance-trigger",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-trigger",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe đến hạn bảo dưỡng"
+            ],
+            [
+              "thay lốp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trường hợp nào"
+            ],
+            [
+              "phiếu đề xuất sửa chữa xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe đến hạn bảo dưỡng, cần thay lốp hoặc có dấu hiệu bất thường thì tài xế phải làm gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trường hợp nào phải lập phiếu đề xuất sửa chữa xe?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn xe ở tỉnh thì sao": "task.company-vehicles.maintenance-regions"
+      }
+    },
+    {
+      "id": "route.company-vehicles.maintenance-form",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu đề xuất sửa chữa xe"
+            ],
+            [
+              "dùng mẫu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đánh giá báo giá"
+            ],
+            [
+              "hạng mục sửa chữa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phiếu dxsc01"
+            ],
+            [
+              "ghi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phiếu đề xuất sửa chữa xe dùng mẫu nào và cần ghi những nội dung gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai đánh giá báo giá và phê duyệt hạng mục sửa chữa, thay thế?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.maintenance-regions",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-regions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sửa chữa xe tại tp hcm"
+            ],
+            [
+              "các tỉnh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe ở tỉnh"
+            ],
+            [
+              "vào hãng kiểm tra"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sửa xe"
+            ],
+            [
+              "chuyển sang quy trình mua hàng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sửa chữa xe tại TP.HCM và tại các tỉnh khác có quy trình khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe ở tỉnh cần vào hãng kiểm tra, lấy báo giá thì ai ký xác nhận trước?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào hồ sơ sửa xe phải chuyển sang quy trình mua hàng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure"
+    },
+    {
+      "id": "route.company-vehicles.maintenance-roadside",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-roadside",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe hỏng giữa đường"
+            ],
+            [
+              "cứu hộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không thể tiếp tục chuyến"
+            ],
+            [
+              "phương tiện thay thế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe hỏng giữa đường thì ai quyết định gọi cứu hộ hoặc sửa chữa khẩn cấp?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi xe hỏng giữa đường hoặc không thể tiếp tục chuyến, ai điều phối cứu hộ và phương tiện thay thế?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.maintenance-change",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gara"
+            ],
+            [
+              "ngoài báo giá đã duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phát sinh hạng mục"
+            ],
+            [
+              "xin duyệt lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu gara phát hiện hạng mục mới ngoài báo giá đã duyệt, có phải xin duyệt lại không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.maintenance-complete",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.maintenance-complete",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sau khi sửa"
+            ],
+            [
+              "chi phí"
+            ],
+            [
+              "số kilomet"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sổ theo dõi bảo dưỡng"
+            ],
+            [
+              "sửa chữa xe"
+            ],
+            [
+              "mã mẫu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi sửa, ai kiểm tra, xác nhận hạng mục, chi phí và số kilomet?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sổ theo dõi bảo dưỡng, sửa chữa xe có mã mẫu gì và do ai cập nhật?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure"
+    },
+    {
+      "id": "route.company-vehicles.replacement",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.replacement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe đang sửa"
+            ],
+            [
+              "chuyến công tác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu xe đang sửa mà chuyến công tác vẫn phải thực hiện, ai bố trí xe thay thế?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.asset-retirement",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.asset-retirement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phụ tùng không còn sử dụng"
+            ],
+            [
+              "thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe hỏng"
+            ],
+            [
+              "quy trình thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe hoặc phụ tùng không còn sử dụng được thì khi nào chuyển sang quy trình thanh lý?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.fuel-scope",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "những xe nào"
+            ],
+            [
+              "định mức xăng dầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tra bảng định mức"
+            ],
+            [
+              "từng xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Những xe nào áp dụng định mức xăng dầu và tra bảng định mức của từng xe ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.fuel-adjust",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-adjust",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xây dựng định mức nhiên liệu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tiêu hao bất thường"
+            ],
+            [
+              "điều chỉnh định mức"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "HCNS, Kế toán và bộ phận chuyên môn phối hợp xây dựng định mức nhiên liệu như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đổi xe, thay đổi điều kiện vận hành hoặc mức tiêu hao bất thường, ai đề xuất điều chỉnh định mức?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.fuel-period",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-period",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kỳ thanh toán chi phí xe"
+            ],
+            [
+              "từ ngày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kỳ thanh toán"
+            ],
+            [
+              "ngày nào"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quyết toán xe"
+            ],
+            [
+              "ngày 15"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Kỳ thanh toán chi phí xe được tính từ ngày nào đến ngày nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.fuel-formula",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-formula",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chi phí xăng dầu được tính"
+            ],
+            [
+              "số kilomet"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "công thức"
+            ],
+            [
+              "xăng dầu"
+            ],
+            [
+              "hóa đơn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Chi phí xăng dầu được tính dựa trên số kilomet, định mức và hóa đơn như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount",
+      "follow_up_tasks": {
+        "nếu hóa đơn vượt mức thì sao": "task.company-vehicles.fuel-excess",
+        "cần những chứng từ gì": "task.company-vehicles.fuel-receipts"
+      }
+    },
+    {
+      "id": "route.company-vehicles.fuel-advance",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-advance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị tạm ứng nhiên liệu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tiền tạm ứng còn dư"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tạm ứng"
+            ],
+            [
+              "mẫu đề nghị thanh toán"
+            ],
+            [
+              "chi phí xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mẫu chi 04"
+            ],
+            [
+              "chi 01"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai lập đề nghị tạm ứng nhiên liệu và ai làm hồ sơ quyết toán?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu tiền tạm ứng còn dư hoặc không đủ, ai đối chiếu và xử lý chênh lệch?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào dùng mẫu đề nghị tạm ứng và khi nào dùng mẫu đề nghị thanh toán?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi lấy mẫu đề nghị tạm ứng và đề nghị thanh toán chi phí xe ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.fuel-receipts",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-receipts",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hóa đơn nhiên liệu cần ghi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổ xăng"
+            ],
+            [
+              "thiếu hóa đơn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phí gửi xe"
+            ],
+            [
+              "rửa xe"
+            ],
+            [
+              "cầu đường"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hóa đơn nhiên liệu cần ghi thông tin gì để được đưa vào hồ sơ thanh toán?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đổ xăng nhưng thiếu hóa đơn hoặc hóa đơn sai thông tin, tài xế phải xử lý thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phí gửi xe, rửa xe, cầu đường và các khoản phát sinh trong chuyến cần chứng từ gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.fuel-excess",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-excess",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giá trị hóa đơn"
+            ],
+            [
+              "phần vượt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hóa đơn"
+            ],
+            [
+              "cao hơn mức tính"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vượt mức nhiên liệu"
+            ],
+            [
+              "hoàn lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu lượng nhiên liệu hoặc giá trị hóa đơn cao hơn mức tính trong kỳ, phần vượt được xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount"
+    },
+    {
+      "id": "route.company-vehicles.fuel-reimburse",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.fuel-reimburse",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tự ứng tiền xăng"
+            ],
+            [
+              "xin hoàn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuyến"
+            ],
+            [
+              "hai kỳ quyết toán"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chi phí xe công ty"
+            ],
+            [
+              "công tác phí cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhiều phòng ban dùng chung xe"
+            ],
+            [
+              "phân bổ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phải tự ứng tiền xăng, cầu đường hoặc phí gửi xe, tôi xin hoàn lại ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Một chuyến kéo dài qua hai kỳ quyết toán thì chứng từ và nhật trình được đối chiếu thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Chi phí xe công ty, khoản ứng tiền của tài xế và công tác phí cá nhân được ghi nhận tách biệt thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nhiều phòng ban dùng chung xe trong một chuyến, chi phí được phân bổ và xác nhận ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.vehicle-deadlines",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.vehicle-deadlines",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "theo dõi hạn đăng kiểm"
+            ],
+            [
+              "bảo hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sắp hết hạn đăng kiểm"
+            ],
+            [
+              "tài xế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai theo dõi hạn đăng kiểm, phí sử dụng đường bộ và bảo hiểm bắt buộc của xe?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi xe sắp hết hạn đăng kiểm hoặc bảo hiểm, tài xế phải báo cho ai và chuẩn bị hồ sơ gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.vetc-owner",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.vetc-owner",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý tài khoản vetc"
+            ],
+            [
+              "giao dịch"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuyển xe giữa hai phòng ban"
+            ],
+            [
+              "vetc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai quản lý tài khoản VETC và theo dõi giao dịch của các xe thuộc bộ phận mình?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi chuyển xe giữa hai phòng ban, ai cập nhật thông tin xe trong tài khoản VETC?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "nếu trạm trừ tiền hai lần thì sao": "task.company-vehicles.vetc-receipts"
+      }
+    },
+    {
+      "id": "route.company-vehicles.vetc-damage",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.vetc-damage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thẻ vetc"
+            ],
+            [
+              "dán lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vetc hỏng"
+            ],
+            [
+              "chi phí dán lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu thẻ VETC bị rách, mất hoặc không đọc được, ai làm thủ tục dán lại?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu thẻ VETC hỏng do tài xế hoặc người đi cùng, chi phí dán lại được xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.vetc-receipts",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.vetc-receipts",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trừ tiền hai lần"
+            ],
+            [
+              "tài xế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu phí"
+            ],
+            [
+              "ghi nhận sai biển số"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phí qua trạm"
+            ],
+            [
+              "chứng từ đối chiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi trạm thu phí ghi nhận sai biển số hoặc trừ tiền hai lần, tài xế báo ai và cần cung cấp bằng chứng gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phải trả phí qua trạm bằng hình thức khác, cần giữ chứng từ gì để đối chiếu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.incident-report",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.incident-report",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe va quẹt hoặc tai nạn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người bị thương"
+            ],
+            [
+              "chuyến đi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hư hỏng do bên thứ ba"
+            ],
+            [
+              "bảo hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu xe va quẹt hoặc tai nạn trong chuyến đi, tài xế phải báo cho ai và lập hồ sơ gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nhân viên hoặc khách bị thương trong chuyến đi, ai là đầu mối báo cáo và hỗ trợ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu xe bị hư hỏng do bên thứ ba, tài xế phải ghi nhận sự việc và phối hợp bảo hiểm thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure"
+    },
+    {
+      "id": "route.company-vehicles.incident-fine",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.incident-fine",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phạt nguội"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vi phạm giao thông"
+            ],
+            [
+              "xác định người sử dụng xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi có phạt nguội hoặc vi phạm giao thông, ai xác định người sử dụng xe và xử lý thông báo?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.incident-liability",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.incident-liability",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe"
+            ],
+            [
+              "bồi thường thiệt hại"
+            ],
+            [
+              "ai quyết định"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sử dụng xe sai mục đích"
+            ],
+            [
+              "nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào tài xế hoặc người sử dụng xe phải bồi thường thiệt hại, và ai quyết định?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sử dụng xe sai mục đích, tự ý cho mượn xe hoặc làm sai nhật trình được xử lý theo quy định nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.incident-appeal",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.incident-appeal",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "không đồng ý với biên bản sự cố"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe"
+            ],
+            [
+              "mức bồi thường"
+            ],
+            [
+              "gửi giải trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu không đồng ý với biên bản sự cố hoặc mức bồi thường, tôi gửi giải trình cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.incident-records",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.incident-records",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tra cứu camera"
+            ],
+            [
+              "lịch xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dữ liệu định vị"
+            ],
+            [
+              "xác minh sự cố"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cần tra cứu camera, dữ liệu định vị hoặc lịch xe để xác minh sự cố, tôi phải đề nghị qua đầu mối nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.guide-policy",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.guide-policy",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bản quy định sử dụng xe tập đoàn đang áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hướng dẫn riêng tại chi nhánh"
+            ],
+            [
+              "quy định chung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi xem bản quy định sử dụng xe Tập đoàn đang áp dụng ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu quy định chung và hướng dẫn riêng tại chi nhánh khác nhau, tôi hỏi ai để xác nhận cách áp dụng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.guide-forms",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.guide-forms",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mẫu sổ nhật trình"
+            ],
+            [
+              "sổ theo dõi sửa xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "biên bản bàn giao"
+            ],
+            [
+              "mẫu"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi lấy mẫu sổ nhật trình, sổ theo dõi sửa xe, phiếu đề xuất sửa chữa và biên bản bàn giao ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.company-vehicles.guide-dispatch",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.guide-dispatch",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đầu mối điều xe hiện tại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tra tài xế"
+            ],
+            [
+              "biển số"
+            ],
+            [
+              "tình trạng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa có trong quy định"
+            ],
+            [
+              "quản lý điều xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tra đầu mối điều xe hiện tại của từng chi nhánh, showroom hoặc kho bằng cách nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tra tài xế, biển số và tình trạng của chuyến xe đã đề xuất bằng cách nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu tình huống của tôi chưa có trong quy định, tôi cần gửi những thông tin gì cho HCNS hoặc Quản lý điều xe để được hướng dẫn?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.company-vehicles.guide-backoffice",
+      "family": "vehicles",
+      "task_id": "task.company-vehicles.guide-backoffice",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ sửa xe"
+            ],
+            [
+              "tạm ứng"
+            ],
+            [
+              "đã xử lý đến bước nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quyết toán xăng dầu"
+            ],
+            [
+              "đến bước nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi kiểm tra hồ sơ sửa xe, tạm ứng hoặc quyết toán xăng dầu đã xử lý đến bước nào ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đặt xe giúp tôi",
+        "đặt hộ tôi",
         "cho xem hồ sơ của"
       ]
     }

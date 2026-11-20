@@ -1,0 +1,48 @@
+{
+  "id": "route.company-vehicles.approval-dispatch",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.approval-dispatch",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phê duyệt nhu cầu sử dụng xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quản lý điều xe"
+        ],
+        [
+          "thẩm quyền khác nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai phê duyệt nhu cầu sử dụng xe và ai quyết định bố trí xe, tài xế?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ban lãnh đạo, HCNS, Admin và Quản lý điều xe có thẩm quyền khác nhau thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn đi ngoài giờ thì sao": "task.company-vehicles.after-hours"
+  }
+}

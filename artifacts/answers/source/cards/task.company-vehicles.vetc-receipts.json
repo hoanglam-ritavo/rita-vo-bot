@@ -1,0 +1,176 @@
+{
+  "id": "task.company-vehicles.vetc-receipts",
+  "label": "Sai giao dịch VETC và chứng từ qua trạm",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Sai giao dịch VETC và chứng từ qua trạm"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về sai giao dịch vetc và chứng từ qua trạm?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.vetc-receipts",
+          "text": "Báo người quản lý tài khoản VETC/Quản lý điều xe và cung cấp biển số, thời điểm, trạm, giao dịch và chứng từ có sẵn. Giữ hóa đơn hoặc biên nhận cầu đường và nhật trình để Kế toán đối chiếu.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 27,
+              "content_sha256": "d63509d3cb11c99e139de0ce707b47c862e9ecba6dc0701778030ef5e8983705",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.6. Trách nhiệm của Phòng kế toán:\na) Phối hợp với P. HCNS xây dựng, điều chỉnh định mức xăng dầu cho các loại xe.\nb) Kiểm tra, theo dõi và thanh toán các khoản chi phí sửa chữa, bảo trì, bảo dưỡng, thay thế phụ tùng xe, chi phí thuê xe ngoài (taxi, Grab...).\nc) Thanh toán kịp thời chi phí xăng, dầu theo hóa đơn và định mức đã phê duyệt. Thanh toán vé cầu đường, bến bãi cho lái xe theo đúng lộ trình chuyến đi.\nd) Mọi thanh toán chi phí xe phải tuân thủ quy trình thanh toán.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 35,
+              "content_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.2. Hồ sơ quyết toán xăng dầu bao gồm:\n- Sổ nhật trình xe (có ký xác nhận của trưởng bộ phận và người sử dụng xe)\n- Hóa đơn xăng/ dầu có đầy đủ, chính xác thông tin xuất hóa đơn (hóa đơn xăng/ dầu sau khi cung cấp để thanh toán của kỳ đó, nếu tổng giá trị hóa đơn cao hơn so với lượng nhiên liệu thực tính trong kỳ sẽ không được hoàn lại)\n- Hóa đơn/ biên nhận đậu đỗ xe, cầu đường, vá vỏ, cân mâm… (biên nhận vá vỏ, đảo vỏ…phải kèm theo hình chụp thực tế xe đưa vào gara và tình trạng xe thời điểm đó)\n- Phiếu thu chành xe: nhân viên lái xe cung cấp kèm theo biên bản giao nhận hàng của chuyến chành xe đó, hình ảnh hàng hóa chành xe\n- Biên bản bàn giao xe (nếu là xe mới).",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 37,
+              "content_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.4. Đối với xe đang sử dụng:\n- Tất cả các xe văn phòng đều được dán thẻ qua TTPKĐ.\n- Nhân viên lái xe có trách nhiệm bảo quản thẻ, không xé, cào rách hoặc làm hư hỏng thẻ.\n- Nếu thẻ VETC bị hư hỏng do tác động của nhân viên lái xe hoặc người đi cùng trên xe, phải chịu trách nhiệm bồi thường chi phí dán lại thẻ VETC.\n- Nhân viên quản lý tài khoản thẻ qua trạm không dừng (thẻ VETC) phải thường xuyên kiểm tra số tiền còn trong tài khoản, số tiền còn lại không được dưới 50.000đ (bằng chữ: Năm mươi ngàn đồng). Nếu số tiền trong tài khoản còn lại thấp hơn số tiền phí xe qua trạm, dẫn đến xe qua trạm bị phạt theo quy định. Nhân viên quản lý tài khoản phải chịu trách nhiệm tất cả các khoản phạt theo quy định.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 38,
+              "content_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9. Đối với xe mới mua:\n- Nhân viên lái xe liên hệ P. HCNS để được hướng dẫn thực hiện thủ tục dán mới thẻ qua trạm không dừng (thẻ VETC) cho xe theo quy định.\n- Quản lý điều xe sử dụng 01 tài khoản VETC, cho tất cả các xe thuộc phòng ban quản lý và điều động.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa quy định thủ tục khiếu nại từng giao dịch, thu phí sai hoặc cách hoàn của nhà cung cấp."
+      ]
+    },
+    "paperwork": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.vetc-receipts",
+          "text": "Báo người quản lý tài khoản VETC/Quản lý điều xe và cung cấp biển số, thời điểm, trạm, giao dịch và chứng từ có sẵn. Giữ hóa đơn hoặc biên nhận cầu đường và nhật trình để Kế toán đối chiếu.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 27,
+              "content_sha256": "d63509d3cb11c99e139de0ce707b47c862e9ecba6dc0701778030ef5e8983705",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.6. Trách nhiệm của Phòng kế toán:\na) Phối hợp với P. HCNS xây dựng, điều chỉnh định mức xăng dầu cho các loại xe.\nb) Kiểm tra, theo dõi và thanh toán các khoản chi phí sửa chữa, bảo trì, bảo dưỡng, thay thế phụ tùng xe, chi phí thuê xe ngoài (taxi, Grab...).\nc) Thanh toán kịp thời chi phí xăng, dầu theo hóa đơn và định mức đã phê duyệt. Thanh toán vé cầu đường, bến bãi cho lái xe theo đúng lộ trình chuyến đi.\nd) Mọi thanh toán chi phí xe phải tuân thủ quy trình thanh toán.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 35,
+              "content_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.2. Hồ sơ quyết toán xăng dầu bao gồm:\n- Sổ nhật trình xe (có ký xác nhận của trưởng bộ phận và người sử dụng xe)\n- Hóa đơn xăng/ dầu có đầy đủ, chính xác thông tin xuất hóa đơn (hóa đơn xăng/ dầu sau khi cung cấp để thanh toán của kỳ đó, nếu tổng giá trị hóa đơn cao hơn so với lượng nhiên liệu thực tính trong kỳ sẽ không được hoàn lại)\n- Hóa đơn/ biên nhận đậu đỗ xe, cầu đường, vá vỏ, cân mâm… (biên nhận vá vỏ, đảo vỏ…phải kèm theo hình chụp thực tế xe đưa vào gara và tình trạng xe thời điểm đó)\n- Phiếu thu chành xe: nhân viên lái xe cung cấp kèm theo biên bản giao nhận hàng của chuyến chành xe đó, hình ảnh hàng hóa chành xe\n- Biên bản bàn giao xe (nếu là xe mới).",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 37,
+              "content_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.4. Đối với xe đang sử dụng:\n- Tất cả các xe văn phòng đều được dán thẻ qua TTPKĐ.\n- Nhân viên lái xe có trách nhiệm bảo quản thẻ, không xé, cào rách hoặc làm hư hỏng thẻ.\n- Nếu thẻ VETC bị hư hỏng do tác động của nhân viên lái xe hoặc người đi cùng trên xe, phải chịu trách nhiệm bồi thường chi phí dán lại thẻ VETC.\n- Nhân viên quản lý tài khoản thẻ qua trạm không dừng (thẻ VETC) phải thường xuyên kiểm tra số tiền còn trong tài khoản, số tiền còn lại không được dưới 50.000đ (bằng chữ: Năm mươi ngàn đồng). Nếu số tiền trong tài khoản còn lại thấp hơn số tiền phí xe qua trạm, dẫn đến xe qua trạm bị phạt theo quy định. Nhân viên quản lý tài khoản phải chịu trách nhiệm tất cả các khoản phạt theo quy định.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 38,
+              "content_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9. Đối với xe mới mua:\n- Nhân viên lái xe liên hệ P. HCNS để được hướng dẫn thực hiện thủ tục dán mới thẻ qua trạm không dừng (thẻ VETC) cho xe theo quy định.\n- Quản lý điều xe sử dụng 01 tài khoản VETC, cho tất cả các xe thuộc phòng ban quản lý và điều động.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa quy định thủ tục khiếu nại từng giao dịch, thu phí sai hoặc cách hoàn của nhà cung cấp."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

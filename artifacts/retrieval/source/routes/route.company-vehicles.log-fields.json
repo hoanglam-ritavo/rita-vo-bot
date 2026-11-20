@@ -1,0 +1,87 @@
+{
+  "id": "route.company-vehicles.log-fields",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.log-fields",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sổ nhật trình xe"
+        ],
+        [
+          "thông tin"
+        ],
+        [
+          "chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe cấp riêng"
+        ],
+        [
+          "ghi sổ nhật trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sổ nhật trình dùng mẫu nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "km đầu chuyến"
+        ],
+        [
+          "cuối chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sổ nhật trình xe phải ghi những thông tin gì cho mỗi chuyến?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe cấp riêng cho Ban lãnh đạo có phải ghi sổ nhật trình như xe văn phòng không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sổ nhật trình dùng mẫu nào, do ai ghi và ai kiểm tra?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế phải ghi kilomet đầu chuyến, cuối chuyến và từng điểm đi qua như thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

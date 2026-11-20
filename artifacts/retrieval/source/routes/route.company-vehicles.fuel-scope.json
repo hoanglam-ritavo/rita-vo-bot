@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.fuel-scope",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "những xe nào"
+        ],
+        [
+          "định mức xăng dầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tra bảng định mức"
+        ],
+        [
+          "từng xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Những xe nào áp dụng định mức xăng dầu và tra bảng định mức của từng xe ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

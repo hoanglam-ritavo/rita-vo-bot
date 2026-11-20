@@ -1,0 +1,70 @@
+{
+  "id": "route.company-vehicles.fuel-receipts",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-receipts",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hóa đơn nhiên liệu cần ghi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổ xăng"
+        ],
+        [
+          "thiếu hóa đơn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phí gửi xe"
+        ],
+        [
+          "rửa xe"
+        ],
+        [
+          "cầu đường"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hóa đơn nhiên liệu cần ghi thông tin gì để được đưa vào hồ sơ thanh toán?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đổ xăng nhưng thiếu hóa đơn hoặc hóa đơn sai thông tin, tài xế phải xử lý thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phí gửi xe, rửa xe, cầu đường và các khoản phát sinh trong chuyến cần chứng từ gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

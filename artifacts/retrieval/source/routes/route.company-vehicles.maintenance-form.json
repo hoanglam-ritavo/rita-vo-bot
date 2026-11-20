@@ -1,0 +1,63 @@
+{
+  "id": "route.company-vehicles.maintenance-form",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.maintenance-form",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu đề xuất sửa chữa xe"
+        ],
+        [
+          "dùng mẫu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đánh giá báo giá"
+        ],
+        [
+          "hạng mục sửa chữa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phiếu dxsc01"
+        ],
+        [
+          "ghi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phiếu đề xuất sửa chữa xe dùng mẫu nào và cần ghi những nội dung gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai đánh giá báo giá và phê duyệt hạng mục sửa chữa, thay thế?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

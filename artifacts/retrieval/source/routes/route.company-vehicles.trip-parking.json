@@ -1,0 +1,55 @@
+{
+  "id": "route.company-vehicles.trip-parking",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.trip-parking",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe phải đỗ ở đâu"
+        ],
+        [
+          "ngày nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mang xe về nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bãi ngoài"
+        ],
+        [
+          "chuyến đi hôm sau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe phải đỗ ở đâu khi kết thúc chuyến ngoài giờ, ngày nghỉ hoặc ngày lễ?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được mang xe về nhà hoặc gửi ở bãi ngoài để phục vụ chuyến đi hôm sau không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

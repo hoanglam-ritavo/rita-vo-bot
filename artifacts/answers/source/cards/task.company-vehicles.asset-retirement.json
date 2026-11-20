@@ -1,0 +1,82 @@
+{
+  "id": "task.company-vehicles.asset-retirement",
+  "label": "Xe và phụ tùng không còn sử dụng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xe và phụ tùng không còn sử dụng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về xe và phụ tùng không còn sử dụng?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.asset-retirement",
+          "text": "Báo HCNS/Quản lý điều xe để kiểm tra khả năng sửa hoặc thay. Nếu tài sản hoặc phụ tùng không còn khả năng sử dụng, gửi đề xuất thanh lý cho HCNS và KSNB để đánh giá theo quy trình tài sản.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 1,
+              "content_sha256": "4e7d05ca82d1b11d8f0a89316e08df0b6c2273237052d0ddd0f7e8c30fc6bf19",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\nI. MỤC ĐÍCH:\n- Xử lý TS – CCDC, vật dụng, phế phẩm không còn sử dụng.\nII. PHẠM VI VÀ ĐỐI TƯỢNG ÁP DỤNG:\n- Toàn bộ các phòng ban khi cần xử lý các Tài sản/ CCDC/ Hàng hóa … không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ.\nIII. ĐỊNH NGHĨA & NHỮNG TỪ VIẾT TẮT:\n3.1. Định nghĩa:\n- Các trường hợp thanh lý, hủy bỏ - Tài sản - công cụ dụng cụ, phế liệu:\n* Khi có Tài sản - công cụ dụng cụ hết hạn sử dụng\n* Tài sản - công cụ dụng cụ chưa hết hạn sử dụng nhưng hư hỏng, không thể sửa chữa hoặc sửa chữa không hiệu quả (tốn chi phí so với giá trị thực)\n* Phế liệu (thùng carton, can nhựa, túi nylon…): vật dụng có giá trị thu mua cần thanh lý.\n3.2. Phương thức thực hiện:\n* Bán/ thanh lý Tài sản - công cụ dụng cụ, phế liệu\n* Phá dỡ, hủy bỏ, đổ bỏ Tài sản - công cụ dụng cụ…",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            },
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 5,
+              "content_sha256": "3ed405cc58803d10b8ddfc693176667d9d4e27ca0fb0e9011ef63276657d390d",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2. Diễn Giải — Bước 1: Đề xuất thanh lý/ hủy bỏ/ TS-CCDC/PL\n- Khi có nhu cầu đề xuất thanh lý/ hủy bỏ các TS - CCDC/PL, các phòng ban gửi email thông tin đến KSNB, HCNS (kèm ít nhất 3 hình ảnh thể hiện toàn cảnh và chi tiết mã TS-CCDC/PL nếu có)\n- Đối với các SR/ KV/ chi nhánh ngoài HN/HCM, HCNS hướng dẫn tập trung các TS-CCDC/PL này tại 1 khu vực nhất định, và xử lý đánh giá định kỳ 3 tháng - 6 tháng/ lần\nTrách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB.\n5.2. Quy trình thanh lý TS-CCDC/PL — 5.2.1. Lưu Đồ:\nBước 1: Đề xuất thanh lý / hủy bỏ TS-CCDC/PL. Trách nhiệm: Phòng ban có nhu cầu thanh lý; HCNS; KSNB. Thời gian: Tùy theo điều kiện phát sinh, Ngày T.\nBước 2: Thành lập đội đánh giá tình trạng - đề xuất phương án xử lý (Thanh lý/ Hủy bỏ). Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T + 1.\nBước 3: Tìm kiếm nhà thầu xử lý. Trách nhiệm: HCNS; KSNB; Bộ phận chuyên môn. Thời gian: Ngày T+3.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 22,
+              "content_sha256": "1dc9c2d10689fbf0b41824fa81f51a015b6958e8e34ef43a6bfac7475637c7c7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3. Trách nhiệm của Nhân viên Tài xế:\na) Trực tiếp sử dụng xe, chịu trách nhiệm lập kế hoạch kiểm tra, đề xuất sửa chữa, bảo dưỡng, bảo trì định kỳ, bảo đảm an toàn tuyệt đối cho xe:\n- Thực hiện bảo dưỡng, sửa chữa kịp thời, đảm bảo xe hoạt động an toàn, hiệu quả.\n- Khi xe bị hư hỏng hoặc có dấu hiệu hư hỏng do yếu tố khấu hao phải báo ngay cho P. HCNS/ Quản lý điều xe để đề xuất thực hiện các thủ tục về việc sửa chữa hoặc thay thế.\n- Theo dõi thời hạn bảo hiểm bắt buộc, phí kiểm định, phí sử dụng đường bộ … thông báo cho P. HCNS/ quản lý điều xe chậm nhất là 15 ngày trước khi hết thời hạn. Tránh làm gián đoạn việc sử dụng xe ảnh hưởng đến công việc chung nếu các loại giấy tờ trên hết hạn.\nb) Bất kỳ việc chậm trễ sửa chữa, thay mới phụ tùng, bảo hiểm và các loại giấy tờ xe hết hạn,... mà tài xế không kiểm tra thông báo cho P. HCNS làm ảnh hưởng đến tiến độ công việc, an toàn về người và tài sản trên xe, tài xế phải chịu trách nhiệm về những thiệt hại xảy ra.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Việc thanh lý xe hoặc phụ tùng cụ thể phụ thuộc hồ sơ, đánh giá và phê duyệt."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

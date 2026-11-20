@@ -1,0 +1,65 @@
+{
+  "id": "route.company-vehicles.priority",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.priority",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thu hồi công nợ"
+        ],
+        [
+          "đề xuất xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khách mời của ban lãnh đạo"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thứ tự ưu tiên"
+        ],
+        [
+          "cần xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên Kế toán đi thu tiền, thu hồi công nợ hoặc thực hiện công việc ngân hàng có thuộc nhóm được đề xuất xe không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có thể dùng xe công ty để đón khách hàng, đối tác hoặc khách mời của Ban lãnh đạo không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nhiều bộ phận cần xe cùng lúc, thứ tự ưu tiên được xác định thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

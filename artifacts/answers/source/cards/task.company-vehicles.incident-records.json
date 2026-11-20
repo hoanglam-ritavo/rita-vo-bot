@@ -1,0 +1,82 @@
+{
+  "id": "task.company-vehicles.incident-records",
+  "label": "Xác minh sự cố qua lịch xe hoặc GPS",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xác minh sự cố qua lịch xe hoặc GPS"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về xác minh sự cố qua lịch xe hoặc gps?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.incident-records",
+          "text": "Gửi thời gian, biển số và lý do xác minh cho HCNS/Quản lý điều xe. Bảo vệ giữ ghi nhận xe ra vào và có thể phối hợp đối chiếu. HCNS phụ trách đề xuất dịch vụ GPS.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 19,
+              "content_sha256": "c349acf9704e3b372c5bc369f265b1f47d148fc883f9be680c9b71f9de9d9df4",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6. Trách nhiệm trong quản lý và sử dụng xe\n1. Trách nhiệm của P. HCNS:\na) Tổ chức thực hiện việc quản lý, bảo quản, sử dụng xe đảm bảo sử dụng tài sản, tài nguyên xe đúng mục đích, tránh lãng phí.\nb) Kiểm tra định kỳ và đột xuất việc sử dụng xe của các phòng ban thực hiện theo quy định.\nc) Hồ sơ thanh toán xăng dầu của các phòng ban (ngoại trừ bộ phận Kho) phải thông qua P.HCNS kiểm tra, ký xác nhận.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 21,
+              "content_sha256": "6d86b8929f373a6429c7a43e3e580cfd7b86536346b79ddbf4c51dd8e48579cc",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.1.f) Chịu trách nhiệm đề xuất gia hạn, mua mới bảo hiểm dân sự bắt buộc, phí đường bộ VETC, phí kiểm định, hệ thống định vị GPS …kịp thời, đúng hạn tránh làm ảnh hưởng đến việc sử dụng xe cho mục đích công việc.\ng) Báo cáo lên Ban lãnh đạo tình hình sử dụng, quản lý xe theo yêu cầu của Ban lãnh đạo.\n2. Trách nhiệm của Quản lý điều xe:\na) Tổ chức thực hiện việc quản lý, bảo quản, sử dụng, thanh toán chi phí xe đảm bảo sử dụng tài sản, tài nguyên xe đúng mục đích, tránh lãng phí.\nb) Gửi thông tin liên hệ của nhân viên tài xế cho nhân viên sử dụng xe.\nc) Đề nghị nhân viên/ bộ phận sử dụng xe điều chỉnh thời gian, lộ trình chuyến đi sao cho phù hợp với quy định.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 26,
+              "content_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.4. Trách nhiệm của Tổ bảo vệ:\na) Chịu trách nhiệm kiểm tra tình trạng xe trước khi sử dụng và sau khi sử dụng xong.\nb) Ghi chép đầy đủ thông tin lịch trình xe ra vào.\nc) Phải xác định được xe bị trầy xước, hư hỏng, mất mát là do tài xế nào sử dụng và lập biên bản yêu cầu tài xế ký xác nhận.\n5. Trách nhiệm của Nhân viên sử dụng xe:\na) Giữ gìn vệ sinh chung trên xe. Trước khi xuống xe phải kiểm tra lại đồ đạc trên xe, thu dọn tư trang, không xả rác bừa bãi trên xe.\nb) Không được sửa đổi lộ trình sử dụng xe vào mục đích cá nhân.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Quy định chưa xác nhận quyền xem camera hoặc dữ liệu định vị. Đầu mối quản lý phải kiểm tra quyền trước khi cung cấp."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

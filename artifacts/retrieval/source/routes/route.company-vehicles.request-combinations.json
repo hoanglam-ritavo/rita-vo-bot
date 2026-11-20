@@ -1,0 +1,62 @@
+{
+  "id": "route.company-vehicles.request-combinations",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.request-combinations",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhiều xe hoặc nhiều chuyến"
+        ],
+        [
+          "phiếu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hai phòng ban"
+        ],
+        [
+          "đi chung xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuyến đi bị hủy hoặc đổi giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Một phòng ban có thể đề xuất nhiều xe hoặc nhiều chuyến trong cùng một phiếu không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hai phòng ban có thể đi chung xe không và ai xác nhận lịch chung?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi chuyến đi bị hủy hoặc đổi giờ, tôi phải báo ai để cập nhật lịch xe?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

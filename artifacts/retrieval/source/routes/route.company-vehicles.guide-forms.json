@@ -1,0 +1,49 @@
+{
+  "id": "route.company-vehicles.guide-forms",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.guide-forms",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mẫu sổ nhật trình"
+        ],
+        [
+          "sổ theo dõi sửa xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "biên bản bàn giao"
+        ],
+        [
+          "mẫu"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi lấy mẫu sổ nhật trình, sổ theo dõi sửa xe, phiếu đề xuất sửa chữa và biên bản bàn giao ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

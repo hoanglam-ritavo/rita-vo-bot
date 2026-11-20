@@ -1,0 +1,38 @@
+{
+  "id": "route.company-vehicles.platform-missing",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-missing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "không thấy mục xe công tác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "workit"
+        ],
+        [
+          "mất mục xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi không thấy mục Xe công tác thì kiểm tra quyền hoặc liên hệ bộ phận nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

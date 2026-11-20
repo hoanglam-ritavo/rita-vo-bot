@@ -1,0 +1,82 @@
+{
+  "id": "task.company-vehicles.driver-change",
+  "label": "Tải trọng, đổi lộ trình và công tác qua ngày",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tải trọng, đổi lộ trình và công tác qua ngày"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về tải trọng, đổi lộ trình và công tác qua ngày?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.driver-change",
+          "text": "Tài xế phải dùng xe đúng mục đích, tải trọng, lộ trình và thời gian đã duyệt. Xin Quản lý điều xe đồng ý trước khi đổi lộ trình hoặc giờ. Tài xế có quyền từ chối đổi lộ trình vì việc riêng. Người dùng xe xác nhận chi phí và lịch trình vào nhật trình hoặc phiếu tăng ca/công tác xa, qua ngày nếu có.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 24,
+              "content_sha256": "6642dbe92c48835853964ec46152a7b2042d495301d85be9aa8225d18784ded7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3.h) Nhân viên tài xế sử dụng xe đúng mục đích, tải trọng, lộ trình, thời gian đã được phê duyệt:\n- Lộ trình di chuyển, thời gian khởi hành phải hợp lý, tránh lãng phí và phòng trừ trường hợp tắc đường. Không tự tiện thay đổi lộ trình hay thời gian khi chưa được sự đồng ý của quản lý điều xe. Nhân viên tài xế được quyền từ chối yêu cầu của người sử dụng xe/ người ngồi trên xe nếu thay đổi lộ trình di chuyển phục vụ cho mục đích cá nhân. Đảm bảo chuyên chở người, hàng hóa trên xe đúng số lượng người, tải trọng theo quy định cho phép chuyên chở khi tham gia giao thông được quy định tại giấy chứng nhận kiểm định của xe.\n- Đảm bảo đúng giờ và địa điểm đón, trả nhân viên theo yêu cầu của phiếu đăng ký xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 25,
+              "content_sha256": "0b17305a8e1890bbc13aced262ae2d2489b1c702775d5dc4bbf2322f6cc8bc42",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3.h) (tiếp):\n- Nhân viên tài xế yêu cầu đại diện phòng ban/ cá nhân sử dụng xe sau khi sử dụng xe phải ký xác nhận lịch trình và chi phí phát sinh của chuyến đi vào sổ nhật trình của xe hoặc phiếu đề nghị tăng ca, công tác xa, qua ngày (nếu có). Tài xế tự làm đề xuất xin duyệt công tác phí.\n- Ghi chép đầy đủ, chính xác thông tin lịch trình vào sổ nhật trình xe theo quy định.\n- Nộp hồ sơ thanh toán đầy đủ theo quy định tại Điều 9 quy định này.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 18,
+              "content_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 5.2.c) Thông báo với người đề xuất xe về tình hình xe và tài xế có đáp ứng được nhu cầu hay không. Trường hợp đột xuất, cấp thiết GĐ. HCNS/TP. HCNS được quyền điều động sử dụng xe từ các phòng ban để phục vụ công việc theo chỉ đạo của Ban lãnh đạo hoặc công việc chung của Tập đoàn mà không cần thông qua ý kiến của các phòng ban, bộ phận điều xe.\nd) Trường hợp xe không có sẵn, P. HCNS có trách nhiệm cung cấp các dịch vụ vận chuyển tương tự như Taxi/Grab... được sử dụng cho việc di chuyển phục vụ mục đích công việc.\ne) Trong những trường hợp cấp cứu, Tổ nhân viên giao hàng, lái xe có thể sử dụng xe theo đề nghị của nhân viên y tế để kịp thời xử lý công việc, ngay sau đó thông báo, xin ý kiến của Ban lãnh đạo và P. HCNS để xử lý các bước tiếp theo.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa nêu thủ tục riêng khi thêm người ngoài đề xuất. Hỏi Quản lý điều xe trước khi thay đổi."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

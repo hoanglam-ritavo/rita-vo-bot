@@ -1,0 +1,45 @@
+{
+  "id": "route.company-vehicles.fuel-adjust",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.fuel-adjust",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xây dựng định mức nhiên liệu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tiêu hao bất thường"
+        ],
+        [
+          "điều chỉnh định mức"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "HCNS, Kế toán và bộ phận chuyên môn phối hợp xây dựng định mức nhiên liệu như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đổi xe, thay đổi điều kiện vận hành hoặc mức tiêu hao bất thường, ai đề xuất điều chỉnh định mức?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

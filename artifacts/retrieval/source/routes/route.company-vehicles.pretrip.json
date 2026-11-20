@@ -1,0 +1,71 @@
+{
+  "id": "route.company-vehicles.pretrip",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.pretrip",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trước khi nhận xe"
+        ],
+        [
+          "tài xế"
+        ],
+        [
+          "kiểm tra"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe đã trầy xước"
+        ],
+        [
+          "trước chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thiết bị an toàn"
+        ],
+        [
+          "tải trọng"
+        ],
+        [
+          "tài xế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trước khi nhận xe, tài xế phải kiểm tra những gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện xe đã trầy xước hoặc hư hỏng trước chuyến, tài xế phải báo ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế cần kiểm tra giấy tờ, nhiên liệu, thiết bị an toàn và tải trọng như thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

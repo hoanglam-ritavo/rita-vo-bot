@@ -1,0 +1,38 @@
+{
+  "id": "route.company-vehicles.trip-unsigned",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.trip-unsigned",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người sử dụng xe chưa ký nhật trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thiếu chữ ký"
+        ],
+        [
+          "nhật trình xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu người sử dụng xe chưa ký nhật trình, tài xế cần bổ sung xác nhận thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

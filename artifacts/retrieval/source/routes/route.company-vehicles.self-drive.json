@@ -1,0 +1,56 @@
+{
+  "id": "route.company-vehicles.self-drive",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.self-drive",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trực tiếp lái xe công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không phải tài xế"
+        ],
+        [
+          "tự lái"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ai được"
+        ],
+        [
+          "tự lái xe công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai được trực tiếp lái xe công ty?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên không phải tài xế cần đáp ứng điều kiện gì để được tự lái?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "conditions"
+}

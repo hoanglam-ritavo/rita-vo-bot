@@ -56,6 +56,47 @@
           "Quy định cấm chở những loại hàng hóa hoặc thực phẩm nào trên xe công ty?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe công ty"
+        ],
+        [
+          "đưa đón người thân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe công ty"
+        ],
+        [
+          "chở hàng riêng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe công ty có được dùng để đi làm hằng ngày, đưa đón người thân hoặc giải quyết việc riêng không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được dùng xe công ty để chở hàng riêng hoặc hàng ngoài nhiệm vụ được duyệt không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định cấm chở những loại thực phẩm hoặc hàng hóa nào trên xe công ty?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

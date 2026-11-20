@@ -1,0 +1,48 @@
+{
+  "id": "route.company-vehicles.vehicle-deadlines",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.vehicle-deadlines",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "theo dõi hạn đăng kiểm"
+        ],
+        [
+          "bảo hiểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sắp hết hạn đăng kiểm"
+        ],
+        [
+          "tài xế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai theo dõi hạn đăng kiểm, phí sử dụng đường bộ và bảo hiểm bắt buộc của xe?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi xe sắp hết hạn đăng kiểm hoặc bảo hiểm, tài xế phải báo cho ai và chuẩn bị hồ sơ gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "route.company-vehicles.incident-fine",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.incident-fine",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phạt nguội"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vi phạm giao thông"
+        ],
+        [
+          "xác định người sử dụng xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi có phạt nguội hoặc vi phạm giao thông, ai xác định người sử dụng xe và xử lý thông báo?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "route.company-vehicles.platform-compare",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-compare",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "workit web và mobile"
+        ],
+        [
+          "phiếu xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "workit"
+        ],
+        [
+          "phiếu xe"
+        ],
+        [
+          "sửa"
+        ],
+        [
+          "theo dõi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Workit Web và Mobile có hỗ trợ cùng các thao tác đặt, sửa và theo dõi phiếu xe không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}

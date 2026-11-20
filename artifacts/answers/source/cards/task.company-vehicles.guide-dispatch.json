@@ -1,0 +1,98 @@
+{
+  "id": "task.company-vehicles.guide-dispatch",
+  "label": "Tra đầu mối hoặc tình trạng chuyến xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tra đầu mối hoặc tình trạng chuyến xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về tra đầu mối hoặc tình trạng chuyến xe?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.guide-dispatch",
+          "text": "Xem phiếu Xe công tác trên Workit nếu có, rồi liên hệ Admin/Quản lý điều xe hoặc HCNS của đơn vị để xác nhận tình trạng. Nêu mã phiếu, cơ sở, thời gian, điểm đi/đến, mục đích và điều cần kiểm tra.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 8,
+              "content_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.4. Tất cả các đối tượng (trừ Ban lãnh đạo và những cá nhân được Tập đoàn cấp xe riêng) khi có nhu cầu sử dụng xe thì liên hệ Admin/ Quản lý điều xe và phải được cấp có thẩm quyền phê duyệt theo quy định của Tập đoàn.\n5. Người sử dụng xe chỉ được tự lái xe khi có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban lãnh đạo đồng ý, phê duyệt dưới mọi hình thức.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 18,
+              "content_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 5.2.c) Thông báo với người đề xuất xe về tình hình xe và tài xế có đáp ứng được nhu cầu hay không. Trường hợp đột xuất, cấp thiết GĐ. HCNS/TP. HCNS được quyền điều động sử dụng xe từ các phòng ban để phục vụ công việc theo chỉ đạo của Ban lãnh đạo hoặc công việc chung của Tập đoàn mà không cần thông qua ý kiến của các phòng ban, bộ phận điều xe.\nd) Trường hợp xe không có sẵn, P. HCNS có trách nhiệm cung cấp các dịch vụ vận chuyển tương tự như Taxi/Grab... được sử dụng cho việc di chuyển phục vụ mục đích công việc.\ne) Trong những trường hợp cấp cứu, Tổ nhân viên giao hàng, lái xe có thể sử dụng xe theo đề nghị của nhân viên y tế để kịp thời xử lý công việc, ngay sau đó thông báo, xin ý kiến của Ban lãnh đạo và P. HCNS để xử lý các bước tiếp theo.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 39,
+              "content_sha256": "6ccfb2117f7fe944cb242c8c980a293ebc69ed556fd434caf239e50109d97a40",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nChương V — ĐIỀU KHOẢN THI HÀNH\nĐiều 10. Tổ chức thực hiện và xử lý vi phạm\n- P. HCNS chịu trách nhiệm xây dựng, ban hành các biểu mẫu và hướng dẫn các phòng/ban, nhân viên thực hiện quy định này.\n- Các Quản lý bộ phận chịu trách nhiệm phổ biến, triển khai thực hiện và đôn đốc, kiểm tra việc thực hiện Quy định này trong bộ phận mình.\n- Các cá nhân có hành vi vi phạm các quy định quản lý và sử dụng xe của Tập đoàn thì tùy theo mức độ và tính chất để xử lý và yêu cầu bồi thường thiệt hại (nếu có) theo quyết định của Ban lãnh đạo hoặc quy định của pháp luật hiện hành.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "chunk_index": 7,
+              "content_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29",
+              "quote": "Workit — đặt xe công tác cho cá nhân/phòng ban tại chi nhánh, showroom, kho vận: Quy trình số > Xe công tác > Thêm. Chọn xe, tài xế, thời gian từ ngày/giờ đến ngày/giờ, nơi đi/nơi đến, tổng người đi; chọn danh sách người đi chính, đi cùng hoặc để biết rồi Lưu. Tìm/lọc danh sách nhân viên khi chọn. Có ghi chú và đính kèm. Hành chính quản lý xe văn phòng; bộ phận kinh doanh quản lý xe kinh doanh. Danh sách xem dạng lưới hoặc ngày.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn không có danh bạ hiện tại, biển số hay tài xế của một chuyến cụ thể. Xác minh qua kênh nội bộ của cơ sở."
+      ]
+    }
+  },
+  "scope_limit": "verify_operational_data"
+}

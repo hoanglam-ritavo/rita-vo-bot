@@ -1,0 +1,45 @@
+{
+  "id": "route.company-vehicles.platform-edit",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.platform-edit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu đã duyệt"
+        ],
+        [
+          "đổi xe"
+        ],
+        [
+          "lộ trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi tài xế"
+        ],
+        [
+          "phiếu đã duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phiếu đã duyệt có thể đổi xe, tài xế, lộ trình hoặc người đi không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure"
+}

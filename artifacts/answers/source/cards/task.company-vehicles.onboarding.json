@@ -1,0 +1,82 @@
+{
+  "id": "task.company-vehicles.onboarding",
+  "label": "Đề xuất xe của nhân viên thử việc hoặc chi nhánh",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đề xuất xe của nhân viên thử việc hoặc chi nhánh"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về đề xuất xe của nhân viên thử việc hoặc chi nhánh?",
+  "context": {
+    "mode": "none",
+    "note": "Vehicle guidance scoped to the declared source references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.company-vehicles.onboarding",
+          "text": "Quy định áp dụng cho cán bộ nhân viên trong phạm vi. Khi cần xe cho công việc, liên hệ Admin hoặc Quản lý điều xe để xin duyệt.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 3,
+              "content_sha256": "b7649ed090c2aa2c82fa0ac1b88edcc86a3534e29e0d62d7e064872c5b3e5865",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 2.2. Đối tượng áp dụng:\nQuy định này áp dụng đối với tất cả cán bộ nhân viên của Tập đoàn. Bao gồm:\n- Các nhân viên, phòng ban có nhu cầu sử dụng xe của Tập đoàn vào mục đích công việc, hoạt động sản xuất, kinh doanh của Tập đoàn, có lý do chính đáng và thời gian sử dụng hợp lý.\n- Các cá nhân khác có liên quan đến việc quản lý, sử dụng xe của Tập đoàn.\nPhương tiện đi lại thuộc phạm vi áp dụng trong quy định này bao gồm: các loại xe tải, xe ô tô và xe gắn máy (sau đây gọi chung là ‘xe’) là tài sản của Tập đoàn, được sử dụng để phục vụ công việc liên quan đến tất cả các lĩnh vực hoạt động của Tập đoàn.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 8,
+              "content_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.4. Tất cả các đối tượng (trừ Ban lãnh đạo và những cá nhân được Tập đoàn cấp xe riêng) khi có nhu cầu sử dụng xe thì liên hệ Admin/ Quản lý điều xe và phải được cấp có thẩm quyền phê duyệt theo quy định của Tập đoàn.\n5. Người sử dụng xe chỉ được tự lái xe khi có đủ tiêu chuẩn và điều kiện điều khiển xe ô tô theo quy định của pháp luật và được Ban lãnh đạo đồng ý, phê duyệt dưới mọi hình thức.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 30,
+              "content_sha256": "090239b6211af00518f90ec50b68b17477799b95ac14a8bd775025968f43104c",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 7.2. Đối tượng được đề xuất sử dụng xe của Tập đoàn:\na) Ban lãnh đạo.\nb) Nhân viên P. KT đi thu/lĩnh tiền mặt, thu hồi công nợ, chuyển lương…\nc) Các phòng, ban sử dụng xe phục vụ công việc đã được cấp quản lý phê duyệt, sử dụng đúng mục đích sử dụng và thời gian theo quy định.\nd) Khách mời của Ban lãnh đạo được đưa đón trong quá trình công tác tại tập đoàn với thời gian và lộ trình theo yêu cầu từ Ban lãnh đạo.\ne) Đối tượng khác theo yêu cầu và sự điều động của P. HCNS.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa nêu quyền tạo phiếu riêng của nhân viên thử việc. Hỏi quản lý trực tiếp hoặc HCNS về người có thể đứng tên và quyền Workit."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

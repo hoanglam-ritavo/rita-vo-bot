@@ -1,0 +1,41 @@
+{
+  "id": "route.company-vehicles.asset-retirement",
+  "family": "vehicles",
+  "task_id": "task.company-vehicles.asset-retirement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phụ tùng không còn sử dụng"
+        ],
+        [
+          "thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe hỏng"
+        ],
+        [
+          "quy trình thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe hoặc phụ tùng không còn sử dụng được thì khi nào chuyển sang quy trình thanh lý?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đặt xe giúp tôi",
+    "đặt hộ tôi",
+    "cho xem hồ sơ của"
+  ]
+}
