@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.building-guest-registration",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-guest-registration",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khách đến gặp",
+          "khách tới gặp",
+          "khách liên hệ"
+        ],
+        [
+          "đăng ký",
+          "chờ ở đâu",
+          "sảnh nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khách đến gặp nhân viên phải đăng ký và chờ ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-light-hours",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-light-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bật đèn",
+          "mở đèn",
+          "đèn điện"
+        ],
+        [
+          "mặt tiền",
+          "khu vực phía trong",
+          "giờ nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào được bật đèn ở khu sát kính mặt tiền và khu vực phía trong?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "route.building-guard-sealing.building-applicability",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-applicability",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "áp dụng"
+        ],
+        [
+          "tây đô"
+        ],
+        [
+          "chi nhánh khác",
+          "kho khác",
+          "địa điểm khác",
+          "showroom khác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nội quy Tây Đô có áp dụng cho showroom, kho hoặc chi nhánh khác không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ở chi nhánh khác",
+          "ở tòa nhà khác",
+          "tại một cơ sở khác"
+        ],
+        [
+          "điều hòa",
+          "rèm",
+          "tây đô"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "dùng ở chi nhánh khác",
+          "cơ sở khác",
+          "địa điểm khác"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

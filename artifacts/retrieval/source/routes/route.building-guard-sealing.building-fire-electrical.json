@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-fire-electrical",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-fire-electrical",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cháy thiết bị điện",
+          "cháy do điện",
+          "đám cháy liên quan đến thiết bị điện"
+        ],
+        [
+          "chữa cháy",
+          "dùng nước",
+          "bình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định Tây Đô hướng dẫn sử dụng phương tiện chữa cháy thế nào khi đám cháy liên quan đến thiết bị điện?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

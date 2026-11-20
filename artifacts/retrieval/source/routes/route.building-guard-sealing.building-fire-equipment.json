@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.building-fire-equipment",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-fire-equipment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "di chuyển",
+          "dời"
+        ],
+        [
+          "bình chữa cháy",
+          "thiết bị phòng cháy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được tự ý di chuyển bình chữa cháy hoặc thiết bị phòng cháy chữa cháy không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

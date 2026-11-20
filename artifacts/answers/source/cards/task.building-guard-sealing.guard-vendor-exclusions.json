@@ -1,0 +1,46 @@
+{
+  "id": "task.building-guard-sealing.guard-vendor-exclusions",
+  "label": "Điều kiện loại trừ nhà cung cấp bảo vệ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Điều kiện loại trừ nhà cung cấp bảo vệ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về điều kiện loại trừ nhà cung cấp bảo vệ?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-vendor-exclusions.1",
+          "text": "HCNS-QT01 không chấp nhận nhà cung cấp bảo vệ từng bị thanh lý do vi phạm hợp đồng, có vi phạm pháp luật đã được cơ quan chức năng kết luận hoặc có quan hệ với nhân sự kiểm soát, quản lý tại địa điểm triển khai.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 1,
+              "content_sha256": "a3aa2ec19ef5d94751e0e68b568986e808949e17e8b390b915d237fc4a627857",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n2. TIÊU CHUẨN CHỌN TỔ CHỨC CUNG CẤP DVBV\n2.1. Tiêu chuẩn chọn tổ chức DVBV:\n- Đủ điều kiện hành nghề bảo vệ, vốn điều lệ tối thiểu 2 tỉ\n- Không chấp nhận DVBV đã bị thanh lý do vi phạm hợp đồng\n- Không chấp nhận DVBV có hành vi vi phạm pháp luật đã được cơ quan chức năng kết luận\n- Không chấp nhận DVBV có quan hệ với nhân sự trong ban kiểm soát, quản lý tại các địa điểm triển khai bảo vệ của Công ty\n- Có thời gian đăng ký kinh doanh, hoạt động từ 3 năm trở lên, có kinh nghiệm đã triển khai bảo vệ trong lĩnh vực văn phòng, kho bãi, hệ thống bán lẻ, nhà máy từ 3 năm trở lên\n- Có năng lực cung cấp 7 nhân sự tối đa trong 3 ngày nếu cần triển khai mục tiêu mới",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

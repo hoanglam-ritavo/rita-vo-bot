@@ -1,0 +1,72 @@
+{
+  "id": "route.building-guard-sealing.sealing-damage",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-damage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy niêm phong"
+        ],
+        [
+          "rách",
+          "bong",
+          "biến dạng",
+          "mất"
+        ],
+        [
+          "được mở",
+          "mở cửa ngay"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu giấy niêm phong bị rách, mất, bong hoặc thông tin bị biến dạng, tôi có được mở cửa ngay không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "giấy rách",
+          "tem rách",
+          "giấy bong",
+          "tem bong"
+        ],
+        [
+          "mở cửa",
+          "xử lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tem niêm phong",
+          "giấy niêm phong"
+        ],
+        [
+          "bị bong",
+          "bị rách",
+          "biến dạng"
+        ],
+        [
+          "mở cửa",
+          "xử lý"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

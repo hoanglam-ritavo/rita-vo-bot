@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.sealing-last-person",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-last-person",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "nhiều bộ phận",
+          "dùng chung",
+          "làm việc muộn"
+        ],
+        [
+          "ai chịu trách nhiệm",
+          "ai phụ trách"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai chịu trách nhiệm niêm phong cuối ngày nếu nhiều bộ phận dùng chung địa điểm hoặc có người làm việc muộn?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

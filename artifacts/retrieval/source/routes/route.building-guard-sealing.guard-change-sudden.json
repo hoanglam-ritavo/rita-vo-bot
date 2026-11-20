@@ -1,0 +1,53 @@
+{
+  "id": "route.building-guard-sealing.guard-change-sudden",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-change-sudden",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "thay đột xuất",
+          "đổi người đột xuất",
+          "thay bảo vệ đột xuất"
+        ],
+        [
+          "trước ca",
+          "mỗi tháng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi thay bảo vệ đột xuất trước ca trực, nhà cung cấp phải báo trước bao lâu và được thay tối đa mấy lần mỗi tháng?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi ca bảo vệ",
+          "thay người trực",
+          "đổi người trực"
+        ],
+        [
+          "đột xuất"
+        ],
+        [
+          "báo trước",
+          "trước ca"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

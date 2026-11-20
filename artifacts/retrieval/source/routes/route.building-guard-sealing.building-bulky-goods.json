@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-bulky-goods",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-bulky-goods",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hàng cồng kềnh",
+          "vật tư xây dựng"
+        ],
+        [
+          "xe đẩy",
+          "bánh cao su",
+          "lối vận chuyển"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi vận chuyển hàng cồng kềnh, cần dùng loại xe đẩy nào và chọn lối vận chuyển ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

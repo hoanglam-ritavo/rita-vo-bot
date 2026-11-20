@@ -1,0 +1,72 @@
+{
+  "id": "route.bravo-vpn.transaction",
+  "family": "software",
+  "task_id": "task.bravo-vpn.transaction",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "mất kết nối",
+          "mất mạng",
+          "mất VPN",
+          "net rớt",
+          "VPN ngắt",
+          "ghi nhận trùng",
+          "đã ghi nhận",
+          "gửi lại chứng từ"
+        ],
+        [
+          "chứng từ",
+          "lưu phiếu",
+          "bấm lưu",
+          "bấm duyệt",
+          "thao tác",
+          "đồng bộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mất VPN",
+          "VPN ngắt"
+        ],
+        [
+          "duyệt chứng từ",
+          "lưu chứng từ",
+          "gửi lại chứng từ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu VPN mất kết nối khi tôi đang nhập chứng từ trong Bravo 8, dữ liệu chưa lưu có bị mất không?",
+          "Nếu VPN ngắt ngay sau khi tôi bấm lưu hoặc duyệt, làm sao biết thao tác đã thành công chưa?",
+          "Tôi kiểm tra thế nào trước khi gửi lại chứng từ để tránh ghi nhận trùng?",
+          "Tôi có thể tiếp tục thao tác trên Bravo 8 khi mất mạng rồi đồng bộ sau không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ],
+  "follow_up_tasks": {
+    "Còn nếu sắp tới giờ chốt?": "task.bravo-vpn.incident-status"
+  }
+}

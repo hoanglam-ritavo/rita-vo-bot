@@ -1,0 +1,34 @@
+{
+  "id": "route.building-guard-sealing.guard-violation-evidence",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-violation-evidence",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vi phạm của bảo vệ",
+          "vi phạm bảo vệ"
+        ],
+        [
+          "bằng chứng",
+          "tổng hợp lỗi",
+          "ngày nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện vi phạm của bảo vệ thuê ngoài, ai thu thập bằng chứng, tổng hợp lỗi và gửi đề nghị xử lý vào thời điểm nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

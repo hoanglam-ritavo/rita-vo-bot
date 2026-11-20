@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-chair-close",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-chair-close",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phòng chủ tịch"
+        ],
+        [
+          "sau khi sử dụng",
+          "dùng xong",
+          "tắt đèn",
+          "khóa cửa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi sử dụng phòng Chủ tịch, cần làm gì với tài sản, thiết bị và cửa phòng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

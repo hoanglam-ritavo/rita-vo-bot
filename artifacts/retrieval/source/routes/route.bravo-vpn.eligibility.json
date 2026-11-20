@@ -1,0 +1,47 @@
+{
+  "id": "route.bravo-vpn.eligibility",
+  "family": "software",
+  "task_id": "task.bravo-vpn.eligibility",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "VPN",
+          "từ xa"
+        ],
+        [
+          "thử việc",
+          "tạm thời",
+          "thực tập",
+          "cộng tác viên",
+          "nhà thầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên thử việc, thực tập sinh, cộng tác viên hoặc nhà thầu có được cấp quyền không?",
+          "Có thể xin quyền truy cập tạm thời vào Bravo 8 qua VPN không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

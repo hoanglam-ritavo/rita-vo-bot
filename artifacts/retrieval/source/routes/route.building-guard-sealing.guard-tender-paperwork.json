@@ -1,0 +1,33 @@
+{
+  "id": "route.building-guard-sealing.guard-tender-paperwork",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-tender-paperwork",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ trình duyệt",
+          "trình duyệt nhà cung cấp"
+        ],
+        [
+          "bảng so sánh giá",
+          "bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hồ sơ trình duyệt nhà cung cấp cần có đề xuất, bảng so sánh giá và những giấy tờ nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

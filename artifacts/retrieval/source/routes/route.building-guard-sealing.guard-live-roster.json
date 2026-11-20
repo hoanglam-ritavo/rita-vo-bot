@@ -1,0 +1,52 @@
+{
+  "id": "route.building-guard-sealing.guard-live-roster",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-live-roster",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đang trực",
+          "lịch trực",
+          "ca trực hiện tại",
+          "số liên hệ hiện tại"
+        ],
+        [
+          "đội bảo vệ",
+          "bảo vệ"
+        ],
+        [
+          "xác nhận",
+          "hiện tại",
+          "ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có thể xác nhận lịch trực, người đang trực hoặc số liên hệ hiện tại của đội bảo vệ tại cơ sở?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "ai đang trực",
+          "ai trực lúc này",
+          "người đang trực"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

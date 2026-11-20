@@ -275,6 +275,18 @@ carries its source date and that the answer directs current counts to HCNS.
 Repeat a paperwork follow-up with its source withdrawn in a disposable
 fixture. Keep the bot and generated catalogs paired during release and rollback.
 
+For building, guarding and door sealing, verify eligible sources for Tay Do
+(02HC/QĐ-BM06), the guard service process (HCNS-QT01), door sealing
+(11/2020/TB-HCNS), the labor rules, and the vehicle log example referenced by
+the topic. In an authenticated room, ask for the Tay Do air-conditioning
+temperature and switch to another site. Ask about submitting a guard position
+request and follow up with deployment paperwork. Ask about irregular sealing
+and follow up about forms, then switch to company stamps. Verify that the
+bot directs live roster and warehouse seal status requests to site management
+or HCNS. In a disposable fixture, withdraw the sealing source between turns
+and confirm that the answer omits the claims that need it. Release and roll
+back the bot and paired generated catalogs together.
+
 For company vehicles, test the approved regulations, forms and Workit manuals
 in the target corpus. In authenticated staging, switch from the Workit Web
 instructions to Mobile, compare both interfaces, and confirm that approval

@@ -1,0 +1,48 @@
+{
+  "id": "route.bravo-vpn.first-login",
+  "family": "software",
+  "task_id": "task.bravo-vpn.first-login",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lần đầu",
+          "bị khóa",
+          "đổi mật khẩu"
+        ],
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN",
+          "mật khẩu dùng lần đầu"
+        ],
+        [
+          "mật khẩu",
+          "tài khoản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi phải làm gì sau khi nhận tài khoản hoặc mật khẩu dùng lần đầu?",
+          "Đổi mật khẩu tài khoản công ty có ảnh hưởng đến VPN hoặc Bravo 8 không?",
+          "Tôi bị khóa tài khoản VPN hoặc Bravo 8 sau nhiều lần nhập sai thì làm gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-close-equipment",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-close-equipment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đèn",
+          "điều hòa",
+          "thiết bị điện"
+        ],
+        [
+          "nguồn nước",
+          "điện nước"
+        ],
+        [
+          "ra về",
+          "cuối ngày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi ra về, ai kiểm tra đèn, điều hòa, thiết bị điện và nguồn nước trong khu vực?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

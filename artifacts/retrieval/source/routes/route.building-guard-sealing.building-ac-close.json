@@ -1,0 +1,41 @@
+{
+  "id": "route.building-guard-sealing.building-ac-close",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-ac-close",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "điều hòa",
+          "máy lạnh"
+        ],
+        [
+          "giờ nghỉ trưa",
+          "phòng trống"
+        ],
+        [
+          "tắt",
+          "ra về"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu phòng trống vào giờ nghỉ trưa hoặc sắp hết giờ làm, khi nào cần tắt điều hòa?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

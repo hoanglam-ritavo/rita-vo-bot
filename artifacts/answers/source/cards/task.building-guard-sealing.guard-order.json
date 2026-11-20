@@ -1,0 +1,62 @@
+{
+  "id": "task.building-guard-sealing.guard-order",
+  "label": "Xử lý nguy cơ mất an ninh tại cơ sở",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xử lý nguy cơ mất an ninh tại cơ sở"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về xử lý nguy cơ mất an ninh tại cơ sở?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-order.1",
+          "text": "Bảo vệ phát hiện và ngăn chặn hành vi gây rối, bảo vệ người và tài sản, xử lý mâu thuẫn có thể dẫn đến xung đột. Khi có sự cố, giữ hiện trường đến lúc bàn giao và báo Ban An ninh, HCNS theo quy định.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 6,
+              "content_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. TRÁCH NHIỆM CỦA LỰC LƯỢNG BẢO VỆ\n- Chấp hành nghiêm nội quy kỷ luật của công ty và nội quy của khách hàng.\n- Hướng dẫn khách hàng khi đến Công ty/ Showroom/ Kho liên hệ công tác/ mua hàng.\n- Hỗ trợ công tác kiểm tra an toàn lao động, an toàn vật tư thiết bị ra vào công ty.\n- Tham gia khắc phục mọi tình huống xấu như (Thiên tai, hoả hoạn, tai nạn lao động…)\n- Phát hiện ngăn chặn mọi hành vi phá rối trật tự an ninh tại công ty. Đảm bảo an toàn tài sản, con người và hoạt động của Công ty. Giải quyết mọi mâu thuẫn có thể dẫn đến xung đột (nếu có) trong Mục tiêu.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 8,
+              "content_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. Trách nhiệm của lực lượng bảo vệ (tiếp):\n- Giám sát hoạt động tuần tra của bảo vệ theo ranh giới bảo vệ được quy định tại từng mục tiêu để đảm bảo an ninh trật tự, phòng chống cháy nổ tối thiểu 30 phút/ lần.\n- Kiểm tra, đăng ký quản lý tài sản, vật tư ra vào công ty theo nội quy, quy định Công ty.\n- Nhắc nhở hướng dẫn CBNV chấp hành nội quy, quy định tại công ty về an toàn PCCC. Phối hợp với lực lượng (PCCC) của nhà nước thực hiện tốt công tác PCCC.\n- Trông giữ xe cho nhân viên và khách hàng của Công ty (theo quy định Công ty).\n- Lịch sự, ân cần, tận tình trong công việc.\n- Khi có sự cố về an ninh xảy ra, NV bảo vệ làm công tác bảo vệ hiện trường cho tới khi bàn giao cho các cấp có liên quan.\n- Giải quyết nhanh chóng và báo cáo lại cho B.A.N, P.HCNS tất cả sự cố an ninh xảy ra trong ca trực.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "route.building-guard-sealing.guard-site-request",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-site-request",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vị trí bảo vệ",
+          "bố trí bảo vệ"
+        ],
+        [
+          "khảo sát",
+          "đề xuất",
+          "mẫu nào",
+          "số lượng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai khảo sát và đề xuất số lượng, vị trí bảo vệ tại showroom, văn phòng hoặc kho?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Đề xuất bố trí bảo vệ phải dùng mẫu nào, được ai duyệt và gửi trước bao lâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đề xuất số lượng",
+          "đề xuất bố trí"
+        ],
+        [
+          "vị trí bảo vệ",
+          "nhân viên bảo vệ"
+        ],
+        [
+          "dùng mẫu nào",
+          "mẫu nào",
+          "ai duyệt"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "hồ sơ điều động cần gì": "task.administration-compliance.guard-personnel"
+  }
+}

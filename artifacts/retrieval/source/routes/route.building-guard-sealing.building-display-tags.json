@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-display-tags",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-display-tags",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thẻ giá",
+          "tag giá"
+        ],
+        [
+          "trưng bày",
+          "sản phẩm",
+          "nhân viên kinh doanh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên kinh doanh phải kiểm tra những gì trên sản phẩm trưng bày và thẻ giá?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

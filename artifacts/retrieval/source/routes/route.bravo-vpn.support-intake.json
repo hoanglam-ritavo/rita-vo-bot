@@ -1,0 +1,50 @@
+{
+  "id": "route.bravo-vpn.support-intake",
+  "family": "software",
+  "task_id": "task.bravo-vpn.support-intake",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "ảnh lỗi",
+          "ảnh chụp",
+          "gửi mã lỗi",
+          "thông tin cần gửi",
+          "khi báo lỗi"
+        ],
+        [
+          "che",
+          "gửi",
+          "mã lỗi",
+          "cung cấp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi báo lỗi, tôi cần gửi mã lỗi, thời điểm, thông tin thiết bị hoặc ảnh chụp màn hình nào?",
+          "Tôi cần che thông tin gì trước khi gửi ảnh chụp lỗi Bravo 8 hoặc VPN?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

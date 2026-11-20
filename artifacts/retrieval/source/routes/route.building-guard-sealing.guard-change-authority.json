@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.guard-change-authority",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-change-authority",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ban an ninh"
+        ],
+        [
+          "thay bảo vệ",
+          "bổ sung bảo vệ",
+          "đổi bảo vệ"
+        ],
+        [
+          "khẩn cấp",
+          "cấp thiết",
+          "yêu cầu trực tiếp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi cần đổi hoặc bổ sung bảo vệ khẩn cấp, Ban An ninh có quyền yêu cầu trực tiếp không và phải giải trình với ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

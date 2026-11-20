@@ -13,6 +13,9 @@ HTTP additionally uses the [unified contextual envelope](contextual-answers.md);
 the CLI retains the document-only contract.
 Nonempty results have `relevance.status=unassessed` and warnings
 `relevance_not_assessed` and `evidence_completeness_not_assessed`.
+One focused request with declared retrieval bindings can prioritize matching
+eligible candidates for its initial aspect. Explicit document lookup keeps its
+own routing and the same unassessed evidence contract.
 Empty results distinguish no eligible documents from no candidates. Legacy
 relevance enums/fallback literals remain in the wire schema for compatibility;
 the new runtime does not produce profile-related fallbacks or assessed relevance.
@@ -29,6 +32,9 @@ arbitrary publication. Missing references cannot be filled from disk or old clai
 Every claim requires all of its references. Independently supported claims may
 produce a partial answer; complete declared aspects can produce `answered`.
 This is authored scope completeness, not proof of exhaustive policy coverage.
+An incomplete section may declare a source gap with an explanation and no
+evidence units. A request limited to these sections returns
+`insufficient_evidence` with those explanations and no claims or citations.
 Ambiguous, aggregate and multi-task questions ask for clarification. Personal
 application uses the task's declared context requirements and remains conditional
 when operational or historical evidence is missing. Unknown tasks return

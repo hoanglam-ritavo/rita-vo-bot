@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.building-employee-entry",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-employee-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đi trễ",
+          "về sớm",
+          "đi công tác trong giờ"
+        ],
+        [
+          "xuất trình",
+          "giấy xác nhận",
+          "giấy tờ tại cổng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi đi công tác trong giờ làm việc, đi trễ hoặc về sớm, tôi cần xuất trình giấy tờ gì tại cổng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -2,7 +2,7 @@
 import hashlib
 from pathlib import Path
 from typing import Literal
-from pydantic import Field, model_serializer
+from pydantic import Field, model_serializer, model_validator
 from src.paths import REPOSITORY_ROOT
 from src.retrieval.semantics import validate_artifact
 from src.semantics.corpus import decode_json
@@ -35,8 +35,14 @@ class Unit(Strict):
 
 class Section(Strict):
     complete: bool
-    units: list[Unit] = Field(min_length=1, max_length=12)
+    units: list[Unit] = Field(max_length=12)
     limitations: list[str] = Field(default_factory=list, max_length=8)
+
+    @model_validator(mode='after')
+    def require_evidence_or_limitation(self):
+        if not self.units and (self.complete or not any(text.strip() for text in self.limitations)):
+            raise ValueError('invalid_source_gap_section')
+        return self
 
 
 class Card(Strict):

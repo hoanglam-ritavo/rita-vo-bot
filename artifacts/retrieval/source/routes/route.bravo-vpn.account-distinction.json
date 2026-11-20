@@ -1,0 +1,44 @@
+{
+  "id": "route.bravo-vpn.account-distinction",
+  "family": "software",
+  "task_id": "task.bravo-vpn.account-distinction",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tài khoản VPN"
+        ],
+        [
+          "tài khoản Bravo",
+          "đăng nhập Bravo"
+        ],
+        [
+          "giống nhau",
+          "cùng tài khoản",
+          "có phải là một",
+          "khác nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài khoản VPN và tài khoản Bravo 8 có phải là một không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

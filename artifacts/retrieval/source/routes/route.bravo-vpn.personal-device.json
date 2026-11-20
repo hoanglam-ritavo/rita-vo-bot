@@ -1,0 +1,49 @@
+{
+  "id": "route.bravo-vpn.personal-device",
+  "family": "software",
+  "task_id": "task.bravo-vpn.personal-device",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "máy cá nhân",
+          "laptop riêng",
+          "máy tính riêng",
+          "máy ở nhà"
+        ],
+        [
+          "cài",
+          "kết nối",
+          "điều kiện",
+          "được phép"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể cài VPN và Bravo 8 trên máy cá nhân không?",
+          "Máy cá nhân cần đáp ứng điều kiện gì để được phép kết nối VPN?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

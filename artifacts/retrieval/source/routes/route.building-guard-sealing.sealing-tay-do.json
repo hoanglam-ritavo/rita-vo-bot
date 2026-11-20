@@ -1,0 +1,36 @@
+{
+  "id": "route.building-guard-sealing.sealing-tay-do",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-tay-do",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "niêm phong"
+        ],
+        [
+          "thông báo chung",
+          "nội quy riêng",
+          "theo văn bản nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tòa nhà Tây Đô thực hiện niêm phong theo nội quy riêng hay theo thông báo chung của công ty?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

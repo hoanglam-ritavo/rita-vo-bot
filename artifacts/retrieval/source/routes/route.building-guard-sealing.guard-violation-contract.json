@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.guard-violation-contract",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-violation-contract",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhà cung cấp",
+          "đơn vị bảo vệ"
+        ],
+        [
+          "vi phạm"
+        ],
+        [
+          "thanh lý hợp đồng",
+          "căn cứ",
+          "lập biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "HCNS căn cứ vào đâu để lập biên bản, yêu cầu nhà cung cấp xử lý hoặc đề xuất thanh lý hợp đồng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

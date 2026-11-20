@@ -1,0 +1,55 @@
+{
+  "id": "route.building-guard-sealing.building-emergency-contacts",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-emergency-contacts",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cấp cứu",
+          "chữa cháy"
+        ],
+        [
+          "đầu mối",
+          "liên hệ",
+          "hỗ trợ"
+        ],
+        [
+          "kỹ thuật",
+          "an ninh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi cần hỗ trợ an ninh, kỹ thuật, chữa cháy hoặc cấp cứu, phải liên hệ đầu mối nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tây đô",
+          "tòa nhà"
+        ],
+        [
+          "số cấp cứu",
+          "số chữa cháy",
+          "liên hệ khẩn cấp"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

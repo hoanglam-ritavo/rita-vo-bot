@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-assets-inventory",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-assets-inventory",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kiểm kê tài sản",
+          "kiểm kê công cụ dụng cụ"
+        ],
+        [
+          "cập nhật",
+          "đối chiếu",
+          "tòa nhà",
+          "tây đô"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai cập nhật, đối chiếu và kiểm kê tài sản, công cụ dụng cụ tại tòa nhà?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

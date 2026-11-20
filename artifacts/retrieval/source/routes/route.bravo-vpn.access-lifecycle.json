@@ -1,0 +1,51 @@
+{
+  "id": "route.bravo-vpn.access-lifecycle",
+  "family": "software",
+  "task_id": "task.bravo-vpn.access-lifecycle",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "quyền",
+          "tài khoản"
+        ],
+        [
+          "gia hạn",
+          "hết hạn",
+          "nghỉ việc",
+          "nghỉ dài hạn",
+          "chuyển phòng ban",
+          "chuyển qua đơn vị khác",
+          "chuyển chi nhánh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quyền VPN hoặc Bravo 8 có hết hạn không và gia hạn bằng cách nào?",
+          "Khi chuyển phòng ban, chi nhánh hoặc công ty thành viên, tôi có cần xin lại quyền không?",
+          "Khi nghỉ việc hoặc nghỉ dài hạn, quyền VPN và Bravo 8 được xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

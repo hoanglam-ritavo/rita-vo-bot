@@ -1,0 +1,27 @@
+{
+  "id": "task.bravo-vpn.audit",
+  "label": "Nhật ký VPN và Bravo 8",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Nhật ký VPN và Bravo 8"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi rõ phần nào về nhật ký VPN và Bravo 8?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound employee guidance. No current service, account or transaction lookup."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [],
+      "limitations": [
+        "Tài liệu Bravo 8 v1.0 không xác nhận VPN hay Bravo 8 có ghi nhật ký, ai được xem hoặc thời gian lưu nhật ký. Hỏi bộ phận IT phụ trách để xác nhận quy định áp dụng."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "route.building-guard-sealing.guard-conduct",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-conduct",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "đồng phục",
+          "tác phong",
+          "dùng điện thoại",
+          "việc riêng",
+          "ngủ trong ca"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ phải tuân thủ những yêu cầu gì về đồng phục, thẻ tên, tác phong và cách giao tiếp?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trong ca trực, bảo vệ có được dùng điện thoại cho việc riêng, hút thuốc, tụ tập hoặc ngủ không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

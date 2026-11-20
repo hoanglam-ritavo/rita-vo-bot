@@ -1,0 +1,34 @@
+{
+  "id": "rank.bravo-vpn.4",
+  "family": "software",
+  "system": "bravo",
+  "role": "system_procedure",
+  "operation": "policy",
+  "ref": {
+    "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+    "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+    "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+    "chunk_index": 4,
+    "content_sha256": "c53bbdc2ad6cee23af4aa070bd8cc219076ee5dd15378ee912b72856c734ef21",
+    "quote": "VPN nghĩa là mạng riêng ảo.",
+    "metadata": {
+      "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "1.0; cập nhật 11.11.2023",
+      "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+    }
+  },
+  "task_ids": [
+    "task.bravo-vpn.vpn-role",
+    "task.bravo-vpn.setup-device",
+    "task.bravo-vpn.incident-status",
+    "task.bravo-vpn.security-incident",
+    "task.bravo-vpn.support",
+    "task.bravo-vpn.support-intake"
+  ],
+  "aspects": [
+    "overview"
+  ]
+}

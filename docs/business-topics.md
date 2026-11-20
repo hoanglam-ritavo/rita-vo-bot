@@ -186,6 +186,24 @@ the provider relationship. Employee disciplinary guidance uses the labor rules.
 Guide and historical tables keep their original scope and dates. References to
 approval, a contact or a checklist do not establish a live operational result.
 
+## Building, guarding and door sealing
+
+The [153-question coverage map](building-guard-sealing-coverage.md) ties each
+numbered prompt to its fixture case, task and applicable source. Tay Do building
+rules cover that site. HCNS-QT01 covers outsourced guard service, and Notice
+11/2020/TB-HCNS covers closing, opening and irregularities at sealed doors.
+Labor rules cover employees' access, visitors and employee discipline.
+An answer about another site directs the employee to its management or HCNS
+when the applicable local policy is unavailable. Short follow-ups can switch
+site or move from a procedure to the corresponding form guidance.
+
+Current rosters, contact details, footage and seal status require verification
+by the operational owner. When a policy describes part of the procedure, the
+bot cites it and explains the remaining source gap. Forms and procedures
+mentioned in a policy may require the current version from HCNS or site
+management. The bot rechecks source eligibility on each answer, including
+when a follow-up keeps the same topic.
+
 ## Company vehicles
 
 Company vehicle questions extend the administration rules and Workit car

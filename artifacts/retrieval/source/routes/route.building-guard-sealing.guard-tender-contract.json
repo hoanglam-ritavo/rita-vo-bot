@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.guard-tender-contract",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-tender-contract",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hợp đồng bảo vệ",
+          "thuê dịch vụ bảo vệ"
+        ],
+        [
+          "soạn mẫu",
+          "soạn hợp đồng",
+          "kiểm tra hồ sơ",
+          "lưu hồ sơ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai soạn mẫu hợp đồng, kiểm tra hồ sơ, làm việc với nhà cung cấp và lưu hồ sơ sau khi duyệt?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

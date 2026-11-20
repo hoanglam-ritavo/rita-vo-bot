@@ -1,0 +1,45 @@
+{
+  "id": "route.bravo-vpn.sessions",
+  "family": "software",
+  "task_id": "task.bravo-vpn.sessions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "nhiều phiên",
+          "đồng thời",
+          "nhiều thiết bị",
+          "không hoạt động",
+          "thời gian chờ phiên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể dùng cùng một tài khoản VPN trên nhiều thiết bị không?",
+          "Tôi có thể mở nhiều phiên Bravo 8 cùng lúc không?",
+          "Bravo 8 hoặc VPN có tự ngắt sau một thời gian không hoạt động không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

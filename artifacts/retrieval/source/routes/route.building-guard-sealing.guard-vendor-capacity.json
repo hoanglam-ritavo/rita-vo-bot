@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.guard-vendor-capacity",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-vendor-capacity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "điểm bảo vệ mới",
+          "mục tiêu mới"
+        ],
+        [
+          "bao nhiêu người",
+          "bao nhiêu nhân sự",
+          "năng lực",
+          "thời hạn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi triển khai điểm bảo vệ mới, nhà cung cấp phải có khả năng bổ sung bao nhiêu người trong thời hạn nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

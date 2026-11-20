@@ -1,0 +1,41 @@
+{
+  "id": "route.building-guard-sealing.building-security-complaint",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-security-complaint",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "gian lận",
+          "thiếu chuyên nghiệp",
+          "không chuyên nghiệp"
+        ],
+        [
+          "báo",
+          "phản ánh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nghi ngờ bảo vệ có hành vi gian lận hoặc phục vụ thiếu chuyên nghiệp, tôi báo cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

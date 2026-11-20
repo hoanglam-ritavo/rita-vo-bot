@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.sealing-witness",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-witness",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "niêm phong"
+        ],
+        [
+          "chứng kiến",
+          "vai trò"
+        ],
+        [
+          "dán",
+          "mở"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ có vai trò gì khi dán niêm phong cuối ngày và khi mở cửa vào đầu ngày?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

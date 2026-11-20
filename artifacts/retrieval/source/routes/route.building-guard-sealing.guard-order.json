@@ -1,0 +1,33 @@
+{
+  "id": "route.building-guard-sealing.guard-order",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-order",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "gây rối",
+          "xung đột",
+          "nguy cơ mất an toàn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ cần làm gì khi phát hiện người gây rối, xung đột hoặc nguy cơ mất an toàn tại cơ sở?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

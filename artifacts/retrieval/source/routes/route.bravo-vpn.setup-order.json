@@ -1,0 +1,44 @@
+{
+  "id": "route.bravo-vpn.setup-order",
+  "family": "software",
+  "task_id": "task.bravo-vpn.setup-order",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "cài trước",
+          "cài sau",
+          "thứ tự cài",
+          "hay bravo 8 trước"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi cần cài VPN hay Bravo 8 trước?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

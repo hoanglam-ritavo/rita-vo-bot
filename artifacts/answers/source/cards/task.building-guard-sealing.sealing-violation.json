@@ -1,0 +1,98 @@
+{
+  "id": "task.building-guard-sealing.sealing-violation",
+  "label": "Xử lý vi phạm quy định niêm phong",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xử lý vi phạm quy định niêm phong"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về xử lý vi phạm quy định niêm phong?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.sealing-violation.1",
+          "text": "Thông báo yêu cầu nhân viên và đơn vị bảo vệ chấp hành, đồng thời nêu vi phạm sẽ được xử lý theo quy định. Với nhân viên, HCNS xem xét theo Nội quy lao động. Với dịch vụ bảo vệ, HCNS đối chiếu lỗi với hợp đồng và làm việc với nhà cung cấp.",
+          "refs": [
+            {
+              "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+              "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+              "source_sha256": "a12a790fda08c8ebd22ce166817bf2caa7d85e277f8e41fa5a4cdb80582c5b11",
+              "chunk_index": 3,
+              "content_sha256": "9372184afbc3c7b6f1af9c5531ef23245d556fb978ef7c6c098d728ef827254c",
+              "quote": "Quy định niêm phong cửa ra vào văn phòng, chi nhánh và kho — 11/2020/TB-HCNS\nĐề nghị Nhân viên Công ty RiTa Võ và Đối tác Công ty Dịch vụ bảo vệ có trách nhiệm chấp hành nghiêm túc quy định trong thông báo này. Trường hợp vi phạm sẽ bị xử lý kỷ luật theo quy định./.\nTrân trọng thông báo\nNơi nhận:\n- Ban Tổng Giám Đốc (để báo cáo);\n- Các Phòng/Ban, Bộ phận thực hiện;\n- Lưu HCNS.\nTỔNG GIÁM ĐỐC\nVÕ MẬU QUỐC DUY\n02NS/TB- BM15\n1",
+              "metadata": {
+                "title": "Quy định niêm phong cửa ra vào Văn phòng, chi nhánh và kho",
+                "applicability": "Đối tác cung cấp dịch vụ bảo vệ và toàn thể nhân viên Công ty TNHH RiTa Võ tại các địa điểm làm việc của Công ty.",
+                "effective_from": "2020-07-11",
+                "effective_to": null,
+                "version_label": "11/2020/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/9-quy-dinh-niem-phong.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 27,
+              "content_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923",
+              "quote": "Quy định bảo vệ HCNS-QT01, mục 9.3 — sáu bước xử lý DVBV có nhân viên vi phạm: (1) ngày 1 hàng tháng Ban An Ninh gửi tổng hợp lỗi và đề nghị xử lý; (2) HCNS xem xét, đối chiếu lỗi với hợp đồng mẫu và quy định Công ty; (3) HCNS gửi công văn/biên bản HCNS-QT01-BBXLVP cho NCC yêu cầu xử lý theo hợp đồng; (4) HCNS xử phạt theo hợp đồng, cấn trừ tiền phạt vào thanh toán phí DVBV hàng tháng; (5) HCNS thông báo kết quả cho KSNB, Ban An Ninh, Kế toán; (6) HCNS lưu hồ sơ.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "chunk_index": 45,
+              "content_sha256": "d9f5282c94bd07967368aceb27040d5592c48ddb4b1c0db0b286c87eb289aad0",
+              "quote": "Nội quy lao động — Điều 23, 24.1–2: hành vi chi tiết ở văn bản mức xử lý vi phạm đính kèm. Cấp độ 2: khiển trách bằng văn bản/biên bản/email, ủy quyền quản lý trực tiếp từ Tổ phó. Tái phạm trong 3 tháng sau khiển trách, vi phạm cấp độ 3 hoặc nặng chưa đến sa thải: kéo dài nâng lương không quá 6 tháng hoặc cách chức.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "chunk_index": 47,
+              "content_sha256": "d28cdba2412e5d5bec9d0de9fc1c65ef5c153a1cbe75e54e294fd4877cea54c9",
+              "quote": "Nội quy lao động — Điều 25.1–2: Nhân sự lập biên bản, báo tổ chức đại diện người lao động và thu thập chứng cứ lỗi. Họp gồm người lao động, đại diện hợp pháp nếu dưới 15 tuổi, tổ chức đại diện người lao động, công ty; có quyền tự/nhờ luật sư/tổ chức bào chữa. Nhân sự báo ít nhất 5 ngày làm việc, nêu nội dung, giờ, nơi, người và hành vi. Người dự xác nhận; không dự được thì thỏa thuận đổi, không thống nhất công ty quyết định. Không xác nhận/vắng mặt vẫn có thể tiến hành theo nguồn.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Thông báo niêm phong không quy định một mức xử lý cụ thể cho mọi hành vi."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "route.bravo-vpn.incident-status",
+  "family": "software",
+  "task_id": "task.bravo-vpn.incident-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "lịch bảo trì",
+          "ngoài giờ",
+          "khóa sổ",
+          "chốt số liệu",
+          "theo dõi ticket",
+          "theo dõi tiến độ",
+          "thông báo sự cố",
+          "nhiều người cùng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "giờ khóa sổ",
+          "giờ chốt số"
+        ],
+        [
+          "hỗ trợ",
+          "khẩn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nhiều người cùng lúc không vào được Bravo 8 qua VPN, tôi xem thông báo sự cố ở đâu?",
+          "Khi VPN hoặc Bravo 8 gặp sự cố gần hạn chốt số liệu, tôi liên hệ ai và có quy trình xử lý thay thế không?",
+          "Tôi xem lịch bảo trì VPN và Bravo 8 ở đâu?",
+          "Nếu gặp lỗi ngoài giờ hành chính, tôi liên hệ ai?",
+          "Tôi theo dõi tiến độ xử lý sự cố VPN hoặc Bravo 8 ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

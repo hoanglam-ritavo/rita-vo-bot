@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.sealing-forms",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-forms",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "mẫu giấy",
+          "mẫu biên bản",
+          "sổ niêm phong"
+        ],
+        [
+          "tìm",
+          "ở đâu",
+          "tải"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tìm mẫu giấy niêm phong, sổ niêm phong và biên bản xử lý bất thường ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

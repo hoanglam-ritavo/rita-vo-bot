@@ -1,0 +1,47 @@
+{
+  "id": "route.bravo-vpn.vpn-role",
+  "family": "software",
+  "task_id": "task.bravo-vpn.vpn-role",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN",
+          "VPN RitaVO"
+        ],
+        [
+          "Bravo",
+          "Bravo8",
+          "ERP Bravo"
+        ],
+        [
+          "tác dụng gì",
+          "liên quan với nhau",
+          "vai trò",
+          "mạng riêng ảo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "VPN là gì và dùng để làm gì khi truy cập Bravo 8?",
+          "Bravo 8 và VPN có liên quan với nhau như thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

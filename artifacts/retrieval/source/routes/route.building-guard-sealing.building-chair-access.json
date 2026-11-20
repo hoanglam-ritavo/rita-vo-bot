@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-chair-access",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-chair-access",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phòng chủ tịch"
+        ],
+        [
+          "chìa khóa",
+          "chìa khoá",
+          "ai có quyền",
+          "cho phép vào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có quyền cho nhân viên hoặc khách vào phòng Chủ tịch và ai quản lý chìa khóa phòng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

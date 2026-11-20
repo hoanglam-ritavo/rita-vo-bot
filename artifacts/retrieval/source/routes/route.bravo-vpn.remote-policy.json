@@ -1,0 +1,46 @@
+{
+  "id": "route.bravo-vpn.remote-policy",
+  "family": "software",
+  "task_id": "task.bravo-vpn.remote-policy",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "giới hạn giờ",
+          "giờ truy cập",
+          "quy định gì",
+          "khu vực",
+          "điều kiện dùng từ xa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Công ty có quy định gì về việc dùng Bravo 8 qua VPN ngoài văn phòng?",
+          "VPN và Bravo 8 có giới hạn giờ truy cập, khu vực hoặc thiết bị không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

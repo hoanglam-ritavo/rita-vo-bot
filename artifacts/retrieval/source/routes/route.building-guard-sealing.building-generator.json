@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-generator",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-generator",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "máy phát dự phòng",
+          "máy phát điện dự phòng"
+        ],
+        [
+          "phụ tải",
+          "mất điện",
+          "thiết bị nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi tòa nhà mất điện lưới, máy phát dự phòng phục vụ những phụ tải nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

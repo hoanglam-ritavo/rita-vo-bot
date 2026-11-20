@@ -1,0 +1,46 @@
+{
+  "id": "route.bravo-vpn.vpn-error",
+  "family": "software",
+  "task_id": "task.bravo-vpn.vpn-error",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "timeout",
+          "lỗi chứng chỉ",
+          "hết thời gian chờ",
+          "không truy cập được internet",
+          "wifi ở nhà",
+          "wi fi ở nhà",
+          "lỗi thiết bị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tại sao VPN cứ ở trạng thái đang kết nối rồi báo hết thời gian chờ?",
+          "Tôi phải làm gì khi VPN báo lỗi chứng chỉ hoặc thiết bị không đáp ứng yêu cầu?",
+          "Vì sao VPN kết nối được bằng 4G/5G nhưng không kết nối được bằng Wi-Fi ở nhà?",
+          "Tại sao bật VPN xong tôi không truy cập được Internet hoặc các ứng dụng khác?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

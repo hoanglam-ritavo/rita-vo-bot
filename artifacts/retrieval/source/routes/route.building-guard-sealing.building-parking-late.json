@@ -1,0 +1,34 @@
+{
+  "id": "route.building-guard-sealing.building-parking-late",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-parking-late",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lấy xe ngoài giờ",
+          "nhận xe ngoài giờ",
+          "lấy xe sau giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu muốn lấy xe ngoài giờ, tôi cần xác minh với ai và theo thủ tục nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "route.bravo-vpn.vpn-account",
+  "family": "software",
+  "task_id": "task.bravo-vpn.vpn-account",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "quên mật khẩu",
+          "đặt lại mật khẩu",
+          "sai thông tin đăng nhập",
+          "tài khoản công ty",
+          "mất mật khẩu đăng nhập",
+          "dùng tài khoản nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đăng nhập VPN bằng tài khoản công ty hay tài khoản được cấp riêng?",
+          "Tôi quên mật khẩu VPN thì đặt lại ở đâu?",
+          "Tại sao VPN báo sai thông tin đăng nhập dù tôi nhập đúng mật khẩu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ],
+  "follow_up_tasks": {
+    "Còn mật khẩu Bravo?": "task.bravo-vpn.bravo-account",
+    "Còn mã xác thực?": "task.bravo-vpn.mfa"
+  }
+}

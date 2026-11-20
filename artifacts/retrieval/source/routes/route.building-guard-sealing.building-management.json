@@ -1,0 +1,43 @@
+{
+  "id": "route.building-guard-sealing.building-management",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-management",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý tòa nhà",
+          "qltn"
+        ],
+        [
+          "quyền hạn",
+          "nhiệm vụ",
+          "trách nhiệm"
+        ],
+        [
+          "quyền hạn",
+          "quản lý tài sản",
+          "phê duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý tòa nhà có quyền hạn và trách nhiệm gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

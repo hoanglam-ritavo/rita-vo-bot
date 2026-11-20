@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.guard-tender-steps",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-tender-steps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chọn nhà cung cấp mới",
+          "tuyển chọn nhà cung cấp"
+        ],
+        [
+          "bảo vệ"
+        ],
+        [
+          "các bước",
+          "quy trình",
+          "ai tiếp nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai tiếp nhận nhu cầu thuê dịch vụ và quy trình chọn nhà cung cấp mới gồm những bước nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

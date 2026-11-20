@@ -1,0 +1,42 @@
+{
+  "id": "route.bravo-vpn.public-network",
+  "family": "software",
+  "task_id": "task.bravo-vpn.public-network",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "mạng công cộng",
+          "wi fi công cộng",
+          "wifi công cộng",
+          "4g 5g",
+          "mạng di động"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể vào Bravo 8 bằng Wi-Fi công cộng hoặc mạng 4G/5G không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

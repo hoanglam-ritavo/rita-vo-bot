@@ -413,6 +413,7 @@ class RetrievalPolicy:
         self._bindings = {}
         self._generic = []
         self._focused = {}
+        self._bound_focused = set()
         self._workit = {}
         self._office = ()
 
@@ -434,6 +435,7 @@ class RetrievalPolicy:
                                            binding.ref.chunk_index), []).append(binding)
             self._generic = [r for r in catalog.routes if (r.aliases or r.concept_ids) and not r.question_terms]
             self._focused = {r.task_id: r for r in catalog.routes if r.question_terms and not (r.surface or r.office)}
+            self._bound_focused = self._focused.keys() & {task for binding in catalog.bindings for task in binding.task_ids}
             self._office = tuple(route for route in catalog.routes if route.office)
             for route in catalog.routes:
                 if route.surface:
@@ -462,6 +464,18 @@ class RetrievalPolicy:
     def focused_initial_aspect(self, task_id):
         route = self._focused.get(task_id)
         return route.initial_aspect if route else None
+
+    def _bound_focused_route(self, question):
+        if not self._bound_focused:
+            return None
+        task = self.focused_task(question)
+        if task not in self._bound_focused:
+            return None
+        from src.answering.pipeline import is_document_lookup
+        clauses = [part for part in re.split(r'[?!;\n]', question) if part.strip()]
+        if len(clauses) != 1 or is_document_lookup(question) or self.resolve_office(question):
+            return None
+        return self._focused[task]
 
     def focused_follow_up_task(self, task_id, normalized_question):
         route = self._focused.get(task_id)
@@ -742,10 +756,11 @@ class RetrievalPolicy:
                 return 1 if any(b.surface == scope.surface for b in bindings) else 2
             return sorted(matches, key=surface_key)
         query = self.analyze(question)
-        generic = self.resolve_generic(question)
+        focused = self._bound_focused_route(question)
+        generic = Resolution('task', focused.task_id) if focused else self.resolve_generic(question)
         if generic.state == 'task':
             from src.answering.pipeline import matches_reference, requested_aspects
-            aspects = set(requested_aspects(question))
+            aspects = {focused.initial_aspect or 'overview'} if focused else set(requested_aspects(question))
             def generic_key(match):
                 bindings = self._bindings.get((match.get('document_id'), match.get('revision_id'), match.get('chunk_index')), [])
                 if not isinstance(bindings, list):
@@ -794,18 +809,19 @@ class RetrievalPolicy:
     def references(self, question):
         """Declared, bounded bundles only; no broad-topic evidence injection."""
         scope = self.resolve_workit(question)
-        surface = None
+        surface, focused = None, None
         if scope and scope.surface:
             if not scope.routes:
                 return []
             surface, task = scope.surface, scope.routes[0].task_id
         else:
-            resolution = self.resolve(question)
+            focused = self._bound_focused_route(question)
+            resolution = Resolution('task', focused.task_id) if focused else self.resolve(question)
             if resolution.state != 'task':
                 return []
             task = resolution.task_id
         from src.answering.pipeline import requested_aspects
-        aspects = set(requested_aspects(question))
+        aspects = {focused.initial_aspect or 'overview'} if focused else set(requested_aspects(question))
         refs = {}
         for binding in self.catalog.bindings:
             if (task in binding.task_ids and (not surface or binding.surface == surface)
@@ -821,5 +837,6 @@ class RetrievalPolicy:
         self._generic = []
         self.fingerprint = None
         self._focused = {}
+        self._bound_focused = set()
         self._workit = {}
         self._office = ()

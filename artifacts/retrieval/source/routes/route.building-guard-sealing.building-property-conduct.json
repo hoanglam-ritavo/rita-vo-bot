@@ -1,0 +1,40 @@
+{
+  "id": "route.building-guard-sealing.building-property-conduct",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-property-conduct",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "viết lên bàn",
+          "dán đồ trang trí",
+          "tự ý dùng tài sản của người khác"
+        ],
+        [
+          "bàn ghế",
+          "cửa",
+          "tòa nhà",
+          "tài sản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được viết lên bàn ghế, dán đồ trang trí lên cửa hoặc tự ý dùng tài sản của người khác không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

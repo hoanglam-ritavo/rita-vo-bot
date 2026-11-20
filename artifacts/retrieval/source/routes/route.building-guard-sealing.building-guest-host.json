@@ -1,0 +1,43 @@
+{
+  "id": "route.building-guard-sealing.building-guest-host",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-guest-host",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đón khách",
+          "đưa khách",
+          "dẫn khách"
+        ],
+        [
+          "đi cùng",
+          "trách nhiệm",
+          "xin phép",
+          "khu vực hạn chế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên đón khách phải làm gì khi tiếp khách tại lễ tân, phòng họp hoặc showroom?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có cần xin phép khi đưa khách đến khu vực làm việc, kho hoặc khu vực hạn chế không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

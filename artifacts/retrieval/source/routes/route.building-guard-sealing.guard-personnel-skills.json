@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.guard-personnel-skills",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-personnel-skills",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ thuê ngoài"
+        ],
+        [
+          "nghiệp vụ",
+          "chứng từ",
+          "phòng cháy chữa cháy"
+        ],
+        [
+          "yêu cầu",
+          "đáp ứng",
+          "xử lý tình huống"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ thuê ngoài phải có những nghiệp vụ gì về chứng từ, phòng cháy chữa cháy và xử lý tình huống?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

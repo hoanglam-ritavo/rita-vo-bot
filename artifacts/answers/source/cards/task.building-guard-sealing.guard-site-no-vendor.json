@@ -1,0 +1,62 @@
+{
+  "id": "task.building-guard-sealing.guard-site-no-vendor",
+  "label": "Thiếu nhà cung cấp bảo vệ phù hợp",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Thiếu nhà cung cấp bảo vệ phù hợp"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về thiếu nhà cung cấp bảo vệ phù hợp?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-site-no-vendor.1",
+          "text": "Nếu chưa có nhà cung cấp phù hợp, HCNS chuyển sang quy trình chọn nhà cung cấp mới. Nếu đã có nhà cung cấp đạt chuẩn, HCNS gửi yêu cầu và lập hợp đồng hoặc phụ lục, sau đó tiếp nhận hồ sơ ứng viên.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 24,
+              "content_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n9.2. Quy trình tuyển chọn nhân viên bảo vệ\nQUY TRÌNH TUYỂN CHỌN NVBV\nCột: BƯỚC; LƯU ĐỒ THỰC HIỆN; BP. ĐẢM TRÁCH; HƯỚNG DẪN/ BIỂU MẪU\n1. Đề xuất vị trí bảo vệ. B.A.N: B.A.N gửi đề xuất NVBV (mẫu đề xuất RTV/2020-01) đã được BGĐ duyệt, trước 3 ngày kể từ ngày cần sử dụng bảo vệ.\n2. Kiểm tra đề xuất. P.HCNS: P.HCNS tiếp nhận và kiểm tra hồ sơ theo quy định. Ko Đạt quay lại bước 1; Đạt sang bước 3.\n3. Lựa chọn NCC theo tiêu chuẩn. P.HCNS: P.HCNS lựa chọn và cung cấp NVBV theo tiêu chuẩn quy định theo Điều 2 Quy định này.\n4. P.HCNS lựa chọn NCC. Không có NCC phù hợp: thực hiện theo quy trình chọn NCC. Đã có NCC phù hợp: gửi yêu cầu cho NCC, lập hợp đồng/ phụ lục HĐ. Hai nhánh đến bước 5.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 21,
+              "content_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n9.1. Quy trình tuyển chọn dịch vụ cung cấp dịch vụ bảo vệ\nQUY TRÌNH TUYỂN CHỌN NCC DVBV MỚI\nCột: BƯỚC; LƯU ĐỒ THỰC HIỆN; BP. ĐẢM TRÁCH; HƯỚNG DẪN/ BIỂU MẪU\n1. Tiếp nhận nhu cầu triển khai DVBV mới. P.HCNS: P.HCNS tiếp nhận nhu cầu triển khai DVBV từ B.A.N\n2. Tìm và làm việc với NCC DVBV. P.HCNS: P.HCNS tìm ít nhất 3 NCC DVBV đáp ứng tiêu chuẩn quy định Công ty theo Hợp đồng mẫu, lập bảng so sánh giá và trình duyệt\n3. Trình duyệt HS. P.HCNS: P.HCNS trình hồ sơ bao gồm:\n- Đề xuất (mẫu RTV/2020-01)\n- Bảng so sánh giá\n- Giấy chứng nhận đủ điều kiện hành nghề bảo vệ, GPKD\n- Chứng chỉ an toàn lao động\n- Hồ sơ năng lực\n- Phương án bảo vệ",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

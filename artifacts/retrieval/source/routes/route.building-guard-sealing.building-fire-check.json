@@ -1,0 +1,41 @@
+{
+  "id": "route.building-guard-sealing.building-fire-check",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-fire-check",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kiểm tra"
+        ],
+        [
+          "thiết bị chữa cháy",
+          "hệ thống báo cháy"
+        ],
+        [
+          "bao lâu",
+          "tần suất",
+          "báo hư hỏng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai kiểm tra thiết bị chữa cháy, bao lâu kiểm tra hệ thống báo cháy và báo hư hỏng cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

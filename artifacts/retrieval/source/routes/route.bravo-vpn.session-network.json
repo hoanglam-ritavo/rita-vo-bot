@@ -1,0 +1,55 @@
+{
+  "id": "route.bravo-vpn.session-network",
+  "family": "software",
+  "task_id": "task.bravo-vpn.session-network",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "tự ngắt",
+          "chuyển mạng",
+          "máy ngủ",
+          "khóa màn hình",
+          "kết nối lại",
+          "ngắt VPN",
+          "giữ VPN",
+          "kết nối VPN lại"
+        ],
+        [
+          "Bravo",
+          "Bravo8",
+          "đăng nhập lại",
+          "khóa màn hình",
+          "máy ngủ",
+          "chuyển mạng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trong lúc dùng Bravo 8, tôi có phải giữ VPN kết nối liên tục không?",
+          "Tại sao VPN tự ngắt khi máy ngủ, khóa màn hình hoặc chuyển mạng?",
+          "Sau khi kết nối lại VPN, tôi có cần đăng nhập lại Bravo 8 không?",
+          "Tôi nên đóng Bravo 8 và ngắt VPN theo thứ tự nào khi làm xong?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

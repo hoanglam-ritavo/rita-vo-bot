@@ -1,0 +1,49 @@
+{
+  "id": "route.building-guard-sealing.building-safety-overview",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-safety-overview",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "lần đầu",
+          "mới đến",
+          "mới tới"
+        ],
+        [
+          "an toàn",
+          "nội quy",
+          "lưu ý"
+        ],
+        [
+          "tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người lần đầu đến tòa nhà Tây Đô cần biết những quy định an toàn nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.building-guard-sealing.building-applicability",
+    "ở tòa nhà khác thì sao": "task.building-guard-sealing.building-applicability"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.building-keys",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-keys",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chìa khóa",
+          "chìa khoá"
+        ],
+        [
+          "tòa nhà"
+        ],
+        [
+          "mở cửa",
+          "ai giữ",
+          "ngoài giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai giữ chìa khóa tòa nhà và tôi cần liên hệ ai nếu cần mở cửa ngoài giờ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

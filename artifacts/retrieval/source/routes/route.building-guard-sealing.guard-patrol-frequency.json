@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.guard-patrol-frequency",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-patrol-frequency",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tuần tra",
+          "bàn giao ca"
+        ],
+        [
+          "tần suất",
+          "phạm vi",
+          "bao lâu",
+          "biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Việc tuần tra và bàn giao ca phải tuân thủ tần suất, phạm vi và quy trình ghi nhận nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "task.building-guard-sealing.building-parking-smoking",
+  "label": "Vi phạm hút thuốc tại bãi xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Vi phạm hút thuốc tại bãi xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về vi phạm hút thuốc tại bãi xe?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.building-parking-smoking.1",
+          "text": "Nội quy Tây Đô cấm hút thuốc ở bãi xe và nêu mức 3 triệu đồng mỗi lần; nếu gây hậu quả nghiêm trọng như cháy, nổ, văn bản nêu việc xem xét xử lý hợp đồng lao động và trách nhiệm bồi thường.",
+          "refs": [
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 27,
+              "content_sha256": "2e0d5a675b8bbe9208d3eeba748f9ed1ac2cf9ff1a7d21b8f0569af22c17d59e",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10.g. Không hút thuốc trong khu vực để xe. Nếu CBNV nào vi phạm sẽ bị phạt như sau:\nPhạt 3.000.000đ/1 lần và Công ty có thể xem xét chấm dứt HĐLĐ trước thời hạn hoặc bị sa thải, đồng thời CBNV sẽ phải chịu mọi trách nhiệm bồi thường nếu gây ra hậu quả nghiêm trọng như cháy, nổ,….",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "HCNS và người có thẩm quyền cần xác minh tình huống trước khi kết luận biện pháp áp dụng."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

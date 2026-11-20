@@ -1,0 +1,50 @@
+{
+  "id": "task.building-guard-sealing.building-security-setup",
+  "label": "Tổ chức an ninh tòa nhà Tây Đô",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tổ chức an ninh tòa nhà Tây Đô"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về tổ chức an ninh tòa nhà Tây Đô?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.building-security-setup.1",
+          "text": "Quy định Tây Đô ghi tòa nhà thuê dịch vụ bảo vệ 24/24 và có camera giám sát an ninh để xử lý sự việc phát sinh.",
+          "refs": [
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 30,
+              "content_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65",
+              "quote": "Quy định tòa nhà Tây Đô – Cần Thơ, VI.1–2: Nguồn ghi dịch vụ bảo vệ 24/24 và camera giám sát an ninh. Khi phát hiện bảo vệ phục vụ không chuyên nghiệp hoặc gian lận, thông báo ngay Ban an ninh để xử lý. Số hotline in trong nguồn chưa được xác minh hiện tại. Quản lý tòa nhà giữ chìa khóa. Người rời tòa nhà cuối cùng phải niêm phong cùng Bảo vệ theo quy định niêm phong đã ban hành.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Quy định mô tả phương án an ninh. Để xác nhận tình trạng thực tế, liên hệ Quản lý tòa nhà hoặc Ban An ninh."
+      ]
+    }
+  },
+  "scope_limit": "verify_operational_data"
+}

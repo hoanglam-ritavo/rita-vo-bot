@@ -1,0 +1,51 @@
+{
+  "id": "route.bravo-vpn.bravo-install",
+  "family": "software",
+  "task_id": "task.bravo-vpn.bravo-install",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "bộ cài",
+          "link tải",
+          "tải về"
+        ],
+        [
+          "lấy",
+          "tải",
+          "ở đâu",
+          "tìm ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tải bộ cài Bravo 8 chính thức ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi",
+    "không có quyền",
+    "không mở được liên kết"
+  ],
+  "follow_up_tasks": {
+    "Còn bộ cài VPN?": "task.bravo-vpn.vpn-setup"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "route.bravo-vpn.diagnosis",
+  "family": "software",
+  "task_id": "task.bravo-vpn.diagnosis",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "phân biệt lỗi",
+          "phân biệt sự cố",
+          "xác định lỗi nằm ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi phân biệt lỗi Internet, lỗi VPN, lỗi Bravo 8 và lỗi phân quyền bằng cách nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

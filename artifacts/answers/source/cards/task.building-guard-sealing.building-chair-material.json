@@ -1,0 +1,46 @@
+{
+  "id": "task.building-guard-sealing.building-chair-material",
+  "label": "Bảo mật trong phòng Chủ tịch",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Bảo mật trong phòng Chủ tịch"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về bảo mật trong phòng Chủ tịch?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.building-chair-material.1",
+          "text": "Người được phép vào phòng Chủ tịch phải giữ gìn hồ sơ, tài liệu và thiết bị. Không tự ý chụp ảnh, quay phim, ghi âm, sao chụp, mang hồ sơ ra ngoài hoặc tiết lộ thông tin trong phòng.",
+          "refs": [
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 29,
+              "content_sha256": "d23d73c43368fce9aa9524dcebda0cb47a41e0fbc30a72c9613b5bc07a496a97",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.12. Quy định sử dụng phòng Chủ tịch\na. Phòng Chủ tịch là khu vực hạn chế; CBNV và khách chỉ được ra vào khi được Chủ tịch hoặc Người có thẩm quyền cho phép.\nb. Người được phép sử dụng phải giữ gìn vệ sinh, tài sản, thiết bị, hồ sơ và tài liệu; không tự ý di chuyển, mang ra ngoài hoặc sử dụng ngoài phạm vi được phép.\nc. Không được tự ý chụp ảnh, quay phim, ghi âm, sao chụp, cung cấp hoặc tiết lộ hồ sơ, tài liệu, thông tin trong phòng.\nd. Sau khi sử dụng, phải sắp xếp lại khu vực, tắt thiết bị điện, điều hòa, đèn và đóng, khóa cửa phòng theo quy định.\ne. Chìa khóa phòng do Quản lý tòa nhà quản và tạp vụ thực hiện vệ sinh hằng ngày.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

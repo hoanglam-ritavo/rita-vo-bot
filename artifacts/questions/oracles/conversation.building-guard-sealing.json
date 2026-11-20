@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.building-guard-sealing",
+  "turns": [
+    {
+      "case_id": "q.conversation.building-guard-sealing.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-ac-temperature"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, điều hòa tầng 2 và khu làm việc tầng 5 được ghi 27 °C vào mùa mưa và 25–26 °C vào mùa hè."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.001",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-applicability"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "07c8b3ca55454ec4fe3ec4c10f7fddb065241503a0ca85b17138b2685218a98b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định 02HC/QĐ-BM06 áp dụng cho người có mặt tại tòa nhà Rita Võ Tây Đô – Cần Thơ. Với showroom, kho hoặc chi nhánh ở địa điểm khác, kiểm tra nội quy của địa điểm đó với Quản lý cơ sở hoặc HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-request"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh khảo sát và đề xuất số lượng, vị trí bảo vệ theo mẫu RTV/2020-01. Ban An ninh gửi đề xuất đã được Ban Giám đốc duyệt cho HCNS trước 3 ngày so với ngày cần sử dụng bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.002",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-personnel"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tiêu chuẩn bảo vệ thuê ngoài gồm tuổi từ 22 đến 55, sức khỏe, chiều cao, trình độ theo mục tiêu, nghiệp vụ và lý lịch theo mục 3. Hồ sơ điều động gồm lệnh điều động, lịch trực, lý lịch theo mẫu, giấy tờ tùy thân, hợp đồng lao động và chứng nhận huấn luyện theo mục 2.2."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-incident-record"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.003",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-forms"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thông báo yêu cầu dùng giấy niêm phong có dấu công ty, ký sổ niêm phong và lập biên bản tại chỗ khi giấy có dấu hiệu bất thường. Liên hệ HCNS hoặc Quản lý cơ sở để xin mẫu đang sử dụng."
+      ],
+      "required_limitations": [
+        "Các trích đoạn quy định không có tệp mẫu giấy, sổ hoặc biên bản để tải trực tiếp."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.004",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-incident-record"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.004",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "unavailable_documents": [
+        "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+      ],
+      "forbidden_documents": [
+        "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-incident-record"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản."
+      ]
+    },
+    {
+      "case_id": "q.conversation.building-guard-sealing.005",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-scope"
+      ],
+      "expected_aspects": [
+        "conditions"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "c0a563f83aae85f3fda8a9c9086b22da52a7027d78391ff62cd73ad9537c6360"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "f36c85a876560e927249843dcde1627678e17c236b82a01166c552b2e06f5f07"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "21b65df11badfa793571eb0ce41ffb77af124ee305d00fa75b4bdc081746c36f"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy chế bao gồm công ty, chi nhánh, văn phòng đại diện và đơn vị thành viên, trực thuộc. Đối tượng gồm cấp quản lý, nhân viên, người lao động đang làm việc, học việc, thử việc và người đã nghỉ có liên quan đến quản lý hoặc sử dụng dấu."
+      ]
+    }
+  ]
+}

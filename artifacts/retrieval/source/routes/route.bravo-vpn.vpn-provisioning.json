@@ -1,0 +1,50 @@
+{
+  "id": "route.bravo-vpn.vpn-provisioning",
+  "family": "software",
+  "task_id": "task.bravo-vpn.vpn-provisioning",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "cấp VPN",
+          "xin VPN",
+          "cấp tài khoản VPN",
+          "quyền truy cập từ xa",
+          "xin quyền VPN"
+        ],
+        [
+          "Bravo",
+          "ở nhà",
+          "ai cấp",
+          "cho ai",
+          "ở đâu",
+          "làm từ xa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đã có quyền vào Bravo 8 ở văn phòng, làm sao để xin quyền truy cập từ xa?",
+          "Tôi xin cấp tài khoản VPN ở đâu và gửi yêu cầu cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

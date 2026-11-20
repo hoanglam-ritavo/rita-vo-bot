@@ -1,0 +1,57 @@
+{
+  "id": "route.bravo-vpn.app-permissions",
+  "family": "software",
+  "task_id": "task.bravo-vpn.app-permissions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "phân hệ",
+          "báo cáo",
+          "đơn vị dữ liệu",
+          "cơ sở dữ liệu",
+          "chọn công ty",
+          "quyền hiện tại"
+        ],
+        [
+          "quyền",
+          "phân quyền",
+          "không thấy",
+          "không thể",
+          "xin thêm",
+          "thao tác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Những chức năng nào của Bravo 8 cần kết nối VPN?",
+          "Tôi kiểm tra quyền hiện tại của mình trên Bravo 8 ở đâu?",
+          "Tôi xin thêm quyền vào phân hệ, báo cáo hoặc dữ liệu của đơn vị khác bằng cách nào?",
+          "Tôi chọn đúng công ty, chi nhánh hoặc cơ sở dữ liệu trong Bravo 8 bằng cách nào?",
+          "Tại sao tôi đăng nhập được Bravo 8 nhưng không thấy đúng công ty, chi nhánh hoặc dữ liệu?",
+          "Tại sao tôi xem được báo cáo Bravo 8 nhưng không thể nhập, sửa, duyệt hoặc xuất dữ liệu?",
+          "Tại sao một số phân hệ Bravo 8 mở được qua VPN còn một số phân hệ báo lỗi?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

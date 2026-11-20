@@ -1,0 +1,45 @@
+{
+  "id": "route.bravo-vpn.new-user",
+  "family": "software",
+  "task_id": "task.bravo-vpn.new-user",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "nhân viên mới",
+          "mới vào",
+          "mới nhận việc"
+        ],
+        [
+          "quyền",
+          "VPN",
+          "cài"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên mới cần làm gì để được cấp quyền VPN và Bravo 8?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

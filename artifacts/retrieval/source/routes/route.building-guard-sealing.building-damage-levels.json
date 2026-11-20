@@ -1,0 +1,42 @@
+{
+  "id": "route.building-guard-sealing.building-damage-levels",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-damage-levels",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tây đô",
+          "sản phẩm trưng bày",
+          "tài sản tòa nhà"
+        ],
+        [
+          "bồi thường"
+        ],
+        [
+          "tái phạm",
+          "không thể sửa chữa",
+          "lần thứ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định Tây Đô nêu cách xem xét vi phạm hoặc bồi thường thế nào nếu tái phạm hoặc tài sản không thể sửa chữa?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

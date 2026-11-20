@@ -1,0 +1,44 @@
+{
+  "id": "route.bravo-vpn.bravo-account",
+  "family": "software",
+  "task_id": "task.bravo-vpn.bravo-account",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "quên mật khẩu",
+          "đăng nhập không được",
+          "đăng nhập bằng tài khoản",
+          "đặt lại mật khẩu",
+          "dùng tài khoản nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đăng nhập Bravo 8 bằng tài khoản nào?",
+          "Tôi quên mật khẩu Bravo 8 thì đặt lại ở đâu?",
+          "Tôi mở được Bravo 8 nhưng đăng nhập không được thì lỗi có thể nằm ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

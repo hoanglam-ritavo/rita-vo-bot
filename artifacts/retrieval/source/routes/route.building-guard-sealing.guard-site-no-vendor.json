@@ -1,0 +1,36 @@
+{
+  "id": "route.building-guard-sealing.guard-site-no-vendor",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-site-no-vendor",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chưa có nhà cung cấp",
+          "không có nhà cung cấp"
+        ],
+        [
+          "bảo vệ"
+        ],
+        [
+          "tuyển chọn",
+          "phù hợp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu chưa có nhà cung cấp phù hợp, cơ sở cần làm gì để tiếp tục tuyển chọn nhân viên bảo vệ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

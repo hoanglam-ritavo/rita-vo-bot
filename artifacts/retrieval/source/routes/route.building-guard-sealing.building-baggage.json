@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-baggage",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-baggage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kiểm tra hành lý",
+          "kiểm tra túi"
+        ],
+        [
+          "bảo vệ",
+          "nhân viên"
+        ],
+        [
+          "trường hợp nào",
+          "khi nào",
+          "lúc nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ có thể yêu cầu kiểm tra hành lý trong trường hợp nào và nhân viên phải phối hợp ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

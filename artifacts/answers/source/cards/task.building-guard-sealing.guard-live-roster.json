@@ -1,0 +1,98 @@
+{
+  "id": "task.building-guard-sealing.guard-live-roster",
+  "label": "Xác minh lịch trực và liên hệ bảo vệ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xác minh lịch trực và liên hệ bảo vệ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về xác minh lịch trực và liên hệ bảo vệ?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-live-roster.1",
+          "text": "Lịch trực là một phần hồ sơ điều động. Liên hệ Quản lý cơ sở hoặc HCNS để xác nhận lịch hiện tại và đầu mối đội bảo vệ ở địa điểm cần hỏi.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 4,
+              "content_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n2.2. Hồ sơ nhân viên bảo vệ:\n- Lệnh điều động\n- Lịch trực bảo vệ\n- Lý lịch trích ngang nhân viên bảo vệ theo mẫu (HCNS-QT01-LLTN)\n- CMND/CCCD nhân viên bảo vệ (bản sao y công chứng thời hạn không quá 6 tháng)\n- Hợp đồng lao động của nhân viên bảo vệ với Công ty DVBV\n- Chứng chỉ sơ cấp cứu, chứng nhận huấn luyện nghiệp vụ cứu nạn cứu hộ",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 16,
+              "content_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n7. Quyền hạn và trách nhiệm của Phòng Hành chính – Nhân sự (tiếp):\n- Thực hiện các chế tài, lập biên bản xử lý vi phạm, yêu cầu phạt Công ty DVBV theo danh sách vi phạm do Ban An Ninh gửi hàng tháng\n- Đề xuất thanh lý hợp đồng với DVBV không đáp ứng được yêu cầu Công ty hoặc thường xuyên vi phạm hợp đồng\n- Cung cấp bảo vệ đạt chuẩn cho Ban An Ninh trong vòng 5 ngày kể từ ngày nhận được yêu cầu\n- Cung cấp thông tin nhân viên bảo vệ của từng mục tiêu cho các phòng ban liên quan",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 17,
+              "content_sha256": "dd7d50ac7c161d0c45ccde951202d72243260915653fa06d0565355655a1a0e1",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n7. Quyền hạn và trách nhiệm của Phòng Hành chính – Nhân sự (tiếp):\n- Là đầu mối làm việc với các đối tác công ty DVBV bao gồm: tất cả biên bản, email liên quan đến công tác bảo vệ phải được thông tin đến phòng KSNB và Ban An Ninh\n- Chủ trì những cuộc họp tham vấn tuyển chọn công ty DVBV dự kiến trở thành đối tác bảo vệ của công ty RitaVõ, thông báo đại diện phòng KSNB và Ban An ninh cùng tham dự\n- Thông báo đến Ban an ninh, KSNB, Quản lý Showroom, Kho, Bãi xe… về lý lịch của nhân viên bảo vệ trước khi nhân sự đến nhận vị trí làm việc tại mục tiêu của RitaVõ\n- Gửi báo cáo phạt vi phạm của các công ty DVBV đến phòng KSNB, Ban An Ninh và phòng tài chính kế toán làm cơ sở cấn trừ thanh toán phí dịch vụ hàng tháng",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 34,
+              "content_sha256": "a3d9b881105a28f0a49862a2cb55f888bf57cd158bdc59086c6abe65dbee7016",
+              "quote": "Quy định tòa nhà Tây Đô – Cần Thơ, VI.4 — bảng nguồn hỗ trợ khẩn cấp trong tài liệu: bên ngoài gồm Công An 113, Chữa Cháy 114, Cấp Cứu 115. Nội bộ gồm Quản Lý Tòa Nhà, QL P.HCNS, Ban An Ninh (ô liên hệ chung ghi Ban an ninh), Đội Trưởng Đội Bảo Vệ (số liên hệ cập nhật theo thông báo P.HCNS). Thông tin liên hệ nội bộ trong bản nguồn không xác nhận người trực hay số hiện hành.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Các tài liệu quy định không có danh sách người đang trực hay số liên hệ nội bộ đã được xác minh tại thời điểm hỏi."
+      ]
+    }
+  },
+  "scope_limit": "verify_operational_data"
+}

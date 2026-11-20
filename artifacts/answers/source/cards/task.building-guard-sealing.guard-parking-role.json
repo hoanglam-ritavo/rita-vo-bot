@@ -1,0 +1,78 @@
+{
+  "id": "task.building-guard-sealing.guard-parking-role",
+  "label": "Trông giữ xe của nhân viên và khách",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Trông giữ xe của nhân viên và khách"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về trông giữ xe của nhân viên và khách?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-parking-role.1",
+          "text": "Bảo vệ trông giữ xe cho nhân viên và khách theo quy định cơ sở. Tại Tây Đô, bảo vệ hướng dẫn đỗ đúng vị trí, phát và thu vé, xác minh giấy tờ và lập biên bản nếu mất vé.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 8,
+              "content_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. Trách nhiệm của lực lượng bảo vệ (tiếp):\n- Giám sát hoạt động tuần tra của bảo vệ theo ranh giới bảo vệ được quy định tại từng mục tiêu để đảm bảo an ninh trật tự, phòng chống cháy nổ tối thiểu 30 phút/ lần.\n- Kiểm tra, đăng ký quản lý tài sản, vật tư ra vào công ty theo nội quy, quy định Công ty.\n- Nhắc nhở hướng dẫn CBNV chấp hành nội quy, quy định tại công ty về an toàn PCCC. Phối hợp với lực lượng (PCCC) của nhà nước thực hiện tốt công tác PCCC.\n- Trông giữ xe cho nhân viên và khách hàng của Công ty (theo quy định Công ty).\n- Lịch sự, ân cần, tận tình trong công việc.\n- Khi có sự cố về an ninh xảy ra, NV bảo vệ làm công tác bảo vệ hiện trường cho tới khi bàn giao cho các cấp có liên quan.\n- Giải quyết nhanh chóng và báo cáo lại cho B.A.N, P.HCNS tất cả sự cố an ninh xảy ra trong ca trực.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 25,
+              "content_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10. Bãi đỗ xe\na. Xe máy của CBNV phải để gọn gàng, đúng nơi quy định theo sự hướng dẫn của Bảo vệ tòa nhà.\nb. Không được để trước lối ra vào hoặc tại những nơi gây cản trở, tắc nghẽn cho các tài xế khác.\nc. Người để xe tại khu vực gửi xe không nên để đồ đạc quý giá hay đồ dùng cá nhân tại xe của mình.\nd. Không rửa xe, sửa chữa trong bãi để xe trừ phi được sự chấp thuận của QLTN.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            },
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 26,
+              "content_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.10.e. Thẻ hay vé xe các loại sẽ được phát tại trạm/ bảo vệ kiểm soát khi xe đến và sẽ được trả lại cho bảo vệ/ trạm khi xe chạy ra khỏi bãi để xe.\nf. Bảo vệ/ nhân viên trông giữ xe chỉ giao xe cho đúng người đang giữ thẻ xe/ vé xe. CBNV/Khách hàng phải tự chịu trách nhiệm giữ thẻ xe/vé xe của mình. Trường hợp làm mất thẻ xe/vé xe thì mọi tổn thất mất mát liên quan (xe, tài sản trên xe…) CBNV/ Khách hàng phải tự chịu trách nhiệm. Khi muốn nhận lại xe, phải xuất trình giấy tờ tùy thân và giấy tờ xe để chứng minh mình là chủ xe. Bảo vệ/nhân viên trông giữ xe sẽ lập biên bản để ghi nhận sự việc và bàn giao xe.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

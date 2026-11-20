@@ -1,0 +1,40 @@
+{
+  "id": "route.bravo-vpn.overview",
+  "family": "software",
+  "task_id": "task.bravo-vpn.overview",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo là gì",
+          "Bravo 8 là gì",
+          "Bravo8 là gì",
+          "ERP Bravo là gì",
+          "Bravo dùng để làm gì",
+          "Bravo 8 dùng để làm gì",
+          "mục đích sử dụng Bravo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bravo 8 là gì và dùng để làm gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

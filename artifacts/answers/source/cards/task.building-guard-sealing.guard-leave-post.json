@@ -1,0 +1,62 @@
+{
+  "id": "task.building-guard-sealing.guard-leave-post",
+  "label": "Rời vị trí trong ca bảo vệ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Rời vị trí trong ca bảo vệ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về rời vị trí trong ca bảo vệ?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.guard-leave-post.1",
+          "text": "Bảo vệ chỉ rời vị trí vì lý do chính đáng khi đã có người thay và được đội trưởng tại địa điểm đồng ý. Nội quy lao động cũng yêu cầu bảo vệ hoặc an ninh có người thay khi nghỉ giữa ca.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 9,
+              "content_sha256": "b1edf84299445a84ee1a5fff1522987969d26cabb312078bc250e6ce631fb4ff",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. Trách nhiệm của lực lượng bảo vệ (tiếp):\n- Thực hiện công việc nghiêm túc theo quy trình bảo vệ, mô tả công việc. Công ty DVBV phải tổ chức đào tạo nghiệp vụ, trình tự xuất nhập hàng theo đúng quy trình của công ty RitaVõ trước khi nhân viên bảo vệ tới nhận việc tại mục tiêu.\n- Luôn duy trì đúng vị trí làm việc của mình, trường hợp rời vị trí vì lý do chính đáng phải có người thay thế và được sự đồng ý của đội trưởng mục tiêu.\n- Mọi thắc mắc, khó khăn trong công việc cần được hỗ trợ phải báo cáo ngay cho Quản lý/ P.HCNS/ B.A.N.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "chunk_index": 6,
+              "content_sha256": "c5f9423ab007337400f62ed31c09df274e9c5672c047707c94aa68ae577633b5",
+              "quote": "Nội quy lao động — Điều 7: ca liên tục nghỉ giữa ca ít nhất 30 phút ban ngày, 45 phút ca đêm sau 22 giờ, do quản lý trực tiếp sắp xếp luân phiên. Bảo vệ/an ninh chỉ rời vị trí khi có người thay. Nghỉ tuần ít nhất 1 ngày, có thể luân phiên; nếu trùng ngày lễ/Tết quy định thì nghỉ bù ngày nghỉ tuần vào ngày làm việc kế tiếp.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

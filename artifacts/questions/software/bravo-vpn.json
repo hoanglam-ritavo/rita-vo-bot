@@ -1,0 +1,2654 @@
+{
+  "schema_version": 1,
+  "group_id": "software.bravo-vpn",
+  "cases": [
+    {
+      "id": "q.software.bravo-vpn.001",
+      "title": "Phạm vi Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.overview"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 là gì và dùng để làm gì?",
+          "expectation": "Trả lời trong đúng phạm vi Phạm vi Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.002",
+      "title": "Vai trò VPN với Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-role"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "VPN là gì và dùng để làm gì khi truy cập Bravo 8?",
+          "expectation": "Trả lời trong đúng phạm vi Vai trò VPN với Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.003",
+      "title": "Vai trò VPN với Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-role"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 và VPN có liên quan với nhau như thế nào?",
+          "expectation": "Trả lời trong đúng phạm vi Vai trò VPN với Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.004",
+      "title": "Dùng Bravo 8 trong và ngoài mạng công ty",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.network-scope"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể vào Bravo 8 mà không bật VPN không?",
+          "expectation": "Cần xác định máy đang dùng mạng công ty hay mạng bên ngoài. Hướng dẫn không chẩn đoán nguyên nhân của một lỗi truy cập cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.005",
+      "title": "Dùng Bravo 8 trong và ngoài mạng công ty",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.network-scope"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao ở văn phòng tôi vào được Bravo 8 mà về nhà lại không vào được?",
+          "expectation": "Cần xác định máy đang dùng mạng công ty hay mạng bên ngoài. Hướng dẫn không chẩn đoán nguyên nhân của một lỗi truy cập cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.006",
+      "title": "Sử dụng Bravo 8 trên Wi-Fi công ty",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.office-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Dùng Wi-Fi công ty có cần bật VPN để vào Bravo 8 không?",
+          "expectation": "Trả lời trong đúng phạm vi Sử dụng Bravo 8 trên Wi-Fi công ty và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.007",
+      "title": "Sử dụng Bravo 8 tại chi nhánh",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.branch-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm việc tại chi nhánh khác có cần bật VPN để vào Bravo 8 không?",
+          "expectation": "Tài liệu phân biệt mạng công ty và mạng ngoài công ty, chưa xác nhận mạng của từng chi nhánh. Áp dụng theo mạng thực tế, không chỉ theo vị trí."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.008",
+      "title": "Truy cập Bravo 8 khi làm việc từ xa",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.remote-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm việc tại nhà, đi công tác hoặc ở nước ngoài có dùng được Bravo 8 không?",
+          "expectation": "Tài liệu có hướng dẫn cho mạng bên ngoài như ở nhà. Chưa xác nhận điều kiện theo quốc gia, địa điểm công tác hoặc thiết bị cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.009",
+      "title": "Dùng Bravo 8 trên mạng công cộng hoặc mạng di động",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.public-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể vào Bravo 8 bằng Wi-Fi công cộng hoặc mạng 4G/5G không?",
+          "expectation": "Mạng công cộng là ví dụ mạng ngoài công ty trong hướng dẫn. Tài liệu chưa quy định riêng về kết nối 4G/5G hoặc điều kiện bảo mật khi dùng Wi-Fi công cộng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.010",
+      "title": "Dùng VPN cá nhân để vào Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.personal-vpn"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng VPN cá nhân để vào Bravo 8 không?",
+          "expectation": "Hướng dẫn chỉ mô tả kết nối RitaVO do HCNS IT cài. Chưa có căn cứ để xác nhận VPN cá nhân được phép hoặc có thể thay thế kết nối này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.011",
+      "title": "Phân biệt tài khoản VPN và Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.account-distinction"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài khoản VPN và tài khoản Bravo 8 có phải là một không?",
+          "expectation": "Hai trạng thái kết nối và quyền ứng dụng được kiểm tra riêng. Tài liệu chưa xác nhận hai hệ thống dùng cùng tài khoản hay tài khoản riêng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.012",
+      "title": "VPN đã kết nối và quyền vào Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.connected-permission"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kết nối VPN thành công có nghĩa là tôi đã được cấp quyền vào Bravo 8 không?",
+          "expectation": "Trả lời trong đúng phạm vi VPN đã kết nối và quyền vào Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.013",
+      "title": "Kết nối VPN rồi mở Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.open-bravo"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có cần bật VPN trước khi mở Bravo 8 không?",
+          "expectation": "Trả lời trong đúng phạm vi Kết nối VPN rồi mở Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.014",
+      "title": "Duy trì hoặc kết thúc phiên Bravo 8 qua VPN",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.session-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trong lúc dùng Bravo 8, tôi có phải giữ VPN kết nối liên tục không?",
+          "expectation": "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.015",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "access",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Những chức năng nào của Bravo 8 cần kết nối VPN?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.016",
+      "title": "Thiết lập VPN và Bravo 8 cho nhân viên mới",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.new-user"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên mới cần làm gì để được cấp quyền VPN và Bravo 8?",
+          "expectation": "Hướng dẫn áp dụng cho nhân viên được phân công sử dụng Bravo 8. Chưa xác nhận biểu mẫu, bước phê duyệt hoặc thời hạn cấp quyền."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.017",
+      "title": "Yêu cầu thiết lập VPN RitaVO",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-provisioning"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đã có quyền vào Bravo 8 ở văn phòng, làm sao để xin quyền truy cập từ xa?",
+          "expectation": "Hướng dẫn xác định đầu mối cài đặt. Chưa có kênh nộp yêu cầu chính thức hoặc quy trình cấp tài khoản VPN được xác nhận."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.018",
+      "title": "Yêu cầu cấp quyền Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-provisioning"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đã có tài khoản VPN, làm sao để xin thêm quyền Bravo 8?",
+          "expectation": "Tài liệu nêu nhóm cấp phân quyền, chưa có kênh nộp yêu cầu, quy trình duyệt hoặc thời hạn xử lý quyền Bravo 8."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.019",
+      "title": "Yêu cầu thiết lập VPN RitaVO",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-provisioning"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xin cấp tài khoản VPN ở đâu và gửi yêu cầu cho ai?",
+          "expectation": "Hướng dẫn xác định đầu mối cài đặt. Chưa có kênh nộp yêu cầu chính thức hoặc quy trình cấp tài khoản VPN được xác nhận."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.020",
+      "title": "Yêu cầu cấp quyền Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-provisioning"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xin cấp tài khoản Bravo 8 ở đâu và gửi yêu cầu cho ai?",
+          "expectation": "Tài liệu nêu nhóm cấp phân quyền, chưa có kênh nộp yêu cầu, quy trình duyệt hoặc thời hạn xử lý quyền Bravo 8."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.021",
+      "title": "Quy trình yêu cầu quyền VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.provisioning-process"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể xin cấp VPN và Bravo 8 trong cùng một yêu cầu không?",
+          "expectation": "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.022",
+      "title": "Quy trình yêu cầu quyền VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.provisioning-process"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phê duyệt quyền truy cập VPN và Bravo 8?",
+          "expectation": "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.023",
+      "title": "Quy trình yêu cầu quyền VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.provisioning-process"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi gửi yêu cầu cấp quyền, tôi cần cung cấp thông tin gì?",
+          "expectation": "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.024",
+      "title": "Quy trình yêu cầu quyền VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.provisioning-process"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mất bao lâu để được cấp quyền và tôi theo dõi yêu cầu ở đâu?",
+          "expectation": "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.025",
+      "title": "Đối tượng được dùng VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.eligibility"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc, thực tập sinh, cộng tác viên hoặc nhà thầu có được cấp quyền không?",
+          "expectation": "Chưa xác nhận quyền của từng nhóm lao động hoặc khả năng cấp quyền tạm thời. Cần kiểm tra với đầu mối cấp quyền."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.026",
+      "title": "Đối tượng được dùng VPN và Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.eligibility"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có thể xin quyền truy cập tạm thời vào Bravo 8 qua VPN không?",
+          "expectation": "Chưa xác nhận quyền của từng nhóm lao động hoặc khả năng cấp quyền tạm thời. Cần kiểm tra với đầu mối cấp quyền."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.027",
+      "title": "Gia hạn và thay đổi quyền VPN hoặc Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.access-lifecycle"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quyền VPN hoặc Bravo 8 có hết hạn không và gia hạn bằng cách nào?",
+          "expectation": "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.028",
+      "title": "Gia hạn và thay đổi quyền VPN hoặc Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.access-lifecycle"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi chuyển phòng ban, chi nhánh hoặc công ty thành viên, tôi có cần xin lại quyền không?",
+          "expectation": "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.029",
+      "title": "Gia hạn và thay đổi quyền VPN hoặc Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.access-lifecycle"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nghỉ việc hoặc nghỉ dài hạn, quyền VPN và Bravo 8 được xử lý thế nào?",
+          "expectation": "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.030",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra quyền hiện tại của mình trên Bravo 8 ở đâu?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.031",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "provisioning",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xin thêm quyền vào phân hệ, báo cáo hoặc dữ liệu của đơn vị khác bằng cách nào?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.032",
+      "title": "Tài liệu hướng dẫn VPN và Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.manual"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài liệu hướng dẫn cài VPN và truy cập Bravo 8 nằm ở đâu?",
+          "expectation": "Trả lời trong đúng phạm vi Tài liệu hướng dẫn VPN và Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.033",
+      "title": "Ứng dụng, bộ cài và cấu hình VPN RitaVO",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-setup"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần dùng ứng dụng VPN nào để vào Bravo 8?",
+          "expectation": "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.034",
+      "title": "Ứng dụng, bộ cài và cấu hình VPN RitaVO",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-setup"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tải bộ cài VPN chính thức ở đâu?",
+          "expectation": "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.035",
+      "title": "Bộ cài Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-install"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tải bộ cài Bravo 8 chính thức ở đâu?",
+          "expectation": "Trả lời trong đúng phạm vi Bộ cài Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.036",
+      "title": "Cách mở và truy cập Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-entry"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi sử dụng Bravo 8 qua trình duyệt, ứng dụng cài trên máy hay máy tính từ xa?",
+          "expectation": "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.037",
+      "title": "Cách mở và truy cập Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-entry"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đường dẫn chính thức để truy cập Bravo 8 là gì?",
+          "expectation": "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.038",
+      "title": "Thứ tự cài đặt VPN và Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-order"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần cài VPN hay Bravo 8 trước?",
+          "expectation": "Tài liệu mô tả thứ tự kết nối khi sử dụng ngoài công ty, chưa quy định phải cài phần mềm nào trước."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.039",
+      "title": "Kết nối VPN RitaVO lần đầu",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.first-connection"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lần đầu kết nối VPN, tôi cần chuẩn bị những gì?",
+          "expectation": "Trả lời trong đúng phạm vi Kết nối VPN RitaVO lần đầu và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.040",
+      "title": "Ứng dụng, bộ cài và cấu hình VPN RitaVO",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-setup"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi lấy thông tin cấu hình VPN ở đâu?",
+          "expectation": "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.041",
+      "title": "Thiết bị và quyền cài VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có cần quyền quản trị trên máy tính để cài VPN hoặc Bravo 8 không?",
+          "expectation": "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.042",
+      "title": "Thiết bị và quyền cài VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu không có quyền cài phần mềm, tôi nhờ bộ phận nào hỗ trợ?",
+          "expectation": "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.043",
+      "title": "Thiết bị và quyền cài VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 và VPN hỗ trợ những phiên bản Windows hoặc macOS nào?",
+          "expectation": "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.044",
+      "title": "Thiết bị và quyền cài VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng Bravo 8 qua VPN trên điện thoại hoặc máy tính bảng không?",
+          "expectation": "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.045",
+      "title": "Cài VPN và Bravo 8 trên máy cá nhân",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.personal-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể cài VPN và Bravo 8 trên máy cá nhân không?",
+          "expectation": "Tài liệu chưa xác nhận máy cá nhân được phép hay các yêu cầu bảo mật áp dụng. Kiểm tra với HCNS IT trước khi cài đặt hoặc kết nối."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.046",
+      "title": "Cài VPN và Bravo 8 trên máy cá nhân",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.personal-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Máy cá nhân cần đáp ứng điều kiện gì để được phép kết nối VPN?",
+          "expectation": "Tài liệu chưa xác nhận máy cá nhân được phép hay các yêu cầu bảo mật áp dụng. Kiểm tra với HCNS IT trước khi cài đặt hoặc kết nối."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.047",
+      "title": "Cách mở và truy cập Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-entry"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 yêu cầu trình duyệt hoặc phiên bản ứng dụng nào?",
+          "expectation": "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.048",
+      "title": "Thiết bị và quyền cài VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.setup-device"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đổi máy tính hoặc cài lại hệ điều hành, tôi cần thiết lập lại những gì?",
+          "expectation": "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.049",
+      "title": "Cập nhật VPN hoặc Bravo 8",
+      "tags": [
+        "setup",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.update"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cập nhật ứng dụng VPN hoặc Bravo 8 bằng cách nào?",
+          "expectation": "Tài liệu hướng dẫn cập nhật Bravo 8, chưa xác nhận quy trình cập nhật VPN RitaVO. Hỏi HCNS IT nếu cần kiểm tra phần VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.050",
+      "title": "Đăng nhập và khôi phục tài khoản VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đăng nhập VPN bằng tài khoản công ty hay tài khoản được cấp riêng?",
+          "expectation": "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.051",
+      "title": "Đăng nhập và khôi phục tài khoản Bravo 8",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đăng nhập Bravo 8 bằng tài khoản nào?",
+          "expectation": "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.052",
+      "title": "Mật khẩu lần đầu, thay đổi và khóa tài khoản",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.first-login"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi phải làm gì sau khi nhận tài khoản hoặc mật khẩu dùng lần đầu?",
+          "expectation": "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.053",
+      "title": "Đăng nhập và khôi phục tài khoản VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi quên mật khẩu VPN thì đặt lại ở đâu?",
+          "expectation": "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.054",
+      "title": "Đăng nhập và khôi phục tài khoản Bravo 8",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi quên mật khẩu Bravo 8 thì đặt lại ở đâu?",
+          "expectation": "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.055",
+      "title": "Mật khẩu lần đầu, thay đổi và khóa tài khoản",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.first-login"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đổi mật khẩu tài khoản công ty có ảnh hưởng đến VPN hoặc Bravo 8 không?",
+          "expectation": "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.056",
+      "title": "Mật khẩu lần đầu, thay đổi và khóa tài khoản",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.first-login"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi bị khóa tài khoản VPN hoặc Bravo 8 sau nhiều lần nhập sai thì làm gì?",
+          "expectation": "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.057",
+      "title": "Xác thực đa yếu tố VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.mfa"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "VPN có yêu cầu xác thực đa yếu tố không và tôi thiết lập ở đâu?",
+          "expectation": "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.058",
+      "title": "Xác thực đa yếu tố VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.mfa"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi không nhận được mã hoặc thông báo xác thực VPN thì làm gì?",
+          "expectation": "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.059",
+      "title": "Xác thực đa yếu tố VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.mfa"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi đổi hoặc mất điện thoại xác thực VPN thì lấy lại quyền truy cập bằng cách nào?",
+          "expectation": "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.060",
+      "title": "Giới hạn phiên và thiết bị đăng nhập",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.sessions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể dùng cùng một tài khoản VPN trên nhiều thiết bị không?",
+          "expectation": "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.061",
+      "title": "Giới hạn phiên và thiết bị đăng nhập",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.sessions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể mở nhiều phiên Bravo 8 cùng lúc không?",
+          "expectation": "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.062",
+      "title": "Kiểm tra trạng thái kết nối VPN",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.connection-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm sao để biết VPN đã kết nối thành công?",
+          "expectation": "Trả lời trong đúng phạm vi Kiểm tra trạng thái kết nối VPN và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.063",
+      "title": "Kết nối VPN rồi mở Bravo 8",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.open-bravo"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi kết nối VPN thành công, tôi mở Bravo 8 ở đâu?",
+          "expectation": "Trả lời trong đúng phạm vi Kết nối VPN rồi mở Bravo 8 và dẫn hướng dẫn Bravo 8 v1.0."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.064",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "authentication",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi chọn đúng công ty, chi nhánh hoặc cơ sở dữ liệu trong Bravo 8 bằng cách nào?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.065",
+      "title": "Chẩn đoán lỗi kết nối VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao VPN cứ ở trạng thái đang kết nối rồi báo hết thời gian chờ?",
+          "expectation": "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.066",
+      "title": "Đăng nhập và khôi phục tài khoản VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao VPN báo sai thông tin đăng nhập dù tôi nhập đúng mật khẩu?",
+          "expectation": "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.067",
+      "title": "Chẩn đoán lỗi kết nối VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi phải làm gì khi VPN báo lỗi chứng chỉ hoặc thiết bị không đáp ứng yêu cầu?",
+          "expectation": "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.068",
+      "title": "Chẩn đoán lỗi kết nối VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Vì sao VPN kết nối được bằng 4G/5G nhưng không kết nối được bằng Wi-Fi ở nhà?",
+          "expectation": "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.069",
+      "title": "Duy trì hoặc kết thúc phiên Bravo 8 qua VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.session-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao VPN tự ngắt khi máy ngủ, khóa màn hình hoặc chuyển mạng?",
+          "expectation": "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.070",
+      "title": "Chẩn đoán lỗi kết nối VPN",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.vpn-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao bật VPN xong tôi không truy cập được Internet hoặc các ứng dụng khác?",
+          "expectation": "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.071",
+      "title": "Không vào được Bravo 8 khi VPN đã kết nối",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao VPN báo đã kết nối nhưng Bravo 8 không mở được?",
+          "expectation": "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.072",
+      "title": "Không vào được Bravo 8 khi VPN đã kết nối",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 báo không tìm thấy máy chủ hoặc hết thời gian chờ kết nối thì xử lý thế nào?",
+          "expectation": "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.073",
+      "title": "Không vào được Bravo 8 khi VPN đã kết nối",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kết nối lại VPN rồi mà Bravo 8 vẫn báo mất kết nối thì làm gì?",
+          "expectation": "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.074",
+      "title": "Không vào được Bravo 8 khi VPN đã kết nối",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi vào được các hệ thống nội bộ khác qua VPN nhưng không vào được Bravo 8 thì kiểm tra gì?",
+          "expectation": "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.075",
+      "title": "Không vào được Bravo 8 khi VPN đã kết nối",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-error"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Cùng một mạng và cùng kết nối VPN, đồng nghiệp vào được Bravo 8 mà tôi không vào được thì kiểm tra gì?",
+          "expectation": "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.076",
+      "title": "Đăng nhập và khôi phục tài khoản Bravo 8",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.bravo-account"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi mở được Bravo 8 nhưng đăng nhập không được thì lỗi có thể nằm ở đâu?",
+          "expectation": "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.077",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao tôi đăng nhập được Bravo 8 nhưng không thấy đúng công ty, chi nhánh hoặc dữ liệu?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.078",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao tôi xem được báo cáo Bravo 8 nhưng không thể nhập, sửa, duyệt hoặc xuất dữ liệu?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.079",
+      "title": "Quyền thao tác và đơn vị dữ liệu Bravo 8",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.app-permissions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao một số phân hệ Bravo 8 mở được qua VPN còn một số phân hệ báo lỗi?",
+          "expectation": "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.080",
+      "title": "Bravo 8 chậm hoặc lỗi xuất, tải và in",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.performance"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao Bravo 8 chạy chậm khi tôi dùng qua VPN?",
+          "expectation": "Hướng dẫn không có quy trình chẩn đoán hiệu năng, xuất báo cáo, tải tệp hoặc in chứng từ. Mô tả thao tác và thông báo lỗi cho đầu mối hỗ trợ để kiểm tra."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.081",
+      "title": "Bravo 8 chậm hoặc lỗi xuất, tải và in",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.performance"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tại sao xuất báo cáo, tải tệp hoặc in chứng từ từ Bravo 8 qua VPN bị lỗi?",
+          "expectation": "Hướng dẫn không có quy trình chẩn đoán hiệu năng, xuất báo cáo, tải tệp hoặc in chứng từ. Mô tả thao tác và thông báo lỗi cho đầu mối hỗ trợ để kiểm tra."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.082",
+      "title": "Phân biệt lỗi mạng, VPN, Bravo và phân quyền",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.diagnosis"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi phân biệt lỗi Internet, lỗi VPN, lỗi Bravo 8 và lỗi phân quyền bằng cách nào?",
+          "expectation": "Các dấu hiệu này giúp tách lớp kết nối và quyền ứng dụng. Tài liệu chưa có cây chẩn đoán Internet hoặc Bravo để kết luận nguyên nhân."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.083",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "troubleshooting",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nhiều người cùng lúc không vào được Bravo 8 qua VPN, tôi xem thông báo sự cố ở đâu?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.084",
+      "title": "Mất kết nối trong lúc thao tác chứng từ Bravo 8",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.transaction"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu VPN mất kết nối khi tôi đang nhập chứng từ trong Bravo 8, dữ liệu chưa lưu có bị mất không?",
+          "expectation": "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.085",
+      "title": "Mất kết nối trong lúc thao tác chứng từ Bravo 8",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.transaction"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu VPN ngắt ngay sau khi tôi bấm lưu hoặc duyệt, làm sao biết thao tác đã thành công chưa?",
+          "expectation": "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.086",
+      "title": "Mất kết nối trong lúc thao tác chứng từ Bravo 8",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.transaction"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra thế nào trước khi gửi lại chứng từ để tránh ghi nhận trùng?",
+          "expectation": "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.087",
+      "title": "Duy trì hoặc kết thúc phiên Bravo 8 qua VPN",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.session-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi kết nối lại VPN, tôi có cần đăng nhập lại Bravo 8 không?",
+          "expectation": "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.088",
+      "title": "Giới hạn phiên và thiết bị đăng nhập",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.sessions"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bravo 8 hoặc VPN có tự ngắt sau một thời gian không hoạt động không?",
+          "expectation": "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.089",
+      "title": "Mất kết nối trong lúc thao tác chứng từ Bravo 8",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.transaction"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể tiếp tục thao tác trên Bravo 8 khi mất mạng rồi đồng bộ sau không?",
+          "expectation": "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.090",
+      "title": "Duy trì hoặc kết thúc phiên Bravo 8 qua VPN",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.session-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi nên đóng Bravo 8 và ngắt VPN theo thứ tự nào khi làm xong?",
+          "expectation": "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.091",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi VPN hoặc Bravo 8 gặp sự cố gần hạn chốt số liệu, tôi liên hệ ai và có quy trình xử lý thay thế không?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.092",
+      "title": "Điều kiện dùng Bravo 8 qua VPN ngoài văn phòng",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.remote-policy"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Công ty có quy định gì về việc dùng Bravo 8 qua VPN ngoài văn phòng?",
+          "expectation": "Tài liệu chưa quy định khung giờ, vùng địa lý hoặc loại thiết bị được phép. Mạng ngoài công ty là điều kiện kết nối trong hướng dẫn, chưa phải xác nhận đủ điều kiện cho thiết bị hay trường hợp cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.093",
+      "title": "Điều kiện dùng Bravo 8 qua VPN ngoài văn phòng",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.remote-policy"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "VPN và Bravo 8 có giới hạn giờ truy cập, khu vực hoặc thiết bị không?",
+          "expectation": "Tài liệu chưa quy định khung giờ, vùng địa lý hoặc loại thiết bị được phép. Mạng ngoài công ty là điều kiện kết nối trong hướng dẫn, chưa phải xác nhận đủ điều kiện cho thiết bị hay trường hợp cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.094",
+      "title": "Bảo mật tài khoản và dữ liệu Bravo 8",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.security-policy"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được lưu mật khẩu VPN hoặc Bravo 8 trên máy không?",
+          "expectation": "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.095",
+      "title": "Bảo mật tài khoản và dữ liệu Bravo 8",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.security-policy"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được chia sẻ tài khoản VPN hoặc Bravo 8 để người khác xử lý công việc thay không?",
+          "expectation": "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.096",
+      "title": "Bảo mật tài khoản và dữ liệu Bravo 8",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.security-policy"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được tải, in hoặc lưu dữ liệu Bravo 8 trên máy cá nhân khi truy cập qua VPN không?",
+          "expectation": "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.097",
+      "title": "Báo mất thiết bị hoặc nghi lộ tài khoản",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.security-incident"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần báo cho ai nếu mất thiết bị đã cài VPN hoặc nghi ngờ tài khoản bị lộ?",
+          "expectation": "Tài liệu chưa nêu kênh ứng cứu bảo mật chính thức. Liên hệ kênh IT chính thức càng sớm càng tốt và tránh gửi mật khẩu hoặc mã xác thực."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.098",
+      "title": "Nhật ký VPN và Bravo 8",
+      "tags": [
+        "security",
+        "type-a"
+      ],
+      "support": "unsupported",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.audit"
+        ],
+        "document_ids": [],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kết nối VPN và thao tác trên Bravo 8 có được ghi nhật ký không?",
+          "expectation": "Tài liệu Bravo 8 v1.0 không xác nhận VPN hay Bravo 8 có ghi nhật ký, ai được xem hoặc thời gian lưu nhật ký. Hỏi bộ phận IT phụ trách để xác nhận quy định áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.099",
+      "title": "Đầu mối hỗ trợ VPN và Bravo 8",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.support"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lỗi VPN và lỗi Bravo 8 được tiếp nhận qua những kênh hỗ trợ nào?",
+          "expectation": "Các đầu mối được dẫn theo hướng dẫn năm 2023. Xác minh kênh tiếp nhận hiện hành trước khi gửi thông tin."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.100",
+      "title": "Thông tin gửi khi báo lỗi VPN hoặc Bravo 8",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.support-intake"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi báo lỗi, tôi cần gửi mã lỗi, thời điểm, thông tin thiết bị hoặc ảnh chụp màn hình nào?",
+          "expectation": "Hướng dẫn chưa công bố danh sách thông tin bắt buộc. Có thể mô tả thời điểm, bước thao tác và mã lỗi. Trước khi gửi ảnh, che mật khẩu, mã xác thực, thông tin cá nhân và dữ liệu chứng từ không cần thiết."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.101",
+      "title": "Thông tin gửi khi báo lỗi VPN hoặc Bravo 8",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.support-intake"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần che thông tin gì trước khi gửi ảnh chụp lỗi Bravo 8 hoặc VPN?",
+          "expectation": "Hướng dẫn chưa công bố danh sách thông tin bắt buộc. Có thể mô tả thời điểm, bước thao tác và mã lỗi. Trước khi gửi ảnh, che mật khẩu, mã xác thực, thông tin cá nhân và dữ liệu chứng từ không cần thiết."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.102",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi xem lịch bảo trì VPN và Bravo 8 ở đâu?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.103",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu gặp lỗi ngoài giờ hành chính, tôi liên hệ ai?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.104",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "support",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi theo dõi tiến độ xử lý sự cố VPN hoặc Bravo 8 ở đâu?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.105",
+      "title": "Duy trì hoặc kết thúc phiên Bravo 8 qua VPN",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.session-network"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kết nối VPN lại rồi có phải đăng nhập lại Bravo không?",
+          "expectation": "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+        }
+      ]
+    },
+    {
+      "id": "q.software.bravo-vpn.106",
+      "title": "Tra cứu sự cố, bảo trì và hỗ trợ ngoài giờ",
+      "tags": [
+        "interruption",
+        "type-a"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.bravo-vpn.incident-status"
+        ],
+        "document_ids": [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lỗi Bravo sát giờ khóa sổ, có kênh hỗ trợ khẩn không?",
+          "expectation": "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+        }
+      ]
+    }
+  ]
+}

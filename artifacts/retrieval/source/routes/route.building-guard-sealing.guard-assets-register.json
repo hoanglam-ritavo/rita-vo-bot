@@ -1,0 +1,36 @@
+{
+  "id": "route.building-guard-sealing.guard-assets-register",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-assets-register",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "vật tư và tài sản",
+          "tài sản ra vào"
+        ],
+        [
+          "đăng ký",
+          "theo dõi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ phải đăng ký, theo dõi vật tư và tài sản ra vào cơ sở thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

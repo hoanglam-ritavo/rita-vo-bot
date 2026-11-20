@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.guard-site-supervision",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-site-supervision",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý trực tiếp tại cơ sở",
+          "quản lý showroom"
+        ],
+        [
+          "bảo vệ"
+        ],
+        [
+          "giám sát",
+          "báo sai phạm",
+          "theo dõi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý trực tiếp tại cơ sở phải theo dõi nhân sự bảo vệ, phối hợp giám sát và báo sai phạm thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

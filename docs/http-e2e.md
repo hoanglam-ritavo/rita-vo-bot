@@ -62,15 +62,15 @@ and 50 use unassessed corpus search. The latter accept `evidence_found` or
 This also applies to search results for requests to perform actions or endorse
 unsupported conclusions. Answer carries the separate business expectation.
 
-The `full` profile covers 867 question cases and 1,768 checks, with 1,694 pending
-preparation and 74 outside the stateless run (50 conversation, 24 controlled
-fixture). The 25 multi-turn cases are marked
+The `full` profile covers 2,321 question cases and 4,676 checks after the
+building, guarding, door sealing and Bravo/VPN expansions. Of these, 4,460 are pending
+preparation and 216 are outside the stateless run. Multi-turn cases are marked
 `conversation_required` for each endpoint. Their per-turn conversation checks
 run in the offline [question fixture](../artifacts/questions/README.md#record-format).
 The `smoke` profile selects 11 protocol scenarios, six HRM-role scenarios and
 11 bank cases for both endpoints, for 56 pending checks. It includes a document
 excerpt, mixed HRM and policy, date arithmetic, platform-specific paperwork,
-missing-data, clarification and privacy boundaries. The full inventory has zero
+missing-data, clarification and privacy boundaries. The inventory test requires zero
 applicable Retrieve checks using `unresolved`. These counts describe planning coverage.
 
 ## Configuration

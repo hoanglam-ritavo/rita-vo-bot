@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.guard-parking-role",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-parking-role",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "trông giữ xe",
+          "giữ xe"
+        ],
+        [
+          "nhân viên",
+          "khách",
+          "trách nhiệm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ có trách nhiệm gì trong việc trông giữ xe cho nhân viên và khách?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

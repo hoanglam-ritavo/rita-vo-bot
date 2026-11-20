@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-ac-use",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-ac-use",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "điều hòa",
+          "máy lạnh"
+        ],
+        [
+          "đóng cửa",
+          "bật luân phiên",
+          "sofa",
+          "sản phẩm da"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi bật điều hòa, cần đóng cửa, bật luân phiên và ưu tiên khu vực nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-customer-children",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-customer-children",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khách hàng",
+          "khách tham quan"
+        ],
+        [
+          "trẻ em",
+          "trẻ nhỏ",
+          "đưa bé",
+          "đi cùng con"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu khách hàng đi cùng trẻ em, nhân viên kinh doanh phải lưu ý gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

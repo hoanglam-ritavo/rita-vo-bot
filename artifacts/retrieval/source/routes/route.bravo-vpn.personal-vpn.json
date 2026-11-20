@@ -1,0 +1,40 @@
+{
+  "id": "route.bravo-vpn.personal-vpn",
+  "family": "software",
+  "task_id": "task.bravo-vpn.personal-vpn",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "VPN cá nhân",
+          "VPN riêng",
+          "VPN bên thứ ba"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể dùng VPN cá nhân để vào Bravo 8 không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

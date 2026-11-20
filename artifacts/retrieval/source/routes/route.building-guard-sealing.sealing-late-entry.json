@@ -1,0 +1,47 @@
+{
+  "id": "route.building-guard-sealing.sealing-late-entry",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-late-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "niêm phong",
+          "đã niêm phong"
+        ],
+        [
+          "ngoài giờ",
+          "ngày nghỉ",
+          "ngày lễ",
+          "sau khi đã niêm phong"
+        ],
+        [
+          "mở",
+          "vào",
+          "xin phép"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép ai và niêm phong lại hoặc bàn giao thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cần đóng hoặc mở niêm phong vào ngày nghỉ, ngày lễ hay khi có tình huống khẩn cấp, tôi phải xác nhận quy trình với ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "route.bravo-vpn.vpn-setup",
+  "family": "software",
+  "task_id": "task.bravo-vpn.vpn-setup",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN",
+          "RitaVO"
+        ],
+        [
+          "hồ sơ",
+          "bộ cài VPN",
+          "ứng dụng VPN",
+          "cấu hình VPN",
+          "tải VPN",
+          "phần mềm VPN"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi cần dùng ứng dụng VPN nào để vào Bravo 8?",
+          "Tôi tải bộ cài VPN chính thức ở đâu?",
+          "Tôi lấy thông tin cấu hình VPN ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "route.bravo-vpn.bravo-provisioning",
+  "family": "software",
+  "task_id": "task.bravo-vpn.bravo-provisioning",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "xin phân quyền",
+          "cấp quyền Bravo",
+          "cấp tài khoản Bravo",
+          "xin thêm quyền Bravo",
+          "đăng ký quyền Bravo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi đã có tài khoản VPN, làm sao để xin thêm quyền Bravo 8?",
+          "Tôi xin cấp tài khoản Bravo 8 ở đâu và gửi yêu cầu cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

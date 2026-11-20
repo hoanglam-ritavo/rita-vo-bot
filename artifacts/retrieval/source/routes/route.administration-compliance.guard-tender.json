@@ -46,6 +46,20 @@
           "Nếu báo giá dịch vụ bảo vệ vượt khung, ai trình và ai phê duyệt?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "HCNS phải tìm và so sánh ít nhất bao nhiêu nhà cung cấp trước khi trình duyệt?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu báo giá vượt khung, ai trình, ai có thẩm quyền phê duyệt và phải làm gì nếu đề xuất không được duyệt?"
+        ]
+      ]
     }
   ],
   "excludes_any": [

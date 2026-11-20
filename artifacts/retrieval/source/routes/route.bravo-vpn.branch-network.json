@@ -1,0 +1,47 @@
+{
+  "id": "route.bravo-vpn.branch-network",
+  "family": "software",
+  "task_id": "task.bravo-vpn.branch-network",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "VPN"
+        ],
+        [
+          "chi nhánh",
+          "showroom"
+        ],
+        [
+          "có cần",
+          "có phải",
+          "bắt buộc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Làm việc tại chi nhánh khác có cần bật VPN để vào Bravo 8 không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

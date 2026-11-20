@@ -1,0 +1,49 @@
+{
+  "id": "route.bravo-vpn.provisioning-process",
+  "family": "software",
+  "task_id": "task.bravo-vpn.provisioning-process",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "phê duyệt",
+          "cùng một yêu cầu",
+          "cung cấp thông tin",
+          "gửi yêu cầu cấp quyền",
+          "mất bao lâu",
+          "theo dõi yêu cầu cấp quyền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể xin cấp VPN và Bravo 8 trong cùng một yêu cầu không?",
+          "Ai phê duyệt quyền truy cập VPN và Bravo 8?",
+          "Khi gửi yêu cầu cấp quyền, tôi cần cung cấp thông tin gì?",
+          "Mất bao lâu để được cấp quyền và tôi theo dõi yêu cầu ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

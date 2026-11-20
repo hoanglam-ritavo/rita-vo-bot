@@ -1,0 +1,55 @@
+{
+  "id": "route.bravo-vpn.bravo-error",
+  "family": "software",
+  "task_id": "task.bravo-vpn.bravo-error",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "không mở được",
+          "không vào được",
+          "không tìm thấy server",
+          "không tìm thấy máy chủ",
+          "báo mất kết nối"
+        ],
+        [
+          "VPN",
+          "máy chủ",
+          "server"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tại sao VPN báo đã kết nối nhưng Bravo 8 không mở được?",
+          "Bravo 8 báo không tìm thấy máy chủ hoặc hết thời gian chờ kết nối thì xử lý thế nào?",
+          "Tôi kết nối lại VPN rồi mà Bravo 8 vẫn báo mất kết nối thì làm gì?",
+          "Tôi vào được các hệ thống nội bộ khác qua VPN nhưng không vào được Bravo 8 thì kiểm tra gì?",
+          "Cùng một mạng và cùng kết nối VPN, đồng nghiệp vào được Bravo 8 mà tôi không vào được thì kiểm tra gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ],
+  "follow_up_tasks": {
+    "Vậy tôi xem quyền ở đâu?": "task.bravo-vpn.app-permissions",
+    "Khi báo lỗi cần che gì?": "task.bravo-vpn.support-intake"
+  }
+}

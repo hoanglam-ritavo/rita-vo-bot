@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.guard-forms-location",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-forms-location",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mẫu đề xuất nhân viên bảo vệ",
+          "mẫu đề nghị xử lý vi phạm",
+          "biểu mẫu bảo vệ"
+        ],
+        [
+          "ở đâu",
+          "tìm",
+          "tải"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có thể tìm mẫu đề xuất nhân viên bảo vệ, mẫu đề nghị xử lý vi phạm và các biểu mẫu liên quan ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

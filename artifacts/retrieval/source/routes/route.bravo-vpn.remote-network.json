@@ -1,0 +1,46 @@
+{
+  "id": "route.bravo-vpn.remote-network",
+  "family": "software",
+  "task_id": "task.bravo-vpn.remote-network",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "đi công tác",
+          "nước ngoài",
+          "làm việc tại nhà",
+          "làm việc từ xa"
+        ],
+        [
+          "truy cập",
+          "dùng được",
+          "kết nối"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Làm việc tại nhà, đi công tác hoặc ở nước ngoài có dùng được Bravo 8 không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

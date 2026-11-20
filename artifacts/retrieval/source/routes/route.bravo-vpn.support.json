@@ -1,0 +1,59 @@
+{
+  "id": "route.bravo-vpn.support",
+  "family": "software",
+  "task_id": "task.bravo-vpn.support",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "lỗi sử dụng",
+          "ai hỗ trợ",
+          "ai xử lý lỗi",
+          "báo lỗi",
+          "đầu mối hỗ trợ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kênh hỗ trợ"
+        ],
+        [
+          "lỗi VPN",
+          "lỗi Bravo",
+          "sự cố VPN",
+          "sự cố Bravo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Lỗi VPN và lỗi Bravo 8 được tiếp nhận qua những kênh hỗ trợ nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ],
+  "follow_up_tasks": {
+    "Khi gửi ảnh cần che gì?": "task.bravo-vpn.support-intake"
+  }
+}

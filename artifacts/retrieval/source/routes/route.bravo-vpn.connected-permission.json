@@ -1,0 +1,48 @@
+{
+  "id": "route.bravo-vpn.connected-permission",
+  "family": "software",
+  "task_id": "task.bravo-vpn.connected-permission",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "đã Connected",
+          "kết nối thành công",
+          "đã kết nối"
+        ],
+        [
+          "được cấp quyền",
+          "có quyền vào",
+          "nghĩa là có quyền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Kết nối VPN thành công có nghĩa là tôi đã được cấp quyền vào Bravo 8 không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

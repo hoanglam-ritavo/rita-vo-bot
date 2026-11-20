@@ -1,0 +1,46 @@
+{
+  "id": "route.bravo-vpn.network-scope",
+  "family": "software",
+  "task_id": "task.bravo-vpn.network-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "VPN"
+        ],
+        [
+          "không bật",
+          "không cần bật",
+          "không dùng",
+          "về nhà lại không",
+          "trong và ngoài mạng công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể vào Bravo 8 mà không bật VPN không?",
+          "Tại sao ở văn phòng tôi vào được Bravo 8 mà về nhà lại không vào được?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

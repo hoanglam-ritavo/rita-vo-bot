@@ -1,0 +1,40 @@
+{
+  "id": "route.building-guard-sealing.building-food",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-food",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nấu ăn ngoài phòng bếp",
+          "đồ ăn nặng mùi",
+          "thức ăn nặng mùi",
+          "sầu riêng"
+        ],
+        [
+          "tòa nhà",
+          "tây đô",
+          "phòng bếp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được nấu ăn ngoài phòng bếp hoặc mang đồ ăn nặng mùi vào tòa nhà không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

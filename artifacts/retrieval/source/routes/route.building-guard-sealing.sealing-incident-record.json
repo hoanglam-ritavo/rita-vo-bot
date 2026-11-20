@@ -1,0 +1,44 @@
+{
+  "id": "route.building-guard-sealing.sealing-incident-record",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-incident-record",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "biên bản tại chỗ",
+          "biên bản xử lý tại chỗ",
+          "chụp hiện trạng",
+          "ai ký biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong bất thường?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "mẫu giấy và sổ lấy ở đâu": "task.building-guard-sealing.sealing-forms"
+  }
+}

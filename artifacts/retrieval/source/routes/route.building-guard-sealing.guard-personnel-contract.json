@@ -1,0 +1,33 @@
+{
+  "id": "route.building-guard-sealing.guard-personnel-contract",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-personnel-contract",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ thuê ngoài"
+        ],
+        [
+          "bảo hiểm",
+          "hợp đồng lao động",
+          "tiền án"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ thuê ngoài cần đáp ứng điều kiện gì về lý lịch, hợp đồng lao động và bảo hiểm tai nạn?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

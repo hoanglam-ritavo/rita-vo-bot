@@ -54,6 +54,78 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Bravo 8 and VPN - 2026-11-20
+
+The implementation on `3fa2157` plus the shared working-tree changes
+preserves all 104 original questions. The pre-change fixture asked for
+clarification on 103 and returned one partial answer. The candidate returned
+11 complete answers, 92 partial answers and one explicit source gap, all
+within the scope of the 11 November 2023 guide. The bank adds two direct
+routing regressions and nine conversations with 27 turns.
+
+The full local HTTP and reducer evaluator passed **2,511/2,511 turns**
+across 2,321 cases, including the 23 original Bravo regression cases.
+Artifact regeneration, reproducibility, catalog and template coverage
+checks, all 3,024 source reference checks, the 22-file runtime inventory and
+the local HTTP scenario inventory passed. The separately authored local set
+passed 32/32. The non-integration pytest suite passed **1,326 tests**, with
+one skipped and 59 deselected. Independent reviewer acceptance, a target
+read-only PostgreSQL check and an authenticated Portal staging run are pending.
+See [Bravo 8 and VPN coverage](docs/bravo-vpn-coverage.md) for the remaining
+internal sources and staging procedure.
+
+### Building, guarding and door sealing - 2026-11-20
+
+On a topic-only snapshot of `3fa2157`, 111 new cards and existing
+administration and vehicle cards cover all 153 numbered questions.
+The [coverage map](docs/building-guard-sealing-coverage.md) records 120 complete
+and 33 partial answers. Live roster, contact, footage and seal status questions
+guide the employee to the appropriate operational owner.
+
+The baseline fixture passed 2,214 turns. The topic snapshot passed
+**2,378/2,378 turns across 2,206 cases**, including the original prompts,
+two wording regressions and five new conversations. A separate local wording set
+passed **30/30**. Build reproducibility, catalog validation and all **2,940**
+source references passed on the snapshot. The shared runtime inventory passed
+for all **22 files**.
+
+The non-integration snapshot run passed 1,305 tests, with one skipped and 59
+deselected. Sixteen cases initially hit missing offline migration configuration
+or Windows path limits in the snapshot. The targeted rerun passed all 20
+selected tests, including those sixteen. The shared HTTP inventory test also passed with
+the concurrent Bravo/VPN questions present.
+
+Independent review, target PostgreSQL verification and authenticated Portal
+staging remain pending. See the
+[staging procedure](docs/conversations.md#deletion-and-verification).
+
+
+### Company vehicles - 2026-11-20
+
+The pre-change fixture run on `9eea214` asked for clarification on 120 of
+140 questions and cited sources for 18. The implementation at `3fa2157`
+uses 58 new cards and 10 existing cards with references to 52 chunks in
+five packages. The bank preserves all 140 original questions. It returned
+52 complete answers, 83 partial answers and five targeted clarification
+prompts.
+
+The local HTTP and reducer evaluator passed **2,214/2,214 turns**, including
+140 original questions, 43 turns across 12 new conversations and all 2,031
+prior turns. The local paraphrase set passed **30/30**. Five phrases used
+to refine routing were retained as regressions and replaced in that set.
+Independent reviewer acceptance is pending.
+
+The full non-integration suite passed **1,321 tests**, with one skipped
+and 59 deselected, using a fresh extended-length Windows temporary path.
+The initial default-path run hit 16 asset restructure fixture setup errors.
+All 18 tests in that module also passed in isolation with an extended-length path.
+
+Artifact regeneration, reproducibility, catalog validation, template coverage,
+2,741 reference checks and the 22-file runtime inventory passed. These checks
+used local fixtures. A configured read-only PostgreSQL test connection and
+authenticated Portal staging were unavailable. See the
+[staging procedure](docs/conversations.md#deletion-and-verification).
+
 ### Administration and compliance - 2026-11-20
 
 On `82bb598` plus the administration changes, 100 authored cards and one

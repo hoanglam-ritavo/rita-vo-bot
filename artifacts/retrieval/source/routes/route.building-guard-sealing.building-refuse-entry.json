@@ -1,0 +1,44 @@
+{
+  "id": "route.building-guard-sealing.building-refuse-entry",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-refuse-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ",
+          "quản lý tòa nhà"
+        ],
+        [
+          "từ chối"
+        ],
+        [
+          "ra vào",
+          "khách"
+        ],
+        [
+          "trường hợp",
+          "khi nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trong những trường hợp nào quản lý tòa nhà hoặc bảo vệ có quyền từ chối cho nhân viên hoặc khách ra vào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

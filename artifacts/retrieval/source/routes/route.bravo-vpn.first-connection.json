@@ -1,0 +1,40 @@
+{
+  "id": "route.bravo-vpn.first-connection",
+  "family": "software",
+  "task_id": "task.bravo-vpn.first-connection",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "lần đầu kết nối",
+          "lần đầu dùng VPN",
+          "lần đầu bật VPN",
+          "kết nối VPN lần đầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Lần đầu kết nối VPN, tôi cần chuẩn bị những gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

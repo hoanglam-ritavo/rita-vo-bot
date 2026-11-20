@@ -1,0 +1,62 @@
+{
+  "id": "task.building-guard-sealing.building-dangerous-areas",
+  "label": "Khu vực nguy hiểm tại Tây Đô",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Khu vực nguy hiểm tại Tây Đô"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về khu vực nguy hiểm tại Tây Đô?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.building-dangerous-areas.1",
+          "text": "Tại Tây Đô, không leo trèo ở sân thượng, giếng trời, cửa sổ, mái tum hoặc thang thoát hiểm. Nhân viên không có nhiệm vụ không tự vào kho hoặc phòng kỹ thuật.",
+          "refs": [
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 3,
+              "content_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nIV. QUY ĐỊNH CHUNG\n1. Người sử dụng tòa nhà phải tôn trọng, tuân thủ các hướng dẫn, Nội quy quy định về việc QLTN của Tập đoàn cụ thể:\na. Không hút thuốc trong tòa nhà, không nấu nướng trong tòa nhà, ngoại trừ khu vực phòng bếp\nb. Không được chứa, ăn uống, mang thức ăn nặng mùi trong tòa nhà như: sầu riêng, mít...\nc. Không làm hư hoặc phá hoại các tiện ích, sản phẩm của Tập đoàn.\nd. Không được leo trèo ở những khu vực nguy hiểm như sân thượng, giếng trời, cửa sổ, mái tum, thang thoát hiểm.....\ne. Không sử dụng, tàng trữ các loại vũ khí, đạn dược, thuốc súng, xăng, dầu hoặc bất kỳ loại pháo nổ, thuốc nổ, hóa chất gây nổ, chất dễ cháy hoặc chất nguy hiểm khác hoặc hàng hóa cấm...",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            },
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 21,
+              "content_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nV.8. Quản lý tài sản & vệ sinh tòa nhà\na. Tất cả CBNV không có nhiệm vụ không tự ý vào kho chứa hàng/ phòng kỹ thuật (nếu có).\nb. Tất cả hàng hóa, TS, CCDC, thiết bị văn phòng…không được phép mang ra khỏi tòa nhà khi chưa được sự đồng ý của QLTN hoặc Ban tổng giám đốc.\nc. Tất cả CBNV phải có trách nhiệm, ý thức tiết kiệm và bảo vệ tài sản chung.\nd. Không tự ý sử dụng tài sản riêng của người khác.\ne. Không được ngồi, sử dụng, làm trầy xước…sản phẩm trưng bày của Tập đoàn. Bất cứ nhân viên nào vi phạm sẽ phải bồi thường theo quy định của Tập đoàn và tùy theo từng trường hợp cụ thể.\nf. Nhân viên tạp vụ sẽ vệ sinh sàn nhà thường xuyên trong ngày.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -201,5 +201,22 @@
     "scope": "Bounded document topic suggestions and reviewed partial procedure sections; no independent acceptance or live publication verification.",
     "independent_acceptance": false,
     "database_verified": false
+  },
+  "building_guard_sealing": {
+    "date": "2026-11-20",
+    "baseline_revision": "3fa2157",
+    "original_questions": 153,
+    "question_outcomes": {
+      "answered": 120,
+      "partial": 33
+    },
+    "fixture_turns": 2378,
+    "fixture_passed": 2378,
+    "fixture_report_sha256": "2390c604af02758296fd6c6029dee23ff6ad28a8a45d64c9cb926d00ca273540",
+    "authored_variants_passed": 30,
+    "verification_scope": "Isolated topic snapshot with baseline regressions",
+    "independent_acceptance": false,
+    "database_verified": false,
+    "verified_catalog_sha256": "ddb35ed3b82545f2e3a07f0c5f444afb78e943c52b4e1f1931713d97c8ee7458"
   }
 }

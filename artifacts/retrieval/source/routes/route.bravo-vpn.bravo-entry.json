@@ -1,0 +1,44 @@
+{
+  "id": "route.bravo-vpn.bravo-entry",
+  "family": "software",
+  "task_id": "task.bravo-vpn.bravo-entry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "trình duyệt",
+          "máy tính từ xa",
+          "bản web",
+          "đường dẫn",
+          "ứng dụng cài trên máy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi sử dụng Bravo 8 qua trình duyệt, ứng dụng cài trên máy hay máy tính từ xa?",
+          "Đường dẫn chính thức để truy cập Bravo 8 là gì?",
+          "Bravo 8 yêu cầu trình duyệt hoặc phiên bản ứng dụng nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

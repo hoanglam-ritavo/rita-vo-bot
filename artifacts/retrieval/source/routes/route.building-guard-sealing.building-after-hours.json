@@ -1,0 +1,70 @@
+{
+  "id": "route.building-guard-sealing.building-after-hours",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-after-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ở lại sau giờ",
+          "ra vào ngoài giờ",
+          "vào tòa nhà ngày nghỉ",
+          "người được phân công trực"
+        ],
+        [
+          "xin phép",
+          "chấp thuận",
+          "đăng ký",
+          "văn bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên ở lại sau giờ làm phải xin phép ai và có cần văn bản xác nhận không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi cần đăng ký với ai nếu muốn vào tòa nhà ngày nghỉ, ngày lễ hoặc Tết?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người được phân công trực có phải xin phép ra vào ngoài giờ như nhân viên khác không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ngoài giờ",
+          "ngày nghỉ",
+          "ngày lễ",
+          "tết"
+        ],
+        [
+          "vào tòa nhà",
+          "ra vào",
+          "vào văn phòng"
+        ],
+        [
+          "xin phép",
+          "ai duyệt"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

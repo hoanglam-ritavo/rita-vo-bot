@@ -93,6 +93,25 @@ def test_augmentation_only_exposes_a_bounded_unambiguous_bundle(business):
     assert business.policy.references('đề nghị vật tư Workit')[0].content_sha256==business.ref['content_sha256']
 
 
+def test_focused_routes_order_only_declared_current_evidence_for_a_single_request(business):
+    task = 'task.device-check'
+    business.catalog['routes'].append(dict(id='device-check', family='asset', task_id=task,
+        question_terms=[dict(requires_all=[['thiết bị'], ['kiểm tra']])], initial_aspect='procedure'))
+    question = 'Kiểm tra thiết bị?'
+    assert business.load().references(question) == []
+    business.catalog['bindings'].append(dict(id='device-check', family='asset', role='system_procedure',
+        operation='request', ref=business.ref, task_ids=[task], aspects=['procedure']))
+    policy = business.load()
+    neutral = {'chunk_id': 'neutral'}
+    stale = dict(business.match, content='Fictional superseded content')
+
+    assert policy.references(question) == [policy.catalog.bindings[-1].ref]
+    assert policy.reorder(question, [neutral, stale, business.match]) == [business.match, neutral, stale]
+    for unrelated_scope in ('Tìm tài liệu kiểm tra thiết bị.', 'Kiểm tra thiết bị? Còn hướng dẫn khác?'):
+        assert policy.references(unrelated_scope) == []
+        assert policy.reorder(unrelated_scope, [neutral, business.match]) == [neutral, business.match]
+
+
 def test_service_passes_declared_references_to_one_search_and_strips_private_hashes(business,monkeypatch):
     from src.retrieval import storage
     async def scenario():

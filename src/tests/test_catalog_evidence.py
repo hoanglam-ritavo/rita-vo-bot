@@ -6,8 +6,9 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock
 
 import pytest
+from pydantic import ValidationError
 
-from src.answering.catalog import Catalog, load_catalog
+from src.answering.catalog import Catalog, Section, load_catalog
 from src.answering.pipeline import evaluate_question, render, select_cards
 from src.artifact_authoring import impact, sources, workflow
 from src.tests.test_answering import sample
@@ -71,6 +72,29 @@ def test_explicit_document_lookup_uses_candidate_search_only(sample):
         assert row['claims'][0]['text'] == sample.result['matches'][0]['content']
         assert row['relevance']['status'] == 'unassessed'
     asyncio.run(scenario())
+
+
+@pytest.mark.parametrize('complete,limitations', [(True, ['Giới hạn.']), (False, []), (False, [' '])])
+def test_evidence_free_section_requires_incomplete_scope_and_explanation(complete, limitations):
+    with pytest.raises(ValidationError, match='invalid_source_gap_section'):
+        Section(complete=complete, units=[], limitations=limitations)
+
+
+def test_declared_source_gap_returns_no_claims_or_reads(sample):
+    data = deepcopy(sample.data)
+    limitation = 'Tài liệu hiện có chưa nêu mức hỗ trợ.'
+    data['cards'][0]['sections']['amount'] = dict(complete=False, units=[], limitations=[limitation])
+    catalog = Catalog.model_validate(data)
+    retrieval = SimpleNamespace(read_evidence=AsyncMock(), retrieve=AsyncMock())
+
+    result = asyncio.run(evaluate_question('Sinh con được bao nhiêu?', retrieval, catalog, sample.lexicon))
+
+    assert result['status'] == 'insufficient_evidence'
+    assert result['reason'] == 'policy_source_limit'
+    assert result['limitations'] == [limitation]
+    assert result['claims'] == [] and result['sources'] == {}
+    retrieval.retrieve.assert_not_awaited()
+    retrieval.read_evidence.assert_not_awaited()
 
 
 @pytest.mark.parametrize('field,value', [('source_sha256', 'b'*64), ('revision_id', 'old'),

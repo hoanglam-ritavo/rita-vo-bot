@@ -1,0 +1,46 @@
+{
+  "id": "task.building-guard-sealing.sealing-incident-record",
+  "label": "Biên bản bất thường niêm phong cửa",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Biên bản bất thường niêm phong cửa"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về biên bản bất thường niêm phong cửa?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.sealing-incident-record.1",
+          "text": "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản.",
+          "refs": [
+            {
+              "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+              "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+              "source_sha256": "a12a790fda08c8ebd22ce166817bf2caa7d85e277f8e41fa5a4cdb80582c5b11",
+              "chunk_index": 2,
+              "content_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d",
+              "quote": "Quy định niêm phong — mục 2. Người đến làm việc đầu tiên kiểm tra giấy niêm phong. Chỉ khi giấy không rách, mất hoặc biến dạng thông tin thì mở với sự chứng kiến của nhân viên dịch vụ bảo vệ. Nếu giấy bị rách, mất hoặc biến dạng: chụp hình hiện trạng, báo ngay cấp Quản lý và Phòng HCNS, lập biên bản xử lý tại chỗ có sự ký kết của nhân viên dịch vụ bảo vệ. Thông tin liên hệ in trong văn bản năm 2020 là dữ liệu lịch sử, không xác nhận người phụ trách hiện tại.",
+              "metadata": {
+                "title": "Quy định niêm phong cửa ra vào Văn phòng, chi nhánh và kho",
+                "applicability": "Đối tác cung cấp dịch vụ bảo vệ và toàn thể nhân viên Công ty TNHH RiTa Võ tại các địa điểm làm việc của Công ty.",
+                "effective_from": "2020-07-11",
+                "effective_to": null,
+                "version_label": "11/2020/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/9-quy-dinh-niem-phong.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

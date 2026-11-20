@@ -1,0 +1,72 @@
+{
+  "id": "task.bravo-vpn.setup-order",
+  "label": "Thứ tự cài đặt VPN và Bravo 8",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Thứ tự cài đặt VPN và Bravo 8"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi rõ phần nào về thứ tự cài đặt VPN và Bravo 8?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound employee guidance. No current service, account or transaction lookup."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.bravo-vpn.new-user",
+          "text": "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+          "refs": [
+            {
+              "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+              "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+              "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+              "chunk_index": 0,
+              "content_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46",
+              "quote": "Bravo 8 — hướng dẫn kết nối VPN phiên bản 1.0, cập nhật 11.11.2023, dành cho nhân viên được phân công sử dụng ERP Bravo 8. Nhân viên làm việc trong mạng công ty tại kho/văn phòng/showroom/trụ sở khác với nhân viên ở nhà hoặc mạng công cộng. HCNS IT cài Bravo Desktop cho nhân viên mới có vai trò sử dụng; HCNS IT cần cài VPN cho máy sử dụng từ ngoài công ty.",
+              "metadata": {
+                "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 11.11.2023",
+                "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.bravo-vpn.connect",
+          "text": "Khi ở mạng ngoài công ty, mở kết nối VPN RitaVO đã được HCNS IT thiết lập và chọn Connect. Trạng thái Connected xác nhận đã kết nối.",
+          "refs": [
+            {
+              "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+              "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+              "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+              "chunk_index": 2,
+              "content_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4",
+              "quote": "Bravo 8 — kết nối VPN ngoài công ty: mở VPN RitaVO đã được HCNS IT cài, nhấn Connect; Connected nghĩa là kết nối thành công, có thể xem lưu lượng đã dùng. Tài liệu chỉ cho phép kết nối VPN khi đang dùng mạng ngoài công ty. Nếu không sử dụng được Bravo theo hướng dẫn, liên hệ P. KSNB IT System để hỗ trợ.",
+              "metadata": {
+                "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "1.0; cập nhật 11.11.2023",
+                "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu mô tả thứ tự kết nối khi sử dụng ngoài công ty, chưa quy định phải cài phần mềm nào trước."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

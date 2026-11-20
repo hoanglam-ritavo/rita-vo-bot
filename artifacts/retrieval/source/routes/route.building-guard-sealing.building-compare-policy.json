@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-compare-policy",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-compare-policy",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nội quy lao động",
+          "nội quy chung"
+        ],
+        [
+          "khác nhau",
+          "mâu thuẫn",
+          "khác quy định"
+        ],
+        [
+          "địa điểm",
+          "cơ sở",
+          "tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nội quy lao động và quy định tại địa điểm làm việc khác nhau, tôi hỏi ai để xác nhận cách áp dụng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

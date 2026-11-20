@@ -1,0 +1,34 @@
+{
+  "id": "route.building-guard-sealing.guard-vendor-exclusions",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-vendor-exclusions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhà cung cấp bảo vệ",
+          "dịch vụ bảo vệ"
+        ],
+        [
+          "từng bị thanh lý",
+          "vi phạm pháp luật",
+          "có quan hệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhà cung cấp từng bị thanh lý hợp đồng, có vi phạm pháp luật hoặc có quan hệ với người quản lý tại cơ sở có đủ điều kiện dự tuyển không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

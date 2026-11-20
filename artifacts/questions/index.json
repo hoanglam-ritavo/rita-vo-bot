@@ -597,16 +597,40 @@
       "group_id": "conversation.company-vehicles",
       "cases": 12,
       "turns": 43
+    },
+    {
+      "path": "policy/building-guard-sealing.json",
+      "group_id": "policy.building-guard-sealing",
+      "cases": 154,
+      "turns": 154
+    },
+    {
+      "path": "conversation/building-guard-sealing.json",
+      "group_id": "conversation.building-guard-sealing",
+      "cases": 5,
+      "turns": 10
+    },
+    {
+      "path": "software/bravo-vpn.json",
+      "group_id": "software.bravo-vpn",
+      "case_count": 106,
+      "turn_count": 106
+    },
+    {
+      "path": "conversation/bravo-vpn.json",
+      "group_id": "conversation.bravo-vpn",
+      "case_count": 9,
+      "turn_count": 27
     }
   ],
   "totals": {
-    "groups": 21,
-    "cases": 867,
-    "turns": 901,
-    "observed_task_cards": 279,
+    "groups": 38,
+    "cases": 2321,
+    "turns": 2511,
+    "observed_task_cards": 963,
     "documents": 29,
     "employee_fields": 12,
-    "retrieval_routes": 285
+    "retrieval_routes": 998
   },
   "coverage": {
     "tasks": [
@@ -5237,6 +5261,2380 @@
             "q.policy.business-expansion.7e7be9cebe5b59b9"
           ]
         }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-identity",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-identity.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.001"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-scope",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-scope.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.002"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.002"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-applicability",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-applicability.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.003"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.003"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-compare-policy",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-compare-policy.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.004"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.004"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-safety-overview",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-safety-overview.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.005"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-management",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-management.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.006"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-doors",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-doors.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.007"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.007"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-keys",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-keys.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.008"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.008"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-guest-registration",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-guest-registration.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.009"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.009"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-guest-host",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-guest-host.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.010",
+          "q.policy.building-guard-sealing.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.010",
+            "q.policy.building-guard-sealing.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-contractor",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-contractor.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.012"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.012"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-refuse-entry",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-refuse-entry.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.013"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.013"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-employee-badge",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-employee-badge.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.014"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.014"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-employee-entry",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-employee-entry.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.015"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.015"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-baggage",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-baggage.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.016"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.016"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-after-hours",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-after-hours.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.017",
+          "q.policy.building-guard-sealing.018",
+          "q.policy.building-guard-sealing.019"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.017",
+            "q.policy.building-guard-sealing.018",
+            "q.policy.building-guard-sealing.019"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-children",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-children.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.020"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.020"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-customer-children",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-customer-children.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.021"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.021"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-pets",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-pets.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.022"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.022"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-dangerous-areas",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-dangerous-areas.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.023"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.023"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-prohibited-items",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-prohibited-items.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.024"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.024"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-conduct",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-conduct.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.025"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.025"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-food",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-food.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.026"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.026"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-showroom-conduct",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-showroom-conduct.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.027",
+          "q.policy.building-guard-sealing.028"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.027",
+            "q.policy.building-guard-sealing.028"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-restricted-rooms",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-restricted-rooms.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.029"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.029"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-chair-access",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-chair-access.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.030"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.030"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-chair-material",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-chair-material.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.031"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.031"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-chair-close",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-chair-close.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.032"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.032"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-lift-floors",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-lift-floors.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.033"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.033"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-lift-priority",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-lift-priority.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.034"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.034"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-lift-goods",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-lift-goods.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.035"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.035"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-lift-emergency",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-lift-emergency.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.036"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.036"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-ac-hours",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-ac-hours.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.037",
+          "q.policy.building-guard-sealing.038",
+          "q.policy.building-guard-sealing.039",
+          "q.policy.building-guard-sealing.040"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.037",
+            "q.policy.building-guard-sealing.038",
+            "q.policy.building-guard-sealing.039",
+            "q.policy.building-guard-sealing.040"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-ac-temperature",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-ac-temperature.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.041"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.041"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-ac-roles",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-ac-roles.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.042"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.042"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-ac-use",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-ac-use.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.043"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.043"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-ac-close",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-ac-close.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.044"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.044"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-light-hours",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-light-hours.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.045"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.045"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-blind-hours",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-blind-hours.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.046"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.046"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-close-equipment",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-close-equipment.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.047"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.047"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-outage",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-outage.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.048"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.048"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-generator",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-generator.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.049"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.049"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-goods",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-goods.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.050"
+        ],
+        "aspects": {
+          "paperwork": [
+            "q.policy.building-guard-sealing.050"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-bulky-goods",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-bulky-goods.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.051"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.051"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-drivers",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-drivers.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.052"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.052"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-assets-out",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-assets-out.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.053"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.053"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-assets-transfer",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-assets-transfer.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.054"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.054"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-assets-inventory",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-assets-inventory.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.055"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.055"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-display-tags",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-display-tags.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.056"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.056"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-display-care",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-display-care.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.057"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.057"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-damage",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-damage.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.058"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.058"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-damage-levels",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-damage-levels.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.059"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.059"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-clear-aisles",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-clear-aisles.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.060"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.060"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-hygiene",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-hygiene.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.061"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.061"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-property-conduct",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-property-conduct.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.062"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.062"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-kitchen-close",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-kitchen-close.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.063"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.063"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-kitchen-incident",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-kitchen-incident.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.064"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.064"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-parking",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-parking.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.065",
+          "q.policy.building-guard-sealing.067"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.065",
+            "q.policy.building-guard-sealing.067"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-parking-care",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-parking-care.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.066"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.066"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-parking-late",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-parking-late.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.068"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.068"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-parking-smoking",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-parking-smoking.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.069"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.069"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-fire-report",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-fire-report.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.070"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.070"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-fire-electrical",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-fire-electrical.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.071"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.071"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-evacuation",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-evacuation.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.072"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.072"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-fire-equipment",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-fire-equipment.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.073"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.073"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-fire-storage",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-fire-storage.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.074"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.074"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-electrical-install",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-electrical-install.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.075"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.075"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-fire-check",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-fire-check.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.076"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.076"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-emergency-contacts",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-emergency-contacts.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.077"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.077"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.building-roles",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.building-roles.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.078",
+          "q.policy.building-guard-sealing.079"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.078",
+            "q.policy.building-guard-sealing.079"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-security-setup",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-security-setup.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.080"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.080"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.building-security-complaint",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.building-security-complaint.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.081"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.081"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guide-contact",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guide-contact.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.082"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.082"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-scope",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-scope.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.083"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.083"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-vendor-criteria",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-vendor-criteria.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.084"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.084"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-vendor-exclusions",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-vendor-exclusions.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.085"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.085"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-vendor-capacity",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-vendor-capacity.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.086"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.086"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-vendor",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-vendor.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.087"
+        ],
+        "aspects": {
+          "paperwork": [
+            "q.policy.building-guard-sealing.087"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-tender-steps",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-tender-steps.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.088"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.088"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-tender",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-tender.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.089",
+          "q.policy.building-guard-sealing.091"
+        ],
+        "aspects": {
+          "procedure": [
+            "q.policy.building-guard-sealing.089",
+            "q.policy.building-guard-sealing.091"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-tender-paperwork",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-tender-paperwork.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.090"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.090"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-tender-contract",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-tender-contract.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.092"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.092"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-request",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-request.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.093",
+          "q.policy.building-guard-sealing.094",
+          "q.policy.building-guard-sealing.154"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.093",
+            "q.policy.building-guard-sealing.094",
+            "q.policy.building-guard-sealing.154"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-no-vendor",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-no-vendor.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.095"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.095"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-personnel",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-personnel.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.096",
+          "q.policy.building-guard-sealing.099"
+        ],
+        "aspects": {
+          "paperwork": [
+            "q.policy.building-guard-sealing.096",
+            "q.policy.building-guard-sealing.099"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-personnel-skills",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-personnel-skills.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.097"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.097"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-personnel-contract",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-personnel-contract.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.098"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.098"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-personnel-documents",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-personnel-documents.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.100"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.100"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-personnel-form",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-personnel-form.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.101"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.101"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-site",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-site.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.102"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.102"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-rejected",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-rejected.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.103"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.103"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-urgent",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-urgent.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.104"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.104"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-hcns-deadline",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-hcns-deadline.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.105"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.105"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-change-planned",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-change-planned.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.106"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.106"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-change-sudden",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-change-sudden.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.107"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.107"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-change-abandoned",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-change-abandoned.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.108"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.108"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-change-authority",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-change-authority.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.109"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.109"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-leave-post",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-leave-post.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.110"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.110"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-training",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-training.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.111"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.111"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-conduct",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-conduct.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.112",
+          "q.policy.building-guard-sealing.113"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.112",
+            "q.policy.building-guard-sealing.113"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-visitors",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-visitors.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.114"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.114"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-order",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-order.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.115"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.115"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-goods",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-goods.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.116"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.116"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-goods-duty",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-goods-duty.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.118"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.118"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-assets-register",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-assets-register.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.119"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.119"
+          ]
+        }
+      },
+      {
+        "task_id": "task.company-vehicles.guard-check",
+        "source_file": "artifacts/answers/source/cards/task.company-vehicles.guard-check.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.120"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.120"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-parking-role",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-parking-role.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.121"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.121"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-patrol-frequency",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-patrol-frequency.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.122"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.122"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-incident-report",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-incident-report.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.123"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.123"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-report",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-report.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.124"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.124"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-site-supervision",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-site-supervision.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.125"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.125"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.guard-roles",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.guard-roles.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.126",
+          "q.policy.building-guard-sealing.127"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.126",
+            "q.policy.building-guard-sealing.127"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-violation-evidence",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-violation-evidence.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.128"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.128"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-violation-contract",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-violation-contract.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.129"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.129"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-violation-penalty",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-violation-penalty.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.130"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.130"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-violation-form",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-violation-form.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.131"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.131"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-forms-location",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-forms-location.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.132"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.132"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-employee-distinction",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-employee-distinction.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.133"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.133"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.guard-live-roster",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.guard-live-roster.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.134"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.134"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-identity",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-identity.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.135"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.135"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.sealing-scope",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.sealing-scope.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.136"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.136"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-tay-do",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-tay-do.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.137"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.137"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-last-person",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-last-person.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.138"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.138"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.sealing-close",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.sealing-close.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.139",
+          "q.policy.building-guard-sealing.140"
+        ],
+        "aspects": {
+          "procedure": [
+            "q.policy.building-guard-sealing.139",
+            "q.policy.building-guard-sealing.140"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-placement",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-placement.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.141"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.141"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-witness",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-witness.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.142"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.142"
+          ]
+        }
+      },
+      {
+        "task_id": "task.administration-compliance.sealing-open",
+        "source_file": "artifacts/answers/source/cards/task.administration-compliance.sealing-open.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.143",
+          "q.policy.building-guard-sealing.144"
+        ],
+        "aspects": {
+          "procedure": [
+            "q.policy.building-guard-sealing.143",
+            "q.policy.building-guard-sealing.144"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-damage",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-damage.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.145",
+          "q.policy.building-guard-sealing.155"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.145",
+            "q.policy.building-guard-sealing.155"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-incident-record",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-incident-record.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.146",
+          "q.policy.building-guard-sealing.147"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.146",
+            "q.policy.building-guard-sealing.147"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-missed",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-missed.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.148"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.148"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-late-entry",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-late-entry.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.149",
+          "q.policy.building-guard-sealing.150"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.149",
+            "q.policy.building-guard-sealing.150"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-violation",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-violation.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.151"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.151"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-live-status",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-live-status.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.152"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.152"
+          ]
+        }
+      },
+      {
+        "task_id": "task.building-guard-sealing.sealing-forms",
+        "source_file": "artifacts/answers/source/cards/task.building-guard-sealing.sealing-forms.json",
+        "case_ids": [
+          "q.policy.building-guard-sealing.153"
+        ],
+        "aspects": {
+          "overview": [
+            "q.policy.building-guard-sealing.153"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.overview",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.overview.json",
+        "case_ids": [
+          "q.software.bravo-vpn.001"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.vpn-role",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.vpn-role.json",
+        "case_ids": [
+          "q.software.bravo-vpn.002",
+          "q.software.bravo-vpn.003"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.002",
+            "q.software.bravo-vpn.003"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.network-scope",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.network-scope.json",
+        "case_ids": [
+          "q.software.bravo-vpn.004",
+          "q.software.bravo-vpn.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.004",
+            "q.software.bravo-vpn.005"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.office-network",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.office-network.json",
+        "case_ids": [
+          "q.software.bravo-vpn.006"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.branch-network",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.branch-network.json",
+        "case_ids": [
+          "q.software.bravo-vpn.007"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.007"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.remote-network",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.remote-network.json",
+        "case_ids": [
+          "q.software.bravo-vpn.008"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.008"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.public-network",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.public-network.json",
+        "case_ids": [
+          "q.software.bravo-vpn.009"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.009"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.personal-vpn",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.personal-vpn.json",
+        "case_ids": [
+          "q.software.bravo-vpn.010"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.010"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.account-distinction",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.account-distinction.json",
+        "case_ids": [
+          "q.software.bravo-vpn.011"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.011"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.connected-permission",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.connected-permission.json",
+        "case_ids": [
+          "q.software.bravo-vpn.012",
+          "q.conversation.bravo-vpn.009"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.012",
+            "q.conversation.bravo-vpn.009"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.open-bravo",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.open-bravo.json",
+        "case_ids": [
+          "q.software.bravo-vpn.013",
+          "q.software.bravo-vpn.063"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.013",
+            "q.software.bravo-vpn.063"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.session-network",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.session-network.json",
+        "case_ids": [
+          "q.software.bravo-vpn.014",
+          "q.software.bravo-vpn.069",
+          "q.software.bravo-vpn.087",
+          "q.software.bravo-vpn.090",
+          "q.software.bravo-vpn.105"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.014",
+            "q.software.bravo-vpn.069",
+            "q.software.bravo-vpn.087",
+            "q.software.bravo-vpn.090",
+            "q.software.bravo-vpn.105"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.app-permissions",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.app-permissions.json",
+        "case_ids": [
+          "q.software.bravo-vpn.015",
+          "q.software.bravo-vpn.030",
+          "q.software.bravo-vpn.031",
+          "q.software.bravo-vpn.064",
+          "q.software.bravo-vpn.077",
+          "q.software.bravo-vpn.078",
+          "q.software.bravo-vpn.079",
+          "q.conversation.bravo-vpn.001"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.015",
+            "q.software.bravo-vpn.030",
+            "q.software.bravo-vpn.031",
+            "q.software.bravo-vpn.064",
+            "q.software.bravo-vpn.077",
+            "q.software.bravo-vpn.078",
+            "q.software.bravo-vpn.079",
+            "q.conversation.bravo-vpn.001"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.new-user",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.new-user.json",
+        "case_ids": [
+          "q.software.bravo-vpn.016"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.016"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.vpn-provisioning",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.vpn-provisioning.json",
+        "case_ids": [
+          "q.software.bravo-vpn.017",
+          "q.software.bravo-vpn.019"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.017",
+            "q.software.bravo-vpn.019"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.bravo-provisioning",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.bravo-provisioning.json",
+        "case_ids": [
+          "q.software.bravo-vpn.018",
+          "q.software.bravo-vpn.020"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.018",
+            "q.software.bravo-vpn.020"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.provisioning-process",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.provisioning-process.json",
+        "case_ids": [
+          "q.software.bravo-vpn.021",
+          "q.software.bravo-vpn.022",
+          "q.software.bravo-vpn.023",
+          "q.software.bravo-vpn.024"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.021",
+            "q.software.bravo-vpn.022",
+            "q.software.bravo-vpn.023",
+            "q.software.bravo-vpn.024"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.eligibility",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.eligibility.json",
+        "case_ids": [
+          "q.software.bravo-vpn.025",
+          "q.software.bravo-vpn.026"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.025",
+            "q.software.bravo-vpn.026"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.access-lifecycle",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.access-lifecycle.json",
+        "case_ids": [
+          "q.software.bravo-vpn.027",
+          "q.software.bravo-vpn.028",
+          "q.software.bravo-vpn.029"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.027",
+            "q.software.bravo-vpn.028",
+            "q.software.bravo-vpn.029"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.manual",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.manual.json",
+        "case_ids": [
+          "q.software.bravo-vpn.032",
+          "q.conversation.bravo-vpn.006"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.032",
+            "q.conversation.bravo-vpn.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.vpn-setup",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.vpn-setup.json",
+        "case_ids": [
+          "q.software.bravo-vpn.033",
+          "q.software.bravo-vpn.034",
+          "q.software.bravo-vpn.040",
+          "q.conversation.bravo-vpn.007"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.033",
+            "q.software.bravo-vpn.034",
+            "q.software.bravo-vpn.040",
+            "q.conversation.bravo-vpn.007"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.bravo-install",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.bravo-install.json",
+        "case_ids": [
+          "q.software.bravo-vpn.035",
+          "q.conversation.bravo-vpn.007"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.035",
+            "q.conversation.bravo-vpn.007"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.bravo-entry",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.bravo-entry.json",
+        "case_ids": [
+          "q.software.bravo-vpn.036",
+          "q.software.bravo-vpn.037",
+          "q.software.bravo-vpn.047"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.036",
+            "q.software.bravo-vpn.037",
+            "q.software.bravo-vpn.047"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.setup-order",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.setup-order.json",
+        "case_ids": [
+          "q.software.bravo-vpn.038"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.038"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.first-connection",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.first-connection.json",
+        "case_ids": [
+          "q.software.bravo-vpn.039"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.039"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.setup-device",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.setup-device.json",
+        "case_ids": [
+          "q.software.bravo-vpn.041",
+          "q.software.bravo-vpn.042",
+          "q.software.bravo-vpn.043",
+          "q.software.bravo-vpn.044",
+          "q.software.bravo-vpn.048"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.041",
+            "q.software.bravo-vpn.042",
+            "q.software.bravo-vpn.043",
+            "q.software.bravo-vpn.044",
+            "q.software.bravo-vpn.048"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.personal-device",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.personal-device.json",
+        "case_ids": [
+          "q.software.bravo-vpn.045",
+          "q.software.bravo-vpn.046"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.045",
+            "q.software.bravo-vpn.046"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.update",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.update.json",
+        "case_ids": [
+          "q.software.bravo-vpn.049"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.049"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.vpn-account",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.vpn-account.json",
+        "case_ids": [
+          "q.software.bravo-vpn.050",
+          "q.software.bravo-vpn.053",
+          "q.software.bravo-vpn.066",
+          "q.conversation.bravo-vpn.002",
+          "q.conversation.bravo-vpn.008"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.050",
+            "q.software.bravo-vpn.053",
+            "q.software.bravo-vpn.066",
+            "q.conversation.bravo-vpn.002",
+            "q.conversation.bravo-vpn.008"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.bravo-account",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.bravo-account.json",
+        "case_ids": [
+          "q.software.bravo-vpn.051",
+          "q.software.bravo-vpn.054",
+          "q.software.bravo-vpn.076",
+          "q.conversation.bravo-vpn.002"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.051",
+            "q.software.bravo-vpn.054",
+            "q.software.bravo-vpn.076",
+            "q.conversation.bravo-vpn.002"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.first-login",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.first-login.json",
+        "case_ids": [
+          "q.software.bravo-vpn.052",
+          "q.software.bravo-vpn.055",
+          "q.software.bravo-vpn.056"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.052",
+            "q.software.bravo-vpn.055",
+            "q.software.bravo-vpn.056"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.mfa",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.mfa.json",
+        "case_ids": [
+          "q.software.bravo-vpn.057",
+          "q.software.bravo-vpn.058",
+          "q.software.bravo-vpn.059",
+          "q.conversation.bravo-vpn.002",
+          "q.conversation.bravo-vpn.004"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.057",
+            "q.software.bravo-vpn.058",
+            "q.software.bravo-vpn.059",
+            "q.conversation.bravo-vpn.002",
+            "q.conversation.bravo-vpn.004"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.sessions",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.sessions.json",
+        "case_ids": [
+          "q.software.bravo-vpn.060",
+          "q.software.bravo-vpn.061",
+          "q.software.bravo-vpn.088"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.060",
+            "q.software.bravo-vpn.061",
+            "q.software.bravo-vpn.088"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.connection-status",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.connection-status.json",
+        "case_ids": [
+          "q.software.bravo-vpn.062",
+          "q.conversation.bravo-vpn.001",
+          "q.conversation.bravo-vpn.005",
+          "q.conversation.bravo-vpn.008"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.062",
+            "q.conversation.bravo-vpn.001",
+            "q.conversation.bravo-vpn.005",
+            "q.conversation.bravo-vpn.008"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.vpn-error",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.vpn-error.json",
+        "case_ids": [
+          "q.software.bravo-vpn.065",
+          "q.software.bravo-vpn.067",
+          "q.software.bravo-vpn.068",
+          "q.software.bravo-vpn.070"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.065",
+            "q.software.bravo-vpn.067",
+            "q.software.bravo-vpn.068",
+            "q.software.bravo-vpn.070"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.bravo-error",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.bravo-error.json",
+        "case_ids": [
+          "q.software.bravo-vpn.071",
+          "q.software.bravo-vpn.072",
+          "q.software.bravo-vpn.073",
+          "q.software.bravo-vpn.074",
+          "q.software.bravo-vpn.075",
+          "q.conversation.bravo-vpn.001",
+          "q.conversation.bravo-vpn.005"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.071",
+            "q.software.bravo-vpn.072",
+            "q.software.bravo-vpn.073",
+            "q.software.bravo-vpn.074",
+            "q.software.bravo-vpn.075",
+            "q.conversation.bravo-vpn.001",
+            "q.conversation.bravo-vpn.005"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.performance",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.performance.json",
+        "case_ids": [
+          "q.software.bravo-vpn.080",
+          "q.software.bravo-vpn.081"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.080",
+            "q.software.bravo-vpn.081"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.diagnosis",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.diagnosis.json",
+        "case_ids": [
+          "q.software.bravo-vpn.082"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.082"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.incident-status",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.incident-status.json",
+        "case_ids": [
+          "q.software.bravo-vpn.083",
+          "q.software.bravo-vpn.091",
+          "q.software.bravo-vpn.102",
+          "q.software.bravo-vpn.103",
+          "q.software.bravo-vpn.104",
+          "q.software.bravo-vpn.106",
+          "q.conversation.bravo-vpn.003"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.083",
+            "q.software.bravo-vpn.091",
+            "q.software.bravo-vpn.102",
+            "q.software.bravo-vpn.103",
+            "q.software.bravo-vpn.104",
+            "q.software.bravo-vpn.106",
+            "q.conversation.bravo-vpn.003"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.transaction",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.transaction.json",
+        "case_ids": [
+          "q.software.bravo-vpn.084",
+          "q.software.bravo-vpn.085",
+          "q.software.bravo-vpn.086",
+          "q.software.bravo-vpn.089",
+          "q.conversation.bravo-vpn.003",
+          "q.conversation.bravo-vpn.009"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.084",
+            "q.software.bravo-vpn.085",
+            "q.software.bravo-vpn.086",
+            "q.software.bravo-vpn.089",
+            "q.conversation.bravo-vpn.003",
+            "q.conversation.bravo-vpn.009"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.remote-policy",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.remote-policy.json",
+        "case_ids": [
+          "q.software.bravo-vpn.092",
+          "q.software.bravo-vpn.093"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.092",
+            "q.software.bravo-vpn.093"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.security-policy",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.security-policy.json",
+        "case_ids": [
+          "q.software.bravo-vpn.094",
+          "q.software.bravo-vpn.095",
+          "q.software.bravo-vpn.096"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.094",
+            "q.software.bravo-vpn.095",
+            "q.software.bravo-vpn.096"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.security-incident",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.security-incident.json",
+        "case_ids": [
+          "q.software.bravo-vpn.097"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.097"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.audit",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.audit.json",
+        "case_ids": [
+          "q.software.bravo-vpn.098",
+          "q.conversation.bravo-vpn.006"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.098",
+            "q.conversation.bravo-vpn.006"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.support",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.support.json",
+        "case_ids": [
+          "q.software.bravo-vpn.099",
+          "q.conversation.bravo-vpn.004"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.099",
+            "q.conversation.bravo-vpn.004"
+          ]
+        }
+      },
+      {
+        "task_id": "task.bravo-vpn.support-intake",
+        "source_file": "artifacts/answers/source/cards/task.bravo-vpn.support-intake.json",
+        "case_ids": [
+          "q.software.bravo-vpn.100",
+          "q.software.bravo-vpn.101",
+          "q.conversation.bravo-vpn.004"
+        ],
+        "aspects": {
+          "overview": [
+            "q.software.bravo-vpn.100",
+            "q.software.bravo-vpn.101",
+            "q.conversation.bravo-vpn.004"
+          ]
+        }
+      },
+      {
+        "task_id": "task.office-365.bravo-sharepoint",
+        "source_file": "artifacts/answers/source/cards/task.office-365.bravo-sharepoint.json",
+        "case_ids": [
+          "q.conversation.bravo-vpn.007"
+        ],
+        "aspects": {
+          "overview": [
+            "q.conversation.bravo-vpn.007"
+          ]
+        }
       }
     ],
     "documents": [
@@ -5380,7 +7778,121 @@
           "q.software.bravo.023",
           "q.policy.business-expansion.646029e673722366",
           "q.policy.business-expansion.fe5a16bc5268f55d",
-          "q.policy.business-expansion.0e1a77095ef01aa0"
+          "q.policy.business-expansion.0e1a77095ef01aa0",
+          "q.software.bravo-vpn.001",
+          "q.software.bravo-vpn.002",
+          "q.software.bravo-vpn.003",
+          "q.software.bravo-vpn.004",
+          "q.software.bravo-vpn.005",
+          "q.software.bravo-vpn.006",
+          "q.software.bravo-vpn.007",
+          "q.software.bravo-vpn.008",
+          "q.software.bravo-vpn.009",
+          "q.software.bravo-vpn.010",
+          "q.software.bravo-vpn.011",
+          "q.software.bravo-vpn.012",
+          "q.software.bravo-vpn.013",
+          "q.software.bravo-vpn.014",
+          "q.software.bravo-vpn.015",
+          "q.software.bravo-vpn.016",
+          "q.software.bravo-vpn.017",
+          "q.software.bravo-vpn.018",
+          "q.software.bravo-vpn.019",
+          "q.software.bravo-vpn.020",
+          "q.software.bravo-vpn.021",
+          "q.software.bravo-vpn.022",
+          "q.software.bravo-vpn.023",
+          "q.software.bravo-vpn.024",
+          "q.software.bravo-vpn.025",
+          "q.software.bravo-vpn.026",
+          "q.software.bravo-vpn.027",
+          "q.software.bravo-vpn.028",
+          "q.software.bravo-vpn.029",
+          "q.software.bravo-vpn.030",
+          "q.software.bravo-vpn.031",
+          "q.software.bravo-vpn.032",
+          "q.software.bravo-vpn.033",
+          "q.software.bravo-vpn.034",
+          "q.software.bravo-vpn.035",
+          "q.software.bravo-vpn.036",
+          "q.software.bravo-vpn.037",
+          "q.software.bravo-vpn.038",
+          "q.software.bravo-vpn.039",
+          "q.software.bravo-vpn.040",
+          "q.software.bravo-vpn.041",
+          "q.software.bravo-vpn.042",
+          "q.software.bravo-vpn.043",
+          "q.software.bravo-vpn.044",
+          "q.software.bravo-vpn.045",
+          "q.software.bravo-vpn.046",
+          "q.software.bravo-vpn.047",
+          "q.software.bravo-vpn.048",
+          "q.software.bravo-vpn.049",
+          "q.software.bravo-vpn.050",
+          "q.software.bravo-vpn.051",
+          "q.software.bravo-vpn.052",
+          "q.software.bravo-vpn.053",
+          "q.software.bravo-vpn.054",
+          "q.software.bravo-vpn.055",
+          "q.software.bravo-vpn.056",
+          "q.software.bravo-vpn.057",
+          "q.software.bravo-vpn.058",
+          "q.software.bravo-vpn.059",
+          "q.software.bravo-vpn.060",
+          "q.software.bravo-vpn.061",
+          "q.software.bravo-vpn.062",
+          "q.software.bravo-vpn.063",
+          "q.software.bravo-vpn.064",
+          "q.software.bravo-vpn.065",
+          "q.software.bravo-vpn.066",
+          "q.software.bravo-vpn.067",
+          "q.software.bravo-vpn.068",
+          "q.software.bravo-vpn.069",
+          "q.software.bravo-vpn.070",
+          "q.software.bravo-vpn.071",
+          "q.software.bravo-vpn.072",
+          "q.software.bravo-vpn.073",
+          "q.software.bravo-vpn.074",
+          "q.software.bravo-vpn.075",
+          "q.software.bravo-vpn.076",
+          "q.software.bravo-vpn.077",
+          "q.software.bravo-vpn.078",
+          "q.software.bravo-vpn.079",
+          "q.software.bravo-vpn.080",
+          "q.software.bravo-vpn.081",
+          "q.software.bravo-vpn.082",
+          "q.software.bravo-vpn.083",
+          "q.software.bravo-vpn.084",
+          "q.software.bravo-vpn.085",
+          "q.software.bravo-vpn.086",
+          "q.software.bravo-vpn.087",
+          "q.software.bravo-vpn.088",
+          "q.software.bravo-vpn.089",
+          "q.software.bravo-vpn.090",
+          "q.software.bravo-vpn.091",
+          "q.software.bravo-vpn.092",
+          "q.software.bravo-vpn.093",
+          "q.software.bravo-vpn.094",
+          "q.software.bravo-vpn.095",
+          "q.software.bravo-vpn.096",
+          "q.software.bravo-vpn.097",
+          "q.software.bravo-vpn.099",
+          "q.software.bravo-vpn.100",
+          "q.software.bravo-vpn.101",
+          "q.software.bravo-vpn.102",
+          "q.software.bravo-vpn.103",
+          "q.software.bravo-vpn.104",
+          "q.software.bravo-vpn.105",
+          "q.software.bravo-vpn.106",
+          "q.conversation.bravo-vpn.001",
+          "q.conversation.bravo-vpn.002",
+          "q.conversation.bravo-vpn.003",
+          "q.conversation.bravo-vpn.004",
+          "q.conversation.bravo-vpn.005",
+          "q.conversation.bravo-vpn.006",
+          "q.conversation.bravo-vpn.007",
+          "q.conversation.bravo-vpn.008",
+          "q.conversation.bravo-vpn.009"
         ]
       },
       {
@@ -8996,6 +11508,416 @@
           "q.policy.business-expansion.8841147fa1cb8c31",
           "q.policy.business-expansion.7e7be9cebe5b59b9"
         ]
+      },
+      {
+        "route_id": "route.bravo-vpn.overview",
+        "task_id": "task.bravo-vpn.overview",
+        "case_ids": [
+          "q.software.bravo-vpn.001"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.vpn-role",
+        "task_id": "task.bravo-vpn.vpn-role",
+        "case_ids": [
+          "q.software.bravo-vpn.002",
+          "q.software.bravo-vpn.003"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.network-scope",
+        "task_id": "task.bravo-vpn.network-scope",
+        "case_ids": [
+          "q.software.bravo-vpn.004",
+          "q.software.bravo-vpn.005"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.office-network",
+        "task_id": "task.bravo-vpn.office-network",
+        "case_ids": [
+          "q.software.bravo-vpn.006"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.branch-network",
+        "task_id": "task.bravo-vpn.branch-network",
+        "case_ids": [
+          "q.software.bravo-vpn.007"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.remote-network",
+        "task_id": "task.bravo-vpn.remote-network",
+        "case_ids": [
+          "q.software.bravo-vpn.008"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.public-network",
+        "task_id": "task.bravo-vpn.public-network",
+        "case_ids": [
+          "q.software.bravo-vpn.009"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.personal-vpn",
+        "task_id": "task.bravo-vpn.personal-vpn",
+        "case_ids": [
+          "q.software.bravo-vpn.010"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.account-distinction",
+        "task_id": "task.bravo-vpn.account-distinction",
+        "case_ids": [
+          "q.software.bravo-vpn.011"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.connected-permission",
+        "task_id": "task.bravo-vpn.connected-permission",
+        "case_ids": [
+          "q.software.bravo-vpn.012",
+          "q.conversation.bravo-vpn.009"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.open-bravo",
+        "task_id": "task.bravo-vpn.open-bravo",
+        "case_ids": [
+          "q.software.bravo-vpn.013",
+          "q.software.bravo-vpn.063"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.session-network",
+        "task_id": "task.bravo-vpn.session-network",
+        "case_ids": [
+          "q.software.bravo-vpn.014",
+          "q.software.bravo-vpn.069",
+          "q.software.bravo-vpn.087",
+          "q.software.bravo-vpn.090",
+          "q.software.bravo-vpn.105"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.app-permissions",
+        "task_id": "task.bravo-vpn.app-permissions",
+        "case_ids": [
+          "q.software.bravo-vpn.015",
+          "q.software.bravo-vpn.030",
+          "q.software.bravo-vpn.031",
+          "q.software.bravo-vpn.064",
+          "q.software.bravo-vpn.077",
+          "q.software.bravo-vpn.078",
+          "q.software.bravo-vpn.079",
+          "q.conversation.bravo-vpn.001"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.new-user",
+        "task_id": "task.bravo-vpn.new-user",
+        "case_ids": [
+          "q.software.bravo-vpn.016"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.vpn-provisioning",
+        "task_id": "task.bravo-vpn.vpn-provisioning",
+        "case_ids": [
+          "q.software.bravo-vpn.017",
+          "q.software.bravo-vpn.019"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.bravo-provisioning",
+        "task_id": "task.bravo-vpn.bravo-provisioning",
+        "case_ids": [
+          "q.software.bravo-vpn.018",
+          "q.software.bravo-vpn.020"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.provisioning-process",
+        "task_id": "task.bravo-vpn.provisioning-process",
+        "case_ids": [
+          "q.software.bravo-vpn.021",
+          "q.software.bravo-vpn.022",
+          "q.software.bravo-vpn.023",
+          "q.software.bravo-vpn.024"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.eligibility",
+        "task_id": "task.bravo-vpn.eligibility",
+        "case_ids": [
+          "q.software.bravo-vpn.025",
+          "q.software.bravo-vpn.026"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.access-lifecycle",
+        "task_id": "task.bravo-vpn.access-lifecycle",
+        "case_ids": [
+          "q.software.bravo-vpn.027",
+          "q.software.bravo-vpn.028",
+          "q.software.bravo-vpn.029"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.manual",
+        "task_id": "task.bravo-vpn.manual",
+        "case_ids": [
+          "q.software.bravo-vpn.032",
+          "q.conversation.bravo-vpn.006"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.vpn-setup",
+        "task_id": "task.bravo-vpn.vpn-setup",
+        "case_ids": [
+          "q.software.bravo-vpn.033",
+          "q.software.bravo-vpn.034",
+          "q.software.bravo-vpn.040",
+          "q.conversation.bravo-vpn.007"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.bravo-install",
+        "task_id": "task.bravo-vpn.bravo-install",
+        "case_ids": [
+          "q.software.bravo-vpn.035",
+          "q.conversation.bravo-vpn.007"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.bravo-entry",
+        "task_id": "task.bravo-vpn.bravo-entry",
+        "case_ids": [
+          "q.software.bravo-vpn.036",
+          "q.software.bravo-vpn.037",
+          "q.software.bravo-vpn.047"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.setup-order",
+        "task_id": "task.bravo-vpn.setup-order",
+        "case_ids": [
+          "q.software.bravo-vpn.038"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.first-connection",
+        "task_id": "task.bravo-vpn.first-connection",
+        "case_ids": [
+          "q.software.bravo-vpn.039"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.setup-device",
+        "task_id": "task.bravo-vpn.setup-device",
+        "case_ids": [
+          "q.software.bravo-vpn.041",
+          "q.software.bravo-vpn.042",
+          "q.software.bravo-vpn.043",
+          "q.software.bravo-vpn.044",
+          "q.software.bravo-vpn.048"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.personal-device",
+        "task_id": "task.bravo-vpn.personal-device",
+        "case_ids": [
+          "q.software.bravo-vpn.045",
+          "q.software.bravo-vpn.046"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.update",
+        "task_id": "task.bravo-vpn.update",
+        "case_ids": [
+          "q.software.bravo-vpn.049"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.vpn-account",
+        "task_id": "task.bravo-vpn.vpn-account",
+        "case_ids": [
+          "q.software.bravo-vpn.050",
+          "q.software.bravo-vpn.053",
+          "q.software.bravo-vpn.066",
+          "q.conversation.bravo-vpn.002",
+          "q.conversation.bravo-vpn.008"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.bravo-account",
+        "task_id": "task.bravo-vpn.bravo-account",
+        "case_ids": [
+          "q.software.bravo-vpn.051",
+          "q.software.bravo-vpn.054",
+          "q.software.bravo-vpn.076",
+          "q.conversation.bravo-vpn.002"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.first-login",
+        "task_id": "task.bravo-vpn.first-login",
+        "case_ids": [
+          "q.software.bravo-vpn.052",
+          "q.software.bravo-vpn.055",
+          "q.software.bravo-vpn.056"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.mfa",
+        "task_id": "task.bravo-vpn.mfa",
+        "case_ids": [
+          "q.software.bravo-vpn.057",
+          "q.software.bravo-vpn.058",
+          "q.software.bravo-vpn.059",
+          "q.conversation.bravo-vpn.002",
+          "q.conversation.bravo-vpn.004"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.sessions",
+        "task_id": "task.bravo-vpn.sessions",
+        "case_ids": [
+          "q.software.bravo-vpn.060",
+          "q.software.bravo-vpn.061",
+          "q.software.bravo-vpn.088"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.connection-status",
+        "task_id": "task.bravo-vpn.connection-status",
+        "case_ids": [
+          "q.software.bravo-vpn.062",
+          "q.conversation.bravo-vpn.001",
+          "q.conversation.bravo-vpn.005",
+          "q.conversation.bravo-vpn.008"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.vpn-error",
+        "task_id": "task.bravo-vpn.vpn-error",
+        "case_ids": [
+          "q.software.bravo-vpn.065",
+          "q.software.bravo-vpn.067",
+          "q.software.bravo-vpn.068",
+          "q.software.bravo-vpn.070"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.bravo-error",
+        "task_id": "task.bravo-vpn.bravo-error",
+        "case_ids": [
+          "q.software.bravo-vpn.071",
+          "q.software.bravo-vpn.072",
+          "q.software.bravo-vpn.073",
+          "q.software.bravo-vpn.074",
+          "q.software.bravo-vpn.075",
+          "q.conversation.bravo-vpn.001",
+          "q.conversation.bravo-vpn.005"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.performance",
+        "task_id": "task.bravo-vpn.performance",
+        "case_ids": [
+          "q.software.bravo-vpn.080",
+          "q.software.bravo-vpn.081"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.diagnosis",
+        "task_id": "task.bravo-vpn.diagnosis",
+        "case_ids": [
+          "q.software.bravo-vpn.082"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.incident-status",
+        "task_id": "task.bravo-vpn.incident-status",
+        "case_ids": [
+          "q.software.bravo-vpn.083",
+          "q.software.bravo-vpn.091",
+          "q.software.bravo-vpn.102",
+          "q.software.bravo-vpn.103",
+          "q.software.bravo-vpn.104",
+          "q.software.bravo-vpn.106",
+          "q.conversation.bravo-vpn.003"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.transaction",
+        "task_id": "task.bravo-vpn.transaction",
+        "case_ids": [
+          "q.software.bravo-vpn.084",
+          "q.software.bravo-vpn.085",
+          "q.software.bravo-vpn.086",
+          "q.software.bravo-vpn.089",
+          "q.conversation.bravo-vpn.003",
+          "q.conversation.bravo-vpn.009"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.remote-policy",
+        "task_id": "task.bravo-vpn.remote-policy",
+        "case_ids": [
+          "q.software.bravo-vpn.092",
+          "q.software.bravo-vpn.093"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.security-policy",
+        "task_id": "task.bravo-vpn.security-policy",
+        "case_ids": [
+          "q.software.bravo-vpn.094",
+          "q.software.bravo-vpn.095",
+          "q.software.bravo-vpn.096"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.security-incident",
+        "task_id": "task.bravo-vpn.security-incident",
+        "case_ids": [
+          "q.software.bravo-vpn.097"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.audit",
+        "task_id": "task.bravo-vpn.audit",
+        "case_ids": [
+          "q.software.bravo-vpn.098",
+          "q.conversation.bravo-vpn.006"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.support",
+        "task_id": "task.bravo-vpn.support",
+        "case_ids": [
+          "q.software.bravo-vpn.099",
+          "q.conversation.bravo-vpn.004"
+        ]
+      },
+      {
+        "route_id": "route.bravo-vpn.support-intake",
+        "task_id": "task.bravo-vpn.support-intake",
+        "case_ids": [
+          "q.software.bravo-vpn.100",
+          "q.software.bravo-vpn.101",
+          "q.conversation.bravo-vpn.004"
+        ]
+      },
+      {
+        "route_id": "route.office-365.bravo-sharepoint",
+        "task_id": "task.office-365.bravo-sharepoint",
+        "case_ids": [
+          "q.conversation.bravo-vpn.007"
+        ]
       }
     ]
   },
@@ -9040,7 +11962,11 @@
     "oracles/policy.administration-compliance.json",
     "oracles/conversation.administration-compliance.json",
     "oracles/policy.company-vehicles.json",
-    "oracles/conversation.company-vehicles.json"
+    "oracles/conversation.company-vehicles.json",
+    "oracles/policy.building-guard-sealing.json",
+    "oracles/conversation.building-guard-sealing.json",
+    "oracles/software.bravo-vpn.json",
+    "oracles/conversation.bravo-vpn.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

@@ -1,0 +1,66 @@
+{
+  "id": "route.building-guard-sealing.sealing-live-status",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-live-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cửa kho",
+          "niêm phong"
+        ],
+        [
+          "đã niêm phong",
+          "niêm phong thực tế",
+          "hiện đã niêm phong"
+        ],
+        [
+          "xác nhận",
+          "kiểm tra sổ",
+          "hiện tại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể kiểm tra sổ hoặc liên hệ ai để xác nhận cửa kho thực tế đã được niêm phong?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cửa kho"
+        ],
+        [
+          "khóa và niêm phong chưa",
+          "đã niêm phong chưa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cửa kho"
+        ],
+        [
+          "niêm phong an toàn"
+        ],
+        [
+          "hỏi ai",
+          "qua đầu mối nào"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "xác nhận giúp",
+    "xác nhận hộ"
+  ]
+}

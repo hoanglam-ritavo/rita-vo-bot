@@ -1,0 +1,50 @@
+{
+  "id": "route.bravo-vpn.connection-status",
+  "family": "software",
+  "task_id": "task.bravo-vpn.connection-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN",
+          "VPN RitaVO"
+        ],
+        [
+          "làm sao để biết",
+          "dấu hiệu nào",
+          "xem trạng thái",
+          "kiểm tra đã kết nối",
+          "báo gì khi kết nối"
+        ],
+        [
+          "kết nối",
+          "connected"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Làm sao để biết VPN đã kết nối thành công?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ],
+  "follow_up_tasks": {
+    "Vẫn không vào được.": "task.bravo-vpn.bravo-error",
+    "Vậy đã có quyền vào chưa?": "task.bravo-vpn.connected-permission"
+  }
+}

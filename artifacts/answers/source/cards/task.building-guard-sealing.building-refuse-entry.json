@@ -1,0 +1,46 @@
+{
+  "id": "task.building-guard-sealing.building-refuse-entry",
+  "label": "Trường hợp từ chối ra vào Tây Đô",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Trường hợp từ chối ra vào Tây Đô"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem nội dung nào về trường hợp từ chối ra vào Tây Đô?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.building-guard-sealing.building-refuse-entry.1",
+          "text": "Quản lý hoặc bảo vệ có thể từ chối nhân viên và khách theo mục IV.2 khi họ gây mất trật tự, có hành vi đe dọa hoặc tấn công, ở trạng thái bất thường theo quy định, say xỉn hoặc bị nghi dùng ma túy, hoặc mang vũ khí, vật hay chất nguy hiểm, dễ cháy.",
+          "refs": [
+            {
+              "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+              "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+              "source_sha256": "dba936e0858c72a252dc5d6a94a532fdb42d5e9126e410321813ede82795f5e9",
+              "chunk_index": 8,
+              "content_sha256": "426a716a6132ba63895c7df95d309590b86a7444e3ff35627b3d83f84a0ba8db",
+              "quote": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ — 02HC/QĐ-BM06\nIV.2. Người quản lý, Bảo vệ có quyền từ chối quyền ra, vào tòa nhà đối với những đối tượng sau đây, bao gồm cả CBNV và khách:\na. Đối tượng gây ồn ào, mất trật tự hoặc có ngôn ngữ/cử chỉ thiếu văn hóa hoặc đe dọa, lăng mạ, tấn công người khác.\nb. Đối tượng có trạng thái bất bình thường: căng thẳng, trầm cảm, tuyệt vọng….\nc. Đối tượng say xỉn hoặc khả nghi có sử dụng chất ma túy.\nd. Đối tượng sở hữu vũ khí tấn công, các vật/chất nguy hiểm hoặc dễ cháy.",
+              "metadata": {
+                "title": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ",
+                "applicability": "Tòa nhà Rita Võ Tây Đô – Cần Thơ; tất cả CBNV Công ty TNHH Tập Đoàn Rita Võ và các đối tượng có mặt tại tòa nhà.",
+                "effective_from": "2026-09-01",
+                "effective_to": null,
+                "version_label": "02HC/QĐ-BM06 — soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/12-quy-dinh-quan-ly-su-dung-toa-nha-rita-vo-tay-do-can-tho.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

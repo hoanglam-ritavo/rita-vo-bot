@@ -1,0 +1,4036 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.building-guard-sealing",
+  "description": "Source-bound coverage for the numbered building, outsourced guarding and door sealing questions.",
+  "cases": [
+    {
+      "id": "q.policy.building-guard-sealing.001",
+      "title": "Văn bản quản lý tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-identity"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ có mã gì, hiệu lực từ ngày nào và xem ở đâu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.002",
+      "title": "Phạm vi nội quy Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-scope"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nội quy tòa nhà Tây Đô áp dụng cho những ai, kể cả khách hàng, nhà cung cấp và nhà thầu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.003",
+      "title": "Phạm vi địa điểm của nội quy Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-applicability"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nội quy Tây Đô có áp dụng cho showroom, kho hoặc chi nhánh khác không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.004",
+      "title": "Xác nhận quy định áp dụng tại cơ sở",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-compare-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nội quy lao động và quy định tại địa điểm làm việc khác nhau, tôi hỏi ai để xác nhận cách áp dụng?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.005",
+      "title": "Lưu ý an toàn khi đến Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-safety-overview"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người lần đầu đến tòa nhà Tây Đô cần biết những quy định an toàn nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.006",
+      "title": "Quyền hạn của Quản lý tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-management"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý tòa nhà có quyền hạn và trách nhiệm gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.007",
+      "title": "Lối ra vào tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-doors"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tòa nhà Tây Đô có những lối ra vào nào và khi nào được sử dụng từng lối?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.008",
+      "title": "Chìa khóa tòa nhà và mở cửa ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-keys"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai giữ chìa khóa tòa nhà và tôi cần liên hệ ai nếu cần mở cửa ngoài giờ?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.009",
+      "title": "Nơi đăng ký và tiếp khách",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-guest-registration"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khách đến gặp nhân viên phải đăng ký và chờ ở đâu?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.010",
+      "title": "Trách nhiệm của nhân viên đón khách",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-guest-host"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên đón khách phải làm gì khi tiếp khách tại lễ tân, phòng họp hoặc showroom?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.011",
+      "title": "Trách nhiệm của nhân viên đón khách",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-guest-host"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có cần xin phép khi đưa khách đến khu vực làm việc, kho hoặc khu vực hạn chế không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.012",
+      "title": "Thủ tục ra vào cho nhà thầu",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-contractor"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhà thầu hoặc nhà cung cấp đến làm việc cần liên hệ ai và làm thủ tục ra vào thế nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.013",
+      "title": "Trường hợp từ chối ra vào Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-refuse-entry"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trong những trường hợp nào quản lý tòa nhà hoặc bảo vệ có quyền từ chối cho nhân viên hoặc khách ra vào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.014",
+      "title": "Thẻ nhân viên và đồng phục khi ra vào",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-employee-badge"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu quên thẻ nhân viên hoặc không mặc đúng đồng phục, bảo vệ có thể từ chối cho tôi vào không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.015",
+      "title": "Giấy xác nhận khi ra vào trong giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-employee-entry"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đi công tác trong giờ làm việc, đi trễ hoặc về sớm, tôi cần xuất trình giấy tờ gì tại cổng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.016",
+      "title": "Kiểm tra hành lý tại cổng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-baggage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ có thể yêu cầu kiểm tra hành lý trong trường hợp nào và nhân viên phải phối hợp ra sao?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.017",
+      "title": "Nhân viên ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-after-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên ở lại sau giờ làm phải xin phép ai và có cần văn bản xác nhận không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.018",
+      "title": "Nhân viên ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-after-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần đăng ký với ai nếu muốn vào tòa nhà ngày nghỉ, ngày lễ hoặc Tết?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.019",
+      "title": "Nhân viên ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-after-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người được phân công trực có phải xin phép ra vào ngoài giờ như nhân viên khác không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.020",
+      "title": "Đưa trẻ em vào tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-children"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc trong sự kiện của Tập đoàn không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.021",
+      "title": "Khách hàng đi cùng trẻ em",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-customer-children"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu khách hàng đi cùng trẻ em, nhân viên kinh doanh phải lưu ý gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.022",
+      "title": "Thú cưng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-pets"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khách hoặc nhân viên có được mang thú cưng vào tòa nhà không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.023",
+      "title": "Khu vực nguy hiểm tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-dangerous-areas"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khu vực nào trong tòa nhà không được tự ý leo trèo hoặc tiếp cận?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.024",
+      "title": "Vật dụng và chất bị cấm tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-prohibited-items"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nội quy tòa nhà cấm mang vào hoặc lưu giữ những loại hàng hóa, vật dụng và chất nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.025",
+      "title": "Hút thuốc, rượu bia và tiệc tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-conduct"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tòa nhà quy định thế nào về hút thuốc, uống rượu bia hoặc tổ chức tiệc gây ồn?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.026",
+      "title": "Thức ăn và nấu nướng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-food"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được nấu ăn ngoài phòng bếp hoặc mang đồ ăn nặng mùi vào tòa nhà không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.027",
+      "title": "Tác phong tại showroom Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-showroom-conduct"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên tại showroom phải tuân thủ những yêu cầu gì về trang phục, cách chào hỏi và tác phong khi tiếp khách?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.028",
+      "title": "Tác phong tại showroom Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-showroom-conduct"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được đặt vật dụng cá nhân gần cửa kính, tường kính hoặc ở khu trưng bày không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.029",
+      "title": "Ra vào kho và phòng kỹ thuật",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-restricted-rooms"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên có được tự ý vào kho hoặc phòng kỹ thuật khi không được phân công không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.030",
+      "title": "Quyền vào phòng Chủ tịch",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-chair-access"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có quyền cho nhân viên hoặc khách vào phòng Chủ tịch và ai quản lý chìa khóa phòng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.031",
+      "title": "Bảo mật trong phòng Chủ tịch",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-chair-material"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người được phép vào phòng Chủ tịch có được chụp ảnh, ghi âm, sao chụp hoặc mang hồ sơ ra ngoài không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.032",
+      "title": "Kết thúc sử dụng phòng Chủ tịch",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-chair-close"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi sử dụng phòng Chủ tịch, cần làm gì với tài sản, thiết bị và cửa phòng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.033",
+      "title": "Các tầng của thang máy Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-lift-floors"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hai thang máy tại Tây Đô phục vụ những tầng nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.034",
+      "title": "Ưu tiên thang máy và sử dụng thang bộ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-lift-priority"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào nhân viên nên đi thang bộ và trường hợp nào được ưu tiên dùng thang máy?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.035",
+      "title": "Chuyển hàng bằng thang máy",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-lift-goods"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi vận chuyển hàng bằng thang máy, cần tuân thủ tải trọng và bảo vệ hàng hóa, cửa thang, vách thang thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.036",
+      "title": "Xử lý kẹt thang máy",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-lift-emergency"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu thang máy dừng bất thường hoặc có người mắc kẹt, phải dùng nút hỗ trợ nào và liên hệ bộ phận nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.037",
+      "title": "Lịch điều hòa theo tầng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lịch bật và tắt điều hòa ở các tầng 1, 3 và 4 tại Tây Đô như thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.038",
+      "title": "Lịch điều hòa theo tầng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Điều hòa tầng 2 hoạt động thế nào khi có khách hoặc khi showroom vắng khách?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.039",
+      "title": "Lịch điều hòa theo tầng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Điều hòa tầng 5 áp dụng khung giờ nào cho khu làm việc và các khu vực còn lại?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.040",
+      "title": "Lịch điều hòa theo tầng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tầng 6 hoặc khu sân thượng có điều hòa không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.041",
+      "title": "Nhiệt độ điều hòa tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-ac-temperature"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhiệt độ điều hòa ở tầng 2 và tầng 5 được quy định thế nào vào mùa mưa và mùa hè?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.042",
+      "title": "Bật tắt điều hòa, đèn và thiết bị",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-roles"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được bật điều hòa ngoài khung giờ nếu có khách đến showroom không và ai có quyền quyết định?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.043",
+      "title": "Sử dụng điều hòa tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-ac-use"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi bật điều hòa, cần đóng cửa, bật luân phiên và ưu tiên khu vực nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.044",
+      "title": "Tắt điều hòa khi phòng trống",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-ac-close"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phòng trống vào giờ nghỉ trưa hoặc sắp hết giờ làm, khi nào cần tắt điều hòa?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.045",
+      "title": "Giờ bật đèn tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-light-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào được bật đèn ở khu sát kính mặt tiền và khu vực phía trong?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.046",
+      "title": "Giờ nâng và hạ rèm tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-blind-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mùa hè và mùa mưa cần nâng, hạ rèm vào lúc nào và xử lý ra sao nếu nắng đến sớm?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.047",
+      "title": "Kiểm tra thiết bị khi ra về",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-close-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi ra về, ai kiểm tra đèn, điều hòa, thiết bị điện và nguồn nước trong khu vực?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.048",
+      "title": "Xử lý mất điện tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-outage"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất điện tại Tây Đô, cần báo cho ai, cung cấp thông tin gì và sử dụng nguồn chiếu sáng khẩn cấp thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.049",
+      "title": "Phạm vi cấp điện dự phòng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-generator"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi tòa nhà mất điện lưới, máy phát dự phòng phục vụ những phụ tải nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.050",
+      "title": "Vận chuyển hàng hóa ra vào Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-goods"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Muốn mang hàng hóa, hàng mẫu hoặc tài sản ra vào Tây Đô thì đăng ký bằng mẫu gì và ai phê duyệt?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.051",
+      "title": "Vận chuyển hàng cồng kềnh tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-bulky-goods"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi vận chuyển hàng cồng kềnh, cần dùng loại xe đẩy nào và chọn lối vận chuyển ra sao?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.052",
+      "title": "Phối hợp với bảo vệ khi giao hàng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-drivers"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế giao hàng phải phối hợp với bảo vệ thế nào để không cản trở lối đi?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.053",
+      "title": "Phê duyệt đưa tài sản khỏi Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-assets-out"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được mang thiết bị văn phòng, công cụ dụng cụ hoặc tài sản công ty ra ngoài khi chưa có phê duyệt không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.054",
+      "title": "Thông báo điều chuyển tài sản",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-assets-transfer"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi điều chuyển tài sản tại Tây Đô, quản lý tòa nhà phải thông báo cho bộ phận nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.055",
+      "title": "Cập nhật và kiểm kê tài sản Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-assets-inventory"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai cập nhật, đối chiếu và kiểm kê tài sản, công cụ dụng cụ tại tòa nhà?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.056",
+      "title": "Kiểm tra sản phẩm và thẻ giá",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-display-tags"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên kinh doanh phải kiểm tra những gì trên sản phẩm trưng bày và thẻ giá?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.057",
+      "title": "Giữ gìn sản phẩm trưng bày",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-display-care"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được ngồi lên, tự ý sử dụng hoặc dùng hóa chất lau sản phẩm trưng bày không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.058",
+      "title": "Báo hư hỏng tài sản tòa nhà",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-damage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu làm trầy xước, hư hỏng hoặc làm mất tài sản của tòa nhà, tôi phải báo ai và ghi nhận những gì?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.059",
+      "title": "Quy định Tây Đô về hư hỏng tài sản",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-damage-levels"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định Tây Đô nêu cách xem xét vi phạm hoặc bồi thường thế nào nếu tái phạm hoặc tài sản không thể sửa chữa?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.060",
+      "title": "Giữ thông thoáng lối đi tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-clear-aisles"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được để hàng, thùng carton hoặc rác ở hành lang, trước thang máy, cầu thang hoặc lối thoát hiểm không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.061",
+      "title": "Vệ sinh khu vực làm việc và dùng chung",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-hygiene"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên phải giữ vệ sinh bàn làm việc, khu vực chung, nhà vệ sinh và hệ thống thoát nước thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.062",
+      "title": "Giữ gìn bàn ghế, cửa và tài sản cá nhân",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-property-conduct"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được viết lên bàn ghế, dán đồ trang trí lên cửa hoặc tự ý dùng tài sản của người khác không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.063",
+      "title": "Sử dụng và đóng cửa phòng bếp",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-kitchen-close"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai được dùng phòng bếp và cần dọn dẹp, kiểm tra thiết bị, đóng cửa ra sao sau khi sử dụng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.064",
+      "title": "Sự cố thiết bị phòng bếp",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-kitchen-incident"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phát hiện thiết bị bếp hỏng hoặc có dấu hiệu mất an toàn, cần báo ai?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.065",
+      "title": "Gửi xe, vé xe và xác minh ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-parking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên và khách gửi xe ở đâu, nhận vé khi nào và trả vé cho ai?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.066",
+      "title": "Quy tắc trong bãi xe Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-parking-care"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được rửa xe, sửa xe hoặc để đồ có giá trị trên xe trong bãi không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.067",
+      "title": "Gửi xe, vé xe và xác minh ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-parking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất vé gửi xe, cần xuất trình giấy tờ gì và ai lập biên bản bàn giao xe?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.068",
+      "title": "Xác minh lấy xe ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-parking-late"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu muốn lấy xe ngoài giờ, tôi cần xác minh với ai và theo thủ tục nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.069",
+      "title": "Vi phạm hút thuốc tại bãi xe",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-parking-smoking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu hút thuốc ở bãi xe hoặc gây hậu quả cháy nổ, nội quy Tây Đô quy định việc xử lý và bồi thường thế nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.070",
+      "title": "Báo cháy tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-fire-report"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nghe chuông báo cháy hoặc phát hiện có khói, cần báo cho ai và cung cấp thông tin gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.071",
+      "title": "Cháy liên quan đến thiết bị điện",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-fire-electrical"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định Tây Đô hướng dẫn sử dụng phương tiện chữa cháy thế nào khi đám cháy liên quan đến thiết bị điện?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.072",
+      "title": "Sơ tán khỏi tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-evacuation"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phải sơ tán, nhân viên và khách dùng lối nào, tập trung ở đâu và có được dùng thang máy không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.073",
+      "title": "Di chuyển thiết bị phòng cháy",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-fire-equipment"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được tự ý di chuyển bình chữa cháy hoặc thiết bị phòng cháy chữa cháy không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.074",
+      "title": "Bố trí hàng để phòng cháy",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-fire-storage"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hàng hóa và vật tư phải được bố trí thế nào quanh lối thoát hiểm, thiết bị chữa cháy, tủ điện, ổ cắm, tường và trần?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.075",
+      "title": "Lắp thêm thiết bị điện tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-electrical-install"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu muốn lắp thêm thiết bị điện tại Tây Đô, phải xin ý kiến ai?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.076",
+      "title": "Kiểm tra thiết bị và hệ thống báo cháy",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-fire-check"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai kiểm tra thiết bị chữa cháy, bao lâu kiểm tra hệ thống báo cháy và báo hư hỏng cho ai?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.077",
+      "title": "Đầu mối khẩn cấp tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-emergency-contacts"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi cần hỗ trợ an ninh, kỹ thuật, chữa cháy hoặc cấp cứu, phải liên hệ đầu mối nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.078",
+      "title": "Trách nhiệm xử lý sự cố, thất lạc và camera",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-roles"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý tòa nhà, Kỹ thuật, HCNS, Bảo vệ và Ban An ninh phối hợp thế nào khi có sự cố?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.079",
+      "title": "Trách nhiệm xử lý sự cố, thất lạc và camera",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-roles"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu thất lạc tài sản, tôi cần báo cho ai, cung cấp thông tin gì và đề nghị kiểm tra camera qua đầu mối nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.080",
+      "title": "Tổ chức an ninh tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-security-setup"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tòa nhà Tây Đô tổ chức trực bảo vệ và giám sát an ninh như thế nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.081",
+      "title": "Phản ánh về bảo vệ tại Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-security-complaint"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nghi ngờ bảo vệ có hành vi gian lận hoặc phục vụ thiếu chuyên nghiệp, tôi báo cho ai?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.082",
+      "title": "Xác minh đầu mối liên hệ hiện tại",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-contact"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu số điện thoại hoặc tên người phụ trách trong tài liệu đã cũ, tôi xác nhận đầu mối hiện tại ở đâu?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.083",
+      "title": "Phạm vi quy định sử dụng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-scope"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng bảo vệ HCNS-QT01 áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.084",
+      "title": "Điều kiện của nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-vendor-criteria"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhà cung cấp dịch vụ bảo vệ cần đáp ứng những điều kiện gì về giấy phép, vốn điều lệ và kinh nghiệm?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.085",
+      "title": "Điều kiện loại trừ nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-vendor-exclusions"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhà cung cấp từng bị thanh lý hợp đồng, có vi phạm pháp luật hoặc có quan hệ với người quản lý tại cơ sở có đủ điều kiện dự tuyển không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.086",
+      "title": "Năng lực bố trí bảo vệ tại điểm mới",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-vendor-capacity"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi triển khai điểm bảo vệ mới, nhà cung cấp phải có khả năng bổ sung bao nhiêu người trong thời hạn nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.087",
+      "title": "Điều kiện và hồ sơ nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-vendor"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hồ sơ pháp lý, hồ sơ năng lực và phương án bảo vệ của nhà cung cấp cần gồm những gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.088",
+      "title": "Các bước chọn nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-tender-steps"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai tiếp nhận nhu cầu thuê dịch vụ và quy trình chọn nhà cung cấp mới gồm những bước nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.089",
+      "title": "Tuyển chọn và duyệt giá dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-tender"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "HCNS phải tìm và so sánh ít nhất bao nhiêu nhà cung cấp trước khi trình duyệt?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.090",
+      "title": "Hồ sơ trình duyệt nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-tender-paperwork"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hồ sơ trình duyệt nhà cung cấp cần có đề xuất, bảng so sánh giá và những giấy tờ nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.091",
+      "title": "Tuyển chọn và duyệt giá dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-tender"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu báo giá vượt khung, ai trình, ai có thẩm quyền phê duyệt và phải làm gì nếu đề xuất không được duyệt?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.092",
+      "title": "Trách nhiệm về hợp đồng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-tender-contract"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai soạn mẫu hợp đồng, kiểm tra hồ sơ, làm việc với nhà cung cấp và lưu hồ sơ sau khi duyệt?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.093",
+      "title": "Đề xuất vị trí và số lượng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-request"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai khảo sát và đề xuất số lượng, vị trí bảo vệ tại showroom, văn phòng hoặc kho?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.094",
+      "title": "Đề xuất vị trí và số lượng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-request"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đề xuất bố trí bảo vệ phải dùng mẫu nào, được ai duyệt và gửi trước bao lâu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.095",
+      "title": "Thiếu nhà cung cấp bảo vệ phù hợp",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-no-vendor"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu chưa có nhà cung cấp phù hợp, cơ sở cần làm gì để tiếp tục tuyển chọn nhân viên bảo vệ?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.096",
+      "title": "Tiêu chuẩn và hồ sơ nhân viên bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-personnel"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ thuê ngoài phải đáp ứng những tiêu chuẩn nào về độ tuổi, sức khỏe, chiều cao và trình độ?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.097",
+      "title": "Nghiệp vụ của bảo vệ thuê ngoài",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-personnel-skills"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ thuê ngoài phải có những nghiệp vụ gì về chứng từ, phòng cháy chữa cháy và xử lý tình huống?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.098",
+      "title": "Lý lịch, hợp đồng và bảo hiểm của bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-personnel-contract"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ thuê ngoài cần đáp ứng điều kiện gì về lý lịch, hợp đồng lao động và bảo hiểm tai nạn?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.099",
+      "title": "Tiêu chuẩn và hồ sơ nhân viên bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-personnel"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hồ sơ điều động bảo vệ đến một địa điểm mới cần có lệnh điều động, lịch trực và những giấy tờ nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.100",
+      "title": "Giấy tờ cá nhân trong hồ sơ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-personnel-documents"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bản sao công chứng giấy tờ tùy thân và chứng nhận huấn luyện trong hồ sơ bảo vệ phải đáp ứng yêu cầu gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.101",
+      "title": "Nội dung mẫu lý lịch bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-personnel-form"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mẫu lý lịch trích ngang bảo vệ có mã gì và cần điền những trường nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.102",
+      "title": "Đề xuất vị trí và tiếp nhận bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-site"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai tuyển chọn, ai kiểm tra tiêu chuẩn và ai xác nhận tiếp nhận bảo vệ vào vị trí?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.103",
+      "title": "Hồ sơ hoặc nhân sự bảo vệ chưa đạt",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-rejected"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu hồ sơ hoặc nhân sự do nhà cung cấp giới thiệu không đạt, quy trình quay lại bước nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.104",
+      "title": "Bổ sung hồ sơ bảo vệ khẩn cấp",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-urgent"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu phải bố trí bảo vệ gấp do trống vị trí, khi nào phải bổ sung hồ sơ?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.105",
+      "title": "Thời hạn HCNS cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-hcns-deadline"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phòng HCNS có bao lâu để cung cấp nhân viên bảo vệ đạt chuẩn sau khi nhận yêu cầu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.106",
+      "title": "Thay bảo vệ theo kế hoạch",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-change-planned"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi thay bảo vệ theo kế hoạch, nhà cung cấp phải báo cho ai và trước bao lâu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.107",
+      "title": "Thay bảo vệ đột xuất",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-change-sudden"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi thay bảo vệ đột xuất trước ca trực, nhà cung cấp phải báo trước bao lâu và được thay tối đa mấy lần mỗi tháng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.108",
+      "title": "Bổ sung khi bảo vệ bỏ vị trí",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-change-abandoned"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu bảo vệ tự ý bỏ vị trí mà không báo, nhà cung cấp phải bổ sung người trong bao lâu và quy định giới hạn thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.109",
+      "title": "Yêu cầu thay bảo vệ khẩn cấp",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-change-authority"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi cần đổi hoặc bổ sung bảo vệ khẩn cấp, Ban An ninh có quyền yêu cầu trực tiếp không và phải giải trình với ai?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.110",
+      "title": "Rời vị trí trong ca bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-leave-post"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ đang làm nhiệm vụ muốn rời vị trí hoặc nghỉ giữa ca phải được ai đồng ý và bố trí người thay thế thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.111",
+      "title": "Huấn luyện trước khi nhận vị trí bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-training"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhà cung cấp phải huấn luyện những nội dung gì cho bảo vệ trước khi nhận việc tại cơ sở?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.112",
+      "title": "Đồng phục và tác phong trong ca bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-conduct"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải tuân thủ những yêu cầu gì về đồng phục, thẻ tên, tác phong và cách giao tiếp?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.113",
+      "title": "Đồng phục và tác phong trong ca bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-conduct"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trong ca trực, bảo vệ có được dùng điện thoại cho việc riêng, hút thuốc, tụ tập hoặc ngủ không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.114",
+      "title": "Kiểm soát khách và nhà thầu ra vào",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi khách hoặc nhà thầu đến, bảo vệ phải hướng dẫn, kiểm tra và ghi nhận những thông tin gì?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.115",
+      "title": "Xử lý nguy cơ mất an ninh tại cơ sở",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-order"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ cần làm gì khi phát hiện người gây rối, xung đột hoặc nguy cơ mất an toàn tại cơ sở?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.116",
+      "title": "Bảo vệ giám sát xuất nhập hàng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-goods"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi hàng hóa xuất hoặc nhập qua cổng, bảo vệ phải đối chiếu và ký xác nhận những chứng từ nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.118",
+      "title": "Trách nhiệm bảo vệ khi xuất nhập hàng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-goods-duty"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải giám sát việc xuất nhập hàng đến khi nào và có trách nhiệm gì nếu hàng bị mất hoặc hỏng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.119",
+      "title": "Đăng ký tài sản qua cổng",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-assets-register"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải đăng ký, theo dõi vật tư và tài sản ra vào cơ sở thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.120",
+      "title": "Bảo vệ kiểm tra xe và lập biên bản",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.company-vehicles.guard-check"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải kiểm tra và ghi nhận những gì khi xe công ty rời nơi đỗ hoặc quay về?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.121",
+      "title": "Trông giữ xe của nhân viên và khách",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-parking-role"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ có trách nhiệm gì trong việc trông giữ xe cho nhân viên và khách?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.122",
+      "title": "Tần suất tuần tra và bàn giao ca",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-patrol-frequency"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Việc tuần tra và bàn giao ca phải tuân thủ tần suất, phạm vi và quy trình ghi nhận nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.123",
+      "title": "Báo cáo và bàn giao sự cố an ninh",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-incident-report"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi có mất cắp, hư hỏng, tai nạn hoặc sự cố an ninh, bảo vệ báo ai và bàn giao hiện trường thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.124",
+      "title": "Báo cáo an ninh của bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-report"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Báo cáo an ninh định kỳ phải gửi cho ai, theo hình thức nào và gồm những nội dung gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.125",
+      "title": "Quản lý bảo vệ tại cơ sở",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-supervision"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp tại cơ sở phải theo dõi nhân sự bảo vệ, phối hợp giám sát và báo sai phạm thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.126",
+      "title": "Phối hợp quản lý dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-roles"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ban An ninh, HCNS và Kiểm soát nội bộ chịu trách nhiệm gì trong quản lý dịch vụ bảo vệ?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.127",
+      "title": "Phối hợp quản lý dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-roles"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi một cơ sở cần cách bố trí bảo vệ khác quy định chung, bộ phận nào lập phương án và ai quyết định?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.128",
+      "title": "Bằng chứng và thời điểm báo vi phạm bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-violation-evidence"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện vi phạm của bảo vệ thuê ngoài, ai thu thập bằng chứng, tổng hợp lỗi và gửi đề nghị xử lý vào thời điểm nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.129",
+      "title": "Xử lý vi phạm theo hợp đồng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-violation-contract"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "HCNS căn cứ vào đâu để lập biên bản, yêu cầu nhà cung cấp xử lý hoặc đề xuất thanh lý hợp đồng?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.130",
+      "title": "Cấn trừ và thông báo tiền phạt dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-violation-penalty"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tiền phạt vi phạm được cấn trừ thế nào và kết quả xử lý phải thông báo cho những bộ phận nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.131",
+      "title": "Biên bản xử lý vi phạm bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-violation-form"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Biên bản xử lý vi phạm bảo vệ có mã gì, phải ghi những mục nào, ai ký và mỗi bên giữ mấy bản?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.132",
+      "title": "Tra cứu biểu mẫu bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-forms-location"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có thể tìm mẫu đề xuất nhân viên bảo vệ, mẫu đề nghị xử lý vi phạm và các biểu mẫu liên quan ở đâu?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.133",
+      "title": "Phân biệt kỷ luật nhân viên và vi phạm bảo vệ thuê ngoài",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-employee-distinction"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi xảy ra vi phạm tại cơ sở, quy trình xử lý nhân viên công ty khác với quy trình xử lý bảo vệ thuê ngoài thế nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.134",
+      "title": "Xác minh lịch trực và liên hệ bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-live-roster"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có thể xác nhận lịch trực, người đang trực hoặc số liên hệ hiện tại của đội bảo vệ tại cơ sở?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.135",
+      "title": "Văn bản quy định niêm phong cửa",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-identity"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Thông báo nào quy định việc niêm phong cửa văn phòng, chi nhánh và kho, và tôi có thể xem ở đâu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.136",
+      "title": "Phạm vi quy định niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-scope"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định niêm phong áp dụng cho những địa điểm, loại cửa và đối tượng nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.137",
+      "title": "Quy định niêm phong áp dụng ở Tây Đô",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-tay-do"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tòa nhà Tây Đô thực hiện niêm phong theo nội quy riêng hay theo thông báo chung của công ty?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.138",
+      "title": "Người chịu trách nhiệm niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-last-person"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai chịu trách nhiệm niêm phong cuối ngày nếu nhiều bộ phận dùng chung địa điểm hoặc có người làm việc muộn?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.139",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người ra về cuối cùng phải làm gì trước khi ký và dán giấy niêm phong?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.140",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai ký trên giấy niêm phong, ai ký vào sổ và giấy niêm phong phải có dấu gì?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.141",
+      "title": "Cách dán giấy niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-placement"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phải bôi hồ và đặt giấy niêm phong ở vị trí nào trên cửa hoặc ổ khóa để đúng quy định?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.142",
+      "title": "Vai trò bảo vệ khi niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-witness"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ có vai trò gì khi dán niêm phong cuối ngày và khi mở cửa vào đầu ngày?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.143",
+      "title": "Kiểm tra trước khi mở niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-open"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đến làm việc đầu tiên, tôi phải kiểm tra những gì trên giấy niêm phong trước khi mở cửa?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.144",
+      "title": "Kiểm tra trước khi mở niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-open"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu giấy còn nguyên nhưng bảo vệ chưa có mặt, tôi có được mở cửa không?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.145",
+      "title": "Điều kiện mở khi giấy có dấu hiệu bất thường",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-damage"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu giấy niêm phong bị rách, mất, bong hoặc thông tin bị biến dạng, tôi có được mở cửa ngay không?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.146",
+      "title": "Biên bản bất thường niêm phong cửa",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-incident-record"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.147",
+      "title": "Biên bản bất thường niêm phong cửa",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-incident-record"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong bất thường?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.148",
+      "title": "Quên niêm phong hoặc mở thiếu người chứng kiến",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-missed"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đã ra về mới phát hiện quên niêm phong hoặc đã lỡ mở cửa khi chưa có bảo vệ chứng kiến, tôi phải báo cho ai?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.149",
+      "title": "Xác minh mở cửa đã niêm phong ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-late-entry"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép ai và niêm phong lại hoặc bàn giao thế nào?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.150",
+      "title": "Xác minh mở cửa đã niêm phong ngoài giờ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-late-entry"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cần đóng hoặc mở niêm phong vào ngày nghỉ, ngày lễ hay khi có tình huống khẩn cấp, tôi phải xác nhận quy trình với ai?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.151",
+      "title": "Xử lý vi phạm quy định niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-violation"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định xử lý thế nào nếu nhân viên hoặc đơn vị bảo vệ không thực hiện đúng quy trình niêm phong?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.152",
+      "title": "Xác minh tình trạng niêm phong cửa kho",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-live-status"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể kiểm tra sổ hoặc liên hệ ai để xác nhận cửa kho thực tế đã được niêm phong?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.153",
+      "title": "Tìm mẫu giấy, sổ và biên bản niêm phong",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-forms"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tìm mẫu giấy niêm phong, sổ niêm phong và biên bản xử lý bất thường ở đâu?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.154",
+      "title": "Đề xuất vị trí và số lượng bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "guard",
+        "wording-regression"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-request"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đề xuất số lượng và vị trí bảo vệ dùng mẫu nào?",
+          "expectation": "Trả lời từ nguồn áp dụng và dẫn đúng đoạn quy định."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.building-guard-sealing.155",
+      "title": "Điều kiện mở khi giấy có dấu hiệu bất thường",
+      "tags": [
+        "type-a",
+        "building-guard-sealing",
+        "sealing",
+        "wording-regression"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-damage"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi tem niêm phong bị bong thì được mở cửa hay cần xử lý trước?",
+          "expectation": "Nêu nội dung có nguồn, giới hạn và đầu mối xác minh có liên quan."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.building-contractor",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-contractor",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhà thầu",
+          "nhà cung cấp"
+        ],
+        [
+          "đến làm việc",
+          "vào làm việc"
+        ],
+        [
+          "thủ tục",
+          "liên hệ ai",
+          "đăng ký"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhà thầu hoặc nhà cung cấp đến làm việc cần liên hệ ai và làm thủ tục ra vào thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

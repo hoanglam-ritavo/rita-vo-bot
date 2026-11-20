@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
-  "lexicon_sha256": "c16eaa5688e4306cb8ee9357219145a7ca4aaba8cf9f82343814774a407c8437",
+  "lexicon_sha256": "101c002cedd6220480adcb0d131dfe681d25d8875d1759547b15ad30ccab8c4c",
   "families": [
     {
       "id": "leave",
@@ -16031,6 +16031,223 @@
       "aspects": [
         "overview",
         "procedure"
+      ]
+    },
+    {
+      "id": "rank.bravo-vpn.0",
+      "family": "software",
+      "system": "bravo",
+      "role": "system_procedure",
+      "operation": "policy",
+      "ref": {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+        "chunk_index": 0,
+        "content_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46",
+        "quote": "Bravo 8 — hướng dẫn kết nối VPN phiên bản 1.0, cập nhật 11.11.2023, dành cho nhân viên được phân công sử dụng ERP Bravo 8. Nhân viên làm việc trong mạng công ty tại kho/văn phòng/showroom/trụ sở khác với nhân viên ở nhà hoặc mạng công cộng. HCNS IT cài Bravo Desktop cho nhân viên mới có vai trò sử dụng; HCNS IT cần cài VPN cho máy sử dụng từ ngoài công ty.",
+        "metadata": {
+          "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 11.11.2023",
+          "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+        }
+      },
+      "task_ids": [
+        "task.bravo-vpn.overview",
+        "task.bravo-vpn.vpn-role",
+        "task.bravo-vpn.network-scope",
+        "task.bravo-vpn.office-network",
+        "task.bravo-vpn.branch-network",
+        "task.bravo-vpn.remote-network",
+        "task.bravo-vpn.public-network",
+        "task.bravo-vpn.open-bravo",
+        "task.bravo-vpn.session-network",
+        "task.bravo-vpn.new-user",
+        "task.bravo-vpn.eligibility",
+        "task.bravo-vpn.manual",
+        "task.bravo-vpn.setup-order",
+        "task.bravo-vpn.setup-device",
+        "task.bravo-vpn.diagnosis",
+        "task.bravo-vpn.remote-policy"
+      ],
+      "aspects": [
+        "overview"
+      ]
+    },
+    {
+      "id": "rank.bravo-vpn.4",
+      "family": "software",
+      "system": "bravo",
+      "role": "system_procedure",
+      "operation": "policy",
+      "ref": {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+        "chunk_index": 4,
+        "content_sha256": "c53bbdc2ad6cee23af4aa070bd8cc219076ee5dd15378ee912b72856c734ef21",
+        "quote": "VPN nghĩa là mạng riêng ảo.",
+        "metadata": {
+          "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 11.11.2023",
+          "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+        }
+      },
+      "task_ids": [
+        "task.bravo-vpn.vpn-role",
+        "task.bravo-vpn.setup-device",
+        "task.bravo-vpn.incident-status",
+        "task.bravo-vpn.security-incident",
+        "task.bravo-vpn.support",
+        "task.bravo-vpn.support-intake"
+      ],
+      "aspects": [
+        "overview"
+      ]
+    },
+    {
+      "id": "rank.bravo-vpn.1",
+      "family": "software",
+      "system": "bravo",
+      "role": "system_procedure",
+      "operation": "policy",
+      "ref": {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+        "chunk_index": 1,
+        "content_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a",
+        "quote": "Bravo 8 — kiểm tra VPN đã cài: mở icon mạng ở desktop > VPN và tìm RitaVO; hoặc Start/Search > gõ VPN Settings > Network & internet > VPN, kiểm tra kết nối RitaVO sẵn sàng. Việc cài VPN thuộc HCNS IT. Chỉ kết nối VPN khi dùng mạng ngoài công ty, như ở nhà hoặc nơi công cộng.",
+        "metadata": {
+          "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 11.11.2023",
+          "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+        }
+      },
+      "task_ids": [
+        "task.bravo-vpn.vpn-role",
+        "task.bravo-vpn.network-scope",
+        "task.bravo-vpn.office-network",
+        "task.bravo-vpn.branch-network",
+        "task.bravo-vpn.remote-network",
+        "task.bravo-vpn.public-network",
+        "task.bravo-vpn.personal-vpn",
+        "task.bravo-vpn.open-bravo",
+        "task.bravo-vpn.session-network",
+        "task.bravo-vpn.vpn-provisioning",
+        "task.bravo-vpn.provisioning-process",
+        "task.bravo-vpn.access-lifecycle",
+        "task.bravo-vpn.vpn-setup",
+        "task.bravo-vpn.first-connection",
+        "task.bravo-vpn.personal-device",
+        "task.bravo-vpn.vpn-account",
+        "task.bravo-vpn.first-login",
+        "task.bravo-vpn.mfa",
+        "task.bravo-vpn.vpn-error",
+        "task.bravo-vpn.diagnosis",
+        "task.bravo-vpn.remote-policy"
+      ],
+      "aspects": [
+        "overview"
+      ]
+    },
+    {
+      "id": "rank.bravo-vpn.2",
+      "family": "software",
+      "system": "bravo",
+      "role": "system_procedure",
+      "operation": "policy",
+      "ref": {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+        "chunk_index": 2,
+        "content_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4",
+        "quote": "Bravo 8 — kết nối VPN ngoài công ty: mở VPN RitaVO đã được HCNS IT cài, nhấn Connect; Connected nghĩa là kết nối thành công, có thể xem lưu lượng đã dùng. Tài liệu chỉ cho phép kết nối VPN khi đang dùng mạng ngoài công ty. Nếu không sử dụng được Bravo theo hướng dẫn, liên hệ P. KSNB IT System để hỗ trợ.",
+        "metadata": {
+          "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 11.11.2023",
+          "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+        }
+      },
+      "task_ids": [
+        "task.bravo-vpn.remote-network",
+        "task.bravo-vpn.account-distinction",
+        "task.bravo-vpn.connected-permission",
+        "task.bravo-vpn.session-network",
+        "task.bravo-vpn.setup-order",
+        "task.bravo-vpn.first-connection",
+        "task.bravo-vpn.bravo-account",
+        "task.bravo-vpn.sessions",
+        "task.bravo-vpn.connection-status",
+        "task.bravo-vpn.vpn-error",
+        "task.bravo-vpn.bravo-error",
+        "task.bravo-vpn.performance",
+        "task.bravo-vpn.diagnosis",
+        "task.bravo-vpn.incident-status",
+        "task.bravo-vpn.transaction",
+        "task.bravo-vpn.security-incident",
+        "task.bravo-vpn.support",
+        "task.bravo-vpn.support-intake"
+      ],
+      "aspects": [
+        "overview"
+      ]
+    },
+    {
+      "id": "rank.bravo-vpn.3",
+      "family": "software",
+      "system": "bravo",
+      "role": "system_procedure",
+      "operation": "policy",
+      "ref": {
+        "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+        "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+        "source_sha256": "a58f1cb74964c2308c701dc6f3a49225cca9e5358f35b0417729340ba03eed2a",
+        "chunk_index": 3,
+        "content_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07",
+        "quote": "Bravo 8 — cài/cập nhật phần mềm: dùng phiên bản mới nhất theo email P. KSNB IT System. Tài liệu cung cấp link ổ mạng Public hoặc thư mục Office 365 SharePoint để tải và giải nén; cũng có thể nhờ KSNB IT System hoặc HCNS IT cài đặt. Sau giải nén chạy Bravo8.exe với phân quyền do KSNB IT System cấp. Hướng dẫn không cấp thêm quyền truy cập chỉ bằng việc cài phần mềm.",
+        "metadata": {
+          "title": "RTV/ERP/Bravo-VPN — Hướng dẫn cài đặt Bravo 8",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "1.0; cập nhật 11.11.2023",
+          "source_path": "huong-dan-su-dung/bravo/rtv-um-erp-bravologinusingvpn-v1-0.pdf"
+        }
+      },
+      "task_ids": [
+        "task.bravo-vpn.account-distinction",
+        "task.bravo-vpn.connected-permission",
+        "task.bravo-vpn.open-bravo",
+        "task.bravo-vpn.app-permissions",
+        "task.bravo-vpn.new-user",
+        "task.bravo-vpn.bravo-provisioning",
+        "task.bravo-vpn.provisioning-process",
+        "task.bravo-vpn.access-lifecycle",
+        "task.bravo-vpn.bravo-install",
+        "task.bravo-vpn.bravo-entry",
+        "task.bravo-vpn.update",
+        "task.bravo-vpn.bravo-account",
+        "task.bravo-vpn.first-login",
+        "task.bravo-vpn.sessions",
+        "task.bravo-vpn.diagnosis",
+        "task.bravo-vpn.security-policy"
+      ],
+      "aspects": [
+        "overview"
       ]
     }
   ],
@@ -34834,6 +35051,13 @@
               "Quy định sử dụng bảo vệ áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng bảo vệ HCNS-QT01 áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -34876,6 +35100,13 @@
           "requires_all": [
             [
               "Nhà cung cấp dịch vụ bảo vệ phải đáp ứng tiêu chuẩn gì và nộp những giấy tờ nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hồ sơ pháp lý, hồ sơ năng lực và phương án bảo vệ của nhà cung cấp cần gồm những gì?"
             ]
           ]
         }
@@ -34942,6 +35173,20 @@
           "requires_all": [
             [
               "Hồ sơ điều động nhân viên bảo vệ đến một địa điểm làm việc cần có những giấy tờ gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ thuê ngoài phải đáp ứng những tiêu chuẩn nào về độ tuổi, sức khỏe, chiều cao và trình độ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hồ sơ điều động bảo vệ đến một địa điểm mới cần có lệnh điều động, lịch trực và những giấy tờ nào?"
             ]
           ]
         }
@@ -35064,6 +35309,20 @@
               "Nếu báo giá dịch vụ bảo vệ vượt khung, ai trình và ai phê duyệt?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "HCNS phải tìm và so sánh ít nhất bao nhiêu nhà cung cấp trước khi trình duyệt?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu báo giá vượt khung, ai trình, ai có thẩm quyền phê duyệt và phải làm gì nếu đề xuất không được duyệt?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35130,6 +35389,13 @@
               "Quy trình tuyển chọn, kiểm tra hồ sơ và tiếp nhận nhân viên bảo vệ gồm những bước nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai tuyển chọn, ai kiểm tra tiêu chuẩn và ai xác nhận tiếp nhận bảo vệ vào vị trí?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35178,6 +35444,13 @@
           "requires_all": [
             [
               "Bảo vệ phải kiểm tra và ghi nhận thông tin gì khi khách hoặc nhà thầu đến làm việc?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi khách hoặc nhà thầu đến, bảo vệ phải hướng dẫn, kiểm tra và ghi nhận những thông tin gì?"
             ]
           ]
         }
@@ -35246,6 +35519,13 @@
           "requires_all": [
             [
               "Nếu số lượng hàng thực tế khác chứng từ hoặc hàng chưa có giấy phép ra cổng, bảo vệ phải xử lý thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi hàng hóa xuất hoặc nhập qua cổng, bảo vệ phải đối chiếu và ký xác nhận những chứng từ nào?"
             ]
           ]
         }
@@ -35359,6 +35639,13 @@
               "Bảo vệ phải báo cáo tình hình an ninh định kỳ với nội dung và tần suất nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Báo cáo an ninh định kỳ phải gửi cho ai, theo hình thức nào và gồm những nội dung gì?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35428,6 +35715,20 @@
           "requires_all": [
             [
               "Nếu cơ sở cần áp dụng cách bố trí bảo vệ khác quy trình chung, những ai phải xem xét ngoại lệ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ban An ninh, HCNS và Kiểm soát nội bộ chịu trách nhiệm gì trong quản lý dịch vụ bảo vệ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi một cơ sở cần cách bố trí bảo vệ khác quy định chung, bộ phận nào lập phương án và ai quyết định?"
             ]
           ]
         }
@@ -35538,6 +35839,13 @@
               "Quy định niêm phong áp dụng cho những địa điểm và những người nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định niêm phong áp dụng cho những địa điểm, loại cửa và đối tượng nào?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35623,6 +35931,20 @@
               "Bảo vệ cần chứng kiến những bước nào khi dán hoặc mở niêm phong?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người ra về cuối cùng phải làm gì trước khi ký và dán giấy niêm phong?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai ký trên giấy niêm phong, ai ký vào sổ và giấy niêm phong phải có dấu gì?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35683,6 +36005,20 @@
           "requires_all": [
             [
               "Người đến làm việc đầu tiên phải kiểm tra những gì trước khi mở cửa?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đến làm việc đầu tiên, tôi phải kiểm tra những gì trên giấy niêm phong trước khi mở cửa?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu giấy còn nguyên nhưng bảo vệ chưa có mặt, tôi có được mở cửa không?"
             ]
           ]
         }
@@ -35841,6 +36177,13 @@
               "Nội quy tòa nhà áp dụng thế nào với nhân viên, khách hàng, nhà cung cấp và nhà thầu?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nội quy tòa nhà Tây Đô áp dụng cho những ai, kể cả khách hàng, nhà cung cấp và nhà thầu?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -35969,6 +36312,13 @@
           "requires_all": [
             [
               "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc khi công ty có sự kiện không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc trong sự kiện của Tập đoàn không?"
             ]
           ]
         }
@@ -36159,6 +36509,34 @@
               "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Lịch bật và tắt điều hòa ở các tầng 1, 3 và 4 tại Tây Đô như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Điều hòa tầng 2 hoạt động thế nào khi có khách hoặc khi showroom vắng khách?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Điều hòa tầng 5 áp dụng khung giờ nào cho khu làm việc và các khu vực còn lại?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tầng 6 hoặc khu sân thượng có điều hòa không?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -36222,6 +36600,13 @@
           "requires_all": [
             [
               "Khi ra về hoặc khi khu vực không có khách, ai chịu trách nhiệm kiểm tra điều hòa, đèn và các thiết bị điện?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được bật điều hòa ngoài khung giờ nếu có khách đến showroom không và ai có quyền quyết định?"
             ]
           ]
         }
@@ -36327,6 +36712,13 @@
               "Khi mất điện, nhân viên báo cho ai và cần xử lý thiết bị đang sử dụng ra sao?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi mất điện tại Tây Đô, cần báo cho ai, cung cấp thông tin gì và sử dụng nguồn chiếu sáng khẩn cấp thế nào?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -36390,6 +36782,13 @@
           "requires_all": [
             [
               "Xe giao hàng phải vận chuyển qua khu vực nào và phối hợp với bảo vệ ra sao?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Muốn mang hàng hóa, hàng mẫu hoặc tài sản ra vào Tây Đô thì đăng ký bằng mẫu gì và ai phê duyệt?"
             ]
           ]
         }
@@ -36528,6 +36927,13 @@
           "requires_all": [
             [
               "Nếu làm hỏng sản phẩm trưng bày hoặc tài sản tòa nhà, phải báo ai và quy trình ghi nhận thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu làm trầy xước, hư hỏng hoặc làm mất tài sản của tòa nhà, tôi phải báo ai và ghi nhận những gì?"
             ]
           ]
         }
@@ -36673,6 +37079,20 @@
           "requires_all": [
             [
               "Nếu làm mất vé xe hoặc cần lấy xe ngoài giờ, tôi phải xác minh với ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên và khách gửi xe ở đâu, nhận vé khi nào và trả vé cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi mất vé gửi xe, cần xuất trình giấy tờ gì và ai lập biên bản bàn giao xe?"
             ]
           ]
         }
@@ -36912,6 +37332,20 @@
           "requires_all": [
             [
               "Sau khi phát hiện thất lạc tài sản, tôi phải báo ai và đề nghị kiểm tra camera qua đầu mối nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý tòa nhà, Kỹ thuật, HCNS, Bảo vệ và Ban An ninh phối hợp thế nào khi có sự cố?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu thất lạc tài sản, tôi cần báo cho ai, cung cấp thông tin gì và đề nghị kiểm tra camera qua đầu mối nào?"
             ]
           ]
         }
@@ -38650,6 +39084,13 @@
               "liên hệ ai"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu số điện thoại hoặc tên người phụ trách trong tài liệu đã cũ, tôi xác nhận đầu mối hiện tại ở đâu?"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -39795,6 +40236,13 @@
           "requires_all": [
             [
               "Nếu nhiều tài xế dùng chung xe, căn cứ nào được dùng để xác định chuyến xảy ra hư hỏng?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải kiểm tra và ghi nhận những gì khi xe công ty rời nơi đỗ hoặc quay về?"
             ]
           ]
         }
@@ -41893,6 +42341,6694 @@
         "đặt xe giúp tôi",
         "đặt hộ tôi",
         "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-ac-close",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-ac-close",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điều hòa",
+              "máy lạnh"
+            ],
+            [
+              "giờ nghỉ trưa",
+              "phòng trống"
+            ],
+            [
+              "tắt",
+              "ra về"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phòng trống vào giờ nghỉ trưa hoặc sắp hết giờ làm, khi nào cần tắt điều hòa?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-ac-temperature",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-ac-temperature",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điều hòa",
+              "máy lạnh"
+            ],
+            [
+              "nhiệt độ",
+              "bao nhiêu độ",
+              "mấy độ"
+            ],
+            [
+              "tầng 2",
+              "tầng 5",
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhiệt độ điều hòa ở tầng 2 và tầng 5 được quy định thế nào vào mùa mưa và mùa hè?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.building-guard-sealing.building-applicability",
+        "ở tòa nhà khác thì sao": "task.building-guard-sealing.building-applicability"
+      }
+    },
+    {
+      "id": "route.building-guard-sealing.building-ac-use",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-ac-use",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điều hòa",
+              "máy lạnh"
+            ],
+            [
+              "đóng cửa",
+              "bật luân phiên",
+              "sofa",
+              "sản phẩm da"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi bật điều hòa, cần đóng cửa, bật luân phiên và ưu tiên khu vực nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-after-hours",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-after-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ở lại sau giờ",
+              "ra vào ngoài giờ",
+              "vào tòa nhà ngày nghỉ",
+              "người được phân công trực"
+            ],
+            [
+              "xin phép",
+              "chấp thuận",
+              "đăng ký",
+              "văn bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên ở lại sau giờ làm phải xin phép ai và có cần văn bản xác nhận không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần đăng ký với ai nếu muốn vào tòa nhà ngày nghỉ, ngày lễ hoặc Tết?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người được phân công trực có phải xin phép ra vào ngoài giờ như nhân viên khác không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ngoài giờ",
+              "ngày nghỉ",
+              "ngày lễ",
+              "tết"
+            ],
+            [
+              "vào tòa nhà",
+              "ra vào",
+              "vào văn phòng"
+            ],
+            [
+              "xin phép",
+              "ai duyệt"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-applicability",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-applicability",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "áp dụng"
+            ],
+            [
+              "tây đô"
+            ],
+            [
+              "chi nhánh khác",
+              "kho khác",
+              "địa điểm khác",
+              "showroom khác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nội quy Tây Đô có áp dụng cho showroom, kho hoặc chi nhánh khác không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ở chi nhánh khác",
+              "ở tòa nhà khác",
+              "tại một cơ sở khác"
+            ],
+            [
+              "điều hòa",
+              "rèm",
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "dùng ở chi nhánh khác",
+              "cơ sở khác",
+              "địa điểm khác"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-assets-inventory",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-assets-inventory",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kiểm kê tài sản",
+              "kiểm kê công cụ dụng cụ"
+            ],
+            [
+              "cập nhật",
+              "đối chiếu",
+              "tòa nhà",
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai cập nhật, đối chiếu và kiểm kê tài sản, công cụ dụng cụ tại tòa nhà?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-assets-out",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-assets-out",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thiết bị văn phòng",
+              "công cụ dụng cụ",
+              "tài sản công ty"
+            ],
+            [
+              "mang ra",
+              "đưa ra"
+            ],
+            [
+              "phê duyệt",
+              "đồng ý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được mang thiết bị văn phòng, công cụ dụng cụ hoặc tài sản công ty ra ngoài khi chưa có phê duyệt không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-assets-transfer",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-assets-transfer",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điều chuyển tài sản",
+              "điều chuyển thiết bị"
+            ],
+            [
+              "thông báo",
+              "báo bộ phận nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi điều chuyển tài sản tại Tây Đô, quản lý tòa nhà phải thông báo cho bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-baggage",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-baggage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kiểm tra hành lý",
+              "kiểm tra túi"
+            ],
+            [
+              "bảo vệ",
+              "nhân viên"
+            ],
+            [
+              "trường hợp nào",
+              "khi nào",
+              "lúc nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ có thể yêu cầu kiểm tra hành lý trong trường hợp nào và nhân viên phải phối hợp ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-blind-hours",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-blind-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "rèm"
+            ],
+            [
+              "mùa mưa",
+              "mùa hè",
+              "nắng đến sớm"
+            ],
+            [
+              "nâng",
+              "hạ",
+              "giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mùa hè và mùa mưa cần nâng, hạ rèm vào lúc nào và xử lý ra sao nếu nắng đến sớm?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-bulky-goods",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-bulky-goods",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hàng cồng kềnh",
+              "vật tư xây dựng"
+            ],
+            [
+              "xe đẩy",
+              "bánh cao su",
+              "lối vận chuyển"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi vận chuyển hàng cồng kềnh, cần dùng loại xe đẩy nào và chọn lối vận chuyển ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-chair-access",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-chair-access",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng chủ tịch"
+            ],
+            [
+              "chìa khóa",
+              "chìa khoá",
+              "ai có quyền",
+              "cho phép vào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có quyền cho nhân viên hoặc khách vào phòng Chủ tịch và ai quản lý chìa khóa phòng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-chair-close",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-chair-close",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng chủ tịch"
+            ],
+            [
+              "sau khi sử dụng",
+              "dùng xong",
+              "tắt đèn",
+              "khóa cửa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi sử dụng phòng Chủ tịch, cần làm gì với tài sản, thiết bị và cửa phòng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-chair-material",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-chair-material",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng chủ tịch"
+            ],
+            [
+              "chụp ảnh",
+              "ghi âm",
+              "sao chụp",
+              "mang hồ sơ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người được phép vào phòng Chủ tịch có được chụp ảnh, ghi âm, sao chụp hoặc mang hồ sơ ra ngoài không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-clear-aisles",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-clear-aisles",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thùng carton",
+              "để hàng",
+              "để rác"
+            ],
+            [
+              "hành lang",
+              "cầu thang",
+              "lối thoát hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được để hàng, thùng carton hoặc rác ở hành lang, trước thang máy, cầu thang hoặc lối thoát hiểm không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-close-equipment",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-close-equipment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đèn",
+              "điều hòa",
+              "thiết bị điện"
+            ],
+            [
+              "nguồn nước",
+              "điện nước"
+            ],
+            [
+              "ra về",
+              "cuối ngày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi ra về, ai kiểm tra đèn, điều hòa, thiết bị điện và nguồn nước trong khu vực?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-compare-policy",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-compare-policy",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nội quy lao động",
+              "nội quy chung"
+            ],
+            [
+              "khác nhau",
+              "mâu thuẫn",
+              "khác quy định"
+            ],
+            [
+              "địa điểm",
+              "cơ sở",
+              "tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nội quy lao động và quy định tại địa điểm làm việc khác nhau, tôi hỏi ai để xác nhận cách áp dụng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-conduct",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-conduct",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tòa nhà",
+              "tây đô"
+            ],
+            [
+              "uống rượu",
+              "tiệc gây ồn",
+              "tổ chức tiệc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tòa nhà quy định thế nào về hút thuốc, uống rượu bia hoặc tổ chức tiệc gây ồn?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-contractor",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-contractor",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhà thầu",
+              "nhà cung cấp"
+            ],
+            [
+              "đến làm việc",
+              "vào làm việc"
+            ],
+            [
+              "thủ tục",
+              "liên hệ ai",
+              "đăng ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhà thầu hoặc nhà cung cấp đến làm việc cần liên hệ ai và làm thủ tục ra vào thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-customer-children",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-customer-children",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khách hàng",
+              "khách tham quan"
+            ],
+            [
+              "trẻ em",
+              "trẻ nhỏ",
+              "đưa bé",
+              "đi cùng con"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu khách hàng đi cùng trẻ em, nhân viên kinh doanh phải lưu ý gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-damage-levels",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-damage-levels",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tây đô",
+              "sản phẩm trưng bày",
+              "tài sản tòa nhà"
+            ],
+            [
+              "bồi thường"
+            ],
+            [
+              "tái phạm",
+              "không thể sửa chữa",
+              "lần thứ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định Tây Đô nêu cách xem xét vi phạm hoặc bồi thường thế nào nếu tái phạm hoặc tài sản không thể sửa chữa?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-dangerous-areas",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-dangerous-areas",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "leo trèo",
+              "khu vực nguy hiểm",
+              "giếng trời",
+              "mái tum"
+            ],
+            [
+              "tòa nhà",
+              "tây đô",
+              "khu vực",
+              "tiếp cận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khu vực nào trong tòa nhà không được tự ý leo trèo hoặc tiếp cận?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-display-care",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-display-care",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sản phẩm trưng bày"
+            ],
+            [
+              "ngồi",
+              "dùng hóa chất",
+              "tự ý sử dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được ngồi lên, tự ý sử dụng hoặc dùng hóa chất lau sản phẩm trưng bày không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-display-tags",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-display-tags",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thẻ giá",
+              "tag giá"
+            ],
+            [
+              "trưng bày",
+              "sản phẩm",
+              "nhân viên kinh doanh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên kinh doanh phải kiểm tra những gì trên sản phẩm trưng bày và thẻ giá?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-doors",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-doors",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tây đô",
+              "tòa nhà"
+            ],
+            [
+              "lối ra vào",
+              "cửa chính"
+            ],
+            [
+              "mặt đường",
+              "từng lối",
+              "mấy cửa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tòa nhà Tây Đô có những lối ra vào nào và khi nào được sử dụng từng lối?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-drivers",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-drivers",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tài xế",
+              "xe giao hàng"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "phối hợp",
+              "cản trở",
+              "giao hàng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế giao hàng phải phối hợp với bảo vệ thế nào để không cản trở lối đi?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-electrical-install",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-electrical-install",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lắp thêm",
+              "lắp đặt thêm"
+            ],
+            [
+              "thiết bị điện"
+            ],
+            [
+              "xin ý kiến",
+              "đồng ý",
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu muốn lắp thêm thiết bị điện tại Tây Đô, phải xin ý kiến ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-emergency-contacts",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-emergency-contacts",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cấp cứu",
+              "chữa cháy"
+            ],
+            [
+              "đầu mối",
+              "liên hệ",
+              "hỗ trợ"
+            ],
+            [
+              "kỹ thuật",
+              "an ninh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi cần hỗ trợ an ninh, kỹ thuật, chữa cháy hoặc cấp cứu, phải liên hệ đầu mối nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tây đô",
+              "tòa nhà"
+            ],
+            [
+              "số cấp cứu",
+              "số chữa cháy",
+              "liên hệ khẩn cấp"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-employee-badge",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-employee-badge",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quên thẻ",
+              "thiếu thẻ",
+              "không đeo thẻ",
+              "không mặc đúng đồng phục"
+            ],
+            [
+              "vào cổng",
+              "từ chối",
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu quên thẻ nhân viên hoặc không mặc đúng đồng phục, bảo vệ có thể từ chối cho tôi vào không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-employee-entry",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-employee-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đi trễ",
+              "về sớm",
+              "đi công tác trong giờ"
+            ],
+            [
+              "xuất trình",
+              "giấy xác nhận",
+              "giấy tờ tại cổng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi đi công tác trong giờ làm việc, đi trễ hoặc về sớm, tôi cần xuất trình giấy tờ gì tại cổng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-evacuation",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-evacuation",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sơ tán"
+            ],
+            [
+              "tập trung",
+              "lối nào",
+              "thang máy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phải sơ tán, nhân viên và khách dùng lối nào, tập trung ở đâu và có được dùng thang máy không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-fire-check",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-fire-check",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kiểm tra"
+            ],
+            [
+              "thiết bị chữa cháy",
+              "hệ thống báo cháy"
+            ],
+            [
+              "bao lâu",
+              "tần suất",
+              "báo hư hỏng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai kiểm tra thiết bị chữa cháy, bao lâu kiểm tra hệ thống báo cháy và báo hư hỏng cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-fire-electrical",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-fire-electrical",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cháy thiết bị điện",
+              "cháy do điện",
+              "đám cháy liên quan đến thiết bị điện"
+            ],
+            [
+              "chữa cháy",
+              "dùng nước",
+              "bình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định Tây Đô hướng dẫn sử dụng phương tiện chữa cháy thế nào khi đám cháy liên quan đến thiết bị điện?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-fire-equipment",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-fire-equipment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "di chuyển",
+              "dời"
+            ],
+            [
+              "bình chữa cháy",
+              "thiết bị phòng cháy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được tự ý di chuyển bình chữa cháy hoặc thiết bị phòng cháy chữa cháy không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-fire-report",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-fire-report",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chuông báo cháy",
+              "phát hiện khói",
+              "báo cháy"
+            ],
+            [
+              "báo cho ai",
+              "vị trí",
+              "thông tin"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nghe chuông báo cháy hoặc phát hiện có khói, cần báo cho ai và cung cấp thông tin gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có khói",
+              "có cháy",
+              "chuông cháy reo"
+            ],
+            [
+              "tòa nhà",
+              "tây đô"
+            ],
+            [
+              "báo ai",
+              "gọi ai"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-fire-storage",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-fire-storage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hàng hóa",
+              "vật tư"
+            ],
+            [
+              "tủ điện",
+              "ổ cắm",
+              "tường và trần"
+            ],
+            [
+              "bố trí",
+              "sắp xếp",
+              "khoảng cách"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hàng hóa và vật tư phải được bố trí thế nào quanh lối thoát hiểm, thiết bị chữa cháy, tủ điện, ổ cắm, tường và trần?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-food",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-food",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nấu ăn ngoài phòng bếp",
+              "đồ ăn nặng mùi",
+              "thức ăn nặng mùi",
+              "sầu riêng"
+            ],
+            [
+              "tòa nhà",
+              "tây đô",
+              "phòng bếp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được nấu ăn ngoài phòng bếp hoặc mang đồ ăn nặng mùi vào tòa nhà không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-generator",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-generator",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "máy phát dự phòng",
+              "máy phát điện dự phòng"
+            ],
+            [
+              "phụ tải",
+              "mất điện",
+              "thiết bị nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi tòa nhà mất điện lưới, máy phát dự phòng phục vụ những phụ tải nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-guest-host",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-guest-host",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đón khách",
+              "đưa khách",
+              "dẫn khách"
+            ],
+            [
+              "đi cùng",
+              "trách nhiệm",
+              "xin phép",
+              "khu vực hạn chế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên đón khách phải làm gì khi tiếp khách tại lễ tân, phòng họp hoặc showroom?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có cần xin phép khi đưa khách đến khu vực làm việc, kho hoặc khu vực hạn chế không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-guest-registration",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-guest-registration",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khách đến gặp",
+              "khách tới gặp",
+              "khách liên hệ"
+            ],
+            [
+              "đăng ký",
+              "chờ ở đâu",
+              "sảnh nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khách đến gặp nhân viên phải đăng ký và chờ ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-hygiene",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-hygiene",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giữ vệ sinh",
+              "vệ sinh khu vực"
+            ],
+            [
+              "nhà vệ sinh",
+              "bàn làm việc",
+              "hệ thống thoát nước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên phải giữ vệ sinh bàn làm việc, khu vực chung, nhà vệ sinh và hệ thống thoát nước thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-identity",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-identity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mã quy định",
+              "mã văn bản",
+              "ngày hiệu lực"
+            ],
+            [
+              "tây đô",
+              "quản lý tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ có mã gì, hiệu lực từ ngày nào và xem ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.building-guard-sealing.building-applicability",
+        "ở tòa nhà khác thì sao": "task.building-guard-sealing.building-applicability"
+      }
+    },
+    {
+      "id": "route.building-guard-sealing.building-keys",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-keys",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chìa khóa",
+              "chìa khoá"
+            ],
+            [
+              "tòa nhà"
+            ],
+            [
+              "mở cửa",
+              "ai giữ",
+              "ngoài giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai giữ chìa khóa tòa nhà và tôi cần liên hệ ai nếu cần mở cửa ngoài giờ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-kitchen-close",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-kitchen-close",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng bếp"
+            ],
+            [
+              "ai được",
+              "dọn dẹp",
+              "dùng xong",
+              "đóng cửa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai được dùng phòng bếp và cần dọn dẹp, kiểm tra thiết bị, đóng cửa ra sao sau khi sử dụng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-kitchen-incident",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-kitchen-incident",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thiết bị bếp",
+              "phòng bếp"
+            ],
+            [
+              "hỏng",
+              "mất an toàn",
+              "sự cố",
+              "báo ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phát hiện thiết bị bếp hỏng hoặc có dấu hiệu mất an toàn, cần báo ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-lift-emergency",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-lift-emergency",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kẹt thang",
+              "mắc kẹt",
+              "kẹt trong thang"
+            ],
+            [
+              "nút",
+              "báo ai",
+              "liên hệ",
+              "hỗ trợ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu thang máy dừng bất thường hoặc có người mắc kẹt, phải dùng nút hỗ trợ nào và liên hệ bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-lift-floors",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-lift-floors",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thang máy"
+            ],
+            [
+              "phục vụ những tầng",
+              "lên tầng nào",
+              "tới tầng nào",
+              "đến tầng mấy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hai thang máy tại Tây Đô phục vụ những tầng nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-lift-goods",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-lift-goods",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thang máy"
+            ],
+            [
+              "vận chuyển hàng",
+              "chở hàng",
+              "đưa hàng"
+            ],
+            [
+              "tải trọng",
+              "bao bọc",
+              "vách thang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi vận chuyển hàng bằng thang máy, cần tuân thủ tải trọng và bảo vệ hàng hóa, cửa thang, vách thang thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-lift-priority",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-lift-priority",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thang bộ",
+              "đi bộ giữa các tầng"
+            ],
+            [
+              "ưu tiên",
+              "thang máy",
+              "tầng liền nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào nhân viên nên đi thang bộ và trường hợp nào được ưu tiên dùng thang máy?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-light-hours",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-light-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bật đèn",
+              "mở đèn",
+              "đèn điện"
+            ],
+            [
+              "mặt tiền",
+              "khu vực phía trong",
+              "giờ nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào được bật đèn ở khu sát kính mặt tiền và khu vực phía trong?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-management",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-management",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý tòa nhà",
+              "qltn"
+            ],
+            [
+              "quyền hạn",
+              "nhiệm vụ",
+              "trách nhiệm"
+            ],
+            [
+              "quyền hạn",
+              "quản lý tài sản",
+              "phê duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý tòa nhà có quyền hạn và trách nhiệm gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-parking-care",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-parking-care",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bãi xe",
+              "bãi đỗ xe",
+              "bãi để xe"
+            ],
+            [
+              "rửa xe",
+              "sửa xe",
+              "đồ có giá trị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được rửa xe, sửa xe hoặc để đồ có giá trị trên xe trong bãi không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-parking-late",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-parking-late",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lấy xe ngoài giờ",
+              "nhận xe ngoài giờ",
+              "lấy xe sau giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu muốn lấy xe ngoài giờ, tôi cần xác minh với ai và theo thủ tục nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-parking-smoking",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-parking-smoking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hút thuốc"
+            ],
+            [
+              "bãi xe",
+              "bãi để xe"
+            ],
+            [
+              "phạt",
+              "bồi thường",
+              "cháy nổ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu hút thuốc ở bãi xe hoặc gây hậu quả cháy nổ, nội quy Tây Đô quy định việc xử lý và bồi thường thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-pets",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-pets",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thú cưng",
+              "chó mèo",
+              "động vật"
+            ],
+            [
+              "tòa nhà",
+              "tây đô",
+              "khách tham quan"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khách hoặc nhân viên có được mang thú cưng vào tòa nhà không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-prohibited-items",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-prohibited-items",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vật dụng bị cấm",
+              "chất bị cấm",
+              "hàng hóa cấm"
+            ],
+            [
+              "tòa nhà",
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nội quy tòa nhà cấm mang vào hoặc lưu giữ những loại hàng hóa, vật dụng và chất nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-property-conduct",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-property-conduct",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "viết lên bàn",
+              "dán đồ trang trí",
+              "tự ý dùng tài sản của người khác"
+            ],
+            [
+              "bàn ghế",
+              "cửa",
+              "tòa nhà",
+              "tài sản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được viết lên bàn ghế, dán đồ trang trí lên cửa hoặc tự ý dùng tài sản của người khác không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-refuse-entry",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-refuse-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ",
+              "quản lý tòa nhà"
+            ],
+            [
+              "từ chối"
+            ],
+            [
+              "ra vào",
+              "khách"
+            ],
+            [
+              "trường hợp",
+              "khi nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trong những trường hợp nào quản lý tòa nhà hoặc bảo vệ có quyền từ chối cho nhân viên hoặc khách ra vào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-restricted-rooms",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-restricted-rooms",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kho hoặc phòng kỹ thuật",
+              "kho và phòng kỹ thuật"
+            ],
+            [
+              "không được phân công",
+              "không có nhiệm vụ",
+              "tự ý vào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên có được tự ý vào kho hoặc phòng kỹ thuật khi không được phân công không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-safety-overview",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-safety-overview",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "lần đầu",
+              "mới đến",
+              "mới tới"
+            ],
+            [
+              "an toàn",
+              "nội quy",
+              "lưu ý"
+            ],
+            [
+              "tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người lần đầu đến tòa nhà Tây Đô cần biết những quy định an toàn nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.building-guard-sealing.building-applicability",
+        "ở tòa nhà khác thì sao": "task.building-guard-sealing.building-applicability"
+      }
+    },
+    {
+      "id": "route.building-guard-sealing.building-security-complaint",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-security-complaint",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "gian lận",
+              "thiếu chuyên nghiệp",
+              "không chuyên nghiệp"
+            ],
+            [
+              "báo",
+              "phản ánh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nghi ngờ bảo vệ có hành vi gian lận hoặc phục vụ thiếu chuyên nghiệp, tôi báo cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-security-setup",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-security-setup",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tây đô",
+              "tòa nhà"
+            ],
+            [
+              "trực bảo vệ",
+              "bảo vệ 24",
+              "24"
+            ],
+            [
+              "camera",
+              "giám sát",
+              "tổ chức"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tòa nhà Tây Đô tổ chức trực bảo vệ và giám sát an ninh như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.building-showroom-conduct",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.building-showroom-conduct",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "showroom",
+              "khu trưng bày",
+              "cửa kính"
+            ],
+            [
+              "tác phong",
+              "chào hỏi",
+              "đồ cá nhân",
+              "vật dụng cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên tại showroom phải tuân thủ những yêu cầu gì về trang phục, cách chào hỏi và tác phong khi tiếp khách?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được đặt vật dụng cá nhân gần cửa kính, tường kính hoặc ở khu trưng bày không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "ở chi nhánh khác",
+        "ở tòa nhà khác",
+        "tại một cơ sở khác",
+        "không phải tây đô"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-assets-register",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-assets-register",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "vật tư và tài sản",
+              "tài sản ra vào"
+            ],
+            [
+              "đăng ký",
+              "theo dõi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải đăng ký, theo dõi vật tư và tài sản ra vào cơ sở thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-change-abandoned",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-change-abandoned",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "bỏ vị trí",
+              "bỏ chốt"
+            ],
+            [
+              "không báo",
+              "bao lâu",
+              "giới hạn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu bảo vệ tự ý bỏ vị trí mà không báo, nhà cung cấp phải bổ sung người trong bao lâu và quy định giới hạn thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-change-authority",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-change-authority",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ban an ninh"
+            ],
+            [
+              "thay bảo vệ",
+              "bổ sung bảo vệ",
+              "đổi bảo vệ"
+            ],
+            [
+              "khẩn cấp",
+              "cấp thiết",
+              "yêu cầu trực tiếp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi cần đổi hoặc bổ sung bảo vệ khẩn cấp, Ban An ninh có quyền yêu cầu trực tiếp không và phải giải trình với ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-change-planned",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-change-planned",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thay bảo vệ",
+              "đổi bảo vệ",
+              "thay người bảo vệ"
+            ],
+            [
+              "theo kế hoạch",
+              "có kế hoạch"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi thay bảo vệ theo kế hoạch, nhà cung cấp phải báo cho ai và trước bao lâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi ca bảo vệ",
+              "đổi nhân sự bảo vệ"
+            ],
+            [
+              "theo kế hoạch"
+            ],
+            [
+              "báo trước",
+              "báo ai"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-change-sudden",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-change-sudden",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "thay đột xuất",
+              "đổi người đột xuất",
+              "thay bảo vệ đột xuất"
+            ],
+            [
+              "trước ca",
+              "mỗi tháng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi thay bảo vệ đột xuất trước ca trực, nhà cung cấp phải báo trước bao lâu và được thay tối đa mấy lần mỗi tháng?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi ca bảo vệ",
+              "thay người trực",
+              "đổi người trực"
+            ],
+            [
+              "đột xuất"
+            ],
+            [
+              "báo trước",
+              "trước ca"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-conduct",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-conduct",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "đồng phục",
+              "tác phong",
+              "dùng điện thoại",
+              "việc riêng",
+              "ngủ trong ca"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải tuân thủ những yêu cầu gì về đồng phục, thẻ tên, tác phong và cách giao tiếp?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trong ca trực, bảo vệ có được dùng điện thoại cho việc riêng, hút thuốc, tụ tập hoặc ngủ không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-employee-distinction",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-employee-distinction",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ thuê ngoài"
+            ],
+            [
+              "nhân viên công ty",
+              "nhân viên nội bộ"
+            ],
+            [
+              "khác",
+              "phân biệt",
+              "so sánh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi xảy ra vi phạm tại cơ sở, quy trình xử lý nhân viên công ty khác với quy trình xử lý bảo vệ thuê ngoài thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-forms-location",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-forms-location",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mẫu đề xuất nhân viên bảo vệ",
+              "mẫu đề nghị xử lý vi phạm",
+              "biểu mẫu bảo vệ"
+            ],
+            [
+              "ở đâu",
+              "tìm",
+              "tải"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có thể tìm mẫu đề xuất nhân viên bảo vệ, mẫu đề nghị xử lý vi phạm và các biểu mẫu liên quan ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-goods-duty",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-goods-duty",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "xuất nhập hàng",
+              "xuất hoặc nhập hàng"
+            ],
+            [
+              "đến khi nào",
+              "mất hoặc hỏng",
+              "liên đới"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải giám sát việc xuất nhập hàng đến khi nào và có trách nhiệm gì nếu hàng bị mất hoặc hỏng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-incident-report",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-incident-report",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "mất cắp",
+              "sự cố an ninh",
+              "tai nạn"
+            ],
+            [
+              "hiện trường",
+              "bàn giao",
+              "báo ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi có mất cắp, hư hỏng, tai nạn hoặc sự cố an ninh, bảo vệ báo ai và bàn giao hiện trường thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-leave-post",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-leave-post",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "rời vị trí",
+              "nghỉ giữa ca"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "đồng ý",
+              "người thay",
+              "bố trí người"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ đang làm nhiệm vụ muốn rời vị trí hoặc nghỉ giữa ca phải được ai đồng ý và bố trí người thay thế thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-live-roster",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-live-roster",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đang trực",
+              "lịch trực",
+              "ca trực hiện tại",
+              "số liên hệ hiện tại"
+            ],
+            [
+              "đội bảo vệ",
+              "bảo vệ"
+            ],
+            [
+              "xác nhận",
+              "hiện tại",
+              "ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có thể xác nhận lịch trực, người đang trực hoặc số liên hệ hiện tại của đội bảo vệ tại cơ sở?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "ai đang trực",
+              "ai trực lúc này",
+              "người đang trực"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-order",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-order",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "gây rối",
+              "xung đột",
+              "nguy cơ mất an toàn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ cần làm gì khi phát hiện người gây rối, xung đột hoặc nguy cơ mất an toàn tại cơ sở?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-parking-role",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-parking-role",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "trông giữ xe",
+              "giữ xe"
+            ],
+            [
+              "nhân viên",
+              "khách",
+              "trách nhiệm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ có trách nhiệm gì trong việc trông giữ xe cho nhân viên và khách?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-patrol-frequency",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-patrol-frequency",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tuần tra",
+              "bàn giao ca"
+            ],
+            [
+              "tần suất",
+              "phạm vi",
+              "bao lâu",
+              "biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Việc tuần tra và bàn giao ca phải tuân thủ tần suất, phạm vi và quy trình ghi nhận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-personnel-contract",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-personnel-contract",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ thuê ngoài"
+            ],
+            [
+              "bảo hiểm",
+              "hợp đồng lao động",
+              "tiền án"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ thuê ngoài cần đáp ứng điều kiện gì về lý lịch, hợp đồng lao động và bảo hiểm tai nạn?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-personnel-documents",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-personnel-documents",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ bảo vệ"
+            ],
+            [
+              "công chứng",
+              "chứng nhận huấn luyện",
+              "giấy tờ tùy thân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bản sao công chứng giấy tờ tùy thân và chứng nhận huấn luyện trong hồ sơ bảo vệ phải đáp ứng yêu cầu gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-personnel-form",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-personnel-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lý lịch trích ngang",
+              "mẫu lý lịch"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "điền",
+              "trường nào",
+              "nội dung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mẫu lý lịch trích ngang bảo vệ có mã gì và cần điền những trường nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-personnel-skills",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-personnel-skills",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ thuê ngoài"
+            ],
+            [
+              "nghiệp vụ",
+              "chứng từ",
+              "phòng cháy chữa cháy"
+            ],
+            [
+              "yêu cầu",
+              "đáp ứng",
+              "xử lý tình huống"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ thuê ngoài phải có những nghiệp vụ gì về chứng từ, phòng cháy chữa cháy và xử lý tình huống?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-hcns-deadline",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-hcns-deadline",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hcns",
+              "phòng nhân sự"
+            ],
+            [
+              "thời hạn",
+              "có bao lâu",
+              "mấy ngày"
+            ],
+            [
+              "bảo vệ đạt chuẩn",
+              "cung cấp bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phòng HCNS có bao lâu để cung cấp nhân viên bảo vệ đạt chuẩn sau khi nhận yêu cầu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-no-vendor",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-no-vendor",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chưa có nhà cung cấp",
+              "không có nhà cung cấp"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "tuyển chọn",
+              "phù hợp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu chưa có nhà cung cấp phù hợp, cơ sở cần làm gì để tiếp tục tuyển chọn nhân viên bảo vệ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-rejected",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-rejected",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ bảo vệ",
+              "nhân sự bảo vệ"
+            ],
+            [
+              "không đạt",
+              "chưa đạt"
+            ],
+            [
+              "bước",
+              "quay lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu hồ sơ hoặc nhân sự do nhà cung cấp giới thiệu không đạt, quy trình quay lại bước nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-request",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-request",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vị trí bảo vệ",
+              "bố trí bảo vệ"
+            ],
+            [
+              "khảo sát",
+              "đề xuất",
+              "mẫu nào",
+              "số lượng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai khảo sát và đề xuất số lượng, vị trí bảo vệ tại showroom, văn phòng hoặc kho?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Đề xuất bố trí bảo vệ phải dùng mẫu nào, được ai duyệt và gửi trước bao lâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đề xuất số lượng",
+              "đề xuất bố trí"
+            ],
+            [
+              "vị trí bảo vệ",
+              "nhân viên bảo vệ"
+            ],
+            [
+              "dùng mẫu nào",
+              "mẫu nào",
+              "ai duyệt"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "hồ sơ điều động cần gì": "task.administration-compliance.guard-personnel"
+      }
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-supervision",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-supervision",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý trực tiếp tại cơ sở",
+              "quản lý showroom"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "giám sát",
+              "báo sai phạm",
+              "theo dõi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý trực tiếp tại cơ sở phải theo dõi nhân sự bảo vệ, phối hợp giám sát và báo sai phạm thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-site-urgent",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-site-urgent",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "trống vị trí",
+              "bố trí gấp",
+              "bổ sung gấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu phải bố trí bảo vệ gấp do trống vị trí, khi nào phải bổ sung hồ sơ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-tender-contract",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-tender-contract",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hợp đồng bảo vệ",
+              "thuê dịch vụ bảo vệ"
+            ],
+            [
+              "soạn mẫu",
+              "soạn hợp đồng",
+              "kiểm tra hồ sơ",
+              "lưu hồ sơ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai soạn mẫu hợp đồng, kiểm tra hồ sơ, làm việc với nhà cung cấp và lưu hồ sơ sau khi duyệt?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-tender-paperwork",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-tender-paperwork",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ trình duyệt",
+              "trình duyệt nhà cung cấp"
+            ],
+            [
+              "bảng so sánh giá",
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hồ sơ trình duyệt nhà cung cấp cần có đề xuất, bảng so sánh giá và những giấy tờ nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-tender-steps",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-tender-steps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chọn nhà cung cấp mới",
+              "tuyển chọn nhà cung cấp"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "các bước",
+              "quy trình",
+              "ai tiếp nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai tiếp nhận nhu cầu thuê dịch vụ và quy trình chọn nhà cung cấp mới gồm những bước nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-training",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-training",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "huấn luyện",
+              "đào tạo"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "trước khi nhận",
+              "trước khi đến",
+              "nghiệp vụ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhà cung cấp phải huấn luyện những nội dung gì cho bảo vệ trước khi nhận việc tại cơ sở?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-vendor-capacity",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-vendor-capacity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điểm bảo vệ mới",
+              "mục tiêu mới"
+            ],
+            [
+              "bao nhiêu người",
+              "bao nhiêu nhân sự",
+              "năng lực",
+              "thời hạn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi triển khai điểm bảo vệ mới, nhà cung cấp phải có khả năng bổ sung bao nhiêu người trong thời hạn nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-vendor-criteria",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-vendor-criteria",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhà cung cấp",
+              "dịch vụ bảo vệ"
+            ],
+            [
+              "vốn điều lệ",
+              "kinh nghiệm",
+              "điều kiện hành nghề"
+            ],
+            [
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhà cung cấp dịch vụ bảo vệ cần đáp ứng những điều kiện gì về giấy phép, vốn điều lệ và kinh nghiệm?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-vendor-exclusions",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-vendor-exclusions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhà cung cấp bảo vệ",
+              "dịch vụ bảo vệ"
+            ],
+            [
+              "từng bị thanh lý",
+              "vi phạm pháp luật",
+              "có quan hệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhà cung cấp từng bị thanh lý hợp đồng, có vi phạm pháp luật hoặc có quan hệ với người quản lý tại cơ sở có đủ điều kiện dự tuyển không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-violation-contract",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-violation-contract",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhà cung cấp",
+              "đơn vị bảo vệ"
+            ],
+            [
+              "vi phạm"
+            ],
+            [
+              "thanh lý hợp đồng",
+              "căn cứ",
+              "lập biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "HCNS căn cứ vào đâu để lập biên bản, yêu cầu nhà cung cấp xử lý hoặc đề xuất thanh lý hợp đồng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-violation-evidence",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-violation-evidence",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vi phạm của bảo vệ",
+              "vi phạm bảo vệ"
+            ],
+            [
+              "bằng chứng",
+              "tổng hợp lỗi",
+              "ngày nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện vi phạm của bảo vệ thuê ngoài, ai thu thập bằng chứng, tổng hợp lỗi và gửi đề nghị xử lý vào thời điểm nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-violation-form",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-violation-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biên bản xử lý vi phạm",
+              "biên bản phạt"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "ai ký",
+              "mấy bản",
+              "ghi những mục"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Biên bản xử lý vi phạm bảo vệ có mã gì, phải ghi những mục nào, ai ký và mỗi bên giữ mấy bản?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.guard-violation-penalty",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.guard-violation-penalty",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiền phạt",
+              "mức phạt"
+            ],
+            [
+              "cấn trừ",
+              "khấu trừ",
+              "thông báo kết quả"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tiền phạt vi phạm được cấn trừ thế nào và kết quả xử lý phải thông báo cho những bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-damage",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-damage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy niêm phong"
+            ],
+            [
+              "rách",
+              "bong",
+              "biến dạng",
+              "mất"
+            ],
+            [
+              "được mở",
+              "mở cửa ngay"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu giấy niêm phong bị rách, mất, bong hoặc thông tin bị biến dạng, tôi có được mở cửa ngay không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "giấy rách",
+              "tem rách",
+              "giấy bong",
+              "tem bong"
+            ],
+            [
+              "mở cửa",
+              "xử lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tem niêm phong",
+              "giấy niêm phong"
+            ],
+            [
+              "bị bong",
+              "bị rách",
+              "biến dạng"
+            ],
+            [
+              "mở cửa",
+              "xử lý"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-forms",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-forms",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "mẫu giấy",
+              "mẫu biên bản",
+              "sổ niêm phong"
+            ],
+            [
+              "tìm",
+              "ở đâu",
+              "tải"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tìm mẫu giấy niêm phong, sổ niêm phong và biên bản xử lý bất thường ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-identity",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-identity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thông báo",
+              "mã văn bản",
+              "văn bản nào"
+            ],
+            [
+              "niêm phong cửa",
+              "niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Thông báo nào quy định việc niêm phong cửa văn phòng, chi nhánh và kho, và tôi có thể xem ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-incident-record",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-incident-record",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "biên bản tại chỗ",
+              "biên bản xử lý tại chỗ",
+              "chụp hiện trạng",
+              "ai ký biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong bất thường?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "mẫu giấy và sổ lấy ở đâu": "task.building-guard-sealing.sealing-forms"
+      }
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-last-person",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-last-person",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "nhiều bộ phận",
+              "dùng chung",
+              "làm việc muộn"
+            ],
+            [
+              "ai chịu trách nhiệm",
+              "ai phụ trách"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai chịu trách nhiệm niêm phong cuối ngày nếu nhiều bộ phận dùng chung địa điểm hoặc có người làm việc muộn?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-late-entry",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-late-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "niêm phong",
+              "đã niêm phong"
+            ],
+            [
+              "ngoài giờ",
+              "ngày nghỉ",
+              "ngày lễ",
+              "sau khi đã niêm phong"
+            ],
+            [
+              "mở",
+              "vào",
+              "xin phép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép ai và niêm phong lại hoặc bàn giao thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cần đóng hoặc mở niêm phong vào ngày nghỉ, ngày lễ hay khi có tình huống khẩn cấp, tôi phải xác nhận quy trình với ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-live-status",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-live-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cửa kho",
+              "niêm phong"
+            ],
+            [
+              "đã niêm phong",
+              "niêm phong thực tế",
+              "hiện đã niêm phong"
+            ],
+            [
+              "xác nhận",
+              "kiểm tra sổ",
+              "hiện tại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể kiểm tra sổ hoặc liên hệ ai để xác nhận cửa kho thực tế đã được niêm phong?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cửa kho"
+            ],
+            [
+              "khóa và niêm phong chưa",
+              "đã niêm phong chưa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cửa kho"
+            ],
+            [
+              "niêm phong an toàn"
+            ],
+            [
+              "hỏi ai",
+              "qua đầu mối nào"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của",
+        "xác nhận giúp",
+        "xác nhận hộ"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-missed",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-missed",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quên niêm phong",
+              "lỡ mở cửa"
+            ],
+            [
+              "bảo vệ",
+              "báo cho ai",
+              "báo ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đã ra về mới phát hiện quên niêm phong hoặc đã lỡ mở cửa khi chưa có bảo vệ chứng kiến, tôi phải báo cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-placement",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-placement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy niêm phong"
+            ],
+            [
+              "bôi hồ",
+              "dán ở đâu",
+              "đặt giấy",
+              "ổ khóa",
+              "ổ khoá"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phải bôi hồ và đặt giấy niêm phong ở vị trí nào trên cửa hoặc ổ khóa để đúng quy định?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-tay-do",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-tay-do",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "niêm phong"
+            ],
+            [
+              "thông báo chung",
+              "nội quy riêng",
+              "theo văn bản nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tòa nhà Tây Đô thực hiện niêm phong theo nội quy riêng hay theo thông báo chung của công ty?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-violation",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-violation",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vi phạm",
+              "không thực hiện đúng"
+            ],
+            [
+              "niêm phong"
+            ],
+            [
+              "xử lý",
+              "kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định xử lý thế nào nếu nhân viên hoặc đơn vị bảo vệ không thực hiện đúng quy trình niêm phong?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.building-guard-sealing.sealing-witness",
+      "family": "administration",
+      "task_id": "task.building-guard-sealing.sealing-witness",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "niêm phong"
+            ],
+            [
+              "chứng kiến",
+              "vai trò"
+            ],
+            [
+              "dán",
+              "mở"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ có vai trò gì khi dán niêm phong cuối ngày và khi mở cửa vào đầu ngày?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.overview",
+      "family": "software",
+      "task_id": "task.bravo-vpn.overview",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo là gì",
+              "Bravo 8 là gì",
+              "Bravo8 là gì",
+              "ERP Bravo là gì",
+              "Bravo dùng để làm gì",
+              "Bravo 8 dùng để làm gì",
+              "mục đích sử dụng Bravo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bravo 8 là gì và dùng để làm gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.vpn-role",
+      "family": "software",
+      "task_id": "task.bravo-vpn.vpn-role",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN",
+              "VPN RitaVO"
+            ],
+            [
+              "Bravo",
+              "Bravo8",
+              "ERP Bravo"
+            ],
+            [
+              "tác dụng gì",
+              "liên quan với nhau",
+              "vai trò",
+              "mạng riêng ảo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "VPN là gì và dùng để làm gì khi truy cập Bravo 8?",
+              "Bravo 8 và VPN có liên quan với nhau như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.network-scope",
+      "family": "software",
+      "task_id": "task.bravo-vpn.network-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN"
+            ],
+            [
+              "không bật",
+              "không cần bật",
+              "không dùng",
+              "về nhà lại không",
+              "trong và ngoài mạng công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể vào Bravo 8 mà không bật VPN không?",
+              "Tại sao ở văn phòng tôi vào được Bravo 8 mà về nhà lại không vào được?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.office-network",
+      "family": "software",
+      "task_id": "task.bravo-vpn.office-network",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN"
+            ],
+            [
+              "wifi công ty",
+              "wi fi công ty",
+              "lan nội bộ",
+              "tại văn phòng",
+              "mạng nội bộ ở văn phòng"
+            ],
+            [
+              "cần",
+              "có phải",
+              "bật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Dùng Wi-Fi công ty có cần bật VPN để vào Bravo 8 không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.branch-network",
+      "family": "software",
+      "task_id": "task.bravo-vpn.branch-network",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN"
+            ],
+            [
+              "chi nhánh",
+              "showroom"
+            ],
+            [
+              "có cần",
+              "có phải",
+              "bắt buộc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Làm việc tại chi nhánh khác có cần bật VPN để vào Bravo 8 không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.remote-network",
+      "family": "software",
+      "task_id": "task.bravo-vpn.remote-network",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "đi công tác",
+              "nước ngoài",
+              "làm việc tại nhà",
+              "làm việc từ xa"
+            ],
+            [
+              "truy cập",
+              "dùng được",
+              "kết nối"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Làm việc tại nhà, đi công tác hoặc ở nước ngoài có dùng được Bravo 8 không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.public-network",
+      "family": "software",
+      "task_id": "task.bravo-vpn.public-network",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "mạng công cộng",
+              "wi fi công cộng",
+              "wifi công cộng",
+              "4g 5g",
+              "mạng di động"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể vào Bravo 8 bằng Wi-Fi công cộng hoặc mạng 4G/5G không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.personal-vpn",
+      "family": "software",
+      "task_id": "task.bravo-vpn.personal-vpn",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN cá nhân",
+              "VPN riêng",
+              "VPN bên thứ ba"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể dùng VPN cá nhân để vào Bravo 8 không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.account-distinction",
+      "family": "software",
+      "task_id": "task.bravo-vpn.account-distinction",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tài khoản VPN"
+            ],
+            [
+              "tài khoản Bravo",
+              "đăng nhập Bravo"
+            ],
+            [
+              "giống nhau",
+              "cùng tài khoản",
+              "có phải là một",
+              "khác nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài khoản VPN và tài khoản Bravo 8 có phải là một không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.connected-permission",
+      "family": "software",
+      "task_id": "task.bravo-vpn.connected-permission",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "đã Connected",
+              "kết nối thành công",
+              "đã kết nối"
+            ],
+            [
+              "được cấp quyền",
+              "có quyền vào",
+              "nghĩa là có quyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Kết nối VPN thành công có nghĩa là tôi đã được cấp quyền vào Bravo 8 không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.open-bravo",
+      "family": "software",
+      "task_id": "task.bravo-vpn.open-bravo",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8",
+              "Bravo Desktop"
+            ],
+            [
+              "mở Bravo",
+              "khởi động Bravo",
+              "chạy Bravo",
+              "bật trước",
+              "kết nối xong",
+              "mở ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có cần bật VPN trước khi mở Bravo 8 không?",
+              "Sau khi kết nối VPN thành công, tôi mở Bravo 8 ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.session-network",
+      "family": "software",
+      "task_id": "task.bravo-vpn.session-network",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "tự ngắt",
+              "chuyển mạng",
+              "máy ngủ",
+              "khóa màn hình",
+              "kết nối lại",
+              "ngắt VPN",
+              "giữ VPN",
+              "kết nối VPN lại"
+            ],
+            [
+              "Bravo",
+              "Bravo8",
+              "đăng nhập lại",
+              "khóa màn hình",
+              "máy ngủ",
+              "chuyển mạng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trong lúc dùng Bravo 8, tôi có phải giữ VPN kết nối liên tục không?",
+              "Tại sao VPN tự ngắt khi máy ngủ, khóa màn hình hoặc chuyển mạng?",
+              "Sau khi kết nối lại VPN, tôi có cần đăng nhập lại Bravo 8 không?",
+              "Tôi nên đóng Bravo 8 và ngắt VPN theo thứ tự nào khi làm xong?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.app-permissions",
+      "family": "software",
+      "task_id": "task.bravo-vpn.app-permissions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "phân hệ",
+              "báo cáo",
+              "đơn vị dữ liệu",
+              "cơ sở dữ liệu",
+              "chọn công ty",
+              "quyền hiện tại"
+            ],
+            [
+              "quyền",
+              "phân quyền",
+              "không thấy",
+              "không thể",
+              "xin thêm",
+              "thao tác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Những chức năng nào của Bravo 8 cần kết nối VPN?",
+              "Tôi kiểm tra quyền hiện tại của mình trên Bravo 8 ở đâu?",
+              "Tôi xin thêm quyền vào phân hệ, báo cáo hoặc dữ liệu của đơn vị khác bằng cách nào?",
+              "Tôi chọn đúng công ty, chi nhánh hoặc cơ sở dữ liệu trong Bravo 8 bằng cách nào?",
+              "Tại sao tôi đăng nhập được Bravo 8 nhưng không thấy đúng công ty, chi nhánh hoặc dữ liệu?",
+              "Tại sao tôi xem được báo cáo Bravo 8 nhưng không thể nhập, sửa, duyệt hoặc xuất dữ liệu?",
+              "Tại sao một số phân hệ Bravo 8 mở được qua VPN còn một số phân hệ báo lỗi?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.new-user",
+      "family": "software",
+      "task_id": "task.bravo-vpn.new-user",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "nhân viên mới",
+              "mới vào",
+              "mới nhận việc"
+            ],
+            [
+              "quyền",
+              "VPN",
+              "cài"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên mới cần làm gì để được cấp quyền VPN và Bravo 8?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.vpn-provisioning",
+      "family": "software",
+      "task_id": "task.bravo-vpn.vpn-provisioning",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "cấp VPN",
+              "xin VPN",
+              "cấp tài khoản VPN",
+              "quyền truy cập từ xa",
+              "xin quyền VPN"
+            ],
+            [
+              "Bravo",
+              "ở nhà",
+              "ai cấp",
+              "cho ai",
+              "ở đâu",
+              "làm từ xa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đã có quyền vào Bravo 8 ở văn phòng, làm sao để xin quyền truy cập từ xa?",
+              "Tôi xin cấp tài khoản VPN ở đâu và gửi yêu cầu cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.bravo-provisioning",
+      "family": "software",
+      "task_id": "task.bravo-vpn.bravo-provisioning",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "xin phân quyền",
+              "cấp quyền Bravo",
+              "cấp tài khoản Bravo",
+              "xin thêm quyền Bravo",
+              "đăng ký quyền Bravo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đã có tài khoản VPN, làm sao để xin thêm quyền Bravo 8?",
+              "Tôi xin cấp tài khoản Bravo 8 ở đâu và gửi yêu cầu cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.provisioning-process",
+      "family": "software",
+      "task_id": "task.bravo-vpn.provisioning-process",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "phê duyệt",
+              "cùng một yêu cầu",
+              "cung cấp thông tin",
+              "gửi yêu cầu cấp quyền",
+              "mất bao lâu",
+              "theo dõi yêu cầu cấp quyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể xin cấp VPN và Bravo 8 trong cùng một yêu cầu không?",
+              "Ai phê duyệt quyền truy cập VPN và Bravo 8?",
+              "Khi gửi yêu cầu cấp quyền, tôi cần cung cấp thông tin gì?",
+              "Mất bao lâu để được cấp quyền và tôi theo dõi yêu cầu ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.eligibility",
+      "family": "software",
+      "task_id": "task.bravo-vpn.eligibility",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN",
+              "từ xa"
+            ],
+            [
+              "thử việc",
+              "tạm thời",
+              "thực tập",
+              "cộng tác viên",
+              "nhà thầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên thử việc, thực tập sinh, cộng tác viên hoặc nhà thầu có được cấp quyền không?",
+              "Có thể xin quyền truy cập tạm thời vào Bravo 8 qua VPN không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.access-lifecycle",
+      "family": "software",
+      "task_id": "task.bravo-vpn.access-lifecycle",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "quyền",
+              "tài khoản"
+            ],
+            [
+              "gia hạn",
+              "hết hạn",
+              "nghỉ việc",
+              "nghỉ dài hạn",
+              "chuyển phòng ban",
+              "chuyển qua đơn vị khác",
+              "chuyển chi nhánh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quyền VPN hoặc Bravo 8 có hết hạn không và gia hạn bằng cách nào?",
+              "Khi chuyển phòng ban, chi nhánh hoặc công ty thành viên, tôi có cần xin lại quyền không?",
+              "Khi nghỉ việc hoặc nghỉ dài hạn, quyền VPN và Bravo 8 được xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.manual",
+      "family": "software",
+      "task_id": "task.bravo-vpn.manual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tài liệu hướng dẫn",
+              "tên tài liệu",
+              "hướng dẫn cài"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "nằm ở đâu",
+              "cho mình xin tên",
+              "tài liệu ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài liệu hướng dẫn cài VPN và truy cập Bravo 8 nằm ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.vpn-setup",
+      "family": "software",
+      "task_id": "task.bravo-vpn.vpn-setup",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN",
+              "RitaVO"
+            ],
+            [
+              "hồ sơ",
+              "bộ cài VPN",
+              "ứng dụng VPN",
+              "cấu hình VPN",
+              "tải VPN",
+              "phần mềm VPN"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần dùng ứng dụng VPN nào để vào Bravo 8?",
+              "Tôi tải bộ cài VPN chính thức ở đâu?",
+              "Tôi lấy thông tin cấu hình VPN ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.bravo-install",
+      "family": "software",
+      "task_id": "task.bravo-vpn.bravo-install",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "bộ cài",
+              "link tải",
+              "tải về"
+            ],
+            [
+              "lấy",
+              "tải",
+              "ở đâu",
+              "tìm ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tải bộ cài Bravo 8 chính thức ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi",
+        "không có quyền",
+        "không mở được liên kết"
+      ],
+      "follow_up_tasks": {
+        "Còn bộ cài VPN?": "task.bravo-vpn.vpn-setup"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.bravo-entry",
+      "family": "software",
+      "task_id": "task.bravo-vpn.bravo-entry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "trình duyệt",
+              "máy tính từ xa",
+              "bản web",
+              "đường dẫn",
+              "ứng dụng cài trên máy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi sử dụng Bravo 8 qua trình duyệt, ứng dụng cài trên máy hay máy tính từ xa?",
+              "Đường dẫn chính thức để truy cập Bravo 8 là gì?",
+              "Bravo 8 yêu cầu trình duyệt hoặc phiên bản ứng dụng nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.setup-order",
+      "family": "software",
+      "task_id": "task.bravo-vpn.setup-order",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "cài trước",
+              "cài sau",
+              "thứ tự cài",
+              "hay bravo 8 trước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần cài VPN hay Bravo 8 trước?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.first-connection",
+      "family": "software",
+      "task_id": "task.bravo-vpn.first-connection",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "lần đầu kết nối",
+              "lần đầu dùng VPN",
+              "lần đầu bật VPN",
+              "kết nối VPN lần đầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Lần đầu kết nối VPN, tôi cần chuẩn bị những gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.setup-device",
+      "family": "software",
+      "task_id": "task.bravo-vpn.setup-device",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "macos",
+              "windows nào",
+              "quản trị",
+              "đổi máy",
+              "cài lại hệ điều hành",
+              "không có quyền cài",
+              "điện thoại",
+              "máy tính bảng"
+            ],
+            [
+              "cài",
+              "hỗ trợ",
+              "dùng",
+              "thiết lập"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có cần quyền quản trị trên máy tính để cài VPN hoặc Bravo 8 không?",
+              "Nếu không có quyền cài phần mềm, tôi nhờ bộ phận nào hỗ trợ?",
+              "Bravo 8 và VPN hỗ trợ những phiên bản Windows hoặc macOS nào?",
+              "Tôi có thể dùng Bravo 8 qua VPN trên điện thoại hoặc máy tính bảng không?",
+              "Khi đổi máy tính hoặc cài lại hệ điều hành, tôi cần thiết lập lại những gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.personal-device",
+      "family": "software",
+      "task_id": "task.bravo-vpn.personal-device",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "máy cá nhân",
+              "laptop riêng",
+              "máy tính riêng",
+              "máy ở nhà"
+            ],
+            [
+              "cài",
+              "kết nối",
+              "điều kiện",
+              "được phép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể cài VPN và Bravo 8 trên máy cá nhân không?",
+              "Máy cá nhân cần đáp ứng điều kiện gì để được phép kết nối VPN?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.update",
+      "family": "software",
+      "task_id": "task.bravo-vpn.update",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "VPN"
+            ],
+            [
+              "cập nhật",
+              "bản mới",
+              "nâng cấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cập nhật ứng dụng VPN hoặc Bravo 8 bằng cách nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.vpn-account",
+      "family": "software",
+      "task_id": "task.bravo-vpn.vpn-account",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "quên mật khẩu",
+              "đặt lại mật khẩu",
+              "sai thông tin đăng nhập",
+              "tài khoản công ty",
+              "mất mật khẩu đăng nhập",
+              "dùng tài khoản nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đăng nhập VPN bằng tài khoản công ty hay tài khoản được cấp riêng?",
+              "Tôi quên mật khẩu VPN thì đặt lại ở đâu?",
+              "Tại sao VPN báo sai thông tin đăng nhập dù tôi nhập đúng mật khẩu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ],
+      "follow_up_tasks": {
+        "Còn mật khẩu Bravo?": "task.bravo-vpn.bravo-account",
+        "Còn mã xác thực?": "task.bravo-vpn.mfa"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.bravo-account",
+      "family": "software",
+      "task_id": "task.bravo-vpn.bravo-account",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "quên mật khẩu",
+              "đăng nhập không được",
+              "đăng nhập bằng tài khoản",
+              "đặt lại mật khẩu",
+              "dùng tài khoản nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi đăng nhập Bravo 8 bằng tài khoản nào?",
+              "Tôi quên mật khẩu Bravo 8 thì đặt lại ở đâu?",
+              "Tôi mở được Bravo 8 nhưng đăng nhập không được thì lỗi có thể nằm ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.first-login",
+      "family": "software",
+      "task_id": "task.bravo-vpn.first-login",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lần đầu",
+              "bị khóa",
+              "đổi mật khẩu"
+            ],
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN",
+              "mật khẩu dùng lần đầu"
+            ],
+            [
+              "mật khẩu",
+              "tài khoản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi phải làm gì sau khi nhận tài khoản hoặc mật khẩu dùng lần đầu?",
+              "Đổi mật khẩu tài khoản công ty có ảnh hưởng đến VPN hoặc Bravo 8 không?",
+              "Tôi bị khóa tài khoản VPN hoặc Bravo 8 sau nhiều lần nhập sai thì làm gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.mfa",
+      "family": "software",
+      "task_id": "task.bravo-vpn.mfa",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "mfa",
+              "xác thực đa yếu tố",
+              "mã xác thực",
+              "thông báo xác thực",
+              "điện thoại xác thực",
+              "mã otp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "VPN có yêu cầu xác thực đa yếu tố không và tôi thiết lập ở đâu?",
+              "Tôi không nhận được mã hoặc thông báo xác thực VPN thì làm gì?",
+              "Tôi đổi hoặc mất điện thoại xác thực VPN thì lấy lại quyền truy cập bằng cách nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.sessions",
+      "family": "software",
+      "task_id": "task.bravo-vpn.sessions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "nhiều phiên",
+              "đồng thời",
+              "nhiều thiết bị",
+              "không hoạt động",
+              "thời gian chờ phiên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể dùng cùng một tài khoản VPN trên nhiều thiết bị không?",
+              "Tôi có thể mở nhiều phiên Bravo 8 cùng lúc không?",
+              "Bravo 8 hoặc VPN có tự ngắt sau một thời gian không hoạt động không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.connection-status",
+      "family": "software",
+      "task_id": "task.bravo-vpn.connection-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN",
+              "VPN RitaVO"
+            ],
+            [
+              "làm sao để biết",
+              "dấu hiệu nào",
+              "xem trạng thái",
+              "kiểm tra đã kết nối",
+              "báo gì khi kết nối"
+            ],
+            [
+              "kết nối",
+              "connected"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Làm sao để biết VPN đã kết nối thành công?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ],
+      "follow_up_tasks": {
+        "Vẫn không vào được.": "task.bravo-vpn.bravo-error",
+        "Vậy đã có quyền vào chưa?": "task.bravo-vpn.connected-permission"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.vpn-error",
+      "family": "software",
+      "task_id": "task.bravo-vpn.vpn-error",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "timeout",
+              "lỗi chứng chỉ",
+              "hết thời gian chờ",
+              "không truy cập được internet",
+              "wifi ở nhà",
+              "wi fi ở nhà",
+              "lỗi thiết bị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tại sao VPN cứ ở trạng thái đang kết nối rồi báo hết thời gian chờ?",
+              "Tôi phải làm gì khi VPN báo lỗi chứng chỉ hoặc thiết bị không đáp ứng yêu cầu?",
+              "Vì sao VPN kết nối được bằng 4G/5G nhưng không kết nối được bằng Wi-Fi ở nhà?",
+              "Tại sao bật VPN xong tôi không truy cập được Internet hoặc các ứng dụng khác?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.bravo-error",
+      "family": "software",
+      "task_id": "task.bravo-vpn.bravo-error",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "không mở được",
+              "không vào được",
+              "không tìm thấy server",
+              "không tìm thấy máy chủ",
+              "báo mất kết nối"
+            ],
+            [
+              "VPN",
+              "máy chủ",
+              "server"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tại sao VPN báo đã kết nối nhưng Bravo 8 không mở được?",
+              "Bravo 8 báo không tìm thấy máy chủ hoặc hết thời gian chờ kết nối thì xử lý thế nào?",
+              "Tôi kết nối lại VPN rồi mà Bravo 8 vẫn báo mất kết nối thì làm gì?",
+              "Tôi vào được các hệ thống nội bộ khác qua VPN nhưng không vào được Bravo 8 thì kiểm tra gì?",
+              "Cùng một mạng và cùng kết nối VPN, đồng nghiệp vào được Bravo 8 mà tôi không vào được thì kiểm tra gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ],
+      "follow_up_tasks": {
+        "Vậy tôi xem quyền ở đâu?": "task.bravo-vpn.app-permissions",
+        "Khi báo lỗi cần che gì?": "task.bravo-vpn.support-intake"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.performance",
+      "family": "software",
+      "task_id": "task.bravo-vpn.performance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "chậm",
+              "xuất báo cáo",
+              "in chứng từ",
+              "tải tệp"
+            ],
+            [
+              "VPN",
+              "rất chậm",
+              "bị lỗi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tại sao Bravo 8 chạy chậm khi tôi dùng qua VPN?",
+              "Tại sao xuất báo cáo, tải tệp hoặc in chứng từ từ Bravo 8 qua VPN bị lỗi?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.diagnosis",
+      "family": "software",
+      "task_id": "task.bravo-vpn.diagnosis",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "phân biệt lỗi",
+              "phân biệt sự cố",
+              "xác định lỗi nằm ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi phân biệt lỗi Internet, lỗi VPN, lỗi Bravo 8 và lỗi phân quyền bằng cách nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.incident-status",
+      "family": "software",
+      "task_id": "task.bravo-vpn.incident-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "lịch bảo trì",
+              "ngoài giờ",
+              "khóa sổ",
+              "chốt số liệu",
+              "theo dõi ticket",
+              "theo dõi tiến độ",
+              "thông báo sự cố",
+              "nhiều người cùng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "giờ khóa sổ",
+              "giờ chốt số"
+            ],
+            [
+              "hỗ trợ",
+              "khẩn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nhiều người cùng lúc không vào được Bravo 8 qua VPN, tôi xem thông báo sự cố ở đâu?",
+              "Khi VPN hoặc Bravo 8 gặp sự cố gần hạn chốt số liệu, tôi liên hệ ai và có quy trình xử lý thay thế không?",
+              "Tôi xem lịch bảo trì VPN và Bravo 8 ở đâu?",
+              "Nếu gặp lỗi ngoài giờ hành chính, tôi liên hệ ai?",
+              "Tôi theo dõi tiến độ xử lý sự cố VPN hoặc Bravo 8 ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.transaction",
+      "family": "software",
+      "task_id": "task.bravo-vpn.transaction",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "mất kết nối",
+              "mất mạng",
+              "mất VPN",
+              "net rớt",
+              "VPN ngắt",
+              "ghi nhận trùng",
+              "đã ghi nhận",
+              "gửi lại chứng từ"
+            ],
+            [
+              "chứng từ",
+              "lưu phiếu",
+              "bấm lưu",
+              "bấm duyệt",
+              "thao tác",
+              "đồng bộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mất VPN",
+              "VPN ngắt"
+            ],
+            [
+              "duyệt chứng từ",
+              "lưu chứng từ",
+              "gửi lại chứng từ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu VPN mất kết nối khi tôi đang nhập chứng từ trong Bravo 8, dữ liệu chưa lưu có bị mất không?",
+              "Nếu VPN ngắt ngay sau khi tôi bấm lưu hoặc duyệt, làm sao biết thao tác đã thành công chưa?",
+              "Tôi kiểm tra thế nào trước khi gửi lại chứng từ để tránh ghi nhận trùng?",
+              "Tôi có thể tiếp tục thao tác trên Bravo 8 khi mất mạng rồi đồng bộ sau không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ],
+      "follow_up_tasks": {
+        "Còn nếu sắp tới giờ chốt?": "task.bravo-vpn.incident-status"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.remote-policy",
+      "family": "software",
+      "task_id": "task.bravo-vpn.remote-policy",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "VPN"
+            ],
+            [
+              "Bravo",
+              "Bravo8"
+            ],
+            [
+              "giới hạn giờ",
+              "giờ truy cập",
+              "quy định gì",
+              "khu vực",
+              "điều kiện dùng từ xa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Công ty có quy định gì về việc dùng Bravo 8 qua VPN ngoài văn phòng?",
+              "VPN và Bravo 8 có giới hạn giờ truy cập, khu vực hoặc thiết bị không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.security-policy",
+      "family": "software",
+      "task_id": "task.bravo-vpn.security-policy",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "được lưu mật khẩu",
+              "chia sẻ tài khoản",
+              "đưa thông tin đăng nhập",
+              "dùng chung tài khoản",
+              "lưu dữ liệu",
+              "tải dữ liệu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có được lưu mật khẩu VPN hoặc Bravo 8 trên máy không?",
+              "Tôi có được chia sẻ tài khoản VPN hoặc Bravo 8 để người khác xử lý công việc thay không?",
+              "Tôi có được tải, in hoặc lưu dữ liệu Bravo 8 trên máy cá nhân khi truy cập qua VPN không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.security-incident",
+      "family": "software",
+      "task_id": "task.bravo-vpn.security-incident",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "mất thiết bị",
+              "mất máy tính",
+              "lộ tài khoản",
+              "lộ mật khẩu"
+            ],
+            [
+              "báo cho ai",
+              "nghi ngờ",
+              "liên hệ",
+              "báo ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần báo cho ai nếu mất thiết bị đã cài VPN hoặc nghi ngờ tài khoản bị lộ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.support",
+      "family": "software",
+      "task_id": "task.bravo-vpn.support",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "lỗi sử dụng",
+              "ai hỗ trợ",
+              "ai xử lý lỗi",
+              "báo lỗi",
+              "đầu mối hỗ trợ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kênh hỗ trợ"
+            ],
+            [
+              "lỗi VPN",
+              "lỗi Bravo",
+              "sự cố VPN",
+              "sự cố Bravo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Lỗi VPN và lỗi Bravo 8 được tiếp nhận qua những kênh hỗ trợ nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ],
+      "follow_up_tasks": {
+        "Khi gửi ảnh cần che gì?": "task.bravo-vpn.support-intake"
+      }
+    },
+    {
+      "id": "route.bravo-vpn.support-intake",
+      "family": "software",
+      "task_id": "task.bravo-vpn.support-intake",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "ảnh lỗi",
+              "ảnh chụp",
+              "gửi mã lỗi",
+              "thông tin cần gửi",
+              "khi báo lỗi"
+            ],
+            [
+              "che",
+              "gửi",
+              "mã lỗi",
+              "cung cấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi báo lỗi, tôi cần gửi mã lỗi, thời điểm, thông tin thiết bị hoặc ảnh chụp màn hình nào?",
+              "Tôi cần che thông tin gì trước khi gửi ảnh chụp lỗi Bravo 8 hoặc VPN?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
+      ]
+    },
+    {
+      "id": "route.bravo-vpn.audit",
+      "family": "software",
+      "task_id": "task.bravo-vpn.audit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "Bravo",
+              "Bravo8",
+              "VPN"
+            ],
+            [
+              "ghi nhật ký",
+              "lưu nhật ký",
+              "nhật ký truy cập",
+              "log truy cập"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Kết nối VPN và thao tác trên Bravo 8 có được ghi nhật ký không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "mật khẩu của đồng nghiệp",
+        "mật khẩu của một đồng nghiệp",
+        "mật khẩu của người khác",
+        "mã xác thực của đồng nghiệp",
+        "bỏ qua xác thực",
+        "bỏ qua VPN",
+        "vượt qua phân quyền",
+        "trực tiếp vào máy cho tôi",
+        "cài giúp tôi",
+        "đăng nhập giúp tôi",
+        "cấp quyền giúp tôi"
       ]
     }
   ]

@@ -1,0 +1,42 @@
+{
+  "id": "route.building-guard-sealing.building-blind-hours",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-blind-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "rèm"
+        ],
+        [
+          "mùa mưa",
+          "mùa hè",
+          "nắng đến sớm"
+        ],
+        [
+          "nâng",
+          "hạ",
+          "giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Mùa hè và mùa mưa cần nâng, hạ rèm vào lúc nào và xử lý ra sao nếu nắng đến sớm?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "route.building-guard-sealing.guard-site-hcns-deadline",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-site-hcns-deadline",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hcns",
+          "phòng nhân sự"
+        ],
+        [
+          "thời hạn",
+          "có bao lâu",
+          "mấy ngày"
+        ],
+        [
+          "bảo vệ đạt chuẩn",
+          "cung cấp bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phòng HCNS có bao lâu để cung cấp nhân viên bảo vệ đạt chuẩn sau khi nhận yêu cầu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

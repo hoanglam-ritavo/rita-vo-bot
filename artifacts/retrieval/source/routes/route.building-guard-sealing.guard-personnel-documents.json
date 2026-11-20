@@ -1,0 +1,33 @@
+{
+  "id": "route.building-guard-sealing.guard-personnel-documents",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-personnel-documents",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ bảo vệ"
+        ],
+        [
+          "công chứng",
+          "chứng nhận huấn luyện",
+          "giấy tờ tùy thân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bản sao công chứng giấy tờ tùy thân và chứng nhận huấn luyện trong hồ sơ bảo vệ phải đáp ứng yêu cầu gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

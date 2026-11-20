@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.building-guard-sealing",
+  "description": "Multi-turn boundary checks for building, guarding and sealing.",
+  "cases": [
+    {
+      "id": "q.conversation.building-guard-sealing.001",
+      "title": "Đổi từ Tây Đô sang chi nhánh khác",
+      "tags": [
+        "type-a",
+        "building-guard-sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.building-ac-temperature",
+          "task.building-guard-sealing.building-applicability"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhiệt độ điều hòa ở tầng 2 và tầng 5 được quy định thế nào vào mùa mưa và mùa hè?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        },
+        {
+          "text": "Còn ở chi nhánh khác?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.building-guard-sealing.002",
+      "title": "Hỏi tiếp hồ sơ khi đề xuất bảo vệ",
+      "tags": [
+        "type-a",
+        "building-guard-sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.guard-site-request",
+          "task.administration-compliance.guard-personnel"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đề xuất bố trí bảo vệ phải dùng mẫu nào, được ai duyệt và gửi trước bao lâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        },
+        {
+          "text": "Hồ sơ điều động cần gì?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.building-guard-sealing.003",
+      "title": "Hỏi biểu mẫu sau khi ghi nhận niêm phong bất thường",
+      "tags": [
+        "type-a",
+        "building-guard-sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-incident-record",
+          "task.building-guard-sealing.sealing-forms"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        },
+        {
+          "text": "Mẫu giấy và sổ lấy ở đâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.building-guard-sealing.004",
+      "title": "Tài liệu niêm phong bị rút giữa hai lượt",
+      "tags": [
+        "type-a",
+        "building-guard-sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-incident-record",
+          "task.building-guard-sealing.sealing-forms"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        },
+        {
+          "text": "Mẫu giấy và sổ lấy ở đâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.building-guard-sealing.005",
+      "title": "Chuyển từ niêm phong cửa sang con dấu văn bản",
+      "tags": [
+        "type-a",
+        "building-guard-sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.building-guard-sealing.sealing-incident-record",
+          "task.administration-compliance.seal-scope"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện niêm phong bất thường, cần chụp hiện trạng gì, báo ngay cho ai và lập biên bản ở đâu?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        },
+        {
+          "text": "Quy chế quản lý và sử dụng con dấu áp dụng cho những ai và những đơn vị nào?",
+          "expectation": "Giữ đúng nội dung, phạm vi và nguồn hợp lệ của lượt hỏi."
+        }
+      ]
+    }
+  ]
+}

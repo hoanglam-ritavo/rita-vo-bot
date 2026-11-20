@@ -1,0 +1,46 @@
+{
+  "id": "route.bravo-vpn.security-policy",
+  "family": "software",
+  "task_id": "task.bravo-vpn.security-policy",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "được lưu mật khẩu",
+          "chia sẻ tài khoản",
+          "đưa thông tin đăng nhập",
+          "dùng chung tài khoản",
+          "lưu dữ liệu",
+          "tải dữ liệu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có được lưu mật khẩu VPN hoặc Bravo 8 trên máy không?",
+          "Tôi có được chia sẻ tài khoản VPN hoặc Bravo 8 để người khác xử lý công việc thay không?",
+          "Tôi có được tải, in hoặc lưu dữ liệu Bravo 8 trên máy cá nhân khi truy cập qua VPN không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

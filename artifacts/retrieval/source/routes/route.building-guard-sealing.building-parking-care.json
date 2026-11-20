@@ -1,0 +1,39 @@
+{
+  "id": "route.building-guard-sealing.building-parking-care",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-parking-care",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bãi xe",
+          "bãi đỗ xe",
+          "bãi để xe"
+        ],
+        [
+          "rửa xe",
+          "sửa xe",
+          "đồ có giá trị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được rửa xe, sửa xe hoặc để đồ có giá trị trên xe trong bãi không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

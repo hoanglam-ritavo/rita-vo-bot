@@ -1,0 +1,35 @@
+{
+  "id": "route.building-guard-sealing.sealing-placement",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-placement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy niêm phong"
+        ],
+        [
+          "bôi hồ",
+          "dán ở đâu",
+          "đặt giấy",
+          "ổ khóa",
+          "ổ khoá"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phải bôi hồ và đặt giấy niêm phong ở vị trí nào trên cửa hoặc ổ khóa để đúng quy định?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

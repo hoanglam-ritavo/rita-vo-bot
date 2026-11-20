@@ -36,6 +36,14 @@ creating a leave request in Workit belongs under `software/workit`. Follow-ups
 about one business topic stay with that topic. Conversation cases are for context
 behavior itself, including changing topics. Tags provide secondary filtering.
 
+The building, guarding and door sealing bank covers 153 numbered prompts across
+Tay Do building rules, outsourced guarding and door sealing. The
+[coverage map](../../docs/building-guard-sealing-coverage.md) lists original
+question numbers, stable IDs, expected answer status and source packages.
+Conversation cases check a site switch, form follow-ups, withdrawn evidence and
+switching between door sealing and company stamps. The administration and
+compliance cases continue to cover the correction from employee to contractor.
+
 ## Record format
 
 Every group contains `schema_version: 1`, `group_id`, an English `description`

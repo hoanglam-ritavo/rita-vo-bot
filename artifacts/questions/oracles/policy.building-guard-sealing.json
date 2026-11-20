@@ -1,0 +1,5514 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.building-guard-sealing",
+  "turns": [
+    {
+      "case_id": "q.policy.building-guard-sealing.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-identity"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "07c8b3ca55454ec4fe3ec4c10f7fddb065241503a0ca85b17138b2685218a98b"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "289f0a5c5e925fbce78b5bf81c3915578e19c0a503e2c5e69e9f2ebb21340675"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định Quản lý, sử dụng tòa nhà Rita Võ Tây Đô – Cần Thơ có mã 02HC/QĐ-BM06, soát xét 00. Bảng kiểm soát thay đổi ghi ngày hiệu lực 01/09/2026. Mở tài liệu trong trích dẫn để xem bản quy định lưu hành nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-scope"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4c225a0cb432bb1c49044624ede7d02f0e37bb352fc1bf12bdfe25c47b7b280a"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6581bc8586b8546f0689f082f59b7ca8626f0c852e09129a6cdecaa9a4d9888"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy này áp dụng tại tòa nhà Rita Võ Tây Đô – Cần Thơ. Nhân viên, khách đến giao dịch và người đến làm việc phải tuân thủ hướng dẫn ra vào, sử dụng khu vực chung và an ninh của tòa nhà."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-applicability"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "07c8b3ca55454ec4fe3ec4c10f7fddb065241503a0ca85b17138b2685218a98b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định 02HC/QĐ-BM06 áp dụng cho người có mặt tại tòa nhà Rita Võ Tây Đô – Cần Thơ. Với showroom, kho hoặc chi nhánh ở địa điểm khác, kiểm tra nội quy của địa điểm đó với Quản lý cơ sở hoặc HCNS."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-compare-policy"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5ff94218bd3b2624d14da84b07295c30cd51c5f0f687de3c5ae9f143c966bdd0"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy lao động yêu cầu tuân thủ nội quy tòa nhà. Tại Tây Đô, Quản lý tòa nhà hướng dẫn thực hiện và HCNS phối hợp. Khi hai văn bản có hướng dẫn khác nhau, gửi điều khoản và địa điểm cho Quản lý cơ sở và HCNS để xác nhận cách áp dụng."
+      ],
+      "required_limitations": [
+        "Tài liệu được trích dẫn chưa quy định thứ tự ưu tiên cho mọi tình huống."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-safety-overview"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "1e1e5187530dec49b884cfd0b2325a89b640ed8465b56758f903f0989f4fd4c2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "6b82230a597983e9517f6c030b28f56fc6614f0af1e689ad37e87e3ea6c3e758"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, giữ thông thoáng lối đi, cầu thang và lối thoát hiểm, tuân thủ hướng dẫn phòng cháy chữa cháy, đỗ xe đúng nơi và không tự ý di chuyển thiết bị phòng cháy trừ khi cần ứng phó khẩn cấp. Khi phát hiện cháy, báo vị trí cho Quản lý tòa nhà hoặc bảo vệ và sơ tán theo hướng dẫn."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-management"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "426a716a6132ba63895c7df95d309590b86a7444e3ff35627b3d83f84a0ba8db"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4c225a0cb432bb1c49044624ede7d02f0e37bb352fc1bf12bdfe25c47b7b280a"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý tòa nhà là người chịu trách nhiệm quản lý tại tòa nhà theo phân công. Tại Tây Đô, người này phê duyệt điều chuyển tài sản, công cụ dụng cụ và xuất nhập hàng, thông báo đơn vị phối hợp, giám sát thực hiện nội quy và có quyền từ chối ra vào trong các trường hợp của mục IV.2."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-doors"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d441fa5a45ba64b4ddb39107cace1fbbf4c0ac128c9708654abc2077ccc497a2"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tây Đô có một cửa chính và một cửa thoát hiểm ở mỗi mặt đường Quang Trung và Nguyễn Ngọc Bích. Dùng cửa chính để ra vào thông thường và lối thoát hiểm để sơ tán. Tùy kích thước, hàng hóa được ưu tiên vận chuyển qua phía Quang Trung theo phê duyệt và hướng dẫn của bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.008",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-keys"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý tòa nhà giữ chìa khóa Tây Đô. Nếu cần vào ngoài giờ, xin chấp thuận từ quản lý theo Nội quy lao động rồi liên hệ Quản lý tòa nhà để phối hợp việc mở cửa."
+      ],
+      "required_limitations": [
+        "Tài liệu không quy định một đầu mối trực hoặc thủ tục mở cửa ngoài giờ áp dụng cho mọi cơ sở."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.009",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-guest-registration"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khách liên hệ bảo vệ hoặc lễ tân để được kiểm soát, hướng dẫn. Nhân viên đón khách tại lễ tân, phòng họp hoặc khu vực được phép theo Nội quy lao động."
+      ],
+      "required_limitations": [
+        "Sổ, giấy tờ và điểm đăng ký cụ thể tùy địa điểm. Xác nhận với lễ tân hoặc bảo vệ tại cơ sở."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.010",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-guest-host"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên tiếp khách tại lễ tân, phòng họp hoặc khu vực được phép và luôn đi cùng khách. Xin phép quản lý trước khi đưa khách sang khu vực khác. Tại Tây Đô, kho hoặc phòng kỹ thuật là khu vực hạn chế với người không có nhiệm vụ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.011",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-guest-host"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên tiếp khách tại lễ tân, phòng họp hoặc khu vực được phép và luôn đi cùng khách. Xin phép quản lý trước khi đưa khách sang khu vực khác. Tại Tây Đô, kho hoặc phòng kỹ thuật là khu vực hạn chế với người không có nhiệm vụ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.012",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-contractor"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "426a716a6132ba63895c7df95d309590b86a7444e3ff35627b3d83f84a0ba8db"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhà thầu hoặc nhà cung cấp đến làm việc nên liên hệ người phụ trách công việc tại cơ sở và làm theo hướng dẫn kiểm soát ra vào của bảo vệ hoặc lễ tân. Quản lý hoặc bảo vệ tại Tây Đô có quyền từ chối ra vào trong các trường hợp nêu ở mục IV.2."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa quy định bộ giấy tờ hoặc mẫu đăng ký chung cho nhà thầu. Xác nhận với Quản lý cơ sở trước khi đến."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.013",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-refuse-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "426a716a6132ba63895c7df95d309590b86a7444e3ff35627b3d83f84a0ba8db"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý hoặc bảo vệ có thể từ chối nhân viên và khách theo mục IV.2 khi họ gây mất trật tự, có hành vi đe dọa hoặc tấn công, ở trạng thái bất thường theo quy định, say xỉn hoặc bị nghi dùng ma túy, hoặc mang vũ khí, vật hay chất nguy hiểm, dễ cháy."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.014",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-employee-badge"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ở nơi áp dụng nội quy này, bảo vệ có thể từ chối cho ra hoặc vào nếu nhân viên thiếu thẻ hoặc không mặc đúng đồng phục. Nội quy nêu ngoại lệ cho người thử việc hoặc trường hợp có quy định khác."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.015",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-employee-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại nơi yêu cầu, khi đi công tác trong giờ, đi trễ hoặc về sớm, xuất trình giấy có xác nhận của Trưởng bộ phận. Khi ra ngoài công tác, cần thông báo lý do và được quản lý trực tiếp đồng ý."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.016",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-baggage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy lao động yêu cầu nhân viên phối hợp khi bảo vệ kiểm tra hành lý tại nơi áp dụng quy định kiểm soát ra vào."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa liệt kê đầy đủ trường hợp, phạm vi hoặc cách kiểm tra cụ thể. Hỏi Quản lý cơ sở hoặc HCNS để xác nhận."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.017",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-after-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ở lại sau giờ làm cần văn bản của quản lý trực tiếp. Ra vào ngoài giờ, ngày nghỉ, lễ hoặc Tết cần quản lý chấp thuận. Điều 14.9 nêu ngoại lệ đối với người được phân công trực."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.018",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-after-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ở lại sau giờ làm cần văn bản của quản lý trực tiếp. Ra vào ngoài giờ, ngày nghỉ, lễ hoặc Tết cần quản lý chấp thuận. Điều 14.9 nêu ngoại lệ đối với người được phân công trực."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.019",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-after-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ở lại sau giờ làm cần văn bản của quản lý trực tiếp. Ra vào ngoài giờ, ngày nghỉ, lễ hoặc Tết cần quản lý chấp thuận. Điều 14.9 nêu ngoại lệ đối với người được phân công trực."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.020",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-children"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0ea27df06e5bd773b0b2b7cba46966ad48b94786ecd29aeb0fa33f90767213d0"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, con của cán bộ nhân viên không được vào tòa nhà theo quy định chung. Ngoại lệ là sự kiện do Tập đoàn tổ chức và cho phép trẻ tham dự."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.021",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-customer-children"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0ea27df06e5bd773b0b2b7cba46966ad48b94786ecd29aeb0fa33f90767213d0"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, nhân viên kinh doanh phải luôn theo sát trẻ đi cùng khách hàng để tránh va chạm hoặc làm hư hỏng sản phẩm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.022",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-pets"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "1e1e5187530dec49b884cfd0b2325a89b640ed8465b56758f903f0989f4fd4c2"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tây Đô cấm nuôi hoặc dắt chó, mèo và các động vật trong tòa nhà. Quy định áp dụng cả cho khách tham quan."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.023",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-dangerous-areas"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, không leo trèo ở sân thượng, giếng trời, cửa sổ, mái tum hoặc thang thoát hiểm. Nhân viên không có nhiệm vụ không tự vào kho hoặc phòng kỹ thuật."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.024",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-prohibited-items"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tây Đô cấm sử dụng hoặc tàng trữ vũ khí, đạn dược, pháo nổ, thuốc nổ, xăng dầu, hóa chất gây nổ, chất dễ cháy, chất nguy hiểm và hàng hóa cấm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.025",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "1e1e5187530dec49b884cfd0b2325a89b640ed8465b56758f903f0989f4fd4c2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2e0d5a675b8bbe9208d3eeba748f9ed1ac2cf9ff1a7d21b8f0569af22c17d59e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tây Đô cấm hút thuốc trong tòa nhà và bãi xe. Không uống rượu hoặc tổ chức tiệc gây ồn trong tòa nhà, trừ các sự kiện do Tập đoàn tổ chức theo nội quy."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.026",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-food"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2a1d3067911db46dc3a7890166d56b72a23e2618bca1dd0dfc4f0e61db21d3d3"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "6b82230a597983e9517f6c030b28f56fc6614f0af1e689ad37e87e3ea6c3e758"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chỉ được nấu nướng tại phòng bếp. Nội quy Tây Đô cấm chứa, mang vào hoặc ăn thức ăn nặng mùi như sầu riêng và mít, đồng thời cấm để đồ ăn trên bàn làm việc."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.027",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-showroom-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "10ba8075d1ae270955a5a7acad92f19457269174a53d18adbc4981dd6d686295"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên ăn mặc đúng quy định, gọn gàng và lịch sự, chào khách đến, cảm ơn khi khách ra về, phục vụ tận tình và tránh tranh luận to tiếng. Giữ sản phẩm sạch, đúng vị trí và không đặt đồ cá nhân ở chỗ dễ nhìn như gần cửa hoặc tường kính."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.028",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-showroom-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "10ba8075d1ae270955a5a7acad92f19457269174a53d18adbc4981dd6d686295"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên ăn mặc đúng quy định, gọn gàng và lịch sự, chào khách đến, cảm ơn khi khách ra về, phục vụ tận tình và tránh tranh luận to tiếng. Giữ sản phẩm sạch, đúng vị trí và không đặt đồ cá nhân ở chỗ dễ nhìn như gần cửa hoặc tường kính."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.029",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-restricted-rooms"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, nhân viên không có nhiệm vụ không được tự ý vào kho chứa hàng hoặc phòng kỹ thuật."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.030",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-chair-access"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d23d73c43368fce9aa9524dcebda0cb47a41e0fbc30a72c9613b5bc07a496a97"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Phòng Chủ tịch là khu vực hạn chế. Nhân viên và khách chỉ được vào khi Chủ tịch hoặc người có thẩm quyền cho phép. Quản lý tòa nhà giữ chìa khóa phòng."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.031",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-chair-material"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d23d73c43368fce9aa9524dcebda0cb47a41e0fbc30a72c9613b5bc07a496a97"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người được phép vào phòng Chủ tịch phải giữ gìn hồ sơ, tài liệu và thiết bị. Không tự ý chụp ảnh, quay phim, ghi âm, sao chụp, mang hồ sơ ra ngoài hoặc tiết lộ thông tin trong phòng."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.032",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-chair-close"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d23d73c43368fce9aa9524dcebda0cb47a41e0fbc30a72c9613b5bc07a496a97"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Sau khi sử dụng phòng Chủ tịch, sắp xếp lại khu vực và tài sản, tắt thiết bị điện, điều hòa, đèn rồi đóng và khóa cửa theo quy định."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.033",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-lift-floors"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0e217009e3f4831b057ba914719124afae1c1acc79c76a5ad9ab1b5be759b24d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, một thang máy đi từ tầng 1 đến tầng 6, là sân thượng. Thang còn lại đi từ tầng 1 đến tầng 5."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.034",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-lift-priority"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0e217009e3f4831b057ba914719124afae1c1acc79c76a5ad9ab1b5be759b24d"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c0c64ab8aac4d640bc5cf0f3c0c0cf7eeba60258373497fd52086817e9b435de"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ưu tiên thang máy cho khách hàng. Nhân viên nên dùng thang bộ giữa hai tầng liền nhau. Ngoại lệ gồm khi dẫn khách tham quan, phụ nữ mang thai và người bị thương tật."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.035",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-lift-goods"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0e217009e3f4831b057ba914719124afae1c1acc79c76a5ad9ab1b5be759b24d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tuân thủ tải trọng ghi trên thang máy và không chở quá tải. Bao bọc hàng cẩn thận và tránh để xe đẩy hoặc đồ vật va vào cửa, vách thang."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.036",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-lift-emergency"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c0c64ab8aac4d640bc5cf0f3c0c0cf7eeba60258373497fd52086817e9b435de"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhấn nút trợ giúp khẩn cấp trong thang máy để báo bộ phận Kỹ thuật hoặc bảo vệ. Chờ người có trách nhiệm hỗ trợ và không tự thoát ra."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.037",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.038",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.039",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.040",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.041",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-ac-temperature"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, điều hòa tầng 2 và khu làm việc tầng 5 được ghi 27 °C vào mùa mưa và 25–26 °C vào mùa hè."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.042",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-roles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "88494a750bcec0c9ac72ae145e118ce70408e5809aa1b71882c1f7b2ef57ea56"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0a27eea2a7469d354429cb1e28d97c4acd21fd3c1bafeca6757974fca6a6a899"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4e14f2a31f0027c79d3514a62f14cbae4e6351cb715dc35c7746dd925ee5d1fc"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9ac25d90cb458375d65b27048c9d37c6945973f99dc0612f1e2787a60ecccdbc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 2 mở điều hòa khi có khách. Chỉ bật đèn ở nơi cần hoặc khi khách tham quan và tắt bớt khi không cần. Nhân viên phụ trách khu vực kiểm tra thiết bị; người về cuối kiểm tra điện theo nội quy chung."
+      ],
+      "required_limitations": [
+        "Nguồn không giao riêng quyền bật ngoài giờ cho mọi showroom. Hãy hỏi quản lý tòa nhà, nêu tầng và thời điểm."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.043",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-ac-use"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4e14f2a31f0027c79d3514a62f14cbae4e6351cb715dc35c7746dd925ee5d1fc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đóng kín cửa ra vào và cửa sổ khi bật điều hòa. Có thể bật luân phiên khi trời không quá nóng. Ưu tiên các tầng có sofa hoặc sản phẩm làm từ da."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.044",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-ac-close"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4e14f2a31f0027c79d3514a62f14cbae4e6351cb715dc35c7746dd925ee5d1fc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tắt điều hòa trước khi ra về hoặc trong giờ nghỉ trưa nếu trong phòng không còn người. Để tiết kiệm điện, nội quy khuyến khích tắt trước khi ra về 30 phút."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.045",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-light-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0a27eea2a7469d354429cb1e28d97c4acd21fd3c1bafeca6757974fca6a6a899"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khu sát kính mặt tiền bật đèn sau 9 giờ khi rèm đã hạ. Khu phía trong bật từ đầu đến cuối giờ làm. Chỉ bật ở khu vực cần chiếu sáng hoặc khi khách tham quan và tắt bớt khi không cần."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.046",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-blind-hours"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a64a38e5b70a85b89a1fd4363f27065f7a2ddf8dc3a1b1e9fbcaac06e430ac24"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mùa hè nâng rèm từ 7 giờ đến 9 giờ, mùa mưa từ 7 giờ đến 10 giờ, sau đó hạ rèm. Nếu nắng đến sớm, người sử dụng điều chỉnh để tránh nắng trực tiếp vào sản phẩm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.047",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-close-equipment"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "51f9f0ebf30a3591c5157d0e1967edaa49a1e17985a0f8e955c7bb49a6be4220"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0a27eea2a7469d354429cb1e28d97c4acd21fd3c1bafeca6757974fca6a6a899"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4e14f2a31f0027c79d3514a62f14cbae4e6351cb715dc35c7746dd925ee5d1fc"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "6b82230a597983e9517f6c030b28f56fc6614f0af1e689ad37e87e3ea6c3e758"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người sử dụng tòa nhà kiểm tra khu vực mình sử dụng trước khi ra về và tắt các thiết bị điện, nước, điều hòa cùng đèn không cần thiết. Người về sau cùng còn phải phối hợp đóng và niêm phong cửa với bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.048",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-outage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "13984b667b542c91358b86bac84d543e4aecfed61fb2743169df5f6f25262157"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, báo ngay bộ phận Kỹ thuật và nêu vị trí, hiện trạng. Sử dụng đèn khẩn cấp theo hướng dẫn. Tránh tự can thiệp nguồn điện hoặc tự tìm cách thắp sáng khu vực mất điện."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.049",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-generator"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "13984b667b542c91358b86bac84d543e4aecfed61fb2743169df5f6f25262157"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi Tây Đô mất điện lưới, máy phát dự phòng phải vận hành theo quy trình để duy trì điện cho các phụ tải ưu tiên."
+      ],
+      "required_limitations": [
+        "Nội quy không liệt kê thiết bị hoặc khu vực nào thuộc danh sách phụ tải ưu tiên. Hỏi bộ phận Kỹ thuật của tòa nhà để xác nhận."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.050",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-goods"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d441fa5a45ba64b4ddb39107cace1fbbf4c0ac128c9708654abc2077ccc497a2"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, đăng ký với Quản lý tòa nhà bằng mẫu Đăng ký chuyển tài sản vào – ra tòa nhà. Cần phê duyệt trước và để bảo vệ hướng dẫn, kiểm soát. Dùng xe đẩy bánh cao su cho hàng cồng kềnh; tài xế đi theo chỉ dẫn của bảo vệ và tránh cản trở lối đi."
+      ],
+      "required_limitations": [
+        "Xác nhận mẫu chứng từ cụ thể với Quản lý tòa nhà hoặc bộ phận xuất nhập theo loại hàng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.051",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-bulky-goods"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d441fa5a45ba64b4ddb39107cace1fbbf4c0ac128c9708654abc2077ccc497a2"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Dùng xe đẩy có bánh cao su để bảo vệ nền nhà. Tùy kích thước hàng, phía Quang Trung được ưu tiên theo nội quy. Việc vận chuyển phải được Quản lý tòa nhà phê duyệt và bảo vệ hướng dẫn, kiểm soát."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.052",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-drivers"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế giao hàng tại Tây Đô phải đi theo chỉ dẫn của bảo vệ. Không dừng, đỗ ở vị trí cản trở lưu thông."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.053",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-assets-out"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Không đưa thiết bị văn phòng, công cụ dụng cụ hoặc tài sản của Tập đoàn ra khỏi Tây Đô khi chưa được Quản lý tòa nhà hoặc Ban Tổng Giám đốc đồng ý. Đăng ký việc vận chuyển để bảo vệ kiểm soát."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.054",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-assets-transfer"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi điều chuyển thiết bị văn phòng, tài sản hoặc công cụ dụng cụ tại Tây Đô, Quản lý tòa nhà thông báo cho HCNS và Tài chính – Kế toán để cập nhật và theo dõi."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.055",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-assets-inventory"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5ff94218bd3b2624d14da84b07295c30cd51c5f0f687de3c5ae9f143c966bdd0"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS cập nhật tài sản và công cụ dụng cụ phát sinh, điều chuyển, thu hồi hoặc thanh lý. HCNS phối hợp Tài chính – Kế toán và Kiểm soát nội bộ đối chiếu xuất nhập và kiểm kê hằng năm hoặc đột xuất."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.056",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-display-tags"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9ac25d90cb458375d65b27048c9d37c6945973f99dc0612f1e2787a60ecccdbc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên kinh doanh thường xuyên kiểm tra sản phẩm sạch, lắp đủ và đặt đúng chỗ. Thẻ giá phải có thông tin đầy đủ, chính xác về giá, xuất xứ, nhà nhập khẩu và phân phối, quy cách."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.057",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-display-care"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "114944f82ebf647803482fec8bdcf1c44f9ec5c34176ec73412071718f7a90c5"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Không ngồi lên, tự ý sử dụng, làm trầy xước hoặc dùng hóa chất lau sản phẩm trưng bày của Tập đoàn. Nếu vi phạm, việc bồi thường được xem xét theo nội quy và tình huống."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.058",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-damage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "14b2640ef58c4aadc61d62a945c26bd0de64ef803477f1f81833a44d848154a3"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "278d583662eba46548e93702fd582ea1b5ed81e54971173b811a65ae08e383d8"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2b48e320a68f4b74ba555a39e39d3f52ede679545f9888682745e2d4bb344a88"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo Quản lý tòa nhà và quản lý trực tiếp, ghi nhận sự việc và tình trạng tài sản. Nội quy lao động quy định tường trình, xác minh và cuộc họp khi xem xét bồi thường. HCNS là đầu mối tiếp nhận và triển khai."
+      ],
+      "required_limitations": [
+        "Không thể chốt trách nhiệm hoặc số tiền chỉ từ việc phát hiện sản phẩm bị hỏng. Cần đối chiếu tình tiết và quyết định của người có thẩm quyền."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.059",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-damage-levels"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2b48e320a68f4b74ba555a39e39d3f52ede679545f9888682745e2d4bb344a88"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9268f208267dac710753b6d564c7f534ccbe92cf02c158767b96e9ae06573957"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mục V.8.h của nội quy Tây Đô phân biệt lần vi phạm thứ nhất, thứ hai và thứ ba. Văn bản nêu mức 3 triệu đồng cho lần thứ nhất và thứ hai, 5 triệu đồng cho lần thứ ba, đồng thời nêu biện pháp xem xét theo từng lần. Nếu tài sản không thể sửa chữa hoặc khắc phục, văn bản nêu bồi thường theo giá niêm yết và mức xử lý theo phê duyệt của Ban lãnh đạo."
+      ],
+      "required_limitations": [
+        "Đây là nội dung văn bản. Với vụ việc cụ thể, cần HCNS xác minh sự việc và thẩm quyền trước khi kết luận mức xử lý."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.060",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-clear-aisles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "1e1e5187530dec49b884cfd0b2325a89b640ed8465b56758f903f0989f4fd4c2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "7b020d311a540b6adae41953290a63151acfa7acff702ea64c5bab66b62cb189"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Không để hàng, thùng carton, rác hoặc vật cản ở lối ra vào, cầu thang, thang máy, hành lang và lối thoát hiểm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.061",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-hygiene"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "114944f82ebf647803482fec8bdcf1c44f9ec5c34176ec73412071718f7a90c5"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "1e1e5187530dec49b884cfd0b2325a89b640ed8465b56758f903f0989f4fd4c2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "6b82230a597983e9517f6c030b28f56fc6614f0af1e689ad37e87e3ea6c3e758"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d47ae539472da0148cb4219e381e5689fd058792b234eb51c79930c3822761cb"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Giữ bàn làm việc, nhà vệ sinh và khu dùng chung sạch, gọn, không xả rác hoặc để đồ ăn trên bàn. Không đổ rác vào đường thoát nước, hoặc đổ dầu ăn, thức ăn thừa, giấy hay vải vào bồn cầu và lavabo."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.062",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-property-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "114944f82ebf647803482fec8bdcf1c44f9ec5c34176ec73412071718f7a90c5"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5e6181d422a48edf215a431271305cc003e120924be3cb42dc0f9ed2b1241564"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, không viết lên bàn ghế, tường hoặc tủ hồ sơ, không dán đồ gây mất mỹ quan lên cửa hoặc cửa sổ, và không tự ý sử dụng tài sản riêng của người khác."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.063",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-kitchen-close"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "731173ec9b9fdab19d0cfe373e57ff6f423029fa43306ffdb4fd57a704049f42"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên sử dụng bếp đúng công năng, giữ vệ sinh, không đổ thức ăn thừa, rác hoặc dầu mỡ vào bồn rửa. Sau khi dùng, dọn khu vực, tắt thiết bị điện và nấu nướng, kiểm tra an toàn rồi đóng cửa."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.064",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-kitchen-incident"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "731173ec9b9fdab19d0cfe373e57ff6f423029fa43306ffdb4fd57a704049f42"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ngừng sử dụng thiết bị bếp có dấu hiệu hư hỏng hoặc mất an toàn. Báo Quản lý tòa nhà hoặc bộ phận Kỹ thuật và không tự sửa hoặc di chuyển thiết bị."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.065",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-parking"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, đỗ đúng chỗ theo bảo vệ, nhận vé lúc vào và trả khi ra. Khi mất vé, xuất trình giấy tờ tùy thân và giấy tờ xe để chứng minh chủ xe. Bảo vệ hoặc người trông giữ lập biên bản và bàn giao."
+      ],
+      "required_limitations": [
+        "Với lượt lấy xe ngoài giờ, xác nhận điều kiện ra vào và giấy tờ thay thế với bảo vệ hoặc Quản lý tòa nhà."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.066",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-parking-care"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Không rửa hoặc sửa xe trong bãi nếu Quản lý tòa nhà chưa đồng ý. Người gửi xe nên tránh để đồ có giá trị hoặc vật dụng cá nhân trên xe."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.067",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-parking"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, đỗ đúng chỗ theo bảo vệ, nhận vé lúc vào và trả khi ra. Khi mất vé, xuất trình giấy tờ tùy thân và giấy tờ xe để chứng minh chủ xe. Bảo vệ hoặc người trông giữ lập biên bản và bàn giao."
+      ],
+      "required_limitations": [
+        "Với lượt lấy xe ngoài giờ, xác nhận điều kiện ra vào và giấy tờ thay thế với bảo vệ hoặc Quản lý tòa nhà."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.068",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-parking-late"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Liên hệ bảo vệ hoặc nhân viên trông giữ xe tại cơ sở để xác nhận việc lấy xe ngoài giờ. Chuẩn bị vé xe, hoặc nếu mất vé, giấy tờ tùy thân và giấy tờ xe để người trông giữ xác minh và lập biên bản bàn giao."
+      ],
+      "required_limitations": [
+        "Quy định Tây Đô không nêu giờ hoặc thủ tục riêng cho việc lấy xe ngoài giờ."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.069",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-parking-smoking"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "2e0d5a675b8bbe9208d3eeba748f9ed1ac2cf9ff1a7d21b8f0569af22c17d59e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy Tây Đô cấm hút thuốc ở bãi xe và nêu mức 3 triệu đồng mỗi lần; nếu gây hậu quả nghiêm trọng như cháy, nổ, văn bản nêu việc xem xét xử lý hợp đồng lao động và trách nhiệm bồi thường."
+      ],
+      "required_limitations": [
+        "HCNS và người có thẩm quyền cần xác minh tình huống trước khi kết luận biện pháp áp dụng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.070",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-fire-report"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo ngay cho Quản lý tòa nhà hoặc bảo vệ và nêu chính xác vị trí cháy hoặc nơi phát hiện khói. Giữ bình tĩnh và sơ tán theo hướng dẫn khi tình huống vượt khả năng kiểm soát."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.071",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-fire-electrical"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy Tây Đô hướng dẫn dùng bình chữa cháy CO₂ khi cháy liên quan đến thiết bị điện và tuyệt đối không dùng nước. Báo ngay vị trí cháy cho bảo vệ hoặc Quản lý tòa nhà. Nếu vượt khả năng kiểm soát, rời khu vực theo lối thoát hiểm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.072",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-evacuation"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Dùng cầu thang bộ gần nhất hoặc lối thoát hiểm để ra điểm tập trung phía trước tòa nhà. Không dùng thang máy khi sơ tán hoặc khi có cháy nổ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.073",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-fire-equipment"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "6b82230a597983e9517f6c030b28f56fc6614f0af1e689ad37e87e3ea6c3e758"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Không tự ý di chuyển thiết bị phòng cháy chữa cháy, cứu nạn cứu hộ nếu chưa có chỉ thị của người có thẩm quyền, trừ khi cần ứng phó tình huống khẩn cấp."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.074",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-fire-storage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4aeb904387d2146a8a46991bff83861db3752d76556b87dc719723db0091381c"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "7b020d311a540b6adae41953290a63151acfa7acff702ea64c5bab66b62cb189"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Giữ lối đi, lối thoát hiểm và đường tiếp cận thiết bị chữa cháy thông thoáng. Không đặt hàng gần cầu chì, tủ phân phối điện, ổ cắm hoặc dây điện. Xếp gọn, cách tường và trần để bảo đảm khoảng cách an toàn phòng cháy."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.075",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-electrical-install"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "4aeb904387d2146a8a46991bff83861db3752d76556b87dc719723db0091381c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trước khi lắp thêm thiết bị điện tại Tây Đô, cần sự đồng ý và hướng dẫn của nhân viên Kỹ thuật tòa nhà. Tránh làm quá tải nguồn điện."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.076",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-fire-check"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "7b020d311a540b6adae41953290a63151acfa7acff702ea64c5bab66b62cb189"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên Kỹ thuật tòa nhà kiểm tra thiết bị chữa cháy hằng ngày và báo ngay hư hỏng cho Quản lý tòa nhà. Tín hiệu báo cháy và hệ thống phòng cháy chữa cháy phải được kiểm tra ít nhất mỗi tháng một lần."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.077",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-emergency-contacts"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5473dbf1108788c7e1fc8d528c71c71710b7b9ce8dad60f835c2b0abfc2edc08"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "85ef9b086a72b0292900085011d4b7675d11f0d15c00956d23e613e9e99ccf66"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a3d9b881105a28f0a49862a2cb55f888bf57cd158bdc59086c6abe65dbee7016"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, báo sự cố an ninh cho bảo vệ, Quản lý tòa nhà hoặc Ban An ninh, và báo sự cố thiết bị cho Kỹ thuật. Danh mục hỗ trợ khẩn cấp ghi Công an 113, Chữa cháy 114 và Cấp cứu 115."
+      ],
+      "required_limitations": [
+        "Xác minh số liên hệ nội bộ hiện tại qua HCNS hoặc Quản lý tòa nhà."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.078",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-roles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5473dbf1108788c7e1fc8d528c71c71710b7b9ce8dad60f835c2b0abfc2edc08"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5ff94218bd3b2624d14da84b07295c30cd51c5f0f687de3c5ae9f143c966bdd0"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9a48dca0b59eebc83da215b9abcec68ab7cf99aa7679d5a697ec15f504891181"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý tòa nhà điều phối; Kỹ thuật kiểm tra thiết bị; HCNS phối hợp theo nội quy; bảo vệ và Ban An ninh xử lý, báo cáo an ninh. Khi mất đồ, báo bảo vệ hoặc Quản lý tòa nhà, nêu mốc thời gian, vị trí và vật thất lạc."
+      ],
+      "required_limitations": [
+        "Nguồn xác nhận có giám sát camera nhưng chưa xác nhận quyền xem hoặc trích xuất. Quản lý tòa nhà và Ban An ninh xác minh quyền và thủ tục."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.079",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-roles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5473dbf1108788c7e1fc8d528c71c71710b7b9ce8dad60f835c2b0abfc2edc08"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "5ff94218bd3b2624d14da84b07295c30cd51c5f0f687de3c5ae9f143c966bdd0"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9a48dca0b59eebc83da215b9abcec68ab7cf99aa7679d5a697ec15f504891181"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9dcfd1d2e31d465b54ce483caf1e88217d943dc8f55a8bf7fe4e5aa95d802b24"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý tòa nhà điều phối; Kỹ thuật kiểm tra thiết bị; HCNS phối hợp theo nội quy; bảo vệ và Ban An ninh xử lý, báo cáo an ninh. Khi mất đồ, báo bảo vệ hoặc Quản lý tòa nhà, nêu mốc thời gian, vị trí và vật thất lạc."
+      ],
+      "required_limitations": [
+        "Nguồn xác nhận có giám sát camera nhưng chưa xác nhận quyền xem hoặc trích xuất. Quản lý tòa nhà và Ban An ninh xác minh quyền và thủ tục."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.080",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-security-setup"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định Tây Đô ghi tòa nhà thuê dịch vụ bảo vệ 24/24 và có camera giám sát an ninh để xử lý sự việc phát sinh."
+      ],
+      "required_limitations": [
+        "Quy định mô tả phương án an ninh. Để xác nhận tình trạng thực tế, liên hệ Quản lý tòa nhà hoặc Ban An ninh."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.081",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.building-security-complaint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "0472c54431cad1df7aa7aa2ac415e20b653af5118f689ebf784aabc5804f55d3"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "9a48dca0b59eebc83da215b9abcec68ab7cf99aa7679d5a697ec15f504891181"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi nghi ngờ bảo vệ phục vụ thiếu chuyên nghiệp hoặc có hành vi gian lận tại Tây Đô, báo ngay Ban An ninh hoặc Quản lý tòa nhà để chuyển xử lý."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.082",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guide-contact"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Niêm phong và quy trình tại cơ sở có đầu mối quản lý, HCNS hoặc bảo vệ. Sự cố an ninh dùng Ban An ninh và sự cố tòa nhà báo Quản lý tòa nhà hoặc bộ phận liên quan."
+      ],
+      "required_limitations": [
+        "Số liên hệ in trong tài liệu cũ chưa được xác minh hiện tại. Kiểm tra danh bạ nội bộ hoặc liên hệ HCNS tại đúng cơ sở."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.083",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-scope"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "30be3a8b19f958de8db9338cd9cd9227effb4dd5d5969708db79eab6dfe1d203"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định áp dụng cho lực lượng bảo vệ thuê ngoài tại các mục tiêu của Rita Võ, đơn vị cung cấp dịch vụ và các bộ phận tham gia lựa chọn, phối hợp, quản lý và giám sát dịch vụ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.084",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-vendor-criteria"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "a3aa2ec19ef5d94751e0e68b568986e808949e17e8b390b915d237fc4a627857"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e703ff9cbdf0f563f715f3b33804e1c35666773b6e6f3eddd07c92f73b5cd53d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhà cung cấp dịch vụ bảo vệ phải đủ điều kiện hành nghề, có giấy phép kinh doanh và vốn điều lệ tối thiểu 2 tỉ đồng. Cần có ít nhất 3 năm hoạt động và 3 năm kinh nghiệm triển khai bảo vệ trong lĩnh vực được nêu như văn phòng, kho bãi, bán lẻ hoặc nhà máy."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.085",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-vendor-exclusions"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "a3aa2ec19ef5d94751e0e68b568986e808949e17e8b390b915d237fc4a627857"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS-QT01 không chấp nhận nhà cung cấp bảo vệ từng bị thanh lý do vi phạm hợp đồng, có vi phạm pháp luật đã được cơ quan chức năng kết luận hoặc có quan hệ với nhân sự kiểm soát, quản lý tại địa điểm triển khai."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.086",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-vendor-capacity"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "a3aa2ec19ef5d94751e0e68b568986e808949e17e8b390b915d237fc4a627857"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS-QT01 yêu cầu nhà cung cấp có khả năng bố trí 7 nhân sự trong tối đa 3 ngày khi cần triển khai một địa điểm bảo vệ mới."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.087",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-vendor"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "a3aa2ec19ef5d94751e0e68b568986e808949e17e8b390b915d237fc4a627857"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e703ff9cbdf0f563f715f3b33804e1c35666773b6e6f3eddd07c92f73b5cd53d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhà cung cấp phải đủ điều kiện hành nghề, vốn điều lệ tối thiểu 2 tỉ đồng và đáp ứng các điều kiện loại trừ tại mục 2.1. Hồ sơ gồm giấy đủ điều kiện hành nghề, giấy phép kinh doanh, chứng chỉ an toàn lao động, hồ sơ năng lực và phương án bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.088",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-tender-steps"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfa41e77973be09e270cc7151378c633e913cfc37d50ead143c7cad5aa347f6e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS tiếp nhận nhu cầu từ Ban An ninh, tìm ít nhất 3 nhà cung cấp đạt chuẩn, lập bảng so sánh giá và trình hồ sơ. Nếu giá vượt khung thì trình Tổng Giám đốc hoặc người được ủy quyền. Khi được duyệt, HCNS lập hợp đồng và lưu hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.089",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-tender"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "23c7dc1beec70de711fde9a992ea157d892f25f769480be175469a09b37792e3"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfa41e77973be09e270cc7151378c633e913cfc37d50ead143c7cad5aa347f6e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS nhận nhu cầu từ Ban An ninh, so sánh ít nhất 3 nhà cung cấp đạt tiêu chuẩn rồi trình hồ sơ. Tổng Giám đốc hoặc người được ủy quyền duyệt giá vượt khung; nếu chưa duyệt, tìm lại nhà cung cấp. HCNS lập hợp đồng theo đề xuất được duyệt và lưu hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.090",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-tender-paperwork"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hồ sơ gồm đề xuất theo mẫu RTV/2020-01, bảng so sánh giá, giấy chứng nhận đủ điều kiện hành nghề bảo vệ, giấy phép kinh doanh, chứng chỉ an toàn lao động, hồ sơ năng lực và phương án bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.091",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-tender"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "23c7dc1beec70de711fde9a992ea157d892f25f769480be175469a09b37792e3"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfa41e77973be09e270cc7151378c633e913cfc37d50ead143c7cad5aa347f6e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS nhận nhu cầu từ Ban An ninh, so sánh ít nhất 3 nhà cung cấp đạt tiêu chuẩn rồi trình hồ sơ. Tổng Giám đốc hoặc người được ủy quyền duyệt giá vượt khung; nếu chưa duyệt, tìm lại nhà cung cấp. HCNS lập hợp đồng theo đề xuất được duyệt và lưu hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.092",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-tender-contract"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "796a3d991911a065bff32731f672294e7fa52ed334b0d059544247dcbc427e28"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b068885f04df3129bbf92d1be45ed2129a11350ea5c154b5f1755503cebf035a"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfa41e77973be09e270cc7151378c633e913cfc37d50ead143c7cad5aa347f6e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Kiểm soát nội bộ soạn hợp đồng mẫu và kiểm tra đề xuất, hợp đồng trước khi trình lãnh đạo. HCNS làm việc trực tiếp với nhà cung cấp, dùng hợp đồng mẫu để thỏa thuận, lập hợp đồng theo đề xuất được duyệt và lưu hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.093",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-request"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh khảo sát và đề xuất số lượng, vị trí bảo vệ theo mẫu RTV/2020-01. Ban An ninh gửi đề xuất đã được Ban Giám đốc duyệt cho HCNS trước 3 ngày so với ngày cần sử dụng bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.094",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-request"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh khảo sát và đề xuất số lượng, vị trí bảo vệ theo mẫu RTV/2020-01. Ban An ninh gửi đề xuất đã được Ban Giám đốc duyệt cho HCNS trước 3 ngày so với ngày cần sử dụng bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.095",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-no-vendor"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c5a839c918420112d9f7764645d59114f5fcea799536c4a24ded700443d023d4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nếu chưa có nhà cung cấp phù hợp, HCNS chuyển sang quy trình chọn nhà cung cấp mới. Nếu đã có nhà cung cấp đạt chuẩn, HCNS gửi yêu cầu và lập hợp đồng hoặc phụ lục, sau đó tiếp nhận hồ sơ ứng viên."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.096",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-personnel"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tiêu chuẩn bảo vệ thuê ngoài gồm tuổi từ 22 đến 55, sức khỏe, chiều cao, trình độ theo mục tiêu, nghiệp vụ và lý lịch theo mục 3. Hồ sơ điều động gồm lệnh điều động, lịch trực, lý lịch theo mẫu, giấy tờ tùy thân, hợp đồng lao động và chứng nhận huấn luyện theo mục 2.2."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.097",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-personnel-skills"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b1edf84299445a84ee1a5fff1522987969d26cabb312078bc250e6ce631fb4ff"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ thuê ngoài cần biết đọc, kiểm tra và ghi chép chứng từ xuất nhập. Nhà cung cấp phải đào tạo nghiệp vụ bảo vệ, pháp luật cơ bản, phòng cháy chữa cháy và quy trình xuất nhập hàng trước khi nhận việc. Bảo vệ còn tham gia xử lý các tình huống như hỏa hoạn hoặc tai nạn."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.098",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-personnel-contract"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ thuê ngoài phải có lý lịch rõ ràng, đạo đức nghề nghiệp, không có tiền án, tiền sự, có hợp đồng lao động chính thức với nhà cung cấp và được nhà cung cấp mua bảo hiểm tai nạn."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.099",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-personnel"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tiêu chuẩn bảo vệ thuê ngoài gồm tuổi từ 22 đến 55, sức khỏe, chiều cao, trình độ theo mục tiêu, nghiệp vụ và lý lịch theo mục 3. Hồ sơ điều động gồm lệnh điều động, lịch trực, lý lịch theo mẫu, giấy tờ tùy thân, hợp đồng lao động và chứng nhận huấn luyện theo mục 2.2."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.100",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-personnel-documents"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hồ sơ bảo vệ cần bản sao y công chứng CMND hoặc CCCD có thời hạn không quá 6 tháng, chứng chỉ sơ cấp cứu và chứng nhận huấn luyện nghiệp vụ cứu nạn cứu hộ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.101",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-personnel-form"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mẫu lý lịch trích ngang bảo vệ có mã HCNS-QT01-LLTN. Mẫu ghi đơn vị cung cấp, địa điểm, chỉ huy và thông tin liên hệ, rồi đến họ tên, năm sinh, ảnh giấy tờ tùy thân, địa chỉ, vị trí, ca làm việc, số điện thoại, ngày nhận vị trí và ghi chú của từng người."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.102",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-site"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "874dd3f133e91aa547dc0b17debe1b7a141737143834f7dfc430c9e558a3034c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "d7ed9f91273c92e90882258cf0961bb7dcfb77cfdec1e8847ba3f46f307dfcf4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh đề xuất vị trí đã được duyệt. HCNS kiểm tra nhu cầu, chọn nhà cung cấp, tiếp nhận lý lịch và tuyển chọn. HCNS cung cấp nhân sự đã chọn, Ban An ninh kiểm tra và tiếp nhận, thông báo cho HCNS lưu hồ sơ. Nhân sự chưa đạt được trả lại bước tuyển chọn hoặc bố trí theo mục 9.2."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.103",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-rejected"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "874dd3f133e91aa547dc0b17debe1b7a141737143834f7dfc430c9e558a3034c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nếu đề xuất bố trí chưa đạt, HCNS chuyển lại bước đề xuất vị trí. Nếu ứng viên chưa đạt khi HCNS tuyển chọn, nhà cung cấp giới thiệu hồ sơ khác. Nếu Ban An ninh kiểm tra không đạt, hồ sơ quay lại bước HCNS cung cấp nhân sự."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.104",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-urgent"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "874dd3f133e91aa547dc0b17debe1b7a141737143834f7dfc430c9e558a3034c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi nhà cung cấp phải bổ sung gấp bảo vệ do vị trí trống đột ngột, HCNS cung cấp hồ sơ cho Ban An ninh vào ngày hôm sau."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.105",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-hcns-deadline"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS cung cấp bảo vệ đạt chuẩn cho Ban An ninh trong vòng 5 ngày kể từ khi nhận yêu cầu."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.106",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-change-planned"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "f6dde76f8a22947da9455f4aeee6ac5ecadc1b587952aae3831247e24e188baa"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi đổi nhân sự bảo vệ theo kế hoạch, nhà cung cấp phải báo cho HCNS trước ít nhất 3 ngày."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.107",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-change-sudden"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "f6dde76f8a22947da9455f4aeee6ac5ecadc1b587952aae3831247e24e188baa"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nếu thay bảo vệ đột xuất, nhà cung cấp phải báo HCNS trước ca trực 3 giờ. Quy định giới hạn không quá một lần mỗi tháng."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.108",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-change-abandoned"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "f6dde76f8a22947da9455f4aeee6ac5ecadc1b587952aae3831247e24e188baa"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nếu bảo vệ bỏ vị trí đột xuất mà không báo, nhà cung cấp phải bổ sung người trong vòng 1 giờ kể từ khi công ty thông báo. Quy định giới hạn không quá một lần mỗi tháng."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.109",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-change-authority"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "8cc169f29b3e3965bed8c2f023756c4772ccbeb1bd23d5e661352d5a7e7d9225"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Khi cấp thiết, Ban An ninh có thể yêu cầu trực tiếp nhà cung cấp đổi hoặc bổ sung bảo vệ gấp, sau đó giải trình với HCNS và Kiểm soát nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.110",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-leave-post"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "c5f9423ab007337400f62ed31c09df274e9c5672c047707c94aa68ae577633b5"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b1edf84299445a84ee1a5fff1522987969d26cabb312078bc250e6ce631fb4ff"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ chỉ rời vị trí vì lý do chính đáng khi đã có người thay và được đội trưởng tại địa điểm đồng ý. Nội quy lao động cũng yêu cầu bảo vệ hoặc an ninh có người thay khi nghỉ giữa ca."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.111",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-training"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b1edf84299445a84ee1a5fff1522987969d26cabb312078bc250e6ce631fb4ff"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cadeb036dac904e953a5e0fe51da87a2362eb588dfd8cfba470a042bf3398482"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhà cung cấp huấn luyện nghiệp vụ bảo vệ, quy trình và trình tự xuất nhập hàng của Rita Võ trước khi nhân viên đến nhận việc. Tiêu chuẩn bảo vệ còn yêu cầu kiến thức pháp luật cơ bản và phòng cháy chữa cháy."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.112",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1bbf9094ba3e4d8f6019d8bf1a2b108f4a3badbb3c021c5128255a1bd1a00d47"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ mặc đồng phục đúng quy định, có mũ, cầu vai, thẻ, giày hoặc sandal, và giao tiếp lịch sự. Trong giờ làm, không hút thuốc, dùng điện thoại hoặc máy tính cho việc riêng, uống rượu bia, tụ tập, bỏ vị trí hoặc ngủ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.113",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-conduct"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1bbf9094ba3e4d8f6019d8bf1a2b108f4a3badbb3c021c5128255a1bd1a00d47"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ mặc đồng phục đúng quy định, có mũ, cầu vai, thẻ, giày hoặc sandal, và giao tiếp lịch sự. Trong giờ làm, không hút thuốc, dùng điện thoại hoặc máy tính cho việc riêng, uống rượu bia, tụ tập, bỏ vị trí hoặc ngủ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.114",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-visitors"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ hướng dẫn khách đến liên hệ công tác và kiểm soát việc ra vào theo nội quy địa điểm. Nhân viên đón khách tại lễ tân, phòng họp hoặc khu được phép và phải xin phép trước khi đưa khách sang khu vực khác."
+      ],
+      "required_limitations": [
+        "Các trường bắt buộc để đăng ký nhà thầu cần kiểm tra tại cơ sở với bảo vệ hoặc quản lý địa điểm."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.115",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-order"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ phát hiện và ngăn chặn hành vi gây rối, bảo vệ người và tài sản, xử lý mâu thuẫn có thể dẫn đến xung đột. Khi có sự cố, giữ hiện trường đến lúc bàn giao và báo Ban An ninh, HCNS theo quy định."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.116",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-goods"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "2d28f83e1f98ffce6f3642cbea112d9a584f5f1ca5001da613b982146e3da7a4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ đối chiếu, ký xác nhận chứng từ và theo dõi xuất hoặc nhập đến khi hoàn tất. Ghi nhận sai lệch và báo người phụ trách tại điểm xuất nhập để đối chiếu trước khi xác nhận. Việc đăng ký tài sản, vật tư thực hiện theo nội quy cơ sở."
+      ],
+      "required_limitations": [
+        "Tên giấy phép và cách xử lý từng loại sai lệch cần đối chiếu quy trình của cơ sở và bộ phận giao nhận."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.118",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-goods-duty"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "2d28f83e1f98ffce6f3642cbea112d9a584f5f1ca5001da613b982146e3da7a4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ kiểm tra, đối chiếu, ký xác nhận chứng từ và giám sát đến khi việc xuất hoặc nhập hàng hoàn tất. Bảo vệ không được bỏ vị trí khi công việc đang diễn ra và có trách nhiệm liên đới nếu xảy ra mất mát hoặc hư hỏng trong quá trình đó."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.119",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-assets-register"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6beafae410e26a34eb907e6ff431b99546b23932c8e4e4bfc643953fa58b66a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ kiểm tra và ghi nhận tài sản, vật tư ra vào theo nội quy của cơ sở. Tại Tây Đô, việc chuyển tài sản phải đăng ký bằng mẫu của tòa nhà, được Quản lý tòa nhà phê duyệt và do bảo vệ hướng dẫn, kiểm soát."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.120",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.company-vehicles.guard-check"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "c8a5b806fa1c35002e1196cd4bdae977a47f265058a569725cf362644654205a"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "e799d347f73435d1b68151853b62d51de8af056f12d3c52cdb05090e7ec6ebec"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ kiểm tra tình trạng xe trước và sau khi dùng và ghi xe ra, vào. Khi trầy xước, hư hỏng hoặc mất mát, đối chiếu lượt sử dụng, xác định tài xế và lập biên bản để tài xế ký xác nhận."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.121",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-parking-role"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "e58116f30d8c585177447de5f68b5818bc0dd7ab247f91dcb87c6d12ae4059ff"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "eceee5fcb2ccc20900406bc09c2f8193a835fab414dbf9a514c0735088be20a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ trông giữ xe cho nhân viên và khách theo quy định cơ sở. Tại Tây Đô, bảo vệ hướng dẫn đỗ đúng vị trí, phát và thu vé, xác minh giấy tờ và lập biên bản nếu mất vé."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.122",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-patrol-frequency"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b1edf84299445a84ee1a5fff1522987969d26cabb312078bc250e6ce631fb4ff"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS-QT01 nêu tuần tra theo ranh giới được giao tại từng địa điểm để giám sát an ninh và phòng cháy, với tần suất tối thiểu 30 phút một lần. Khi rời vị trí phải có người thay và được đội trưởng đồng ý."
+      ],
+      "required_limitations": [
+        "Mẫu ghi nhận và các bước bàn giao cụ thể cần xác nhận theo quy trình ca trực của cơ sở."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.123",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-incident-report"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "2d28f83e1f98ffce6f3642cbea112d9a584f5f1ca5001da613b982146e3da7a4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "c16869daf2396f55f5567131bb1ed2ee0c6366ce42d537bd74cdf203af06f183"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ giữ hiện trường đến khi bàn giao cho cấp liên quan, báo ngay sự cố an ninh cho Ban An ninh và HCNS. Khi liên quan đến mất hoặc hư hỏng hàng trong lúc xuất nhập, ghi nhận hiện trạng và đối chiếu chứng từ. Khi có tai nạn, phối hợp xử lý theo yêu cầu của cơ sở."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.124",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-report"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "2d28f83e1f98ffce6f3642cbea112d9a584f5f1ca5001da613b982146e3da7a4"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo cáo an ninh hằng tháng bằng văn bản qua email cho Ban An ninh, KSNB và HCNS, gồm cập nhật tình hình và khuyến nghị. Sự cố an ninh hoặc tình huống khẩn cấp cần liên hệ ngay Ban An ninh để được hướng dẫn. Ghi nhận sự cố mất, hư hỏng trong lúc xuất nhập và đối chiếu chứng từ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.125",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-supervision"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "80ff7fd6caae2d48fd18deb849227d3e2f155eacea3b03146710e670920c1fbe"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý trực tiếp phải nắm nhân sự bảo vệ tại cơ sở, cùng HCNS, Kiểm soát nội bộ và Ban An ninh giám sát công việc. Báo cho các bộ phận này khi thấy vi phạm, hành vi không chuẩn mực hoặc người không đạt tiêu chuẩn."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.126",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-roles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "796a3d991911a065bff32731f672294e7fa52ed334b0d059544247dcbc427e28"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "80ff7fd6caae2d48fd18deb849227d3e2f155eacea3b03146710e670920c1fbe"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b068885f04df3129bbf92d1be45ed2129a11350ea5c154b5f1755503cebf035a"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfb33606fd55ad477cde5aaec2da1eedf2a07a125b424bd72e4fa8e01359fe35"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý cơ sở nắm nhân sự, cùng các bộ phận giám sát và báo sai phạm. Ban An ninh phụ trách chuyên môn, HCNS quản lý nhà cung cấp và việc xử lý, KSNB kiểm tra hợp đồng và đề xuất. Nếu cần ngoại lệ, HCNS, KSNB và Ban An ninh phối hợp trình Chủ tịch HĐTV hoặc Tổng Giám đốc."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.127",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-roles"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "796a3d991911a065bff32731f672294e7fa52ed334b0d059544247dcbc427e28"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "80ff7fd6caae2d48fd18deb849227d3e2f155eacea3b03146710e670920c1fbe"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "b068885f04df3129bbf92d1be45ed2129a11350ea5c154b5f1755503cebf035a"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "cfb33606fd55ad477cde5aaec2da1eedf2a07a125b424bd72e4fa8e01359fe35"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý cơ sở nắm nhân sự, cùng các bộ phận giám sát và báo sai phạm. Ban An ninh phụ trách chuyên môn, HCNS quản lý nhà cung cấp và việc xử lý, KSNB kiểm tra hợp đồng và đề xuất. Nếu cần ngoại lệ, HCNS, KSNB và Ban An ninh phối hợp trình Chủ tịch HĐTV hoặc Tổng Giám đốc."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.128",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-violation-evidence"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "8cc169f29b3e3965bed8c2f023756c4772ccbeb1bd23d5e661352d5a7e7d9225"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh thu thập, tổng hợp bằng chứng và lỗi vi phạm của bảo vệ, rồi gửi đề nghị xử lý cho HCNS vào ngày 1 hằng tháng. Quản lý cơ sở cũng phải báo khi phát hiện vi phạm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.129",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-violation-contract"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS đối chiếu lỗi với hợp đồng và quy định công ty, lập công văn hoặc biên bản yêu cầu nhà cung cấp xử lý theo hợp đồng. HCNS có thể đề xuất thanh lý hợp đồng nếu nhà cung cấp không đáp ứng yêu cầu hoặc thường xuyên vi phạm."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.130",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-violation-penalty"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "dd7d50ac7c161d0c45ccde951202d72243260915653fa06d0565355655a1a0e1"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tiền phạt theo hợp đồng được cấn trừ vào phí dịch vụ bảo vệ thanh toán hằng tháng. HCNS thông báo kết quả cho Kiểm soát nội bộ, Ban An ninh và bộ phận Kế toán, rồi lưu hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.131",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-violation-form"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mục 10.2 ghi mã HCNS-QT01-BBXLVP. Biên bản ghi căn cứ hợp đồng, địa điểm, thời gian, vị trí, ca trực, lỗi và mức phạt. Đại diện nhà cung cấp và HCNS ký. Lập hai bản, mỗi bên giữ một bản."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.132",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-forms-location"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS-QT01 dẫn mẫu đề xuất vị trí RTV/2020-01 ở mục 9.2, mẫu lý lịch HCNS-QT01-LLTN ở mục 10.1 và biên bản HCNS-QT01-BBXLVP ở mục 10.2. Mở quy định từ trích dẫn để xem các phụ lục."
+      ],
+      "required_limitations": [
+        "Hỏi HCNS về nơi lấy tệp biểu mẫu riêng, gồm mẫu đề nghị xử lý vi phạm, và xác nhận phiên bản hiện dùng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.133",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-employee-distinction"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d28cdba2412e5d5bec9d0de9fc1c65ef5c153a1cbe75e54e294fd4877cea54c9"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d9f5282c94bd07967368aceb27040d5592c48ddb4b1c0db0b286c87eb289aad0"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đối với nhân viên công ty, xác định hành vi và xử lý theo trình tự, thẩm quyền của Nội quy lao động. Với bảo vệ thuê ngoài, Ban An ninh tổng hợp vi phạm và HCNS đối chiếu hợp đồng, yêu cầu nhà cung cấp xử lý theo HCNS-QT01."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.134",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-live-roster"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "6092c8776981489c57cb794902ae766b413227a85affa48d3a29466352c99b97"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "dd7d50ac7c161d0c45ccde951202d72243260915653fa06d0565355655a1a0e1"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "de0bf3bf25fd2eab6dece7e39bede69b2a4313882b54c4afb8388736f460149b"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a3d9b881105a28f0a49862a2cb55f888bf57cd158bdc59086c6abe65dbee7016"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Lịch trực là một phần hồ sơ điều động. Liên hệ Quản lý cơ sở hoặc HCNS để xác nhận lịch hiện tại và đầu mối đội bảo vệ ở địa điểm cần hỏi."
+      ],
+      "required_limitations": [
+        "Các tài liệu quy định không có danh sách người đang trực hay số liên hệ nội bộ đã được xác minh tại thời điểm hỏi."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.135",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-identity"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "95d97525e5afa3c9dc1290dfe66da753f42775b2fe33768673b929012e46f02d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thông báo 11/2020/TB-HCNS có hiệu lực từ ngày 11/07/2020 và quy định niêm phong cửa ra vào văn phòng, chi nhánh và kho của Rita Võ. Mở tài liệu từ trích dẫn để xem thông báo."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.136",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.sealing-scope"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "9372184afbc3c7b6f1af9c5531ef23245d556fb978ef7c6c098d728ef827254c"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "95d97525e5afa3c9dc1290dfe66da753f42775b2fe33768673b929012e46f02d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thông báo quy định việc niêm phong cửa văn phòng, chi nhánh và kho. Nhân viên Rita Võ và nhân viên dịch vụ bảo vệ thực hiện các phần việc được giao."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.137",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-tay-do"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "95d97525e5afa3c9dc1290dfe66da753f42775b2fe33768673b929012e46f02d"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "d441fa5a45ba64b4ddb39107cace1fbbf4c0ac128c9708654abc2077ccc497a2"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nội quy Tây Đô dẫn chiếu Thông báo 11/2020/TB-HCNS của công ty. Người cuối cùng rời tòa nhà phối hợp với bảo vệ để niêm phong cửa theo thông báo này."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.138",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-last-person"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo thông báo, nhân viên ra về sau cùng chịu trách nhiệm đóng và khóa cửa, ký giấy và sổ niêm phong rồi dán giấy với sự chứng kiến của bảo vệ."
+      ],
+      "required_limitations": [
+        "Văn bản xác định người ra về sau cùng. Nếu cơ sở dùng chung và có phân công riêng, xác nhận người phụ trách với Quản lý cơ sở."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.139",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.sealing-close"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người về cuối đóng và khóa cửa, ký giấy niêm phong có dấu công ty rồi ký sổ. Dán giấy che phần có thể mở hoặc ổ khóa dưới sự chứng kiến của bảo vệ. Bảo vệ cũng chứng kiến việc mở khi người đến đầu tiên đã kiểm tra niêm phong còn nguyên."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.140",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.sealing-close"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người về cuối đóng và khóa cửa, ký giấy niêm phong có dấu công ty rồi ký sổ. Dán giấy che phần có thể mở hoặc ổ khóa dưới sự chứng kiến của bảo vệ. Bảo vệ cũng chứng kiến việc mở khi người đến đầu tiên đã kiểm tra niêm phong còn nguyên."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.141",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-placement"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bôi hồ đầy trên giấy niêm phong và dán toàn bộ giấy đè lên phần cửa có thể mở hoặc phần ổ khóa có thể tra chìa. Thực hiện dưới sự chứng kiến của bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.142",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-witness"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảo vệ chứng kiến việc dán giấy cuối ngày. Đầu ngày, người đến đầu tiên kiểm tra giấy. Nếu giấy còn nguyên và thông tin không bị biến dạng, bảo vệ chứng kiến việc mở niêm phong."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.143",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.sealing-open"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người đến đầu tiên kiểm tra giấy không rách, không mất và thông tin không biến dạng. Chỉ mở khi giấy còn nguyên và có nhân viên dịch vụ bảo vệ chứng kiến."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.144",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.sealing-open"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Người đến đầu tiên kiểm tra giấy không rách, không mất và thông tin không biến dạng. Chỉ mở khi giấy còn nguyên và có nhân viên dịch vụ bảo vệ chứng kiến."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.145",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-damage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chỉ mở niêm phong khi giấy còn nguyên, thông tin không bị biến dạng và có bảo vệ chứng kiến. Nếu giấy rách, mất hoặc thông tin bị biến dạng, chụp hiện trạng, báo ngay quản lý và HCNS rồi lập biên bản tại chỗ có chữ ký bảo vệ."
+      ],
+      "required_limitations": [
+        "Giấy bong không được nêu riêng. Nếu không thể xác nhận giấy còn nguyên, giữ nguyên hiện trạng và báo quản lý để được hướng dẫn."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.146",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-incident-record"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.147",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-incident-record"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chụp ảnh hiện trạng giấy và cửa, báo ngay cấp quản lý và HCNS, rồi lập biên bản xử lý tại chỗ. Nhân viên dịch vụ bảo vệ phải ký biên bản."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.148",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-missed"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "9372184afbc3c7b6f1af9c5531ef23245d556fb978ef7c6c098d728ef827254c"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nếu quên niêm phong hoặc lỡ mở khi chưa có bảo vệ chứng kiến, báo ngay cho quản lý cơ sở và HCNS để xác nhận cách xử lý, đồng thời thông tin cho bảo vệ tại chỗ. Quy trình thông thường yêu cầu bảo vệ chứng kiến việc dán và mở."
+      ],
+      "required_limitations": [
+        "Thông báo không có quy trình khắc phục riêng cho việc quên dán hoặc lỡ mở. Nếu phát hiện giấy rách, mất hoặc biến dạng, áp dụng quy trình ghi nhận bất thường trong thông báo."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.149",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-late-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Xin chấp thuận ra vào ngoài giờ, ngày nghỉ hoặc ngày lễ theo Nội quy lao động. Liên hệ quản lý cơ sở và bảo vệ để thống nhất việc mở, bàn giao và niêm phong lại. Quy định niêm phong yêu cầu bảo vệ chứng kiến việc dán và mở."
+      ],
+      "required_limitations": [
+        "Thông báo không quy định quy trình riêng cho mở ngoài giờ, ngày lễ hoặc tình huống khẩn cấp. Xác nhận cách xử lý tại địa điểm trước khi thao tác."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.150",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-late-entry"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Xin chấp thuận ra vào ngoài giờ, ngày nghỉ hoặc ngày lễ theo Nội quy lao động. Liên hệ quản lý cơ sở và bảo vệ để thống nhất việc mở, bàn giao và niêm phong lại. Quy định niêm phong yêu cầu bảo vệ chứng kiến việc dán và mở."
+      ],
+      "required_limitations": [
+        "Thông báo không quy định quy trình riêng cho mở ngoài giờ, ngày lễ hoặc tình huống khẩn cấp. Xác nhận cách xử lý tại địa điểm trước khi thao tác."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.151",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-violation"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "9372184afbc3c7b6f1af9c5531ef23245d556fb978ef7c6c098d728ef827254c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d28cdba2412e5d5bec9d0de9fc1c65ef5c153a1cbe75e54e294fd4877cea54c9"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d9f5282c94bd07967368aceb27040d5592c48ddb4b1c0db0b286c87eb289aad0"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thông báo yêu cầu nhân viên và đơn vị bảo vệ chấp hành, đồng thời nêu vi phạm sẽ được xử lý theo quy định. Với nhân viên, HCNS xem xét theo Nội quy lao động. Với dịch vụ bảo vệ, HCNS đối chiếu lỗi với hợp đồng và làm việc với nhà cung cấp."
+      ],
+      "required_limitations": [
+        "Thông báo niêm phong không quy định một mức xử lý cụ thể cho mọi hành vi."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.152",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-live-status"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đề nghị người có trách nhiệm tại cơ sở kiểm tra sổ niêm phong và xác nhận hiện trạng với bảo vệ hoặc quản lý kho. Khi mở, người đến đầu tiên kiểm giấy và bảo vệ chứng kiến theo quy định."
+      ],
+      "required_limitations": [
+        "Thông báo chỉ quy định quy trình, nên chưa thể xác nhận cửa kho hiện đã niêm phong hoặc giấy còn nguyên."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.153",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-forms"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "13429aa8a125f22133ed474ab83c9f24df6407ed13be7356efe396ff2adec4b4"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Thông báo yêu cầu dùng giấy niêm phong có dấu công ty, ký sổ niêm phong và lập biên bản tại chỗ khi giấy có dấu hiệu bất thường. Liên hệ HCNS hoặc Quản lý cơ sở để xin mẫu đang sử dụng."
+      ],
+      "required_limitations": [
+        "Các trích đoạn quy định không có tệp mẫu giấy, sổ hoặc biên bản để tải trực tiếp."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.154",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.guard-site-request"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh khảo sát và đề xuất số lượng, vị trí bảo vệ theo mẫu RTV/2020-01. Ban An ninh gửi đề xuất đã được Ban Giám đốc duyệt cho HCNS trước 3 ngày so với ngày cần sử dụng bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.policy.building-guard-sealing.155",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.building-guard-sealing.sealing-damage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chỉ mở niêm phong khi giấy còn nguyên, thông tin không bị biến dạng và có bảo vệ chứng kiến. Nếu giấy rách, mất hoặc thông tin bị biến dạng, chụp hiện trạng, báo ngay quản lý và HCNS rồi lập biên bản tại chỗ có chữ ký bảo vệ."
+      ],
+      "required_limitations": [
+        "Giấy bong không được nêu riêng. Nếu không thể xác nhận giấy còn nguyên, giữ nguyên hiện trạng và báo quản lý để được hướng dẫn."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    }
+  ]
+}

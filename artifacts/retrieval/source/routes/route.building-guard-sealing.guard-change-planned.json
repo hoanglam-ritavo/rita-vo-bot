@@ -1,0 +1,49 @@
+{
+  "id": "route.building-guard-sealing.guard-change-planned",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.guard-change-planned",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thay bảo vệ",
+          "đổi bảo vệ",
+          "thay người bảo vệ"
+        ],
+        [
+          "theo kế hoạch",
+          "có kế hoạch"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi thay bảo vệ theo kế hoạch, nhà cung cấp phải báo cho ai và trước bao lâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi ca bảo vệ",
+          "đổi nhân sự bảo vệ"
+        ],
+        [
+          "theo kế hoạch"
+        ],
+        [
+          "báo trước",
+          "báo ai"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "route.bravo-vpn.manual",
+  "family": "software",
+  "task_id": "task.bravo-vpn.manual",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tài liệu hướng dẫn",
+          "tên tài liệu",
+          "hướng dẫn cài"
+        ],
+        [
+          "Bravo",
+          "Bravo8"
+        ],
+        [
+          "nằm ở đâu",
+          "cho mình xin tên",
+          "tài liệu ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài liệu hướng dẫn cài VPN và truy cập Bravo 8 nằm ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

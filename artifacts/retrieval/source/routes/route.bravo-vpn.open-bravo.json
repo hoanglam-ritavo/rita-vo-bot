@@ -1,0 +1,48 @@
+{
+  "id": "route.bravo-vpn.open-bravo",
+  "family": "software",
+  "task_id": "task.bravo-vpn.open-bravo",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "VPN"
+        ],
+        [
+          "Bravo",
+          "Bravo8",
+          "Bravo Desktop"
+        ],
+        [
+          "mở Bravo",
+          "khởi động Bravo",
+          "chạy Bravo",
+          "bật trước",
+          "kết nối xong",
+          "mở ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có cần bật VPN trước khi mở Bravo 8 không?",
+          "Sau khi kết nối VPN thành công, tôi mở Bravo 8 ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

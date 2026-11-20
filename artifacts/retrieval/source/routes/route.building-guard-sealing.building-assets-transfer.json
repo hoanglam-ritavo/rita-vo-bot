@@ -1,0 +1,37 @@
+{
+  "id": "route.building-guard-sealing.building-assets-transfer",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.building-assets-transfer",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "điều chuyển tài sản",
+          "điều chuyển thiết bị"
+        ],
+        [
+          "thông báo",
+          "báo bộ phận nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi điều chuyển tài sản tại Tây Đô, quản lý tòa nhà phải thông báo cho bộ phận nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của",
+    "ở chi nhánh khác",
+    "ở tòa nhà khác",
+    "tại một cơ sở khác",
+    "không phải tây đô"
+  ]
+}

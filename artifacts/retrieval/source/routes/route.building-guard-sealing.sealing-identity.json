@@ -1,0 +1,34 @@
+{
+  "id": "route.building-guard-sealing.sealing-identity",
+  "family": "administration",
+  "task_id": "task.building-guard-sealing.sealing-identity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thông báo",
+          "mã văn bản",
+          "văn bản nào"
+        ],
+        [
+          "niêm phong cửa",
+          "niêm phong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Thông báo nào quy định việc niêm phong cửa văn phòng, chi nhánh và kho, và tôi có thể xem ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

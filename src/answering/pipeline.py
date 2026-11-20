@@ -187,6 +187,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         workit_labels = dict(analysis.workit_comparison_labels)
         claims, complete = [], True
         limitations, reasons = list(analysis.scope_limits) if analysis.workit_action else [], set()
+        source_gaps = 0
         if limitations:
             complete = False
             reasons.add('section_incomplete')
@@ -199,6 +200,8 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                 limitations.append('Chưa có hướng dẫn có nguồn cho phần thông tin bạn yêu cầu.')
                 continue
             complete = complete and section.complete
+            if not section.units:
+                source_gaps += 1
             if not section.complete:
                 reasons.add('section_incomplete')
                 limitations.extend(section.limitations or [
@@ -243,6 +246,9 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                        intro=analysis.scope_intro or '' if analysis.workit_action or analysis.scope_system == 'workit' else '',
                        reason=None if complete else reason,
                        limitations=[] if complete else list(dict.fromkeys(limitations)))
+            return row
+        if source_gaps and source_gaps == len(cards) * len(aspects):
+            row.update(reason='policy_source_limit', limitations=list(dict.fromkeys(limitations)))
             return row
     if contextual and len(cards) == 1:
         aspect_labels = {'paperwork': 'hồ sơ, giấy tờ', 'conditions': 'điều kiện',

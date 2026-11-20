@@ -1,0 +1,42 @@
+{
+  "id": "route.bravo-vpn.audit",
+  "family": "software",
+  "task_id": "task.bravo-vpn.audit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "Bravo",
+          "Bravo8",
+          "VPN"
+        ],
+        [
+          "ghi nhật ký",
+          "lưu nhật ký",
+          "nhật ký truy cập",
+          "log truy cập"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Kết nối VPN và thao tác trên Bravo 8 có được ghi nhật ký không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "mật khẩu của đồng nghiệp",
+    "mật khẩu của một đồng nghiệp",
+    "mật khẩu của người khác",
+    "mã xác thực của đồng nghiệp",
+    "bỏ qua xác thực",
+    "bỏ qua VPN",
+    "vượt qua phân quyền",
+    "trực tiếp vào máy cho tôi",
+    "cài giúp tôi",
+    "đăng nhập giúp tôi",
+    "cấp quyền giúp tôi"
+  ]
+}

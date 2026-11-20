@@ -1,0 +1,4890 @@
+{
+  "schema_version": 1,
+  "group_id": "software.bravo-vpn",
+  "turns": [
+    {
+      "case_id": "q.software.bravo-vpn.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.overview"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả Bravo 8 là hệ thống ERP cho nhân viên được phân công sử dụng theo vai trò."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-role"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "0fbdd674c43a50ee5b0a1f67da034f5627813254bfc5e32ec96cf30592852b77"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "VPN là mạng riêng ảo.",
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-role"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "0fbdd674c43a50ee5b0a1f67da034f5627813254bfc5e32ec96cf30592852b77"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "VPN là mạng riêng ảo.",
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.network-scope"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ],
+      "required_limitations": [
+        "Cần xác định máy đang dùng mạng công ty hay mạng bên ngoài. Hướng dẫn không chẩn đoán nguyên nhân của một lỗi truy cập cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.005",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.network-scope"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ],
+      "required_limitations": [
+        "Cần xác định máy đang dùng mạng công ty hay mạng bên ngoài. Hướng dẫn không chẩn đoán nguyên nhân của một lỗi truy cập cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.office-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.007",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.branch-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ],
+      "required_limitations": [
+        "Tài liệu phân biệt mạng công ty và mạng ngoài công ty, chưa xác nhận mạng của từng chi nhánh. Áp dụng theo mạng thực tế, không chỉ theo vị trí."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.008",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.remote-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Khi ở mạng ngoài công ty, mở kết nối VPN RitaVO đã được HCNS IT thiết lập và chọn Connect. Trạng thái Connected xác nhận đã kết nối."
+      ],
+      "required_limitations": [
+        "Tài liệu có hướng dẫn cho mạng bên ngoài như ở nhà. Chưa xác nhận điều kiện theo quốc gia, địa điểm công tác hoặc thiết bị cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.009",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.public-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN."
+      ],
+      "required_limitations": [
+        "Mạng công cộng là ví dụ mạng ngoài công ty trong hướng dẫn. Tài liệu chưa quy định riêng về kết nối 4G/5G hoặc điều kiện bảo mật khi dùng Wi-Fi công cộng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.010",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.personal-vpn"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chỉ mô tả kết nối RitaVO do HCNS IT cài. Chưa có căn cứ để xác nhận VPN cá nhân được phép hoặc có thể thay thế kết nối này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.011",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.account-distinction"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Hai trạng thái kết nối và quyền ứng dụng được kiểm tra riêng. Tài liệu chưa xác nhận hai hệ thống dùng cùng tài khoản hay tài khoản riêng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.012",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.connected-permission"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.013",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.open-bravo"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.014",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.session-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.015",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.016",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.new-user"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Hướng dẫn áp dụng cho nhân viên được phân công sử dụng Bravo 8. Chưa xác nhận biểu mẫu, bước phê duyệt hoặc thời hạn cấp quyền."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.017",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-provisioning"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Hướng dẫn xác định đầu mối cài đặt. Chưa có kênh nộp yêu cầu chính thức hoặc quy trình cấp tài khoản VPN được xác nhận."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.018",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-provisioning"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu nêu nhóm cấp phân quyền, chưa có kênh nộp yêu cầu, quy trình duyệt hoặc thời hạn xử lý quyền Bravo 8."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.019",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-provisioning"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Hướng dẫn xác định đầu mối cài đặt. Chưa có kênh nộp yêu cầu chính thức hoặc quy trình cấp tài khoản VPN được xác nhận."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.020",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-provisioning"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu nêu nhóm cấp phân quyền, chưa có kênh nộp yêu cầu, quy trình duyệt hoặc thời hạn xử lý quyền Bravo 8."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.021",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.provisioning-process"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.022",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.provisioning-process"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.023",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.provisioning-process"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.024",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.provisioning-process"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận hai quyền có dùng chung yêu cầu không, ai phê duyệt, cần điền gì, xử lý bao lâu hoặc theo dõi ở đâu."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.025",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.eligibility"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả Bravo 8 là hệ thống ERP cho nhân viên được phân công sử dụng theo vai trò."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận quyền của từng nhóm lao động hoặc khả năng cấp quyền tạm thời. Cần kiểm tra với đầu mối cấp quyền."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.026",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.eligibility"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả Bravo 8 là hệ thống ERP cho nhân viên được phân công sử dụng theo vai trò."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận quyền của từng nhóm lao động hoặc khả năng cấp quyền tạm thời. Cần kiểm tra với đầu mối cấp quyền."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.027",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.access-lifecycle"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.028",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.access-lifecycle"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.029",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.access-lifecycle"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về ngày hết hạn, gia hạn, thay đổi đơn vị, nghỉ dài hạn hoặc thu hồi khi nghỉ việc."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.030",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.031",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.032",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.manual"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài liệu RTV/ERP/Bravo-VPN là hướng dẫn cài đặt và kết nối Bravo 8 qua VPN, phiên bản 1.0 cập nhật ngày 11/11/2023. Có thể mở tài liệu từ nguồn dẫn của câu trả lời."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.033",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-setup"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.034",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-setup"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.035",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-install"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, kiểm tra email của KSNB IT System để nhận phiên bản Bravo 8 mới nhất. Tài liệu nêu hai nơi tải là ổ mạng Public và thư mục Office 365 SharePoint. Có thể nhờ KSNB IT System hoặc HCNS IT hỗ trợ cài."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.036",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-entry"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.037",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-entry"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.038",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-order"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Khi ở mạng ngoài công ty, mở kết nối VPN RitaVO đã được HCNS IT thiết lập và chọn Connect. Trạng thái Connected xác nhận đã kết nối."
+      ],
+      "required_limitations": [
+        "Tài liệu mô tả thứ tự kết nối khi sử dụng ngoài công ty, chưa quy định phải cài phần mềm nào trước."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.039",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.first-connection"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Khi ở mạng ngoài công ty, mở kết nối VPN RitaVO đã được HCNS IT thiết lập và chọn Connect. Trạng thái Connected xác nhận đã kết nối."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.040",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-setup"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu mô tả kết nối VPN RitaVO trên Windows đã được IT thiết lập, chưa công bố bộ cài riêng hoặc cấu hình tự cài. Liên hệ HCNS IT để xác nhận thiết lập áp dụng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.041",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Hướng dẫn ngày 11/11/2023 nêu KSNB IT System và HCNS IT là đầu mối hỗ trợ cài phiên bản Bravo 8."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.042",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Hướng dẫn ngày 11/11/2023 nêu KSNB IT System và HCNS IT là đầu mối hỗ trợ cài phiên bản Bravo 8."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.043",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Hướng dẫn ngày 11/11/2023 nêu KSNB IT System và HCNS IT là đầu mối hỗ trợ cài phiên bản Bravo 8."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.044",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Hướng dẫn ngày 11/11/2023 nêu KSNB IT System và HCNS IT là đầu mối hỗ trợ cài phiên bản Bravo 8."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.045",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.personal-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận máy cá nhân được phép hay các yêu cầu bảo mật áp dụng. Kiểm tra với HCNS IT trước khi cài đặt hoặc kết nối."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.046",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.personal-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận máy cá nhân được phép hay các yêu cầu bảo mật áp dụng. Kiểm tra với HCNS IT trước khi cài đặt hoặc kết nối."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.047",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-entry"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Hướng dẫn mô tả Bravo Desktop. Chưa xác nhận địa chỉ truy cập web, yêu cầu trình duyệt, môi trường máy tính từ xa hoặc phiên bản đang phát hành."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.048",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.setup-device"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT cài Bravo Desktop cho nhân viên mới được phân công sử dụng và thiết lập VPN cho máy dùng từ ngoài công ty.",
+        "Hướng dẫn ngày 11/11/2023 nêu KSNB IT System và HCNS IT là đầu mối hỗ trợ cài phiên bản Bravo 8."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không công bố yêu cầu quyền quản trị, danh sách hệ điều hành hoặc thiết bị hỗ trợ, hay quy trình khi đổi hoặc cài lại máy."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.049",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.update"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, kiểm tra email của KSNB IT System để nhận phiên bản Bravo 8 mới nhất. Tài liệu nêu hai nơi tải là ổ mạng Public và thư mục Office 365 SharePoint. Có thể nhờ KSNB IT System hoặc HCNS IT hỗ trợ cài."
+      ],
+      "required_limitations": [
+        "Tài liệu hướng dẫn cập nhật Bravo 8, chưa xác nhận quy trình cập nhật VPN RitaVO. Hỏi HCNS IT nếu cần kiểm tra phần VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.050",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.051",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.052",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.first-login"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.053",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.054",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.055",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.first-login"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.056",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.first-login"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có hướng dẫn đã xác nhận về mật khẩu lần đầu, ảnh hưởng khi đổi mật khẩu công ty hoặc cách mở khóa tài khoản của từng hệ thống."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.057",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.mfa"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.058",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.mfa"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.059",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.mfa"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận VPN yêu cầu MFA hay cách thiết lập hoặc khôi phục khi không nhận mã, đổi hoặc mất điện thoại. Hỏi HCNS IT qua kênh chính thức và giữ kín mã xác thực."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.060",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.sessions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.061",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.sessions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.062",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.connection-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.063",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.open-bravo"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.064",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.065",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.066",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận loại tài khoản, quy trình đặt lại mật khẩu hay nguyên nhân lỗi xác thực VPN. Liên hệ HCNS IT để xác minh quy trình."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.067",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.068",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.069",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.session-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.070",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.vpn-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chỉ cho biết cách nhận diện hồ sơ RitaVO và trạng thái Connected. Chưa đủ để xác định lỗi thời gian chờ, chứng chỉ, thiết bị hoặc khác biệt giữa các mạng. Báo HCNS IT triệu chứng và mạng đang dùng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.071",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.072",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.073",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.074",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.075",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-error"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Connected xác nhận kết nối VPN. Tài liệu chưa đủ để xác định nguyên nhân phía máy chủ Bravo, phần mềm hoặc tài khoản từ triệu chứng này."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.076",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.bravo-account"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập.",
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa xác nhận tên tài khoản đăng nhập, cách đặt lại mật khẩu hoặc nguyên nhân của lỗi đăng nhập cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.077",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.078",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.079",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.app-permissions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa có danh sách quyền theo phân hệ, cách kiểm tra hoặc xin thêm quyền, cách chọn đơn vị dữ liệu hoặc nguyên nhân lỗi của một thao tác cụ thể."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.080",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.performance"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không có quy trình chẩn đoán hiệu năng, xuất báo cáo, tải tệp hoặc in chứng từ. Mô tả thao tác và thông báo lỗi cho đầu mối hỗ trợ để kiểm tra."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.081",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.performance"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Hướng dẫn không có quy trình chẩn đoán hiệu năng, xuất báo cáo, tải tệp hoặc in chứng từ. Mô tả thao tác và thông báo lỗi cho đầu mối hỗ trợ để kiểm tra."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.082",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.diagnosis"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Các dấu hiệu này giúp tách lớp kết nối và quyền ứng dụng. Tài liệu chưa có cây chẩn đoán Internet hoặc Bravo để kết luận nguyên nhân."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.083",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.084",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.transaction"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.085",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.transaction"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.086",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.transaction"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.087",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.session-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.088",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.sessions"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO.",
+        "Hướng dẫn v1.0 mô tả chạy Bravo8.exe sau khi cài hoặc giải nén bộ cài, với phân quyền do KSNB IT System cấp."
+      ],
+      "required_limitations": [
+        "Chưa xác nhận giới hạn đăng nhập đồng thời, số thiết bị hay thời gian tự ngắt khi không hoạt động."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.089",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.transaction"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn v1.0 nêu KSNB IT System là đầu mối hỗ trợ nếu không sử dụng được Bravo 8 theo hướng dẫn."
+      ],
+      "required_limitations": [
+        "Chưa có căn cứ để xác nhận dữ liệu chưa lưu, trạng thái lưu/duyệt có hiệu lực hay khả năng đồng bộ ngoại tuyến. Trước khi gửi hoặc lưu lại, xác minh kết quả của thao tác trước qua đầu mối phụ trách Bravo."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.090",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.session-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.091",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.092",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.remote-policy"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa quy định khung giờ, vùng địa lý hoặc loại thiết bị được phép. Mạng ngoài công ty là điều kiện kết nối trong hướng dẫn, chưa phải xác nhận đủ điều kiện cho thiết bị hay trường hợp cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.093",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.remote-policy"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Theo hướng dẫn v1.0, HCNS IT thiết lập VPN. Trên máy Windows đã được thiết lập, kiểm tra hồ sơ RitaVO trong phần VPN của biểu tượng mạng hoặc trong VPN Settings."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa quy định khung giờ, vùng địa lý hoặc loại thiết bị được phép. Mạng ngoài công ty là điều kiện kết nối trong hướng dẫn, chưa phải xác nhận đủ điều kiện cho thiết bị hay trường hợp cụ thể."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.094",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.security-policy"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.095",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.security-policy"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.096",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.security-policy"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "d4dde97db24eaa74b902336453c98d26d067615fc1fed53cee6b1df30cc8db07"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn v1.0, Bravo 8 sử dụng phân quyền do KSNB IT System cấp. Cài phần mềm không tự cấp thêm quyền truy cập."
+      ],
+      "required_limitations": [
+        "Chưa có quy định có nguồn về lưu mật khẩu, dùng chung tài khoản hoặc lưu, in và tải dữ liệu trên máy cá nhân. Hãy giữ kín thông tin xác thực và xác nhận quy định với bộ phận phụ trách."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.097",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.security-incident"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa nêu kênh ứng cứu bảo mật chính thức. Liên hệ kênh IT chính thức càng sớm càng tốt và tránh gửi mật khẩu hoặc mã xác thực."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.098",
+      "turn": 0,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "forbidden_documents": [
+        "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.audit"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_limitations": [
+        "Tài liệu Bravo 8 v1.0 không xác nhận VPN hay Bravo 8 có ghi nhật ký, ai được xem hoặc thời gian lưu nhật ký. Hỏi bộ phận IT phụ trách để xác nhận quy định áp dụng."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "retrieve_statuses": [
+        "evidence_found",
+        "no_evidence"
+      ],
+      "retrieve_forbidden_documents": []
+    },
+    {
+      "case_id": "q.software.bravo-vpn.099",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.support"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Các đầu mối được dẫn theo hướng dẫn năm 2023. Xác minh kênh tiếp nhận hiện hành trước khi gửi thông tin."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.100",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.support-intake"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chưa công bố danh sách thông tin bắt buộc. Có thể mô tả thời điểm, bước thao tác và mã lỗi. Trước khi gửi ảnh, che mật khẩu, mã xác thực, thông tin cá nhân và dữ liệu chứng từ không cần thiết."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.101",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.support-intake"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn chưa công bố danh sách thông tin bắt buộc. Có thể mô tả thời điểm, bước thao tác và mã lỗi. Trước khi gửi ảnh, che mật khẩu, mã xác thực, thông tin cá nhân và dữ liệu chứng từ không cần thiết."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.102",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.103",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.104",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.105",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.session-network"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "eba4dc32849645cad06e786015d1513165cf704a0df7c8e9cae085635f3f4e46"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "6dfc2df1c3e95b2e9838f3023221aa0c6c8b885c99f8da924ce524af7ee45f7a"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Theo hướng dẫn Bravo 8, chỉ kết nối VPN RitaVO khi dùng mạng ngoài công ty, chẳng hạn ở nhà hoặc nơi công cộng. Khi đã ở trong mạng công ty, không cần bước kết nối VPN.",
+        "Trong hướng dẫn v1.0, trạng thái Connected xác nhận đã kết nối VPN RitaVO."
+      ],
+      "required_limitations": [
+        "Tài liệu chưa mô tả nguyên nhân tự ngắt, yêu cầu giữ VPN liên tục, việc đăng nhập lại hoặc thứ tự đóng ứng dụng và ngắt VPN."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.software.bravo-vpn.106",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.bravo-vpn.incident-status"
+      ],
+      "forbidden_task_ids": [
+        "task.58052a5dd19656e6afb6b0d2ecf5b169",
+        "task.bravo-vpn-connect",
+        "task.bravo-install",
+        "task.bravo-support",
+        "task.topic.bravo-warning",
+        "task.office-365.bravo-sharepoint"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "3ed6866d-f10f-4c3e-82d6-d35fd18eff90"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "94b1c7f439a97f9bb183bb7848cb58e21783a8812a3f30538ad9ad6f1a1db1e4"
+        },
+        {
+          "document_id": "3ed6866d-f10f-4c3e-82d6-d35fd18eff90",
+          "revision_id": "69e1a108-786f-4f46-b49d-5db6b84db666",
+          "quote_sha256": "4952949ac0f2fb63f454e4a82a8dcc649f1cff683722e6bcb0856a39ca4906c6"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Hướng dẫn ngày 11/11/2023 nêu HCNS IT phụ trách thiết lập VPN, KSNB IT System hoặc HCNS IT hỗ trợ cài Bravo 8 và KSNB IT System hỗ trợ lỗi sử dụng Bravo."
+      ],
+      "required_limitations": [
+        "Hướng dẫn năm 2023 chưa xác nhận bảng thông báo sự cố, lịch bảo trì hiện hành, trực ngoài giờ, cách theo dõi yêu cầu hoặc quy trình thay thế khi gần hạn chốt số liệu."
+      ],
+      "fallback_reasons": [
+        "verify_operational_data"
+      ]
+    }
+  ]
+}
