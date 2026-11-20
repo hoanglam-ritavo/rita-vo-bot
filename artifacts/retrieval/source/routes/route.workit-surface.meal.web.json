@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.meal.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.meal.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "suất ăn"
+        ],
+        [
+          "q2",
+          "đăng ký",
+          "tạo phiếu"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "meal"
+}

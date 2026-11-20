@@ -605,7 +605,7 @@ def test_vehicle_procedure_and_related_forms_use_current_citations(sample, routi
     ('làm sao để xem phiếu lương của mình trên Workit', 'task.business.workit-salary.bcc9e137'),
     ('làm sao để xin thêm bút và giấy cho phòng ban', 'task.5370844d82725638822c191c4a255ed0'),
     ('cách đổi mật khẩu tài khoản Workit Mobile', 'task.business.systems.mobile-password.2cb00d36'),
-    ('cách thay mật khẩu tài khoản của tôi trên Workit', 'task.workit-password'),
+    ('cách thay mật khẩu tài khoản của tôi trên Workit Web', 'task.workit-password'),
     ('lỡ không bấm vân tay thì phải làm gì', 'task.business.forgot-clock.c9973704'),
     ('làm sao để ghi nhận giờ công khi đi công tác bên ngoài', 'task.topic.attendance-external'),
     ('cách đưa khách vào công ty', 'task.business.visitors.7f1f2cf6'),
@@ -988,9 +988,13 @@ def test_multiple_aspects_and_topic_change_drop_old_request(routing):
     plan, state = plan_turn('Thêm thủ tục', state, cat, lex, policy=policy)
     assert set(plan.aspects) == {'paperwork', 'conditions', 'procedure'}
     plan, state = plan_turn('Đăng nhập và đổi mật khẩu Workit', state, cat, lex, policy=policy)
-    assert plan.cards[0].id == 'task.workit-password'
+    assert plan.clarification == 'Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?'
+    assert plan.missing_slots == ('surface',)
     assert not state['request']['slots'].get('days')
     assert not state['request']['slots'].get('subtype')
+    plan, state = plan_turn('Web', state, cat, lex, policy=policy)
+    assert [card.id for card in plan.cards] == ['task.workit-password']
+    assert state['request']['slots']['surface'] == 'web'
     _, state = plan_turn('Hủy yêu cầu', state, cat, lex, policy=policy)
     assert state['request'] is None and state['turn_kind'] == 'cancel'
     plan, state = plan_turn('Còn giấy tờ thì sao?', state, cat, lex, policy=policy)
@@ -999,8 +1003,9 @@ def test_multiple_aspects_and_topic_change_drop_old_request(routing):
 
 def test_platform_correction_never_reuses_unrelated_software_instructions(routing):
     cat, lex, policy = routing
-    first, state = plan_turn('Đăng nhập và đổi mật khẩu Workit', {}, cat, lex, policy=policy)
-    assert first.cards[0].id == 'task.workit-password'
+    first, state = plan_turn('Đăng nhập và đổi mật khẩu Workit Web', {}, cat, lex, policy=policy)
+    assert [card.id for card in first.cards] == ['task.workit-password']
+    assert state['request']['slots']['surface'] == 'web'
     plan, _ = plan_turn('Không phải Workit, tôi dùng E-Leave', state, cat, lex, policy=policy)
     assert not plan.cards and (plan.clarification or plan.document_message)
 

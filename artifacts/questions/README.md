@@ -99,6 +99,13 @@ personal records. In source-fixture mode, `unavailable_documents` removes the
 named document IDs for one turn and leaves other sources available. Readonly and
 socket runs defer these controlled scenarios.
 
+The additional Workit matrix keeps the Web and Mobile cases in
+`software/workit-surfaces.json`. Its cases group the seven guides by account,
+HR, office, workflow, purchasing and approval. Oracles assert exact citations,
+the absence of evidence from the other interface, and the action and
+interface retained in conversation context. Cases in the original Workit
+bank whose expected outcome is interface selection retain their original IDs.
+
 For Retrieve, `retrieve_statuses` declares allowed endpoint outcomes and
 `retrieve_documents` can require matches or require the absence of document
 lookup, including `document_status: null`. `retrieve_forbidden_documents` can

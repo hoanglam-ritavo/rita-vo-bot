@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.stationery-track.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.stationery-track.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "văn phòng phẩm"
+        ],
+        [
+          "lọc",
+          "theo dõi",
+          "xuất danh sách",
+          "in phiếu"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "stationery-track"
+}

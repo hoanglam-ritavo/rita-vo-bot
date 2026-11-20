@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.leave-approval.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.business.systems.workit-leave-approval.d906cfac",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt nghỉ phép",
+          "duyệt đơn nghỉ phép",
+          "phiếu phép chuyển duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "leave-approval"
+}

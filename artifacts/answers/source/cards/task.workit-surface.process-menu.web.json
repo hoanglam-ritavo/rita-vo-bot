@@ -1,0 +1,80 @@
+{
+  "id": "task.workit-surface.process-menu.web",
+  "label": "Workit Web · Danh mục Quy trình số trên Web",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Danh mục Quy trình số trên Web"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về danh mục quy trình số trên web?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.process-menu.web",
+          "text": "Workit Web. Vào Apps → Quy trình số. Tài liệu liệt kê các mục thay đổi thông tin nhân sự, bổ sung bằng cấp, thay đổi ca và các nhóm phiếu nghiệp vụ.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 0,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "6876e446f2e011c29f73479aeead3924edb03c0ec7dd8bc51d24ed953fdc096d",
+              "quote": "Workit — phân hệ Quy trình số (HDSD-29/3/25-V1): mở biểu tượng Apps > Quy trình số. Menu gồm Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/Về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp và Đề nghị thay đổi ca làm việc. Danh sách menu không đồng nghĩa tài liệu này hướng dẫn chi tiết mọi chức năng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Danh mục xác nhận vị trí các mục. Tài liệu chưa hướng dẫn chi tiết tất cả biểu mẫu."
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.process-menu.web",
+          "text": "Workit Web. Vào Apps → Quy trình số. Tài liệu liệt kê các mục thay đổi thông tin nhân sự, bổ sung bằng cấp, thay đổi ca và các nhóm phiếu nghiệp vụ.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 0,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "6876e446f2e011c29f73479aeead3924edb03c0ec7dd8bc51d24ed953fdc096d",
+              "quote": "Workit — phân hệ Quy trình số (HDSD-29/3/25-V1): mở biểu tượng Apps > Quy trình số. Menu gồm Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/Về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp và Đề nghị thay đổi ca làm việc. Danh sách menu không đồng nghĩa tài liệu này hướng dẫn chi tiết mọi chức năng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Danh mục xác nhận vị trí các mục. Tài liệu chưa hướng dẫn chi tiết tất cả biểu mẫu."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

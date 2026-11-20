@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.resign.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.resign.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu xét nghỉ việc",
+          "tạo phiếu nghỉ việc"
+        ],
+        [
+          "tạo",
+          "bằng",
+          "được không"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "resign",
+  "surface_limited": true
+}

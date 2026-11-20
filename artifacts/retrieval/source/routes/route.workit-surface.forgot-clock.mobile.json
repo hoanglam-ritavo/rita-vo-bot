@@ -1,0 +1,26 @@
+{
+  "id": "route.workit-surface.forgot-clock.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.forgot-clock.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bổ sung công",
+          "quên chấm công"
+        ],
+        [
+          "điền gì",
+          "lập phiếu",
+          "lỗi máy",
+          "tạo phiếu",
+          "đăng ký"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "forgot-clock",
+  "surface_limited": true
+}

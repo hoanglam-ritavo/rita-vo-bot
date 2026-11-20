@@ -1,0 +1,26 @@
+{
+  "id": "route.workit-surface.handover.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.handover.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ticket bbbg",
+          "phiếu bbbg",
+          "biên bản bàn giao"
+        ],
+        [
+          "mn",
+          "mb",
+          "đính kèm",
+          "trước khi nghỉ",
+          "nghỉ việc"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "handover"
+}

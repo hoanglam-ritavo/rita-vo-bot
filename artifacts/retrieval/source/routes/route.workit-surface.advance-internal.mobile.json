@@ -1,0 +1,18 @@
+{
+  "id": "route.workit-surface.advance-internal.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.advance-internal.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạm ứng nội bộ"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "advance-internal",
+  "surface_limited": true
+}

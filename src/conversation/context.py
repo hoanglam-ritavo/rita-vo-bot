@@ -8,6 +8,7 @@ import re
 
 from src.answering.planning import analyze_question, choice_labels, unknown_topic_prompt
 from src.answering.slots import SLOT_LABELS, parse_inputs
+from src.retrieval.policy import workit_surface_reply, workit_surfaces
 from src.type_b.tasks import TASKS, normalized
 from .continuation import ASPECTS, recognize, input_update, starts_new_request
 
@@ -39,7 +40,8 @@ def valid_context(previous):
         if any(type(request[key]) is not bool for key in ('self_reference', 'document_guidance') if key in request):
             return False
         slots = request.get('slots', {})
-        if not isinstance(slots, dict) or set(slots) - {'system', 'subtype', 'days', 'sessions', 'granularity', 'intent'}:
+        if not isinstance(slots, dict) or set(slots) - {
+                'system', 'subtype', 'days', 'sessions', 'granularity', 'intent', 'surface', 'workit_action'}:
             return False
         for key, value in slots.items():
             if key in ('days', 'sessions'):
@@ -47,6 +49,9 @@ def valid_context(previous):
                     return False
             elif value is not None and (not isinstance(value, str) or not 1 <= len(value) <= 100):
                 return False
+        if (slots.get('surface') not in (None, 'web', 'mobile')
+                or (slots.get('surface') or slots.get('workit_action')) and slots.get('system') != 'workit'):
+            return False
         if slots.get('days') is not None and slots.get('sessions') is not None:
             return False
         if slots.get('granularity') not in (None, 'day', 'session') or slots.get('intent') not in (None, 'policy', 'submission', 'procedure'):
@@ -231,7 +236,15 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         chosen, added_aspects = [card for card in candidates if card.id == selected_task], ()
     active_task = old.get('task_id') or old.get('input_task_id')
     item = re.fullmatch(r'(?:(?:con|ve|giai thich) )?muc (?:thu |so )?(\d+)(?: (?:trong|o|cua) cau tra loi truoc)?(?: thi sao)?', query)
-    if prior and len(chosen) == 1:
+    surface_query = re.sub(r'^con |^minh dung |^toi dung | thi sao$| thi the nao$| thoi$| nhe$| a$', '', query)
+    next_surface = workit_surface_reply(surface_query)
+    if prior and prior.get('slots', {}).get('workit_action') and next_surface and not selected_task:
+        request = deepcopy(prior)
+        request['slots']['surface'] = next_surface
+        request.pop('source_id', None)
+        request.pop('selected_task', None)
+        continuation, turn_kind = True, 'selection' if old.get('pending') == 'slots' else 'correction'
+    elif prior and len(chosen) == 1:
         request = {**prior, 'selected_task': chosen[0].id}
         if prior.get('document_guidance') and old.get('pending') == 'task':
             request['question'] = chosen[0].label
@@ -279,7 +292,16 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
             request = deepcopy(prior)
             slots = request.setdefault('slots', {})
             changed = any(slots.get(key) != value for key, value in update.slots.items())
+            previous_subtype = slots.get('subtype')
             slots.update(update.slots)
+            if 'subtype' in update.slots and slots.get('workit_action') == previous_subtype:
+                if slots.get('surface') and update.slots['subtype']:
+                    slots['workit_action'] = update.slots['subtype']
+                else:
+                    slots.pop('workit_action', None)
+            if slots.get('system') != 'workit':
+                slots.pop('surface', None)
+                slots.pop('workit_action', None)
             if update.aspects:
                 request['aspects'] = list(dict.fromkeys([*prior.get('aspects', []), *update.aspects])) if update.add else list(update.aspects)
             if update.submission and root_family:
@@ -318,6 +340,14 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
             profile_query = profile_query[:-len(suffix)]
     if not continuation and old.get('profile_self') and any(profile_query in task.aliases for task in TASKS):
         request['self_reference'] = True
+    previous_slots = prior.get('slots', {}) if prior else {}
+    if not continuation and previous_slots.get('workit_action') and not request['slots'] and policy is not None:
+        mentioned_system = policy.analyze(text).system
+        explicit_surfaces = workit_surfaces(query)
+        if explicit_surfaces and not mentioned_system:
+            request['slots']['system'] = 'workit'
+        elif mentioned_system == 'workit' and not explicit_surfaces and previous_slots.get('surface'):
+            request['slots'].update(system='workit', surface=previous_slots['surface'])
     analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
     independent = bool(analysis.parts or analysis.unsupported_person or analysis.cards
                        or analysis.document_lookup or analysis.missing_slots or analysis.recognized_topic
@@ -380,6 +410,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         if root.days is not None or root.sessions is not None:
             slots['granularity'] = root.granularity
         request['slots'] = {**slots, **request.get('slots', {})}
+        if analysis.workit_action:
+            request['slots'].update(system='workit', workit_action=analysis.workit_action)
+            if analysis.workit_surface:
+                request['slots']['surface'] = analysis.workit_surface
     state = _state(analysis, request, recent, stamp)
     if (analysis.check_scopes or analysis.refresh_choices) and len(analysis.cards) <= 5:
         state['scope_task_ids'] = [card.id for card in analysis.cards]

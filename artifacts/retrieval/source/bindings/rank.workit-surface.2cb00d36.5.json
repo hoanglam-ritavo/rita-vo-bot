@@ -1,0 +1,33 @@
+{
+  "id": "rank.workit-surface.2cb00d36.5",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "mobile",
+  "ref": {
+    "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+    "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+    "chunk_index": 5,
+    "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+    "content_sha256": "3c5561f2e348e75f15e24b196c03ea95f130e666fa05e5954bff592afb0308c7",
+    "quote": "Workit Mobile — duyệt phiếu: chọn Duyệt trên phiếu hoặc menu ba chấm, nhập ý kiến nếu có, mở file đính kèm để xem, bấm dấu tích xác nhận góc trên. Sau khi duyệt thành công, phiếu chuyển từ Chờ duyệt sang Đang xử lý để bộ phận khác xử lý tiếp; không có nghĩa toàn quy trình đã hoàn tất. Nhấn biểu tượng quy trình để xem tên bước, trạng thái, người thực hiện, ngày và ý kiến; có tab Lịch sử.",
+    "metadata": {
+      "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+      "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.business.systems.mobile-history.2cb00d36",
+    "task.workit-surface.approve.mobile",
+    "task.workit-surface.mobile-status.mobile"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

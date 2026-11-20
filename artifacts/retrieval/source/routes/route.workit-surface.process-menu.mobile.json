@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.process-menu.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.process-menu.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tăng ca",
+          "tuyển dụng",
+          "quên chấm công"
+        ],
+        [
+          "ở phân hệ nào",
+          "tìm mục",
+          "menu"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "process-menu",
+  "surface_limited": true
+}

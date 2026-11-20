@@ -1,0 +1,80 @@
+{
+  "id": "task.workit-surface.po.web",
+  "label": "Workit Web · Tạo đơn hàng mua hàng PO",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tạo đơn hàng mua hàng PO"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về tạo đơn hàng mua hàng po?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.po.web",
+          "text": "Workit Web. Mở Mua hàng → Đơn hàng mua hàng → Thêm. Chọn loại chứng từ và chọn đề nghị mua sắm có lập PO đã được duyệt, xác nhận rồi nhập và lưu thông tin.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 13,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "14472008dbe1b99683599f3c10fe6f12e172ebf9ac0fa71c0ee964e73956a1f2",
+              "quote": "Workit — khai báo đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Đoạn này không xác lập cơ chế tự động lấy dòng hàng vì bước mô tả cơ chế đó trong nguồn bị lẫn tên chứng từ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Cách hệ thống tự lấy dòng hàng chưa được mô tả nhất quán trong phần này."
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.po.web",
+          "text": "Workit Web. Mở Mua hàng → Đơn hàng mua hàng → Thêm. Chọn loại chứng từ và chọn đề nghị mua sắm có lập PO đã được duyệt, xác nhận rồi nhập và lưu thông tin.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 13,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "14472008dbe1b99683599f3c10fe6f12e172ebf9ac0fa71c0ee964e73956a1f2",
+              "quote": "Workit — khai báo đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Đoạn này không xác lập cơ chế tự động lấy dòng hàng vì bước mô tả cơ chế đó trong nguồn bị lẫn tên chứng từ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Cách hệ thống tự lấy dòng hàng chưa được mô tả nhất quán trong phần này."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

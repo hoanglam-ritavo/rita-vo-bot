@@ -1,0 +1,30 @@
+{
+  "id": "route.workit-surface.attendance.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.attendance.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xem công cá nhân",
+          "bảng công cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xem công"
+        ],
+        [
+          "chọn kỳ",
+          "theo kỳ"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "attendance",
+  "surface_limited": true
+}

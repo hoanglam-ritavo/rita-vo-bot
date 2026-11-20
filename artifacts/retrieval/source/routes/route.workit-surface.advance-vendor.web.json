@@ -1,0 +1,17 @@
+{
+  "id": "route.workit-surface.advance-vendor.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.advance-vendor.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạm ứng nhà cung cấp"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "advance-vendor"
+}

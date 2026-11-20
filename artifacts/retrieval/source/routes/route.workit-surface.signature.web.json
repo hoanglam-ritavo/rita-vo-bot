@@ -1,0 +1,36 @@
+{
+  "id": "route.workit-surface.signature.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.signature.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cấu hình chữ ký",
+          "chữ ký số"
+        ],
+        [
+          "ảnh",
+          "cấu hình",
+          "định dạng",
+          "ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ảnh chữ ký"
+        ],
+        [
+          "định dạng",
+          "xóa nền",
+          "chuẩn bị"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "signature"
+}

@@ -13522,6 +13522,2468 @@
         "procedure"
       ],
       "system": "epostal"
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 0,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "0571b3843ec0a5c6d295e84f05687cb541cc3a59190fa3899b3f023d5f23d980",
+        "quote": "Workit — HDSD phân hệ Nhân sự, HDSD-29/3/25-V1, IT-HCNS. Mở Apps > Nhân sự để xem: Sơ đồ tổ chức, Thông tin nhân sự, Sơ yếu lý lịch, Hợp đồng lao động, Quá trình công tác, Bằng cấp, Gia đình, Khen thưởng cá nhân, Kỷ luật, Trang thiết bị, Quá trình tham gia BHXH. Đây là danh mục chức năng trong tài liệu, không phải danh mục quyền lợi nhân viên.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.hr-menu.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 1,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "57450941b0eb7e6b4fe3e999834e167f06e2f93a83405120e9df50ae165f2a41",
+        "quote": "Workit — tải ứng dụng: Android dùng https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi; iOS dùng https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Khi đăng nhập trên điện thoại, dùng nút Đổi địa chỉ để đặt https://office.ritavo.com, rồi nhập Username và Password của người dùng. Các tài khoản trong ảnh chỉ là ví dụ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 2,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "2b9f247237f222556cd4409592e04aed53bc921d1635c7bfaf8fdc4847dd3f32",
+        "quote": "Workit — đăng nhập bằng trình duyệt tại https://office.ritavo.com. Theo hướng dẫn, User ID và Password được gửi tới mail từng người dùng. Sau lần đăng nhập đầu tiên, chọn ảnh tài khoản > Đổi mật khẩu, nhập mật khẩu cũ, mật khẩu mới và nhập lại mật khẩu mới, bấm Đổi mật khẩu.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-password"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 3,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "70edb990155118b339d89a2862a6d91bac999694aba9ed158386f2bccdbe17b1",
+        "quote": "Workit — màn hình chính sau đăng nhập hiển thị lịch làm việc, bàn làm việc, thông báo tin tức. Menu Apps có Công việc, Dự án, Văn phòng số, Quy trình số, Mua hàng, Nhân sự, Chấm công, Tiền lương, Hệ thống. Các ảnh số liệu trên màn hình chỉ minh họa giao diện, không cung cấp số liệu nhân sự hiện tại.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.home.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 4,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "10f203d16560baadba40b12fc09b21b743b12a349cfd996decead9fce86d1491",
+        "quote": "Workit — nút thao tác dữ liệu: Thêm (F2) tạo mới; biểu tượng sửa/xóa tác động dữ liệu đang chọn; Xuất Excel mẫu, Import Excel mẫu và Xuất Excel dữ liệu là các thao tác khác nhau. Nhân bản sao chép nhanh dữ liệu. Lưu (F8) lưu phần vừa cập nhật; Hủy hủy phần vừa cập nhật.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-shortcuts"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 5,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "cdb565b280945baa756f6cf391b2e8f40cb5295e6c54fcf63ba17892485af337",
+        "quote": "Workit — nút phê duyệt: Duyệt xác nhận đề nghị; Bỏ duyệt hủy thao tác đã duyệt; Trả lại quay về bước cần duyệt lại trước đó; Từ chối không chấp nhận đề nghị và hủy các bước sau; Bỏ từ chối hủy thao tác từ chối trước đó. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem file đính kèm, quy trình xem các bước phê duyệt.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.approval-buttons.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.6",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 6,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "8a1e1a72b41e400fd41b75dd50522ec7c99df4cc11b61f9e9df40c777716341f",
+        "quote": "Workit — cấu hình chữ ký số: vào Apps > Hệ thống > Cấu hình chữ ký số. Hướng dẫn dùng chữ ký cho phiếu cung ứng, mua sắm, đề nghị thanh toán, hồ sơ nghỉ việc và HĐLĐ; nguồn ghi riêng HĐLĐ cần đăng ký chữ ký số với đơn vị được cấp phép. Chọn Choose File, kiểu Hình bên trên, thông tin bên dưới rồi Save. Ảnh có tỷ lệ 582x300, định dạng .png, chữ ký mực xanh, đã xóa nền. Giá trị HSM ID/HSM Key trong ảnh không phải thông tin để sao chép sử dụng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.signature.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.7",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 7,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "f93f820891c0ec418aeca8c04a1327266903774661ada5c016e5b64732deee69",
+        "quote": "Workit — chuẩn bị ảnh chữ ký theo hướng dẫn: chữ ký mực xanh, xóa phông nền, file .png. Tài liệu minh họa https://www.remove.bg/vi/upload: tải lên hoặc kéo thả ảnh, chọn Nền > Màu sắc > không màu nền, đóng và Tải xuống.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.signature.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.8",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 8,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "7d48f783088a0712e364298e24220daf6009542147ee1bbdc3530865e1684e88",
+        "quote": "Workit — thay avatar: chọn ảnh tài khoản > Thông tin tài khoản > Thay đổi hình đại diện. Trong tab thay đổi hình, nút số 1 chọn ảnh chèn vào, nút số 2 lưu ảnh đã chọn để hoàn tất.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.avatar.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.9",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 9,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "080c1757174489c8bac3f4205cbb7dae72d4985beac01924109408f580680a1e",
+        "quote": "Workit — xem cơ cấu tổ chức: Apps > Nhân sự > Sơ đồ tổ chức. Màn hình minh họa cây công ty, phòng ban, đội và số nhân sự; ảnh trong hướng dẫn không xác nhận cơ cấu hoặc số nhân viên hiện tại.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.organization.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.10",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 10,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "6053c0c11ade119adb460e70cb3a7f41eab2ca339aeec011bb6b5a78d4a41a96",
+        "quote": "Workit — xem hồ sơ cá nhân: Apps > Nhân sự > Xem thông tin nhân sự hoặc Sơ yếu lý lịch. Theo hướng dẫn, mỗi nhân sự chỉ xem thông tin cá nhân và sơ yếu lý lịch của bản thân mình.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.profile.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.11",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 11,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "ee4e4e0c504b28712bd3c51fc668bcc272eb0ba8dead9f341f5de7cb40c0169b",
+        "quote": "Workit — xem thông tin hợp đồng: Apps > Nhân sự > Hợp đồng lao động. Chức năng quản lý hợp đồng thử việc, chính thức, không xác định thời hạn. Trang này không hướng dẫn thủ tục xin nghỉ việc hay chấm dứt hợp đồng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.contract.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.12",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 12,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "9b38ce758beaa2a7d33fd8dca9f5310480957f6c1cc9486eea006e8cacf4948d",
+        "quote": "Workit — Quá trình công tác trong phân hệ Nhân sự quản lý lịch sử trong thời gian làm việc tại công ty. Mỗi cá nhân chỉ xem quá trình của mình. Màn hình có thời gian từ/đến ngày, loại điều chuyển, đơn vị, khối, phòng ban, bộ phận, nhóm, tổ, chức vụ/chức danh và loại nhân viên.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.history.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.13",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 13,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "9631ff02afa0f33208561c4ffb8e27c70df3b442f2519ccf291911ce78359551",
+        "quote": "Workit — chức năng Gia đình trong Nhân sự quản lý người thân khi nhân viên đã khai báo và danh sách người phụ thuộc. Màn hình có họ tên người thân, quan hệ, giới tính, ngày/nơi sinh, nghề nghiệp và thời gian phụ thuộc từ/đến ngày. Đây là hướng dẫn giao diện, không xác nhận điều kiện giảm trừ thuế của từng người.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.family.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.14",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 14,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "07fb045b7c40a8cc7fb38229e653b77ad130e074d196da3e91903dae4291045d",
+        "quote": "Workit — Nhân sự > Khen thưởng cá nhân hoặc Kỷ luật dùng quản lý thông tin khen thưởng và kỷ luật của nhân viên. Dữ liệu vi phạm trong ảnh là minh họa; tài liệu này không thiết lập mức xử lý kỷ luật hoặc chính sách tiền thưởng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.rewards.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.15",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 15,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "e9ea5853d19371bee735b42b4e56d5c5ad03a5151ea11fa96930920ca3e54ee6",
+        "quote": "Workit — Nhân sự > Trang thiết bị quản lý thiết bị nhân sự đang dùng và lịch sử cấp phát, đổi máy, sửa chữa. Các trường minh họa: Ngày cấp, Thiết bị, Số lượng, Mục đích sử dụng, Ghi chú.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.equipment.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.16",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 16,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "1e8c97974ac3f9c4f19eba2bc4b98f2a814314e730ced682d239a7b6499d6a71",
+        "quote": "Workit — Nhân sự > Quá trình tham gia BHXH hiển thị lịch sử với số/ngày quyết định, phương án, từ/đến tháng, chức vụ, chức danh và ô Tham gia BHXH. Ảnh mẫu không phải dữ liệu đóng BHXH hiện tại của người hỏi và không xác nhận quyền hưởng thai sản.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.insurance.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.17",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 17,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "b50a204cc0f71ada77182d70706cd7b5f7e16561aaf7c0fc9e066deb1e2fc50b",
+        "quote": "Workit — xem phiếu lương của bản thân theo tháng: Apps > Tiền lương > Phiếu lương; B1 chọn tháng lương, B2 tìm tên nhân sự, B3 nhấn Tìm. Đây là thao tác tra cứu; hướng dẫn không cung cấp mức lương thực tế hiện tại của người dùng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.salary.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.18",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 18,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "95fa268ad7337a5028ec1ceaf3fd9e4e6e4918714a50e9b1284a3641b8b982e9",
+        "quote": "Workit — xem công cá nhân: Apps > Chấm công > Xem công cá nhân; chọn kỳ/bảng lương cần xem theo màn hình tháng và nhấn Tập hợp. Nguồn dùng nhãn “Chọn bảng lương cần xem” tại trang hướng dẫn công cá nhân. Bảng chấm công trong ảnh là ví dụ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.attendance.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.19",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 19,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "cf22b4f526b03ee883e9ae920f9f3b544c039a2182b8e77d11aa26b2b580cb9b",
+        "quote": "Workit — bổ sung công do quên chấm công: nhập các trường bắt buộc Người quên chấm công, Loại, Ngày/giờ công. Loại gồm Do cá nhân quên hoặc Do máy chấm công lỗi. Dùng + thêm dòng, chọn ngày và thời gian; có nút copy/xóa dòng; bấm Lưu (F8). Sau tạo phiếu xuất hiện ở Đang xử lý, đợi quản lý phê duyệt. Sau phê duyệt thông tin gửi về nhân sự ghi nhận, cập nhật đúng công.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.forgot-clock.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.bcc9e137.20",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+        "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+        "chunk_index": 20,
+        "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+        "content_sha256": "04d0c62e2d3a4d5729b0681329e7824444410663815add3866c6691a48de1eaa",
+        "quote": "Workit — theo dõi phiếu bổ sung công: tab Đang xử lý chờ quản lý phê duyệt; phiếu đỏ chưa hoàn thành, xanh đã hoàn thành. Biểu tượng quy trình xem các bước Đăng ký Quên chấm công > Duyệt Quên chấm công > Thông báo nhân sự. Biểu tượng hội thoại xem trao đổi, kẹp giấy xem đính kèm; có nút sửa/xóa dữ liệu đang chọn. Nhân sự cập nhật công sau khi quản lý phê duyệt.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+          "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.clock-track.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 0,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "4bd15031300eb25f9bbd40609138f04a38ff53e4d46c9886a9cda7863221ae64",
+        "quote": "Workit — mở Apps > Văn phòng số. Menu có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV. Hướng dẫn HDSD-29/3/25-V1 không trình bày chi tiết tạo tài liệu/thư viện chia sẻ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.office-menu.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 1,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "71f05f674eaf7c5de8456b9f6a0e622de08d7681fc4e728ce53f910320cc0546",
+        "quote": "Workit — vì sao không thấy Văn bản đi: Hành chính quản lý, nhập liệu và cấp quyền cho người có yêu cầu; mặc định không có dữ liệu nếu chưa được chia sẻ. Khi được cấp quyền, xem thông báo tại Bàn làm việc hoặc vào Văn phòng số > Văn bản đi. Ba quyền riêng là Xem, Tải, Chia sẻ; quyền xem không tự động là quyền tải hoặc chia sẻ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 2,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "72a80678215ab9cd82ff4ae16af22ce12d7b7be33da84a2245669dec3a686941",
+        "quote": "Workit — xem/tải văn bản khi được phân quyền: mở Văn bản đi, nhấn icon tệp đính kèm rồi icon file để mở. Nếu có quyền Tải, dùng nút tải cạnh file hoặc Tải xuống tất cả. Văn bản đến và Giấy ủy quyền sử dụng thao tác/phân quyền tương tự.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-download",
+        "task.workit-surface.authorization.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 3,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "f98f29842fc8fe9bced6f832b296d1e115f352fde80bc12eda36cf10d141efc8",
+        "quote": "Workit — chia sẻ văn bản khi có quyền Chia sẻ: chọn Chia sẻ, tìm nhân sự, cấp quyền Xem/Tải/Chia sẻ cho một hoặc nhiều người, chọn Gửi email nếu cần rồi OK. Quyền chia sẻ do Hành chính phân quyền; không mặc định mọi người đều có.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-sharing"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 4,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175",
+        "quote": "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-incoming",
+        "task.workit-surface.authorization.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 5,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "0e92b5a515f863468492cbe637bb2324f37ced2f1f764f644fd84e152dac060b",
+        "quote": "Workit — đọc Thông báo – Tin tức: chọn tin ở tab Thông báo & Tin tức trên trang chủ; hoặc Bàn làm việc > Thông báo, tin tức chưa xem; hoặc Apps > Văn phòng số > Thông báo – Tin tức. Chức năng đăng sự kiện, quyết định, công bố và hình ảnh hoạt động doanh nghiệp.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.news.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.c3c03611.6",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+        "chunk_index": 6,
+        "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+        "content_sha256": "7594cf46c16820b7f87ac9724f3f87679f966d7f1a882a1f6909e88891ce93c9",
+        "quote": "Workit — tìm liên hệ đồng nghiệp: Apps > Văn phòng số > Danh bạ CBNV; lọc đơn vị, phòng ban, khối hoặc dùng ô tìm kiếm. Danh bạ có họ tên, chức danh, khối, đơn vị, email, điện thoại, ngày tháng sinh và avatar. Tài liệu chỉ hướng dẫn tra cứu; thông tin cá nhân trong ảnh không xác lập liên hệ hiện tại.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.directory.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 0,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "6876e446f2e011c29f73479aeead3924edb03c0ec7dd8bc51d24ed953fdc096d",
+        "quote": "Workit — phân hệ Quy trình số (HDSD-29/3/25-V1): mở biểu tượng Apps > Quy trình số. Menu gồm Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/Về sớm, Đi công tác, Xe công tác, Phòng họp, Phiếu thay đổi thông tin nhân sự, Phiếu xét nghỉ việc, Quên chấm công, Suất ăn, Đề nghị bổ sung bằng cấp và Đề nghị thay đổi ca làm việc. Danh sách menu không đồng nghĩa tài liệu này hướng dẫn chi tiết mọi chức năng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.process-menu.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 1,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "1e217d69dea6c69acd38155624574ac39a18fd78bc887048bcae7dcbd7f2f41a",
+        "quote": "Workit — đề nghị văn phòng phẩm: admin/quản lý phòng ban tổng hợp nhu cầu, vào Quy trình số > Văn phòng phẩm > Thêm mới. Nhập Nội dung (các trường dấu sao bắt buộc), thêm dòng bằng +/F4, gõ tên để chọn mã hàng, nhập số lượng đề nghị từng hàng rồi Lưu/F8. Số lượng duyệt ban đầu bằng số đề nghị và người duyệt có thể điều chỉnh. Có xóa dòng, sao chép dòng và đính kèm. Hệ thống lấy quản lý trực tiếp: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt để HCNS đặt hàng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 2,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "11a16979306f88bc276be693f3eb24b0d56b914ee6c77b4f660f20add67e7120",
+        "quote": "Workit — theo dõi văn phòng phẩm: lọc thời gian, tình trạng, nội dung/khách hàng/số chứng từ; có in phiếu chọn, xuất danh sách, tải mẫu import và import file. Phiếu mới màu đỏ; xem/sửa, xóa hoặc xem quy trình bằng icon cạnh phiếu. Màu xanh biểu thị quy trình phê duyệt hoàn tất.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.stationery-track.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 3,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3",
+        "quote": "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.business.systems.workit-leave-approval.d906cfac",
+        "task.leave.workit.annual",
+        "task.workit-surface.leave-status.web",
+        "task.workit-surface.unpaid.web"
+      ],
+      "aspects": [
+        "conditions",
+        "overview",
+        "paperwork",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 4,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "1e4c621126dc49f7c0fadad82c77071efa179adc9aeb2ce2d1064653463cae1c",
+        "quote": "Workit — loại nghỉ trên phiếu Nghỉ phép: P Nghỉ phép (Annual); CD Nghỉ chế độ (làm cha, cưới hỏi, tang chế); K Nghỉ không hưởng lương; KL Nghỉ không xin phép; O1 Nghỉ ốm dài ngày không lương; S1 Nghỉ thai sản. Khi đăng ký nghỉ thai sản, chọn S1 và khai lý do, từ ngày/đến ngày, hình thức Sáng/Chiều/Nguyên ngày rồi lưu. Danh mục phần mềm không tự xác lập điều kiện hưởng chế độ. Màn hình hiển thị tổng số phép còn lại, số phép được sử dụng; số trong ảnh chỉ là minh họa.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.leave.workit.annual",
+        "task.workit-surface.leave-status.web",
+        "task.workit-surface.maternity.web",
+        "task.workit-surface.unpaid.web"
+      ],
+      "aspects": [
+        "conditions",
+        "overview",
+        "paperwork",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 5,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712",
+        "quote": "Workit — đăng ký đi trễ/về sớm: Quy trình số > Đi trễ/Về sớm > Thêm/F2. Chọn loại Lý do cá nhân hoặc Lý do công việc, nhập lý do, thêm dòng, chọn ngày. Đến trễ nhập ô Giờ đến trễ; về sớm nhập ô Giờ về sớm; nhập diễn giải và Lưu/F8. Có đính kèm. Hệ thống lấy quản lý trực tiếp của người lập phiếu: Đăng ký > Duyệt Đi trễ/Về sớm > Thông báo nhân sự; theo dõi trạng thái ở các tab.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.late-early.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.6",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 6,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "56e7ae3857c580d92e77b4dce4a7f6569986d5c242d8ea83729544470b2e96bb",
+        "quote": "Workit — lập phiếu đi công tác: Quy trình số > Đi công tác > Thêm/F2; chọn loại công tác, phương tiện và lý do. Thêm dòng chi tiết gồm người công tác, từ ngày, đến ngày, thời gian, nơi đi, nơi đến; có thể khai nhiều người. Thêm dòng chi phí, chọn chi phí, nhập tiền; diễn giải chi phí không bắt buộc. Tải tệp nếu cần và Lưu/F8. Theo dõi tab trạng thái hoặc tìm theo người/lý do, thời gian. Số tiền trong ảnh là ví dụ, không phải định mức công tác phí.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.business-trip.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.7",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 7,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29",
+        "quote": "Workit — đặt xe công tác cho cá nhân/phòng ban tại chi nhánh, showroom, kho vận: Quy trình số > Xe công tác > Thêm. Chọn xe, tài xế, thời gian từ ngày/giờ đến ngày/giờ, nơi đi/nơi đến, tổng người đi; chọn danh sách người đi chính, đi cùng hoặc để biết rồi Lưu. Tìm/lọc danh sách nhân viên khi chọn. Có ghi chú và đính kèm. Hành chính quản lý xe văn phòng; bộ phận kinh doanh quản lý xe kinh doanh. Danh sách xem dạng lưới hoặc ngày.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.car.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.8",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 8,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "72003e8d83ea29e84120365518358f24df2821a1638a1b6fb42a41a247baee4f",
+        "quote": "Workit — đặt phòng họp nội bộ, đối tác hoặc nhà cung cấp: Quy trình số > Phòng họp > Thêm. Chọn phòng, ngày và giờ bắt đầu/kết thúc, tổng số người, nội dung; chọn các tiện ích cần chuẩn bị (chọn nhiều được), chọn người chủ trì/tham gia/để biết rồi Lưu. Có ghi chú, đính kèm và tùy chọn chỉ người họp xem nội dung. Hành chính quản lý phòng và sắp xếp. Theo dõi Ngày, Tuần, Lưới hoặc Lịch họp hôm nay.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.room.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.9",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 9,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f",
+        "quote": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.resign.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.10",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 10,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db",
+        "quote": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.resign-flow.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.d906cfac.11",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+        "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+        "chunk_index": 11,
+        "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+        "content_sha256": "dd32e085453b40ad9dc45ce0e92753882ffc26fb99a1ae0f22e84bd2d4d49a2f",
+        "quote": "Workit — đăng ký suất ăn trưa tại bếp Văn phòng Q2–HCM: Quy trình số > Suất ăn > Thêm/F2. Nhập ngày đăng ký, nội dung, thêm dòng, chọn người ăn và khoảng từ ngày/đến ngày, diễn giải rồi Lưu/F8; có đính kèm. Hệ thống tự chuyển phiếu đến Phòng HCNS kiểm tra, đăng ký và cấn trừ vào lương. Đây là phạm vi bếp ăn trong tài liệu, không khẳng định áp dụng mọi địa điểm.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+          "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.meal.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 0,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "fff86904271c3f9832ccc30d6c8f72fd3e406ec62240e7e9c0b98da04542e9c7",
+        "quote": "Workit phần 3-2, HDSD-12/4/25-V1: hướng dẫn Công việc, Dự án, Đề xuất cung ứng, Đề nghị mua sắm, Đơn hàng mua hàng, Đề nghị thanh toán và Đề nghị tạm ứng. Các chức năng mua hàng truy cập Apps > Mua hàng; thanh toán/tạm ứng tại Quy trình số; công việc và dự án có menu riêng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.purchase-menu.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 1,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "80ccfb7a4b6dae4344c3fc5caf3218afdec59a4fd97779281a0ec588b5930104",
+        "quote": "Workit — tạo công việc: vào menu Công việc > Tạo công việc/F2, nhập thông tin (dấu * đỏ bắt buộc), chọn người tham gia và Lưu. Người giao việc là người tạo phiếu; người chủ trì là người thực hiện. Form có tiêu đề, mô tả, kết quả, thời gian từ/đến, nhắc việc, định kỳ, Chủ trì/Phối hợp/Để biết và đính kèm. Xem công việc dạng Lịch hoặc Lưới; lọc tình trạng, vai trò tham gia và ưu tiên.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 2,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "9439d48f81ee1c729f574dd293865f78ea6f63bae1a134d1b6055dc380b15eff",
+        "quote": "Workit — hoàn tất hoặc bỏ hoàn tất công việc: chọn công việc > Hoàn tất/Bỏ hoàn tất > nhập ý kiến > xác nhận Hoàn tất/Bỏ hoàn tất. Có thể trao đổi qua phần Bình luận ở màn hình công việc.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.finish-task.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 3,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "9d42eebe3db02bdfe673cf60f1083ef7f6c18e29975636ec6a76b08b7d2a3a54",
+        "quote": "Workit — chuyển người chủ trì hoặc thêm người tham gia: mở công việc, tại ô Chủ trì chọn người cần chuyển hoặc thêm người tham gia, rồi Lưu. Để tạo công việc con: mở công việc cha > Tạo việc con > nhập thông tin công việc con > Lưu/F8.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.subtask.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 4,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "bab978b973925ddcde5d860437d1eb153dead6284cbe85de4d769a4afc6af6b1",
+        "quote": "Workit — xin gia hạn deadline công việc: người chủ trì mở công việc cần gia hạn > Đề nghị gia hạn > nhập lý do và ngày gia hạn mới > Đề nghị gia hạn > Lưu. Yêu cầu còn cần phê duyệt; không đồng nghĩa hạn mới đã được chấp nhận.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.extend.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 5,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "7f238bd9732f9b59fe552e8fbcdd89599266d296eb4ac9556f1d39aab27392bc",
+        "quote": "Workit — duyệt/từ chối gia hạn công việc: mục Gia hạn hoặc Bàn làm việc > Công việc > Xin gia hạn, chọn công việc chờ phê duyệt > Duyệt gia hạn/Từ chối gia hạn > nhập ý kiến > Đồng ý/Từ chối.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.extend.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.6",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 6,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "b617f88d603f101c9237aa26e87eb57eaed7b434fdb66d01ec2678f60ecdae45",
+        "quote": "Workit — tạo dự án: menu Dự án > Thêm/sửa (Dự án/hạng mục) > Thêm > nhập thông tin dự án và thành viên > Lưu/F8. Thêm hạng mục: cùng màn hình, chọn dòng dự án > dấu + > nhập thông tin hạng mục > Lưu/F8. Thêm công việc dự án: chọn dự án và hạng mục phát sinh công việc > + > nhập công việc > Lưu/F8.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.project.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.7",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 7,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "68dac94fccdcf43850dea342dc9156282ce76414119680d7a1dd716a61be07e5",
+        "quote": "Workit — thao tác trong màn hình Hồ sơ dự án: chọn dự án cần cập nhật, nhấn Thêm tài liệu, nhập thông tin tài liệu, tệp và quyền truy cập rồi Lưu/F8. Các quyền trên màn hình gồm Xem/Tải/Chia sẻ, không mặc định mọi người đều xem được. Đoạn này chỉ mô tả thao tác tại màn hình, không xác lập đường dẫn menu để mở màn hình đó.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.project-file.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.8",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 8,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "30af8d522df7ea7e61f7a34174ed32f3820a6f5371a0208f1efa7f1167c58b76",
+        "quote": "Workit — sửa/xóa dự án hoặc hạng mục: vào Dự án > Thêm/sửa (Dự án/hạng mục), dùng icon sửa hoặc thùng rác tại dòng tương ứng. Điều kiện xóa dự án: phải hết hạng mục liên quan.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.project-edit.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.9",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 9,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "a233ba45e6a093da9a265800b25ee1d9a9b588c26fb2c3aaafe1780d0fe307c1",
+        "quote": "Workit — lập đề xuất cung ứng: Apps > Mua hàng > Đề xuất cung ứng > Thêm > chọn loại chứng từ theo đơn vị > Thêm. Chọn loại đề xuất theo nhu cầu, nhập thông tin phiếu và hàng hóa/dịch vụ, đính kèm file/hình ảnh/email nếu có rồi Lưu.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.supply.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.10",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 10,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "a6ded9db3cac25ae484c605a2250831b1b8a3544e083f9ae3714b95a399528f1",
+        "quote": "Workit — phê duyệt đề xuất cung ứng: Chờ bạn duyệt > chọn dòng đề nghị > Duyệt > nhập ý kiến > Duyệt. Xem các bước và trạng thái bằng icon quy trình ở dòng phiếu. Sửa phiếu: icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa hoặc xóa đề xuất chưa qua bước phê duyệt nào.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.supply-approval.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.11",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 11,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "4f97a01255f49e63873dca40297c33a239063ce8b9714dda43d3c1363fa278f1",
+        "quote": "Workit — lập đề nghị mua sắm: Apps > Mua hàng > Đề nghị mua sắm > Thêm > chọn loại chứng từ có/không tạo PO theo đơn vị > Thêm. Chọn đề xuất cung ứng đã được duyệt, tích chọn và xác nhận; hệ thống lấy các dòng hàng đã duyệt. Chọn loại đề nghị mua hàng, nhập thông tin phòng mua hàng, đính kèm file so sánh giá, chọn số lượng mua toàn bộ hoặc một phần phiếu cung ứng rồi Lưu.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.purchase.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.12",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 12,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "81b1f006ab53fcfc07e7134a1645329d2d7c2fad42257c8bb188957f1851bb57",
+        "quote": "Workit — duyệt đề nghị mua sắm: Chờ bạn duyệt > chọn dòng > Duyệt > chọn người đề xuất để xác nhận thông số mua hàng, nhập ý kiến nếu có > Duyệt. Icon quy trình cho xem tiến độ. Sửa bằng icon sửa rồi Lưu, xóa bằng thùng rác; chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.purchase-approval.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.13",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 13,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "14472008dbe1b99683599f3c10fe6f12e172ebf9ac0fa71c0ee964e73956a1f2",
+        "quote": "Workit — khai báo đơn hàng mua hàng (PO): Mua hàng > Đơn hàng mua hàng > Thêm > chọn loại chứng từ > Thêm. Chọn đề nghị mua sắm có lập PO đã được duyệt, tích chọn và xác nhận, nhập thông tin cần thiết rồi Lưu. Đoạn này không xác lập cơ chế tự động lấy dòng hàng vì bước mô tả cơ chế đó trong nguồn bị lẫn tên chứng từ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.po.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.14",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 14,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "67f02b27ac7006703a6e1ab38df63f61d431b13dc9fc33fa9b734489d089dd32",
+        "quote": "Workit — lập đề nghị thanh toán: Quy trình số > Đề nghị thanh toán > Thêm > chọn loại chứng từ > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu. Nhập thông tin thanh toán, đơn vị, hình thức chuyển khoản hoặc tiền mặt, ngân hàng/tài khoản khi áp dụng, nội dung và thông tin hóa đơn; chọn chứng từ áp ứng/hoàn ứng nếu có rồi Lưu. Các số tiền/hóa đơn trong ảnh là ví dụ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.payment.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.15",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 15,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "0d3762dd9f49a942c2311d5e83067406cbf4bb7cd01bd6af165e4f373911e44a",
+        "quote": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.payment-track.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.16",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 16,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa",
+        "quote": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.advance-vendor.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.17",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 17,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "43994ff708fad64728043a1b98aae29a29bf32a41b0b14c329d973c958985e3f",
+        "quote": "Workit — tạm ứng nội bộ Rita Võ: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại tạm ứng nội bộ > Thêm. Nhập thông tin thanh toán; dùng +/F4 thêm dòng chi tiết, thùng rác xóa dòng, icon bản sao sao chép dòng, rồi Lưu. Đây là hướng dẫn lập phiếu, không xác lập hạn mức tiền được ứng.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.advance-internal.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.88c4a90d.18",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+        "chunk_index": 18,
+        "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+        "content_sha256": "76211439f77f17fe6992836e7c24503835377e00216f2fd4fce83c6232d114d7",
+        "quote": "Workit — sửa/xóa đề nghị tạm ứng: chọn phiếu, nhấn icon sửa, cập nhật thông tin và Lưu; muốn xóa chọn phiếu rồi nhấn thùng rác. Chỉ sửa hoặc xóa phiếu chưa qua bước phê duyệt nào.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+          "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-12/4/25-V1",
+          "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.advance-edit.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 0,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "f84cc24babc29b3d1b63a76ce462b32a4c0669ce27c9c635b23a40a8e1a818f6",
+        "quote": "Workit — thủ tục xin thôi việc: Người nghỉ việc lập Phiếu xét nghỉ việc tại office.ritavo.com > Quy trình số, lưu rồi bấm Duyệt và chọn quản lý để trình ký. Khi phiếu đã ký duyệt xong, tải file đã ký; vào Quy trình tác nghiệp (Ticket), tạo [HCNS] Hoàn tất BBBG – MN hoặc MB đúng khu vực. Đính kèm file Phiếu xét nghỉ việc đã ký và biên bản bàn giao mẫu công ty dạng PDF; Lưu & đóng. Sau khi HCNS xác nhận, chuyển người nhận bàn giao ký xác nhận, thực hiện ký số nếu quy trình yêu cầu và đợi kết quả. Đây là quy trình hồ sơ trong hướng dẫn, không quy định thời hạn báo trước.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.handover.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 1,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "59511e19c5eee1a429d8352d71ef49b203395ff0a870618739eea70b6634bfe5",
+        "quote": "Workit — I.1.a, người xin nghỉ việc tạo phiếu: Đăng nhập https://office.ritavo.com > Quy trình số > Phiếu xét nghỉ việc > Thêm (F2). Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên, Lý do nghỉ việc (các trường bắt buộc). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Lưu mới hoàn tất khai báo; cần chọn phiếu, bấm Duyệt và chọn người quản lý để trình ký.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.resign.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 2,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "ad9bc0323f986602171bf04b26c7705fd0edd49e9fd5d8cc7fe20ea5657e336f",
+        "quote": "Workit — I.1.b, gửi và theo dõi Phiếu xét nghỉ việc: Sau khi lưu có thể dùng nút sửa/xóa dữ liệu phiếu. Chọn phiếu > Duyệt, chọn đúng người quản lý/người thực hiện bước tiếp theo, ghi ý kiến nếu có, hoàn tất Duyệt. Để hủy thao tác vừa duyệt dùng Bỏ duyệt. Đợi thông báo hoàn tất; biểu tượng quy trình cho xem tiến độ, biểu tượng kẹp giấy cho xem mẫu phiếu đã ký. Tải mẫu in đã ký để đính kèm Biên bản bàn giao.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.resign-flow.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 3,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "ab87c2525a669c3edc9831e076e9ade91d0dc23e614cf4f96d51321c115b0969",
+        "quote": "Workit — II.2, lập Biên bản bàn giao khi nghỉ việc, sau khi Phiếu xét nghỉ việc đã ký duyệt xong: tải phiếu đã ký qua biểu tượng kẹp giấy. Vào Quy trình tác nghiệp (Ticket), thêm mới, nhập BBBG để chọn đúng [HCNS] Hoàn tất BBBG – MN hoặc [HCNS] Hoàn tất BBBG – MB. Bắt buộc tải 2 file: Phiếu xét nghỉ việc đã ký và Biên bản bàn giao theo mẫu công ty dạng PDF. Bấm Lưu & đóng (F8).",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.handover.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 4,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "59ca26931e804308de6759e57dfa9849bdd741c8064c37fc8bf14be60658dda6",
+        "quote": "Workit — II.2, chuyển ký Biên bản bàn giao nghỉ việc: sau Lưu & đóng, chuyên viên HCNS xác nhận phiếu. Khi nhận thông báo xác nhận từ hệ thống/HCNS, người tạo phiếu chuyển cho người nhận bàn giao ký xác nhận. Người nhận mở Bàn làm việc > Quy trình số > Ticket, chọn phiếu và Duyệt. Nếu có nút Ký số, phải ký file đính kèm theo quy trình đã khai báo: chọn đúng file, kéo chữ ký đến đúng khu vực ký. Người tạo phiếu đợi trả kết quả.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.handover-sign.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 5,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "8d851fd51e6f406908000669e9a05a7c0b11f605607c0afb10da04c065637676",
+        "quote": "Workit — mẫu Biên bản quyết toán và bàn giao công việc, trang 1/3 hiển thị trong hướng dẫn: dùng khi thôi việc khỏi công ty hoặc bàn giao để nhận công việc mới/điều chuyển chi nhánh, bộ phận. Người nhận bàn giao lưu bản scan. HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt HĐLĐ, chuyển bản photo quyết định và BBBG cho kế toán tính thanh toán hoa hồng, lương và phúc lợi nếu có. HCNS làm thủ tục thôi việc khi đủ chữ ký xác nhận các nội dung. Sau hoàn tất thủ tục và trách nhiệm tài chính nếu có, công ty quyết toán quyền lợi/nghĩa vụ tài chính cùng kỳ lương. Nguồn chỉ hiển thị trang 1/3 của mẫu.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.handover-form.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.6",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 6,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "47c1768fda23ecd28b5f9e8418bfa3dd1b366c200f886da694cfcd09d3f6a35d",
+        "quote": "Workit — các mục bàn giao trong trang 1/3 mẫu Biên bản quyết toán và bàn giao công việc được minh họa: tài sản/công cụ dụng cụ ghi tên/mã số, đơn vị tính, số lượng, tình trạng, thông tin biên bản bàn giao ban đầu (số/ngày), người nhận ký. Công việc ghi nội dung, tình hình thực hiện, cá nhân/phòng ban/bộ phận liên quan nếu có và người nhận ký. Hướng dẫn không hiển thị hai trang còn lại của mẫu; đây không phải danh sách đầy đủ mọi trường trong toàn mẫu.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.handover-form.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.7",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 7,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "791c339204d113760f1df4d0ab56748dcbb0fb01f979e78189b1f0ee51af14b7",
+        "quote": "Workit — III, người phê duyệt Phiếu xét nghỉ việc: nhận thông báo hoặc mở Trang chủ > Bàn làm việc > Phiếu xét nghỉ việc; chọn phiếu, bấm Duyệt để xác nhận bước của mình. Nhập ý kiến nếu có, lọc và chọn người thực hiện bước tiếp theo, hoàn tất Duyệt. Hướng dẫn mô tả ô Chuyển đến cấp cao hơn để chuyển tới bước được chọn khi cần bỏ qua bước kế tiếp; đây là thao tác giao diện, không tự xác lập quyền bỏ qua phê duyệt trong mọi trường hợp.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.resign-approver.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.ac98d5af.8",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+        "chunk_index": 8,
+        "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+        "content_sha256": "89ac22568845149949556c5024ef196f9df22ed7bbd3e8959379ae134aafd109",
+        "quote": "Workit — khai báo phiếu nghỉ thai sản: đăng nhập https://office.ritavo.com > Quy trình số > Nghỉ phép > Thêm (F2). Chọn Loại nghỉ phép: Nghỉ thai sản (S1, Maternity). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Đoạn này chỉ mô tả khai báo phiếu, không phải toàn bộ hồ sơ hoặc quy trình bàn giao thai sản; không nêu mức trợ cấp hay số ngày hưởng chế độ.",
+        "metadata": {
+          "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+          "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": null,
+          "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.maternity.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.4b2aadb1.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+        "chunk_index": 0,
+        "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+        "content_sha256": "58b5dae53d082ce3fc906ea03dad84c6ca2c48c91eace1d1687d28012ad22832",
+        "quote": "Workit — hướng dẫn duyệt phiếu dành cho quản lý, HDSD-29/3/25-V1: sau đăng nhập, mở Bàn làm việc để xem công việc/phiếu chờ xử lý, phê duyệt. Màu đỏ thể hiện chưa hoàn thành. Chọn dòng thông tin để đến phiếu tương ứng; các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Số lượng phiếu trong ảnh là ví dụ.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-surface.desk.web"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.4b2aadb1.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+        "chunk_index": 1,
+        "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+        "content_sha256": "ae894f7d3a3b634b8824caa1e9d67c122972ce6bfcd3810eebe9f187fc968c81",
+        "quote": "Workit — quản lý kiểm tra phiếu trước khi duyệt: click dòng phiếu để xem nhanh nội dung ở lưới phía dưới. Các icon bên cạnh cho Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và xem quy trình. Biểu tượng quy trình hiển thị những bước phê duyệt đã qua và bước hiện tại; trong ảnh minh họa bước tô đỏ là bước chờ người dùng kiểm tra, duyệt.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.4b2aadb1.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+        "chunk_index": 2,
+        "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+        "content_sha256": "6d96b3b0bfcfe48dac56159d7b7e3d7cd25ee449f0861ce605ebb41ddb96f8de",
+        "quote": "Workit — phê duyệt phiếu trên giao diện quản lý: sau khi kiểm tra và thấy đúng nhu cầu, chọn phiếu > Duyệt. Trong trang phê duyệt, nhập ý kiến nếu có, chọn phòng ban/người thực hiện bước tiếp theo rồi hoàn tất Duyệt. Chọn người theo quy trình thực tế; tên người trong ảnh chỉ minh họa.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-approve"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.4b2aadb1.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "web",
+      "ref": {
+        "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+        "chunk_index": 3,
+        "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+        "content_sha256": "cf6705290a75f2fe92bd6f1c087b00a1eafec114d091c421f8ccdd783341156d",
+        "quote": "Workit — phiếu chưa đúng hoặc cần bổ sung: quản lý dùng Trả lại hoặc Từ chối tùy phân quyền hệ thống. Khi Trả lại, nhập ý kiến, chọn một trong các bước đã duyệt để trả về và bấm Trả lại. Từ chối là thao tác riêng; quyền hiển thị/sử dụng phụ thuộc phân quyền.",
+        "metadata": {
+          "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.workit-return"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.0",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 0,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133",
+        "quote": "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.business.systems.mobile-install.2cb00d36",
+        "task.business.systems.mobile-password.2cb00d36",
+        "task.workit-surface.login.mobile"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.1",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 1,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108",
+        "quote": "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.business.systems.mobile-manager-hr.2cb00d36",
+        "task.business.systems.mobile-missing-menu.2cb00d36",
+        "task.workit-surface.attendance.mobile",
+        "task.workit-surface.authorization.mobile",
+        "task.workit-surface.create-task.mobile",
+        "task.workit-surface.mobile-menu.mobile",
+        "task.workit-surface.office-menu.mobile",
+        "task.workit-surface.po.mobile",
+        "task.workit-surface.project.mobile",
+        "task.workit-surface.purchase.mobile",
+        "task.workit-surface.resign.mobile",
+        "task.workit-surface.salary.mobile",
+        "task.workit-surface.supply.mobile"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.2",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 2,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5",
+        "quote": "Workit Mobile — menu Quy trình số có Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe, Phòng họp, Đề nghị tuyển dụng, Đề nghị khen thưởng, Quên chấm công và Suất ăn. Nhấn chức năng để mở chi tiết; số đỏ trên chức năng thể hiện số phiếu cần phê duyệt.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.topic.mobile-counters",
+        "task.workit-surface.advance-internal.mobile",
+        "task.workit-surface.advance-vendor.mobile",
+        "task.workit-surface.annual.mobile",
+        "task.workit-surface.business-trip.mobile",
+        "task.workit-surface.car.mobile",
+        "task.workit-surface.forgot-clock.mobile",
+        "task.workit-surface.late-early.mobile",
+        "task.workit-surface.maternity.mobile",
+        "task.workit-surface.meal.mobile",
+        "task.workit-surface.mobile-menu.mobile",
+        "task.workit-surface.payment.mobile",
+        "task.workit-surface.process-menu.mobile",
+        "task.workit-surface.room.mobile",
+        "task.workit-surface.stationery.mobile",
+        "task.workit-surface.unpaid.mobile"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.3",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 3,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "82ea0f44810f37d321b5c28194ab43c97fdfe3bacbce0bd52f7e5582f6d402a0",
+        "quote": "Workit Mobile — vì sao số ở menu ít hơn số phiếu bên trong: số ngoài chức năng là số phiếu chờ bạn duyệt. Bên trong còn có phiếu Đang xử lý chờ bộ phận khác. Ví dụ tài liệu: menu Đề nghị thanh toán có 2, bên trong 5 gồm 2 chờ duyệt và 3 đang xử lý. Đây là minh họa cách đếm, không phải số phiếu hiện tại của người dùng.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.topic.mobile-counters"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.4",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 4,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "aba1519e4bd77a049a2077fcf91f487da60e423d8b7976029343783f6c27b23f",
+        "quote": "Workit Mobile — kiểm tra phiếu: vào chức năng > Chờ duyệt; menu ba chấm > Xem/Sửa để xem nội dung, hoặc Xem chi tiết. Các biểu tượng ở phiếu lần lượt là bình luận/tin nhắn, tệp đính kèm, quy trình phê duyệt. Hướng dẫn giải thích màu đen không có file/tin nhắn, xanh đã hoàn thành, đỏ chưa hoàn thành.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.68369c60f81557c5b42fab416cfad7e1",
+        "task.business.systems.mobile-icons.2cb00d36"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
+    },
+    {
+      "id": "rank.workit-surface.2cb00d36.5",
+      "family": "software",
+      "role": "system_procedure",
+      "operation": "request",
+      "system": "workit",
+      "surface": "mobile",
+      "ref": {
+        "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+        "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+        "chunk_index": 5,
+        "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+        "content_sha256": "3c5561f2e348e75f15e24b196c03ea95f130e666fa05e5954bff592afb0308c7",
+        "quote": "Workit Mobile — duyệt phiếu: chọn Duyệt trên phiếu hoặc menu ba chấm, nhập ý kiến nếu có, mở file đính kèm để xem, bấm dấu tích xác nhận góc trên. Sau khi duyệt thành công, phiếu chuyển từ Chờ duyệt sang Đang xử lý để bộ phận khác xử lý tiếp; không có nghĩa toàn quy trình đã hoàn tất. Nhấn biểu tượng quy trình để xem tên bước, trạng thái, người thực hiện, ngày và ý kiến; có tab Lịch sử.",
+        "metadata": {
+          "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+          "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+          "effective_from": null,
+          "effective_to": null,
+          "version_label": "HDSD-29/3/25-V1",
+          "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+        }
+      },
+      "task_ids": [
+        "task.business.systems.mobile-history.2cb00d36",
+        "task.workit-surface.approve.mobile",
+        "task.workit-surface.mobile-status.mobile"
+      ],
+      "aspects": [
+        "overview",
+        "procedure"
+      ]
     }
   ],
   "routes": [
@@ -23705,6 +26167,2613 @@
           ]
         }
       ]
+    },
+    {
+      "id": "route.workit-surface.install.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.099a04fe8a01519dab8098c73c2b1b74",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tải ứng dụng",
+              "tải workit",
+              "tải và cấu hình",
+              "cài workit",
+              "cài ứng dụng",
+              "tìm ứng dụng",
+              "cài lại",
+              "dùng workit bằng điện thoại",
+              "bắt đầu từ đâu"
+            ],
+            [
+              "điện thoại",
+              "mobile",
+              "android",
+              "iphone",
+              "ios"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ứng dụng workit trên điện thoại"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "install",
+      "excludes_any": [
+        "cài workit mobile",
+        "cài đặt workit mobile",
+        "install workit mobile",
+        "xem phiếu",
+        "xem chi tiết phiếu",
+        "kiểm tra phiếu",
+        "duyệt phiếu"
+      ]
+    },
+    {
+      "id": "route.workit-surface.login.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-password",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đăng nhập",
+              "đăng nhập lần đầu",
+              "đổi mật khẩu",
+              "thay mật khẩu",
+              "đổi pass"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "login"
+    },
+    {
+      "id": "route.workit-surface.login.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.login.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đăng nhập",
+              "đăng nhập lần đầu",
+              "đổi mật khẩu",
+              "thay mật khẩu",
+              "đổi pass"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "login"
+    },
+    {
+      "id": "route.workit-surface.home.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.home.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trang chủ",
+              "màn hình chính"
+            ],
+            [
+              "apps",
+              "bàn làm việc",
+              "lịch làm việc",
+              "hiển thị"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "home"
+    },
+    {
+      "id": "route.workit-surface.shortcuts.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-shortcuts",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phím tắt",
+              "phím thao tác",
+              "f2",
+              "f8"
+            ],
+            [
+              "excel mẫu",
+              "phím thao tác",
+              "phím tắt",
+              "nhân bản",
+              "thao tác dữ liệu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "shortcuts"
+    },
+    {
+      "id": "route.workit-surface.avatar.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.avatar.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "avatar",
+              "ảnh đại diện",
+              "hình đại diện"
+            ],
+            [
+              "đổi",
+              "thay",
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "avatar"
+    },
+    {
+      "id": "route.workit-surface.signature.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.signature.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cấu hình chữ ký",
+              "chữ ký số"
+            ],
+            [
+              "ảnh",
+              "cấu hình",
+              "định dạng",
+              "ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ảnh chữ ký"
+            ],
+            [
+              "định dạng",
+              "xóa nền",
+              "chuẩn bị"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "signature"
+    },
+    {
+      "id": "route.workit-surface.hr-menu.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.hr-menu.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phân hệ nhân sự"
+            ],
+            [
+              "chức năng nào",
+              "danh mục",
+              "những chức năng"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "hr-menu"
+    },
+    {
+      "id": "route.workit-surface.organization.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.organization.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sơ đồ tổ chức",
+              "cây phòng ban",
+              "cơ cấu tổ chức"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "organization"
+    },
+    {
+      "id": "route.workit-surface.profile.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.profile.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sơ yếu lý lịch",
+              "xem thông tin nhân sự",
+              "hồ sơ cá nhân",
+              "hồ sơ của mình"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "profile"
+    },
+    {
+      "id": "route.workit-surface.contract.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.contract.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xem hợp đồng",
+              "hợp đồng thử việc"
+            ],
+            [
+              "hợp đồng chính thức",
+              "hợp đồng lao động"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xem"
+            ],
+            [
+              "hợp đồng lao động"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "contract"
+    },
+    {
+      "id": "route.workit-surface.history.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.history.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quá trình công tác",
+              "lịch sử điều chuyển"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "history"
+    },
+    {
+      "id": "route.workit-surface.family.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.family.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người phụ thuộc",
+              "nhân sự gia đình",
+              "thông tin gia đình"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "family"
+    },
+    {
+      "id": "route.workit-surface.rewards.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.rewards.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khen thưởng cá nhân",
+              "xem kỷ luật",
+              "mục kỷ luật"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "rewards"
+    },
+    {
+      "id": "route.workit-surface.equipment.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.equipment.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trang thiết bị",
+              "thiết bị đã cấp",
+              "lịch sử đổi máy"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "equipment"
+    },
+    {
+      "id": "route.workit-surface.insurance.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.insurance.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quá trình tham gia bhxh",
+              "lịch sử đóng bhxh",
+              "lịch sử đóng bảo hiểm"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "insurance"
+    },
+    {
+      "id": "route.workit-surface.salary.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.salary.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu lương",
+              "bảng lương"
+            ],
+            [
+              "chọn tháng",
+              "ở đâu",
+              "xem"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "salary"
+    },
+    {
+      "id": "route.workit-surface.attendance.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.attendance.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xem công cá nhân",
+              "bảng công cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xem công"
+            ],
+            [
+              "chọn kỳ",
+              "theo kỳ"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "attendance"
+    },
+    {
+      "id": "route.workit-surface.forgot-clock.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.forgot-clock.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bổ sung công",
+              "quên chấm công"
+            ],
+            [
+              "điền gì",
+              "lập phiếu",
+              "lỗi máy",
+              "tạo phiếu",
+              "đăng ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "forgot-clock"
+    },
+    {
+      "id": "route.workit-surface.clock-track.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.clock-track.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu bổ sung công",
+              "phiếu quên chấm công"
+            ],
+            [
+              "đang xử lý",
+              "bước duyệt",
+              "theo dõi"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "clock-track"
+    },
+    {
+      "id": "route.workit-surface.mobile-hr.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-manager-hr.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân sự phòng ban",
+              "xem nhân sự phòng ban"
+            ],
+            [
+              "quyền",
+              "ai",
+              "phòng ban mình"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-hr"
+    },
+    {
+      "id": "route.workit-surface.mobile-menu.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.mobile-menu.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "có những phân hệ",
+              "phân hệ nào",
+              "danh mục trên app",
+              "menu quy trình số"
+            ],
+            [
+              "có những",
+              "liệt kê"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-menu"
+    },
+    {
+      "id": "route.workit-surface.office-menu.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.office-menu.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn phòng số"
+            ],
+            [
+              "menu",
+              "các mục nào",
+              "danh mục",
+              "tạo thư viện chia sẻ"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "office-menu"
+    },
+    {
+      "id": "route.workit-surface.office-menu.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.office-menu.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn phòng số"
+            ],
+            [
+              "menu",
+              "các mục nào",
+              "danh mục",
+              "lịch cơ quan",
+              "những mục nào"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "office-menu"
+    },
+    {
+      "id": "route.workit-surface.outgoing-access.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.71b81f225392502f8201c9e7c655bf8a",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn bản đi"
+            ],
+            [
+              "quyền xem",
+              "không thấy",
+              "quyền truy cập",
+              "ai cấp"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "outgoing-access"
+    },
+    {
+      "id": "route.workit-surface.download.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-download",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tải văn bản",
+              "tải xuống một văn bản",
+              "tải file đính kèm",
+              "tải tất cả file",
+              "tải một file",
+              "luu van ban workit"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "download"
+    },
+    {
+      "id": "route.workit-surface.share.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-sharing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chia sẻ văn bản",
+              "cấp quyền chia sẻ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quyền chia sẻ"
+            ],
+            [
+              "đồng nghiệp",
+              "cấp quyền"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "share"
+    },
+    {
+      "id": "route.workit-surface.incoming.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-incoming",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn bản đến"
+            ],
+            [
+              "giấy ủy quyền",
+              "vì sao",
+              "ai quản lý"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "incoming"
+    },
+    {
+      "id": "route.workit-surface.authorization.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.authorization.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy ủy quyền"
+            ],
+            [
+              "mở",
+              "quyền nào",
+              "tìm",
+              "không thấy",
+              "có không",
+              "có mục",
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "authorization"
+    },
+    {
+      "id": "route.workit-surface.authorization.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.authorization.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy ủy quyền"
+            ],
+            [
+              "mở",
+              "quyền nào",
+              "tìm",
+              "không thấy",
+              "có không",
+              "có mục",
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "authorization",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.news.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.news.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thông báo tin tức",
+              "tin tức chưa xem",
+              "đọc thông báo công ty"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "news"
+    },
+    {
+      "id": "route.workit-surface.directory.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.directory.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "danh bạ cbnv",
+              "danh bạ nhân viên",
+              "tìm liên hệ đồng nghiệp"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "directory"
+    },
+    {
+      "id": "route.workit-surface.process-menu.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.process-menu.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thay đổi ca",
+              "bổ sung bằng cấp",
+              "thay đổi thông tin nhân sự",
+              "quy trình số có các mục"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "process-menu"
+    },
+    {
+      "id": "route.workit-surface.stationery.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.5370844d82725638822c191c4a255ed0",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn phòng phẩm"
+            ],
+            [
+              "tạo",
+              "lập",
+              "đăng ký",
+              "đề nghị",
+              "thêm hàng"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "stationery"
+    },
+    {
+      "id": "route.workit-surface.stationery.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.stationery.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn phòng phẩm"
+            ],
+            [
+              "tạo",
+              "lập",
+              "đăng ký",
+              "đề nghị"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "stationery",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.stationery-track.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.stationery-track.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "văn phòng phẩm"
+            ],
+            [
+              "lọc",
+              "theo dõi",
+              "xuất danh sách",
+              "in phiếu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "stationery-track"
+    },
+    {
+      "id": "route.workit-surface.annual.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.leave.workit.annual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ phép năm",
+              "đơn phép năm",
+              "phiếu phép năm",
+              "ngỉ phép năm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đăng ký nghỉ phép",
+              "đơn nghỉ phép"
+            ],
+            [
+              "nộp",
+              "tạo",
+              "lập",
+              "đăng ký",
+              "thao tác"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "annual"
+    },
+    {
+      "id": "route.workit-surface.annual.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.annual.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ phép năm",
+              "đơn phép năm",
+              "phiếu phép năm",
+              "ngỉ phép năm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đăng ký nghỉ phép",
+              "đơn nghỉ phép"
+            ],
+            [
+              "nộp",
+              "tạo",
+              "lập",
+              "đăng ký",
+              "thao tác"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "annual",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.unpaid.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.unpaid.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ không lương",
+              "nghỉ không hưởng lương"
+            ],
+            [
+              "phiếu",
+              "đơn",
+              "đăng ký",
+              "tạo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "loại k"
+            ],
+            [
+              "kl",
+              "nghỉ không lương"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "unpaid"
+    },
+    {
+      "id": "route.workit-surface.unpaid.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.unpaid.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ không lương",
+              "nghỉ không hưởng lương"
+            ],
+            [
+              "phiếu",
+              "đơn",
+              "đăng ký",
+              "tạo"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "unpaid",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.leave-status.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.leave-status.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "số phép còn lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "theo dõi",
+              "trạng thái"
+            ],
+            [
+              "đơn nghỉ",
+              "phiếu nghỉ phép"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "leave-status"
+    },
+    {
+      "id": "route.workit-surface.late-early.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.late-early.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đi trễ",
+              "về sớm"
+            ],
+            [
+              "đăng ký",
+              "lập phiếu",
+              "cần điền",
+              "ô nào"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "late-early"
+    },
+    {
+      "id": "route.workit-surface.business-trip.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.business-trip.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đi công tác",
+              "phiếu công tác"
+            ],
+            [
+              "lập phiếu",
+              "lập",
+              "thêm chi phí",
+              "nhiều người"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "business-trip"
+    },
+    {
+      "id": "route.workit-surface.car.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.car.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt xe",
+              "xe công tác"
+            ],
+            [
+              "người đi",
+              "tài xế",
+              "đặt xe",
+              "workit"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "car"
+    },
+    {
+      "id": "route.workit-surface.room.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.room.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt phòng họp",
+              "phòng họp"
+            ],
+            [
+              "tiện ích",
+              "chọn phòng",
+              "đặt phòng"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "room"
+    },
+    {
+      "id": "route.workit-surface.resign.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.resign.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo phiếu nghỉ việc",
+              "phiếu xét nghỉ việc",
+              "khai báo xin thôi việc"
+            ],
+            [
+              "tạo",
+              "phải nhập",
+              "điền",
+              "khai báo",
+              "lập"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "resign"
+    },
+    {
+      "id": "route.workit-surface.resign.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.resign.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu xét nghỉ việc",
+              "tạo phiếu nghỉ việc"
+            ],
+            [
+              "tạo",
+              "bằng",
+              "được không"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "resign",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.resign-flow.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.resign-flow.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu xét nghỉ việc"
+            ],
+            [
+              "gửi duyệt",
+              "tiến độ",
+              "luồng",
+              "sau khi lưu",
+              "tải phiếu đã ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "resign-flow"
+    },
+    {
+      "id": "route.workit-surface.handover.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.handover.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ticket bbbg",
+              "phiếu bbbg",
+              "biên bản bàn giao"
+            ],
+            [
+              "mn",
+              "mb",
+              "đính kèm",
+              "trước khi nghỉ",
+              "nghỉ việc"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "handover"
+    },
+    {
+      "id": "route.workit-surface.handover-sign.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.handover-sign.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ticket bàn giao",
+              "biên bản bàn giao"
+            ],
+            [
+              "chuyển ký",
+              "ký số",
+              "người nhận ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "handover-sign"
+    },
+    {
+      "id": "route.workit-surface.handover-form.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.handover-form.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mẫu biên bản",
+              "quyết toán và bàn giao",
+              "bàn giao thiết bị"
+            ],
+            [
+              "ghi gì",
+              "các mục",
+              "ghi nội dung",
+              "cần ghi"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "handover-form"
+    },
+    {
+      "id": "route.workit-surface.resign-approver.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.resign-approver.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu xét nghỉ việc"
+            ],
+            [
+              "quản lý duyệt",
+              "người xử lý tiếp theo",
+              "chuyển đến cấp cao hơn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phê duyệt phiếu xét nghỉ việc",
+              "duyệt phiếu xét nghỉ việc"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "resign-approver"
+    },
+    {
+      "id": "route.workit-surface.maternity.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.maternity.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu nghỉ thai sản",
+              "khai báo nghỉ thai sản",
+              "nghỉ thai sản"
+            ],
+            [
+              "s1",
+              "maternity",
+              "tạo phiếu",
+              "đăng ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "maternity"
+    },
+    {
+      "id": "route.workit-surface.meal.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.meal.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "suất ăn"
+            ],
+            [
+              "q2",
+              "đăng ký",
+              "tạo phiếu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "meal"
+    },
+    {
+      "id": "route.workit-surface.process-menu.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.process-menu.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tăng ca",
+              "tuyển dụng",
+              "quên chấm công"
+            ],
+            [
+              "ở phân hệ nào",
+              "tìm mục",
+              "menu"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "process-menu",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.purchase-menu.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.purchase-menu.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề xuất cung ứng"
+            ],
+            [
+              "mua sắm"
+            ],
+            [
+              "po"
+            ],
+            [
+              "tạm ứng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "các chức năng mua hàng"
+            ],
+            [
+              "phân hệ",
+              "đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "purchase-menu"
+    },
+    {
+      "id": "route.workit-surface.create-task.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.6e89f057fc975e36ad65e4579eed86f2",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo công việc",
+              "giao công việc",
+              "giao một công việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người chủ trì"
+            ],
+            [
+              "trường bắt buộc",
+              "người giao"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "create-task"
+    },
+    {
+      "id": "route.workit-surface.finish-task.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.finish-task.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bỏ hoàn tất",
+              "hoàn tất một công việc",
+              "bình luận công việc"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "finish-task"
+    },
+    {
+      "id": "route.workit-surface.subtask.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.subtask.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chuyển người chủ trì",
+              "tạo việc con",
+              "tạo công việc con",
+              "thêm người tham gia"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "subtask"
+    },
+    {
+      "id": "route.workit-surface.extend.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.extend.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gia hạn deadline",
+              "xin gia hạn",
+              "duyệt gia hạn",
+              "từ chối gia hạn",
+              "đề nghị gia hạn"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "extend"
+    },
+    {
+      "id": "route.workit-surface.project.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.project.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo dự án",
+              "thêm dự án",
+              "thêm hạng mục",
+              "thêm công việc dự án"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "project"
+    },
+    {
+      "id": "route.workit-surface.project-file.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.project-file.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ dự án",
+              "tài liệu dự án"
+            ],
+            [
+              "thêm tài liệu",
+              "đính kèm",
+              "cấp quyền"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "project-file"
+    },
+    {
+      "id": "route.workit-surface.project-edit.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.project-edit.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xóa dự án",
+              "sửa dự án",
+              "sửa xóa dự án",
+              "xóa hạng mục"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "project-edit"
+    },
+    {
+      "id": "route.workit-surface.supply.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.supply.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề xuất cung ứng"
+            ],
+            [
+              "lập",
+              "tạo",
+              "có không",
+              "nhập gì",
+              "không thấy",
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "supply"
+    },
+    {
+      "id": "route.workit-surface.supply.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.supply.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề xuất cung ứng"
+            ],
+            [
+              "lập",
+              "tạo",
+              "có không",
+              "nhập gì",
+              "không thấy",
+              "ở đâu"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "supply",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.supply-approval.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.supply-approval.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề xuất cung ứng"
+            ],
+            [
+              "qua một bước",
+              "đã duyệt",
+              "sửa",
+              "xóa",
+              "phê duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "supply-approval"
+    },
+    {
+      "id": "route.workit-surface.purchase.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.purchase.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị mua sắm"
+            ],
+            [
+              "lập",
+              "tạo",
+              "mua một phần",
+              "file so sánh giá",
+              "có po không"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "purchase"
+    },
+    {
+      "id": "route.workit-surface.purchase-approval.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.purchase-approval.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị mua sắm"
+            ],
+            [
+              "duyệt đề nghị",
+              "khi duyệt",
+              "xác nhận thông số",
+              "sửa",
+              "xóa"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "purchase-approval"
+    },
+    {
+      "id": "route.workit-surface.po.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.po.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo po",
+              "đơn hàng mua hàng"
+            ],
+            [
+              "đề nghị mua sắm",
+              "phiếu mua sắm",
+              "khai báo",
+              "tạo po",
+              "lên đơn hàng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lập po",
+              "tạo po"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "po"
+    },
+    {
+      "id": "route.workit-surface.payment.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.payment.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị thanh toán"
+            ],
+            [
+              "lập",
+              "tạo",
+              "tham chiếu",
+              "thông tin hóa đơn"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "payment"
+    },
+    {
+      "id": "route.workit-surface.payment-track.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.payment-track.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu thanh toán",
+              "đề nghị thanh toán"
+            ],
+            [
+              "ai đang xử lý",
+              "tiến độ",
+              "sửa",
+              "xóa",
+              "đã qua duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "payment-track"
+    },
+    {
+      "id": "route.workit-surface.advance-vendor.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.advance-vendor.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạm ứng nhà cung cấp"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "advance-vendor"
+    },
+    {
+      "id": "route.workit-surface.advance-internal.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.advance-internal.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạm ứng nội bộ"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "advance-internal"
+    },
+    {
+      "id": "route.workit-surface.advance-edit.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.advance-edit.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu tạm ứng",
+              "đề nghị tạm ứng"
+            ],
+            [
+              "sửa",
+              "xóa"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "advance-edit"
+    },
+    {
+      "id": "route.workit-surface.approval-buttons.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.approval-buttons.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bỏ duyệt"
+            ],
+            [
+              "bỏ từ chối",
+              "trả lại",
+              "từ chối"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "các nút phê duyệt",
+              "bỏ từ chối"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "approval-buttons"
+    },
+    {
+      "id": "route.workit-surface.desk.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.desk.web",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bàn làm việc"
+            ],
+            [
+              "phiếu chờ duyệt",
+              "quá hạn",
+              "đã hoàn tất",
+              "phiếu đang xử lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quá hạn"
+            ],
+            [
+              "đã hoàn tất",
+              "phiếu chờ duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "desk"
+    },
+    {
+      "id": "route.workit-surface.inspect.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.a06219c735de572caabd8b6511fa0973",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kiểm tra phiếu",
+              "xem phiếu",
+              "kiểm tra trước khi duyệt",
+              "xem quy trình phê duyệt",
+              "xem phiếu bằng ứng dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chi tiết phiếu"
+            ],
+            [
+              "đính kèm"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "inspect"
+    },
+    {
+      "id": "route.workit-surface.inspect.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.68369c60f81557c5b42fab416cfad7e1",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kiểm tra phiếu",
+              "xem phiếu",
+              "xem chi tiết phiếu",
+              "kiểm tra trước khi duyệt",
+              "xem quy trình phê duyệt",
+              "xem phiếu bằng ứng dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chi tiết phiếu"
+            ],
+            [
+              "đính kèm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xem phiếu bằng ứng dụng workit",
+              "xem phiếu qua ứng dụng workit"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "inspect"
+    },
+    {
+      "id": "route.workit-surface.approve.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-approve",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt phiếu",
+              "phê duyệt phiếu",
+              "các bước xử lý phiếu cần duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "approve"
+    },
+    {
+      "id": "route.workit-surface.approve.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.approve.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt phiếu",
+              "phê duyệt phiếu",
+              "các bước xử lý phiếu cần duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "approve"
+    },
+    {
+      "id": "route.workit-surface.return.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-return",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trả lại phiếu",
+              "từ chối phiếu",
+              "phiếu cần trả lại"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "return"
+    },
+    {
+      "id": "route.workit-surface.mobile-count.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.topic.mobile-counters",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "số đỏ",
+              "bộ đếm",
+              "ít hơn số phiếu",
+              "nhỏ hơn tổng số phiếu",
+              "số phiếu chờ duyệt"
+            ],
+            [
+              "menu",
+              "bên trong",
+              "ở ngoài",
+              "mở mục",
+              "thấy nhiều phiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số phiếu chờ duyệt"
+            ],
+            [
+              "mobile",
+              "điện thoại"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-count"
+    },
+    {
+      "id": "route.workit-surface.mobile-status.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.mobile-status.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu"
+            ],
+            [
+              "vẫn đang xử lý",
+              "đã duyệt xong",
+              "duyệt xong nhưng"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-status"
+    },
+    {
+      "id": "route.workit-surface.mobile-icons.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-icons.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biểu tượng phiếu",
+              "icon phiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kẹp giấy"
+            ],
+            [
+              "quy trình",
+              "màu đỏ",
+              "màu xanh"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-icons"
+    },
+    {
+      "id": "route.workit-surface.mobile-history.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-history.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lịch sử duyệt",
+              "xem ngày duyệt",
+              "lịch sử phê duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ngày duyệt"
+            ],
+            [
+              "người duyệt"
+            ],
+            [
+              "ý kiến"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-history"
+    },
+    {
+      "id": "route.workit-surface.salary.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.salary.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu lương",
+              "bảng lương"
+            ],
+            [
+              "chọn tháng",
+              "ở đâu",
+              "xem"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "salary",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.attendance.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.attendance.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xem công cá nhân",
+              "bảng công cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xem công"
+            ],
+            [
+              "chọn kỳ",
+              "theo kỳ"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "attendance",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.forgot-clock.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.forgot-clock.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bổ sung công",
+              "quên chấm công"
+            ],
+            [
+              "điền gì",
+              "lập phiếu",
+              "lỗi máy",
+              "tạo phiếu",
+              "đăng ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "forgot-clock",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.late-early.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.late-early.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đi trễ",
+              "về sớm"
+            ],
+            [
+              "đăng ký",
+              "lập phiếu",
+              "cần điền",
+              "ô nào"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "late-early",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.business-trip.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.business-trip.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đi công tác",
+              "phiếu công tác"
+            ],
+            [
+              "lập phiếu",
+              "lập",
+              "thêm chi phí",
+              "nhiều người"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "business-trip",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.car.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.car.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt xe",
+              "xe công tác"
+            ],
+            [
+              "người đi",
+              "tài xế",
+              "đặt xe",
+              "workit"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "car",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.room.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.room.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đặt phòng họp",
+              "phòng họp"
+            ],
+            [
+              "tiện ích",
+              "chọn phòng",
+              "đặt phòng"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "room",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.meal.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.meal.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "suất ăn"
+            ],
+            [
+              "q2",
+              "đăng ký",
+              "tạo phiếu"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "meal",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.maternity.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.maternity.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu nghỉ thai sản",
+              "khai báo nghỉ thai sản",
+              "nghỉ thai sản"
+            ],
+            [
+              "s1",
+              "maternity",
+              "tạo phiếu",
+              "đăng ký"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "maternity",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.create-task.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.create-task.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo công việc",
+              "giao công việc",
+              "giao một công việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người chủ trì"
+            ],
+            [
+              "trường bắt buộc",
+              "người giao"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "create-task",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.project.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.project.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo dự án",
+              "thêm dự án",
+              "thêm hạng mục",
+              "thêm công việc dự án"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "project",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.purchase.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.purchase.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị mua sắm"
+            ],
+            [
+              "lập",
+              "tạo",
+              "mua một phần",
+              "file so sánh giá",
+              "có po không"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "purchase",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.po.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.po.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo po",
+              "đơn hàng mua hàng"
+            ],
+            [
+              "đề nghị mua sắm",
+              "phiếu mua sắm",
+              "khai báo",
+              "tạo po",
+              "lên đơn hàng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lập po",
+              "tạo po"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "po",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.payment.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.payment.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đề nghị thanh toán"
+            ],
+            [
+              "lập",
+              "tạo",
+              "tham chiếu",
+              "thông tin hóa đơn"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "payment",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.advance-vendor.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.advance-vendor.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạm ứng nhà cung cấp"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "advance-vendor",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.advance-internal.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.workit-surface.advance-internal.mobile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạm ứng nội bộ"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "advance-internal",
+      "surface_limited": true
+    },
+    {
+      "id": "route.workit-surface.install-app.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-install.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cài workit mobile",
+              "cài đặt workit mobile",
+              "install workit mobile"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "install-app"
+    },
+    {
+      "id": "route.workit-surface.mobile-password.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-password.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đổi mật khẩu workit mobile",
+              "thay mật khẩu workit mobile",
+              "đổi pass workit mobile",
+              "thay mật khẩu trên workit mobile",
+              "đổi mật khẩu tài khoản workit mobile"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-password"
+    },
+    {
+      "id": "route.workit-surface.mobile-missing-menu.mobile",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.mobile-missing-menu.2cb00d36",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chức năng không có",
+              "thiếu menu",
+              "những mục app không có"
+            ]
+          ]
+        }
+      ],
+      "surface": "mobile",
+      "workit_action": "mobile-missing-menu"
+    },
+    {
+      "id": "route.workit-surface.leave-approval.web",
+      "family": "software",
+      "system": "workit",
+      "task_id": "task.business.systems.workit-leave-approval.d906cfac",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "duyệt nghỉ phép",
+              "duyệt đơn nghỉ phép",
+              "phiếu phép chuyển duyệt"
+            ]
+          ]
+        }
+      ],
+      "surface": "web",
+      "workit_action": "leave-approval"
     }
   ]
 }

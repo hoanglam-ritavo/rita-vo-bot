@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.mobile-missing-menu.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.business.systems.mobile-missing-menu.2cb00d36",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chức năng không có",
+          "thiếu menu",
+          "những mục app không có"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "mobile-missing-menu"
+}

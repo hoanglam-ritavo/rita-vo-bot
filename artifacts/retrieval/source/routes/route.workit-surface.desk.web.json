@@ -1,0 +1,34 @@
+{
+  "id": "route.workit-surface.desk.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.desk.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bàn làm việc"
+        ],
+        [
+          "phiếu chờ duyệt",
+          "quá hạn",
+          "đã hoàn tất",
+          "phiếu đang xử lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quá hạn"
+        ],
+        [
+          "đã hoàn tất",
+          "phiếu chờ duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "desk"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.outgoing-access.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.71b81f225392502f8201c9e7c655bf8a",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "văn bản đi"
+        ],
+        [
+          "quyền xem",
+          "không thấy",
+          "quyền truy cập",
+          "ai cấp"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "outgoing-access"
+}

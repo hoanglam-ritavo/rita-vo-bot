@@ -1,0 +1,105 @@
+{
+  "id": "task.workit-surface.authorization.web",
+  "label": "Workit Web · Xem giấy ủy quyền trên Web",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xem giấy ủy quyền trên Web"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về xem giấy ủy quyền trên web?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.authorization.web",
+          "text": "Workit Web. Mở Apps → Văn phòng số → Giấy ủy quyền. Hành chính cấp quyền theo yêu cầu. Mở tệp qua biểu tượng đính kèm. Tải hoặc chia sẻ cần quyền tương ứng.",
+          "refs": [
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 2,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "72a80678215ab9cd82ff4ae16af22ce12d7b7be33da84a2245669dec3a686941",
+              "quote": "Workit — xem/tải văn bản khi được phân quyền: mở Văn bản đi, nhấn icon tệp đính kèm rồi icon file để mở. Nếu có quyền Tải, dùng nút tải cạnh file hoặc Tải xuống tất cả. Văn bản đến và Giấy ủy quyền sử dụng thao tác/phân quyền tương tự.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 4,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175",
+              "quote": "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.authorization.web",
+          "text": "Workit Web. Mở Apps → Văn phòng số → Giấy ủy quyền. Hành chính cấp quyền theo yêu cầu. Mở tệp qua biểu tượng đính kèm. Tải hoặc chia sẻ cần quyền tương ứng.",
+          "refs": [
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 2,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "72a80678215ab9cd82ff4ae16af22ce12d7b7be33da84a2245669dec3a686941",
+              "quote": "Workit — xem/tải văn bản khi được phân quyền: mở Văn bản đi, nhấn icon tệp đính kèm rồi icon file để mở. Nếu có quyền Tải, dùng nút tải cạnh file hoặc Tải xuống tất cả. Văn bản đến và Giấy ủy quyền sử dụng thao tác/phân quyền tương tự.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 4,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175",
+              "quote": "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

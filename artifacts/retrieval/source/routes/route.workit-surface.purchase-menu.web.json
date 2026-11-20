@@ -1,0 +1,37 @@
+{
+  "id": "route.workit-surface.purchase-menu.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.purchase-menu.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề xuất cung ứng"
+        ],
+        [
+          "mua sắm"
+        ],
+        [
+          "po"
+        ],
+        [
+          "tạm ứng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "các chức năng mua hàng"
+        ],
+        [
+          "phân hệ",
+          "đâu"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "purchase-menu"
+}

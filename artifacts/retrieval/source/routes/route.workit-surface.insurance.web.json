@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.insurance.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.insurance.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quá trình tham gia bhxh",
+          "lịch sử đóng bhxh",
+          "lịch sử đóng bảo hiểm"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "insurance"
+}

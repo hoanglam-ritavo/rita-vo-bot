@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.supply-approval.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.supply-approval.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề xuất cung ứng"
+        ],
+        [
+          "qua một bước",
+          "đã duyệt",
+          "sửa",
+          "xóa",
+          "phê duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "supply-approval"
+}

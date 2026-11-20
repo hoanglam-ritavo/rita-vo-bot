@@ -1,0 +1,112 @@
+{
+  "id": "task.workit-surface.handover-form.web",
+  "label": "Workit Web · Các mục trong mẫu bàn giao và quyết toán",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Các mục trong mẫu bàn giao và quyết toán"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về các mục trong mẫu bàn giao và quyết toán?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.handover-form.web",
+          "text": "Workit Web. Trang mẫu minh họa các trường tài sản như tên hoặc mã, số lượng, tình trạng, thông tin lần bàn giao trước và người nhận. Phần công việc ghi nội dung, tình hình thực hiện và bên liên quan. Sau xác nhận, HCNS chuyển hồ sơ sang Kế toán để xử lý các khoản nếu có.",
+          "refs": [
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 5,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "8d851fd51e6f406908000669e9a05a7c0b11f605607c0afb10da04c065637676",
+              "quote": "Workit — mẫu Biên bản quyết toán và bàn giao công việc, trang 1/3 hiển thị trong hướng dẫn: dùng khi thôi việc khỏi công ty hoặc bàn giao để nhận công việc mới/điều chuyển chi nhánh, bộ phận. Người nhận bàn giao lưu bản scan. HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt HĐLĐ, chuyển bản photo quyết định và BBBG cho kế toán tính thanh toán hoa hồng, lương và phúc lợi nếu có. HCNS làm thủ tục thôi việc khi đủ chữ ký xác nhận các nội dung. Sau hoàn tất thủ tục và trách nhiệm tài chính nếu có, công ty quyết toán quyền lợi/nghĩa vụ tài chính cùng kỳ lương. Nguồn chỉ hiển thị trang 1/3 của mẫu.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 6,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "47c1768fda23ecd28b5f9e8418bfa3dd1b366c200f886da694cfcd09d3f6a35d",
+              "quote": "Workit — các mục bàn giao trong trang 1/3 mẫu Biên bản quyết toán và bàn giao công việc được minh họa: tài sản/công cụ dụng cụ ghi tên/mã số, đơn vị tính, số lượng, tình trạng, thông tin biên bản bàn giao ban đầu (số/ngày), người nhận ký. Công việc ghi nội dung, tình hình thực hiện, cá nhân/phòng ban/bộ phận liên quan nếu có và người nhận ký. Hướng dẫn không hiển thị hai trang còn lại của mẫu; đây không phải danh sách đầy đủ mọi trường trong toàn mẫu.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu chỉ hiển thị trang 1 trong 3 của mẫu."
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.handover-form.web",
+          "text": "Workit Web. Trang mẫu minh họa các trường tài sản như tên hoặc mã, số lượng, tình trạng, thông tin lần bàn giao trước và người nhận. Phần công việc ghi nội dung, tình hình thực hiện và bên liên quan. Sau xác nhận, HCNS chuyển hồ sơ sang Kế toán để xử lý các khoản nếu có.",
+          "refs": [
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 5,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "8d851fd51e6f406908000669e9a05a7c0b11f605607c0afb10da04c065637676",
+              "quote": "Workit — mẫu Biên bản quyết toán và bàn giao công việc, trang 1/3 hiển thị trong hướng dẫn: dùng khi thôi việc khỏi công ty hoặc bàn giao để nhận công việc mới/điều chuyển chi nhánh, bộ phận. Người nhận bàn giao lưu bản scan. HCNS lưu bản gốc vào hồ sơ nhân sự, ra quyết định chấm dứt HĐLĐ, chuyển bản photo quyết định và BBBG cho kế toán tính thanh toán hoa hồng, lương và phúc lợi nếu có. HCNS làm thủ tục thôi việc khi đủ chữ ký xác nhận các nội dung. Sau hoàn tất thủ tục và trách nhiệm tài chính nếu có, công ty quyết toán quyền lợi/nghĩa vụ tài chính cùng kỳ lương. Nguồn chỉ hiển thị trang 1/3 của mẫu.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 6,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "47c1768fda23ecd28b5f9e8418bfa3dd1b366c200f886da694cfcd09d3f6a35d",
+              "quote": "Workit — các mục bàn giao trong trang 1/3 mẫu Biên bản quyết toán và bàn giao công việc được minh họa: tài sản/công cụ dụng cụ ghi tên/mã số, đơn vị tính, số lượng, tình trạng, thông tin biên bản bàn giao ban đầu (số/ngày), người nhận ký. Công việc ghi nội dung, tình hình thực hiện, cá nhân/phòng ban/bộ phận liên quan nếu có và người nhận ký. Hướng dẫn không hiển thị hai trang còn lại của mẫu; đây không phải danh sách đầy đủ mọi trường trong toàn mẫu.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu chỉ hiển thị trang 1 trong 3 của mẫu."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

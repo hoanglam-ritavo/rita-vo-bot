@@ -1,0 +1,36 @@
+{
+  "id": "route.workit-surface.annual.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.annual.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ phép năm",
+          "đơn phép năm",
+          "phiếu phép năm",
+          "ngỉ phép năm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đăng ký nghỉ phép",
+          "đơn nghỉ phép"
+        ],
+        [
+          "nộp",
+          "tạo",
+          "lập",
+          "đăng ký",
+          "thao tác"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "annual",
+  "surface_limited": true
+}

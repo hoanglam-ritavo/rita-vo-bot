@@ -1,0 +1,80 @@
+{
+  "id": "task.workit-surface.office-menu.web",
+  "label": "Workit Web · Danh mục Văn phòng số trên Web",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Danh mục Văn phòng số trên Web"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về danh mục văn phòng số trên web?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.office-menu.web",
+          "text": "Workit Web. Mở Apps → Văn phòng số. Hướng dẫn có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV.",
+          "refs": [
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 0,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "4bd15031300eb25f9bbd40609138f04a38ff53e4d46c9886a9cda7863221ae64",
+              "quote": "Workit — mở Apps > Văn phòng số. Menu có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV. Hướng dẫn HDSD-29/3/25-V1 không trình bày chi tiết tạo tài liệu/thư viện chia sẻ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu liệt kê thư viện và tài liệu chia sẻ. Phần thao tác tạo các mục này chưa có hướng dẫn chi tiết."
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.office-menu.web",
+          "text": "Workit Web. Mở Apps → Văn phòng số. Hướng dẫn có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV.",
+          "refs": [
+            {
+              "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+              "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+              "chunk_index": 0,
+              "source_sha256": "2a34c3d64a0a007f552e6cdd69266bcbdb9991d80973c40ff2e679775f3bc335",
+              "content_sha256": "4bd15031300eb25f9bbd40609138f04a38ff53e4d46c9886a9cda7863221ae64",
+              "quote": "Workit — mở Apps > Văn phòng số. Menu có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV. Hướng dẫn HDSD-29/3/25-V1 không trình bày chi tiết tạo tài liệu/thư viện chia sẻ.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Văn phòng số",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/2-workit-vanphongso-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tài liệu liệt kê thư viện và tài liệu chia sẻ. Phần thao tác tạo các mục này chưa có hướng dẫn chi tiết."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

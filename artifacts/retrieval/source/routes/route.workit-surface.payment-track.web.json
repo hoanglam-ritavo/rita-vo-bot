@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.payment-track.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.payment-track.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu thanh toán",
+          "đề nghị thanh toán"
+        ],
+        [
+          "ai đang xử lý",
+          "tiến độ",
+          "sửa",
+          "xóa",
+          "đã qua duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "payment-track"
+}

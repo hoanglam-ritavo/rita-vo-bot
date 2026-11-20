@@ -1,0 +1,48 @@
+{
+  "id": "route.workit-surface.install.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.099a04fe8a01519dab8098c73c2b1b74",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tải ứng dụng",
+          "tải workit",
+          "tải và cấu hình",
+          "cài workit",
+          "cài ứng dụng",
+          "tìm ứng dụng",
+          "cài lại",
+          "dùng workit bằng điện thoại",
+          "bắt đầu từ đâu"
+        ],
+        [
+          "điện thoại",
+          "mobile",
+          "android",
+          "iphone",
+          "ios"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ứng dụng workit trên điện thoại"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "install",
+  "excludes_any": [
+    "cài workit mobile",
+    "cài đặt workit mobile",
+    "install workit mobile",
+    "xem phiếu",
+    "xem chi tiết phiếu",
+    "kiểm tra phiếu",
+    "duyệt phiếu"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.mobile-status.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.mobile-status.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu"
+        ],
+        [
+          "vẫn đang xử lý",
+          "đã duyệt xong",
+          "duyệt xong nhưng"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "mobile-status"
+}

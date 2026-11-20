@@ -1,0 +1,20 @@
+{
+  "id": "route.workit-surface.profile.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.profile.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sơ yếu lý lịch",
+          "xem thông tin nhân sự",
+          "hồ sơ cá nhân",
+          "hồ sơ của mình"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "profile"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "route.workit-surface.extend.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.extend.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gia hạn deadline",
+          "xin gia hạn",
+          "duyệt gia hạn",
+          "từ chối gia hạn",
+          "đề nghị gia hạn"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "extend"
+}

@@ -17,6 +17,8 @@ from src.paths import REPOSITORY_ROOT
 
 class ExpectedSlots(Strict):
     system: str | None = None
+    surface: Literal['web', 'mobile'] | None = None
+    workit_action: str | None = None
     subtype: str | None = None
     days: int | float | None = None
     sessions: int | float | None = None

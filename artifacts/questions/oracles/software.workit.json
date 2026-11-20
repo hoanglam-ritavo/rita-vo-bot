@@ -600,93 +600,105 @@
       "case_id": "q.software.workit.026",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.a06219c735de572caabd8b6511fa0973"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "inspect"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.027",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.a06219c735de572caabd8b6511fa0973"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "inspect"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.028",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.a06219c735de572caabd8b6511fa0973"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "inspect"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.029",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.a06219c735de572caabd8b6511fa0973"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "inspect"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.030",
@@ -1201,93 +1213,105 @@
       "case_id": "q.software.workit.050",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-approve"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "approve"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.051",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-approve"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "approve"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.052",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-approve"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "approve"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.053",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-approve"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "approve"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.054",
@@ -1315,24 +1339,27 @@
       "case_id": "q.software.workit.055",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-approve"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "approve"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.056",
@@ -1616,93 +1643,105 @@
       "case_id": "q.software.workit.068",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-password"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "bcc9e137-9dfe-479e-91a2-409ba042553f"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "login"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.069",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-password"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "bcc9e137-9dfe-479e-91a2-409ba042553f"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "login"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.070",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-password"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "bcc9e137-9dfe-479e-91a2-409ba042553f"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "login"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.071",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-password"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "bcc9e137-9dfe-479e-91a2-409ba042553f"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "login"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.072",
@@ -1730,24 +1769,27 @@
       "case_id": "q.software.workit.073",
       "turn": 0,
       "statuses": [
-        "partial",
-        "answered"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.workit-password"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "forbidden_task_ids": [],
-      "required_source_groups": [
-        [
-          "bcc9e137-9dfe-479e-91a2-409ba042553f"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "forbidden_documents": [],
-      "employee_fields": [],
-      "null_fields": [],
-      "claims": "required",
-      "fixture": "current",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "login"
+        }
+      }
     },
     {
       "case_id": "q.software.workit.074",

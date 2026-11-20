@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.4b2aadb1.2",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+    "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+    "chunk_index": 2,
+    "source_sha256": "9560f9df3870826d7a0c8064e888b0c165735130913c113e2e5d885a10418cad",
+    "content_sha256": "6d96b3b0bfcfe48dac56159d7b7e3d7cd25ee449f0861ce605ebb41ddb96f8de",
+    "quote": "Workit — phê duyệt phiếu trên giao diện quản lý: sau khi kiểm tra và thấy đúng nhu cầu, chọn phiếu > Duyệt. Trong trang phê duyệt, nhập ý kiến nếu có, chọn phòng ban/người thực hiện bước tiếp theo rồi hoàn tất Duyệt. Chọn người theo quy trình thực tế; tên người trong ảnh chỉ minh họa.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn duyệt phiếu theo quy trình dành cho quản lý",
+      "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/4-workit-duyet-phieu-cap-quan-ly-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-approve"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

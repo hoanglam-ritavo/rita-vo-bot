@@ -54,6 +54,30 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Workit Web and Mobile - 2026-11-20
+
+On `4577f57` plus the Workit changes, 105 interface-specific routes cover
+78 chunks from all seven Workit guides. They use 83 new cards and 22 existing
+cards. Explicit browser and app wording selects the corresponding guide.
+A request with two distinct procedures asks for the interface. A short
+switch keeps the action, and comparisons label the cited instructions for
+each interface. Menu-only evidence produces limited guidance.
+
+The local HTTP and reducer evaluator passed **1,575/1,575** turns, including
+105 interface-specific questions, 30 conversation turns and 1,440 existing
+turns. Fifteen existing cases now expect an interface question by design.
+The separately authored variant set passed **18/18**. The non-integration
+suite passed **1,321 tests**, with **1 skipped** and **59 deselected**.
+Catalog build and
+reproducibility checks, all **2,035 reference checks** and the **22-file**
+runtime inventory passed.
+
+These checks use local source fixtures. An authorized target PostgreSQL
+connection and authenticated Portal staging were unavailable. Verify target
+publications and the Portal conversation before releasing the bot and its
+generated catalogs together. See the
+[staging procedure](docs/conversations.md#deletion-and-verification).
+
 ### Welfare and referral rewards - 2026-11-20
 
 On `4238339` plus the topic changes, 109 new tasks and five reused tasks

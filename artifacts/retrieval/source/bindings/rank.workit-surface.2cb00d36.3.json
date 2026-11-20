@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.2cb00d36.3",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "mobile",
+  "ref": {
+    "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+    "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+    "chunk_index": 3,
+    "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+    "content_sha256": "82ea0f44810f37d321b5c28194ab43c97fdfe3bacbce0bd52f7e5582f6d402a0",
+    "quote": "Workit Mobile — vì sao số ở menu ít hơn số phiếu bên trong: số ngoài chức năng là số phiếu chờ bạn duyệt. Bên trong còn có phiếu Đang xử lý chờ bộ phận khác. Ví dụ tài liệu: menu Đề nghị thanh toán có 2, bên trong 5 gồm 2 chờ duyệt và 3 đang xử lý. Đây là minh họa cách đếm, không phải số phiếu hiện tại của người dùng.",
+    "metadata": {
+      "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+      "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.topic.mobile-counters"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

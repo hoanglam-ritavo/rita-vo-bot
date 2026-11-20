@@ -40,6 +40,9 @@ class RequestAnalysis:
     topic_unmatched: bool = False
     discovery_options: bool = False
     focused_policy: bool = False
+    workit_action: str | None = None
+    workit_surface: str | None = None
+    workit_comparison_labels: tuple[tuple[str, str], ...] = ()
 
 
 def choice_labels(cards, *, include_filenames=False):
@@ -116,16 +119,58 @@ def _covered_fragment(text, query, cards, lexicon):
     return removed and set(remainder.split()) <= allowed
 
 
+def _workit_analysis(question, catalog, scope, request):
+    from .pipeline import requested_aspects
+    from src.retrieval.policy import SURFACE_LABELS, SURFACE_PROMPT
+
+    base = dict(question=question, parts=('documents',), general_guidance=True,
+                workit_action=scope.action, workit_surface=scope.surface)
+    if scope.clarification:
+        return RequestAnalysis(**base, clarification=scope.clarification,
+                               missing_slots=('surface',) if scope.clarification == SURFACE_PROMPT else ())
+    by_id = {card.id: card for card in catalog.cards}
+    cards = tuple(by_id[route.task_id] for route in scope.routes if route.task_id in by_id)
+    limits = tuple(f'Chưa có hướng dẫn có căn cứ cho thao tác này trên {SURFACE_LABELS[surface]}.'
+                   for surface in scope.unavailable)
+    if len(cards) != len(scope.routes) or not cards:
+        label = SURFACE_LABELS.get(scope.surface, 'Workit')
+        return RequestAnalysis(**base, document_reason='answer_section_unavailable',
+            document_message=limits[0] if limits else f'Chưa có hướng dẫn có căn cứ cho thao tác này trên {label}.')
+    aspects = tuple(request.get('aspects') or requested_aspects(question))
+    if (not request.get('aspects') or all(route.surface_limited for route in scope.routes)) and not all(
+            all(a in card.sections for a in aspects) for card in cards):
+        # Menu-only guidance describes the available entry and its limits even
+        # when the previous interface had a more detailed answer section.
+        aspects = ('overview',)
+    refs = {(ref.document_id, ref.revision_id, ref.chunk_index) for card in cards
+            for aspect in aspects if aspect in card.sections
+            for unit in card.sections[aspect].units for ref in unit.refs}
+    if len(refs) > 10:
+        return RequestAnalysis(**base, clarification='Bạn hãy chọn một giao diện hoặc hỏi riêng một phần.')
+    intro = (f'Hướng dẫn trên {SURFACE_LABELS[scope.routes[0].surface]}.'
+             if len(scope.routes) == 1 else '')
+    labels = tuple((route.task_id, SURFACE_LABELS[route.surface]) for route in scope.routes) if len(cards) > 1 else ()
+    return RequestAnalysis(**base, cards=cards, aspects=aspects, focused_policy=True,
+                           scope_intro=intro or None, scope_limits=limits, workit_comparison_labels=labels)
+
+
 def analyze_question(question, catalog=None, lexicon=None, policy=None, *, request=None):
     from .pipeline import select_cards, is_document_lookup, requested_aspects, resolve_policy
     from src.retrieval.language import positive_question
-    from src.retrieval.policy import clarification_for
+    from src.retrieval.policy import SURFACE_LABELS, clarification_for
     from .slots import parse_inputs
     request = request or {}
     question = positive_question(question)
     query = normalized(question)
     lookup = is_document_lookup(question)
     registry = policy if policy is not None and catalog is not None and lexicon is not None else None
+    workit = getattr(registry, 'resolve_workit', None)
+    workit_choices = None
+    if not lookup and workit and len([p for p in re.split(r'[?!;\n]', question) if p.strip()]) == 1:
+        workit_choices = workit(question, slots=request.get('slots'))
+        if workit_choices and (workit_choices.surface or workit_choices.clarification
+                              or len(workit_choices.routes) > 1 or workit_choices.unavailable):
+            return _workit_analysis(question, catalog, workit_choices, request)
     focused = getattr(registry, 'focused_task', None)
     if not lookup and focused is not None and not request.get('source_id') and not any(
             phrase(query, marker) for marker in ('hay bo qua', 'bo qua quyen', 'ignore',
@@ -158,6 +203,9 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         if request.get('slots') and resolution is not None:
             cards = [card for card in catalog.cards if card.id == resolution.task_id or card.id in resolution.candidates]
             ambiguous = resolution.state == 'clarify'
+    if workit_choices and not cards and not ambiguous and not (
+            resolution and resolution.state not in ('not_applicable', 'unsupported')):
+        return _workit_analysis(question, catalog, workit_choices, request)
     restatement_message = resolution.message if resolution and resolution.requires_restatement else None
     needs_restatement = bool(restatement_message)
     if request.get('selected_task') and catalog is not None:
@@ -362,6 +410,18 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         slots.get('intent') == 'submission' or
         (not leave_query.platform_requested and not slots.get('system'))))
     direct_fields = () if request.get('document_guidance') else tuple(dict.fromkeys(fields))
+    workit_action = (workit_choices.action if workit_choices and len(cards) == 1
+                     and not (direct_fields or other or clarification or unresolved) else None)
+    workit_label = None
+    if workit_action and len(workit_choices.routes) == 1:
+        route = workit_choices.routes[0]
+        equivalent = next((card for card in catalog.cards if card.id == route.task_id), None)
+        if equivalent:
+            def addresses(guide):
+                return {(ref.document_id, ref.revision_id, ref.chunk_index) for section in guide.sections.values()
+                        for unit in section.units for ref in unit.refs}
+            if addresses(equivalent).intersection(addresses(cards[0])):
+                workit_label = SURFACE_LABELS[route.surface]
     return RequestAnalysis(cards=tuple(cards), ambiguous=ambiguous, direct_fields=direct_fields,
         document_lookup=lookup, unsupported_person=other, clarification=clarification, unresolved=unresolved,
         clarification_reason=reason, question=question, aspects=aspects,
@@ -371,6 +431,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
         parts=parts, personal_request=personal_request, choice_options=options, check_scopes=check_scopes,
         document_clarification=document_clarification, recognized_topic=recognized_topic,
+        workit_action=workit_action, scope_intro=f'Hướng dẫn trên {workit_label}.' if workit_label else None,
         leave_platforms=leave_platforms,
         general_guidance=bool(request.get('document_guidance') or general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

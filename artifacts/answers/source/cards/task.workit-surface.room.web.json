@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.room.web",
+  "label": "Workit Web · Đặt phòng họp",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đặt phòng họp"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về đặt phòng họp?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.room.web",
+          "text": "Workit Web. Mở Quy trình số → Phòng họp → Thêm. Chọn phòng, ngày giờ, số người, nội dung và người tham gia. Có thể chọn nhiều tiện ích rồi lưu và kiểm tra lịch.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 8,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "72003e8d83ea29e84120365518358f24df2821a1638a1b6fb42a41a247baee4f",
+              "quote": "Workit — đặt phòng họp nội bộ, đối tác hoặc nhà cung cấp: Quy trình số > Phòng họp > Thêm. Chọn phòng, ngày và giờ bắt đầu/kết thúc, tổng số người, nội dung; chọn các tiện ích cần chuẩn bị (chọn nhiều được), chọn người chủ trì/tham gia/để biết rồi Lưu. Có ghi chú, đính kèm và tùy chọn chỉ người họp xem nội dung. Hành chính quản lý phòng và sắp xếp. Theo dõi Ngày, Tuần, Lưới hoặc Lịch họp hôm nay.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.room.web",
+          "text": "Workit Web. Mở Quy trình số → Phòng họp → Thêm. Chọn phòng, ngày giờ, số người, nội dung và người tham gia. Có thể chọn nhiều tiện ích rồi lưu và kiểm tra lịch.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 8,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "72003e8d83ea29e84120365518358f24df2821a1638a1b6fb42a41a247baee4f",
+              "quote": "Workit — đặt phòng họp nội bộ, đối tác hoặc nhà cung cấp: Quy trình số > Phòng họp > Thêm. Chọn phòng, ngày và giờ bắt đầu/kết thúc, tổng số người, nội dung; chọn các tiện ích cần chuẩn bị (chọn nhiều được), chọn người chủ trì/tham gia/để biết rồi Lưu. Có ghi chú, đính kèm và tùy chọn chỉ người họp xem nội dung. Hành chính quản lý phòng và sắp xếp. Theo dõi Ngày, Tuần, Lưới hoặc Lịch họp hôm nay.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

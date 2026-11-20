@@ -1,0 +1,30 @@
+{
+  "id": "route.workit-surface.resign-approver.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.resign-approver.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu xét nghỉ việc"
+        ],
+        [
+          "quản lý duyệt",
+          "người xử lý tiếp theo",
+          "chuyển đến cấp cao hơn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phê duyệt phiếu xét nghỉ việc",
+          "duyệt phiếu xét nghỉ việc"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "resign-approver"
+}

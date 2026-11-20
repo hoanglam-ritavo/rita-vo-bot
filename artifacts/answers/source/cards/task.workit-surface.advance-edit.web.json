@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.advance-edit.web",
+  "label": "Workit Web · Sửa hoặc xóa phiếu tạm ứng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Sửa hoặc xóa phiếu tạm ứng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về sửa hoặc xóa phiếu tạm ứng?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.advance-edit.web",
+          "text": "Workit Web. Chọn phiếu, bấm biểu tượng sửa, cập nhật rồi lưu, hoặc dùng thùng rác để xóa. Chỉ sửa hoặc xóa khi chưa qua bước phê duyệt nào.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 18,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "76211439f77f17fe6992836e7c24503835377e00216f2fd4fce83c6232d114d7",
+              "quote": "Workit — sửa/xóa đề nghị tạm ứng: chọn phiếu, nhấn icon sửa, cập nhật thông tin và Lưu; muốn xóa chọn phiếu rồi nhấn thùng rác. Chỉ sửa hoặc xóa phiếu chưa qua bước phê duyệt nào.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.advance-edit.web",
+          "text": "Workit Web. Chọn phiếu, bấm biểu tượng sửa, cập nhật rồi lưu, hoặc dùng thùng rác để xóa. Chỉ sửa hoặc xóa khi chưa qua bước phê duyệt nào.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 18,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "76211439f77f17fe6992836e7c24503835377e00216f2fd4fce83c6232d114d7",
+              "quote": "Workit — sửa/xóa đề nghị tạm ứng: chọn phiếu, nhấn icon sửa, cập nhật thông tin và Lưu; muốn xóa chọn phiếu rồi nhấn thùng rác. Chỉ sửa hoặc xóa phiếu chưa qua bước phê duyệt nào.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

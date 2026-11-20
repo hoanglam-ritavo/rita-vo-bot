@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.project-file.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.project-file.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ dự án",
+          "tài liệu dự án"
+        ],
+        [
+          "thêm tài liệu",
+          "đính kèm",
+          "cấp quyền"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "project-file"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.office-menu.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.office-menu.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "văn phòng số"
+        ],
+        [
+          "menu",
+          "các mục nào",
+          "danh mục",
+          "tạo thư viện chia sẻ"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "office-menu"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.download.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-download",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tải văn bản",
+          "tải xuống một văn bản",
+          "tải file đính kèm",
+          "tải tất cả file",
+          "tải một file",
+          "luu van ban workit"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "download"
+}

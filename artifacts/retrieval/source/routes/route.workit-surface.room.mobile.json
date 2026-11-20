@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.room.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.room.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đặt phòng họp",
+          "phòng họp"
+        ],
+        [
+          "tiện ích",
+          "chọn phòng",
+          "đặt phòng"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "room",
+  "surface_limited": true
+}

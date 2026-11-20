@@ -1,0 +1,30 @@
+{
+  "id": "route.workit-surface.create-task.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.6e89f057fc975e36ad65e4579eed86f2",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo công việc",
+          "giao công việc",
+          "giao một công việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người chủ trì"
+        ],
+        [
+          "trường bắt buộc",
+          "người giao"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "create-task"
+}

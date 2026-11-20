@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.avatar.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.avatar.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "avatar",
+          "ảnh đại diện",
+          "hình đại diện"
+        ],
+        [
+          "đổi",
+          "thay",
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "avatar"
+}

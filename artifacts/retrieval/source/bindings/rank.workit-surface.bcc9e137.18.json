@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.bcc9e137.18",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+    "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+    "chunk_index": 18,
+    "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+    "content_sha256": "95fa268ad7337a5028ec1ceaf3fd9e4e6e4918714a50e9b1284a3641b8b982e9",
+    "quote": "Workit — xem công cá nhân: Apps > Chấm công > Xem công cá nhân; chọn kỳ/bảng lương cần xem theo màn hình tháng và nhấn Tập hợp. Nguồn dùng nhãn “Chọn bảng lương cần xem” tại trang hướng dẫn công cá nhân. Bảng chấm công trong ảnh là ví dụ.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+      "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.attendance.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "route.workit-surface.po.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.po.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo po",
+          "đơn hàng mua hàng"
+        ],
+        [
+          "đề nghị mua sắm",
+          "phiếu mua sắm",
+          "khai báo",
+          "tạo po",
+          "lên đơn hàng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lập po",
+          "tạo po"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "po",
+  "surface_limited": true
+}

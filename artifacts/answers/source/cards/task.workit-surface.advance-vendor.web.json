@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.advance-vendor.web",
+  "label": "Workit Web · Lập tạm ứng nhà cung cấp",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Lập tạm ứng nhà cung cấp"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về lập tạm ứng nhà cung cấp?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.advance-vendor.web",
+          "text": "Workit Web. Mở Quy trình số → Đề nghị tạm ứng → Thêm. Chọn loại tạm ứng nhà cung cấp của đơn vị và chứng từ tham chiếu đã duyệt. Điền thông tin thanh toán, đính kèm nếu cần rồi lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 16,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa",
+              "quote": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.advance-vendor.web",
+          "text": "Workit Web. Mở Quy trình số → Đề nghị tạm ứng → Thêm. Chọn loại tạm ứng nhà cung cấp của đơn vị và chứng từ tham chiếu đã duyệt. Điền thông tin thanh toán, đính kèm nếu cần rồi lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 16,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa",
+              "quote": "Workit — tạm ứng nhà cung cấp: Quy trình số > Đề nghị tạm ứng > Thêm > chọn loại chứng từ tạm ứng nhà cung cấp theo đơn vị > Thêm. Chọn chứng từ ĐXCU/ĐNMS/PO/ĐNTT, tích chọn và xác nhận để lấy dòng hàng đã duyệt sang phiếu tạm ứng. Nhập thông tin thanh toán và đính kèm nếu cần, rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

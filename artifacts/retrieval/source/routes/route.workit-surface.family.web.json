@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.family.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.family.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người phụ thuộc",
+          "nhân sự gia đình",
+          "thông tin gia đình"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "family"
+}

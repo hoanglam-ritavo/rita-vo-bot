@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.incoming.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-incoming",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "văn bản đến"
+        ],
+        [
+          "giấy ủy quyền",
+          "vì sao",
+          "ai quản lý"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "incoming"
+}

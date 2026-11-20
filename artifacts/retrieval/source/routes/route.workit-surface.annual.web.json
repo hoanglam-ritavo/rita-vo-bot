@@ -1,0 +1,35 @@
+{
+  "id": "route.workit-surface.annual.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.leave.workit.annual",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ phép năm",
+          "đơn phép năm",
+          "phiếu phép năm",
+          "ngỉ phép năm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đăng ký nghỉ phép",
+          "đơn nghỉ phép"
+        ],
+        [
+          "nộp",
+          "tạo",
+          "lập",
+          "đăng ký",
+          "thao tác"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "annual"
+}

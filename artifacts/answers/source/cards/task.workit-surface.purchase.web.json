@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.purchase.web",
+  "label": "Workit Web · Lập đề nghị mua sắm từ phiếu cung ứng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Lập đề nghị mua sắm từ phiếu cung ứng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về lập đề nghị mua sắm từ phiếu cung ứng?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.purchase.web",
+          "text": "Workit Web. Vào Mua hàng → Đề nghị mua sắm → Thêm. Chọn loại chứng từ có hoặc không lập PO, chọn đề xuất cung ứng đã duyệt và xác nhận. Điền thông tin, đính kèm so sánh giá và chọn mua toàn bộ hoặc một phần rồi lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 11,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "4f97a01255f49e63873dca40297c33a239063ce8b9714dda43d3c1363fa278f1",
+              "quote": "Workit — lập đề nghị mua sắm: Apps > Mua hàng > Đề nghị mua sắm > Thêm > chọn loại chứng từ có/không tạo PO theo đơn vị > Thêm. Chọn đề xuất cung ứng đã được duyệt, tích chọn và xác nhận; hệ thống lấy các dòng hàng đã duyệt. Chọn loại đề nghị mua hàng, nhập thông tin phòng mua hàng, đính kèm file so sánh giá, chọn số lượng mua toàn bộ hoặc một phần phiếu cung ứng rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.purchase.web",
+          "text": "Workit Web. Vào Mua hàng → Đề nghị mua sắm → Thêm. Chọn loại chứng từ có hoặc không lập PO, chọn đề xuất cung ứng đã duyệt và xác nhận. Điền thông tin, đính kèm so sánh giá và chọn mua toàn bộ hoặc một phần rồi lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 11,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "4f97a01255f49e63873dca40297c33a239063ce8b9714dda43d3c1363fa278f1",
+              "quote": "Workit — lập đề nghị mua sắm: Apps > Mua hàng > Đề nghị mua sắm > Thêm > chọn loại chứng từ có/không tạo PO theo đơn vị > Thêm. Chọn đề xuất cung ứng đã được duyệt, tích chọn và xác nhận; hệ thống lấy các dòng hàng đã duyệt. Chọn loại đề nghị mua hàng, nhập thông tin phòng mua hàng, đính kèm file so sánh giá, chọn số lượng mua toàn bộ hoặc một phần phiếu cung ứng rồi Lưu.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.approve.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-approve",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt phiếu",
+          "phê duyệt phiếu",
+          "các bước xử lý phiếu cần duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "approve"
+}

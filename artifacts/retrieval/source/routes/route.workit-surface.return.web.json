@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.return.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-return",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trả lại phiếu",
+          "từ chối phiếu",
+          "phiếu cần trả lại"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "return"
+}

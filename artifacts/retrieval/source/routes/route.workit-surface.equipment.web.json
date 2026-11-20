@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.equipment.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.equipment.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trang thiết bị",
+          "thiết bị đã cấp",
+          "lịch sử đổi máy"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "equipment"
+}

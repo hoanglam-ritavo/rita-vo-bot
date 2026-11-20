@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.mobile-menu.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.mobile-menu.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "có những phân hệ",
+          "phân hệ nào",
+          "danh mục trên app",
+          "menu quy trình số"
+        ],
+        [
+          "có những",
+          "liệt kê"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "mobile-menu"
+}

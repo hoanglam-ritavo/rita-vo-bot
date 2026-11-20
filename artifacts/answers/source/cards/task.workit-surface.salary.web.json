@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.salary.web",
+  "label": "Workit Web · Xem phiếu lương theo tháng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xem phiếu lương theo tháng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về xem phiếu lương theo tháng?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.salary.web",
+          "text": "Workit Web. Mở Apps → Tiền lương → Phiếu lương, chọn tháng, tìm hồ sơ của mình và bấm Tìm. Bot có thể hướng dẫn các bước tra cứu.",
+          "refs": [
+            {
+              "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+              "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+              "chunk_index": 17,
+              "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+              "content_sha256": "b50a204cc0f71ada77182d70706cd7b5f7e16561aaf7c0fc9e066deb1e2fc50b",
+              "quote": "Workit — xem phiếu lương của bản thân theo tháng: Apps > Tiền lương > Phiếu lương; B1 chọn tháng lương, B2 tìm tên nhân sự, B3 nhấn Tìm. Đây là thao tác tra cứu; hướng dẫn không cung cấp mức lương thực tế hiện tại của người dùng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+                "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.salary.web",
+          "text": "Workit Web. Mở Apps → Tiền lương → Phiếu lương, chọn tháng, tìm hồ sơ của mình và bấm Tìm. Bot có thể hướng dẫn các bước tra cứu.",
+          "refs": [
+            {
+              "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+              "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+              "chunk_index": 17,
+              "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+              "content_sha256": "b50a204cc0f71ada77182d70706cd7b5f7e16561aaf7c0fc9e066deb1e2fc50b",
+              "quote": "Workit — xem phiếu lương của bản thân theo tháng: Apps > Tiền lương > Phiếu lương; B1 chọn tháng lương, B2 tìm tên nhân sự, B3 nhấn Tìm. Đây là thao tác tra cứu; hướng dẫn không cung cấp mức lương thực tế hiện tại của người dùng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+                "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

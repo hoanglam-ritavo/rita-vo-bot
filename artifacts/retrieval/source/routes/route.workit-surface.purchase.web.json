@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.purchase.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.purchase.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề nghị mua sắm"
+        ],
+        [
+          "lập",
+          "tạo",
+          "mua một phần",
+          "file so sánh giá",
+          "có po không"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "purchase"
+}

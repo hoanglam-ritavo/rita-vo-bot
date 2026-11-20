@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.login.mobile",
+  "label": "Workit Mobile · Đăng nhập và đổi mật khẩu trên Mobile",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đăng nhập và đổi mật khẩu trên Mobile"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về đăng nhập và đổi mật khẩu trên mobile?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.login.mobile",
+          "text": "Workit Mobile. Mở app Workit, dùng Đổi địa chỉ để đặt https://office.ritavo.com nếu là lần đăng nhập đầu rồi dùng tài khoản được cấp. Sau khi đăng nhập, vào Cài đặt → Đổi mật khẩu.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "chunk_index": 0,
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "content_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133",
+              "quote": "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.login.mobile",
+          "text": "Workit Mobile. Mở app Workit, dùng Đổi địa chỉ để đặt https://office.ritavo.com nếu là lần đăng nhập đầu rồi dùng tài khoản được cấp. Sau khi đăng nhập, vào Cài đặt → Đổi mật khẩu.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "chunk_index": 0,
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "content_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133",
+              "quote": "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

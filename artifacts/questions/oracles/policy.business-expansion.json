@@ -3898,18 +3898,27 @@
       "case_id": "q.policy.business-expansion.21ace09e15a35cdf",
       "turn": 0,
       "statuses": [
-        "partial"
+        "needs_clarification"
       ],
-      "task_ids_any": [
-        "task.a06219c735de572caabd8b6511fa0973"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?"
       ],
-      "required_source_groups": [
-        [
-          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
-        ]
+      "retrieve_statuses": [
+        "needs_clarification"
       ],
-      "claims": "required",
-      "expected_values": {}
+      "retrieve_documents": "none",
+      "expected_context": {
+        "pending": "slots",
+        "missing_slots": [
+          "surface"
+        ],
+        "slots": {
+          "system": "workit",
+          "surface": null,
+          "workit_action": "inspect"
+        }
+      }
     },
     {
       "case_id": "q.policy.business-expansion.4220fad1ae392c30",

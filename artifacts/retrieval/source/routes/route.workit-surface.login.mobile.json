@@ -1,0 +1,21 @@
+{
+  "id": "route.workit-surface.login.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.login.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đăng nhập",
+          "đăng nhập lần đầu",
+          "đổi mật khẩu",
+          "thay mật khẩu",
+          "đổi pass"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "login"
+}

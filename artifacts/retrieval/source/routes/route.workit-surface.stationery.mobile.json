@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.stationery.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.stationery.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "văn phòng phẩm"
+        ],
+        [
+          "tạo",
+          "lập",
+          "đăng ký",
+          "đề nghị"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "stationery",
+  "surface_limited": true
+}

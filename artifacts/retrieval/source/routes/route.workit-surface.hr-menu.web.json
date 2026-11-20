@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.hr-menu.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.hr-menu.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phân hệ nhân sự"
+        ],
+        [
+          "chức năng nào",
+          "danh mục",
+          "những chức năng"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "hr-menu"
+}

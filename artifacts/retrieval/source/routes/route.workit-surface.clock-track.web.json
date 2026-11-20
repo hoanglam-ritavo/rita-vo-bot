@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.clock-track.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.clock-track.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu bổ sung công",
+          "phiếu quên chấm công"
+        ],
+        [
+          "đang xử lý",
+          "bước duyệt",
+          "theo dõi"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "clock-track"
+}

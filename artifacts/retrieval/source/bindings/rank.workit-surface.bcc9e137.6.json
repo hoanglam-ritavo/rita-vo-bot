@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.bcc9e137.6",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+    "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+    "chunk_index": 6,
+    "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+    "content_sha256": "8a1e1a72b41e400fd41b75dd50522ec7c99df4cc11b61f9e9df40c777716341f",
+    "quote": "Workit — cấu hình chữ ký số: vào Apps > Hệ thống > Cấu hình chữ ký số. Hướng dẫn dùng chữ ký cho phiếu cung ứng, mua sắm, đề nghị thanh toán, hồ sơ nghỉ việc và HĐLĐ; nguồn ghi riêng HĐLĐ cần đăng ký chữ ký số với đơn vị được cấp phép. Chọn Choose File, kiểu Hình bên trên, thông tin bên dưới rồi Save. Ảnh có tỷ lệ 582x300, định dạng .png, chữ ký mực xanh, đã xóa nền. Giá trị HSM ID/HSM Key trong ảnh không phải thông tin để sao chép sử dụng.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+      "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.signature.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

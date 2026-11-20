@@ -1,0 +1,31 @@
+{
+  "id": "route.workit-surface.inspect.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.a06219c735de572caabd8b6511fa0973",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kiểm tra phiếu",
+          "xem phiếu",
+          "kiểm tra trước khi duyệt",
+          "xem quy trình phê duyệt",
+          "xem phiếu bằng ứng dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chi tiết phiếu"
+        ],
+        [
+          "đính kèm"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "inspect"
+}

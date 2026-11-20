@@ -1,0 +1,20 @@
+{
+  "id": "route.workit-surface.process-menu.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.process-menu.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thay đổi ca",
+          "bổ sung bằng cấp",
+          "thay đổi thông tin nhân sự",
+          "quy trình số có các mục"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "process-menu"
+}

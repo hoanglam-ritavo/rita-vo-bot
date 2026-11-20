@@ -1,0 +1,105 @@
+{
+  "id": "task.workit-surface.resign-flow.web",
+  "label": "Workit Web · Gửi và theo dõi phiếu xét nghỉ việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Gửi và theo dõi phiếu xét nghỉ việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về gửi và theo dõi phiếu xét nghỉ việc?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign-flow.web",
+          "text": "Workit Web. Chọn phiếu đã lưu, bấm Duyệt và chọn quản lý hoặc người xử lý tiếp theo. Dùng biểu tượng quy trình để xem tiến độ và kẹp giấy để xem hoặc tải phiếu đã ký. Chuỗi bước trong tài liệu là ví dụ quy trình, không xác nhận ai đang xử lý phiếu của bạn.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 10,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db",
+              "quote": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 2,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "ad9bc0323f986602171bf04b26c7705fd0edd49e9fd5d8cc7fe20ea5657e336f",
+              "quote": "Workit — I.1.b, gửi và theo dõi Phiếu xét nghỉ việc: Sau khi lưu có thể dùng nút sửa/xóa dữ liệu phiếu. Chọn phiếu > Duyệt, chọn đúng người quản lý/người thực hiện bước tiếp theo, ghi ý kiến nếu có, hoàn tất Duyệt. Để hủy thao tác vừa duyệt dùng Bỏ duyệt. Đợi thông báo hoàn tất; biểu tượng quy trình cho xem tiến độ, biểu tượng kẹp giấy cho xem mẫu phiếu đã ký. Tải mẫu in đã ký để đính kèm Biên bản bàn giao.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign-flow.web",
+          "text": "Workit Web. Chọn phiếu đã lưu, bấm Duyệt và chọn quản lý hoặc người xử lý tiếp theo. Dùng biểu tượng quy trình để xem tiến độ và kẹp giấy để xem hoặc tải phiếu đã ký. Chuỗi bước trong tài liệu là ví dụ quy trình, không xác nhận ai đang xử lý phiếu của bạn.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 10,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db",
+              "quote": "Workit — luồng Phiếu xét nghỉ việc trong ảnh hướng dẫn: Lập phiếu > Chuyển quản lý xác nhận > Quản lý ký > Trưởng phòng ban ký > HCNS xác nhận > PP.HCNS ký > TP.HCNS ký > HCNS xét thu hồi (thẻ nhân viên, đồng phục, trang thiết bị và xác nhận hoàn thành biên bản bàn giao công việc) > Kế toán ký > Chuyên viên PKT-TC xác nhận > KSNB ký > Chuyên viên KSNB xác nhận > Lưu hồ sơ. Hệ thống tự lấy quản lý trực tiếp/trưởng phòng; tên người trong ảnh không xác định người duyệt hiện tại của bạn.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 2,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "ad9bc0323f986602171bf04b26c7705fd0edd49e9fd5d8cc7fe20ea5657e336f",
+              "quote": "Workit — I.1.b, gửi và theo dõi Phiếu xét nghỉ việc: Sau khi lưu có thể dùng nút sửa/xóa dữ liệu phiếu. Chọn phiếu > Duyệt, chọn đúng người quản lý/người thực hiện bước tiếp theo, ghi ý kiến nếu có, hoàn tất Duyệt. Để hủy thao tác vừa duyệt dùng Bỏ duyệt. Đợi thông báo hoàn tất; biểu tượng quy trình cho xem tiến độ, biểu tượng kẹp giấy cho xem mẫu phiếu đã ký. Tải mẫu in đã ký để đính kèm Biên bản bàn giao.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

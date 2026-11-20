@@ -1,0 +1,21 @@
+{
+  "id": "route.workit-surface.project.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.project.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo dự án",
+          "thêm dự án",
+          "thêm hạng mục",
+          "thêm công việc dự án"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "project",
+  "surface_limited": true
+}

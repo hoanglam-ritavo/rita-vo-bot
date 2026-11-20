@@ -1,0 +1,29 @@
+{
+  "id": "route.workit-surface.attendance.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.attendance.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xem công cá nhân",
+          "bảng công cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xem công"
+        ],
+        [
+          "chọn kỳ",
+          "theo kỳ"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "attendance"
+}

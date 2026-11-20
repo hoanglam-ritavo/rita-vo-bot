@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.business-trip.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.business-trip.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đi công tác",
+          "phiếu công tác"
+        ],
+        [
+          "lập phiếu",
+          "lập",
+          "thêm chi phí",
+          "nhiều người"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "business-trip",
+  "surface_limited": true
+}

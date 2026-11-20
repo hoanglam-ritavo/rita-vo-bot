@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.workit-surfaces",
+  "description": "Workit interface selection, continuation, limits and isolated source withdrawal.",
+  "cases": [
+    {
+      "id": "q.conversation.workit-surfaces.001",
+      "title": "Làm rõ giao diện cho thao tác duyệt phiếu",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.approve.mobile",
+          "task.workit-approve"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Duyệt phiếu trên Workit như thế nào?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "App.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên máy tính thì sao?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Không phải Web, tôi dùng app.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.002",
+      "title": "Mở Workit bằng trình duyệt trên điện thoại",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-approve",
+          "task.a06219c735de572caabd8b6511fa0973",
+          "task.68369c60f81557c5b42fab416cfad7e1"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở Workit bằng trình duyệt trên điện thoại, duyệt phiếu ở đâu?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Kiểm tra phiếu trên Workit trước khi duyệt thế nào?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên app thì sao?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.003",
+      "title": "Biểu tượng, bộ đếm và lịch sử dành riêng cho Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.topic.mobile-counters",
+          "task.workit-surface.mobile-status.mobile",
+          "task.business.systems.mobile-history.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Vì sao số đỏ ngoài menu Workit Mobile nhỏ hơn tổng số phiếu bên trong?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Phiếu Workit của tôi vẫn đang xử lý dù đã duyệt xong?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Xem lịch sử duyệt phiếu trên Workit ở đâu?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.004",
+      "title": "Mobile chỉ có menu và chuyển về Web để xem các bước",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.approve.mobile",
+          "task.workit-surface.annual.mobile",
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Duyệt phiếu Workit trên điện thoại như thế nào?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Cách tạo đơn nghỉ phép năm trên Workit?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên Web?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn giấy tờ thì sao?",
+          "expectation": "Dẫn hướng dẫn Web và nêu giới hạn giấy tờ."
+        },
+        {
+          "text": "Còn trên app?",
+          "expectation": "Chỉ nêu menu Mobile và giới hạn phần giấy tờ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.005",
+      "title": "Giấy ủy quyền và đề xuất cung ứng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.authorization.mobile",
+          "task.workit-surface.authorization.web",
+          "task.workit-surface.supply.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Tôi không thấy Giấy ủy quyền trên điện thoại Workit.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên máy tính?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Trên app Workit Mobile không thấy Đề xuất cung ứng thì làm sao?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.006",
+      "title": "Rút riêng nguồn Mobile rồi Web",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.approve.mobile",
+          "task.workit-approve"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Duyệt phiếu trong app Workit Mobile có các bước gì?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Duyệt phiếu trong app Workit Mobile có các bước gì?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên Web?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Duyệt phiếu trên Workit Web thế nào?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.007",
+      "title": "So sánh hai hướng dẫn và giữ tác vụ",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-approve",
+          "task.workit-surface.approve.mobile"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "So sánh cách duyệt phiếu giữa Workit Web và Workit Mobile.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên app?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.008",
+      "title": "Chuyển sang E-Leave giữ hệ thống riêng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.annual.mobile",
+          "task.leave.eleave.annual"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "7d4d2428-52c1-48f3-82ac-1e044e6927ab"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Cách tạo đơn nghỉ phép năm trên Workit Mobile?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Tôi muốn biết cách đăng ký nghỉ phép năm bằng E-Leave.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.009",
+      "title": "Chỉ dẫn theo quyền, từ chối thao tác thay",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-manager-hr.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Ai có quyền xem nhân sự phòng ban mình trên Workit Mobile?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Hãy tự duyệt giúp tôi tất cả phiếu trên Workit Mobile.",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.workit-surfaces.010",
+      "title": "Thiếu hướng dẫn trên giao diện đã chọn",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-return"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Mỗi lượt đối chiếu hướng dẫn dành riêng cho giao diện và vai trò."
+      ],
+      "turns": [
+        {
+          "text": "Muốn trả lại phiếu để bổ sung trên Workit Web thì chọn bước nào?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        },
+        {
+          "text": "Còn trên app?",
+          "expectation": "Giữ đúng thao tác, giao diện, hiệu lực nguồn và giới hạn đã nêu."
+        }
+      ]
+    }
+  ]
+}

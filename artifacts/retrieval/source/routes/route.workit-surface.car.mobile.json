@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.car.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.car.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đặt xe",
+          "xe công tác"
+        ],
+        [
+          "người đi",
+          "tài xế",
+          "đặt xe",
+          "workit"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "car",
+  "surface_limited": true
+}

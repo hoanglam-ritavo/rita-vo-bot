@@ -1,0 +1,20 @@
+{
+  "id": "route.workit-surface.project-edit.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.project-edit.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xóa dự án",
+          "sửa dự án",
+          "sửa xóa dự án",
+          "xóa hạng mục"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "project-edit"
+}

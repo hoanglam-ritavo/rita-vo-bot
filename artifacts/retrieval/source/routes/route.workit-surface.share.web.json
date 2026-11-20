@@ -1,0 +1,29 @@
+{
+  "id": "route.workit-surface.share.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-sharing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chia sẻ văn bản",
+          "cấp quyền chia sẻ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quyền chia sẻ"
+        ],
+        [
+          "đồng nghiệp",
+          "cấp quyền"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "share"
+}

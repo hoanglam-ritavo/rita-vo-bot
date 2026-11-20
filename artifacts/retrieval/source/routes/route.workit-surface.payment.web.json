@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.payment.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.payment.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề nghị thanh toán"
+        ],
+        [
+          "lập",
+          "tạo",
+          "tham chiếu",
+          "thông tin hóa đơn"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "payment"
+}

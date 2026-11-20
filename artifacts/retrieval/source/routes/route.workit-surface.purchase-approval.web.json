@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.purchase-approval.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.purchase-approval.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề nghị mua sắm"
+        ],
+        [
+          "duyệt đề nghị",
+          "khi duyệt",
+          "xác nhận thông số",
+          "sửa",
+          "xóa"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "purchase-approval"
+}

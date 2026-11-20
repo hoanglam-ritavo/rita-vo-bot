@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.d906cfac.1",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+    "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+    "chunk_index": 1,
+    "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+    "content_sha256": "1e217d69dea6c69acd38155624574ac39a18fd78bc887048bcae7dcbd7f2f41a",
+    "quote": "Workit — đề nghị văn phòng phẩm: admin/quản lý phòng ban tổng hợp nhu cầu, vào Quy trình số > Văn phòng phẩm > Thêm mới. Nhập Nội dung (các trường dấu sao bắt buộc), thêm dòng bằng +/F4, gõ tên để chọn mã hàng, nhập số lượng đề nghị từng hàng rồi Lưu/F8. Số lượng duyệt ban đầu bằng số đề nghị và người duyệt có thể điều chỉnh. Có xóa dòng, sao chép dòng và đính kèm. Hệ thống lấy quản lý trực tiếp: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt để HCNS đặt hàng.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+      "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.5370844d82725638822c191c4a255ed0"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

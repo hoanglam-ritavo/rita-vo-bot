@@ -1,0 +1,30 @@
+{
+  "id": "route.workit-surface.approval-buttons.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.approval-buttons.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bỏ duyệt"
+        ],
+        [
+          "bỏ từ chối",
+          "trả lại",
+          "từ chối"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "các nút phê duyệt",
+          "bỏ từ chối"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "approval-buttons"
+}

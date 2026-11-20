@@ -1,0 +1,32 @@
+{
+  "id": "route.workit-surface.contract.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.contract.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xem hợp đồng",
+          "hợp đồng thử việc"
+        ],
+        [
+          "hợp đồng chính thức",
+          "hợp đồng lao động"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xem"
+        ],
+        [
+          "hợp đồng lao động"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "contract"
+}

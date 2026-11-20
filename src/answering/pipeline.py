@@ -184,8 +184,12 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
     sources = evidence_sources(result['matches'])
     if len(cards) == 1 or analysis.focused_policy:
         aspects = analysis.aspects
+        workit_labels = dict(analysis.workit_comparison_labels)
         claims, complete = [], True
-        limitations, reasons = [], set()
+        limitations, reasons = list(analysis.scope_limits) if analysis.workit_action else [], set()
+        if limitations:
+            complete = False
+            reasons.add('section_incomplete')
         for card, aspect in ((card, aspect) for card in cards for aspect in aspects):
             section = card.sections.get(aspect)
             if section is None:
@@ -212,7 +216,9 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
                                      if any(origin['chunk_id'] == match['chunk_id'] for origin in source['origins']))
                     citations.append({'source_id': source_id, 'quote': ref.quote})
                 else:
-                    claim = {'text': unit.text, 'citations': citations}
+                    label = workit_labels.get(card.id)
+                    text = f'{label}. {unit.text}' if label and not unit.text.startswith(f'{label}.') else unit.text
+                    claim = {'text': text, 'citations': citations}
                     if claim not in claims:
                         claims.append(claim)
                     continue
@@ -234,6 +240,7 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
             reason = (next(iter(limits)) if reasons == {'section_incomplete'} and len(limits) == 1
                       else 'incomplete_template_evidence')
             row.update(status='answered' if complete else 'partial', claims=claims[:12 if complete else 3], sources=sources,
+                       intro=analysis.scope_intro or '' if analysis.workit_action else '',
                        reason=None if complete else reason,
                        limitations=[] if complete else list(dict.fromkeys(limitations)))
             return row

@@ -1,0 +1,18 @@
+{
+  "id": "route.workit-surface.history.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.history.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quá trình công tác",
+          "lịch sử điều chuyển"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "history"
+}

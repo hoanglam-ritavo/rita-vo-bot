@@ -1,0 +1,4520 @@
+{
+  "schema_version": 1,
+  "group_id": "software.workit-surfaces",
+  "turns": [
+    {
+      "case_id": "q.software.workit-surfaces.install.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.099a04fe8a01519dab8098c73c2b1b74"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "57450941b0eb7e6b4fe3e999834e167f06e2f93a83405120e9df50ae165f2a41"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về ứng dụng Workit trên điện thoại, tài liệu nêu như sau:\nWorkit — tải ứng dụng: Android dùng https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi; iOS dùng https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Khi đăng nhập trên điện thoại, dùng nút Đổi địa chỉ để đặt https://office.ritavo.com, rồi nhập Username và Password của người dùng. Các tài khoản trong ảnh chỉ là ví dụ."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "install"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.login.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-password"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "2b9f247237f222556cd4409592e04aed53bc921d1635c7bfaf8fdc4847dd3f32"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — đăng nhập bằng trình duyệt tại https://office.ritavo.com. Theo hướng dẫn, User ID và Password được gửi tới mail từng người dùng. Sau lần đăng nhập đầu tiên, chọn ảnh tài khoản > Đổi mật khẩu, nhập mật khẩu cũ, mật khẩu mới và nhập lại mật khẩu mới, bấm Đổi mật khẩu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "login"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.login.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.login.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Mở app Workit, dùng Đổi địa chỉ để đặt https://office.ritavo.com nếu là lần đăng nhập đầu rồi dùng tài khoản được cấp. Sau khi đăng nhập, vào Cài đặt → Đổi mật khẩu."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "login"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.home.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.home.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "70edb990155118b339d89a2862a6d91bac999694aba9ed158386f2bccdbe17b1"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Sau khi đăng nhập, trang chủ hiển thị Lịch làm việc, Bàn làm việc và thông báo, tin tức. Mở Apps để vào Nhân sự, Chấm công, Tiền lương hoặc phân hệ cần dùng."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "home"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.shortcuts.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-shortcuts"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "10f203d16560baadba40b12fc09b21b743b12a349cfd996decead9fce86d1491"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — nút thao tác dữ liệu: Thêm (F2) tạo mới; biểu tượng sửa/xóa tác động dữ liệu đang chọn; Xuất Excel mẫu, Import Excel mẫu và Xuất Excel dữ liệu là các thao tác khác nhau. Nhân bản sao chép nhanh dữ liệu. Lưu (F8) lưu phần vừa cập nhật; Hủy hủy phần vừa cập nhật."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "shortcuts"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.avatar.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.avatar.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "7d48f783088a0712e364298e24220daf6009542147ee1bbdc3530865e1684e88"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở ảnh tài khoản → Thông tin tài khoản → Thay đổi hình đại diện. Chọn ảnh rồi dùng nút lưu ảnh đã chọn."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "avatar"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.signature.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.signature.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "8a1e1a72b41e400fd41b75dd50522ec7c99df4cc11b61f9e9df40c777716341f"
+        },
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "f93f820891c0ec418aeca8c04a1327266903774661ada5c016e5b64732deee69"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Hệ thống → Cấu hình chữ ký số. Theo hướng dẫn, chọn ảnh PNG tỷ lệ 582 x 300, chữ ký mực xanh đã xóa nền, chọn kiểu Hình rồi lưu. HĐLĐ cần đăng ký chữ ký số với đơn vị được cấp phép."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "signature"
+        }
+      },
+      "required_limitations": [
+        "Hướng dẫn mô tả cách chuẩn bị ảnh và màn hình cấu hình. Giá trị HSM trong ảnh là minh họa. Hỏi IT hoặc HCNS về thông tin cấu hình được cấp."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.hr-menu.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.hr-menu.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "0571b3843ec0a5c6d295e84f05687cb541cc3a59190fa3899b3f023d5f23d980"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Vào Apps → Nhân sự để tra sơ đồ tổ chức, thông tin nhân sự, sơ yếu lý lịch, hợp đồng, quá trình công tác, bằng cấp, gia đình, khen thưởng, kỷ luật, trang thiết bị và quá trình tham gia BHXH."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "hr-menu"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.organization.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.organization.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "080c1757174489c8bac3f4205cbb7dae72d4985beac01924109408f580680a1e"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Nhân sự → Sơ đồ tổ chức để xem cây công ty và phòng ban. Số nhân sự trong tài liệu là minh họa."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "organization"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.profile.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.profile.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "6053c0c11ade119adb460e70cb3a7f41eab2ca339aeec011bb6b5a78d4a41a96"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Nhân sự → Xem thông tin nhân sự hoặc Sơ yếu lý lịch. Theo hướng dẫn, mỗi nhân viên chỉ xem hồ sơ cá nhân của mình."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "profile"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.contract.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.contract.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "ee4e4e0c504b28712bd3c51fc668bcc272eb0ba8dead9f341f5de7cb40c0169b"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Nhân sự → Hợp đồng lao động để xem mục hợp đồng. Hướng dẫn mô tả các loại thử việc, chính thức và không xác định thời hạn."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "contract"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.history.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.history.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "9b38ce758beaa2a7d33fd8dca9f5310480957f6c1cc9486eea006e8cacf4948d"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Nhân sự → Quá trình công tác. Theo hướng dẫn, mỗi người xem lịch sử của mình gồm thời gian, điều chuyển, đơn vị, bộ phận và chức vụ hoặc chức danh."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "history"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.family.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.family.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "9631ff02afa0f33208561c4ffb8e27c70df3b442f2519ccf291911ce78359551"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Nhân sự → Gia đình để xem người thân đã khai báo và thời gian phụ thuộc. Dữ liệu màn hình chỉ dùng để tra cứu hồ sơ."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "family"
+        }
+      },
+      "required_limitations": [
+        "Hỏi HCNS hoặc Kế toán nếu cần xác nhận điều kiện giảm trừ thuế."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.rewards.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.rewards.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "07fb045b7c40a8cc7fb38229e653b77ad130e074d196da3e91903dae4291045d"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Nhân sự → Khen thưởng cá nhân hoặc Kỷ luật để xem thông tin ghi nhận. Hình trong hướng dẫn là minh họa."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "rewards"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.equipment.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.equipment.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "e9ea5853d19371bee735b42b4e56d5c5ad03a5151ea11fa96930920ca3e54ee6"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Nhân sự → Trang thiết bị để xem thiết bị đang sử dụng cùng lịch sử cấp phát, đổi máy và sửa chữa."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "equipment"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.insurance.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.insurance.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "1e8c97974ac3f9c4f19eba2bc4b98f2a814314e730ced682d239a7b6499d6a71"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Nhân sự → Quá trình tham gia BHXH để xem thời gian từ tháng, đến tháng và thông tin quyết định trên hồ sơ của mình. Nếu thiếu tháng, đối chiếu với HCNS."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "insurance"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.salary.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.salary.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "b50a204cc0f71ada77182d70706cd7b5f7e16561aaf7c0fc9e066deb1e2fc50b"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Tiền lương → Phiếu lương, chọn tháng, tìm hồ sơ của mình và bấm Tìm. Bot có thể hướng dẫn các bước tra cứu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "salary"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.attendance.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.attendance.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "95fa268ad7337a5028ec1ceaf3fd9e4e6e4918714a50e9b1284a3641b8b982e9"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Chấm công → Xem công cá nhân. Chọn kỳ hoặc bảng lương cần xem rồi bấm Tập hợp. Đối chiếu kết quả trên tài khoản của mình."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "attendance"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.forgot-clock.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.forgot-clock.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "cf22b4f526b03ee883e9ae920f9f3b544c039a2182b8e77d11aa26b2b580cb9b"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Trên phiếu bổ sung công, nhập người quên chấm công, loại lỗi cá nhân hoặc lỗi máy, và ngày giờ công. Dùng dấu + thêm từng dòng rồi Lưu. Phiếu chuyển chờ quản lý xử lý."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "forgot-clock"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.clock-track.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.clock-track.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "04d0c62e2d3a4d5729b0681329e7824444410663815add3866c6691a48de1eaa"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở tab Đang xử lý và chọn biểu tượng quy trình để xem bước đăng ký, duyệt và thông báo nhân sự. Màu đỏ là chưa hoàn thành, xanh là đã hoàn thành. Sau bước quản lý duyệt, Nhân sự cập nhật công."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "clock-track"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-hr.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-manager-hr.2cb00d36"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-hr"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-menu.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.mobile-menu.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        },
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Bản Mobile liệt kê Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công và Tiền lương. Quy trình số có Ticket, Văn phòng phẩm, Thanh toán, Tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Công tác, Xe, Phòng họp, Tuyển dụng, Khen thưởng, Quên chấm công và Suất ăn."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-menu"
+        }
+      },
+      "required_limitations": [
+        "Danh mục xác nhận các mục xuất hiện trong tài liệu. Làm rõ tên thao tác nếu cần các bước chi tiết."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.install-app.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-install.2cb00d36"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "install-app"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-password.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-password.2cb00d36"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "0d36ab1880482bf566dde5d2ec080ca517e0ec86be64bcbbf028c5ecea7bc133"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — HDSD duyệt phiếu V1: tải Workit cho Android tại https://play.google.com/store/apps/details?id=vn.workit.erp&hl=vi hoặc iOS tại https://apps.apple.com/vn/app/workit/id1506323124?l=vi. Lần đăng nhập đầu, bấm đổi địa chỉ, nhập https://office.ritavo.com rồi Change; nhập tài khoản/mật khẩu của mình và Login. Sau đăng nhập lần đầu, vào cài đặt > Đổi mật khẩu/Change Password."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-password"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-missing-menu.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-missing-menu.2cb00d36"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — các chức năng: Công việc, Dự án, Văn phòng số, Quy trình số, Bán hàng, Mua hàng, Nhân sự, Chấm công, Tiền lương. Văn phòng số có lịch cơ quan, văn bản đi/đến, tài liệu, danh bạ CBNV; app không có Giấy ủy quyền. Mua hàng có Đề nghị mua sắm và Đơn hàng mua hàng; app không có Đề xuất cung ứng. Nhân sự có thông tin nhân sự phòng ban mình (chỉ cấp quản lý) và Phiếu xét nghỉ việc."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-missing-menu"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.leave-approval.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.workit-leave-approval.d906cfac"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "leave-approval"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.office-menu.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.office-menu.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "4bd15031300eb25f9bbd40609138f04a38ff53e4d46c9886a9cda7863221ae64"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Văn phòng số. Hướng dẫn có Văn bản đi, Văn bản đến, Giấy ủy quyền, Tài liệu chia sẻ, Thông báo – Tin tức, Thư viện chia sẻ và Danh bạ CBNV."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "office-menu"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu liệt kê thư viện và tài liệu chia sẻ. Phần thao tác tạo các mục này chưa có hướng dẫn chi tiết."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.office-menu.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.office-menu.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Văn phòng số trên app có Lịch cơ quan, Văn bản đi, Văn bản đến, Tài liệu và Danh bạ CBNV. Hướng dẫn Mobile ghi app không có Giấy ủy quyền."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "office-menu"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.outgoing-access.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.71b81f225392502f8201c9e7c655bf8a"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "71f05f674eaf7c5de8456b9f6a0e622de08d7681fc4e728ce53f910320cc0546"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về quyền xem văn bản đi, tài liệu nêu như sau:\nWorkit — vì sao không thấy Văn bản đi: Hành chính quản lý, nhập liệu và cấp quyền cho người có yêu cầu; mặc định không có dữ liệu nếu chưa được chia sẻ. Khi được cấp quyền, xem thông báo tại Bàn làm việc hoặc vào Văn phòng số > Văn bản đi. Ba quyền riêng là Xem, Tải, Chia sẻ; quyền xem không tự động là quyền tải hoặc chia sẻ."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "outgoing-access"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.download.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-download"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "72a80678215ab9cd82ff4ae16af22ce12d7b7be33da84a2245669dec3a686941"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — xem/tải văn bản khi được phân quyền: mở Văn bản đi, nhấn icon tệp đính kèm rồi icon file để mở. Nếu có quyền Tải, dùng nút tải cạnh file hoặc Tải xuống tất cả. Văn bản đến và Giấy ủy quyền sử dụng thao tác/phân quyền tương tự."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "download"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.share.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-sharing"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "f98f29842fc8fe9bced6f832b296d1e115f352fde80bc12eda36cf10d141efc8"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — chia sẻ văn bản khi có quyền Chia sẻ: chọn Chia sẻ, tìm nhân sự, cấp quyền Xem/Tải/Chia sẻ cho một hoặc nhiều người, chọn Gửi email nếu cần rồi OK. Quyền chia sẻ do Hành chính phân quyền; không mặc định mọi người đều có."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "share"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.incoming.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-incoming"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — Văn bản đến quản lý văn bản từ cơ quan/đối tác gửi đến; Giấy ủy quyền quản lý giấy ủy quyền do công ty ban hành. Hành chính quản lý chính, nhập liệu và cấp quyền xem theo yêu cầu. Cả hai mặc định không có dữ liệu cho người chưa được chia sẻ; quyền Xem/Tải/Chia sẻ và thao tác tương tự Văn bản đi."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "incoming"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.authorization.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.authorization.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "72a80678215ab9cd82ff4ae16af22ce12d7b7be33da84a2245669dec3a686941"
+        },
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "610d232abed7f61bbadd8930c4266eec876b02580dec80b83269b20eb1c8f175"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Văn phòng số → Giấy ủy quyền. Hành chính cấp quyền theo yêu cầu. Mở tệp qua biểu tượng đính kèm. Tải hoặc chia sẻ cần quyền tương ứng."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "authorization"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.authorization.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.authorization.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile V1 ghi app không có mục Giấy ủy quyền. Nếu cần thao tác ngoài app, bạn có thể hỏi riêng hướng dẫn trên Workit Web."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "authorization"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.news.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.news.web"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "0e92b5a515f863468492cbe637bb2324f37ced2f1f764f644fd84e152dac060b"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Thông báo & Tin tức trên trang chủ, Bàn làm việc → Thông báo, tin tức chưa xem, hoặc Apps → Văn phòng số → Thông báo – Tin tức."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "news"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.directory.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.directory.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c3c03611-432b-41e8-ba37-87ec92f105f7",
+          "revision_id": "ba56662a-da5f-4443-bda1-0e6e076e73f9",
+          "quote_sha256": "7594cf46c16820b7f87ac9724f3f87679f966d7f1a882a1f6909e88891ce93c9"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Văn phòng số → Danh bạ CBNV. Dùng bộ lọc đơn vị, phòng ban, khối hoặc ô tìm kiếm. Số liên hệ trong ảnh hướng dẫn là minh họa."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "directory"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.process-menu.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.process-menu.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "6876e446f2e011c29f73479aeead3924edb03c0ec7dd8bc51d24ed953fdc096d"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Vào Apps → Quy trình số. Tài liệu liệt kê các mục thay đổi thông tin nhân sự, bổ sung bằng cấp, thay đổi ca và các nhóm phiếu nghiệp vụ."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "process-menu"
+        }
+      },
+      "required_limitations": [
+        "Danh mục xác nhận vị trí các mục. Tài liệu chưa hướng dẫn chi tiết tất cả biểu mẫu."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.stationery.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.5370844d82725638822c191c4a255ed0"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "1e217d69dea6c69acd38155624574ac39a18fd78bc887048bcae7dcbd7f2f41a"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về đề nghị văn phòng phẩm Workit, tài liệu nêu như sau:\nWorkit — đề nghị văn phòng phẩm: admin/quản lý phòng ban tổng hợp nhu cầu, vào Quy trình số > Văn phòng phẩm > Thêm mới. Nhập Nội dung (các trường dấu sao bắt buộc), thêm dòng bằng +/F4, gõ tên để chọn mã hàng, nhập số lượng đề nghị từng hàng rồi Lưu/F8. Số lượng duyệt ban đầu bằng số đề nghị và người duyệt có thể điều chỉnh. Có xóa dòng, sao chép dòng và đính kèm. Hệ thống lấy quản lý trực tiếp: Đăng ký VPP > Trưởng phòng duyệt > Hành chính duyệt để HCNS đặt hàng."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "stationery"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.stationery.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.stationery.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Mobile có mục Quy trình số → Văn phòng phẩm."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "stationery"
+        }
+      },
+      "required_limitations": [
+        "Nguồn Mobile chỉ xác nhận menu. Hãy hỏi hướng dẫn Workit Web nếu cần từng bước lập phiếu."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.stationery-track.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.stationery-track.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "11a16979306f88bc276be693f3eb24b0d56b914ee6c77b4f660f20add67e7120"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Có thể lọc phiếu văn phòng phẩm theo thời gian, trạng thái, nội dung hoặc số chứng từ. Màn hình có in phiếu, xuất danh sách và mẫu import. Biểu tượng quy trình hiển thị các bước, màu xanh biểu thị đã hoàn tất."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "stationery-track"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.annual.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.leave.workit.annual"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "9f94c35720b6583b87811bf89806dde693dca2ad3a155123a3732ef15a5b9922"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — cách xin nghỉ phép: Apps > Quy trình số > Nghỉ phép > Thêm/F2. Chọn người nghỉ và loại nghỉ, nhập lý do, thêm dòng bằng +, nhập Từ ngày và Đến ngày, chọn Sáng/Chiều/Nguyên ngày, rồi Lưu/F8. Có người thay thế và tải tệp đính kèm. Hệ thống tự lấy quản lý trực tiếp của người lập phiếu; luồng Đăng ký nghỉ phép > Duyệt nghỉ phép > Thông báo nhân sự và phòng ban. Theo dõi Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy.",
+        "Trên Workit, loại P là Nghỉ phép (Annual). Danh mục phần mềm không tự xác lập điều kiện được nghỉ."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "annual"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.annual.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.annual.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Mobile có mục Quy trình số → Nghỉ phép."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "annual"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chưa hướng dẫn từng bước tạo đơn phép năm hoặc các chứng từ. Có thể hỏi riêng hướng dẫn trên Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.unpaid.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.unpaid.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "1e4c621126dc49f7c0fadad82c77071efa179adc9aeb2ce2d1064653463cae1c"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Nghỉ phép → Thêm và chọn K – Nghỉ không hưởng lương. KL là Nghỉ không xin phép. Điền người nghỉ, lý do, ngày và buổi rồi Lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "unpaid"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.unpaid.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.unpaid.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Mobile có mục Quy trình số → Nghỉ phép."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "unpaid"
+        }
+      },
+      "required_limitations": [
+        "Nguồn Mobile chưa hướng dẫn chọn loại nghỉ không lương hoặc điền và gửi phiếu."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.leave-status.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.leave-status.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "bdcdc8c0cecdef9c8cfb193aa752bd85347d54e8d5ce47f041877dac2c542ff3"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "1e4c621126dc49f7c0fadad82c77071efa179adc9aeb2ce2d1064653463cae1c"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Xem mục Nghỉ phép và các tab Chờ duyệt, Đang xử lý, Đã hoàn tất hoặc Đã từ chối/Đã hủy. Nguồn mô tả tổng số phép còn lại và số phép được dùng trên màn hình, nên cần mở tài khoản của mình để kiểm tra."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "leave-status"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.late-early.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.late-early.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "75b5354079c79f0c9638502751b2ceb38f07a2509c26b7987f230e5b27fee712"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đi trễ/Về sớm → Thêm. Chọn lý do cá nhân hoặc công việc, thêm ngày, điền đúng ô Giờ đến trễ hoặc Giờ về sớm, nhập diễn giải và lưu. Xem trạng thái để theo dõi quản lý duyệt và thông báo Nhân sự."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "late-early"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.business-trip.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.business-trip.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "56e7ae3857c580d92e77b4dce4a7f6569986d5c242d8ea83729544470b2e96bb"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đi công tác → Thêm. Chọn loại, phương tiện, lý do, rồi thêm từng người cùng ngày giờ và điểm đi đến. Có thể thêm dòng chi phí và tệp, sau đó lưu. Đây là hướng dẫn nhập phiếu công tác."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "business-trip"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.car.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.car.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Xe công tác → Thêm. Chọn xe, tài xế, thời gian, địa điểm và số người, sau đó thêm người đi theo vai trò rồi lưu. Có thể xem lịch xe dạng lưới hoặc ngày."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "car"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.room.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.room.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "72003e8d83ea29e84120365518358f24df2821a1638a1b6fb42a41a247baee4f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Phòng họp → Thêm. Chọn phòng, ngày giờ, số người, nội dung và người tham gia. Có thể chọn nhiều tiện ích rồi lưu và kiểm tra lịch."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "room"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.resign.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.resign.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f"
+        },
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "59511e19c5eee1a429d8352d71ef49b203395ff0a870618739eea70b6634bfe5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Phiếu xét nghỉ việc → Thêm. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên và Lý do nghỉ việc theo mẫu trình ký. Nhấn Lưu để khai báo, sau đó thực hiện bước gửi duyệt."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "resign"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.resign.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.resign.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Mobile liệt kê Phiếu xét nghỉ việc trong phân hệ Nhân sự."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "resign"
+        }
+      },
+      "required_limitations": [
+        "Nguồn Mobile chưa mô tả từng trường và các bước gửi phiếu. Có thể hỏi hướng dẫn trên Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.resign-flow.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.resign-flow.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "20c2649c072a95d6ab066ca079502c4a55d1e26e685b468bb991464bab6242db"
+        },
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "ad9bc0323f986602171bf04b26c7705fd0edd49e9fd5d8cc7fe20ea5657e336f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Chọn phiếu đã lưu, bấm Duyệt và chọn quản lý hoặc người xử lý tiếp theo. Dùng biểu tượng quy trình để xem tiến độ và kẹp giấy để xem hoặc tải phiếu đã ký. Chuỗi bước trong tài liệu là ví dụ quy trình, không xác nhận ai đang xử lý phiếu của bạn."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "resign-flow"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.handover.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.handover.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "f84cc24babc29b3d1b63a76ce462b32a4c0669ce27c9c635b23a40a8e1a818f6"
+        },
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "ab87c2525a669c3edc9831e076e9ade91d0dc23e614cf4f96d51321c115b0969"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Sau khi Phiếu xét nghỉ việc được ký, tải phiếu đã ký và tạo Ticket Hoàn tất BBBG theo khu vực MN hoặc MB. Đính kèm phiếu đã ký và biên bản bàn giao theo mẫu công ty dạng PDF, sau đó chọn Lưu & đóng."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "handover"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.handover-sign.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.handover-sign.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "59ca26931e804308de6759e57dfa9849bdd741c8064c37fc8bf14be60658dda6"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Sau khi HCNS xác nhận, người tạo chuyển cho người nhận bàn giao. Người nhận mở Bàn làm việc → Quy trình số → Ticket, chọn phiếu và Duyệt. Khi quy trình hiện nút Ký số, chọn đúng tệp và đặt chữ ký ở vị trí yêu cầu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "handover-sign"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.handover-form.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.handover-form.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "8d851fd51e6f406908000669e9a05a7c0b11f605607c0afb10da04c065637676"
+        },
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "47c1768fda23ecd28b5f9e8418bfa3dd1b366c200f886da694cfcd09d3f6a35d"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Trang mẫu minh họa các trường tài sản như tên hoặc mã, số lượng, tình trạng, thông tin lần bàn giao trước và người nhận. Phần công việc ghi nội dung, tình hình thực hiện và bên liên quan. Sau xác nhận, HCNS chuyển hồ sơ sang Kế toán để xử lý các khoản nếu có."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "handover-form"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu chỉ hiển thị trang 1 trong 3 của mẫu."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.resign-approver.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.resign-approver.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "791c339204d113760f1df4d0ab56748dcbb0fb01f979e78189b1f0ee51af14b7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Người có quyền mở thông báo hoặc Bàn làm việc → Phiếu xét nghỉ việc, chọn phiếu rồi bấm Duyệt. Nhập ý kiến và chọn người thực hiện bước tiếp theo theo quy trình. Hỏi quản trị Workit nếu cần xác nhận quyền chuyển cấp."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "resign-approver"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.maternity.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.maternity.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "89ac22568845149949556c5024ef196f9df22ed7bbd3e8959379ae134aafd109"
+        },
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "1e4c621126dc49f7c0fadad82c77071efa179adc9aeb2ce2d1064653463cae1c"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Workit → Quy trình số → Nghỉ phép → Thêm. Chọn S1 – Nghỉ thai sản và lưu phiếu. Hướng dẫn danh mục loại nghỉ nêu các trường lý do, từ ngày, đến ngày và buổi nghỉ."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "maternity"
+        }
+      },
+      "required_limitations": [
+        "Khai báo phiếu là bước Workit. Hồ sơ bàn giao và chế độ BHXH cần căn cứ riêng."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.meal.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.meal.web"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "dd32e085453b40ad9dc45ce0e92753882ffc26fb99a1ae0f22e84bd2d4d49a2f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Suất ăn → Thêm. Nhập ngày và nội dung, thêm người ăn cùng khoảng thời gian rồi lưu. Phiếu chuyển HCNS kiểm tra, đăng ký và cấn trừ lương theo hướng dẫn bếp Văn phòng Q2–HCM."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "meal"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.process-menu.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.process-menu.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Mở Quy trình số để tìm Tăng ca, Đề nghị tuyển dụng, Đề nghị khen thưởng hoặc Quên chấm công theo danh mục app."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "process-menu"
+        }
+      },
+      "required_limitations": [
+        "Nguồn xác nhận các mục. Phần lập từng loại phiếu trên app cần hướng dẫn chi tiết khác."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.purchase-menu.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.purchase-menu.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "fff86904271c3f9832ccc30d6c8f72fd3e406ec62240e7e9c0b98da04542e9c7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Mua hàng để tìm Đề xuất cung ứng, Đề nghị mua sắm và Đơn hàng mua hàng. Thanh toán và tạm ứng thuộc Quy trình số. Công việc và Dự án có menu riêng."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "purchase-menu"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.create-task.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.6e89f057fc975e36ad65e4579eed86f2"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "80ccfb7a4b6dae4344c3fc5caf3218afdec59a4fd97779281a0ec588b5930104"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về tạo công việc Workit, tài liệu nêu như sau:\nWorkit — tạo công việc: vào menu Công việc > Tạo công việc/F2, nhập thông tin (dấu * đỏ bắt buộc), chọn người tham gia và Lưu. Người giao việc là người tạo phiếu; người chủ trì là người thực hiện. Form có tiêu đề, mô tả, kết quả, thời gian từ/đến, nhắc việc, định kỳ, Chủ trì/Phối hợp/Để biết và đính kèm. Xem công việc dạng Lịch hoặc Lưới; lọc tình trạng, vai trò tham gia và ưu tiên."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "create-task"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.finish-task.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.finish-task.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "9439d48f81ee1c729f574dd293865f78ea6f63bae1a134d1b6055dc380b15eff"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Chọn công việc, bấm Hoàn tất hoặc Bỏ hoàn tất, nhập ý kiến và xác nhận. Phần Bình luận dùng để trao đổi trên công việc."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "finish-task"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.subtask.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.subtask.web"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "9d42eebe3db02bdfe673cf60f1083ef7f6c18e29975636ec6a76b08b7d2a3a54"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở công việc, đổi ô Chủ trì hoặc thêm người tham gia rồi Lưu. Muốn tạo việc con, mở việc cha → Tạo việc con → nhập thông tin → Lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "subtask"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.extend.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.extend.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "bab978b973925ddcde5d860437d1eb153dead6284cbe85de4d769a4afc6af6b1"
+        },
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "7f238bd9732f9b59fe552e8fbcdd89599266d296eb4ac9556f1d39aab27392bc"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Người chủ trì mở công việc → Đề nghị gia hạn, nhập lý do và ngày mới, xác nhận rồi lưu. Người có quyền mở Gia hạn hoặc Bàn làm việc → Công việc → Xin gia hạn để duyệt hoặc từ chối. Hạn mới chỉ có hiệu lực sau khi được chấp nhận."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "extend"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.project.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.project.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "b617f88d603f101c9237aa26e87eb57eaed7b434fdb66d01ec2678f60ecdae45"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Vào Dự án → Thêm/sửa (Dự án/hạng mục) → Thêm, điền thông tin và thành viên rồi lưu. Chọn dự án và dấu + để thêm hạng mục. Chọn đúng dự án và hạng mục rồi dùng dấu + để tạo công việc dự án."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "project"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.project-file.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.project-file.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "68dac94fccdcf43850dea342dc9156282ce76414119680d7a1dd716a61be07e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Tại Hồ sơ dự án, chọn dự án, bấm Thêm tài liệu, điền thông tin và chọn tệp. Cấp quyền Xem, Tải hoặc Chia sẻ phù hợp rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "project-file"
+        }
+      },
+      "required_limitations": [
+        "Nguồn mô tả thao tác ngay tại màn hình Hồ sơ dự án. Đường dẫn để mở màn hình này chưa có căn cứ."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.project-edit.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.project-edit.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "30af8d522df7ea7e61f7a34174ed32f3820a6f5371a0208f1efa7f1167c58b76"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Vào Dự án → Thêm/sửa (Dự án/hạng mục) và dùng biểu tượng sửa hoặc thùng rác ở đúng dòng. Chỉ xóa dự án khi không còn hạng mục liên quan."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "project-edit"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.supply.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.supply.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "a233ba45e6a093da9a265800b25ee1d9a9b588c26fb2c3aaafe1780d0fe307c1"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Apps → Mua hàng → Đề xuất cung ứng → Thêm. Chọn loại chứng từ của đơn vị, nhập thông tin phiếu và dòng hàng hóa hoặc dịch vụ, đính kèm tài liệu liên quan nếu có rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "supply"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.supply.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.supply.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Theo hướng dẫn Mobile V1, app không có Đề xuất cung ứng. Mua hàng trên app có Đề nghị mua sắm và Đơn hàng mua hàng. Nếu cần thao tác ngoài app, bạn có thể hỏi riêng hướng dẫn trên Workit Web."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "supply"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.supply-approval.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.supply-approval.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "a6ded9db3cac25ae484c605a2250831b1b8a3544e083f9ae3714b95a399528f1"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Chờ bạn duyệt, chọn đề xuất, bấm Duyệt và nhập ý kiến nếu cần. Dùng biểu tượng quy trình để theo dõi. Chỉ sửa hoặc xóa khi phiếu chưa qua bước duyệt nào."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "supply-approval"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.purchase.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.purchase.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "4f97a01255f49e63873dca40297c33a239063ce8b9714dda43d3c1363fa278f1"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Vào Mua hàng → Đề nghị mua sắm → Thêm. Chọn loại chứng từ có hoặc không lập PO, chọn đề xuất cung ứng đã duyệt và xác nhận. Điền thông tin, đính kèm so sánh giá và chọn mua toàn bộ hoặc một phần rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "purchase"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.purchase-approval.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.purchase-approval.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "81b1f006ab53fcfc07e7134a1645329d2d7c2fad42257c8bb188957f1851bb57"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Chọn phiếu tại Chờ bạn duyệt → Duyệt. Chọn người đề xuất xác nhận thông số, nhập ý kiến rồi duyệt. Biểu tượng quy trình cho xem tiến độ. Chỉ sửa hoặc xóa trước bước phê duyệt đầu tiên."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "purchase-approval"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.po.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.po.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "14472008dbe1b99683599f3c10fe6f12e172ebf9ac0fa71c0ee964e73956a1f2"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Mua hàng → Đơn hàng mua hàng → Thêm. Chọn loại chứng từ và chọn đề nghị mua sắm có lập PO đã được duyệt, xác nhận rồi nhập và lưu thông tin."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "po"
+        }
+      },
+      "required_limitations": [
+        "Cách hệ thống tự lấy dòng hàng chưa được mô tả nhất quán trong phần này."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.payment.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.payment.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "67f02b27ac7006703a6e1ab38df63f61d431b13dc9fc33fa9b734489d089dd32"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đề nghị thanh toán → Thêm. Chọn loại chứng từ và chứng từ tham chiếu đã duyệt để lấy dòng hàng. Điền thông tin thanh toán, hình thức chi, hóa đơn và áp ứng hoặc hoàn ứng nếu có, rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "payment"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.payment-track.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.payment-track.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "0d3762dd9f49a942c2311d5e83067406cbf4bb7cd01bd6af165e4f373911e44a"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở biểu tượng quy trình trên dòng phiếu để xem bước đang xử lý. Chỉ sửa hoặc xóa phiếu chưa qua bước duyệt nào. Người duyệt trong ảnh là minh họa, cần kiểm tra trên phiếu của mình."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "payment-track"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.advance-vendor.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.advance-vendor.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "4a2d47c4f28e79d9eb4f4f0594332585435e19982c66c37e106c993ab071d5aa"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đề nghị tạm ứng → Thêm. Chọn loại tạm ứng nhà cung cấp của đơn vị và chứng từ tham chiếu đã duyệt. Điền thông tin thanh toán, đính kèm nếu cần rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "advance-vendor"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.advance-internal.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.advance-internal.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "43994ff708fad64728043a1b98aae29a29bf32a41b0b14c329d973c958985e3f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Quy trình số → Đề nghị tạm ứng → Thêm, chọn tạm ứng nội bộ. Nhập thông tin thanh toán, dùng dấu + hoặc F4 thêm dòng, dùng biểu tượng sao chép hoặc thùng rác cho dòng rồi lưu."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "advance-internal"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.advance-edit.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.advance-edit.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+          "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+          "quote_sha256": "76211439f77f17fe6992836e7c24503835377e00216f2fd4fce83c6232d114d7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Chọn phiếu, bấm biểu tượng sửa, cập nhật rồi lưu, hoặc dùng thùng rác để xóa. Chỉ sửa hoặc xóa khi chưa qua bước phê duyệt nào."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "advance-edit"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.approval-buttons.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.approval-buttons.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+          "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+          "quote_sha256": "cdb565b280945baa756f6cf391b2e8f40cb5295e6c54fcf63ba17892485af337"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Duyệt xác nhận đề nghị. Bỏ duyệt hủy lần duyệt đã thực hiện. Trả lại đưa phiếu về bước cần duyệt lại. Từ chối không chấp nhận đề nghị và hủy các bước sau. Bỏ từ chối hủy lần từ chối trước đó. Nút phụ thuộc quy trình và quyền hiện có."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "approval-buttons"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.desk.web",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.desk.web"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+          "quote_sha256": "58b5dae53d082ce3fc906ea03dad84c6ca2c48c91eace1d1687d28012ad22832"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Web. Mở Bàn làm việc và chọn dòng đến phiếu tương ứng. Các tab phân biệt Chờ bạn duyệt, Đang xử lý, Đang xử lý quá hạn và Đã hoàn tất. Màu đỏ biểu thị chưa hoàn thành."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "desk"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.inspect.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.a06219c735de572caabd8b6511fa0973"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+          "quote_sha256": "ae894f7d3a3b634b8824caa1e9d67c122972ce6bfcd3810eebe9f187fc968c81"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về quản lý kiểm tra phiếu Workit, tài liệu nêu như sau:\nWorkit — quản lý kiểm tra phiếu trước khi duyệt: click dòng phiếu để xem nhanh nội dung ở lưới phía dưới. Các icon bên cạnh cho Xem, sửa, xóa, bình luận, tham chiếu, đính kèm và xem quy trình. Biểu tượng quy trình hiển thị những bước phê duyệt đã qua và bước hiện tại; trong ảnh minh họa bước tô đỏ là bước chờ người dùng kiểm tra, duyệt."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "inspect"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.inspect.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.68369c60f81557c5b42fab416cfad7e1"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "aba1519e4bd77a049a2077fcf91f487da60e423d8b7976029343783f6c27b23f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Về kiểm tra phiếu trên Workit Mobile, tài liệu nêu như sau:\nWorkit Mobile — kiểm tra phiếu: vào chức năng > Chờ duyệt; menu ba chấm > Xem/Sửa để xem nội dung, hoặc Xem chi tiết. Các biểu tượng ở phiếu lần lượt là bình luận/tin nhắn, tệp đính kèm, quy trình phê duyệt. Hướng dẫn giải thích màu đen không có file/tin nhắn, xanh đã hoàn thành, đỏ chưa hoàn thành."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "inspect"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.approve.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-approve"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+          "quote_sha256": "6d96b3b0bfcfe48dac56159d7b7e3d7cd25ee449f0861ce605ebb41ddb96f8de"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — phê duyệt phiếu trên giao diện quản lý: sau khi kiểm tra và thấy đúng nhu cầu, chọn phiếu > Duyệt. Trong trang phê duyệt, nhập ý kiến nếu có, chọn phòng ban/người thực hiện bước tiếp theo rồi hoàn tất Duyệt. Chọn người theo quy trình thực tế; tên người trong ảnh chỉ minh họa."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "approve"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.approve.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.approve.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "3c5561f2e348e75f15e24b196c03ea95f130e666fa05e5954bff592afb0308c7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Chọn Duyệt trên phiếu hoặc qua menu ba chấm. Có thể nhập ý kiến và xem tệp. Bấm dấu tích góc trên để xác nhận. Phiếu có thể chuyển sang Đang xử lý để bộ phận khác tiếp tục."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "approve"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.return.web",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-return"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+          "revision_id": "f97317a7-4da0-468f-9217-0ba0fbb4d203",
+          "quote_sha256": "cf6705290a75f2fe92bd6f1c087b00a1eafec114d091c421f8ccdd783341156d"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit — phiếu chưa đúng hoặc cần bổ sung: quản lý dùng Trả lại hoặc Từ chối tùy phân quyền hệ thống. Khi Trả lại, nhập ý kiến, chọn một trong các bước đã duyệt để trả về và bấm Trả lại. Từ chối là thao tác riêng; quyền hiển thị/sử dụng phụ thuộc phân quyền."
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "web",
+          "workit_action": "return"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-count.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.topic.mobile-counters"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        },
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "82ea0f44810f37d321b5c28194ab43c97fdfe3bacbce0bd52f7e5582f6d402a0"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — menu Quy trình số có Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe, Phòng họp, Đề nghị tuyển dụng, Đề nghị khen thưởng, Quên chấm công và Suất ăn. Nhấn chức năng để mở chi tiết; số đỏ trên chức năng thể hiện số phiếu cần phê duyệt.",
+        "Workit Mobile — vì sao số ở menu ít hơn số phiếu bên trong: số ngoài chức năng là số phiếu chờ bạn duyệt. Bên trong còn có phiếu Đang xử lý chờ bộ phận khác. Ví dụ tài liệu: menu Đề nghị thanh toán có 2, bên trong 5 gồm 2 chờ duyệt và 3 đang xử lý. Đây là minh họa cách đếm, không phải số phiếu hiện tại của người dùng."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-count"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-status.mobile",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.mobile-status.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "3c5561f2e348e75f15e24b196c03ea95f130e666fa05e5954bff592afb0308c7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Sau khi bạn duyệt, phiếu có thể chuyển sang Đang xử lý để người ở bước tiếp theo xử lý. Mở biểu tượng quy trình để xem bước, trạng thái và người thực hiện trên phiếu của mình."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-status"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-icons.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-icons.2cb00d36"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "aba1519e4bd77a049a2077fcf91f487da60e423d8b7976029343783f6c27b23f"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — kiểm tra phiếu: vào chức năng > Chờ duyệt; menu ba chấm > Xem/Sửa để xem nội dung, hoặc Xem chi tiết. Các biểu tượng ở phiếu lần lượt là bình luận/tin nhắn, tệp đính kèm, quy trình phê duyệt. Hướng dẫn giải thích màu đen không có file/tin nhắn, xanh đã hoàn thành, đỏ chưa hoàn thành."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-icons"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.mobile-history.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.business.systems.mobile-history.2cb00d36"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "3c5561f2e348e75f15e24b196c03ea95f130e666fa05e5954bff592afb0308c7"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile — duyệt phiếu: chọn Duyệt trên phiếu hoặc menu ba chấm, nhập ý kiến nếu có, mở file đính kèm để xem, bấm dấu tích xác nhận góc trên. Sau khi duyệt thành công, phiếu chuyển từ Chờ duyệt sang Đang xử lý để bộ phận khác xử lý tiếp; không có nghĩa toàn quy trình đã hoàn tất. Nhấn biểu tượng quy trình để xem tên bước, trạng thái, người thực hiện, ngày và ý kiến; có tab Lịch sử."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "mobile-history"
+        }
+      }
+    },
+    {
+      "case_id": "q.software.workit-surfaces.salary.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.salary.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Tiền lương."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "salary"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.attendance.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.attendance.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Chấm công."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "attendance"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.forgot-clock.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.forgot-clock.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Quên chấm công."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "forgot-clock"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.late-early.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.late-early.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Đi trễ/về sớm."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "late-early"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.business-trip.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.business-trip.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Đi công tác."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "business-trip"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.car.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.car.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Xe."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "car"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.room.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.room.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Phòng họp."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "room"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.meal.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.meal.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Suất ăn."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "meal"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.maternity.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.maternity.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Nghỉ phép."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "maternity"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.create-task.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.create-task.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Công việc."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "create-task"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.project.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.project.mobile"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Dự án."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "project"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.purchase.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.purchase.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Mua hàng → Đề nghị mua sắm."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "purchase"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.po.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.po.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "372b78760a5a2a572ab773cf68b1bb0385454eead3a7716e17554d07f48ff108"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Mua hàng → Đơn hàng mua hàng."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "po"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.payment.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.payment.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Đề nghị thanh toán."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "payment"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.advance-vendor.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.advance-vendor.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Đề nghị tạm ứng."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "advance-vendor"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    },
+    {
+      "case_id": "q.software.workit-surfaces.advance-internal.mobile",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.workit-surface.advance-internal.mobile"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Workit Mobile. Hướng dẫn Workit Mobile liệt kê mục Quy trình số → Đề nghị tạm ứng."
+      ],
+      "forbidden_documents": [
+        "4b2aadb1-286d-4988-adf0-6d5d8e10f949",
+        "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+        "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+        "c3c03611-432b-41e8-ba37-87ec92f105f7",
+        "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+      ],
+      "expected_context": {
+        "has_request": true,
+        "slots": {
+          "system": "workit",
+          "surface": "mobile",
+          "workit_action": "advance-internal"
+        }
+      },
+      "required_limitations": [
+        "Tài liệu Mobile chỉ xác nhận menu, chưa có hướng dẫn từng bước cho thao tác này. Có thể hỏi riêng hướng dẫn Workit Web."
+      ]
+    }
+  ]
+}

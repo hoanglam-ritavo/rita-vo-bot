@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.rewards.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.rewards.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khen thưởng cá nhân",
+          "xem kỷ luật",
+          "mục kỷ luật"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "rewards"
+}

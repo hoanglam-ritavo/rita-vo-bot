@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.maternity.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.maternity.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu nghỉ thai sản",
+          "khai báo nghỉ thai sản",
+          "nghỉ thai sản"
+        ],
+        [
+          "s1",
+          "maternity",
+          "tạo phiếu",
+          "đăng ký"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "maternity"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "route.workit-surface.inspect.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.68369c60f81557c5b42fab416cfad7e1",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kiểm tra phiếu",
+          "xem phiếu",
+          "xem chi tiết phiếu",
+          "kiểm tra trước khi duyệt",
+          "xem quy trình phê duyệt",
+          "xem phiếu bằng ứng dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chi tiết phiếu"
+        ],
+        [
+          "đính kèm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xem phiếu bằng ứng dụng workit",
+          "xem phiếu qua ứng dụng workit"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "inspect"
+}

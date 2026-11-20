@@ -1,0 +1,17 @@
+{
+  "id": "route.workit-surface.advance-internal.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.advance-internal.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạm ứng nội bộ"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "advance-internal"
+}

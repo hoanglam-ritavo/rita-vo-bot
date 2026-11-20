@@ -1,0 +1,22 @@
+{
+  "id": "route.workit-surface.advance-edit.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.advance-edit.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu tạm ứng",
+          "đề nghị tạm ứng"
+        ],
+        [
+          "sửa",
+          "xóa"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "advance-edit"
+}

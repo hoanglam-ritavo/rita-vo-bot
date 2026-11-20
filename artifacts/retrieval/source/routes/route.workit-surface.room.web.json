@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.room.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.room.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đặt phòng họp",
+          "phòng họp"
+        ],
+        [
+          "tiện ích",
+          "chọn phòng",
+          "đặt phòng"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "room"
+}

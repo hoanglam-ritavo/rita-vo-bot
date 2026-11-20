@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.unpaid.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.unpaid.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ không lương",
+          "nghỉ không hưởng lương"
+        ],
+        [
+          "phiếu",
+          "đơn",
+          "đăng ký",
+          "tạo"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "unpaid",
+  "surface_limited": true
+}

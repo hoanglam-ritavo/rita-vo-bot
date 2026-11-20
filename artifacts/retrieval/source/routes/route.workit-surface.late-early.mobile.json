@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.late-early.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.late-early.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đi trễ",
+          "về sớm"
+        ],
+        [
+          "đăng ký",
+          "lập phiếu",
+          "cần điền",
+          "ô nào"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "late-early",
+  "surface_limited": true
+}

@@ -249,6 +249,14 @@ own record and the responsible team. Exercise source withdrawal in disposable
 data and verify the remaining claims still have valid citations. Release and
 roll back the bot and generated catalogs together.
 
+For Workit Web and Mobile, confirm eligible publications for all seven guides.
+In one authenticated staging room, ask how to approve a form without naming
+an interface, select the app, then ask for the browser steps. Compare both
+instructions and verify the references. Check a Mobile menu-only case and
+an already-approved form that shows In Progress in the manual. On disposable
+data, withdraw one interface's source and repeat the corresponding request.
+Release and roll back the bot and generated catalogs together.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

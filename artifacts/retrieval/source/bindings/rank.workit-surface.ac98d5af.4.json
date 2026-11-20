@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.ac98d5af.4",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+    "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+    "chunk_index": 4,
+    "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+    "content_sha256": "59ca26931e804308de6759e57dfa9849bdd741c8064c37fc8bf14be60658dda6",
+    "quote": "Workit — II.2, chuyển ký Biên bản bàn giao nghỉ việc: sau Lưu & đóng, chuyên viên HCNS xác nhận phiếu. Khi nhận thông báo xác nhận từ hệ thống/HCNS, người tạo phiếu chuyển cho người nhận bàn giao ký xác nhận. Người nhận mở Bàn làm việc > Quy trình số > Ticket, chọn phiếu và Duyệt. Nếu có nút Ký số, phải ký file đính kèm theo quy trình đã khai báo: chọn đúng file, kéo chữ ký đến đúng khu vực ký. Người tạo phiếu đợi trả kết quả.",
+    "metadata": {
+      "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+      "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": null,
+      "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.handover-sign.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

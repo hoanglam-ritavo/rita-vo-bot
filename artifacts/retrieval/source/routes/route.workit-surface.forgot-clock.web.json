@@ -1,0 +1,25 @@
+{
+  "id": "route.workit-surface.forgot-clock.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.forgot-clock.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bổ sung công",
+          "quên chấm công"
+        ],
+        [
+          "điền gì",
+          "lập phiếu",
+          "lỗi máy",
+          "tạo phiếu",
+          "đăng ký"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "forgot-clock"
+}

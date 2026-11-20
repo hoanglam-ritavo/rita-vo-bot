@@ -21,6 +21,9 @@ Family = str
 System = str
 Subtype = str
 Operation = str
+Surface = Literal['web', 'mobile']
+SURFACE_LABELS = {'web': 'Workit Web', 'mobile': 'Workit Mobile'}
+SURFACE_PROMPT = 'Bạn đang dùng Workit Web hay ứng dụng Workit Mobile?'
 
 
 def folded(text):
@@ -81,6 +84,7 @@ class Binding(Strict):
     operation: Operation
     system: System | None = None
     subtype: Subtype | None = None
+    surface: Surface | None = None
     duration_ranges: list[DurationRange] = Field(default_factory=list)
     task_ids: list[str] = Field(default_factory=list)
     aspects: list[Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure']] = Field(default_factory=list)
@@ -127,6 +131,9 @@ class Route(Strict):
     excludes_any: list[str] = Field(default_factory=list)
     required_slots: list[Literal['system', 'subtype']] = Field(default_factory=list)
     question_terms: list[QuestionTerms] = Field(default_factory=list, max_length=20)
+    surface: Surface | None = None
+    workit_action: str | None = Field(default=None, pattern=r'^[a-z0-9.-]{1,80}$')
+    surface_limited: bool = False
     follow_up_terms: list[str] = Field(default_factory=list, max_length=24)
     follow_up_aspects: dict[str, Literal['amount', 'conditions', 'paperwork', 'procedure']] = Field(
         default_factory=dict, max_length=24)
@@ -154,7 +161,7 @@ class Catalog(Strict):
             if any(not term.strip() or len(term) > 240 for term in rule.platform_terms + rule.execution_terms):
                 raise ValueError('invalid_platform_term')
         addresses = [(b.ref.document_id, b.ref.revision_id, b.ref.chunk_index, b.family,
-                      tuple(b.task_ids), tuple(b.aspects)) for b in self.bindings]
+                      tuple(b.task_ids), tuple(b.aspects), b.surface) for b in self.bindings]
         routes = [(r.family, r.subtype, r.operation, r.system, r.granularity)
                   for r in self.routes if not r.aliases and not r.concept_ids and not r.question_terms]
         if len(set(addresses)) != len(addresses) or len(set(routes)) != len(routes):
@@ -173,19 +180,29 @@ class Catalog(Strict):
                     row.subtype is not None and row.subtype not in allowed['subtypes'] or
                     row.operation is not None and row.operation not in allowed['operations']):
                 raise ValueError('invalid_policy_rule')
-        focused_tasks = set()
+        if any(binding.surface and binding.system != 'workit' for binding in self.bindings):
+            raise ValueError('surface_requires_workit')
+        focused_tasks, workit_actions = set(), set()
         for route in self.routes:
+            if route.surface:
+                key = (route.workit_action, route.surface)
+                if (route.system != 'workit' or not route.workit_action or not route.question_terms
+                        or key in workit_actions or route.required_slots or route.subtype):
+                    raise ValueError('invalid_workit_surface_route')
+                workit_actions.add(key)
+            elif route.workit_action or route.surface_limited:
+                raise ValueError('missing_workit_surface')
             follow_ups = [*route.follow_up_terms, *route.follow_up_aspects]
             if any(question_term(term) == '  ' or len(term) > 100 for term in follow_ups) or len(
                     {question_term(term) for term in follow_ups}) != len(follow_ups):
                 raise ValueError('invalid_focused_follow_up')
             if any(not p.strip() or len(p) > 240 for p in route.aliases + route.requires_any + route.excludes_any):
                 raise ValueError('invalid_policy_phrase')
-            if route.question_terms:
+            if route.question_terms and not route.surface:
                 if route.task_id in focused_tasks or route.required_slots or route.system or route.subtype:
                     raise ValueError('invalid_focused_policy_route')
                 focused_tasks.add(route.task_id)
-            elif follow_ups:
+            elif not route.question_terms and follow_ups:
                 raise ValueError('focused_follow_up_without_route')
         return self
 
@@ -215,10 +232,18 @@ def validate_catalog(data, lexicon, lexical_hash, answers=None):
         if any(r.task_id not in cards for r in catalog.routes) or any(
                 not set(b.task_ids) <= cards.keys() for b in catalog.bindings):
             raise ValueError('unknown_policy_task')
+        surface_refs = {(b.surface, b.ref.document_id, b.ref.revision_id, b.ref.chunk_index,
+                         b.ref.content_sha256, b.ref.source_sha256) for b in catalog.bindings if b.surface}
         for route in catalog.routes:
             card = cards[route.task_id]
-            if route.question_terms and (not card.routed_only or card.context is None
-                                         or card.context.mode != 'none' or 'overview' not in card.sections):
+            if route.surface:
+                if 'overview' not in card.sections or any(
+                        (route.surface, ref.document_id, ref.revision_id, ref.chunk_index,
+                         ref.content_sha256, ref.source_sha256) not in surface_refs
+                        for section in card.sections.values() for unit in section.units for ref in unit.refs):
+                    raise ValueError('invalid_workit_surface_evidence')
+            elif route.question_terms and (not card.routed_only or card.context is None
+                                           or card.context.mode != 'none' or 'overview' not in card.sections):
                 raise ValueError('invalid_focused_policy_card')
             if not set(route.follow_up_aspects.values()) <= card.sections.keys():
                 raise ValueError('focused_follow_up_section_unavailable')
@@ -310,6 +335,54 @@ def duration(text):
             'session' if session_words or sessions else 'day', ambiguous)
 
 
+def workit_surfaces(text):
+    # A browser on a phone is the Web interface. The app must be mentioned
+    # separately to make that wording a request for both interfaces.
+    browser = bool(re.search(r'(?<!quy )\btrinh duyet\b', text) or spans(text, 'browser'))
+    web = browser or any(spans(text, term) for term in ('web', 'may tinh', 'desktop', 'laptop'))
+    app = any(spans(text, term) for term in ('mobile', 'app', 'ung dung workit', 'android', 'iphone', 'ios'))
+    phone = any(spans(text, term) for term in ('tren dien thoai', 'bang dien thoai'))
+    return tuple(surface for surface, present in (('web', web), ('mobile', app or phone and not browser))
+                 if present)
+
+
+def workit_surface_reply(text):
+    terms = {
+        'web': ('web', 'workit web', 'may tinh', 'trinh duyet', 'browser', 'tren may tinh', 'tren web',
+                'tren trinh duyet', 'trinh duyet tren dien thoai'),
+        'mobile': ('app', 'mobile', 'workit mobile', 'ung dung', 'dien thoai', 'tren app', 'tren mobile',
+                   'tren dien thoai', 'ung dung workit', 'tren ung dung', 'bang dien thoai'),
+    }
+    correction = re.fullmatch(r'khong phai (.+?) (?:(?:toi|minh) dung|ma la) (.+)', text)
+    if correction:
+        before, after = correction.groups()
+        return next((surface for surface, aliases in terms.items()
+                     if after in aliases and any(before in other for key, other in terms.items() if key != surface)),
+                    None)
+    return next((surface for surface, aliases in terms.items() if text in aliases), None)
+
+
+@dataclass(frozen=True)
+class WorkitResolution:
+    action: str | None
+    routes: tuple[Route, ...] = ()
+    surface: Surface | None = None
+    clarification: str | None = None
+    unavailable: tuple[Surface, ...] = ()
+
+
+def _route_score(route, text):
+    if any(question_term(term) in text for term in route.excludes_any):
+        return 0
+    scores = []
+    for rule in route.question_terms:
+        lengths = [max((len(term) for term in group if question_term(term) in text), default=0)
+                   for group in rule.requires_all]
+        if all(lengths):
+            scores.append(sum(lengths))
+    return max(scores, default=0)
+
+
 class RetrievalPolicy:
     def __init__(self, path=DEFAULT_PATH, lexicon_path=DEFAULT_LEXICON):
         self.path, self.lexicon_path = Path(path), Path(lexicon_path)
@@ -319,6 +392,7 @@ class RetrievalPolicy:
         self._bindings = {}
         self._generic = []
         self._focused = {}
+        self._workit = {}
 
     def start(self):
         self.close()
@@ -337,7 +411,10 @@ class RetrievalPolicy:
                 self._bindings.setdefault((binding.ref.document_id, binding.ref.revision_id,
                                            binding.ref.chunk_index), []).append(binding)
             self._generic = [r for r in catalog.routes if (r.aliases or r.concept_ids) and not r.question_terms]
-            self._focused = {r.task_id: r for r in catalog.routes if r.question_terms}
+            self._focused = {r.task_id: r for r in catalog.routes if r.question_terms and not r.surface}
+            for route in catalog.routes:
+                if route.surface:
+                    self._workit.setdefault(route.workit_action, {})[route.surface] = route
             self.fingerprint = hashlib.sha256(raw).hexdigest()
             logger.info('retrieval_policy state=ready')
         except Exception:
@@ -348,15 +425,8 @@ class RetrievalPolicy:
         from src.type_b.tasks import normalized
 
         text = ' ' + normalized(question) + ' '
-        matches = {}
-        for task_id, route in self._focused.items():
-            if any(question_term(term) in text for term in route.excludes_any):
-                continue
-            for rule in route.question_terms:
-                lengths = [max((len(term) for term in group if question_term(term) in text), default=0)
-                           for group in rule.requires_all]
-                if all(lengths):
-                    matches[task_id] = max(matches.get(task_id, 0), sum(lengths))
+        matches = {task_id: score for task_id, route in self._focused.items()
+                   if (score := _route_score(route, text))}
         if not matches:
             return None
         best = max(matches.values())
@@ -375,6 +445,65 @@ class RetrievalPolicy:
             if question_term(term) == phrase:
                 return aspect
         return 'overview' if any(question_term(term) == phrase for term in route.follow_up_terms) else None
+
+    def resolve_workit(self, question, *, slots=None):
+        if not self._workit:
+            return None
+        from src.type_b.tasks import normalized
+
+        text = normalized(question)
+        slots = slots or {}
+        if slots.get('system') != 'workit' and not (spans(text,'workit') or spans(text,'work it')):
+            return None
+        supplied = workit_surfaces(text)
+        system_hits = {hit[2] for hit in rule_matches(folded(question), self.catalog.systems, self.concepts)}
+        if (system_hits - {'workit'} or slots.get('system') not in (None, 'workit')
+                or ('workit' not in system_hits and not (slots.get('system') == 'workit' and (
+                    supplied or slots.get('workit_action'))))):
+            return None
+        surface = slots.get('surface')
+        if not surface and len(supplied) == 1:
+            surface = supplied[0]
+        if any(spans(text, term) for term in ('thay toi', 'cho toi biet mat khau', 'mat khau hien tai',
+                'tu duyet', 'duyet giup', 'tu cap quyen', 'bo qua quyen', 'toan bo phieu',
+                'tao va gui ngay', 'tao va giao ngay', 'system prompt', 'ignore', 'xem phieu that',
+                'liet ke ngay', 'tai gia', 'hsm key cua')):
+            if surface:
+                return WorkitResolution(None, clarification=(
+                    'Mình có thể hướng dẫn thao tác Workit theo quyền của bạn. Bạn muốn xem hướng dẫn bước nào?'))
+            return None
+        preferred = slots.get('workit_action') if surface else None
+        if preferred:
+            if preferred not in self._workit:
+                return WorkitResolution(preferred, surface=surface, unavailable=(surface,))
+            action = preferred
+        else:
+            padded = f' {text} '
+            scores = {}
+            for key, choices in self._workit.items():
+                scores[key] = max(_route_score(route, padded) for route in choices.values())
+            best = max(scores.values(), default=0)
+            winners = [key for key, score in scores.items() if score == best] if best else []
+            if len(winners) != 1:
+                if surface or len(supplied) > 1:
+                    return WorkitResolution(None, surface=surface, clarification=(
+                        'Bạn cần hướng dẫn thao tác nào trên Workit? Hãy nêu tên chức năng hoặc việc cần làm.'))
+                return None
+            action = winners[0]
+        choices = self._workit[action]
+        if surface:
+            route = choices.get(surface)
+            return WorkitResolution(action, (route,) if route else (), surface,
+                                    unavailable=() if route else (surface,))
+        if len(supplied) > 1:
+            if any(spans(text, term) for term in ('so sanh', 'khac gi', 'khac nhau', 'ca hai', 'va', 'voi')):
+                return WorkitResolution(action, tuple(choices.values()),
+                                        unavailable=tuple(key for key in supplied if key not in choices))
+            return WorkitResolution(action, clarification=SURFACE_PROMPT)
+        guides = tuple(route for route in choices.values() if not route.surface_limited)
+        if len(guides) > 1:
+            return WorkitResolution(action, clarification=SURFACE_PROMPT)
+        return WorkitResolution(action, guides or tuple(choices.values()))
 
     def analyze(self, question):
         if self.catalog is None:
@@ -562,6 +691,16 @@ class RetrievalPolicy:
         return Resolution('task', routes[0].task_id)
 
     def reorder(self, question, matches):
+        scope = self.resolve_workit(question)
+        if scope and scope.surface and scope.routes:
+            from src.answering.pipeline import matches_reference
+            def surface_key(match):
+                address = (match.get('document_id'), match.get('revision_id'), match.get('chunk_index'))
+                bindings = [b for b in self._bindings.get(address, ()) if b.surface and matches_reference(b.ref, match)]
+                if any(b.surface == scope.surface and scope.routes[0].task_id in b.task_ids for b in bindings):
+                    return 0
+                return 1 if any(b.surface == scope.surface for b in bindings) else 2
+            return sorted(matches, key=surface_key)
         query = self.analyze(question)
         generic = self.resolve_generic(question)
         if generic.state == 'task':
@@ -614,14 +753,23 @@ class RetrievalPolicy:
 
     def references(self, question):
         """Declared, bounded bundles only; no broad-topic evidence injection."""
-        resolution = self.resolve(question)
-        if resolution.state != 'task':
-            return []
+        scope = self.resolve_workit(question)
+        surface = None
+        if scope and scope.surface:
+            if not scope.routes:
+                return []
+            surface, task = scope.surface, scope.routes[0].task_id
+        else:
+            resolution = self.resolve(question)
+            if resolution.state != 'task':
+                return []
+            task = resolution.task_id
         from src.answering.pipeline import requested_aspects
         aspects = set(requested_aspects(question))
         refs = {}
         for binding in self.catalog.bindings:
-            if resolution.task_id in binding.task_ids and (not binding.aspects or aspects.intersection(binding.aspects)):
+            if (task in binding.task_ids and (not surface or binding.surface == surface)
+                    and (not binding.aspects or aspects.intersection(binding.aspects))):
                 ref = binding.ref
                 refs[(ref.document_id, ref.revision_id, ref.chunk_index)] = ref
         return list(refs.values()) if len(refs) <= 10 else []
@@ -633,3 +781,4 @@ class RetrievalPolicy:
         self._generic = []
         self.fingerprint = None
         self._focused = {}
+        self._workit = {}

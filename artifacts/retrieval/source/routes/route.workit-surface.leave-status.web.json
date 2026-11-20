@@ -1,0 +1,29 @@
+{
+  "id": "route.workit-surface.leave-status.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.leave-status.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "số phép còn lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "theo dõi",
+          "trạng thái"
+        ],
+        [
+          "đơn nghỉ",
+          "phiếu nghỉ phép"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "leave-status"
+}

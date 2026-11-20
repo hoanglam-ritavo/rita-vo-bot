@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.subtask.web",
+  "label": "Workit Web · Chuyển chủ trì hoặc tạo việc con",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Chuyển chủ trì hoặc tạo việc con"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về chuyển chủ trì hoặc tạo việc con?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.subtask.web",
+          "text": "Workit Web. Mở công việc, đổi ô Chủ trì hoặc thêm người tham gia rồi Lưu. Muốn tạo việc con, mở việc cha → Tạo việc con → nhập thông tin → Lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 3,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "9d42eebe3db02bdfe673cf60f1083ef7f6c18e29975636ec6a76b08b7d2a3a54",
+              "quote": "Workit — chuyển người chủ trì hoặc thêm người tham gia: mở công việc, tại ô Chủ trì chọn người cần chuyển hoặc thêm người tham gia, rồi Lưu. Để tạo công việc con: mở công việc cha > Tạo việc con > nhập thông tin công việc con > Lưu/F8.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.subtask.web",
+          "text": "Workit Web. Mở công việc, đổi ô Chủ trì hoặc thêm người tham gia rồi Lưu. Muốn tạo việc con, mở việc cha → Tạo việc con → nhập thông tin → Lưu.",
+          "refs": [
+            {
+              "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+              "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+              "chunk_index": 3,
+              "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+              "content_sha256": "9d42eebe3db02bdfe673cf60f1083ef7f6c18e29975636ec6a76b08b7d2a3a54",
+              "quote": "Workit — chuyển người chủ trì hoặc thêm người tham gia: mở công việc, tại ô Chủ trì chọn người cần chuyển hoặc thêm người tham gia, rồi Lưu. Để tạo công việc con: mở công việc cha > Tạo việc con > nhập thông tin công việc con > Lưu/F8.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+                "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-12/4/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

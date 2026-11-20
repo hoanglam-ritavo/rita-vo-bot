@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.bcc9e137.13",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+    "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+    "chunk_index": 13,
+    "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+    "content_sha256": "9631ff02afa0f33208561c4ffb8e27c70df3b442f2519ccf291911ce78359551",
+    "quote": "Workit — chức năng Gia đình trong Nhân sự quản lý người thân khi nhân viên đã khai báo và danh sách người phụ thuộc. Màn hình có họ tên người thân, quan hệ, giới tính, ngày/nơi sinh, nghề nghiệp và thời gian phụ thuộc từ/đến ngày. Đây là hướng dẫn giao diện, không xác nhận điều kiện giảm trừ thuế của từng người.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+      "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-29/3/25-V1",
+      "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.family.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

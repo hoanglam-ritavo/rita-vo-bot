@@ -1,0 +1,39 @@
+{
+  "id": "route.workit-surface.mobile-count.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.topic.mobile-counters",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "số đỏ",
+          "bộ đếm",
+          "ít hơn số phiếu",
+          "nhỏ hơn tổng số phiếu",
+          "số phiếu chờ duyệt"
+        ],
+        [
+          "menu",
+          "bên trong",
+          "ở ngoài",
+          "mở mục",
+          "thấy nhiều phiếu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số phiếu chờ duyệt"
+        ],
+        [
+          "mobile",
+          "điện thoại"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "mobile-count"
+}

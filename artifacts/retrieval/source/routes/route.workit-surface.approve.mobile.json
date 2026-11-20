@@ -1,0 +1,19 @@
+{
+  "id": "route.workit-surface.approve.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.approve.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "duyệt phiếu",
+          "phê duyệt phiếu",
+          "các bước xử lý phiếu cần duyệt"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "approve"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.resign-flow.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.resign-flow.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu xét nghỉ việc"
+        ],
+        [
+          "gửi duyệt",
+          "tiến độ",
+          "luồng",
+          "sau khi lưu",
+          "tải phiếu đã ký"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "resign-flow"
+}

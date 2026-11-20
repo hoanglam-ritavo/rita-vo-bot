@@ -1,0 +1,26 @@
+{
+  "id": "route.workit-surface.resign.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.resign.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo phiếu nghỉ việc",
+          "phiếu xét nghỉ việc",
+          "khai báo xin thôi việc"
+        ],
+        [
+          "tạo",
+          "phải nhập",
+          "điền",
+          "khai báo",
+          "lập"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "resign"
+}

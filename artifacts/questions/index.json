@@ -549,6 +549,18 @@
       "group_id": "conversation.welfare-and-referrals",
       "cases": 8,
       "turns": 30
+    },
+    {
+      "path": "software/workit-surfaces.json",
+      "group_id": "software.workit-surfaces",
+      "cases": 105,
+      "turns": 105
+    },
+    {
+      "path": "conversation/workit-surfaces.json",
+      "group_id": "conversation.workit-surfaces",
+      "cases": 10,
+      "turns": 30
     }
   ],
   "totals": {
@@ -8984,7 +8996,9 @@
     "oracles/policy.labor-attendance-overtime-holdout.json",
     "oracles/conversation.labor-focus.json",
     "oracles/policy.welfare-and-referrals.json",
-    "oracles/conversation.welfare-and-referrals.json"
+    "oracles/conversation.welfare-and-referrals.json",
+    "oracles/software.workit-surfaces.json",
+    "oracles/conversation.workit-surfaces.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

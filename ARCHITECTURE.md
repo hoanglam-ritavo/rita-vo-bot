@@ -98,6 +98,16 @@ conversation clarification record are separate sources. Independent evidence
 units preserve official claims if the supplemental record is unavailable.
 An interpretation unit requires all cited sources in the current snapshot.
 
+Workit keeps one system identifier and declares Web or Mobile on routes and
+exact source bindings. The answer planner resolves a Workit action before
+selecting an interface-specific template. A request with two documented
+procedures prompts for the interface. An explicit comparison can cite both.
+A browser on a phone selects Web. The conversation retains the action and
+an explicit interface for short switches and rechecks the selected
+references before rendering. Menu-only sources produce limited guidance.
+The optional context slots fit reducer schema 9 and the existing response
+contract.
+
 Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between
 checks, with a 15-second check deadline. Record validation/conflict failures remain

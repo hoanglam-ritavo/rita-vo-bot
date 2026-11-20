@@ -1,0 +1,3055 @@
+{
+  "schema_version": 1,
+  "group_id": "software.workit-surfaces",
+  "description": "Source-grounded Workit Web and Mobile procedures, capabilities and limits.",
+  "cases": [
+    {
+      "id": "q.software.workit-surfaces.install.mobile",
+      "title": "Ứng dụng Workit trên điện thoại",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.099a04fe8a01519dab8098c73c2b1b74"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mới đổi điện thoại, cần tải và cấu hình địa chỉ Workit Mobile thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.login.web",
+      "title": "Đăng nhập và đổi mật khẩu Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-password"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đăng nhập Workit Web lần đầu rồi đổi mật khẩu thì vào đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.login.mobile",
+      "title": "Workit Mobile · Đăng nhập và đổi mật khẩu trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.login.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên app Workit tôi đổi mật khẩu ở đâu sau lần đăng nhập đầu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.home.web",
+      "title": "Workit Web · Trang chủ và danh sách Apps",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.home.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trang chủ Workit Web có Lịch làm việc, Bàn làm việc và menu Apps ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.shortcuts.web",
+      "title": "Phím thao tác dữ liệu Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-shortcuts"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web dùng F2, F8 và Excel mẫu như thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.avatar.web",
+      "title": "Workit Web · Đổi hình đại diện",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.avatar.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đổi avatar trên Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.signature.web",
+      "title": "Workit Web · Cấu hình và chuẩn bị ảnh chữ ký",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.signature.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cấu hình chữ ký số Workit Web thế nào và ảnh chữ ký cần định dạng gì?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.hr-menu.web",
+      "title": "Workit Web · Danh mục phân hệ Nhân sự",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.hr-menu.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Phân hệ Nhân sự trên Workit Web có những chức năng xem hồ sơ nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.organization.web",
+      "title": "Workit Web · Xem cơ cấu tổ chức",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.organization.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xem cây phòng ban trong sơ đồ tổ chức trên Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.profile.web",
+      "title": "Workit Web · Xem hồ sơ của mình",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.profile.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn xem sơ yếu lý lịch của mình trên Workit Web thì vào đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.contract.web",
+      "title": "Workit Web · Xem hợp đồng lao động",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.contract.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Xem hợp đồng thử việc hoặc hợp đồng chính thức của tôi trên Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.history.web",
+      "title": "Workit Web · Xem quá trình công tác",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.history.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web xem lịch sử điều chuyển và quá trình công tác của mình thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.family.web",
+      "title": "Workit Web · Tra cứu thông tin gia đình",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.family.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xem người phụ thuộc đã khai báo trong Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.rewards.web",
+      "title": "Workit Web · Xem khen thưởng và kỷ luật",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.rewards.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Mục Khen thưởng cá nhân và Kỷ luật nằm ở đâu trên Workit Web?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.equipment.web",
+      "title": "Workit Web · Xem thiết bị được cấp",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.equipment.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web có chỗ xem trang thiết bị đã cấp và lịch sử đổi máy không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.insurance.web",
+      "title": "Workit Web · Xem quá trình tham gia BHXH",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.insurance.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Muốn xem lịch sử đóng BHXH theo tháng trên Workit Web thì vào đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.salary.web",
+      "title": "Workit Web · Xem phiếu lương theo tháng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.salary.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xem phiếu lương tháng của mình ở đâu trên Workit Web?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.attendance.web",
+      "title": "Workit Web · Xem công cá nhân theo kỳ",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.attendance.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Xem công cá nhân theo kỳ trên Workit Web rồi bấm nút nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.forgot-clock.web",
+      "title": "Workit Web · Lập phiếu quên chấm công",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.forgot-clock.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web yêu cầu điền gì khi lập phiếu bổ sung công do lỗi máy?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.clock-track.web",
+      "title": "Workit Web · Theo dõi phiếu bổ sung công",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.clock-track.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Phiếu bổ sung công đang xử lý trên Workit Web thì tôi theo dõi bước duyệt ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-hr.mobile",
+      "title": "quyền xem nhân sự phòng ban Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-manager-hr.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Ai có quyền xem nhân sự phòng ban mình trên Workit Mobile?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-menu.mobile",
+      "title": "Workit Mobile · Danh mục phân hệ trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.mobile-menu.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Mobile có những phân hệ và mục Quy trình số nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.install-app.mobile",
+      "title": "cài Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-install.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần cài Workit Mobile trên Android rồi đặt địa chỉ lần đầu thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-password.mobile",
+      "title": "đổi mật khẩu Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "account",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-password.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần đổi mật khẩu Workit Mobile ở mục nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-missing-menu.mobile",
+      "title": "chức năng không có trên Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-missing-menu.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Chức năng không có trên Workit Mobile gồm những mục nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.leave-approval.web",
+      "title": "quy trình duyệt nghỉ phép Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.workit-leave-approval.d906cfac"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, phiếu phép chuyển duyệt rồi thông báo cho ai?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.office-menu.web",
+      "title": "Workit Web · Danh mục Văn phòng số trên Web",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.office-menu.web"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web có các mục nào trong Văn phòng số và tài liệu có hướng dẫn tạo thư viện chia sẻ không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.office-menu.mobile",
+      "title": "Workit Mobile · Danh mục Văn phòng số trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.office-menu.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trong app Workit Mobile, Văn phòng số có lịch cơ quan và những mục nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.outgoing-access.web",
+      "title": "Quyền xem văn bản đi",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.71b81f225392502f8201c9e7c655bf8a"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tại sao mục Văn bản đi trên Workit Web không thấy tài liệu dù đã đăng nhập?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.download.web",
+      "title": "Tải văn bản Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-download"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tải một file đính kèm hoặc tất cả file trong văn bản đi trên Workit Web thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.share.web",
+      "title": "Chia sẻ văn bản Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-sharing"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Khi có quyền Chia sẻ trên Workit Web, tôi cấp quyền Xem hoặc Tải văn bản cho đồng nghiệp thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.incoming.web",
+      "title": "Văn bản đến và giấy ủy quyền Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-incoming"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trong Workit Web, Văn bản đến khác Giấy ủy quyền ra sao và ai quản lý?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.authorization.web",
+      "title": "Workit Web · Xem giấy ủy quyền trên Web",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.authorization.web"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Muốn mở Giấy ủy quyền trên Workit Web phải được cấp quyền nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.authorization.mobile",
+      "title": "Workit Mobile · Giấy ủy quyền trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.authorization.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Vì sao trong app Workit Mobile không thấy mục Giấy ủy quyền?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.news.web",
+      "title": "Workit Web · Đọc thông báo và tin tức",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.news.web"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi tìm Thông báo – Tin tức chưa xem trên Workit Web bằng cách nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.directory.web",
+      "title": "Workit Web · Tra danh bạ CBNV",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "office",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.directory.web"
+        ],
+        "document_ids": [
+          "c3c03611-432b-41e8-ba37-87ec92f105f7"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lọc danh bạ CBNV theo đơn vị hoặc phòng ban trong Workit Web thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.process-menu.web",
+      "title": "Workit Web · Danh mục Quy trình số trên Web",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.process-menu.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web có mục thay đổi ca, bổ sung bằng cấp và thay đổi thông tin nhân sự ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.stationery.web",
+      "title": "Đề nghị văn phòng phẩm Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.5370844d82725638822c191c4a255ed0"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, admin phòng ban lập phiếu văn phòng phẩm và thêm hàng thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.stationery.mobile",
+      "title": "Workit Mobile · Phạm vi hướng dẫn văn phòng phẩm trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.stationery.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn lập đề nghị văn phòng phẩm trên app Workit Mobile thì ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.stationery-track.web",
+      "title": "Workit Web · Theo dõi và xuất phiếu văn phòng phẩm",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.stationery-track.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lọc, in và xuất danh sách phiếu văn phòng phẩm trên Workit Web thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.annual.web",
+      "title": "Đăng ký nghỉ phép Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.leave.workit.annual"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Cách tạo đơn nghỉ phép năm trên Workit Web và chọn nghỉ nửa ngày như thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.annual.mobile",
+      "title": "Workit Mobile · Phạm vi hướng dẫn phép năm trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.annual.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Cách tạo đơn nghỉ phép năm trên Workit Mobile?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.unpaid.web",
+      "title": "Workit Web · Đăng ký nghỉ không lương",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.unpaid.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web tạo phiếu nghỉ không lương thì chọn loại K hay KL?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.unpaid.mobile",
+      "title": "Workit Mobile · Phạm vi hướng dẫn nghỉ không lương trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.unpaid.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi gửi phiếu nghỉ không lương trong Workit Mobile ở chỗ nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.leave-status.web",
+      "title": "Workit Web · Theo dõi phiếu và tra số phép",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.leave-status.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web hiển thị tổng số phép còn lại và trạng thái đơn nghỉ ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.late-early.web",
+      "title": "Workit Web · Đăng ký đi trễ hoặc về sớm",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.late-early.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lập phiếu Workit Web khi đi trễ hoặc về sớm cần điền giờ vào ô nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.business-trip.web",
+      "title": "Workit Web · Tạo phiếu đi công tác",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.business-trip.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, tôi lập phiếu đi công tác cho nhiều người và thêm chi phí ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.car.web",
+      "title": "Workit Web · Đặt xe công tác",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.car.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đặt xe công tác trên Workit Web phải chọn tài xế và người đi ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.room.web",
+      "title": "Workit Web · Đặt phòng họp",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.room.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đặt phòng họp Workit Web và chọn tiện ích cho cuộc họp thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.resign.web",
+      "title": "Workit Web · Tạo phiếu xét nghỉ việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.resign.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo Phiếu xét nghỉ việc trên Workit Web phải nhập những trường nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.resign.mobile",
+      "title": "Workit Mobile · Phạm vi phiếu xét nghỉ việc trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.resign.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi tạo Phiếu xét nghỉ việc bằng Workit Mobile được không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.resign-flow.web",
+      "title": "Workit Web · Gửi và theo dõi phiếu xét nghỉ việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.resign-flow.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi lưu Phiếu xét nghỉ việc trên Workit Web, gửi duyệt và xem tiến độ thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.handover.web",
+      "title": "Workit Web · Tạo Ticket bàn giao nghỉ việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.handover.web"
+        ],
+        "document_ids": [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Khi nghỉ việc, Ticket BBBG trên Workit Web chọn MN hay MB và phải đính kèm hai file nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.handover-sign.web",
+      "title": "Workit Web · Chuyển ký biên bản bàn giao",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.handover-sign.web"
+        ],
+        "document_ids": [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "HCNS xác nhận Ticket bàn giao rồi, người nhận ký số ở đâu trên Workit Web?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.handover-form.web",
+      "title": "Workit Web · Các mục trong mẫu bàn giao và quyết toán",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.handover-form.web"
+        ],
+        "document_ids": [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trong mẫu biên bản Workit Web, thông tin bàn giao thiết bị và công việc cần ghi gì?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.resign-approver.web",
+      "title": "Workit Web · Quản lý duyệt phiếu xét nghỉ việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.resign-approver.web"
+        ],
+        "document_ids": [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý duyệt Phiếu xét nghỉ việc trên Workit Web và chuyển người xử lý tiếp theo thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.maternity.web",
+      "title": "Workit Web · Khai báo nghỉ thai sản",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.maternity.web"
+        ],
+        "document_ids": [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi tạo phiếu nghỉ thai sản S1 trên Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.meal.web",
+      "title": "Workit Web · Đăng ký suất ăn Văn phòng Q2",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.meal.web"
+        ],
+        "document_ids": [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo phiếu đăng ký suất ăn bếp Văn phòng Q2–HCM trên Workit Web thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.process-menu.mobile",
+      "title": "Workit Mobile · Tìm các loại phiếu Mobile theo menu",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.process-menu.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên app Workit Mobile tôi tìm mục tăng ca, tuyển dụng hoặc quên chấm công ở phân hệ nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.purchase-menu.web",
+      "title": "Workit Web · Phân hệ Công việc, Dự án và Mua hàng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.purchase-menu.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đề xuất cung ứng, mua sắm, PO và tạm ứng nằm ở phân hệ nào trên Workit Web?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.create-task.web",
+      "title": "Tạo công việc Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.6e89f057fc975e36ad65e4579eed86f2"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo và giao công việc trên Workit Web, người chủ trì khác người giao thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.finish-task.web",
+      "title": "Workit Web · Hoàn tất công việc và bình luận",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.finish-task.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, tôi bỏ hoàn tất một công việc và gửi bình luận thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.subtask.web",
+      "title": "Workit Web · Chuyển chủ trì hoặc tạo việc con",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.subtask.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Chuyển người chủ trì, thêm người tham gia hoặc tạo việc con trên Workit Web làm thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.extend.web",
+      "title": "Workit Web · Xin và duyệt gia hạn công việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.extend.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Xin gia hạn deadline trên Workit Web rồi quản lý duyệt đề nghị ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.project.web",
+      "title": "Workit Web · Thêm dự án, hạng mục và công việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.project.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web tôi tạo dự án rồi thêm hạng mục và công việc ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.project-file.web",
+      "title": "Workit Web · Thêm tài liệu và cấp quyền trong dự án",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.project-file.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trong Workit Web, ở Hồ sơ dự án tôi đính kèm tài liệu và cấp quyền thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.project-edit.web",
+      "title": "Workit Web · Sửa hoặc xóa dự án và hạng mục",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.project-edit.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web có cho xóa dự án vẫn còn hạng mục không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.supply.web",
+      "title": "Workit Web · Tạo đề xuất cung ứng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.supply.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lập đề xuất cung ứng trên Workit Web cần chọn loại chứng từ và nhập gì?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.supply.mobile",
+      "title": "Workit Mobile · Đề xuất cung ứng trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.supply.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tại sao app Workit Mobile không thấy Đề xuất cung ứng?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.supply-approval.web",
+      "title": "Workit Web · Duyệt, sửa hoặc xóa đề xuất cung ứng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.supply-approval.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đề xuất cung ứng đã qua một bước duyệt có sửa hoặc xóa trên Workit Web được không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.purchase.web",
+      "title": "Workit Web · Lập đề nghị mua sắm từ phiếu cung ứng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.purchase.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Web lập đề nghị mua sắm từ đề xuất cung ứng đã duyệt và mua một phần thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.purchase-approval.web",
+      "title": "Workit Web · Duyệt và sửa đề nghị mua sắm",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.purchase-approval.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Khi duyệt đề nghị mua sắm trên Workit Web chọn ai xác nhận thông số?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.po.web",
+      "title": "Workit Web · Tạo đơn hàng mua hàng PO",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.po.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo PO trên Workit Web lấy từ đề nghị mua sắm nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.payment.web",
+      "title": "Workit Web · Tạo đề nghị thanh toán",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.payment.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi lập đề nghị thanh toán trên Workit Web và tham chiếu PO hoặc hóa đơn thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.payment-track.web",
+      "title": "Workit Web · Theo dõi hoặc sửa phiếu thanh toán",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.payment-track.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Xem ai đang xử lý phiếu thanh toán trên Workit Web và phiếu đã qua duyệt có sửa được không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.advance-vendor.web",
+      "title": "Workit Web · Lập tạm ứng nhà cung cấp",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.advance-vendor.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạm ứng nhà cung cấp trên Workit Web chọn loại chứng từ nào và lấy dòng đã duyệt thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.advance-internal.web",
+      "title": "Workit Web · Lập tạm ứng nội bộ",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.advance-internal.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web lập tạm ứng nội bộ rồi thêm hoặc sao chép dòng chi tiết thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.advance-edit.web",
+      "title": "Workit Web · Sửa hoặc xóa phiếu tạm ứng",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.advance-edit.web"
+        ],
+        "document_ids": [
+          "88c4a90d-4a80-41a1-becf-f7221b2a36e4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi sửa hoặc xóa phiếu tạm ứng chưa duyệt trên Workit Web ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.approval-buttons.web",
+      "title": "Workit Web · Phân biệt các nút xử lý phiếu",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.approval-buttons.web"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, Bỏ duyệt, Trả lại, Từ chối và Bỏ từ chối khác gì nhau?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.desk.web",
+      "title": "Workit Web · Danh sách và trạng thái tại Bàn làm việc",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.desk.web"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Web, quản lý xem phiếu chờ duyệt, quá hạn và đã hoàn tất ở tab nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.inspect.web",
+      "title": "Quản lý kiểm tra phiếu Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.a06219c735de572caabd8b6511fa0973"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý kiểm tra phiếu trên Workit Web và mở tệp đính kèm ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.inspect.mobile",
+      "title": "Kiểm tra phiếu trên Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.68369c60f81557c5b42fab416cfad7e1"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Mobile tôi mở chi tiết phiếu và xem tệp đính kèm thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.approve.web",
+      "title": "Quản lý duyệt phiếu Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-approve"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mở Workit bằng trình duyệt trên điện thoại, duyệt phiếu ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.approve.mobile",
+      "title": "Workit Mobile · Duyệt phiếu trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.approve.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Duyệt phiếu Workit trên điện thoại như thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.return.web",
+      "title": "Trả lại phiếu Workit",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "web"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-return"
+        ],
+        "document_ids": [
+          "4b2aadb1-286d-4988-adf0-6d5d8e10f949"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Muốn trả lại phiếu để bổ sung trên Workit Web thì chọn bước nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-count.mobile",
+      "title": "Số phiếu chờ duyệt Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.topic.mobile-counters"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Vì sao số đỏ ngoài menu Workit Mobile nhỏ hơn tổng số phiếu bên trong?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-status.mobile",
+      "title": "Workit Mobile · Phiếu đã duyệt vẫn đang xử lý",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.mobile-status.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tại sao phiếu Workit Mobile của tôi vẫn đang xử lý sau khi duyệt?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-icons.mobile",
+      "title": "biểu tượng phiếu Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-icons.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Bình luận, kẹp giấy và biểu tượng quy trình với màu đỏ hoặc xanh trên Workit Mobile nghĩa là gì?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.mobile-history.mobile",
+      "title": "xem lịch sử duyệt Workit Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "approval",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.business.systems.mobile-history.2cb00d36"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Mobile tôi xem ngày duyệt, người duyệt và ý kiến trong Lịch sử ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.salary.mobile",
+      "title": "Workit Mobile · Phạm vi Tiền lương trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.salary.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Workit Mobile có mục xem phiếu lương của mình ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.attendance.mobile",
+      "title": "Workit Mobile · Phạm vi Chấm công trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.attendance.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi xem công cá nhân theo kỳ trên Workit Mobile bằng cách nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.forgot-clock.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Quên chấm công trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "people",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.forgot-clock.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo phiếu quên chấm công trên Workit Mobile như thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.late-early.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Đi trễ/về sớm trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.late-early.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lập phiếu đi trễ hoặc về sớm trên Workit Mobile ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.business-trip.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Đi công tác trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.business-trip.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Có lập phiếu đi công tác trên Workit Mobile không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.car.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Xe trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.car.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đặt xe công tác trên app Workit Mobile ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.room.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Phòng họp trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.room.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Đặt phòng họp trên app Workit Mobile làm sao?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.meal.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Suất ăn trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.meal.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đăng ký suất ăn trên Workit Mobile ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.maternity.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Nghỉ phép trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "workflow",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.maternity.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Có tạo phiếu nghỉ thai sản S1 trên app Workit Mobile không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.create-task.mobile",
+      "title": "Workit Mobile · Phạm vi Công việc trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.create-task.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn tạo công việc bằng Workit Mobile thì vào đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.project.mobile",
+      "title": "Workit Mobile · Phạm vi Dự án trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.project.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo dự án trên Workit Mobile bằng cách nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.purchase.mobile",
+      "title": "Workit Mobile · Phạm vi Mua hàng → Đề nghị mua sắm trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.purchase.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Trên Workit Mobile tạo đề nghị mua sắm ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.po.mobile",
+      "title": "Workit Mobile · Phạm vi Mua hàng → Đơn hàng mua hàng trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.po.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạo PO ở đâu trong app Workit Mobile?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.payment.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Đề nghị thanh toán trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.payment.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lập đề nghị thanh toán trên Workit Mobile như thế nào?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.advance-vendor.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Đề nghị tạm ứng trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.advance-vendor.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Tạm ứng nhà cung cấp tạo trên Workit Mobile ở đâu?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    },
+    {
+      "id": "q.software.workit-surfaces.advance-internal.mobile",
+      "title": "Workit Mobile · Phạm vi Quy trình số → Đề nghị tạm ứng trên Mobile",
+      "tags": [
+        "type-a",
+        "workit-surface",
+        "procurement",
+        "mobile"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.workit-surface.advance-internal.mobile"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Người dùng thực hiện theo quyền Workit được cấp."
+      ],
+      "turns": [
+        {
+          "text": "Lập tạm ứng nội bộ trên app Workit Mobile được không?",
+          "expectation": "Trả lời theo giao diện và thao tác đã nêu, kèm căn cứ và giới hạn nguồn."
+        }
+      ]
+    }
+  ]
+}

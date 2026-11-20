@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.ac98d5af.0",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+    "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+    "chunk_index": 0,
+    "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+    "content_sha256": "f84cc24babc29b3d1b63a76ce462b32a4c0669ce27c9c635b23a40a8e1a818f6",
+    "quote": "Workit — thủ tục xin thôi việc: Người nghỉ việc lập Phiếu xét nghỉ việc tại office.ritavo.com > Quy trình số, lưu rồi bấm Duyệt và chọn quản lý để trình ký. Khi phiếu đã ký duyệt xong, tải file đã ký; vào Quy trình tác nghiệp (Ticket), tạo [HCNS] Hoàn tất BBBG – MN hoặc MB đúng khu vực. Đính kèm file Phiếu xét nghỉ việc đã ký và biên bản bàn giao mẫu công ty dạng PDF; Lưu & đóng. Sau khi HCNS xác nhận, chuyển người nhận bàn giao ký xác nhận, thực hiện ký số nếu quy trình yêu cầu và đợi kết quả. Đây là quy trình hồ sơ trong hướng dẫn, không quy định thời hạn báo trước.",
+    "metadata": {
+      "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+      "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": null,
+      "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.handover.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

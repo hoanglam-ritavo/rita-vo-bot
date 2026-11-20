@@ -1,0 +1,33 @@
+{
+  "id": "route.workit-surface.po.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.po.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo po",
+          "đơn hàng mua hàng"
+        ],
+        [
+          "đề nghị mua sắm",
+          "phiếu mua sắm",
+          "khai báo",
+          "tạo po",
+          "lên đơn hàng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lập po",
+          "tạo po"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "po"
+}

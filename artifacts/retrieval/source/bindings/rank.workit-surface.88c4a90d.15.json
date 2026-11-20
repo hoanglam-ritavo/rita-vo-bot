@@ -1,0 +1,31 @@
+{
+  "id": "rank.workit-surface.88c4a90d.15",
+  "family": "software",
+  "role": "system_procedure",
+  "operation": "request",
+  "system": "workit",
+  "surface": "web",
+  "ref": {
+    "document_id": "88c4a90d-4a80-41a1-becf-f7221b2a36e4",
+    "revision_id": "38125941-2013-47d1-a914-8c7f6a885294",
+    "chunk_index": 15,
+    "source_sha256": "1b2b45e0bfa8c387ce8dc1f476bccfefb996bdbda0b30c1a45ca52b88d984162",
+    "content_sha256": "0d3762dd9f49a942c2311d5e83067406cbf4bb7cd01bd6af165e4f373911e44a",
+    "quote": "Workit — theo dõi và sửa đề nghị thanh toán: icon quy trình hiển thị các bước; ví dụ trang 31 gồm Lập đề nghị > Quản lý bộ phận > Kế toán thanh toán > PGĐTC/KTT > Tổng Giám Đốc. Không suy ra người duyệt hiện tại từ tên trong ảnh. Sửa bằng icon sửa > cập nhật > Lưu; xóa bằng thùng rác. Chỉ sửa/xóa phiếu chưa qua bước phê duyệt nào.",
+    "metadata": {
+      "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-2)",
+      "applicability": "Người dùng hệ thống theo phân quyền và phạm vi chức năng mô tả trong tài liệu.",
+      "effective_from": null,
+      "effective_to": null,
+      "version_label": "HDSD-12/4/25-V1",
+      "source_path": "huong-dan-su-dung/workit/3-2-workit-quy-trinh-so-hdsd-v1.pdf"
+    }
+  },
+  "task_ids": [
+    "task.workit-surface.payment-track.web"
+  ],
+  "aspects": [
+    "overview",
+    "procedure"
+  ]
+}

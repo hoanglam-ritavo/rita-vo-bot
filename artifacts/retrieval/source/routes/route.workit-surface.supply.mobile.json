@@ -1,0 +1,26 @@
+{
+  "id": "route.workit-surface.supply.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.supply.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đề xuất cung ứng"
+        ],
+        [
+          "lập",
+          "tạo",
+          "có không",
+          "nhập gì",
+          "không thấy",
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "supply",
+  "surface_limited": true
+}

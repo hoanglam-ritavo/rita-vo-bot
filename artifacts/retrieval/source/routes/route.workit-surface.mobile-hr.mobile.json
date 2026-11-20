@@ -1,0 +1,23 @@
+{
+  "id": "route.workit-surface.mobile-hr.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.business.systems.mobile-manager-hr.2cb00d36",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhân sự phòng ban",
+          "xem nhân sự phòng ban"
+        ],
+        [
+          "quyền",
+          "ai",
+          "phòng ban mình"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "mobile-hr"
+}

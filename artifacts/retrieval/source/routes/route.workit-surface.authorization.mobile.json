@@ -1,0 +1,27 @@
+{
+  "id": "route.workit-surface.authorization.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.authorization.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy ủy quyền"
+        ],
+        [
+          "mở",
+          "quyền nào",
+          "tìm",
+          "không thấy",
+          "có không",
+          "có mục",
+          "ở đâu"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "authorization",
+  "surface_limited": true
+}

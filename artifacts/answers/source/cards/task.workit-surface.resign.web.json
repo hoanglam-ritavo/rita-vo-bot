@@ -1,0 +1,105 @@
+{
+  "id": "task.workit-surface.resign.web",
+  "label": "Workit Web · Tạo phiếu xét nghỉ việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tạo phiếu xét nghỉ việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về tạo phiếu xét nghỉ việc?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign.web",
+          "text": "Workit Web. Mở Quy trình số → Phiếu xét nghỉ việc → Thêm. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên và Lý do nghỉ việc theo mẫu trình ký. Nhấn Lưu để khai báo, sau đó thực hiện bước gửi duyệt.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 9,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f",
+              "quote": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 1,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "59511e19c5eee1a429d8352d71ef49b203395ff0a870618739eea70b6634bfe5",
+              "quote": "Workit — I.1.a, người xin nghỉ việc tạo phiếu: Đăng nhập https://office.ritavo.com > Quy trình số > Phiếu xét nghỉ việc > Thêm (F2). Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên, Lý do nghỉ việc (các trường bắt buộc). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Lưu mới hoàn tất khai báo; cần chọn phiếu, bấm Duyệt và chọn người quản lý để trình ký.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign.web",
+          "text": "Workit Web. Mở Quy trình số → Phiếu xét nghỉ việc → Thêm. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên và Lý do nghỉ việc theo mẫu trình ký. Nhấn Lưu để khai báo, sau đó thực hiện bước gửi duyệt.",
+          "refs": [
+            {
+              "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+              "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+              "chunk_index": 9,
+              "source_sha256": "a7bf01f2eb8362e6eed846849e50f9c3ada17b7a52767a18e8ef83fd15d0c3ca",
+              "content_sha256": "7159be328c431d767dd3a2159d405fdffd1d982eb1b37c526b867f979733095f",
+              "quote": "Workit — tạo Phiếu xét nghỉ việc để trình ký thủ tục bàn giao qua các phòng ban: Apps > Quy trình số > Phiếu xét nghỉ việc > Thêm/F2. Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhân viên, Lý do nghỉ việc, thêm ghi chú/tệp đính kèm nếu cần rồi Lưu/F8. Hệ thống tự lấy quản lý trực tiếp và trưởng phòng của người lập phiếu. Việc lưu phiếu chưa đồng nghĩa toàn bộ thủ tục bàn giao đã hoàn tất.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn phân hệ Quy trình số (phần 3-1)",
+                "applicability": "Người dùng Workit theo phân quyền; quy trình văn phòng phẩm, nghỉ phép, đi trễ/về sớm, công tác, xe, phòng họp, xét nghỉ việc và suất ăn Q2–HCM.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 1,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "59511e19c5eee1a429d8352d71ef49b203395ff0a870618739eea70b6634bfe5",
+              "quote": "Workit — I.1.a, người xin nghỉ việc tạo phiếu: Đăng nhập https://office.ritavo.com > Quy trình số > Phiếu xét nghỉ việc > Thêm (F2). Nhập Ngày nghỉ việc, Loại nghỉ việc, Nhóm quy trình, Nhân viên, Lý do nghỉ việc (các trường bắt buộc). Bấm LƯU để hoàn tất khai báo hoặc HỦY để bỏ thao tác. Lưu mới hoàn tất khai báo; cần chọn phiếu, bấm Duyệt và chọn người quản lý để trình ký.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

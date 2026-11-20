@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.salary.mobile",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.salary.mobile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu lương",
+          "bảng lương"
+        ],
+        [
+          "chọn tháng",
+          "ở đâu",
+          "xem"
+        ]
+      ]
+    }
+  ],
+  "surface": "mobile",
+  "workit_action": "salary",
+  "surface_limited": true
+}

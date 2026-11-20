@@ -1,0 +1,24 @@
+{
+  "id": "route.workit-surface.home.web",
+  "family": "software",
+  "system": "workit",
+  "task_id": "task.workit-surface.home.web",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trang chủ",
+          "màn hình chính"
+        ],
+        [
+          "apps",
+          "bàn làm việc",
+          "lịch làm việc",
+          "hiển thị"
+        ]
+      ]
+    }
+  ],
+  "surface": "web",
+  "workit_action": "home"
+}

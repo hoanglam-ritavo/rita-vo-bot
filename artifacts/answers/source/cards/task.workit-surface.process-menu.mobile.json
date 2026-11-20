@@ -1,0 +1,80 @@
+{
+  "id": "task.workit-surface.process-menu.mobile",
+  "label": "Workit Mobile · Tìm các loại phiếu Mobile theo menu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Tìm các loại phiếu Mobile theo menu"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về tìm các loại phiếu mobile theo menu?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.process-menu.mobile",
+          "text": "Workit Mobile. Mở Quy trình số để tìm Tăng ca, Đề nghị tuyển dụng, Đề nghị khen thưởng hoặc Quên chấm công theo danh mục app.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "chunk_index": 2,
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "content_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5",
+              "quote": "Workit Mobile — menu Quy trình số có Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe, Phòng họp, Đề nghị tuyển dụng, Đề nghị khen thưởng, Quên chấm công và Suất ăn. Nhấn chức năng để mở chi tiết; số đỏ trên chức năng thể hiện số phiếu cần phê duyệt.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn xác nhận các mục. Phần lập từng loại phiếu trên app cần hướng dẫn chi tiết khác."
+      ]
+    },
+    "procedure": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.workit-surface.process-menu.mobile",
+          "text": "Workit Mobile. Mở Quy trình số để tìm Tăng ca, Đề nghị tuyển dụng, Đề nghị khen thưởng hoặc Quên chấm công theo danh mục app.",
+          "refs": [
+            {
+              "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+              "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+              "chunk_index": 2,
+              "source_sha256": "1c3eba61b6864ff7dba06f2216df11bf1658d12ca4a783a278d9a97cf8cb4335",
+              "content_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5",
+              "quote": "Workit Mobile — menu Quy trình số có Ticket, Văn phòng phẩm, Đề nghị thanh toán, Đề nghị tạm ứng, Nghỉ phép, Tăng ca, Đi trễ/về sớm, Đi công tác, Xe, Phòng họp, Đề nghị tuyển dụng, Đề nghị khen thưởng, Quên chấm công và Suất ăn. Nhấn chức năng để mở chi tiết; số đỏ trên chức năng thể hiện số phiếu cần phê duyệt.",
+              "metadata": {
+                "title": "Workit Mobile — Hướng dẫn duyệt phiếu theo quy trình V1",
+                "applicability": "Người quản lý và người dùng có quyền xử lý, phê duyệt phiếu trong Workit theo phân quyền hệ thống.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/5-workit-mobile-app-duyet-phieu-theo-quy-trinh-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn xác nhận các mục. Phần lập từng loại phiếu trên app cần hướng dẫn chi tiết khác."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

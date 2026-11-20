@@ -1,0 +1,73 @@
+{
+  "id": "task.workit-surface.resign-approver.web",
+  "label": "Workit Web · Quản lý duyệt phiếu xét nghỉ việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Quản lý duyệt phiếu xét nghỉ việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần hướng dẫn phần nào về quản lý duyệt phiếu xét nghỉ việc?",
+  "context": {
+    "mode": "none",
+    "note": "Workit guidance for the declared interface."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign-approver.web",
+          "text": "Workit Web. Người có quyền mở thông báo hoặc Bàn làm việc → Phiếu xét nghỉ việc, chọn phiếu rồi bấm Duyệt. Nhập ý kiến và chọn người thực hiện bước tiếp theo theo quy trình. Hỏi quản trị Workit nếu cần xác nhận quyền chuyển cấp.",
+          "refs": [
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 7,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "791c339204d113760f1df4d0ab56748dcbb0fb01f979e78189b1f0ee51af14b7",
+              "quote": "Workit — III, người phê duyệt Phiếu xét nghỉ việc: nhận thông báo hoặc mở Trang chủ > Bàn làm việc > Phiếu xét nghỉ việc; chọn phiếu, bấm Duyệt để xác nhận bước của mình. Nhập ý kiến nếu có, lọc và chọn người thực hiện bước tiếp theo, hoàn tất Duyệt. Hướng dẫn mô tả ô Chuyển đến cấp cao hơn để chuyển tới bước được chọn khi cần bỏ qua bước kế tiếp; đây là thao tác giao diện, không tự xác lập quyền bỏ qua phê duyệt trong mọi trường hợp.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.workit-surface.resign-approver.web",
+          "text": "Workit Web. Người có quyền mở thông báo hoặc Bàn làm việc → Phiếu xét nghỉ việc, chọn phiếu rồi bấm Duyệt. Nhập ý kiến và chọn người thực hiện bước tiếp theo theo quy trình. Hỏi quản trị Workit nếu cần xác nhận quyền chuyển cấp.",
+          "refs": [
+            {
+              "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+              "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+              "chunk_index": 7,
+              "source_sha256": "eed28c991948e03f9f72eb211339c8b373ddf878e052a03c94c0a9c573ebabed",
+              "content_sha256": "791c339204d113760f1df4d0ab56748dcbb0fb01f979e78189b1f0ee51af14b7",
+              "quote": "Workit — III, người phê duyệt Phiếu xét nghỉ việc: nhận thông báo hoặc mở Trang chủ > Bàn làm việc > Phiếu xét nghỉ việc; chọn phiếu, bấm Duyệt để xác nhận bước của mình. Nhập ý kiến nếu có, lọc và chọn người thực hiện bước tiếp theo, hoàn tất Duyệt. Hướng dẫn mô tả ô Chuyển đến cấp cao hơn để chuyển tới bước được chọn khi cần bỏ qua bước kế tiếp; đây là thao tác giao diện, không tự xác lập quyền bỏ qua phê duyệt trong mọi trường hợp.",
+              "metadata": {
+                "title": "Hướng dẫn thực hiện hồ sơ xin thôi việc và xin nghỉ thai sản — Workit",
+                "applicability": "Người lập hồ sơ xin thôi việc hoặc nghỉ thai sản, người nhận bàn giao, HCNS và người phê duyệt trên Workit.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": null,
+                "source_path": "huong-dan-su-dung/workit/huong-dan-thuc-hien-ho-so-xin-nghi-viec-xin-nghi-thai-san-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
