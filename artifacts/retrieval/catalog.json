@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "package_fingerprint": "f190c341268ca4fbad537e8ff04e0b5c2ae60410f1238523c3a305a5bfdb09ef",
-  "lexicon_sha256": "a706ec08f2a2a9774010fc84c48301a2876ea55199654703a27f21bbf19e54da",
+  "lexicon_sha256": "c16eaa5688e4306cb8ee9357219145a7ca4aaba8cf9f82343814774a407c8437",
   "families": [
     {
       "id": "leave",
@@ -43,7 +43,8 @@
     {
       "id": "attendance",
       "concept_ids": [
-        "query.attendance"
+        "query.attendance",
+        "forgot-clock"
       ]
     },
     {
@@ -115,7 +116,26 @@
         "policy.inpatient-company-support",
         "policy.outpatient-company-support",
         "policy.referral-payment",
-        "policy.referral-rates"
+        "policy.referral-rates",
+        "benefit-birth"
+      ],
+      "clarifications": [
+        {
+          "requires_all": [
+            [
+              "có em bé",
+              "có con nhỏ",
+              "sinh con",
+              "mới đón con"
+            ],
+            [
+              "hỗ trợ",
+              "phúc lợi",
+              "trợ cấp"
+            ]
+          ],
+          "prompt": "Bạn muốn hỏi về khoản hỗ trợ của công ty cho nhân viên trực tiếp sinh con, chế độ khi vợ sinh con hay quyền lợi bảo hiểm xã hội? Bạn có thể nêu trường hợp muốn tra cứu."
+        }
       ]
     },
     {
@@ -187,7 +207,28 @@
         "travel-invoices",
         "travel-lodging",
         "travel-request",
-        "travel-settlement"
+        "travel-settlement",
+        "travel-scope"
+      ],
+      "clarifications": [
+        {
+          "requires_all": [
+            [
+              "gặp đối tác",
+              "gặp khách hàng",
+              "mời khách",
+              "mời đối tác"
+            ],
+            [
+              "hoàn trả",
+              "hoàn tiền",
+              "hoàn lại",
+              "thanh toán lại",
+              "lấy lại tiền"
+            ]
+          ],
+          "prompt": "Khoản bạn đã chi là chi phí tiếp khách hay phát sinh trong chuyến công tác? Bạn có thể nêu loại chi phí để mình hướng dẫn phần có căn cứ."
+        }
       ]
     },
     {
@@ -9164,7 +9205,8 @@
       ],
       "aspects": [
         "overview",
-        "procedure"
+        "procedure",
+        "paperwork"
       ]
     },
     {
@@ -10077,7 +10119,8 @@
       ],
       "aspects": [
         "overview",
-        "procedure"
+        "procedure",
+        "paperwork"
       ]
     },
     {
@@ -14043,7 +14086,7 @@
     },
     {
       "id": "route.e4bbd3d6a6ad522ea9a7f9b9c499bd83",
-      "family": "software",
+      "family": "benefits",
       "task_id": "task.e4bbd3d6a6ad522ea9a7f9b9c499bd83",
       "aliases": [
         "nhân viên nữ sinh con",
@@ -15982,7 +16025,12 @@
         "forgot-clock"
       ],
       "requires_any": [],
-      "excludes_any": []
+      "excludes_any": [
+        "mở khóa",
+        "đăng nhập",
+        "mật khẩu",
+        "điện thoại cá nhân"
+      ]
     },
     {
       "id": "route.business.shift.c9973704",
@@ -17795,6 +17843,3027 @@
       ],
       "requires_any": [],
       "excludes_any": []
+    },
+    {
+      "id": "route.labor-focus.policy-scope",
+      "family": "labor",
+      "task_id": "task.labor-focus.policy-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi quy lao dong cua rita vo",
+              "noi quy cua rita vo"
+            ],
+            [
+              "ap dung",
+              "tuan thu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "noi quy ap dung"
+            ],
+            [
+              "nhung cong ty",
+              "chi nhanh",
+              "dia diem"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu viec",
+              "thoi vu",
+              "hoc nghe",
+              "thuc tap"
+            ],
+            [
+              "tuan thu noi quy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.policy-effective",
+      "family": "labor",
+      "task_id": "task.labor-focus.policy-effective",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi quy"
+            ],
+            [
+              "hieu luc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thang tren bia"
+            ],
+            [
+              "ngay ky"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.policy-local",
+      "family": "labor",
+      "task_id": "task.labor-focus.policy-local",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi quy chung"
+            ],
+            [
+              "quy dinh rieng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hai van ban noi bo"
+            ],
+            [
+              "khac nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "van ban nao ap dung"
+            ],
+            [
+              "cung mot viec"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.policy-location",
+      "family": "labor",
+      "task_id": "task.labor-focus.policy-location",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tra cuu",
+              "tim o dau",
+              "xem o dau"
+            ],
+            [
+              "noi quy"
+            ],
+            [
+              "cap nhat",
+              "nhan vien"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.work-hours",
+      "family": "labor",
+      "task_id": "task.labor-focus.work-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ca lam viec"
+            ],
+            [
+              "keo dai",
+              "bao nhieu gio"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "5 5 ngay",
+              "5,5 ngay"
+            ],
+            [
+              "6 ngay"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gio lam"
+            ],
+            [
+              "theo tuan",
+              "lich lam dac thu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lich lam viec"
+            ],
+            [
+              "nhu cau kinh doanh",
+              "thay doi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "roi vi tri",
+              "ra ngoai"
+            ],
+            [
+              "trong gio lam"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lich lam viec dac thu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ca lam binh thuong"
+            ],
+            [
+              "bao nhieu gio"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lich lam viec"
+            ],
+            [
+              "phe duyet",
+              "thong bao"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.regular-rest",
+      "family": "labor",
+      "task_id": "task.labor-focus.regular-rest",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghi giua ca"
+            ],
+            [
+              "ca ngay",
+              "ca dem",
+              "bao ve",
+              "an ninh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ngay nghi hang tuan",
+              "moi tuan"
+            ],
+            [
+              "nghi bu",
+              "luan phien",
+              "trung ngay le",
+              "it nhat"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.holiday-days",
+      "family": "labor",
+      "task_id": "task.labor-focus.holiday-days",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ngay nghi huong nguyen luong"
+            ],
+            [
+              "dip le",
+              "tet"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lich nghi tet"
+            ],
+            [
+              "nam cu the",
+              "thong bao rieng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lao dong nuoc ngoai"
+            ],
+            [
+              "quoc khanh",
+              "tet truyen thong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.annual-entitlement",
+      "family": "leave",
+      "task_id": "task.labor-focus.annual-entitlement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lam du mot nam",
+              "lam giua nam",
+              "vao lam giua nam",
+              "tham nien",
+              "khoa huan luyen"
+            ],
+            [
+              "phep nam",
+              "phep theo",
+              "ngay phep"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu viec",
+              "hoc nghe"
+            ],
+            [
+              "su dung phep nam"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.annual-accrual",
+      "family": "leave",
+      "task_id": "task.labor-focus.annual-accrual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tich luy phep"
+            ],
+            [
+              "thu viec",
+              "hoc nghe",
+              "thai san",
+              "nghi khong luong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phep nam"
+            ],
+            [
+              "tai nan lao dong",
+              "benh nghe nghiep",
+              "gioi han nao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "co duoc tinh phep"
+            ],
+            [
+              "ngung viec",
+              "dinh chi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.annual-planning",
+      "family": "leave",
+      "task_id": "task.labor-focus.annual-planning",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ke hoach nghi phep"
+            ],
+            [
+              "gui cho ai",
+              "lap"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lich nghi da dang ky"
+            ],
+            [
+              "cao diem",
+              "sap xep"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi noi lien",
+              "nghi noi le"
+            ],
+            [
+              "phep nam",
+              "le tet"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.annual-carry",
+      "family": "leave",
+      "task_id": "task.labor-focus.annual-carry",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phep cu",
+              "phep nam cu"
+            ],
+            [
+              "chuyen",
+              "truoc ngay",
+              "sau thoi han",
+              "het han",
+              "thanh toan phep"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh toan phep con du"
+            ],
+            [
+              "nghi viec"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.leave-filing",
+      "family": "leave",
+      "task_id": "task.labor-focus.leave-filing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nop don",
+              "gui don",
+              "xin nghi"
+            ],
+            [
+              "mot den ba ngay",
+              "bon den bay ngay",
+              "tren bay ngay",
+              "don truoc bao lau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nop don nghi"
+            ],
+            [
+              "phan mem",
+              "cong web"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "don ma chua duoc duyet",
+              "tu nghi"
+            ],
+            [
+              "gui don",
+              "noi quy xu ly"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "nộp ở đâu",
+        "nộp trước bao lâu",
+        "cần nộp trước bao lâu",
+        "nộp bằng phần mềm được không"
+      ]
+    },
+    {
+      "id": "route.labor-focus.leave-emergency",
+      "family": "leave",
+      "task_id": "task.labor-focus.leave-emergency",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dot xuat",
+              "bi om"
+            ],
+            [
+              "truoc gio lam",
+              "nguoi than",
+              "bao thay",
+              "quay lai lam viec",
+              "bo sung chung tu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi dot xuat"
+            ],
+            [
+              "nop don",
+              "quay lai"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "cần giấy gì",
+        "cần chứng từ gì",
+        "báo cho ai",
+        "muộn nhất khi nào"
+      ]
+    },
+    {
+      "id": "route.labor-focus.leave-approval",
+      "family": "leave",
+      "task_id": "task.labor-focus.leave-approval",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xin nghi"
+            ],
+            [
+              "ai duyet o tung cap",
+              "tong giam doc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "duyet nghi"
+            ],
+            [
+              "bao them",
+              "chu tich hoi dong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ho so nghi phep"
+            ],
+            [
+              "bo phan nao luu",
+              "ai luu",
+              "luu o dau"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "ai duyệt",
+        "ai lưu hồ sơ",
+        "ai ký",
+        "lưu ở đâu",
+        "hồ sơ do ai lưu"
+      ]
+    },
+    {
+      "id": "route.labor-focus.paid-personal",
+      "family": "leave",
+      "task_id": "task.labor-focus.paid-personal",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ket hon"
+            ],
+            [
+              "huong luong",
+              "nghi rieng bao nhieu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bo me minh",
+              "bo me vo chong",
+              "vo chong hoac con mat"
+            ],
+            [
+              "nghi bao nhieu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi viec rieng"
+            ],
+            [
+              "bao truoc",
+              "bao cho quan ly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.unpaid-personal",
+      "family": "leave",
+      "task_id": "task.labor-focus.unpaid-personal",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cha me",
+              "anh chi em ruot",
+              "ong ba"
+            ],
+            [
+              "ket hon",
+              "mat"
+            ],
+            [
+              "xin nghi",
+              "loai nghi",
+              "dien nao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "het phep nam"
+            ],
+            [
+              "nghi khong luong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thieu chung tu",
+              "vuot so ngay nghi"
+            ],
+            [
+              "bi benh",
+              "tai nan"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tu nghi khong luong"
+            ],
+            [
+              "chua dong y",
+              "ky luat"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.women-breaks",
+      "family": "labor",
+      "task_id": "task.labor-focus.women-breaks",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hanh kinh",
+              "nuoi con duoi 12 thang"
+            ],
+            [
+              "nghi",
+              "gio lam"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.maternity",
+      "family": "leave",
+      "task_id": "task.labor-focus.maternity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thai san"
+            ],
+            [
+              "truoc sinh",
+              "truoc va sau",
+              "thoi gian nghi thai san duoc tinh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "duong thai"
+            ],
+            [
+              "dieu kien dong",
+              "chi dinh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sinh doi",
+              "sinh nhieu con"
+            ],
+            [
+              "nghi thai san",
+              "tinh them"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bhxh"
+            ],
+            [
+              "sinh con"
+            ],
+            [
+              "dieu kien tham gia"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.maternity-unpaid",
+      "family": "leave",
+      "task_id": "task.labor-focus.maternity-unpaid",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sau khi het thoi gian thai san",
+              "sau thai san"
+            ],
+            [
+              "nghi them",
+              "khong luong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.sick-leave",
+      "family": "leave",
+      "task_id": "task.labor-focus.sick-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cham con om",
+              "cham con dang om"
+            ],
+            [
+              "giay",
+              "chung nhan",
+              "ho so"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi huong bhxh"
+            ],
+            [
+              "bi om",
+              "tru phep",
+              "giay gi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bi om"
+            ],
+            [
+              "khong tru phep",
+              "ngay nghi do co bi tru"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.paternity",
+      "family": "leave",
+      "task_id": "task.labor-focus.paternity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vo sinh con",
+              "che do nghi cua chong"
+            ],
+            [
+              "ngay nghi rieng",
+              "che do bhxh",
+              "sinh thuong",
+              "sinh mo",
+              "sau khi sinh",
+              "trong khoang nao"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-scope",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quet van tay"
+            ],
+            [
+              "vao lam",
+              "ra ve",
+              "nhung ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu viec va thoi vu",
+              "nhan vien thu viec"
+            ],
+            [
+              "cham cong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gio cham cong"
+            ],
+            [
+              "lich lam viec",
+              "vi tri"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-exempt",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-exempt",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khu vuc chua co may",
+              "khu vuc khong co may"
+            ],
+            [
+              "ngay cong",
+              "cham cong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khong phai cham cong bang may",
+              "mien quet van tay"
+            ],
+            [
+              "cap quan ly",
+              "ngoai le",
+              "giai trinh",
+              "ai xac nhan"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-enroll",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-enroll",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dang ky van tay",
+              "lay van tay"
+            ],
+            [
+              "nhan vien moi",
+              "van phong chinh",
+              "chi nhanh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-forgot",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-forgot",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quen quet van tay",
+              "quen bam van tay"
+            ],
+            [
+              "luc vao lam",
+              "luc tan ca",
+              "can lam gi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phieu xac nhan ngay cong"
+            ],
+            [
+              "ai ky",
+              "gui ve"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "ai ký",
+        "cần giấy gì",
+        "cần chứng từ gì",
+        "phiếu gửi cho ai",
+        "gửi về đâu"
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-device",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-device",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "may cham cong bi loi",
+              "khong nhan van tay",
+              "may cham cong khong nhan"
+            ],
+            [
+              "bao ai",
+              "thoi han",
+              "lam sao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "da quet van tay"
+            ],
+            [
+              "bang cong khong co du lieu",
+              "thieu du lieu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mat the cham cong",
+              "hong the cham cong",
+              "lam hong the cham cong"
+            ],
+            [
+              "bao ai",
+              "lam lai"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-external",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-external",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gap khach ben ngoai",
+              "cong viec ben ngoai",
+              "xu ly cong viec ben ngoai"
+            ],
+            [
+              "cham cong",
+              "quet van tay",
+              "nop mau",
+              "phieu xac nhan cong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "email cua quan ly",
+              "email xac nhan"
+            ],
+            [
+              "phieu cong",
+              "phieu di cong tac"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "ai ký",
+        "cần mẫu gì",
+        "xác nhận qua email được không",
+        "cần giấy gì"
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-approved",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-approved",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "di tre",
+              "ve som"
+            ],
+            [
+              "viec cong ty",
+              "ly do ca nhan",
+              "chua duoc quan ly dong y",
+              "da bao nhung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quen cham cong"
+            ],
+            [
+              "di tre",
+              "ve som"
+            ],
+            [
+              "cong chung",
+              "so lan trong thang"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-threshold",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-threshold",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "di tre",
+              "ve som"
+            ],
+            [
+              "120 phut",
+              "thoi gian thuc te",
+              "theo bang",
+              "chuyen thanh nghi phep nam"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-deductions",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-deductions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vuot so lan",
+              "vuot gioi han",
+              "vuot 3 lan",
+              "qua 3 lan"
+            ],
+            [
+              "cham cong",
+              "di tre",
+              "ve som",
+              "het phep"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bang tru cong",
+              "bang tru luong"
+            ],
+            [
+              "1 15",
+              "khoang",
+              "phut"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhung phuong an tru"
+            ],
+            [
+              "cham cong",
+              "di tre"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "nếu hết phép thì sao",
+        "được chọn cách nào",
+        "trừ bao nhiêu"
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-example",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-example",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quen cham cong"
+            ],
+            [
+              "di tre ba lan",
+              "di tre 3 lan"
+            ],
+            [
+              "30 phut",
+              "tung lan"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-discipline",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-discipline",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vi pham cong don",
+              "vi pham cham cong"
+            ],
+            [
+              "bien ban",
+              "lan thu tu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lap mot bien ban"
+            ],
+            [
+              "bao nhieu lan",
+              "vi pham"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-shifts",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-shifts",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "doi ca"
+            ],
+            [
+              "toi da",
+              "bao nhieu lan",
+              "ca thay doi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-owner",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-owner",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sua loi may",
+              "xuat du lieu cong",
+              "luu ho so"
+            ],
+            [
+              "xac nhan cong",
+              "chiu trach nhiem"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cac phieu nghi",
+              "phieu xac nhan cong"
+            ],
+            [
+              "gui vao ky nao",
+              "ghi nhan"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.attendance-effective",
+      "family": "attendance",
+      "task_id": "task.labor-focus.attendance-effective",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "02 2023 tb hcns",
+              "thong bao cham cong"
+            ],
+            [
+              "hieu luc"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-policy",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-policy",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "de nghi tang ca"
+            ],
+            [
+              "ai lap",
+              "ai phe duyet",
+              "cap thiet"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "doi tuong xem xet tang ca"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vi tri cua toi"
+            ],
+            [
+              "khong nam trong danh sach"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "o lai lam them"
+            ],
+            [
+              "chua co ke hoach",
+              "duoc duyet"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gioi han tang ca"
+            ],
+            [
+              "theo ngay",
+              "trong nam",
+              "cao hon"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-emergency",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-emergency",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "huy dong"
+            ],
+            [
+              "thien tai",
+              "hoa hoan",
+              "tinh huong khan cap"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lam them"
+            ],
+            [
+              "khan cap"
+            ],
+            [
+              "tinh mang",
+              "suc khoe"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-eligibility",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-eligibility",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhan vien van phong",
+              "lam theo du an",
+              "luong khoan"
+            ],
+            [
+              "tra tien lam them"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "di chuyen ngoai gio"
+            ],
+            [
+              "chuyen cong tac",
+              "noi quy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-clock",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-clock",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lam them",
+              "tang ca"
+            ],
+            [
+              "bat dau tinh"
+            ],
+            [
+              "ngay lam viec",
+              "nua ngay thu bay",
+              "chieu thu bay"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lam them"
+            ],
+            [
+              "ngay nghi hang tuan",
+              "ngay le"
+            ],
+            [
+              "tinh tu moc",
+              "den moc"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-breaks",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-breaks",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tang ca",
+              "lam them"
+            ],
+            [
+              "tru khoang nghi",
+              "quy tac nghi giua ca",
+              "den 21 gio",
+              "den 23 gio"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bat dau sau 17 gio"
+            ],
+            [
+              "tru bao nhieu",
+              "qua 22 gio",
+              "ket thuc truoc 22 gio"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi giua ca"
+            ],
+            [
+              "gio lam them huong luong"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "nếu làm qua 22 giờ thì sao",
+        "nếu kết thúc trước 22 giờ thì sao",
+        "trừ thời gian nghỉ thế nào"
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-boundary",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-boundary",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ket thuc dung 22 gio",
+              "dung 22 gio"
+            ],
+            [
+              "to trinh",
+              "truong hop"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mot phan ngay nghi",
+              "bat dau muon hon khung gio"
+            ],
+            [
+              "cach tinh",
+              "tang ca"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "to trinh"
+            ],
+            [
+              "muc tien lam them",
+              "tai lieu co huong dan cach tinh rieng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-driver",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-driver",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lai xe",
+              "tai xe"
+            ],
+            [
+              "tinh toan bo thoi gian tang ca",
+              "lam xuyen suot",
+              "lam them theo yeu cau",
+              "ai xac nhan",
+              "khoan viec"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "ai ký",
+        "ai xác nhận",
+        "cần chữ ký của ai"
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-sources",
+      "family": "labor",
+      "task_id": "task.labor-focus.overtime-sources",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi quy"
+            ],
+            [
+              "to trinh"
+            ],
+            [
+              "so gio",
+              "phe duyet",
+              "doi tuong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.overtime-personal-check",
+      "family": "attendance",
+      "task_id": "task.labor-focus.overtime-personal-check",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gio tang ca",
+              "gio lam them"
+            ],
+            [
+              "da duoc duyet",
+              "ghi nhan"
+            ],
+            [
+              "thang nay",
+              "kiem tra o dau"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-attire",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-attire",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tac phong"
+            ],
+            [
+              "trang phuc",
+              "the ten"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quen deo the",
+              "khong mac dong phuc"
+            ],
+            [
+              "bao ve",
+              "tu choi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu viec"
+            ],
+            [
+              "ngoai le"
+            ],
+            [
+              "the ten",
+              "dong phuc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ra vao cong ty"
+            ],
+            [
+              "kiem tra hanh ly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-working-outside",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-working-outside",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gap khach trong gio lam"
+            ],
+            [
+              "bao ai",
+              "xac nhan"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "o lai van phong"
+            ],
+            [
+              "xin phep ai",
+              "sau gio lam"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vao cong ty"
+            ],
+            [
+              "ngay nghi",
+              "ngoai gio"
+            ],
+            [
+              "chap thuan"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-visitors",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-visitors",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiep khach o dau",
+              "dua khach vao khu vuc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "di cung khach"
+            ],
+            [
+              "khach o cong ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khach"
+            ],
+            [
+              "o lai sau gio lam",
+              "tham quyen dong y"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "da thoi viec",
+              "dang bi dinh chi"
+            ],
+            [
+              "ra vao theo dien nao",
+              "lien he cong viec tai cong ty"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-meeting",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-meeting",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dat phong hop"
+            ],
+            [
+              "le tan",
+              "hanh chinh"
+            ],
+            [
+              "bao",
+              "thong tin"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-tools",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-tools",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "may tinh",
+              "dung cu"
+            ],
+            [
+              "dong nghiep",
+              "nguoi khac"
+            ],
+            [
+              "duoc dong y",
+              "chua duoc"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-alcohol",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-alcohol",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi lam viec"
+            ],
+            [
+              "ruou bia",
+              "chat kich thich"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-family",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-family",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cung gia dinh",
+              "nguoi than trong gia dinh"
+            ],
+            [
+              "chung mot bo phan",
+              "lam cung bo phan"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.safety-information",
+      "family": "labor",
+      "task_id": "task.labor-focus.safety-information",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "email",
+              "duong dan",
+              "tep dinh kem"
+            ],
+            [
+              "dang ngo",
+              "nghi ngo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "usb",
+              "thiet bi luu tru"
+            ],
+            [
+              "may cong ty",
+              "kiem tra gi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.safety-equipment",
+      "family": "labor",
+      "task_id": "task.labor-focus.safety-equipment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "may moc",
+              "thiet bi dien"
+            ],
+            [
+              "truoc khi su dung",
+              "kiem tra"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nguy co tai nan",
+              "thiet bi mat an toan"
+            ],
+            [
+              "bao cho ai",
+              "phat hien"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nguoi ve cuoi ca",
+              "cuoi ca"
+            ],
+            [
+              "dien",
+              "cua",
+              "kho"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "loi thoat hiem",
+              "thiet bi chua chay"
+            ],
+            [
+              "hang hoa",
+              "dung cu",
+              "vat lieu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.safety-health",
+      "family": "labor",
+      "task_id": "task.labor-focus.safety-health",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phuong tien bao ho"
+            ],
+            [
+              "ai phai",
+              "lam mat"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hoa chat",
+              "dung moi"
+            ],
+            [
+              "hut thuoc",
+              "khu vuc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kham suc khoe",
+              "huan luyen an toan"
+            ],
+            [
+              "kiem dinh xe nang",
+              "to chuc"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.safety-cleaning",
+      "family": "labor",
+      "task_id": "task.labor-focus.safety-cleaning",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ve sinh ban lam viec",
+              "ve sinh may moc"
+            ],
+            [
+              "rac",
+              "phe lieu",
+              "trach nhiem"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.property-outside",
+      "family": "labor",
+      "task_id": "task.labor-focus.property-outside",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thiet bi",
+              "tai san cong ty"
+            ],
+            [
+              "ra ngoai"
+            ],
+            [
+              "chap thuan",
+              "ai phep"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.confidentiality",
+      "family": "labor",
+      "task_id": "task.labor-focus.confidentiality",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ma nguon",
+              "giai phap tao ra"
+            ],
+            [
+              "thuoc ve ai",
+              "qua trinh lam viec"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sao chep tai lieu cong ty"
+            ],
+            [
+              "ra ngoai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ban sao tai lieu"
+            ],
+            [
+              "dung xong",
+              "xu ly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.company-publication",
+      "family": "labor",
+      "task_id": "task.labor-focus.company-publication",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cung cap thong tin cong ty"
+            ],
+            [
+              "bao chi",
+              "truyen thong",
+              "ben thu ba"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.property-incidents",
+      "family": "labor",
+      "task_id": "task.labor-focus.property-incidents",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "that thoat tai san",
+              "lo thong tin cong ty"
+            ],
+            [
+              "bao ai",
+              "phat hien"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.harassment-scope",
+      "family": "labor",
+      "task_id": "task.labor-focus.harassment-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hanh vi nao"
+            ],
+            [
+              "quay roi tinh duc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tin nhan",
+              "cuoc goi"
+            ],
+            [
+              "xe dua don",
+              "buoi dao tao"
+            ],
+            [
+              "pham vi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "loi dua",
+              "loi moi lap lai"
+            ],
+            [
+              "khong mong muon",
+              "thuoc dien"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.harassment-reporting",
+      "family": "labor",
+      "task_id": "task.labor-focus.harassment-reporting",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bi quay roi",
+              "chung kien viec do"
+            ],
+            [
+              "bao cho ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quan ly nhan duoc phan anh",
+              "nghi ngo co can cu"
+            ],
+            [
+              "lam gi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tiep nhan va xac minh",
+              "chua co don chinh thuc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xac minh"
+            ],
+            [
+              "phong nhan su",
+              "kiem soat noi bo",
+              "thoi han nao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nguoi bao cao"
+            ],
+            [
+              "danh tinh",
+              "danh du",
+              "tra dua",
+              "thien chi"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "chưa có đơn thì sao",
+        "khi chưa có đơn chính thức thì sao",
+        "báo cho ai",
+        "có được giữ bí mật không"
+      ]
+    },
+    {
+      "id": "route.labor-focus.personnel-records",
+      "family": "labor",
+      "task_id": "task.labor-focus.personnel-records",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nop ho so ca nhan",
+              "ho so ca nhan"
+            ],
+            [
+              "duoc tuyen",
+              "bo phan nao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "doi dia chi",
+              "doi giay to",
+              "thay doi thong tin ca nhan"
+            ],
+            [
+              "bao cho ai"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.probation-term",
+      "family": "labor",
+      "task_id": "task.labor-focus.probation-term",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thu viec"
+            ],
+            [
+              "thoi gian toi da",
+              "ket thuc thoa thuan",
+              "phai ban giao",
+              "ai danh gia",
+              "khong dat thi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thoi gian thu viec toi da"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu viec"
+            ],
+            [
+              "toi da",
+              "nhom chuc danh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.contracts-terms",
+      "family": "labor",
+      "task_id": "task.labor-focus.contracts-terms",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hop dong xac dinh thoi han"
+            ],
+            [
+              "khong xac dinh thoi han",
+              "khac nhau"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ky hop dong lan dau",
+              "cac lan tiep theo"
+            ],
+            [
+              "noi quy",
+              "quy dinh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.contracts-contents",
+      "family": "labor",
+      "task_id": "task.labor-focus.contracts-contents",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hop dong lao dong"
+            ],
+            [
+              "phai co nhung thong tin",
+              "noi lam luong gio lam"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.temporary-transfer",
+      "family": "labor",
+      "task_id": "task.labor-focus.temporary-transfer",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dieu chuyen",
+              "tam chuyen",
+              "cong viec tam thoi"
+            ],
+            [
+              "bao truoc",
+              "truong hop",
+              "cong don",
+              "dong y bang van ban",
+              "luong thap hon",
+              "vuot gioi han",
+              "luong cu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.termination-list",
+      "family": "resignation",
+      "task_id": "task.labor-focus.termination-list",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "truong hop nao",
+              "cac truong hop"
+            ],
+            [
+              "dan den cham dut hop dong",
+              "cham dut hop dong lao dong theo noi quy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.resignation-notice",
+      "family": "resignation",
+      "task_id": "task.labor-focus.resignation-notice",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "muon nghi viec"
+            ],
+            [
+              "gui don cho ai",
+              "nop don"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bao truoc bao lau"
+            ],
+            [
+              "hop dong khong xac dinh thoi han"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thoi han bao truoc"
+            ],
+            [
+              "12 den 36 thang",
+              "duoi 12 thang"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.resignation-no-notice",
+      "family": "resignation",
+      "task_id": "task.labor-focus.resignation-no-notice",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nguoi lao dong"
+            ],
+            [
+              "nghi viec ma khong phai bao truoc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi khong bao truoc"
+            ],
+            [
+              "bo tri sai cong viec",
+              "tra luong cham",
+              "quay roi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.employer-termination",
+      "family": "resignation",
+      "task_id": "task.labor-focus.employer-termination",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cong ty"
+            ],
+            [
+              "don phuong cham dut hop dong"
+            ],
+            [
+              "truong hop nao",
+              "bao truoc bao lau",
+              "khong phai bao truoc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khong quay lai",
+              "khong tro lai"
+            ],
+            [
+              "sau thoi gian tam hoan",
+              "tu y bo viec"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.resignation-handover",
+      "family": "resignation",
+      "task_id": "task.labor-focus.resignation-handover",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghi viec"
+            ],
+            [
+              "ban giao cong viec",
+              "thiet bi chia khoa",
+              "ban giao cho ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chua hoan tat ban giao"
+            ],
+            [
+              "kiem ke",
+              "quyen loi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau khi nghi"
+            ],
+            [
+              "bao mat tai lieu",
+              "chi phi dao tao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghi sai thoi han bao truoc",
+              "vi pham bao truoc"
+            ],
+            [
+              "nghia vu boi thuong",
+              "de cap"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "bàn giao cho ai",
+        "cần bàn giao gì",
+        "chưa bàn giao thì sao"
+      ]
+    },
+    {
+      "id": "route.labor-focus.resignation-allowances",
+      "family": "resignation",
+      "task_id": "task.labor-focus.resignation-allowances",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tro cap thoi viec"
+            ],
+            [
+              "tro cap that nghiep"
+            ],
+            [
+              "phan biet",
+              "khac nhau"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.resignation-settlement",
+      "family": "resignation",
+      "task_id": "task.labor-focus.resignation-settlement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khoan quyen loi",
+              "thanh toan quyen loi"
+            ],
+            [
+              "cham dut hop dong"
+            ],
+            [
+              "thoi han",
+              "keo dai"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.discipline-levels",
+      "family": "labor",
+      "task_id": "task.labor-focus.discipline-levels",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hinh thuc ky luat nao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cach chuc",
+              "khien trach",
+              "sa thai"
+            ],
+            [
+              "khi nao vi pham",
+              "tai pham",
+              "ly do nao duoc xem la chinh dang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tu y bo viec"
+            ],
+            [
+              "co the dan den sa thai",
+              "ly do nao duoc xem la chinh dang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tai pham"
+            ],
+            [
+              "chua duoc xoa ky luat"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.discipline-process",
+      "family": "labor",
+      "task_id": "task.labor-focus.discipline-process",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhan su"
+            ],
+            [
+              "thu thap chung cu",
+              "thong bao cho ai"
+            ],
+            [
+              "ky luat",
+              "chung cu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cuoc hop ky luat",
+              "hop ky luat"
+            ],
+            [
+              "thong bao truoc",
+              "noi dung gi",
+              "ai phai tham du",
+              "bao chua"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khong the tham du",
+              "khong xac nhan tham du"
+            ],
+            [
+              "cuoc hop",
+              "xu ly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.discipline-record",
+      "family": "labor",
+      "task_id": "task.labor-focus.discipline-record",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bien ban hop ky luat"
+            ],
+            [
+              "tu choi ky",
+              "lap va ky"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thoi hieu xu ly ky luat"
+            ],
+            [
+              "bi mat kinh doanh",
+              "tai chinh",
+              "tai san"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quyet dinh ky luat"
+            ],
+            [
+              "tham quyen",
+              "phai gui cho ai"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.discipline-suspension",
+      "family": "labor",
+      "task_id": "task.labor-focus.discipline-suspension",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tam dinh chi",
+              "thoi gian dinh chi"
+            ],
+            [
+              "xac minh",
+              "toi da",
+              "bao lau",
+              "tam ung",
+              "khong bi ky luat",
+              "nhan lai cong viec"
+            ]
+          ]
+        }
+      ],
+      "follow_up_terms": [
+        "lương trong thời gian đó thì sao",
+        "tối đa bao lâu",
+        "nếu không bị kỷ luật thì sao"
+      ]
+    },
+    {
+      "id": "route.labor-focus.discipline-clearance",
+      "family": "labor",
+      "task_id": "task.labor-focus.discipline-clearance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xoa ky luat"
+            ],
+            [
+              "khien trach",
+              "keo dai nang luong",
+              "cach chuc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xet giam thoi gian"
+            ],
+            [
+              "keo dai nang luong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.workplace-complaint",
+      "family": "labor",
+      "task_id": "task.labor-focus.workplace-complaint",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thac mac ve cong",
+              "luong hoac ky luat"
+            ],
+            [
+              "gui cho ai truoc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chua giai quyet khieu nai"
+            ],
+            [
+              "chuyen tiep",
+              "dung thoi han"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.property-liability",
+      "family": "labor",
+      "task_id": "task.labor-focus.property-liability",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lam hong",
+              "lam mat tai san",
+              "tieu hao vat tu"
+            ],
+            [
+              "boi thuong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gia ban",
+              "gia thay the",
+              "thiet hai thuc te"
+            ],
+            [
+              "xac dinh thiet hai",
+              "can cu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "su kien khach quan"
+            ],
+            [
+              "ngoai le"
+            ],
+            [
+              "boi thuong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.property-process",
+      "family": "labor",
+      "task_id": "task.labor-focus.property-process",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xu ly boi thuong",
+              "quyet dinh ve boi thuong"
+            ],
+            [
+              "ban tuong trinh",
+              "lap bien ban",
+              "ai tiep nhan",
+              "giam sat"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-cycle",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-cycle",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cong ty tra luong"
+            ],
+            [
+              "thoi diem nao",
+              "ky tra trung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "luong ngay va luong gio",
+              "tinh tu luong thang"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-probation",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-probation",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "luong thu viec"
+            ],
+            [
+              "muc luong chinh thuc",
+              "xac dinh the nao"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-allowances",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-allowances",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phu cap bua trua",
+              "phu cap giua ca"
+            ],
+            [
+              "hinh thuc nao",
+              "chi tra"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ai xet tang luong",
+              "xet tang luong"
+            ],
+            [
+              "can cu nao",
+              "noi quy neu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-bonus",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-bonus",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thuong thang 13"
+            ],
+            [
+              "luong thang nao",
+              "nhung dieu kien nao",
+              "nghi viec truoc thoi diem chi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-training",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-training",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cong ty cu di dao tao"
+            ],
+            [
+              "huong nguyen luong",
+              "duoc huong luong"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.pay-benefits",
+      "family": "labor",
+      "task_id": "task.labor-focus.pay-benefits",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "noi quy"
+            ],
+            [
+              "nhom phuc loi",
+              "dan chieu van ban nao"
+            ],
+            [
+              "chi tiet",
+              "dieu kien"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.labor-focus.social-insurance",
+      "family": "labor",
+      "task_id": "task.labor-focus.social-insurance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dong bao hiem"
+            ],
+            [
+              "can cu",
+              "ty le dong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quyen loi nao"
+            ],
+            [
+              "bhxh"
+            ],
+            [
+              "bhyt",
+              "that nghiep"
+            ]
+          ]
+        }
+      ]
     }
   ]
 }

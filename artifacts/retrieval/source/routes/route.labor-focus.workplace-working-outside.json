@@ -1,0 +1,43 @@
+{
+  "id": "route.labor-focus.workplace-working-outside",
+  "family": "labor",
+  "task_id": "task.labor-focus.workplace-working-outside",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gap khach trong gio lam"
+        ],
+        [
+          "bao ai",
+          "xac nhan"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "o lai van phong"
+        ],
+        [
+          "xin phep ai",
+          "sau gio lam"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vao cong ty"
+        ],
+        [
+          "ngay nghi",
+          "ngoai gio"
+        ],
+        [
+          "chap thuan"
+        ]
+      ]
+    }
+  ]
+}

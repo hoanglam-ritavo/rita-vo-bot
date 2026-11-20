@@ -1,0 +1,20 @@
+{
+  "id": "route.labor-focus.attendance-enroll",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-enroll",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dang ky van tay",
+          "lay van tay"
+        ],
+        [
+          "nhan vien moi",
+          "van phong chinh",
+          "chi nhanh"
+        ]
+      ]
+    }
+  ]
+}

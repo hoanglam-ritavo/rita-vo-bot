@@ -11,6 +11,7 @@ from src.api.contracts import (ApiError, AnswerTimings, Timings, Relevance,
                                UnifiedAnswerResponse, UnifiedRetrievalResponse)
 from src.answering.contextual import prepare, requirements, compose, document_result
 from src.answering.discovery import suggest_document_topics
+from src.answering.pipeline import EXCERPTS
 from src.answering.scope import resolve_document_scopes
 from src.api.admission import admit, release
 from src.retrieval import RetrievalError
@@ -151,19 +152,21 @@ class ContextCoordinator:
                 if on_resolved is not None:
                     on_resolved(plan.analysis)
                 text = plan.question
+                family = (policy.analyze(text).family
+                          if answer and answers.available and policy is not None else None) or 'unclassified'
                 if answer and not answers.available and not plan.direct_fields:
                     raise ApiError('answer_unavailable')
                 if plan.unsupported_person or plan.clarification:
                     status = 'unsupported' if plan.unsupported_person else 'needs_clarification'
                     message = ('Chỉ sử dụng hồ sơ của người đang đăng nhập; không tra nhân viên khác từ tên hoặc email.'
                                if plan.unsupported_person else plan.clarification)
-                    logger.info('request_plan state=%s reason=%s', status,
+                    logger.info('request_plan state=%s reason=%s family=%s', status,
                                 'other_subject' if plan.unsupported_person else
                                 'topic_suggestions' if plan.analysis.discovery_options else
                                 'unresolved_request' if plan.analysis.unresolved else
                                 'multiple_scopes' if len(plan.analysis.cards) > 1 else
                                 'topic_unmatched' if not (plan.analysis.parts or plan.analysis.missing_slots
-                                                          or plan.analysis.ambiguous) else 'needs_detail')
+                                                          or plan.analysis.ambiguous) else 'needs_detail', family)
                     elapsed = time.perf_counter() - started
                     warning = 'document_retrieval_not_requested'
                     if discovery_seconds:
@@ -206,7 +209,9 @@ class ContextCoordinator:
                 if not answer:
                     documents = self.owner.retrieval_response(raw, started, elapsed) if raw else None
                     known = bool(documents and documents.matches) or any(e['kind'] == 'employee' and e['value'] is not None for e in evidence)
-                    status = 'partial_evidence' if known and application.state in ('partial', 'unavailable', 'not_found', 'disabled', 'conflict') else 'evidence_found' if known else 'no_evidence'
+                    incomplete = bool(plan.analysis.document_clarification) or application.state in (
+                        'partial', 'unavailable', 'not_found', 'disabled', 'conflict')
+                    status = ('partial_evidence' if incomplete else 'evidence_found') if known else 'no_evidence'
                     return UnifiedRetrievalResponse(status=status, document_status=documents.status if documents else None,
                         matches=documents.matches if documents else [], fallback_reason=documents.fallback_reason if documents else None,
                         evidence=evidence, application=application, relevance=relevance,
@@ -214,6 +219,9 @@ class ContextCoordinator:
                 limitations = list(document.limitations) if document else []
                 limitations.extend(context_limits)
                 limitations.extend(plan.analysis.scope_limits)
+                if plan.analysis.document_clarification:
+                    limitations.append(plan.analysis.document_clarification)
+                    logger.info('request_plan state=partial reason=document_needs_clarification family=%s', family)
                 if plan.clarification:
                     limitations.append(plan.clarification)
                 if plan.unsupported_person:
@@ -248,11 +256,20 @@ class ContextCoordinator:
                 lines = [f'{claim["text"]} [{claim["id"]}]' for claim in claims]
                 if claims and plan.analysis.scope_intro:
                     lines.insert(0, plan.analysis.scope_intro)
+                elif claims and plan.analysis.document_lookup and document_claim_count:
+                    lines.insert(0, EXCERPTS)
+                if claims and plan.analysis.document_clarification:
+                    lines.append(plan.analysis.document_clarification)
+                if document is not None:
+                    logger.info('document_outcome state=%s reason=%s family=%s',
+                                document.status, document.fallback_reason or '-', family)
                 return UnifiedAnswerResponse(status=status,
                     answer='\n\n'.join(lines if claims else list(dict.fromkeys(limitations))),
                     claims=claims, sources=[source for source in document.sources if source.source_id in {item['source_id'] for item in evidence if item['kind']=='document'}] if document else [], evidence=evidence,
                     application=application, limitations=list(dict.fromkeys(limitations)),
-                    fallback_reason=document.fallback_reason if document else None, relevance=relevance,
+                    fallback_reason=(document.fallback_reason if document else
+                                     'document_needs_clarification' if plan.analysis.document_clarification else None),
+                    relevance=relevance,
                     timings=AnswerTimings(retrieval_seconds=elapsed, generation_seconds=0., verification_seconds=0., total_seconds=elapsed))
         except RetrievalError as error:
             invalid = error.code in {'invalid_question', 'question_too_long', 'question_exceeds_model_limit', 'invalid_top_k'}

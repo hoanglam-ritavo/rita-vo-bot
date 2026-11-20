@@ -1,0 +1,58 @@
+{
+  "id": "route.labor-focus.unpaid-personal",
+  "family": "leave",
+  "task_id": "task.labor-focus.unpaid-personal",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cha me",
+          "anh chi em ruot",
+          "ong ba"
+        ],
+        [
+          "ket hon",
+          "mat"
+        ],
+        [
+          "xin nghi",
+          "loai nghi",
+          "dien nao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "het phep nam"
+        ],
+        [
+          "nghi khong luong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thieu chung tu",
+          "vuot so ngay nghi"
+        ],
+        [
+          "bi benh",
+          "tai nan"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tu nghi khong luong"
+        ],
+        [
+          "chua dong y",
+          "ky luat"
+        ]
+      ]
+    }
+  ]
+}

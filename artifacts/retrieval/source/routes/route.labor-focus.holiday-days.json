@@ -1,0 +1,40 @@
+{
+  "id": "route.labor-focus.holiday-days",
+  "family": "labor",
+  "task_id": "task.labor-focus.holiday-days",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ngay nghi huong nguyen luong"
+        ],
+        [
+          "dip le",
+          "tet"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lich nghi tet"
+        ],
+        [
+          "nam cu the",
+          "thong bao rieng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lao dong nuoc ngoai"
+        ],
+        [
+          "quoc khanh",
+          "tet truyen thong"
+        ]
+      ]
+    }
+  ]
+}

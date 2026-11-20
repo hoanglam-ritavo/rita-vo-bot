@@ -1,0 +1,31 @@
+{
+  "id": "route.labor-focus.personnel-records",
+  "family": "labor",
+  "task_id": "task.labor-focus.personnel-records",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nop ho so ca nhan",
+          "ho so ca nhan"
+        ],
+        [
+          "duoc tuyen",
+          "bo phan nao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "doi dia chi",
+          "doi giay to",
+          "thay doi thong tin ca nhan"
+        ],
+        [
+          "bao cho ai"
+        ]
+      ]
+    }
+  ]
+}

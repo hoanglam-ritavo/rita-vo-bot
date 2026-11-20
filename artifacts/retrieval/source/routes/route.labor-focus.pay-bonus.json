@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.pay-bonus",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-bonus",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thuong thang 13"
+        ],
+        [
+          "luong thang nao",
+          "nhung dieu kien nao",
+          "nghi viec truoc thoi diem chi"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "route.labor-focus.probation-term",
+  "family": "labor",
+  "task_id": "task.labor-focus.probation-term",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thu viec"
+        ],
+        [
+          "thoi gian toi da",
+          "ket thuc thoa thuan",
+          "phai ban giao",
+          "ai danh gia",
+          "khong dat thi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thoi gian thu viec toi da"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu viec"
+        ],
+        [
+          "toi da",
+          "nhom chuc danh"
+        ]
+      ]
+    }
+  ]
+}

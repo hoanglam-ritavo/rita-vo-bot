@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.labor-focus",
+  "description": "Targeted follow-ups, source withdrawal, topic switches, and independent compound questions.",
+  "cases": [
+    {
+      "id": "q.conversation.labor-focus.001",
+      "title": "Luồng hội thoại nội quy 1",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-forgot",
+          "task.labor-focus.pay-probation"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Tôi quên quét vân tay lúc vào làm hoặc lúc tan ca thì cần làm gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        },
+        {
+          "text": "Cần giấy gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        },
+        {
+          "text": "Bao nhiêu tiền?",
+          "expectation": "Nêu rằng nguồn không có hướng dẫn về số tiền cho lượt hỏi về quên chấm công."
+        },
+        {
+          "text": "Lương thử việc được xác định thế nào so với mức lương chính thức?",
+          "expectation": "Trả lời đủ trọng tâm theo Mức lương thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.labor-focus.002",
+      "title": "Luồng hội thoại nội quy 2",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks",
+          "task.labor-focus.overtime-boundary"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tăng ca từ 8 giờ đến 17 giờ thì trừ khoảng nghỉ nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        },
+        {
+          "text": "Nếu làm qua 22 giờ thì sao?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        },
+        {
+          "text": "Nếu kết thúc đúng 22 giờ thì tờ trình có nêu rõ áp dụng trường hợp nào không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn nguồn về mốc tăng ca. Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.labor-focus.003",
+      "title": "Luồng hội thoại nội quy 3",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi bị quấy rối hoặc chứng kiến việc đó thì báo cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        },
+        {
+          "text": "Chưa có đơn thì sao?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.labor-focus.004",
+      "title": "Luồng hội thoại nội quy 4",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-forgot"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Tôi quên quét vân tay lúc vào làm hoặc lúc tan ca thì cần làm gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        },
+        {
+          "text": "Ai ký?",
+          "expectation": "Báo căn cứ hiện hành không khả dụng sau khi nguồn bị rút."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.labor-focus.005",
+      "title": "Luồng hội thoại nội quy 5",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term",
+          "task.labor-focus.pay-probation"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian thử việc tối đa khác nhau thế nào theo từng nhóm chức danh? Lương thử việc được xác định thế nào so với mức lương chính thức?",
+          "expectation": "Giữ cả thời hạn và mức lương thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.labor-focus.006",
+      "title": "Luồng hội thoại nội quy 6",
+      "tags": [
+        "type-a",
+        "multi-turn"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-approval"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ phù hợp cho các lượt có nguồn."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên, trưởng phòng, giám đốc và tổng giám đốc xin nghỉ thì ai duyệt ở từng cấp?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        },
+        {
+          "text": "Hồ sơ do ai lưu?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        }
+      ]
+    }
+  ]
+}

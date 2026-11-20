@@ -1,0 +1,38 @@
+{
+  "id": "route.labor-focus.overtime-clock",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-clock",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lam them",
+          "tang ca"
+        ],
+        [
+          "bat dau tinh"
+        ],
+        [
+          "ngay lam viec",
+          "nua ngay thu bay",
+          "chieu thu bay"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lam them"
+        ],
+        [
+          "ngay nghi hang tuan",
+          "ngay le"
+        ],
+        [
+          "tinh tu moc",
+          "den moc"
+        ]
+      ]
+    }
+  ]
+}

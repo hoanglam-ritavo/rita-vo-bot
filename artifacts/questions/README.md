@@ -84,6 +84,14 @@ text. These checks apply to fixture mode, evaluated `--readonly` turns, and the
 [socket HTTP harness](../../docs/http-e2e.md#scenario-matrix). The socket harness
 uses `expected_aspects` to select authored evidence for response checks.
 
+The labor rules, attendance and overtime sets cover 231 requested questions,
+39 separately authored rephrasings and conversation cases. These cases assert
+the selected task, exact authored claims, limitations and linked citations.
+`required_citations` checks a specific document revision and SHA-256 of the
+excerpt text linked to a policy claim. `fallback_reasons` constrains the response
+reason. Conversation cases exercise active-task follow-ups, topic changes,
+independent questions and withdrawn evidence with local source fixtures.
+
 For Retrieve, `retrieve_statuses` declares allowed endpoint outcomes and
 `retrieve_documents` can require matches or require the absence of document
 lookup, including `document_status: null`. `retrieve_forbidden_documents` can

@@ -1,0 +1,40 @@
+{
+  "id": "route.labor-focus.attendance-external",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-external",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gap khach ben ngoai",
+          "cong viec ben ngoai",
+          "xu ly cong viec ben ngoai"
+        ],
+        [
+          "cham cong",
+          "quet van tay",
+          "nop mau",
+          "phieu xac nhan cong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "email cua quan ly",
+          "email xac nhan"
+        ],
+        [
+          "phieu cong",
+          "phieu di cong tac"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "ai ký",
+    "cần mẫu gì",
+    "xác nhận qua email được không",
+    "cần giấy gì"
+  ]
+}

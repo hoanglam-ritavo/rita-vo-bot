@@ -1,0 +1,44 @@
+{
+  "id": "route.labor-focus.harassment-scope",
+  "family": "labor",
+  "task_id": "task.labor-focus.harassment-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hanh vi nao"
+        ],
+        [
+          "quay roi tinh duc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tin nhan",
+          "cuoc goi"
+        ],
+        [
+          "xe dua don",
+          "buoi dao tao"
+        ],
+        [
+          "pham vi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "loi dua",
+          "loi moi lap lai"
+        ],
+        [
+          "khong mong muon",
+          "thuoc dien"
+        ]
+      ]
+    }
+  ]
+}

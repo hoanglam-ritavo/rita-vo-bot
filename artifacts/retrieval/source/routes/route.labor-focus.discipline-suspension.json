@@ -1,0 +1,28 @@
+{
+  "id": "route.labor-focus.discipline-suspension",
+  "family": "labor",
+  "task_id": "task.labor-focus.discipline-suspension",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tam dinh chi",
+          "thoi gian dinh chi"
+        ],
+        [
+          "xac minh",
+          "toi da",
+          "bao lau",
+          "tam ung",
+          "khong bi ky luat",
+          "nhan lai cong viec"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "lương trong thời gian đó thì sao",
+    "tối đa bao lâu",
+    "nếu không bị kỷ luật thì sao"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "route.labor-focus.attendance-discipline",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-discipline",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vi pham cong don",
+          "vi pham cham cong"
+        ],
+        [
+          "bien ban",
+          "lan thu tu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lap mot bien ban"
+        ],
+        [
+          "bao nhieu lan",
+          "vi pham"
+        ]
+      ]
+    }
+  ]
+}

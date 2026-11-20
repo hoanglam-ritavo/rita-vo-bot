@@ -1,0 +1,29 @@
+{
+  "id": "route.labor-focus.discipline-clearance",
+  "family": "labor",
+  "task_id": "task.labor-focus.discipline-clearance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xoa ky luat"
+        ],
+        [
+          "khien trach",
+          "keo dai nang luong",
+          "cach chuc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xet giam thoi gian"
+        ],
+        [
+          "keo dai nang luong"
+        ]
+      ]
+    }
+  ]
+}

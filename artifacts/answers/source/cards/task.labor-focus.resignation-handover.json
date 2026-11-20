@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.resignation-handover",
+  "label": "Bàn giao, bảo mật và cam kết khi thôi việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Bàn giao, bảo mật và cam kết khi thôi việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về bàn giao, bảo mật và cam kết khi thôi việc?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.resignation-handover",
+          "text": "Bàn giao công việc, tài liệu, thiết bị, hàng hóa, chứng từ, chìa khóa, đồng phục và bảng tên cho quản lý trực tiếp hoặc Nhân sự. Nếu thiếu, lập kiểm kê và báo Tổng giám đốc. Xác nhận hoàn tất là căn cứ xử lý quyền lợi. Nghĩa vụ bảo mật và chi phí đào tạo theo cam kết vẫn được xem xét. Nội quy nêu nghỉ trái pháp luật hoặc vi phạm báo trước có thể phát sinh bồi thường và ảnh hưởng trợ cấp, cần đối chiếu hồ sơ và quy định áp dụng.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 20,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "906279d2d969f56643e79d713c53dbcae4f50897367ec3dee825667c289ace43",
+              "quote": "Nội quy lao động — Điều 40.1: khi nghỉ việc bàn giao công việc, thiết bị, tài liệu, hàng hóa, chứng từ, chìa khóa, đồng phục, bảng tên cho quản lý trực tiếp hoặc Nhân sự. Xác nhận/biên bản hoàn tất bàn giao là căn cứ quyết định chấm dứt và giải quyết quyền lợi. Thiếu bàn giao sẽ lập kiểm kê, báo TGĐ. Giữ nghĩa vụ không dùng tài liệu gây hại công ty; chi phí đào tạo theo cam kết/hợp đồng. Nghỉ trái pháp luật/vi phạm báo trước có nghĩa vụ bồi thường và không trợ cấp thôi việc theo nguồn.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

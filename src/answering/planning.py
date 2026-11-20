@@ -24,6 +24,7 @@ class RequestAnalysis:
     missing_slots: tuple[str, ...] = ()
     document_message: str | None = None
     document_reason: str | None = None
+    document_clarification: str | None = None
     parts: tuple[str, ...] = ()
     general_guidance: bool = False
     personal_request: bool = False
@@ -35,8 +36,10 @@ class RequestAnalysis:
     scope_intro: str | None = None
     scope_limits: tuple[str, ...] = ()
     scope_system: str | None = None
+    recognized_topic: bool = False
     topic_unmatched: bool = False
     discovery_options: bool = False
+    focused_policy: bool = False
 
 
 def choice_labels(cards, *, include_filenames=False):
@@ -108,18 +111,43 @@ def _covered_fragment(text, query, cards, lexicon):
     allowed = {'thong', 'tin', 've', 'noi', 'dung', 'toi', 'muon', 'hoi', 'xem', 'doc', 'tim',
                'hieu', 'biet', 'cac', 'buoc', 'thuc', 'hien', 'la', 'gi', 'dieu', 'kien',
                'ap', 'dung', 'cho', 'ai', 'can', 'giay', 'to', 'ho', 'so', 'gom', 'nhung',
-               'nao', 'bao', 'nhieu', 'tien', 'muc', 'tro', 'thu', 'tuc', 'lam', 'the', 'quy', 'trinh'}
+               'nao', 'bao', 'nhieu', 'tien', 'muc', 'tro', 'thu', 'tuc', 'lam', 'the', 'quy', 'trinh',
+               'chung', 'tu'}
     return removed and set(remainder.split()) <= allowed
 
 
 def analyze_question(question, catalog=None, lexicon=None, policy=None, *, request=None):
     from .pipeline import select_cards, is_document_lookup, requested_aspects, resolve_policy
     from src.retrieval.language import positive_question
+    from src.retrieval.policy import clarification_for
     from .slots import parse_inputs
     request = request or {}
     question = positive_question(question)
     query = normalized(question)
     lookup = is_document_lookup(question)
+    registry = policy if policy is not None and catalog is not None and lexicon is not None else None
+    focused = getattr(registry, 'focused_task', None)
+    if not lookup and focused is not None and not request.get('source_id') and not any(
+            phrase(query, marker) for marker in ('hay bo qua', 'bo qua quyen', 'ignore',
+                                                'system prompt', 'mat khau hien tai')):
+        selected = request.get('selected_task')
+        if selected:
+            task_ids = [selected] if registry.is_focused_task(selected) else []
+        else:
+            # Merge only recognized independent questions. A broad match must
+            # not hide a separate unknown or personnel request.
+            clauses = [part.strip() for part in re.split(r'[?!;\n]', question) if part.strip()]
+            task_ids = [focused(clause) for clause in clauses] if 0 < len(clauses) <= 3 else []
+        if task_ids and all(task_ids):
+            indexed = {card.id: card for card in catalog.cards if card.routed_only}
+            cards = tuple(indexed[key] for key in dict.fromkeys(task_ids) if key in indexed)
+            if len(cards) == len(set(task_ids)):
+                references = {(ref.document_id, ref.revision_id, ref.chunk_index) for card in cards
+                              for unit in card.sections['overview'].units for ref in unit.refs}
+                if len(references) <= 10:
+                    aspects = tuple(request.get('aspects') or ('overview',))
+                    return RequestAnalysis(cards=cards, question=question, parts=('documents',),
+                                           aspects=aspects, general_guidance=True, focused_policy=True)
     cards, ambiguous = ([], False) if lookup else select_cards(question, catalog, lexicon, policy,
         contextual=True) if catalog and lexicon else ([], False)
     resolution = None
@@ -145,6 +173,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
                 segment, flags=re.IGNORECASE) if part.strip())
     fields, other, unclear = [], False, False
     unknown = False
+    unknown_documents = []
     independent_task = False
     negated = False
     ambiguous_owner = False
@@ -222,15 +251,26 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
                 # Labelled contextual inputs belong to the current task.
                 aspect_words = {'can', 'giay', 'to', 'gi', 'ho', 'so', 'gom', 'nhung', 'nao',
                     'bao', 'nhieu', 'tien', 'muc', 'tro', 'dieu', 'kien', 'ap', 'dung', 'cho',
-                    'ai', 'thu', 'tuc', 'cac', 'buoc', 'lam', 'the', 'quy', 'trinh'}
+                    'ai', 'thu', 'tuc', 'cac', 'buoc', 'lam', 'the', 'quy', 'trinh', 'chung', 'tu'}
                 aspect_only = requested_aspects(clause) != ['overview'] and set(text.split()) <= aspect_words
                 # Conjunctions and punctuation inside an authored task phrase
                 # are not new clauses (e.g. "install and update").
                 covered = _covered_fragment(text, query, cards, lexicon)
-                unknown |= not (bool(parse_inputs(clause)) or aspect_only or covered)
+                if not (aspect_only or covered):
+                    # Only a separate, recognized policy clause can leave an explicit self-fact answerable.
+                    family, prompt = None, None
+                    if registry is not None and len(clauses) > 1:
+                        family = registry.analyze(clause).family
+                        prompt = clarification_for(registry.catalog, clause, family)
+                    if ((family or prompt) and route_question(clause).source == 'type_a'
+                            and not any(phrase(text, term) for term in ('khong', 'chua', 'ngoai tru', *RESTRICTED))):
+                        unknown_documents.append((clause, prompt))
+                    else:
+                        unknown = True
             else:
                 independent_task = True
     clarification = None
+    recognized_topic = False
     options = ()
     if route_question(question).reason == 'ambiguous_employment_date':
         clarification = 'Bạn muốn dùng ngày bắt đầu thử việc, kết thúc thử việc hay ngày chính thức?'
@@ -246,8 +286,19 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
             for section in card.sections.values() for unit in section.units for ref in unit.refs)]
         ambiguous = len(cards) != 1
         resolution = None
-    unresolved = (bool(fields or cards or lookup) and unknown or
-                  bool(fields) and (negated or ambiguous or policy_request and not cards and not lookup))
+    partial_profile = (len(unknown_documents) == 1 and bool(fields) and not (
+        unknown or other or unclear or ambiguous_owner or negated or cards or ambiguous or lookup
+        or needs_restatement or clarification or request.get('document_guidance')))
+    document_clarification = None
+    if partial_profile:
+        clause, prompt = unknown_documents[0]
+        message = prompt or unknown_topic_prompt(clause, policy)
+        document_clarification = 'Về phần chính sách, ' + message[0].lower() + message[1:]
+    shared_policy_scope = (bool(fields) and independent_task and len(cards) > 1
+                           and len({card.label for card in cards}) == 1 and not needs_restatement)
+    unresolved = (bool(fields or cards or lookup) and (unknown or bool(unknown_documents)) or
+                  bool(fields) and (negated or (ambiguous and not shared_policy_scope)
+                                    or policy_request and not cards and not lookup))
     operation = re.search(
         r'\b(?:so sanh|tinh chinh xac|tinh tong|cong tong|tong cong|'
         r'tong (?:muc|tien|so|chi phi|cac|khoan|ho tro|phu cap|tro cap)|'
@@ -264,8 +315,12 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         clarification = restatement_message
     elif needs_restatement and request.get('selected_task'):
         clarification = 'Bạn hãy nêu lại phần muốn xem theo quy định chung, hoặc chỉ rõ trường hợp cần hỏi.'
-    elif unclear or unresolved:
+    elif unclear or (unresolved and not partial_profile):
         clarification = 'Bạn hãy nêu rõ từng thông tin cần hỏi và đối tượng; mình chưa xác định đủ toàn bộ yêu cầu.'
+    elif not cards and not lookup and not fields and not ambiguous and len(clauses) == 1 and registry is not None:
+        family = registry.analyze(question).family
+        clarification = clarification_for(registry.catalog, question, family)
+        recognized_topic = bool(family or clarification)
     elif ambiguous:
         options = choice_labels(cards[:5])
         labels = [f'{index}. {label}' for index, (_, label) in enumerate(options, 1)]
@@ -290,7 +345,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     parts = tuple((['documents'] if lookup or cards or unsupported else []) +
                   (['profile'] if fields or unclear or ambiguous_owner else []) + (['unresolved'] if unresolved else []))
     check_scopes = (ambiguous and len(cards) > 1 and not needs_restatement and not unresolved
-                    and not unclear and not other and not fields
+                    and not unclear and not other and (not fields or shared_policy_scope)
                     and not (resolution and resolution.missing_slots))
     leave_platforms = ()
     if (catalog and policy is not None and resolution is not None
@@ -314,6 +369,7 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
         document_message=resolution.message if unsupported else None,
         document_reason=('leave_task_unsupported' if policy.analyze(question).involves_leave else 'task_unsupported') if unsupported else None,
         parts=parts, personal_request=personal_request, choice_options=options, check_scopes=check_scopes,
+        document_clarification=document_clarification, recognized_topic=recognized_topic,
         leave_platforms=leave_platforms,
         general_guidance=bool(request.get('document_guidance') or general_leave and
             not any(phrase(query, term) for term in ('cua toi', 'cua minh', 'truong hop cua toi', 'toi co duoc'))))

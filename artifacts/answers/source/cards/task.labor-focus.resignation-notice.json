@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.resignation-notice",
+  "label": "Nộp đơn và thời hạn báo trước khi chủ động nghỉ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Nộp đơn và thời hạn báo trước khi chủ động nghỉ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về nộp đơn và thời hạn báo trước khi chủ động nghỉ?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.resignation-notice",
+          "text": "Người lao động chủ động nghỉ làm đơn gửi Trưởng bộ phận. Nội quy nêu ít nhất 45 ngày với hợp đồng không xác định thời hạn, 30 ngày với hợp đồng từ 12 đến 36 tháng và 3 ngày làm việc với hợp đồng dưới 12 tháng hoặc thời vụ được nêu. Kiểm tra ngoại lệ và điều kiện áp dụng trước khi dùng cho hồ sơ cụ thể.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 18,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "84801b75902cc36c1e3c21783b68b91581b1f77f1f61ed315ebdb56f9a81e10b",
+              "quote": "Nội quy lao động — Điều 39.1 và 40.1, thủ tục xin nghỉ việc: muốn nghỉ việc/chấm dứt hợp đồng theo phía người lao động, làm đơn gửi Trưởng bộ phận trước ngày dự định ít nhất 45 ngày với hợp đồng không xác định thời hạn; 30 ngày với hợp đồng 12–36 tháng; 3 ngày làm việc với thời vụ hoặc hợp đồng dưới 12 tháng. Khoản 2 có ngoại lệ không cần báo trước; đây không phải quy trình sa thải do vi phạm. Khi nghỉ, bàn giao công việc, thiết bị, tài liệu, hàng hóa, chứng từ, chìa khóa, đồng phục, bảng tên cho quản lý trực tiếp hoặc Nhân sự. Xác nhận/biên bản hoàn tất bàn giao làm căn cứ quyết định chấm dứt và giải quyết quyền lợi; thiếu bàn giao thì lập kiểm kê, báo TGĐ. Không dùng tài liệu gây hại công ty; chi phí đào tạo theo cam kết/hợp đồng. Nghỉ trái pháp luật/vi phạm báo trước có nghĩa vụ bồi thường và không trợ cấp thôi việc theo nguồn.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

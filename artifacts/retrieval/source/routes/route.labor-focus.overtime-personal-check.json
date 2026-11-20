@@ -1,0 +1,23 @@
+{
+  "id": "route.labor-focus.overtime-personal-check",
+  "family": "attendance",
+  "task_id": "task.labor-focus.overtime-personal-check",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gio tang ca",
+          "gio lam them"
+        ],
+        [
+          "da duoc duyet",
+          "ghi nhan"
+        ],
+        [
+          "thang nay",
+          "kiem tra o dau"
+        ]
+      ]
+    }
+  ]
+}

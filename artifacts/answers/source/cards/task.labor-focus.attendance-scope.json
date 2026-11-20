@@ -1,0 +1,62 @@
+{
+  "id": "task.labor-focus.attendance-scope",
+  "label": "Đối tượng và thời gian chấm công",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đối tượng và thời gian chấm công"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về đối tượng và thời gian chấm công?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.attendance-scope",
+          "text": "Thông báo áp dụng cho lao động chính thức, thử việc và thời vụ trong hệ thống. Nhân viên quét vân tay khi vào làm và ra về, trừ các diện được miễn. Giờ chấm công căn cứ lịch làm việc từng vị trí theo thông báo được viện dẫn, nên cần kiểm tra lịch của vị trí cụ thể.",
+          "refs": [
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 1,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "28b0c098bbc4edde1864cc0eda885bbf67b1b11222d88997f600adf265bd42e3",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nI. MỤC ĐÍCH - YÊU CẦU\n1. Thực hiện chấm công chính xác, tuân thủ nội quy lao động về giờ làm việc, kiểm soát việc ra vào Tập đoàn.\n2. Cán bộ nhân viên (CBNV) đến làm việc phải chấm công bằng máy quét vân tay, ghi nhận giờ vào làm việc và giờ ra về.\nII. PHẠM VI – ĐỐI TƯỢNG ÁP DỤNG\n1. Áp dụng toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ & các Công ty thuộc hệ thống Tập Đoàn Rita Võ.\n2. Tất cả người lao động đang làm việc tại Tập đoàn bao gồm lao động chính thức, thử việc, thời vụ.\nII.3. Không áp dụng chấm công bằng máy chấm công đối với các trường hợp sau:\n3.1 Cán bộ nhân viên làm việc tại những khu vực không có máy chấm công hoặc chưa trang bị máy chấm công (nhân viên kinh doanh gạch đại lý khu vực miền Đông, miền Tây...).\n3.2 Vị trí cấp quản lý từ Phó giám đốc trở lên. Các trường hợp ngoại lệ khác phải được Chủ tịch Hội đồng thành viên (CT – HĐTV) hoặc Tổng giám đốc (TGĐ) chấp thuận.",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            },
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 2,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "4659b0be834962650a4707ab816d039880a1797eec2550044742c93f6fb910b8",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nIII. THỜI GIAN CHẤM CÔNG:\nÁp dụng theo “Quy định thời gian làm việc theo vị trí công việc” đã được thông báo theo thông báo số 05/2022/TB-HCNS ngày 07 tháng 11 năm 2022.\nIV. QUY ĐỊNH CHẤM CÔNG\n1. Tất cả CBNV phải nghiêm chỉnh chấp hành quy định thời gian làm việc của Tập đoàn. Trường hợp đi trễ, về sớm phải được sự chấp thuận của Trưởng bộ phận/Quản lý trực tiếp.",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

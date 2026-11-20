@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.leave-emergency",
+  "label": "Báo nghỉ đột xuất và bổ sung hồ sơ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Báo nghỉ đột xuất và bổ sung hồ sơ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về báo nghỉ đột xuất và bổ sung hồ sơ?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.leave-emergency",
+          "text": "Nghỉ đột xuất do bệnh hoặc sự cố cần gọi cho quản lý và Nhân sự trước giờ làm, muộn nhất 1 giờ sau khi bắt đầu. Nếu bị bệnh, có thể nhờ người thân báo. Khi trở lại, nộp đơn và bổ sung chứng nhận hợp lệ nếu nghỉ bệnh.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 16,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "84dcd3fa5b6c26b3e4fe308e3bba60fd0c343ac7c765b2318354e9ab68ab3a2a",
+              "quote": "Nội quy lao động — Điều 12, thủ tục xin nghỉ phép: xin nghỉ bằng đơn gửi công ty/quản lý, có thể qua phần mềm/web. Nghỉ 1–3 ngày: gửi trước 3 ngày làm việc; 4–7 ngày: trước 6 ngày làm việc; hơn 7 ngày: trước 12 ngày làm việc. Đột xuất do bệnh/sự cố: gọi quản lý và Nhân sự trước giờ làm, muộn nhất 1 giờ sau bắt đầu, rồi nộp đơn khi trở lại. Nghỉ bệnh có thể nhờ người thân báo, bổ sung chứng nhận hợp lệ. Tự nghỉ khi chưa xong thủ tục/chưa được đồng ý có thể bị kỷ luật, không trả lương. Quản lý trực tiếp ký duyệt nhân viên; TGĐ duyệt Trưởng phòng, Phó/Giám đốc, Phó TGĐ; Chủ tịch HĐTV duyệt TGĐ. Quản lý từ Phó phòng trở lên đã được duyệt còn báo email/SMS Ban TGĐ và Chủ tịch trước nghỉ. Nhân sự lưu hồ sơ.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

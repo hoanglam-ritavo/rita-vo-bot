@@ -1,0 +1,32 @@
+{
+  "id": "route.labor-focus.annual-carry",
+  "family": "leave",
+  "task_id": "task.labor-focus.annual-carry",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phep cu",
+          "phep nam cu"
+        ],
+        [
+          "chuyen",
+          "truoc ngay",
+          "sau thoi han",
+          "het han",
+          "thanh toan phep"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh toan phep con du"
+        ],
+        [
+          "nghi viec"
+        ]
+      ]
+    }
+  ]
+}

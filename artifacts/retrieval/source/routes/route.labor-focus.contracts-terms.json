@@ -1,0 +1,30 @@
+{
+  "id": "route.labor-focus.contracts-terms",
+  "family": "labor",
+  "task_id": "task.labor-focus.contracts-terms",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hop dong xac dinh thoi han"
+        ],
+        [
+          "khong xac dinh thoi han",
+          "khac nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ky hop dong lan dau",
+          "cac lan tiep theo"
+        ],
+        [
+          "noi quy",
+          "quy dinh"
+        ]
+      ]
+    }
+  ]
+}

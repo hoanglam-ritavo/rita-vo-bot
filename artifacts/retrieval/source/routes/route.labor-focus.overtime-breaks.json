@@ -1,0 +1,48 @@
+{
+  "id": "route.labor-focus.overtime-breaks",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-breaks",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tang ca",
+          "lam them"
+        ],
+        [
+          "tru khoang nghi",
+          "quy tac nghi giua ca",
+          "den 21 gio",
+          "den 23 gio"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bat dau sau 17 gio"
+        ],
+        [
+          "tru bao nhieu",
+          "qua 22 gio",
+          "ket thuc truoc 22 gio"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi giua ca"
+        ],
+        [
+          "gio lam them huong luong"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "nếu làm qua 22 giờ thì sao",
+    "nếu kết thúc trước 22 giờ thì sao",
+    "trừ thời gian nghỉ thế nào"
+  ]
+}

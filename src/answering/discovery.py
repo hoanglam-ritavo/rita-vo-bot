@@ -1,7 +1,7 @@
 """Suggest catalog topics with current document evidence; a selection still needs a fresh read."""
 import asyncio
 from dataclasses import replace
-from itertools import zip_longest
+from itertools import chain, zip_longest
 import logging
 from time import perf_counter
 
@@ -60,12 +60,18 @@ def ranked_units(units, matches):
     return [(card, unit) for _, _, _, card, unit in sorted(candidates, key=lambda candidate: candidate[:3])]
 
 
-async def lookup_options(cards, analysis, retrieval):
+async def lookup_options(cards, analysis, retrieval, *, family=None):
     per_card = [section_units(card.sections[analysis.aspects[0]], analysis) for card in cards]
     units, references = bounded_units((card, unit) for group in zip_longest(*per_card)
                                      for card, unit in zip(cards, group) if unit is not None)
     result = await retrieval.discover(analysis.question, references, top_k=LOOKUP_LIMIT)
-    chosen, references = bounded_units(ranked_units(units, result.get('matches', ())[:LOOKUP_LIMIT]))
+    ranked = ranked_units(units, result.get('matches', ())[:LOOKUP_LIMIT])
+    if not ranked:
+        return ()
+    # With a declared family and matching discovery terms, consider other bounded
+    # same-family units too so ranking a duplicate highly cannot crowd out a topic.
+    ordered = (chain(ranked, (unit for unit in units if unit not in ranked)) if family else ranked)
+    chosen, references = bounded_units(ordered)
     if not references:
         return ()
     raw = await retrieval.read_evidence(references)
@@ -83,18 +89,28 @@ async def suggest_document_topics(analysis, catalog, retrieval):
     if not eligible_for_discovery(analysis):
         return analysis, 0.
     cards = matching_cards(catalog, analysis.question, analysis.aspects[0])
+    policy = getattr(retrieval, 'policy', None)
+    registry = getattr(policy, 'catalog', None)
+    family = policy.analyze(analysis.question).family if registry is not None else None
+    if family:
+        task_ids = {route.task_id for route in registry.routes if route.family == family}
+        task_ids.update(task_id for binding in registry.bindings if binding.family == family
+                        for task_id in binding.task_ids)
+        cards = [card for card in cards if card.id in task_ids]
     if not cards:
         return analysis, 0.
     started = perf_counter()
     try:
         async with asyncio.timeout(DISCOVERY_SECONDS):
-            options = await lookup_options(cards, analysis, retrieval)
+            options = await lookup_options(cards, analysis, retrieval, family=family)
     except (RetrievalError, TimeoutError):
-        logger.info('topic_discovery state=unavailable elapsed_ms=%.1f', (perf_counter() - started) * 1000)
+        logger.info('topic_discovery state=unavailable elapsed_ms=%.1f family=%s',
+                    (perf_counter() - started) * 1000, family or 'unclassified')
         return analysis, perf_counter() - started
     elapsed = perf_counter() - started
-    logger.info('topic_discovery state=%s options=%d elapsed_ms=%.1f',
-                'offered' if options else 'no_eligible_topic', len(options), elapsed * 1000)
+    logger.info('topic_discovery state=%s options=%d elapsed_ms=%.1f family=%s',
+                'offered' if options else 'no_eligible_topic', len(options), elapsed * 1000,
+                family or 'unclassified')
     if not options:
         return analysis, elapsed
     labels = '; '.join(f'{index}. {label}' for index, (_, label) in enumerate(options, 1))

@@ -1,0 +1,45 @@
+{
+  "id": "route.labor-focus.property-liability",
+  "family": "labor",
+  "task_id": "task.labor-focus.property-liability",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lam hong",
+          "lam mat tai san",
+          "tieu hao vat tu"
+        ],
+        [
+          "boi thuong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gia ban",
+          "gia thay the",
+          "thiet hai thuc te"
+        ],
+        [
+          "xac dinh thiet hai",
+          "can cu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "su kien khach quan"
+        ],
+        [
+          "ngoai le"
+        ],
+        [
+          "boi thuong"
+        ]
+      ]
+    }
+  ]
+}

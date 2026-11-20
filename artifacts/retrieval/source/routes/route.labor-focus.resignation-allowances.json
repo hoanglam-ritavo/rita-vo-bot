@@ -1,0 +1,21 @@
+{
+  "id": "route.labor-focus.resignation-allowances",
+  "family": "resignation",
+  "task_id": "task.labor-focus.resignation-allowances",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tro cap thoi viec"
+        ],
+        [
+          "tro cap that nghiep"
+        ],
+        [
+          "phan biet",
+          "khac nhau"
+        ]
+      ]
+    }
+  ]
+}

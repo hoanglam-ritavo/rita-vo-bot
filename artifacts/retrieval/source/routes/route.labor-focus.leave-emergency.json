@@ -1,0 +1,39 @@
+{
+  "id": "route.labor-focus.leave-emergency",
+  "family": "leave",
+  "task_id": "task.labor-focus.leave-emergency",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dot xuat",
+          "bi om"
+        ],
+        [
+          "truoc gio lam",
+          "nguoi than",
+          "bao thay",
+          "quay lai lam viec",
+          "bo sung chung tu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi dot xuat"
+        ],
+        [
+          "nop don",
+          "quay lai"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "cần giấy gì",
+    "cần chứng từ gì",
+    "báo cho ai",
+    "muộn nhất khi nào"
+  ]
+}

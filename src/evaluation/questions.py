@@ -33,6 +33,12 @@ class ExpectedContext(Strict):
     pending: Literal['slots', 'task', 'request', 'unsupported', 'inputs'] | None = None
 
 
+class ExpectedCitation(Strict):
+    document_id: str
+    revision_id: str
+    quote_sha256: str = Field(pattern=r'^[a-f0-9]{64}$')
+
+
 class Oracle(Strict):
     case_id: str
     turn: int = Field(ge=0)
@@ -44,6 +50,8 @@ class Oracle(Strict):
         default=None, min_length=1, max_length=5)
     expected_context: ExpectedContext | None = None
     required_source_groups: list[list[str]] = Field(default_factory=list)
+    required_citations: list[ExpectedCitation] = Field(default_factory=list, max_length=10)
+    fallback_reasons: list[str] | None = Field(default=None, min_length=1)
     forbidden_documents: list[str] = Field(default_factory=list)
     employee_fields: list[str] = Field(default_factory=list)
     expected_employee_claim_fields: list[str] = Field(default_factory=list)
@@ -163,6 +171,8 @@ def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
         return failures
     if result.get('status') not in oracle.statuses:
         failures.append('status')
+    if oracle.fallback_reasons is not None and result.get('fallback_reason') not in oracle.fallback_reasons:
+        failures.append('fallback_reason')
     if oracle.application_state is not None and result.get('application', {}).get('state') != oracle.application_state:
         failures.append('application_state')
     if oracle.task_ids_any and not set(selected).intersection(oracle.task_ids_any):
@@ -201,6 +211,15 @@ def check_turn(oracle, status_code, result, selected=(), *, aspects=()):
     if any(not nodes[ref].get('quote') or nodes[ref]['source_id'] not in sources
             for claim in claims for ref in claim['evidence_refs'] if nodes[ref]['kind']=='document'):
         failures.append('citation_integrity')
+    if oracle.required_citations:
+        origins = {source['source_id']: source.get('origins', ()) for source in result.get('sources', ())}
+        cited = {(origin['document_id'], origin['revision_id'], hashlib.sha256(node['quote'].encode()).hexdigest())
+                 for claim in claims for ref in claim['evidence_refs'] for node in (nodes[ref],)
+                 if node['kind'] == 'document' and node.get('quote')
+                 for origin in origins.get(node['source_id'], ())}
+        if any((item.document_id, item.revision_id, item.quote_sha256) not in cited
+               for item in oracle.required_citations):
+            failures.append('required_citation')
     return failures
 
 

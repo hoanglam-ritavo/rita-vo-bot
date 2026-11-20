@@ -167,7 +167,9 @@
       "aliases": [
         "khoản trợ cấp sinh con của công ty",
         "tiền hỗ trợ sinh con của công ty",
-        "tiền công ty hỗ trợ sinh con"
+        "tiền công ty hỗ trợ sinh con",
+        "mới sinh em bé thì công ty hỗ trợ",
+        "hỗ trợ của công ty cho nhân viên nữ mới sinh"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -1163,10 +1165,19 @@
       "id": "forgot-clock",
       "canonical": "quên chấm công",
       "aliases": [
-        "quên bấm công"
+        "quên bấm công",
+        "quên bấm vân tay",
+        "quên quẹt vân tay",
+        "quên bấm máy chấm công",
+        "quên quẹt thẻ chấm công"
       ],
       "requires_any": [],
-      "excludes_any": [],
+      "excludes_any": [
+        "mở khóa",
+        "đăng nhập",
+        "mật khẩu",
+        "điện thoại cá nhân"
+      ],
       "styles": [
         "procedure",
         "conditions"
@@ -2326,7 +2337,9 @@
       "canonical": "tạm ứng công tác phí",
       "aliases": [
         "ứng trước công tác phí",
-        "tạm ứng chi phí công tác"
+        "tạm ứng chi phí công tác",
+        "công ty ứng tiền đi công tác",
+        "xin ứng tiền đi công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -2391,7 +2404,9 @@
       "id": "travel-entertainment",
       "canonical": "chi phí tiếp khách",
       "aliases": [
-        "tiền tiếp khách"
+        "tiền tiếp khách",
+        "hoàn tiền tiếp khách",
+        "khoản chi tiếp khách"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -2456,19 +2471,29 @@
       "id": "travel-scope",
       "canonical": "phạm vi áp dụng công tác phí",
       "aliases": [
-        "phạm vi áp dụng chế độ công tác phí"
+        "phạm vi áp dụng chế độ công tác phí",
+        "công tác phí",
+        "chi phí đi công tác",
+        "tiền đi công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
       "styles": [
         "conditions"
-      ]
+      ],
+      "recognition_only": true
     },
     {
       "id": "travel-settlement",
       "canonical": "thanh toán công tác phí",
       "aliases": [
-        "thanh toán công tác phí"
+        "thanh toán công tác phí",
+        "hoàn trả công tác phí",
+        "quyết toán công tác phí",
+        "xin hoàn lại chi phí công tác",
+        "hoàn lại tiền đi công tác",
+        "tự bỏ tiền đi công tác",
+        "tự trả tiền đi công tác"
       ],
       "requires_any": [],
       "excludes_any": [],
@@ -3842,7 +3867,13 @@
         "mượn xe tập đoàn",
         "đăng ký xe công ty",
         "đăng ký xe của công ty",
-        "đăng ký xe của tập đoàn"
+        "đăng ký xe của tập đoàn",
+        "mượn ô tô của công ty",
+        "mượn ô tô công ty",
+        "xin dùng xe cơ quan",
+        "đăng ký mượn xe công ty",
+        "xin mượn xe cơ quan",
+        "dùng ô tô của công ty"
       ],
       "requires_any": [],
       "excludes_any": [],

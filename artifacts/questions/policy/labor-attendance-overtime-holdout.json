@@ -1,0 +1,1099 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.labor-attendance-overtime-holdout",
+  "description": "Independent phrasings authored after the fixed 231-question catalog draft.",
+  "cases": [
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.001",
+      "title": "PV-02 — Phạm vi áp dụng nội quy",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy của Rita Võ có áp dụng cho người đang học nghề không?",
+          "expectation": "Trả lời đủ trọng tâm theo Phạm vi áp dụng nội quy. Cần đối chiếu đơn vị sử dụng lao động khi hỏi phạm vi riêng của chi nhánh hoặc địa điểm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.002",
+      "title": "PV-05 — Hiệu lực nội quy",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-effective"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tra ngày hiệu lực của nội quy ở đâu nếu ngày ký khác ngày trên bìa?",
+          "expectation": "Trả lời đủ trọng tâm theo Hiệu lực nội quy. Nguồn chưa cung cấp ngày nộp hoặc ngày chấp thuận để xác định chính xác ngày hiệu lực."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.003",
+      "title": "PV-07 — Quy định riêng và văn bản thay thế",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-local"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hai văn bản nội bộ quy định khác nhau, lấy căn cứ nào để áp dụng?",
+          "expectation": "Trả lời đủ trọng tâm theo Quy định riêng và văn bản thay thế. Quan hệ thay thế cụ thể cần được xác minh theo từng văn bản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.004",
+      "title": "GL-01 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Một ca làm việc kéo dài bao nhiêu giờ bình thường?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.005",
+      "title": "GL-11 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu ngày nghỉ hằng tuần trùng ngày lễ, khi nào được nghỉ bù?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.006",
+      "title": "GL-12 — Số ngày nghỉ lễ Tết",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.holiday-days"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy ghi bao nhiêu ngày nghỉ hưởng nguyên lương cho từng dịp lễ Tết?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày nghỉ lễ Tết. Lịch nghỉ cụ thể từng năm cần thông báo riêng của công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.007",
+      "title": "PN-02 — Số ngày và quyền sử dụng phép năm",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-entitlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Vào làm giữa năm thì số ngày phép năm tính thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày và quyền sử dụng phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.008",
+      "title": "PN-13 — Chuyển và hết hạn phép năm",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-carry"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trước ngày nào tôi phải dùng phép năm cũ?",
+          "expectation": "Trả lời đủ trọng tâm theo Chuyển và hết hạn phép năm. Nguồn về phép cũ không đủ để xác định cách thanh toán phép khi chấm dứt hợp đồng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.009",
+      "title": "PN-24 — Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-approval"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hồ sơ nghỉ phép đã duyệt lưu ở đâu, ai giữ?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.010",
+      "title": "BH-14 — Điều kiện BHXH và thời gian thai sản",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi sinh đôi, thời gian nghỉ thai sản được tính thêm như thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện BHXH và thời gian thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.011",
+      "title": "BH-17 — Chứng từ nghỉ ốm hoặc chăm con ốm",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.sick-leave"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu phải nghỉ chăm con ốm thì cần xin chứng nhận gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Chứng từ nghỉ ốm hoặc chăm con ốm. Mức trợ cấp của từng hồ sơ cần được xác minh theo dữ liệu và quy định áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.012",
+      "title": "BH-20 — Nghỉ khi vợ sinh con",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi vợ sinh con, ngày nghỉ BHXH phải dùng trong khoảng nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ khi vợ sinh con. Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.013",
+      "title": "TP-02 — Trang phục, thẻ tên và kiểm tra ra vào",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-attire"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu quên đeo thẻ tên, bảo vệ có quyền từ chối cho tôi vào không?",
+          "expectation": "Trả lời đủ trọng tâm theo Trang phục, thẻ tên và kiểm tra ra vào."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.014",
+      "title": "TP-06 — Làm ngoài nơi làm việc và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-working-outside"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau giờ làm, muốn ở lại văn phòng thì xin phép ai trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm ngoài nơi làm việc và ra vào ngoài giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.015",
+      "title": "TP-09 — Tiếp khách và người đã thôi việc",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trong lúc khách ở công ty, nhân viên có bắt buộc đi cùng khách không?",
+          "expectation": "Trả lời đủ trọng tâm theo Tiếp khách và người đã thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.016",
+      "title": "AT-01 — Xử lý email, đường dẫn và USB đáng ngờ",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-information"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai tiếp nhận khi tôi thấy tệp đính kèm đáng ngờ trong email?",
+          "expectation": "Trả lời đủ trọng tâm theo Xử lý email, đường dẫn và USB đáng ngờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.017",
+      "title": "AT-06 — An toàn thiết bị và lối thoát",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đặt vật liệu gần lối thoát hiểm có phù hợp nội quy không?",
+          "expectation": "Trả lời đủ trọng tâm theo An toàn thiết bị và lối thoát."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.018",
+      "title": "AT-15 — Thẩm quyền cung cấp thông tin công ty",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.company-publication"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai có thẩm quyền cung cấp thông tin công ty cho bên thứ ba?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền cung cấp thông tin công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.019",
+      "title": "QR-01 — Hành vi và phạm vi quấy rối tình dục",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy mô tả những hành vi nào thuộc quấy rối tình dục?",
+          "expectation": "Trả lời đủ trọng tâm theo Hành vi và phạm vi quấy rối tình dục."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.020",
+      "title": "QR-06 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Chưa có đơn chính thức thì Nhân sự có tiếp nhận để xác minh không?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.021",
+      "title": "QR-09 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Người báo cáo thiện chí được bảo vệ thế nào nếu có hành vi trả đũa?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.022",
+      "title": "HD-01 — Nộp và cập nhật hồ sơ nhân sự",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.personnel-records"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hồ sơ cá nhân sau khi được tuyển chính thức cần nộp cho bộ phận nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp và cập nhật hồ sơ nhân sự."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.023",
+      "title": "HD-03 — Thời hạn, kết thúc và đánh giá thử việc",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có những nhóm chức danh nào để xác định thời gian thử việc tối đa?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn, kết thúc và đánh giá thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.024",
+      "title": "HD-12 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Điều chuyển cộng dồn bao lâu thì cần tôi đồng ý bằng văn bản?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.025",
+      "title": "NV-02 — Nộp đơn và thời hạn báo trước khi chủ động nghỉ",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn nghỉ việc, nên gửi đơn cho ai để bắt đầu thủ tục?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp đơn và thời hạn báo trước khi chủ động nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.026",
+      "title": "NV-09 — Công ty đơn phương chấm dứt và báo trước",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.employer-termination"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào công ty được đơn phương chấm dứt hợp đồng và không phải báo trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Công ty đơn phương chấm dứt và báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.027",
+      "title": "NV-11 — Bàn giao, bảo mật và cam kết khi thôi việc",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-handover"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nghỉ việc cần bàn giao công việc và tài liệu cho bộ phận nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Bàn giao, bảo mật và cam kết khi thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.028",
+      "title": "KL-03 — Hình thức và trường hợp kỷ luật",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-levels"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tái phạm khi chưa được xóa kỷ luật, nội quy quy định gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức và trường hợp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.029",
+      "title": "KL-06 — Thông báo, thành phần và bào chữa trong họp kỷ luật",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thông báo trước cuộc họp kỷ luật phải gửi bao lâu và ghi nội dung gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Thông báo, thành phần và bào chữa trong họp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.030",
+      "title": "KL-21 — Trách nhiệm vật chất, giá và ngoại lệ",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sự kiện khách quan nào có thể là ngoại lệ khi xem xét bồi thường?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm vật chất, giá và ngoại lệ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.031",
+      "title": "LT-03 — Mức lương thử việc",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-probation"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Mức lương chính thức được dùng để xác định lương thử việc thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Mức lương thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.032",
+      "title": "LT-06 — Căn cứ và điều kiện xét thưởng tháng 13",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-bonus"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Những điều kiện nào được xét khi tính thưởng tháng 13?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ và điều kiện xét thưởng tháng 13."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.033",
+      "title": "LT-10 — Căn cứ đóng và quyền lợi bảo hiểm",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.social-insurance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Căn cứ đóng bảo hiểm là mức lương nào, tài liệu có nêu tỷ lệ đóng không?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ đóng và quyền lợi bảo hiểm. Điều được dẫn không liệt kê tỷ lệ đóng cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.034",
+      "title": "CC-08 — Quên chấm công và phiếu xác nhận ngày công",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-forgot"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lúc tan ca tôi quên quét vân tay thì cần xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.035",
+      "title": "CC-16 — Ghi nhận công khi làm việc bên ngoài",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-external"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phiếu công có thể dùng email xác nhận thay cho chữ ký quản lý không?",
+          "expectation": "Trả lời đủ trọng tâm theo Ghi nhận công khi làm việc bên ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.036",
+      "title": "CC-21 — Trừ công đến và trên 120 phút",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-threshold"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đã được duyệt đi trễ, đúng 120 phút và trên 120 phút sẽ ghi nhận công ra sao?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ công đến và trên 120 phút."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.037",
+      "title": "TC-13 — Thời điểm bắt đầu tính tăng ca",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-clock"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ca chiều thứ Bảy bắt đầu tính tăng ca lúc nào nếu lịch được nghỉ nửa ngày thứ Bảy?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời điểm bắt đầu tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.038",
+      "title": "TC-17 — Giới hạn nguồn về mốc tăng ca",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-boundary"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Kết thúc tăng ca đúng 22 giờ thì tờ trình có ghi trường hợp này không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn nguồn về mốc tăng ca. Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime-holdout.039",
+      "title": "TC-23 — Tăng ca lái xe, giao nhận và xác nhận",
+      "tags": [
+        "type-a",
+        "paraphrase",
+        "labor-holdout"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-driver"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tài xế làm thêm theo yêu cầu và chạy xuyên suốt thì cần ai xác nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Tăng ca lái xe, giao nhận và xác nhận."
+        }
+      ]
+    }
+  ]
+}

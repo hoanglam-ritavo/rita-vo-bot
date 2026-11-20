@@ -14,7 +14,12 @@
     "lỡ quên quét vân tay"
   ],
   "requires_any": [],
-  "excludes_any": [],
+  "excludes_any": [
+    "mở khóa",
+    "đăng nhập",
+    "mật khẩu",
+    "điện thoại cá nhân"
+  ],
   "sections": {
     "overview": {
       "complete": false,

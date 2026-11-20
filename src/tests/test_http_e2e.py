@@ -149,7 +149,7 @@ def test_bank_profiles_have_distinct_pinned_inventories():
     scenarios = build_inventory(cases, oracles)
     full = public_inventory(select_profile(scenarios, 'full'), inputs)
     smoke = public_inventory(select_profile(scenarios, 'smoke'), inputs, profile='smoke')
-    assert full['profile'] == 'full' and full['counts'] == {'pending': 1694, 'not_applicable': 74}
+    assert full['profile'] == 'full' and full['counts'] == {'pending': 2236, 'not_applicable': 84}
     assert full['retrieve_unresolved_default'] == 0
     assert smoke['profile'] == 'smoke' and smoke['counts'] == {'pending': 56}
     assert smoke['selection_fingerprint'] != full['selection_fingerprint']

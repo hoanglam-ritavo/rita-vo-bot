@@ -1,0 +1,43 @@
+{
+  "id": "route.labor-focus.annual-accrual",
+  "family": "leave",
+  "task_id": "task.labor-focus.annual-accrual",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tich luy phep"
+        ],
+        [
+          "thu viec",
+          "hoc nghe",
+          "thai san",
+          "nghi khong luong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phep nam"
+        ],
+        [
+          "tai nan lao dong",
+          "benh nghe nghiep",
+          "gioi han nao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "co duoc tinh phep"
+        ],
+        [
+          "ngung viec",
+          "dinh chi"
+        ]
+      ]
+    }
+  ]
+}

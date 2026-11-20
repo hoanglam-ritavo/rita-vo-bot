@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.company-publication",
+  "family": "labor",
+  "task_id": "task.labor-focus.company-publication",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cung cap thong tin cong ty"
+        ],
+        [
+          "bao chi",
+          "truyen thong",
+          "ben thu ba"
+        ]
+      ]
+    }
+  ]
+}

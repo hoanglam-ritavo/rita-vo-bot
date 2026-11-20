@@ -1,0 +1,57 @@
+{
+  "id": "route.labor-focus.safety-equipment",
+  "family": "labor",
+  "task_id": "task.labor-focus.safety-equipment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "may moc",
+          "thiet bi dien"
+        ],
+        [
+          "truoc khi su dung",
+          "kiem tra"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nguy co tai nan",
+          "thiet bi mat an toan"
+        ],
+        [
+          "bao cho ai",
+          "phat hien"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nguoi ve cuoi ca",
+          "cuoi ca"
+        ],
+        [
+          "dien",
+          "cua",
+          "kho"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "loi thoat hiem",
+          "thiet bi chua chay"
+        ],
+        [
+          "hang hoa",
+          "dung cu",
+          "vat lieu"
+        ]
+      ]
+    }
+  ]
+}

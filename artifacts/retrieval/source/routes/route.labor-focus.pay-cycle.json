@@ -1,0 +1,26 @@
+{
+  "id": "route.labor-focus.pay-cycle",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-cycle",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cong ty tra luong"
+        ],
+        [
+          "thoi diem nao",
+          "ky tra trung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "luong ngay va luong gio",
+          "tinh tu luong thang"
+        ]
+      ]
+    }
+  ]
+}

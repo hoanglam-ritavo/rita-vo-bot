@@ -1,0 +1,66 @@
+{
+  "id": "task.labor-focus.paternity",
+  "label": "Nghỉ khi vợ sinh con",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Nghỉ khi vợ sinh con"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về nghỉ khi vợ sinh con?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.labor-focus.paternity",
+          "text": "Nội quy nêu 1 ngày nghỉ riêng theo khoản 1 và mô tả chế độ BHXH riêng theo khoản 2. Theo tài liệu, nam đang tham gia BHXH nghỉ 5 ngày khi sinh thường, 7 ngày khi sinh mổ hoặc con dưới 32 tuần, 10 ngày khi sinh đôi, từ sinh ba mỗi con thêm 3 ngày, và 14 ngày nếu sinh đôi trở lên phải phẫu thuật. Nguồn ghi thực hiện trong 30 ngày đầu kể từ ngày sinh. Cần xác minh cách áp dụng hai chế độ trước khi cộng số ngày.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 11,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "3f5bac6e06d8a10eb46fb3b890dbbe626ac337919904eded803b6d23525633f1",
+              "quote": "Nội quy lao động — Điều 10.1: nghỉ riêng nguyên lương và phải thông báo công ty/quản lý trực tiếp. Bản thân kết hôn: 3 ngày; con ruột/con nuôi kết hôn: 1 ngày; bố mẹ ruột/nuôi của mình hoặc vợ/chồng, vợ/chồng, con ruột/nuôi qua đời: 3 ngày. Nam có vợ sinh: 1 ngày theo khoản 1, khác chế độ BHXH khoản 2. Nữ hành kinh: 30 phút/ngày, không quá 3 ngày/tháng; nuôi con dưới 12 tháng: 60 phút/ngày trong giờ làm.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 14,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "3c1683651e1478a0d66de50ded4fb48db9168106759975e7b720800210981759",
+              "quote": "Nội quy lao động — Điều 10.2.d,e: nam đang tham gia BHXH khi vợ sinh thường nghỉ 5 ngày; phẫu thuật hoặc con dưới 32 tuần: 7; sinh đôi: 10, từ sinh ba thêm 3 ngày mỗi con; sinh đôi trở lên phải phẫu thuật: 14. Theo nguồn, nghỉ trong 30 ngày đầu từ ngày vợ sinh. Đây là chế độ BHXH, không tự cộng với 1 ngày công ty ở khoản 1 nếu chưa làm rõ cách áp dụng.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

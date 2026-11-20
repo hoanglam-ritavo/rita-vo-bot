@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.maternity-unpaid",
+  "family": "leave",
+  "task_id": "task.labor-focus.maternity-unpaid",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sau khi het thoi gian thai san",
+          "sau thai san"
+        ],
+        [
+          "nghi them",
+          "khong luong"
+        ]
+      ]
+    }
+  ]
+}

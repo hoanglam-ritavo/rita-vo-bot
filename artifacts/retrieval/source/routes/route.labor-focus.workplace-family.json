@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.workplace-family",
+  "family": "labor",
+  "task_id": "task.labor-focus.workplace-family",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cung gia dinh",
+          "nguoi than trong gia dinh"
+        ],
+        [
+          "chung mot bo phan",
+          "lam cung bo phan"
+        ]
+      ]
+    }
+  ]
+}

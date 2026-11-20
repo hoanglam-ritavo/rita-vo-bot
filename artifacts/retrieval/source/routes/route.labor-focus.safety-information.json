@@ -1,0 +1,32 @@
+{
+  "id": "route.labor-focus.safety-information",
+  "family": "labor",
+  "task_id": "task.labor-focus.safety-information",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "email",
+          "duong dan",
+          "tep dinh kem"
+        ],
+        [
+          "dang ngo",
+          "nghi ngo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "usb",
+          "thiet bi luu tru"
+        ],
+        [
+          "may cong ty",
+          "kiem tra gi"
+        ]
+      ]
+    }
+  ]
+}

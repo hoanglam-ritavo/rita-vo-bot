@@ -1,0 +1,36 @@
+{
+  "id": "route.labor-focus.attendance-approved",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-approved",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "di tre",
+          "ve som"
+        ],
+        [
+          "viec cong ty",
+          "ly do ca nhan",
+          "chua duoc quan ly dong y",
+          "da bao nhung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quen cham cong"
+        ],
+        [
+          "di tre",
+          "ve som"
+        ],
+        [
+          "cong chung",
+          "so lan trong thang"
+        ]
+      ]
+    }
+  ]
+}

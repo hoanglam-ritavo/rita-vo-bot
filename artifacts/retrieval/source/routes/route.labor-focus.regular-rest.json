@@ -1,0 +1,34 @@
+{
+  "id": "route.labor-focus.regular-rest",
+  "family": "labor",
+  "task_id": "task.labor-focus.regular-rest",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghi giua ca"
+        ],
+        [
+          "ca ngay",
+          "ca dem",
+          "bao ve",
+          "an ninh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ngay nghi hang tuan",
+          "moi tuan"
+        ],
+        [
+          "nghi bu",
+          "luan phien",
+          "trung ngay le",
+          "it nhat"
+        ]
+      ]
+    }
+  ]
+}

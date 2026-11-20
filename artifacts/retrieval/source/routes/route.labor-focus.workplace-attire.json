@@ -1,0 +1,54 @@
+{
+  "id": "route.labor-focus.workplace-attire",
+  "family": "labor",
+  "task_id": "task.labor-focus.workplace-attire",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tac phong"
+        ],
+        [
+          "trang phuc",
+          "the ten"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quen deo the",
+          "khong mac dong phuc"
+        ],
+        [
+          "bao ve",
+          "tu choi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu viec"
+        ],
+        [
+          "ngoai le"
+        ],
+        [
+          "the ten",
+          "dong phuc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ra vao cong ty"
+        ],
+        [
+          "kiem tra hanh ly"
+        ]
+      ]
+    }
+  ]
+}

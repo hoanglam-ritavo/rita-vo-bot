@@ -1,0 +1,1286 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.labor-attendance-overtime-holdout",
+  "turns": [
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.001",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.policy-scope"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy áp dụng đối với người lao động của Công ty TNHH Tập Đoàn Rita Võ theo các hình thức làm việc được nêu, kể cả học nghề, thực tập và thử việc. Phạm vi chung này chưa xác định riêng danh sách chi nhánh hoặc địa điểm; cần kiểm tra đơn vị sử dụng lao động."
+      ],
+      "required_limitations": [
+        "Cần đối chiếu đơn vị sử dụng lao động khi hỏi phạm vi riêng của chi nhánh hoặc địa điểm."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "210e9c59c4c3ae3adec9924a6cfdb9c2d722f15810e04f3bc89eeac0434e5bf5"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.002",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.policy-effective"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Theo Điều 3, hiệu lực được xác định từ ngày cơ quan lao động TP.HCM chấp thuận hoặc theo mốc 15 ngày sau khi công ty nộp nội quy nếu không có yêu cầu sửa đổi hoặc bổ sung. Bìa và trang ký ghi các mốc khác nhau. Nguồn không cung cấp ngày nộp hoặc chấp thuận để xác định ngày hiệu lực cụ thể."
+      ],
+      "required_limitations": [
+        "Nguồn chưa cung cấp ngày nộp hoặc ngày chấp thuận để xác định chính xác ngày hiệu lực."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "5f6d9ef876ee2e3efa73b963bdf05f52246215a0c3263ef9e858a15bfd1006a2"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "848b201df4a1cf66120ed2394b2fc1c796f4015790eb961bd9b6cd9b6230aede"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.003",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.policy-local"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Phòng ban có thể cụ thể hóa nội quy trong phạm vi phù hợp với nội quy và quy định áp dụng. Khi hai văn bản khác nhau, đối chiếu đối tượng, nội dung, hiệu lực và điều khoản thay thế của từng văn bản. Điều 46 nói về việc bãi bỏ quy định tương tự hoặc trái nội quy kể từ khi nội quy có hiệu lực. Nguồn chưa xác định quan hệ thay thế cho từng văn bản cụ thể."
+      ],
+      "required_limitations": [
+        "Quan hệ thay thế cụ thể cần được xác minh theo từng văn bản."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "848b201df4a1cf66120ed2394b2fc1c796f4015790eb961bd9b6cd9b6230aede"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.work-hours"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy quy định 8 giờ một ca/ngày và 5,5 hoặc 6 ngày một tuần tùy công việc, tối đa 48 giờ bình thường khi bố trí theo tuần. Tài liệu không liệt kê từng vị trí theo lịch 5,5 hoặc 6 ngày. Quản lý trực tiếp xây dựng lịch đặc thù, trình lãnh đạo duyệt và thông báo. Công ty có thể điều chỉnh lịch theo tình hình sản xuất kinh doanh. Nhân viên cần quản lý trực tiếp đồng ý trước khi rời nơi làm việc trong giờ."
+      ],
+      "required_limitations": [
+        "Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "c09e365179b6a3f853a9288f1faefa1fe8bfc3eff2d71a91bde3998ff415e4cb"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.regular-rest"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Ca liên tục nghỉ giữa ca ít nhất 30 phút ban ngày và 45 phút đối với ca đêm sau 22 giờ. Quản lý trực tiếp sắp xếp luân phiên. Bảo vệ và an ninh chỉ rời vị trí khi có người thay. Nghỉ hằng tuần ít nhất một ngày và có thể bố trí luân phiên. Nếu trùng ngày lễ hoặc Tết theo quy định, nghỉ bù ngày nghỉ tuần vào ngày làm việc kế tiếp."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "c5f9423ab007337400f62ed31c09df274e9c5672c047707c94aa68ae577633b5"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.006",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.holiday-days"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu Tết Dương lịch 1 ngày, Tết âm lịch 5 ngày, 30/4 và 1/5 mỗi dịp 1 ngày, Quốc khánh 2 ngày và Giỗ Tổ Hùng Vương 1 ngày. Lao động nước ngoài được thêm 1 ngày Tết truyền thống và 1 ngày Quốc khánh của nước mình. Đây là số ngày hưởng nguyên lương theo nội quy. Tra thông báo của công ty để biết lịch cụ thể từng năm."
+      ],
+      "required_limitations": [
+        "Lịch nghỉ cụ thể từng năm cần thông báo riêng của công ty."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "252d58d397a012cf687d59efa1d71b1d6f3b51ae16afcd17f59a8689aa2b60a7"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.annual-entitlement"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Làm đủ 12 tháng được 12 ngày làm việc phép năm theo nội quy. Làm chưa đủ 12 tháng thì tính theo tỷ lệ thời gian làm việc. Mỗi 5 năm làm việc liên tục được thêm 1 ngày. Nội quy không cho sử dụng phép năm trong thời gian học nghề, thử việc hoặc tham gia khóa huấn luyện. Quy tắc tích lũy cho các giai đoạn đó được xét riêng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "688908e0e141cc37e932cb56a4524e4d55145d850b369c7b338c88ec3a04f10c"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.008",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.annual-carry"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy cho chuyển tối đa 7 ngày phép cũ sang quý I. Phần còn lại sau 31/3 bị xóa và không được đền bù theo đoạn quy định về phép cũ. Đoạn này không quy định việc thanh toán phép còn dư khi chấm dứt hợp đồng, nên cần xác minh theo quy định áp dụng cho hồ sơ nghỉ việc."
+      ],
+      "required_limitations": [
+        "Nguồn về phép cũ không đủ để xác định cách thanh toán phép khi chấm dứt hợp đồng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "ba569e2e1e2a735fd82936ffa9c0af84d67d186714d282414d81108443ecd08e"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.009",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.leave-approval"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Quản lý trực tiếp duyệt nhân viên. Tổng giám đốc duyệt trưởng phòng, phó giám đốc, giám đốc và phó tổng giám đốc. Chủ tịch Hội đồng thành viên duyệt tổng giám đốc. Quản lý từ phó phòng trở lên đã được duyệt còn báo Ban Tổng giám đốc và Chủ tịch trước khi nghỉ theo kênh nội quy nêu. Phòng Nhân sự lưu hồ sơ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "cbe7650039252a24e74a2fc8b4c3ea02946c46ff5be04088ded0a40e692cd4e0"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.010",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.maternity"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Theo nội quy, điều kiện được nêu là đóng BHXH đủ 6 tháng trong 12 tháng trước sinh. Nếu đã đóng đủ 12 tháng và phải nghỉ dưỡng thai theo chỉ định có thẩm quyền, mốc được nêu là đủ 3 tháng trong 12 tháng trước sinh. Nghỉ trước và sau sinh tổng cộng 6 tháng, trước sinh tối đa 2 tháng. Sinh nhiều con thì mỗi con từ con thứ hai được thêm 1 tháng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "582417a898797b51ca057e91a3c761a8f1da1044205fb46f7f1fdb20717ae9db"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.011",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.sick-leave"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nghỉ bệnh cần chứng nhận nghỉ hưởng BHXH do nơi điều trị được BHXH chấp thuận. Theo nội quy, khi đủ căn cứ hưởng chế độ ốm đau thì ngày nghỉ này không trừ phép năm. Nghỉ chăm con ốm cần giấy chứng nhận được BHXH công nhận. Tài liệu không xác định số tiền cho hồ sơ cá nhân."
+      ],
+      "required_limitations": [
+        "Mức trợ cấp của từng hồ sơ cần được xác minh theo dữ liệu và quy định áp dụng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "b34905823a9a2c2f1a0857bf83f589fe7233242cef1279173f4aebccb6c9457a"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.012",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.paternity"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu 1 ngày nghỉ riêng theo khoản 1 và mô tả chế độ BHXH riêng theo khoản 2. Theo tài liệu, nam đang tham gia BHXH nghỉ 5 ngày khi sinh thường, 7 ngày khi sinh mổ hoặc con dưới 32 tuần, 10 ngày khi sinh đôi, từ sinh ba mỗi con thêm 3 ngày, và 14 ngày nếu sinh đôi trở lên phải phẫu thuật. Nguồn ghi thực hiện trong 30 ngày đầu kể từ ngày sinh. Cần xác minh cách áp dụng hai chế độ trước khi cộng số ngày."
+      ],
+      "required_limitations": [
+        "Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "3f5bac6e06d8a10eb46fb3b890dbbe626ac337919904eded803b6d23525633f1"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "3c1683651e1478a0d66de50ded4fb48db9168106759975e7b720800210981759"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.013",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.workplace-attire"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nhân viên làm việc chuyên nghiệp, mặc trang phục lịch sự hoặc đúng đồng phục và đeo thẻ. Tại nơi có quy định, bảo vệ có thể từ chối ra/vào nếu thiếu thẻ hoặc đồng phục. Nội quy có ngoại lệ với người thử việc hoặc theo quy định riêng. Nhân viên phối hợp kiểm tra hành lý khi ra vào."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "19cb18871bce596e26a8ccb158214912dc65625a2253849fd7f0f85b98a7d0ae"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.014",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.workplace-working-outside"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Ra ngoài làm việc trong giờ cần nêu lý do, thông báo và được quản lý trực tiếp đồng ý. Tại nơi có quy định, cần giấy xác nhận của Trưởng bộ phận để ra/vào. Ở lại sau giờ cần văn bản của quản lý trực tiếp. Vào ngoài giờ, ngày nghỉ hoặc ngày lễ cần quản lý chấp thuận, trừ người trực theo nội quy."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42a0337437067fa64f40963c216223aa53204f549523c40392fddc784a871f2c"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f542141a20122f347dbc7eb196fefeaf5edfb6d24e4a94241b2106879362bec8"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.015",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.workplace-visitors"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tiếp khách ở lễ tân, phòng họp hoặc khu vực được phép. Muốn đưa vào khu khác cần xin quản lý và phải đi cùng khách. Khách ở lại sau giờ cần cấp có thẩm quyền đồng ý. Người đã thôi việc hoặc đang bị đình chỉ liên hệ như khách, trừ khi có quyết định khác."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.016",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.safety-information"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Không mở đường dẫn hoặc tập tin chưa rõ nội dung hay người gửi. Báo IT phụ trách khi nghi có sự cố an toàn thông tin. USB cần được quét virus trước khi dùng trên máy công ty."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "3d711985ad31b9d5a3cc11fe2e249dd127b62b7add53b95a7243e96f71392a06"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.017",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.safety-equipment"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Kiểm tra nguồn điện và điều kiện an toàn trước khi dùng thiết bị. Khi có nguy cơ tai nạn hoặc sự cố, báo ngay người phụ trách hoặc quản lý. Người về cuối kiểm tra điện và tắt thiết bị không dùng. Cuối ca đóng cửa, xếp dụng cụ và vật liệu đúng nơi, không chắn lối thoát hiểm hoặc thiết bị chữa cháy."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "88494a750bcec0c9ac72ae145e118ce70408e5809aa1b71882c1f7b2ef57ea56"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "4381c87242481f4e8a9e55bf9c44f93ec15a5d6ac1fc692dbef4c50308234d97"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.018",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.company-publication"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tổng giám đốc hoặc Chủ tịch quyết định việc công bố thông tin công ty. Người được chỉ định mới được phổ biến thông tin. Việc cung cấp cho bên thứ ba phải theo mục đích công việc và thẩm quyền được phép."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "8fc99283a27755070eec27c3c9b140e9af67fa622ff9e416f1ecd05f962edbac"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f39567969135e3243f531dc64e672255f39a9f0e7d46a903e557cce01aa828bb"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.019",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.harassment-scope"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu hành vi tình dục không được người nhận mong muốn hoặc chấp nhận, gồm hành vi thể chất, lời nói và giao tiếp phi lời nói, kể cả tin nhắn hoặc email. Nơi làm việc bao gồm chuyến công tác, hội thảo/đào tạo, điện thoại và xe đưa đón liên quan công việc. Lời đùa, nhận xét hoặc lời mời lặp lại không được mong muốn được xem xét theo nội dung và tình huống cụ thể."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "e8ce15e58aa082f140ad8740842b77db49c9a3834d4ebfe8fc53d5308b84dbcf"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.020",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.harassment-reporting"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Báo ngay Phòng Nhân sự nếu nghi bị quấy rối. Quản lý hoặc người liên quan cũng phải báo khi chứng kiến, được báo hoặc nghi có căn cứ. Nhân sự và Kiểm soát nội bộ điều tra, xác minh hoặc giám sát, kể cả khi chưa có đơn chính thức. Công ty bảo mật, bảo vệ danh dự và an toàn các bên, chống trả đũa người báo thiện chí. Tài liệu nêu tiến hành xử lý trong 3 ngày sau khi có kết quả xác minh."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "4fa988a703c504b71a372353eb13c1a8fd0b19a20d63f0cf40dfc187211823f6"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.021",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.harassment-reporting"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Báo ngay Phòng Nhân sự nếu nghi bị quấy rối. Quản lý hoặc người liên quan cũng phải báo khi chứng kiến, được báo hoặc nghi có căn cứ. Nhân sự và Kiểm soát nội bộ điều tra, xác minh hoặc giám sát, kể cả khi chưa có đơn chính thức. Công ty bảo mật, bảo vệ danh dự và an toàn các bên, chống trả đũa người báo thiện chí. Tài liệu nêu tiến hành xử lý trong 3 ngày sau khi có kết quả xác minh."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "4fa988a703c504b71a372353eb13c1a8fd0b19a20d63f0cf40dfc187211823f6"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.022",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.personnel-records"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Sau khi tuyển chính thức, nộp hồ sơ cá nhân theo quy định cho Nhân sự quản lý. Khi thông tin thay đổi, báo kịp thời để cập nhật theo quy trình nhân sự. Điều 32 không liệt kê từng giấy tờ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "3ee504603a37ce595a7db41d74694b7f177d06f9b5f57b48cc8722b4337c6f4c"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.023",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.probation-term"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu thời gian thử việc tối đa 180 ngày với quản lý doanh nghiệp, 60 ngày với chức danh cần từ cao đẳng, 30 ngày với nhóm trung cấp hoặc kỹ thuật, và 6 ngày làm việc với công việc khác. Trong thời gian thử việc, mỗi bên có thể hủy mà không báo trước hoặc bồi thường, nhân viên vẫn phải bàn giao. Cuối kỳ, Trưởng bộ phận hoặc Tổng giám đốc cùng Nhân sự đánh giá. Nếu không đạt thì chấm dứt theo nội quy."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "9315badea6a62861fe45548abfaf5565cba5e278e16560c2098c71d0ff0bae34"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.024",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.temporary-transfer"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Điều 21–22 nêu các lý do như thiên tai, hỏa hoạn, dịch bệnh, sự cố hoặc nhu cầu kinh doanh. Báo trước ít nhất 3 ngày làm việc, nêu thời hạn và bố trí phù hợp. Tối đa 60 ngày làm việc cộng dồn một năm, vượt cần đồng ý bằng văn bản. Nếu lương mới thấp hơn, giữ lương cũ 30 ngày làm việc, sau đó ít nhất 85% lương cũ và không dưới mức tối thiểu. Nếu không đồng ý vượt giới hạn và phải ngừng việc, áp dụng lương ngừng việc theo quy định được dẫn chiếu."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "912c46654a94709aef3e74cc82aa5312707d1e065794189809fb4b4b6eade85c"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.025",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.resignation-notice"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Người lao động chủ động nghỉ làm đơn gửi Trưởng bộ phận. Nội quy nêu ít nhất 45 ngày với hợp đồng không xác định thời hạn, 30 ngày với hợp đồng từ 12 đến 36 tháng và 3 ngày làm việc với hợp đồng dưới 12 tháng hoặc thời vụ được nêu. Kiểm tra ngoại lệ và điều kiện áp dụng trước khi dùng cho hồ sơ cụ thể."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "84801b75902cc36c1e3c21783b68b91581b1f77f1f61ed315ebdb56f9a81e10b"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.026",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.employer-termination"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Điều 38 nêu các trường hợp như thường xuyên không hoàn thành theo tiêu chí, bệnh hoặc tai nạn chưa hồi phục theo thời hạn từng hợp đồng, sự cố buộc giảm việc sau khi đã khắc phục, đủ tuổi hưu và thông tin tuyển dụng sai ảnh hưởng việc tuyển. Với các điểm a, b, c, e, g, báo trước ít nhất 45 ngày, 30 ngày hoặc 3 ngày làm việc tùy loại hợp đồng nêu trong nguồn. Không trở lại sau 15 ngày từ khi hết tạm hoãn và tự bỏ 5 ngày làm việc liên tục không lý do thuộc hai điểm nguồn nêu không phải báo trước, với các điều kiện áp dụng tương ứng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d20c2fdc61dd6e71015e711fe53d0b91c38f2c745c17485a4db13689684be292"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "42730d984e45b4d2174a0abf476a3ecabc408598a0256617a3e3cbee66dccf3c"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.027",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.resignation-handover"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Bàn giao công việc, tài liệu, thiết bị, hàng hóa, chứng từ, chìa khóa, đồng phục và bảng tên cho quản lý trực tiếp hoặc Nhân sự. Nếu thiếu, lập kiểm kê và báo Tổng giám đốc. Xác nhận hoàn tất là căn cứ xử lý quyền lợi. Nghĩa vụ bảo mật và chi phí đào tạo theo cam kết vẫn được xem xét. Nội quy nêu nghỉ trái pháp luật hoặc vi phạm báo trước có thể phát sinh bồi thường và ảnh hưởng trợ cấp, cần đối chiếu hồ sơ và quy định áp dụng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "906279d2d969f56643e79d713c53dbcae4f50897367ec3dee825667c289ace43"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.028",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.discipline-levels"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu khiển trách bằng văn bản với vi phạm cấp độ 2. Tái phạm trong 3 tháng sau khiển trách hoặc vi phạm cấp cao hơn chưa đến mức sa thải có thể kéo dài nâng lương không quá 6 tháng hoặc cách chức. Sa thải theo nhóm hành vi nghiêm trọng, tái phạm chưa xóa kỷ luật hoặc bỏ việc không có lý do chính đáng 5 ngày làm việc cộng dồn trong 30 ngày hay 20 ngày trong 365 ngày. Sự kiện bất khả kháng hoặc nghỉ bệnh có xác nhận là các ngoại lệ nêu trong nguồn, cần xác minh hồ sơ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d9f5282c94bd07967368aceb27040d5592c48ddb4b1c0db0b286c87eb289aad0"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "f3d9ef18adb7938d65b715f732b06db38f462c83fc3a6abd14d3bb78f6da3f55"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.029",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.discipline-process"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nhân sự lập biên bản, thu thập chứng cứ về lỗi và thông báo cho tổ chức đại diện người lao động. Thông báo họp ít nhất 5 ngày làm việc, ghi nội dung, thời gian, địa điểm, người tham dự và hành vi. Thành phần gồm người lao động, đại diện theo trường hợp, công ty và tổ chức đại diện người lao động. Người lao động có quyền tự hoặc nhờ người bào chữa. Nếu không thể dự, thỏa thuận đổi lịch, không thống nhất thì công ty quyết định. Vắng mặt hoặc không xác nhận vẫn có thể tiến hành theo nội quy."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "d28cdba2412e5d5bec9d0de9fc1c65ef5c153a1cbe75e54e294fd4877cea54c9"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.030",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.property-liability"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Hư hỏng dựa vào giá thị trường lúc xảy ra. Mất tài sản hoặc tiêu hao vượt định mức xem xét bồi thường theo nội quy hoặc hợp đồng trách nhiệm. Hàng hóa căn cứ giá bán, thiết bị và vật tư theo giá mua thay thế, trường hợp khác theo thiệt hại thực tế. Ngoại lệ gồm sự kiện khách quan như thiên tai, hỏa hoạn, dịch bệnh hoặc thảm họa khi không thể lường và khắc phục dù đã áp dụng biện pháp trong khả năng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "5a8241a0abdd1477ac8c9182c604407fab2424d902ef2f3a99a22824512a1925"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "9cff846e335c510b34e0b418540f5083aa41ccffb968fce7e6c5a129aaa0689b"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.031",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.pay-probation"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu lương thử việc ít nhất 85% lương của công việc chính thức và không thấp hơn mức tối thiểu được dẫn chiếu."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "974fdb4180b2fa574a690be056d188447c30afa6f390bb03152ae9450de30db7"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.032",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.pay-bonus"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Thưởng tháng 13 do Ban Tổng giám đốc xét hằng năm căn cứ kết quả kinh doanh và mức hoàn thành công việc, dùng lương tháng 12 làm căn cứ. Nội quy nêu chỉ xét người còn làm việc tại lúc chi theo thông báo của công ty."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "41a837616d0fc1e7fc6136153ed2c0e11e4b64107a1baa0765fee45fb6afa7bc"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.033",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.social-insurance"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Điều 45 nêu tiền lương cơ bản gộp trên hợp đồng chính thức làm căn cứ và không liệt kê tỷ lệ đóng cụ thể. Quyền lợi được đề cập gồm ốm đau, thai sản, hưu trí, tai nạn lao động, bệnh nghề nghiệp, tử tuất, thất nghiệp và khám chữa bệnh, tùy chế độ tương ứng."
+      ],
+      "required_limitations": [
+        "Điều được dẫn không liệt kê tỷ lệ đóng cụ thể."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "6f302ce8aada2524567dc1a34e5483b989129a9e178e3f5e1447d418236ed23c"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.034",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-forgot"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Khi quên quét vân tay, lập phiếu xác nhận ngày công, xin chữ ký Trưởng Phòng/Ban hoặc quản lý trực tiếp và chuyển về HCNS."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "925f5d6905c25847b9e1435aaf571d78cdb4d7ab28b5e7988ff56351f5b10438"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.035",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-external"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Đi làm việc bên ngoài trước 08:00 hoặc về trước 17:00 vẫn quét vân tay khi ra/vào công ty và dùng mẫu xác nhận ngày công. Đi từ một ngày trở lên dùng phiếu đề xuất đi công tác. Chữ ký hoặc email xác nhận của Trưởng Phòng/Ban hay quản lý trực tiếp được chấp nhận. Chuyển phiếu về HCNS theo kỳ nộp bảng tổng hợp công."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "bbbb67f9039631f8e88f12ca132aebfd43bac0f4db9cc9ad0f77050d5aa15003"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.036",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-threshold"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Với trường hợp không vi phạm, đi trễ/về sớm từ 1 đến đúng 120 phút bị trừ công theo thời gian thực tế. Trên 120 phút phải chuyển sang xin nghỉ phép năm. Còn phép thì tính vào phép, hết phép thì trừ lương theo mẫu xác nhận ngày công."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "6ef0cadb442156a7467a9b83c054b6f0b959f21333cea0e2eda59a42464d5878"
+        },
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "36462fd3694be63ccd6bd66816a4285da2689ebebbbd447ecd70f63ff777007d"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.037",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-clock"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Ngày làm việc thường tính từ khi kết thúc giờ làm bình thường. Ngày nghỉ hằng tuần hoặc lễ tính từ lúc bắt đầu đến khi kết thúc làm việc và áp dụng quy định trừ nghỉ. Nếu lịch được nghỉ nửa ngày thứ Bảy thì tăng ca chiều thứ Bảy bắt đầu tính từ 13:00 theo tờ trình."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "446d718a96ced958e4c8b445aa4116200abd5f448b53b9c779db963f0fc10f53"
+        }
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.038",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-boundary"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tờ trình mô tả ca sau 17:00 kết thúc trước hoặc sau 22:00, chưa nêu mốc kết thúc đúng 22:00. Nguồn nêu cách tính theo giờ làm và các khung nghỉ, chưa nêu cách trừ riêng cho mọi ca một phần ngày hoặc bắt đầu ngoài các khung. Văn bản này không quy định mức tiền làm thêm theo loại ngày. Xác minh với HCNS nếu tình huống nằm ngoài các trường hợp mô tả."
+      ],
+      "required_limitations": [
+        "Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "446d718a96ced958e4c8b445aa4116200abd5f448b53b9c779db963f0fc10f53"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.policy.labor-attendance-overtime-holdout.039",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-driver"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tờ trình nêu tính toàn thời gian cho lái xe hoặc lái xe kiêm giao nhận làm xuyên suốt các khung quy định hoặc theo yêu cầu công việc của trưởng bộ phận/người sử dụng xe. Trường hợp chạy xuyên suốt phải có chữ ký của người sử dụng xe và trưởng bộ phận. Tờ trình ghi ngoại lệ cho nhóm được gọi là “lái xe khoán việc – lái xe cấp Lãnh đạo”. Đối chiếu cách phân nhóm của đơn vị trước khi áp dụng."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "25781bfd34685e3937c616d839177d2996ca06920bcbfe1e835b8d6779252596"
+        }
+      ]
+    }
+  ]
+}

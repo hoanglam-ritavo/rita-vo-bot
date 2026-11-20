@@ -1,0 +1,52 @@
+{
+  "id": "route.labor-focus.attendance-deductions",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-deductions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vuot so lan",
+          "vuot gioi han",
+          "vuot 3 lan",
+          "qua 3 lan"
+        ],
+        [
+          "cham cong",
+          "di tre",
+          "ve som",
+          "het phep"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bang tru cong",
+          "bang tru luong"
+        ],
+        [
+          "1 15",
+          "khoang",
+          "phut"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhung phuong an tru"
+        ],
+        [
+          "cham cong",
+          "di tre"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "nếu hết phép thì sao",
+    "được chọn cách nào",
+    "trừ bao nhiêu"
+  ]
+}

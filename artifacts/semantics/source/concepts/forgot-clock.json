@@ -2,10 +2,19 @@
   "id": "forgot-clock",
   "canonical": "quên chấm công",
   "aliases": [
-    "quên bấm công"
+    "quên bấm công",
+    "quên bấm vân tay",
+    "quên quẹt vân tay",
+    "quên bấm máy chấm công",
+    "quên quẹt thẻ chấm công"
   ],
   "requires_any": [],
-  "excludes_any": [],
+  "excludes_any": [
+    "mở khóa",
+    "đăng nhập",
+    "mật khẩu",
+    "điện thoại cá nhân"
+  ],
   "styles": [
     "procedure",
     "conditions"

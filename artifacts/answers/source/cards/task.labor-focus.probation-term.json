@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.probation-term",
+  "label": "Thời hạn, kết thúc và đánh giá thử việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Thời hạn, kết thúc và đánh giá thử việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về thời hạn, kết thúc và đánh giá thử việc?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.probation-term",
+          "text": "Nội quy nêu thời gian thử việc tối đa 180 ngày với quản lý doanh nghiệp, 60 ngày với chức danh cần từ cao đẳng, 30 ngày với nhóm trung cấp hoặc kỹ thuật, và 6 ngày làm việc với công việc khác. Trong thời gian thử việc, mỗi bên có thể hủy mà không báo trước hoặc bồi thường, nhân viên vẫn phải bàn giao. Cuối kỳ, Trưởng bộ phận hoặc Tổng giám đốc cùng Nhân sự đánh giá. Nếu không đạt thì chấm dứt theo nội quy.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 57,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "9315badea6a62861fe45548abfaf5565cba5e278e16560c2098c71d0ff0bae34",
+              "quote": "Nội quy lao động — Điều 33: thử việc tối đa 180 ngày quản lý doanh nghiệp, 60 ngày chức danh cần cao đẳng trở lên, 30 ngày trung cấp/công nhân kỹ thuật/lao động nghiệp vụ, 6 ngày làm việc công việc khác. Trong thử việc mỗi bên được hủy không báo trước/bồi thường nhưng nhân viên phải bàn giao. Có thể thỏa thuận thử lĩnh vực/chức vụ khác khi chưa đáp ứng. Cuối kỳ Trưởng bộ phận/TGĐ cùng Nhân sự đánh giá để ký chính thức; không đạt chấm dứt không bồi thường. Nguồn nêu thỏa thuận miệng hoặc thư tiếp nhận cho thử việc.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

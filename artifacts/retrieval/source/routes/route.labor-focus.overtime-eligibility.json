@@ -1,0 +1,30 @@
+{
+  "id": "route.labor-focus.overtime-eligibility",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-eligibility",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhan vien van phong",
+          "lam theo du an",
+          "luong khoan"
+        ],
+        [
+          "tra tien lam them"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "di chuyen ngoai gio"
+        ],
+        [
+          "chuyen cong tac",
+          "noi quy"
+        ]
+      ]
+    }
+  ]
+}

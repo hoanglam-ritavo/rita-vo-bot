@@ -11,6 +11,25 @@
     "policy.inpatient-company-support",
     "policy.outpatient-company-support",
     "policy.referral-payment",
-    "policy.referral-rates"
+    "policy.referral-rates",
+    "benefit-birth"
+  ],
+  "clarifications": [
+    {
+      "requires_all": [
+        [
+          "có em bé",
+          "có con nhỏ",
+          "sinh con",
+          "mới đón con"
+        ],
+        [
+          "hỗ trợ",
+          "phúc lợi",
+          "trợ cấp"
+        ]
+      ],
+      "prompt": "Bạn muốn hỏi về khoản hỗ trợ của công ty cho nhân viên trực tiếp sinh con, chế độ khi vợ sinh con hay quyền lợi bảo hiểm xã hội? Bạn có thể nêu trường hợp muốn tra cứu."
+    }
   ]
 }

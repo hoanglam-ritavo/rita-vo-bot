@@ -1,0 +1,20 @@
+{
+  "id": "route.labor-focus.safety-cleaning",
+  "family": "labor",
+  "task_id": "task.labor-focus.safety-cleaning",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ve sinh ban lam viec",
+          "ve sinh may moc"
+        ],
+        [
+          "rac",
+          "phe lieu",
+          "trach nhiem"
+        ]
+      ]
+    }
+  ]
+}

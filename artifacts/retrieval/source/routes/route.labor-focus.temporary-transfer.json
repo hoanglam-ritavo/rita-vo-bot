@@ -1,0 +1,25 @@
+{
+  "id": "route.labor-focus.temporary-transfer",
+  "family": "labor",
+  "task_id": "task.labor-focus.temporary-transfer",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dieu chuyen",
+          "tam chuyen",
+          "cong viec tam thoi"
+        ],
+        [
+          "bao truoc",
+          "truong hop",
+          "cong don",
+          "dong y bang van ban",
+          "luong thap hon",
+          "vuot gioi han",
+          "luong cu"
+        ]
+      ]
+    }
+  ]
+}

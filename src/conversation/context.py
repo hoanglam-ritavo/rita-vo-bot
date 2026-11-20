@@ -255,7 +255,10 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         else:
             aspect, focus_unit = claims[position - 1]
             request.update(selected_task=active_task, aspects=[aspect])
-    elif prior:
+    elif prior and getattr(policy, 'focused_follow_up', lambda *_: False)(active_task, query):
+        request = {**prior, 'selected_task': active_task, 'aspects': ['overview']}
+        continuation, turn_kind = True, 'followup'
+    elif prior and not getattr(policy, 'focused_task', lambda _: None)(text):
         update = recognize(text, policy)
         inputs = input_update(text, old.get('pending_inputs', []), prior.get('user_inputs', {}))
         root_family = policy.analyze(prior['question']).family if policy is not None and policy.catalog is not None else None
@@ -317,7 +320,7 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         request['self_reference'] = True
     analysis = analyze_question(request['question'], catalog, lexicon, policy, request=request)
     independent = bool(analysis.parts or analysis.unsupported_person or analysis.cards
-                       or analysis.document_lookup or analysis.missing_slots
+                       or analysis.document_lookup or analysis.missing_slots or analysis.recognized_topic
                        or (not issue and starts_new_request(query)))
     retained = False
     ambiguous_pending_target = (candidates and analysis.clarification

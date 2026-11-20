@@ -1135,3 +1135,147 @@ def test_http_date_followup_rechecks_sources_and_keeps_user_input_provenance(sam
     assert owner.retrieval.read_evidence.await_count == 2
     assert all(call.args == (7, ('employee_name',)) and call.kwargs == {'manager': False}
                for call in reads.await_args_list)
+
+
+
+@pytest.mark.parametrize(('question', 'label', 'aspect', 'clarification'), [
+    ('Công ty quy định công tác phí như thế nào?', None, 'overview', None),
+    ('Chế độ hoàn trả công tác phí khi thanh toán trước như thế nào như thế nào?', 'thanh toán công tác phí', 'overview', None),
+    ('Chế độ hoàn trả công tác phí như thế nào?', 'thanh toán công tác phí', 'overview', None),
+    ('tôi đã chi trả 2 triệu khi gặp đối tác thì làm sao để hoàn trả', None, 'procedure', 'chi phí tiếp khách'),
+    ('Thủ tục thanh toán công tác phí gồm những bước nào?', 'thanh toán công tác phí', 'procedure', None),
+    ('Thanh toán công tác phí cần chứng từ gì?', 'thanh toán công tác phí', 'paperwork', None),
+    ('Công ty ứng tiền đi công tác thế nào?', 'tạm ứng công tác phí', 'overview', None),
+    ('Tự bỏ tiền đi công tác, cần giấy tờ gì?', 'thanh toán công tác phí', 'paperwork', None),
+    ('Quên bấm vân tay lúc tan làm thì xử lý thế nào?', 'quên chấm công', 'procedure', None),
+    ('Quên quẹt vân tay lúc vào ca thì xử lý thế nào?', 'quên chấm công', 'procedure', None),
+    ('Lỡ không bấm vân tay thì phải làm gì?', 'quên chấm công', 'procedure', None),
+    ('Quên bấm máy chấm công thì xử lý thế nào?', 'quên chấm công', 'procedure', None),
+    ('Tôi quên quẹt thẻ chấm công, giờ phải làm gì?', 'quên chấm công', 'procedure', None),
+    ('Quên bấm công cuối ngày cần làm gì?', 'quên chấm công', 'procedure', None),
+    ('Quên chấm công thì làm sao bổ sung?', 'quên chấm công', 'procedure', None),
+    ('Lỡ quên quét vân tay thì xử lý thế nào?', 'quên chấm công', 'procedure', None),
+    ('Tôi mới có em bé thì công ty hỗ trợ gì?', None, 'overview', 'nhân viên trực tiếp sinh con'),
+    ('Phúc lợi sinh con là gì?', None, 'overview', 'nhân viên trực tiếp sinh con'),
+    ('Mới đón con thì có trợ cấp gì?', None, 'overview', 'nhân viên trực tiếp sinh con'),
+    ('Có con nhỏ thì công ty hỗ trợ gì?', None, 'overview', 'nhân viên trực tiếp sinh con'),
+    ('Nhân viên nữ sinh con nhận bao nhiêu tiền?', 'Khoản hỗ trợ nhân viên nữ sinh con', 'amount', None),
+    ('Hỗ trợ sinh con cần chứng từ gì?', 'Khoản hỗ trợ nhân viên nữ sinh con', 'paperwork', None),
+    ('Hỗ trợ của công ty cho nhân viên nữ mới sinh?', 'Khoản hỗ trợ nhân viên nữ sinh con', 'overview', None),
+    ('Mới sinh em bé thì công ty hỗ trợ gì?', 'Khoản hỗ trợ nhân viên nữ sinh con', 'overview', None),
+    ('Muốn mượn ô tô của công ty đi gặp khách thì đăng ký ở đâu?', 'sử dụng xe tập đoàn', 'procedure', None),
+    ('Xin dùng xe cơ quan cần làm gì?', 'sử dụng xe tập đoàn', 'procedure', None),
+    ('Đi công việc thì xin mượn xe cơ quan như thế nào?', 'sử dụng xe tập đoàn', 'overview', None),
+    ('Thủ tục mượn ô tô công ty là gì?', 'sử dụng xe tập đoàn', 'procedure', None),
+    ('Dùng ô tô của công ty thì điều kiện là gì?', 'sử dụng xe tập đoàn', 'conditions', None),
+    ('Tôi muốn đăng ký mượn xe công ty thì làm sao?', 'sử dụng xe tập đoàn', 'procedure', None),
+    ('Mượn xe của công ty cần giấy tờ gì?', 'Biểu mẫu quản lý xe', 'paperwork', None),
+    ('Thủ tục đăng ký sử dụng xe công ty', 'sử dụng xe tập đoàn', 'procedure', None),
+])
+def test_priority_policy_questions_route_by_intent(routing, question, label, aspect, clarification):
+    catalog, lexicon, policy = routing
+    plan, _ = plan_turn(question, {}, catalog, lexicon, policy=policy)
+    assert {card.label for card in plan.cards} == ({label} if label else set())
+    assert plan.aspects == (aspect,)
+    if label:
+        assert all(aspect in card.sections for card in plan.cards)
+    if clarification:
+        assert clarification in plan.clarification
+        assert not plan.choice_options
+    elif not label:
+        assert plan.topic_unmatched
+    else:
+        assert not plan.clarification or plan.check_scopes
+
+
+@pytest.mark.parametrize('question', [
+    'Tôi mua vé xem phim và muốn hoàn tiền.',
+    'Tôi quên bấm vân tay để mở khóa điện thoại cá nhân.',
+    'Cách xin hỗ trợ sửa điện thoại cá nhân?',
+    'Tôi có thể mượn ô tô của bạn tôi không?',
+])
+def test_priority_policy_clues_do_not_retrieve_unrelated_topics(routing, question):
+    import asyncio
+    from src.answering.discovery import suggest_document_topics
+
+    catalog, lexicon, policy = routing
+    retrieval = SimpleNamespace(policy=policy, discover=AsyncMock(), read_evidence=AsyncMock())
+    plan, _ = plan_turn(question, {}, catalog, lexicon, policy=policy)
+    resolved, _ = asyncio.run(suggest_document_topics(plan, catalog, retrieval))
+    assert not resolved.cards and not resolved.choice_options and not resolved.document_lookup
+    assert not retrieval.discover.called and not retrieval.read_evidence.called
+
+
+def test_priority_topics_conversation_offers_current_options_and_handles_followups(sample, routing, monkeypatch):
+    from src.evaluation.questions import FixtureRetrieval, fixture_records
+
+    catalog, lexicon, policy = routing
+    documents = FixtureRetrieval(policy, fixture_records(REPOSITORY_ROOT))
+    owner = service(sample)
+    owner.answers.catalog, owner.answers.lexicon = catalog, lexicon
+    owner.retrieval.policy = policy
+    owner.retrieval.discover = AsyncMock(side_effect=documents.discover)
+    owner.retrieval.read_evidence = AsyncMock(side_effect=documents.read_evidence)
+    owner.context._lookup_employee = AsyncMock(return_value=(snapshot(job_title='Fictional specialist'), 'applied'))
+    owner.settings = replace(owner.settings, conversation=ConversationSettings(True))
+    store = MemoryStore()
+    monkeypatch.setattr('src.conversation.storage.ConversationStore', lambda: store)
+    room, actor = str(uuid4()), str(uuid4())
+
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        def send(text, **extra):
+            message = str(uuid4())
+            response = client.post('/api/v1/answer', json=dict(user_id=actor, hrm_user_id=7,
+                room_id=room, message_id=message, expected_context_version=store.version_number, text=text, **extra))
+            assert response.status_code == 200, response.text
+            return message, response.json()['result']
+
+        prompt_id, prompt = send('Công ty quy định công tác phí như thế nào?')
+        options = {row['label']: row['id'] for row in prompt['clarification_options']}
+        assert options.keys() == {'tạm ứng công tác phí', 'phụ cấp công tác phí', 'thanh toán công tác phí'}
+        assert not prompt['claims'] and not prompt['sources']
+        before = owner.retrieval.read_evidence.await_count
+        _, chosen = send('thanh toán công tác phí',
+            choice={'prompt_message_id': prompt_id, 'option_id': options['thanh toán công tác phí']})
+        assert chosen['claims'] and owner.retrieval.read_evidence.await_count > before
+        _, paperwork = send('Cần chứng từ gì?')
+        assert any('Điều 8.3' in item.get('quote', '') for item in paperwork['evidence'])
+        assert len(paperwork['claims']) == 1
+        _, vehicle = send('Muốn mượn ô tô của công ty đi gặp khách thì đăng ký ở đâu?')
+        assert vehicle['claims'] and store.delta['task_id'] == 'task.business.vehicle-use.b114fe60'
+        _, mixed = send('Chức danh của tôi là gì và công ty quy định công tác phí như thế nào?')
+        assert mixed['status'] == 'partial' and mixed['fallback_reason'] == 'document_needs_clarification'
+        assert {item['field'] for item in mixed['evidence']} == {'job_title'}
+        assert 'Về phần chính sách' in mixed['answer']
+        _, benefit = send('Tôi mới có em bé thì công ty hỗ trợ gì?')
+        assert benefit['status'] == 'needs_clarification'
+        assert 'nhân viên trực tiếp sinh con' in benefit['answer'] and not benefit['claims']
+        _, attendance = send('Quên bấm vân tay lúc tan làm thì xử lý thế nào?')
+        assert attendance['claims'] and store.delta['task_id'] == 'task.business.forgot-clock.c9973704'
+        assert owner.context._lookup_employee.await_count == 1
+        partial_evidence = client.post('/api/v1/retrieve', json={'hrm_user_id': 7,
+            'text': 'Chức danh của tôi là gì và công ty quy định công tác phí như thế nào?'})
+        assert partial_evidence.status_code == 200
+        body = partial_evidence.json()
+        assert body['status'] == 'partial_evidence' and not body['matches']
+        assert {item['field'] for item in body['evidence']} == {'job_title'}
+
+
+@pytest.mark.parametrize(('reason', 'fragment'), [
+    ('no_eligible_documents', 'điều kiện truy cập và lập chỉ mục'),
+    ('no_candidates', 'chưa tìm được đoạn tài liệu'),
+])
+def test_explicit_lookup_keeps_empty_reason_and_accurate_copy(sample, reason, fragment):
+    from src.retrieval.reranking import relevance
+
+    owner = service(sample)
+    owner.retrieval.retrieve = AsyncMock(return_value={
+        'status': 'no_eligible_documents' if reason == 'no_eligible_documents' else 'no_matches',
+        'matches': [], 'fallback_reason': reason, 'relevance': relevance([])})
+    with TestClient(create_app(owner.settings, service_factory=lambda _: owner), headers=SERVICE_HEADERS) as client:
+        response = client.post('/api/v1/answer', json={'text': 'Tìm tài liệu công tác phí', 'hrm_user_id': 7})
+    assert response.status_code == 200
+    row = response.json()
+    assert row['status'] == 'insufficient_evidence'
+    assert row['fallback_reason'] == reason and fragment in row['answer']
+    assert not row['claims'] and not row['sources']

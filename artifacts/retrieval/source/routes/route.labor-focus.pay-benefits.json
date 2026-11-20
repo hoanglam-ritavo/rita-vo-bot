@@ -1,0 +1,22 @@
+{
+  "id": "route.labor-focus.pay-benefits",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-benefits",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "noi quy"
+        ],
+        [
+          "nhom phuc loi",
+          "dan chieu van ban nao"
+        ],
+        [
+          "chi tiet",
+          "dieu kien"
+        ]
+      ]
+    }
+  ]
+}

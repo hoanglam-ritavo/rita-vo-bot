@@ -7,7 +7,7 @@ from src.answering.slots import parse_inputs
 from src.type_b.tasks import normalized
 
 ASPECTS = {
-    'paperwork': ('ho so', 'giay to', 'can giay to gi', 'can ho so gi', 'ho so gom nhung gi'),
+    'paperwork': ('ho so', 'giay to', 'can giay to gi', 'can ho so gi', 'ho so gom nhung gi', 'chung tu'),
     'amount': ('muc ho tro', 'muc thuong', 'bao nhieu tien', 'muc ho tro bao nhieu'),
     'conditions': ('dieu kien', 'dieu kien ap dung', 'ap dung cho ai'),
     'procedure': ('thu tuc', 'quy trinh', 'cac buoc', 'lam the nao', 'can lam gi', 'phai lam gi'),
@@ -42,7 +42,8 @@ def starts_new_request(query):
         r'lam sao de|lam the nao de|(?:xin )?huong dan(?: (?:toi|minh))?) (.+)', query)
     if not match:
         match = re.fullmatch(r'(?:(?:toi|minh) )?(?:bi|da|vua|can|muon) (.+?) '
-                             r'(?:thi )?(?:phai lam gi|can lam gi|lam sao|xu ly the nao)', query)
+                             r'(?:thi )?(?:phai lam gi|can lam gi|lam sao|xu ly the nao|'
+                             r'(?:dang ky|nop|gui) o dau|(?:cong ty )?ho tro gi)', query)
     if not match:
         match = re.fullmatch(r'(.+?) thi (?:phai lam gi|can lam gi|xu ly the nao)', query)
     if not match:
@@ -114,7 +115,7 @@ def _recognize(text, policy):
         'thi', 'sao', 'con', 've', 'them', 'doi', 'thanh', 'sang', 'chuyen', 'lai', 'huong', 'dan', 'lam',
         'thu', 'tuc', 'o', 'dau', 'nop', 'gui', 'don', 'can', 'gi', 'tiep', 'the', 'nao',
         'quy', 'trinh', 'cac', 'buoc', 'hoac', 'ho', 'so', 'giay', 'to', 'gom', 'nhung',
-        'dieu', 'kien', 'ap', 'cho', 'ai', 'muc', 'tro', 'thuong', 'bao', 'nhieu', 'tien',
+        'dieu', 'kien', 'ap', 'cho', 'ai', 'muc', 'tro', 'thuong', 'bao', 'nhieu', 'tien', 'chung', 'tu',
         'tong', 'quan', 'neu', 'chuan', 'bi', 'truoc', 'khi'}
     if not set(normalized(''.join(remaining)).split()) <= allowed:
         return None

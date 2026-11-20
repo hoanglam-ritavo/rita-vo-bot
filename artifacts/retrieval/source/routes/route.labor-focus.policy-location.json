@@ -1,0 +1,23 @@
+{
+  "id": "route.labor-focus.policy-location",
+  "family": "labor",
+  "task_id": "task.labor-focus.policy-location",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tra cuu",
+          "tim o dau",
+          "xem o dau"
+        ],
+        [
+          "noi quy"
+        ],
+        [
+          "cap nhat",
+          "nhan vien"
+        ]
+      ]
+    }
+  ]
+}

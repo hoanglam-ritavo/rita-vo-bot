@@ -29,14 +29,16 @@ and rendering receive the same selected tasks, aspects and document subquery.
 `plan_turn` resolves continuations as structured updates to the original request:
 task/source choices, platform/type slots, user assertions and active aspects.
 It does not concatenate a reply into prose for a second routing pass. The HTTP
-coordinator receives the resulting plan directly. Unknown companion requests or
-unclear subjects ask for clarification before any personnel/evidence read.
-Recognized mixed requests retain both the policy and explicit employee fields.
-Named third-party profile requests never fall back to the authenticated subject.
+coordinator receives the resulting plan directly. A clearly recognized, separate
+policy clause can ask for clarification alongside an independently answerable,
+explicit self-profile field. Mixed requests with ambiguous personnel subjects or
+unsupported personnel clauses still require clarification before a read. Named
+third-party profile requests never fall back to the authenticated subject.
 
-Explicit document lookup bypasses task ambiguity and never implicitly reads
-personnel fields mentioned in an instruction. A separately requested self-profile
-lookup in the same message is retained and executed only when every part is clear.
+Explicit document lookup bypasses task ambiguity. It reads personnel fields only
+for a separate, clear self-profile request. Empty lookup preserves the distinction
+between an ineligible corpus and no candidates. Available passages retain the
+explicit reference-only notice.
 General guidance selects a source-bound general route first; registry-owned
 platform terms or an explicit system select software instructions. For example,
 common ways of asking to use company vehicles resolve to HCNS-QT02, while a
@@ -44,7 +46,9 @@ request to book a vehicle in Workit selects the Workit instructions. The
 recognition-only vehicle expressions never rewrite retrieval searches. Policy
 answers require exact eligible authored references. An unmatched document-only
 conversation can use authored discovery terms to select up to ten references
-for the requested aspect. Retrieval checks those addresses in the same eligible
+for the requested aspect. When the registry recognizes one family, candidates
+must belong to it. Family declarations can also specify a clarification prompt
+that requires one matching phrase from each authored group. Retrieval checks those addresses in the same eligible
 snapshot as the vector search and reranks the checked shortlist. One batch
 checks their exact references before the bot offers up to three topics. This
 branch publishes labels and no excerpts or claims. A bound selection then reads
@@ -65,8 +69,8 @@ subject and aspects. Aspect-only follow-ups replace the active aspect unless the
 user explicitly requests an addition. A card can declare one related task per
 missing aspect with evidence from the same revision and the same context rules.
 The vehicle and asset-disposal policies link to their paperwork guides. Explicit new
-requests can replace the active request even before task recognition. Short
-unrecognized replies preserve pending context. Ambiguous unaccented owners such as
+requests and recognized but unresolved topics can replace the active request
+before task recognition. Short unrecognized replies preserve pending context. Ambiguous unaccented owners such as
 "Minh/minh" require clarification; accent folding never establishes identity.
 Reducer schema 9 validates the shape, size and catalog compatibility of the
 active request. Compatible schema 7/8 state keeps its original question and
@@ -75,6 +79,16 @@ route, and a task change discards inputs bound to the previous task. A dependent
 reply to obsolete context either refreshes the options or asks for a restatement.
 Stored
 schema-2 results and message fingerprints remain intact.
+
+Focused labor rules, attendance and overtime entries pair retrieval routes with
+routed-only answer cards. Each route requires a match in every declared term
+group. An equal best score leaves the request to the existing planner. Up to
+three independently recognized questions can share an answer when they fit the
+ten-reference limit. Declared short follow-ups reuse the active task. An
+undeclared follow-up requesting a missing section reports that limitation.
+Each answer reads exact eligible references in the current snapshot. Catalog
+limitations distinguish an incomplete policy source from a direction to verify
+operational data in Workit or through the responsible team.
 
 Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between

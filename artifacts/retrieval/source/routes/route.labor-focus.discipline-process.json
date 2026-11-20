@@ -1,0 +1,48 @@
+{
+  "id": "route.labor-focus.discipline-process",
+  "family": "labor",
+  "task_id": "task.labor-focus.discipline-process",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhan su"
+        ],
+        [
+          "thu thap chung cu",
+          "thong bao cho ai"
+        ],
+        [
+          "ky luat",
+          "chung cu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cuoc hop ky luat",
+          "hop ky luat"
+        ],
+        [
+          "thong bao truoc",
+          "noi dung gi",
+          "ai phai tham du",
+          "bao chua"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khong the tham du",
+          "khong xac nhan tham du"
+        ],
+        [
+          "cuoc hop",
+          "xu ly"
+        ]
+      ]
+    }
+  ]
+}

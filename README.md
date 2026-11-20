@@ -54,6 +54,45 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Labor rules, attendance and overtime - 2026-11-20
+
+On `ee662ec` plus the HRM working-tree changes, 88 tasks cover the 231
+requested questions using 80 chunks from four current document packages.
+Of these questions, 193 have a complete source-backed template, 37 give a
+partial answer with an explicit source limitation and one directs the
+employee to their own Workit record.
+
+The local HTTP and reducer source-fixture runner passed **1,185/1,185**
+turns across **1,143 cases**. This includes the **231 original questions**,
+**39 rephrasings** and **14 new conversation turns**, plus **901 existing
+turns**. The first rephrasing run passed 38 of 39. One routing correction
+brought that set to 39 of 39.
+The non-integration suite passed **1,321 tests**, with **1 skipped** and
+**59 deselected**. Catalog structure, reproducible assembly,
+all **1,528 source bindings** and the **22-file runtime inventory** passed.
+
+Deploy the bot and its generated catalogs together. PostgreSQL integration
+and authenticated Portal staging were not run. See the
+[staging verification](docs/conversations.md#deletion-and-verification).
+
+### Priority HRM topics and conversation routing - 2026-11-20
+
+On `ee662ec` plus this working tree, the pilot covers travel expenses, attendance,
+benefits and company vehicles. Current evidence gates topic options and
+settlement paperwork cites Article 8.3. A standalone new subject can replace
+the active request. A clear self-profile clause can receive a partial answer
+alongside a targeted policy clarification. Explicit lookup preserves empty
+evidence reasons. Runtime code and all three generated catalogs ship together.
+Existing schema 2 history remains readable. See the
+[staging checks](docs/conversations.md#deletion-and-verification).
+
+The final non-integration suite passed **1,321 tests**, with **1 skipped**
+and **59 deselected**. The focused check passed 90 tests. The question bank
+passed **901/901 turns across 867 cases** with source fixtures. Artifact
+build/check, catalog validation and the 22-file runtime inventory passed.
+PostgreSQL integration and authenticated Portal staging require their own
+configured environments and were not run.
+
 ### Seal procedures and evidence-backed topic suggestions - 2026-11-19
 
 On `84b8bec` plus the final working-tree changes, the non-integration suite

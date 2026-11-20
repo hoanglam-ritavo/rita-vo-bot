@@ -1,0 +1,18 @@
+{
+  "id": "route.labor-focus.pay-training",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-training",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cong ty cu di dao tao"
+        ],
+        [
+          "huong nguyen luong",
+          "duoc huong luong"
+        ]
+      ]
+    }
+  ]
+}

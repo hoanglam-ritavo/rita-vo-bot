@@ -1,0 +1,34 @@
+{
+  "id": "route.labor-focus.employer-termination",
+  "family": "resignation",
+  "task_id": "task.labor-focus.employer-termination",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cong ty"
+        ],
+        [
+          "don phuong cham dut hop dong"
+        ],
+        [
+          "truong hop nao",
+          "bao truoc bao lau",
+          "khong phai bao truoc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khong quay lai",
+          "khong tro lai"
+        ],
+        [
+          "sau thoi gian tam hoan",
+          "tu y bo viec"
+        ]
+      ]
+    }
+  ]
+}

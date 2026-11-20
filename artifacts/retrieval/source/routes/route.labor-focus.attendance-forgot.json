@@ -1,0 +1,38 @@
+{
+  "id": "route.labor-focus.attendance-forgot",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-forgot",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quen quet van tay",
+          "quen bam van tay"
+        ],
+        [
+          "luc vao lam",
+          "luc tan ca",
+          "can lam gi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phieu xac nhan ngay cong"
+        ],
+        [
+          "ai ky",
+          "gui ve"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "ai ký",
+    "cần giấy gì",
+    "cần chứng từ gì",
+    "phiếu gửi cho ai",
+    "gửi về đâu"
+  ]
+}

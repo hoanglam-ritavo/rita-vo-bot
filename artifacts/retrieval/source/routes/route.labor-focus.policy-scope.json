@@ -1,0 +1,44 @@
+{
+  "id": "route.labor-focus.policy-scope",
+  "family": "labor",
+  "task_id": "task.labor-focus.policy-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "noi quy lao dong cua rita vo",
+          "noi quy cua rita vo"
+        ],
+        [
+          "ap dung",
+          "tuan thu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "noi quy ap dung"
+        ],
+        [
+          "nhung cong ty",
+          "chi nhanh",
+          "dia diem"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu viec",
+          "thoi vu",
+          "hoc nghe",
+          "thuc tap"
+        ],
+        [
+          "tuan thu noi quy"
+        ]
+      ]
+    }
+  ]
+}

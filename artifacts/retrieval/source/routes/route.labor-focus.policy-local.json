@@ -1,0 +1,37 @@
+{
+  "id": "route.labor-focus.policy-local",
+  "family": "labor",
+  "task_id": "task.labor-focus.policy-local",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "noi quy chung"
+        ],
+        [
+          "quy dinh rieng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hai van ban noi bo"
+        ],
+        [
+          "khac nhau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "van ban nao ap dung"
+        ],
+        [
+          "cung mot viec"
+        ]
+      ]
+    }
+  ]
+}

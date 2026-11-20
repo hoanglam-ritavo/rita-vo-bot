@@ -50,12 +50,18 @@ class Card(Strict):
     excludes_any: list[str]
     sections: dict[Aspect, Section]
     context: ContextSpec | None = None
+    routed_only: bool = False
+    scope_limit: Literal['policy_source_limit', 'verify_operational_data'] | None = None
     related_aspects: dict[Aspect, str] = Field(default_factory=dict)
     discovery_terms: list[str] = Field(default_factory=list, max_length=24)
 
     @model_serializer(mode='wrap')
     def serialize_card(self, handler):
         data = handler(self)
+        if self.scope_limit is None:
+            data.pop('scope_limit', None)
+        if not self.routed_only:
+            data.pop('routed_only', None)
         if not self.related_aspects:
             data.pop('related_aspects', None)
         if not self.discovery_terms:
@@ -87,6 +93,8 @@ def validate_catalog(data, lexicon, lexicon_sha256, snapshot=None, *, root=REPOS
     for card in catalog.cards:
         if catalog.schema_version == 3 and card.context is None:
             raise ValueError('missing_context_disposition')
+        if card.scope_limit and (not card.routed_only or any(section.complete for section in card.sections.values())):
+            raise ValueError('invalid_policy_scope_limit')
         if (card.id in ids or not card.sections or not set(card.concept_ids) <= concepts
                 or any(not p.strip() or len(p) > 240 for p in card.aliases + card.requires_any + card.excludes_any)
                 or any(len(p.split()) < 2 or len(p) > 100 for p in card.discovery_terms)):

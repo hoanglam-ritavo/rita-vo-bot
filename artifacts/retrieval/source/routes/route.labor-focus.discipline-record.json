@@ -1,0 +1,41 @@
+{
+  "id": "route.labor-focus.discipline-record",
+  "family": "labor",
+  "task_id": "task.labor-focus.discipline-record",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bien ban hop ky luat"
+        ],
+        [
+          "tu choi ky",
+          "lap va ky"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thoi hieu xu ly ky luat"
+        ],
+        [
+          "bi mat kinh doanh",
+          "tai chinh",
+          "tai san"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quyet dinh ky luat"
+        ],
+        [
+          "tham quyen",
+          "phai gui cho ai"
+        ]
+      ]
+    }
+  ]
+}

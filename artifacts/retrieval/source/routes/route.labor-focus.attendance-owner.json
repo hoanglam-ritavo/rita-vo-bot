@@ -1,0 +1,32 @@
+{
+  "id": "route.labor-focus.attendance-owner",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-owner",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sua loi may",
+          "xuat du lieu cong",
+          "luu ho so"
+        ],
+        [
+          "xac nhan cong",
+          "chiu trach nhiem"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cac phieu nghi",
+          "phieu xac nhan cong"
+        ],
+        [
+          "gui vao ky nao",
+          "ghi nhan"
+        ]
+      ]
+    }
+  ]
+}

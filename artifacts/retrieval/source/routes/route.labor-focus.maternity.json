@@ -1,0 +1,55 @@
+{
+  "id": "route.labor-focus.maternity",
+  "family": "leave",
+  "task_id": "task.labor-focus.maternity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thai san"
+        ],
+        [
+          "truoc sinh",
+          "truoc va sau",
+          "thoi gian nghi thai san duoc tinh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "duong thai"
+        ],
+        [
+          "dieu kien dong",
+          "chi dinh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sinh doi",
+          "sinh nhieu con"
+        ],
+        [
+          "nghi thai san",
+          "tinh them"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bhxh"
+        ],
+        [
+          "sinh con"
+        ],
+        [
+          "dieu kien tham gia"
+        ]
+      ]
+    }
+  ]
+}

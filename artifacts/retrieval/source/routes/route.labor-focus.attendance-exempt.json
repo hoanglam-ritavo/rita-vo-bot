@@ -1,0 +1,33 @@
+{
+  "id": "route.labor-focus.attendance-exempt",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-exempt",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khu vuc chua co may",
+          "khu vuc khong co may"
+        ],
+        [
+          "ngay cong",
+          "cham cong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khong phai cham cong bang may",
+          "mien quet van tay"
+        ],
+        [
+          "cap quan ly",
+          "ngoai le",
+          "giai trinh",
+          "ai xac nhan"
+        ]
+      ]
+    }
+  ]
+}

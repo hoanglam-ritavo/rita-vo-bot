@@ -1,0 +1,48 @@
+{
+  "id": "route.labor-focus.leave-approval",
+  "family": "leave",
+  "task_id": "task.labor-focus.leave-approval",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xin nghi"
+        ],
+        [
+          "ai duyet o tung cap",
+          "tong giam doc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "duyet nghi"
+        ],
+        [
+          "bao them",
+          "chu tich hoi dong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ho so nghi phep"
+        ],
+        [
+          "bo phan nao luu",
+          "ai luu",
+          "luu o dau"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "ai duyệt",
+    "ai lưu hồ sơ",
+    "ai ký",
+    "lưu ở đâu",
+    "hồ sơ do ai lưu"
+  ]
+}

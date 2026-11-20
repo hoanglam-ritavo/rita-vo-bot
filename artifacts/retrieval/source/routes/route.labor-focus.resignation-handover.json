@@ -1,0 +1,58 @@
+{
+  "id": "route.labor-focus.resignation-handover",
+  "family": "resignation",
+  "task_id": "task.labor-focus.resignation-handover",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghi viec"
+        ],
+        [
+          "ban giao cong viec",
+          "thiet bi chia khoa",
+          "ban giao cho ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chua hoan tat ban giao"
+        ],
+        [
+          "kiem ke",
+          "quyen loi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau khi nghi"
+        ],
+        [
+          "bao mat tai lieu",
+          "chi phi dao tao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi sai thoi han bao truoc",
+          "vi pham bao truoc"
+        ],
+        [
+          "nghia vu boi thuong",
+          "de cap"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "bàn giao cho ai",
+    "cần bàn giao gì",
+    "chưa bàn giao thì sao"
+  ]
+}

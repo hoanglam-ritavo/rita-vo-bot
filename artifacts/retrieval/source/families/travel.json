@@ -11,6 +11,27 @@
     "travel-invoices",
     "travel-lodging",
     "travel-request",
-    "travel-settlement"
+    "travel-settlement",
+    "travel-scope"
+  ],
+  "clarifications": [
+    {
+      "requires_all": [
+        [
+          "gặp đối tác",
+          "gặp khách hàng",
+          "mời khách",
+          "mời đối tác"
+        ],
+        [
+          "hoàn trả",
+          "hoàn tiền",
+          "hoàn lại",
+          "thanh toán lại",
+          "lấy lại tiền"
+        ]
+      ],
+      "prompt": "Khoản bạn đã chi là chi phí tiếp khách hay phát sinh trong chuyến công tác? Bạn có thể nêu loại chi phí để mình hướng dẫn phần có căn cứ."
+    }
   ]
 }

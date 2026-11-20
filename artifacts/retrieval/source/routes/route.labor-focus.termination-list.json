@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.termination-list",
+  "family": "resignation",
+  "task_id": "task.labor-focus.termination-list",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "truong hop nao",
+          "cac truong hop"
+        ],
+        [
+          "dan den cham dut hop dong",
+          "cham dut hop dong lao dong theo noi quy"
+        ]
+      ]
+    }
+  ]
+}

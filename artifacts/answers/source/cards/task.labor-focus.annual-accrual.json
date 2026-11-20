@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.annual-accrual",
+  "label": "Thời gian được tính tích lũy phép năm",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Thời gian được tính tích lũy phép năm"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về thời gian được tính tích lũy phép năm?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.annual-accrual",
+          "text": "Thời gian học nghề, tập nghề hoặc thử việc được tính nếu sau đó tiếp tục làm. Nghỉ riêng có lương, nghỉ thai sản BHXH và nghỉ không lương được chấp thuận tối đa 1 tháng cộng dồn mỗi năm được tính. Tai nạn lao động hoặc bệnh nghề nghiệp tối đa 6 tháng và ốm đau tối đa 2 tháng mỗi năm. Thời gian ngừng việc không do lỗi và đình chỉ được kết luận không vi phạm hoặc không bị kỷ luật cũng được tính theo điều kiện của nội quy.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 9,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "8e09d2b1362976a674b25020576e6d6825fd89c195bb4cd94523b9dea85261d5",
+              "quote": "Nội quy lao động — Điều 9.2: thời gian tính phép gồm học nghề/tập nghề/thử việc nếu tiếp tục làm; nghỉ riêng có lương; nghỉ không lương được đồng ý tối đa 1 tháng cộng dồn/năm; tai nạn lao động/bệnh nghề nghiệp tối đa 6 tháng; ốm đau tối đa 2 tháng/năm; nghỉ thai sản BHXH; nhiệm vụ đại diện lao động theo luật; ngừng/nghỉ không do lỗi; đình chỉ sau được kết luận không vi phạm hoặc không bị kỷ luật. Nghỉ thai sản thuộc thời gian được tính phép theo nguồn.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

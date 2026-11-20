@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.attendance-discipline",
+  "label": "Biên bản vi phạm chấm công",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Biên bản vi phạm chấm công"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về biên bản vi phạm chấm công?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.attendance-discipline",
+          "text": "Cứ 3 lần vi phạm cộng dồn trong năm lập một biên bản. Biên bản lần 1 và 2 lần lượt nhắc nhở. Lần 3 kéo dài nâng lương 6 tháng và không xét thưởng tháng 13. Lần 4, thông báo nêu chấm dứt hợp đồng. Đây là mô tả trong thông báo, việc xử lý hồ sơ cụ thể còn cần xác minh quy trình và căn cứ áp dụng.",
+          "refs": [
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 11,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "bd8713c68352fa6012ff34ba4d8046f02ddbba2527dbe368d22f3499aa354eef",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nV.3. Đối với các trường hợp Vi phạm: cứ 03 lần vi phạm cộng dồn trong năm sẽ bị lập 01 biên bản\nHình thức xử phạt vi phạm kỷ luật về quy định chấm công như sau:\n- Biên bản vi phạm lần 1: nhắc nhở lần 1.\n- Biên bản vi phạm lần 2: nhắc nhở lần 2.\n- Biên bản vi phạm lần 3: kéo dài thời hạn nâng lương 06 tháng và không xét thưởng lương tháng 13.\n- Biên bản vi phạm lần 4: chấm dứt hợp đồng lao động.\nLưu ý: Tất cả các biểu mẫu, đơn nghỉ phép…. đều phải có xác nhận của cấp quản lý",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

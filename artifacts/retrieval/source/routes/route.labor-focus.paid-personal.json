@@ -1,0 +1,41 @@
+{
+  "id": "route.labor-focus.paid-personal",
+  "family": "leave",
+  "task_id": "task.labor-focus.paid-personal",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ket hon"
+        ],
+        [
+          "huong luong",
+          "nghi rieng bao nhieu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bo me minh",
+          "bo me vo chong",
+          "vo chong hoac con mat"
+        ],
+        [
+          "nghi bao nhieu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi viec rieng"
+        ],
+        [
+          "bao truoc",
+          "bao cho quan ly"
+        ]
+      ]
+    }
+  ]
+}

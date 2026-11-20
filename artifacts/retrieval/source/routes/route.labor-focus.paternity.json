@@ -1,0 +1,23 @@
+{
+  "id": "route.labor-focus.paternity",
+  "family": "leave",
+  "task_id": "task.labor-focus.paternity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vo sinh con",
+          "che do nghi cua chong"
+        ],
+        [
+          "ngay nghi rieng",
+          "che do bhxh",
+          "sinh thuong",
+          "sinh mo",
+          "sau khi sinh",
+          "trong khoang nao"
+        ]
+      ]
+    }
+  ]
+}

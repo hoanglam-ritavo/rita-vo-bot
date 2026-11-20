@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.safety-cleaning",
+  "label": "Vệ sinh nơi làm việc",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Vệ sinh nơi làm việc"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về vệ sinh nơi làm việc?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.safety-cleaning",
+          "text": "Vệ sinh bàn và khu vực làm việc trước và sau giờ, vệ sinh máy móc trước và sau khi dùng. Rác và phế liệu đưa đúng chỗ, giữ môi trường làm việc sạch và gọn.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 39,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "687f1062958851d317ce89fde61a235b7d1a7e6cef47489ecbc43bb6b7efef7c",
+              "quote": "Nội quy lao động — Điều 16: vệ sinh máy móc trước/sau dùng, bàn/nơi làm việc trước/sau giờ; đổ rác, phế liệu đúng chỗ, không xả rác/khạc nhổ; giữ gọn sạch, tham gia bảo vệ môi trường nơi làm việc.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

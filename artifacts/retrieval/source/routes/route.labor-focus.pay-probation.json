@@ -1,0 +1,18 @@
+{
+  "id": "route.labor-focus.pay-probation",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-probation",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "luong thu viec"
+        ],
+        [
+          "muc luong chinh thuc",
+          "xac dinh the nao"
+        ]
+      ]
+    }
+  ]
+}

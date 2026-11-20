@@ -1,0 +1,32 @@
+{
+  "id": "route.labor-focus.social-insurance",
+  "family": "labor",
+  "task_id": "task.labor-focus.social-insurance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dong bao hiem"
+        ],
+        [
+          "can cu",
+          "ty le dong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quyen loi nao"
+        ],
+        [
+          "bhxh"
+        ],
+        [
+          "bhyt",
+          "that nghiep"
+        ]
+      ]
+    }
+  ]
+}

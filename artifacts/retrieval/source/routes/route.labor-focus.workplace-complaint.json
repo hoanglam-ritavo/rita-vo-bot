@@ -1,0 +1,29 @@
+{
+  "id": "route.labor-focus.workplace-complaint",
+  "family": "labor",
+  "task_id": "task.labor-focus.workplace-complaint",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thac mac ve cong",
+          "luong hoac ky luat"
+        ],
+        [
+          "gui cho ai truoc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chua giai quyet khieu nai"
+        ],
+        [
+          "chuyen tiep",
+          "dung thoi han"
+        ]
+      ]
+    }
+  ]
+}

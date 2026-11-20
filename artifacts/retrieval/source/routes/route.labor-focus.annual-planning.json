@@ -1,0 +1,41 @@
+{
+  "id": "route.labor-focus.annual-planning",
+  "family": "leave",
+  "task_id": "task.labor-focus.annual-planning",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ke hoach nghi phep"
+        ],
+        [
+          "gui cho ai",
+          "lap"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lich nghi da dang ky"
+        ],
+        [
+          "cao diem",
+          "sap xep"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi noi lien",
+          "nghi noi le"
+        ],
+        [
+          "phep nam",
+          "le tet"
+        ]
+      ]
+    }
+  ]
+}

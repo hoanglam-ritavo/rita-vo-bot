@@ -147,7 +147,16 @@ def test_current_catalog_inventory_and_authored_aliases():
     snapshot = corpus_snapshot()
     assert {(row.document_id, row.chunk_index) for row in catalog.coverage} == {
         (c['document_id'], c['chunk_index']) for c in snapshot['chunks']}
+    from src.retrieval.policy import RetrievalPolicy
+    policy = RetrievalPolicy()
+    policy.start()
+    assert policy.catalog is not None
+    focused_tasks = {route.task_id for route in policy.catalog.routes if route.question_terms}
+    assert focused_tasks == {card.id for card in catalog.cards if card.routed_only}
     for card in catalog.cards:
         cards, ambiguous = select_cards(card.aliases[0], catalog, lexicon)
-        assert card.id in {c.id for c in cards}
-        assert ambiguous or len(cards) == 1
+        if card.routed_only:
+            assert card.id not in {c.id for c in cards}
+        else:
+            assert card.id in {c.id for c in cards}
+            assert ambiguous or len(cards) == 1

@@ -1,0 +1,29 @@
+{
+  "id": "route.labor-focus.resignation-no-notice",
+  "family": "resignation",
+  "task_id": "task.labor-focus.resignation-no-notice",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nguoi lao dong"
+        ],
+        [
+          "nghi viec ma khong phai bao truoc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi khong bao truoc"
+        ],
+        [
+          "bo tri sai cong viec",
+          "tra luong cham",
+          "quay roi"
+        ]
+      ]
+    }
+  ]
+}

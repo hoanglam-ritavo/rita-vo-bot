@@ -1,0 +1,45 @@
+{
+  "id": "route.labor-focus.attendance-device",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-device",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "may cham cong bi loi",
+          "khong nhan van tay",
+          "may cham cong khong nhan"
+        ],
+        [
+          "bao ai",
+          "thoi han",
+          "lam sao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "da quet van tay"
+        ],
+        [
+          "bang cong khong co du lieu",
+          "thieu du lieu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mat the cham cong",
+          "hong the cham cong",
+          "lam hong the cham cong"
+        ],
+        [
+          "bao ai",
+          "lam lai"
+        ]
+      ]
+    }
+  ]
+}

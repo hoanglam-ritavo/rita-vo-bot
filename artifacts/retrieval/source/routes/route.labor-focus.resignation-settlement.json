@@ -1,0 +1,22 @@
+{
+  "id": "route.labor-focus.resignation-settlement",
+  "family": "resignation",
+  "task_id": "task.labor-focus.resignation-settlement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khoan quyen loi",
+          "thanh toan quyen loi"
+        ],
+        [
+          "cham dut hop dong"
+        ],
+        [
+          "thoi han",
+          "keo dai"
+        ]
+      ]
+    }
+  ]
+}

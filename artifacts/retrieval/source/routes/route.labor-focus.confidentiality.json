@@ -1,0 +1,40 @@
+{
+  "id": "route.labor-focus.confidentiality",
+  "family": "labor",
+  "task_id": "task.labor-focus.confidentiality",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ma nguon",
+          "giai phap tao ra"
+        ],
+        [
+          "thuoc ve ai",
+          "qua trinh lam viec"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sao chep tai lieu cong ty"
+        ],
+        [
+          "ra ngoai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ban sao tai lieu"
+        ],
+        [
+          "dung xong",
+          "xu ly"
+        ]
+      ]
+    }
+  ]
+}

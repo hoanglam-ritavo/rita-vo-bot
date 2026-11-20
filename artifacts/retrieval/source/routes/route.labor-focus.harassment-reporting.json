@@ -1,0 +1,68 @@
+{
+  "id": "route.labor-focus.harassment-reporting",
+  "family": "labor",
+  "task_id": "task.labor-focus.harassment-reporting",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bi quay roi",
+          "chung kien viec do"
+        ],
+        [
+          "bao cho ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quan ly nhan duoc phan anh",
+          "nghi ngo co can cu"
+        ],
+        [
+          "lam gi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tiep nhan va xac minh",
+          "chua co don chinh thuc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xac minh"
+        ],
+        [
+          "phong nhan su",
+          "kiem soat noi bo",
+          "thoi han nao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nguoi bao cao"
+        ],
+        [
+          "danh tinh",
+          "danh du",
+          "tra dua",
+          "thien chi"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "chưa có đơn thì sao",
+    "khi chưa có đơn chính thức thì sao",
+    "báo cho ai",
+    "có được giữ bí mật không"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "route.labor-focus.resignation-notice",
+  "family": "resignation",
+  "task_id": "task.labor-focus.resignation-notice",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "muon nghi viec"
+        ],
+        [
+          "gui don cho ai",
+          "nop don"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bao truoc bao lau"
+        ],
+        [
+          "hop dong khong xac dinh thoi han"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thoi han bao truoc"
+        ],
+        [
+          "12 den 36 thang",
+          "duoi 12 thang"
+        ]
+      ]
+    }
+  ]
+}

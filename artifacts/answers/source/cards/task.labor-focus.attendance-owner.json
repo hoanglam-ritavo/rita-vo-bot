@@ -1,0 +1,66 @@
+{
+  "id": "task.labor-focus.attendance-owner",
+  "label": "Trách nhiệm và kỳ nộp chứng từ chấm công",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Trách nhiệm và kỳ nộp chứng từ chấm công"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về trách nhiệm và kỳ nộp chứng từ chấm công?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.labor-focus.attendance-owner",
+          "text": "IT kiểm tra và sửa lỗi máy. HCNS xuất và lưu dữ liệu công. Trưởng Phòng/Ban hoặc quản lý trực tiếp xác nhận công bổ sung. Nhân viên gửi phiếu nghỉ, xác nhận công và phiếu đi công tác về HCNS theo kỳ chấm công của đơn vị. Nguồn không nêu một ngày nộp cố định cho mọi đơn vị.",
+          "refs": [
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 13,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "1f0aa87aa88564e185b0b1af2a5080eb2cb013675654a73941a758c50c553b45",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nVI. TRÁCH NHIỆM CÁC PHÒNG/ BAN LIÊN QUAN:\n1. Bộ phận IT: Chịu trách nhiệm liên kết dữ liệu các máy chấm công về máy chủ để Phòng HCNS xuất dữ liệu tuần, kiểm tra tình trạng máy quét vân tay và khắc phục lỗi (nếu có).\nVI.2. Phòng Hành chính Nhân sự có trách nhiệm:\n- Lấy dấu vân tay cho CBNV mới làm việc tại Văn phòng chính. Riêng tại các Chi nhánh, admin sẽ lấy vân tay.\n- Xuất dữ liệu chấm công từ máy chấm công, ghi nhận các trường hợp đi trễ về sớm.\n- Hàng tháng, lập Biên bản các trường hợp vi phạm theo quy định và thông báo đến cá nhân, quản lý phòng/ban, trình TGĐ ký duyệt.\n- Lưu trữ dữ liệu chấm công.",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            },
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 14,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "f89e776a2fd8bb057b32b4ee4849ffe4a933a9a0f33a0e5ef7d1e475f9b8c7f7",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nVI.3. Cán bộ nhân viên: Tuân thủ quy định chấm công, nộp phiếu nghỉ phép, phiếu đi công tác, phiếu xác nhận công, phiếu chấm công… về Phòng HCNS theo các kỳ chấm công đúng quy định.\nVI.4. Trưởng Phòng/ Ban hoặc cấp Quản lý trực tiếp: Có nhiệm vụ nhắc nhở, duyệt phép năm, công tác, xác nhận chấm công bổ sung, xem xét các trường hợp xin đi trễ, về sớm… của nhân viên mình phụ trách.",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Nguồn chưa nêu ngày nộp cố định cho mọi đơn vị."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

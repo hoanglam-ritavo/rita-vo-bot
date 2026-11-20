@@ -1,0 +1,42 @@
+{
+  "id": "route.labor-focus.safety-health",
+  "family": "labor",
+  "task_id": "task.labor-focus.safety-health",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phuong tien bao ho"
+        ],
+        [
+          "ai phai",
+          "lam mat"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hoa chat",
+          "dung moi"
+        ],
+        [
+          "hut thuoc",
+          "khu vuc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kham suc khoe",
+          "huan luyen an toan"
+        ],
+        [
+          "kiem dinh xe nang",
+          "to chuc"
+        ]
+      ]
+    }
+  ]
+}

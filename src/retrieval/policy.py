@@ -46,6 +46,23 @@ class Rule(Strict):
     execution_terms: list[str] = Field(default_factory=list, max_length=40)
 
 
+class ClarificationRule(Strict):
+    requires_all: list[list[str]] = Field(min_length=1, max_length=5)
+    prompt: str = Field(min_length=1, max_length=500)
+
+    @model_validator(mode='after')
+    def valid_terms(self):
+        if not self.prompt.strip() or any(
+                not 1 <= len(group) <= 20 or any(not folded(term) or len(term) > 100 for term in group)
+                for group in self.requires_all):
+            raise ValueError('invalid_clarification_rule')
+        return self
+
+
+class FamilyRule(Rule):
+    clarifications: list[ClarificationRule] = Field(default_factory=list, max_length=10)
+
+
 class DurationRange(Strict):
     minimum: float = Field(ge=0, allow_inf_nan=False)
     maximum: float | None = Field(default=None, ge=0, allow_inf_nan=False)
@@ -78,6 +95,24 @@ class Binding(Strict):
         return self
 
 
+@lru_cache(maxsize=8192)
+def question_term(term):
+    from src.type_b.tasks import normalized
+
+    return ' ' + normalized(term) + ' '
+
+
+class QuestionTerms(Strict):
+    requires_all: list[list[str]] = Field(min_length=1, max_length=6)
+
+    @model_validator(mode='after')
+    def valid_groups(self):
+        if any(not 1 <= len(group) <= 24 or any(not folded(term) or len(term) > 140 for term in group)
+               for group in self.requires_all):
+            raise ValueError('invalid_question_terms')
+        return self
+
+
 class Route(Strict):
     id: str = Field(pattern=r'^[a-z0-9.-]{1,100}$')
     family: str = 'leave'
@@ -91,6 +126,8 @@ class Route(Strict):
     requires_any: list[str] = Field(default_factory=list)
     excludes_any: list[str] = Field(default_factory=list)
     required_slots: list[Literal['system', 'subtype']] = Field(default_factory=list)
+    question_terms: list[QuestionTerms] = Field(default_factory=list, max_length=20)
+    follow_up_terms: list[str] = Field(default_factory=list, max_length=24)
     prompt: str = 'Bạn cần hướng dẫn nội dung nào và trên hệ thống nào?'
 
 
@@ -98,7 +135,7 @@ class Catalog(Strict):
     schema_version: Literal[1, 2]
     package_fingerprint: str
     lexicon_sha256: str
-    families: list[Rule]
+    families: list[FamilyRule]
     systems: list[Rule]
     subtypes: list[Rule]
     operations: list[Rule]
@@ -117,7 +154,7 @@ class Catalog(Strict):
         addresses = [(b.ref.document_id, b.ref.revision_id, b.ref.chunk_index, b.family,
                       tuple(b.task_ids), tuple(b.aspects)) for b in self.bindings]
         routes = [(r.family, r.subtype, r.operation, r.system, r.granularity)
-                  for r in self.routes if not r.aliases and not r.concept_ids]
+                  for r in self.routes if not r.aliases and not r.concept_ids and not r.question_terms]
         if len(set(addresses)) != len(addresses) or len(set(routes)) != len(routes):
             raise ValueError('ambiguous_policy_binding')
         allowed = {name: {r.id for r in getattr(self, name)}
@@ -134,10 +171,28 @@ class Catalog(Strict):
                     row.subtype is not None and row.subtype not in allowed['subtypes'] or
                     row.operation is not None and row.operation not in allowed['operations']):
                 raise ValueError('invalid_policy_rule')
+        focused_tasks = set()
         for route in self.routes:
-            if any(not p.strip() or len(p) > 240 for p in route.aliases + route.requires_any + route.excludes_any):
+            if any(not p.strip() or len(p) > 240 for p in
+                   route.aliases + route.requires_any + route.excludes_any + route.follow_up_terms):
                 raise ValueError('invalid_policy_phrase')
+            if route.question_terms:
+                if route.task_id in focused_tasks or route.required_slots or route.system or route.subtype:
+                    raise ValueError('invalid_focused_policy_route')
+                focused_tasks.add(route.task_id)
+            elif route.follow_up_terms:
+                raise ValueError('focused_follow_up_without_route')
         return self
+
+
+def clarification_for(catalog, question, family):
+    if catalog is None:
+        return None
+    text = folded(question)
+    prompts = {entry.prompt for rule in catalog.families if family is None or rule.id == family
+               for entry in rule.clarifications
+               if all(any(spans(text, term) for term in group) for group in entry.requires_all)}
+    return next(iter(prompts)) if len(prompts) == 1 else None
 
 
 def validate_catalog(data, lexicon, lexical_hash, answers=None):
@@ -156,7 +211,11 @@ def validate_catalog(data, lexicon, lexical_hash, answers=None):
                 not set(b.task_ids) <= cards.keys() for b in catalog.bindings):
             raise ValueError('unknown_policy_task')
         for route in catalog.routes:
-            for aspect, section in cards[route.task_id].sections.items():
+            card = cards[route.task_id]
+            if route.question_terms and (not card.routed_only or card.context is None
+                                         or card.context.mode != 'none' or 'overview' not in card.sections):
+                raise ValueError('invalid_focused_policy_card')
+            for aspect, section in card.sections.items():
                 addresses = {(r.document_id, r.revision_id, r.chunk_index)
                              for unit in section.units for r in unit.refs}
                 if len(addresses) > 10:
@@ -252,6 +311,7 @@ class RetrievalPolicy:
         self.fingerprint = None
         self._bindings = {}
         self._generic = []
+        self._focused = {}
 
     def start(self):
         self.close()
@@ -269,12 +329,41 @@ class RetrievalPolicy:
             for binding in catalog.bindings:
                 self._bindings.setdefault((binding.ref.document_id, binding.ref.revision_id,
                                            binding.ref.chunk_index), []).append(binding)
-            self._generic = [r for r in catalog.routes if r.aliases or r.concept_ids]
+            self._generic = [r for r in catalog.routes if (r.aliases or r.concept_ids) and not r.question_terms]
+            self._focused = {r.task_id: r for r in catalog.routes if r.question_terms}
             self.fingerprint = hashlib.sha256(raw).hexdigest()
             logger.info('retrieval_policy state=ready')
         except Exception:
             self.close()
             logger.warning('retrieval_policy state=unavailable')
+
+    def focused_task(self, question):
+        from src.type_b.tasks import normalized
+
+        text = ' ' + normalized(question) + ' '
+        matches = {}
+        for task_id, route in self._focused.items():
+            if any(question_term(term) in text for term in route.excludes_any):
+                continue
+            for rule in route.question_terms:
+                lengths = [max((len(term) for term in group if question_term(term) in text), default=0)
+                           for group in rule.requires_all]
+                if all(lengths):
+                    matches[task_id] = max(matches.get(task_id, 0), sum(lengths))
+        if not matches:
+            return None
+        best = max(matches.values())
+        winners = [task_id for task_id, score in matches.items() if score == best]
+        return winners[0] if len(winners) == 1 else None
+
+    def is_focused_task(self, task_id):
+        return task_id in self._focused
+
+    def focused_follow_up(self, task_id, normalized_question):
+        from src.type_b.tasks import normalized
+
+        route = self._focused.get(task_id)
+        return bool(route and any(normalized(term) == normalized_question for term in route.follow_up_terms))
 
     def analyze(self, question):
         if self.catalog is None:
@@ -347,7 +436,7 @@ class RetrievalPolicy:
         return query
 
     def structured_family(self, family):
-        return bool(self.catalog and any(route.family == family and not route.aliases and not route.concept_ids
+        return bool(self.catalog and any(route.family == family and not route.aliases and not route.concept_ids and not route.question_terms
                                         for route in self.catalog.routes))
 
     def resolve_generic(self, question, *, slots=None):
@@ -532,3 +621,4 @@ class RetrievalPolicy:
         self._bindings = {}
         self._generic = []
         self.fingerprint = None
+        self._focused = {}

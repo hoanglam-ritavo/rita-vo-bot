@@ -1,0 +1,34 @@
+{
+  "id": "route.labor-focus.annual-entitlement",
+  "family": "leave",
+  "task_id": "task.labor-focus.annual-entitlement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lam du mot nam",
+          "lam giua nam",
+          "vao lam giua nam",
+          "tham nien",
+          "khoa huan luyen"
+        ],
+        [
+          "phep nam",
+          "phep theo",
+          "ngay phep"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu viec",
+          "hoc nghe"
+        ],
+        [
+          "su dung phep nam"
+        ]
+      ]
+    }
+  ]
+}

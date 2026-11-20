@@ -1,0 +1,27 @@
+{
+  "id": "route.labor-focus.overtime-driver",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-driver",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lai xe",
+          "tai xe"
+        ],
+        [
+          "tinh toan bo thoi gian tang ca",
+          "lam xuyen suot",
+          "lam them theo yeu cau",
+          "ai xac nhan",
+          "khoan viec"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "ai ký",
+    "ai xác nhận",
+    "cần chữ ký của ai"
+  ]
+}

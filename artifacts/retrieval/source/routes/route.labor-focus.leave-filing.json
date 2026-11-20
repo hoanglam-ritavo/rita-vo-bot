@@ -1,0 +1,51 @@
+{
+  "id": "route.labor-focus.leave-filing",
+  "family": "leave",
+  "task_id": "task.labor-focus.leave-filing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nop don",
+          "gui don",
+          "xin nghi"
+        ],
+        [
+          "mot den ba ngay",
+          "bon den bay ngay",
+          "tren bay ngay",
+          "don truoc bao lau"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nop don nghi"
+        ],
+        [
+          "phan mem",
+          "cong web"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "don ma chua duoc duyet",
+          "tu nghi"
+        ],
+        [
+          "gui don",
+          "noi quy xu ly"
+        ]
+      ]
+    }
+  ],
+  "follow_up_terms": [
+    "nộp ở đâu",
+    "nộp trước bao lâu",
+    "cần nộp trước bao lâu",
+    "nộp bằng phần mềm được không"
+  ]
+}

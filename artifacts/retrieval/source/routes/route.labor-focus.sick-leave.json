@@ -1,0 +1,43 @@
+{
+  "id": "route.labor-focus.sick-leave",
+  "family": "leave",
+  "task_id": "task.labor-focus.sick-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cham con om",
+          "cham con dang om"
+        ],
+        [
+          "giay",
+          "chung nhan",
+          "ho so"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghi huong bhxh"
+        ],
+        [
+          "bi om",
+          "tru phep",
+          "giay gi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bi om"
+        ],
+        [
+          "khong tru phep",
+          "ngay nghi do co bi tru"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "route.labor-focus.workplace-visitors",
+  "family": "labor",
+  "task_id": "task.labor-focus.workplace-visitors",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tiep khach o dau",
+          "dua khach vao khu vuc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "di cung khach"
+        ],
+        [
+          "khach o cong ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khach"
+        ],
+        [
+          "o lai sau gio lam",
+          "tham quyen dong y"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "da thoi viec",
+          "dang bi dinh chi"
+        ],
+        [
+          "ra vao theo dien nao",
+          "lien he cong viec tai cong ty"
+        ]
+      ]
+    }
+  ]
+}

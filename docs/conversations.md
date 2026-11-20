@@ -218,6 +218,28 @@ disposing of old office assets, check that the suggested topic has no answer
 claims yet, then confirm it and check its citations. Use a disposable staging
 fixture to confirm that withdrawing the selected source prevents an answer.
 
+For the priority HRM topics, use an authenticated staging room with the published
+travel policy. Ask broadly about travel expenses and check the grounded topics
+for allowances, advances and settlement. Select settlement, ask what supporting
+documents are needed, and verify the citation to Article 8.3. Ask about personally
+paid client expenses and verify that the bot asks which type of expense applies.
+Then switch to company vehicles and missed clock-ins in the same room, and check
+that childbirth benefits ask for the applicable situation when it is ambiguous.
+In disposable staging data, withdraw a referenced publication and verify that a
+previously offered option requires current evidence. After a catalog refresh,
+verify that completed history is readable and old prompt IDs cannot activate
+outdated choices. Observe response reasons and discovery latency by family.
+
+For labor rules, attendance and overtime, deploy the bot with its matching
+answer and retrieval catalogs. In an authenticated staging room, exercise a
+general labor rule, a missed clock-in and an exact overtime threshold. Check
+that each claim links to the current source. Follow up with a short question
+about the paperwork, then change to another topic. Ask about today's personal
+timesheet to confirm that the reply directs the employee to their own Workit
+record. In disposable staging data, withdraw the source and exercise the same
+follow-up again. The reply must reflect source unavailability. Roll back the
+bot and its catalogs together.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

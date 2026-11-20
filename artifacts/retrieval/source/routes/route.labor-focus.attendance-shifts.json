@@ -1,0 +1,19 @@
+{
+  "id": "route.labor-focus.attendance-shifts",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-shifts",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "doi ca"
+        ],
+        [
+          "toi da",
+          "bao nhieu lan",
+          "ca thay doi"
+        ]
+      ]
+    }
+  ]
+}

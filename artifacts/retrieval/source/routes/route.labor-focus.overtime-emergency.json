@@ -1,0 +1,33 @@
+{
+  "id": "route.labor-focus.overtime-emergency",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-emergency",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "huy dong"
+        ],
+        [
+          "thien tai",
+          "hoa hoan",
+          "tinh huong khan cap"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lam them"
+        ],
+        [
+          "khan cap"
+        ],
+        [
+          "tinh mang",
+          "suc khoe"
+        ]
+      ]
+    }
+  ]
+}

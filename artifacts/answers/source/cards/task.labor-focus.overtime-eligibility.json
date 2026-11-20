@@ -1,0 +1,46 @@
+{
+  "id": "task.labor-focus.overtime-eligibility",
+  "label": "Trả tiền làm thêm theo vị trí và di chuyển công tác",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Trả tiền làm thêm theo vị trí và di chuyển công tác"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi cụ thể nội dung nào về trả tiền làm thêm theo vị trí và di chuyển công tác?",
+  "context": {
+    "mode": "none",
+    "note": "Source-bound guidance for the declared policy question."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.labor-focus.overtime-eligibility",
+          "text": "Nội quy liệt kê các nhóm công việc văn phòng, quản lý, làm theo chỉ tiêu/dự án và lương khoán trong diện không trả thêm giờ, trừ trường hợp Ban Tổng giám đốc phê duyệt. Di chuyển ngoài giờ khi đi công tác được xem xét trợ cấp theo chính sách công tác phí, theo phạm vi Điều 6.",
+          "refs": [
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 4,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "67314520b38601966e79b33c91373fbf2153add0fc67835f8d4b8c31816b7393",
+              "quote": "Nội quy lao động — Điều 6.4–5: trừ trường hợp Ban TGĐ phê duyệt theo khoản 1, nguồn không trả thêm giờ cho công việc văn phòng; văn phòng/quản lý và một số vị trí đặc thù khối sản xuất; vị trí theo chỉ tiêu/dự án/hội chợ, lương khoán/sản phẩm/năng suất, hoa hồng/thưởng doanh thu; người quản lý, điều hành, lập kế hoạch/tổ chức. Đi công tác được trợ cấp theo chính sách công tác phí thay tiền thêm giờ khi di chuyển ngoài giờ làm việc.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

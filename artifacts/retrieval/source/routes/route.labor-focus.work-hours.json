@@ -1,0 +1,90 @@
+{
+  "id": "route.labor-focus.work-hours",
+  "family": "labor",
+  "task_id": "task.labor-focus.work-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ca lam viec"
+        ],
+        [
+          "keo dai",
+          "bao nhieu gio"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "5 5 ngay",
+          "5,5 ngay"
+        ],
+        [
+          "6 ngay"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gio lam"
+        ],
+        [
+          "theo tuan",
+          "lich lam dac thu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lich lam viec"
+        ],
+        [
+          "nhu cau kinh doanh",
+          "thay doi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "roi vi tri",
+          "ra ngoai"
+        ],
+        [
+          "trong gio lam"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lich lam viec dac thu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ca lam binh thuong"
+        ],
+        [
+          "bao nhieu gio"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lich lam viec"
+        ],
+        [
+          "phe duyet",
+          "thong bao"
+        ]
+      ]
+    }
+  ]
+}

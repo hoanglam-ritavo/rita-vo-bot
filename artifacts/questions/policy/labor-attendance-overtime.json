@@ -1,0 +1,6248 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.labor-attendance-overtime",
+  "description": "Fixed 231-question workplace policy coverage set with source-bound expectations.",
+  "cases": [
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-01",
+      "title": "PV-01 — Phạm vi áp dụng nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy lao động của Rita Võ áp dụng cho những ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Phạm vi áp dụng nội quy. Cần đối chiếu đơn vị sử dụng lao động khi hỏi phạm vi riêng của chi nhánh hoặc địa điểm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-02",
+      "title": "PV-02 — Phạm vi áp dụng nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc, thời vụ, học nghề và thực tập có phải tuân thủ nội quy không?",
+          "expectation": "Trả lời đủ trọng tâm theo Phạm vi áp dụng nội quy. Cần đối chiếu đơn vị sử dụng lao động khi hỏi phạm vi riêng của chi nhánh hoặc địa điểm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-03",
+      "title": "PV-03 — Phạm vi áp dụng nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy áp dụng cho những công ty, chi nhánh và địa điểm nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Phạm vi áp dụng nội quy. Cần đối chiếu đơn vị sử dụng lao động khi hỏi phạm vi riêng của chi nhánh hoặc địa điểm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-04",
+      "title": "PV-04 — Hiệu lực nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-effective"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy có hiệu lực từ ngày nào, và căn cứ nào xác định ngày đó?",
+          "expectation": "Trả lời đủ trọng tâm theo Hiệu lực nội quy. Nguồn chưa cung cấp ngày nộp hoặc ngày chấp thuận để xác định chính xác ngày hiệu lực."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-05",
+      "title": "PV-05 — Hiệu lực nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-effective"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tháng trên bìa khác với ngày ký thì nên dựa vào thông tin nào để xác định hiệu lực?",
+          "expectation": "Trả lời đủ trọng tâm theo Hiệu lực nội quy. Nguồn chưa cung cấp ngày nộp hoặc ngày chấp thuận để xác định chính xác ngày hiệu lực."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-06",
+      "title": "PV-06 — Quy định riêng và văn bản thay thế",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-local"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phòng ban có thể ban hành quy định riêng khác với nội quy chung không?",
+          "expectation": "Trả lời đủ trọng tâm theo Quy định riêng và văn bản thay thế. Quan hệ thay thế cụ thể cần được xác minh theo từng văn bản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-07",
+      "title": "PV-07 — Quy định riêng và văn bản thay thế",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-local"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu hai văn bản nội bộ quy định khác nhau về cùng một việc thì cần kiểm tra gì để biết văn bản nào áp dụng?",
+          "expectation": "Trả lời đủ trọng tâm theo Quy định riêng và văn bản thay thế. Quan hệ thay thế cụ thể cần được xác minh theo từng văn bản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pv-08",
+      "title": "PV-08 — Nơi tra cứu nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.policy-location"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên có thể tra cứu nội quy và các lần cập nhật ở đâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Nơi tra cứu nội quy. Nguồn chưa nêu đường dẫn của bản nội quy đang áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-01",
+      "title": "GL-01 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Một ca làm việc bình thường kéo dài bao nhiêu giờ?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-02",
+      "title": "GL-02 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Những công việc nào làm 5,5 ngày một tuần và những công việc nào làm 6 ngày?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-03",
+      "title": "GL-03 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu công ty bố trí giờ làm theo tuần thì giới hạn giờ làm bình thường là bao nhiêu?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-04",
+      "title": "GL-04 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai xây dựng, phê duyệt và thông báo lịch làm việc đặc thù?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-05",
+      "title": "GL-05 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có thể thay đổi lịch làm việc khi nhu cầu kinh doanh thay đổi không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-06",
+      "title": "GL-06 — Giờ làm việc và lịch làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.work-hours"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên có thể rời vị trí hoặc ra ngoài trong giờ làm khi nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Giờ làm việc và lịch làm. Kiểm tra lịch làm việc đã công bố cho vị trí cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-07",
+      "title": "GL-07 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm ca ngày liên tục thì được nghỉ giữa ca bao lâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-08",
+      "title": "GL-08 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm ca đêm thì thời gian nghỉ giữa ca khác ca ngày thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-09",
+      "title": "GL-09 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên bảo vệ hoặc an ninh có thể rời vị trí để nghỉ giữa ca khi nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-10",
+      "title": "GL-10 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Mỗi tuần được nghỉ ít nhất bao nhiêu ngày, và ngày nghỉ có thể luân phiên không?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-11",
+      "title": "GL-11 — Nghỉ giữa ca và nghỉ hằng tuần",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.regular-rest"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu ngày nghỉ hằng tuần trùng ngày lễ thì nghỉ bù khi nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ giữa ca và nghỉ hằng tuần."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-12",
+      "title": "GL-12 — Số ngày nghỉ lễ Tết",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.holiday-days"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy quy định số ngày nghỉ hưởng nguyên lương cho từng dịp lễ, Tết như thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày nghỉ lễ Tết. Lịch nghỉ cụ thể từng năm cần thông báo riêng của công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-13",
+      "title": "GL-13 — Số ngày nghỉ lễ Tết",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.holiday-days"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lịch nghỉ Tết của một năm cụ thể có thể xác định từ nội quy hay cần thông báo riêng?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày nghỉ lễ Tết. Lịch nghỉ cụ thể từng năm cần thông báo riêng của công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.gl-14",
+      "title": "GL-14 — Số ngày nghỉ lễ Tết",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.holiday-days"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lao động nước ngoài có thêm ngày nghỉ cho Tết truyền thống và Quốc khánh của nước họ không?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày nghỉ lễ Tết. Lịch nghỉ cụ thể từng năm cần thông báo riêng của công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-01",
+      "title": "PN-01 — Số ngày và quyền sử dụng phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-entitlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm đủ một năm thì được bao nhiêu ngày phép năm?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày và quyền sử dụng phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-02",
+      "title": "PN-02 — Số ngày và quyền sử dụng phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-entitlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Vào làm giữa năm thì phép năm được tính theo tỷ lệ thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày và quyền sử dụng phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-03",
+      "title": "PN-03 — Số ngày và quyền sử dụng phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-entitlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm việc liên tục bao lâu thì được cộng thêm ngày phép theo thâm niên?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày và quyền sử dụng phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-04",
+      "title": "PN-04 — Số ngày và quyền sử dụng phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-entitlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đang thử việc, học nghề hoặc tham gia khóa huấn luyện thì có được sử dụng phép năm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Số ngày và quyền sử dụng phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-05",
+      "title": "PN-05 — Thời gian được tính tích lũy phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-accrual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu thử việc hoặc học nghề xong rồi tiếp tục làm việc thì thời gian đó có được tính tích lũy phép không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời gian được tính tích lũy phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-06",
+      "title": "PN-06 — Thời gian được tính tích lũy phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-accrual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ riêng hưởng lương, nghỉ không lương hoặc nghỉ thai sản có được tính vào thời gian tích lũy phép không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời gian được tính tích lũy phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-07",
+      "title": "PN-07 — Thời gian được tính tích lũy phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-accrual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ ốm, nghỉ do tai nạn lao động hoặc bệnh nghề nghiệp được tính phép năm trong giới hạn nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời gian được tính tích lũy phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-08",
+      "title": "PN-08 — Thời gian được tính tích lũy phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-accrual"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian ngừng việc không do lỗi của nhân viên hoặc bị đình chỉ rồi được kết luận không vi phạm có được tính phép không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời gian được tính tích lũy phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-09",
+      "title": "PN-09 — Lập và điều chỉnh lịch phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-planning"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên phải lập kế hoạch nghỉ phép và gửi cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Lập và điều chỉnh lịch phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-10",
+      "title": "PN-10 — Lập và điều chỉnh lịch phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-planning"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có thể sắp xếp lại lịch nghỉ đã đăng ký trong giai đoạn cao điểm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Lập và điều chỉnh lịch phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-11",
+      "title": "PN-11 — Lập và điều chỉnh lịch phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-planning"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nghỉ nối liền với kỳ lễ, Tết thì những ngày đó có bị tính vào phép năm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Lập và điều chỉnh lịch phép năm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-12",
+      "title": "PN-12 — Chuyển và hết hạn phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-carry"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Được chuyển tối đa bao nhiêu ngày phép năm cũ sang năm sau?",
+          "expectation": "Trả lời đủ trọng tâm theo Chuyển và hết hạn phép năm. Nguồn về phép cũ không đủ để xác định cách thanh toán phép khi chấm dứt hợp đồng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-13",
+      "title": "PN-13 — Chuyển và hết hạn phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-carry"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phải dùng phép cũ trước ngày nào, và phần còn lại sau thời hạn đó được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Chuyển và hết hạn phép năm. Nguồn về phép cũ không đủ để xác định cách thanh toán phép khi chấm dứt hợp đồng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-14",
+      "title": "PN-14 — Chuyển và hết hạn phép năm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.annual-carry"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quy định về phép cũ hết hạn có nói đến việc thanh toán phép còn dư khi nghỉ việc không?",
+          "expectation": "Trả lời đủ trọng tâm theo Chuyển và hết hạn phép năm. Nguồn về phép cũ không đủ để xác định cách thanh toán phép khi chấm dứt hợp đồng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-15",
+      "title": "PN-15 — Thời hạn và kênh nộp đơn nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-filing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Xin nghỉ từ một đến ba ngày thì phải nộp đơn trước bao lâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn và kênh nộp đơn nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-16",
+      "title": "PN-16 — Thời hạn và kênh nộp đơn nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-filing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Xin nghỉ từ bốn đến bảy ngày hoặc trên bảy ngày thì thời hạn báo trước khác nhau thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn và kênh nộp đơn nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-17",
+      "title": "PN-17 — Thời hạn và kênh nộp đơn nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-filing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có thể nộp đơn nghỉ qua phần mềm hoặc cổng web không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn và kênh nộp đơn nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-18",
+      "title": "PN-18 — Báo nghỉ đột xuất và bổ sung hồ sơ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-emergency"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu có việc đột xuất hoặc bị ốm trước giờ làm, tôi phải báo cho ai và muộn nhất khi nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo nghỉ đột xuất và bổ sung hồ sơ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-19",
+      "title": "PN-19 — Báo nghỉ đột xuất và bổ sung hồ sơ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-emergency"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi bị ốm và không tự báo được, người thân có thể báo thay không?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo nghỉ đột xuất và bổ sung hồ sơ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-20",
+      "title": "PN-20 — Báo nghỉ đột xuất và bổ sung hồ sơ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-emergency"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi nghỉ đột xuất quay lại làm việc, tôi phải nộp đơn và bổ sung chứng từ gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo nghỉ đột xuất và bổ sung hồ sơ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-21",
+      "title": "PN-21 — Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-approval"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên, trưởng phòng, giám đốc và tổng giám đốc xin nghỉ thì ai duyệt ở từng cấp?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-22",
+      "title": "PN-22 — Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-approval"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý đã được duyệt nghỉ có cần báo thêm cho Ban Tổng giám đốc hoặc Chủ tịch Hội đồng thành viên không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-23",
+      "title": "PN-23 — Thời hạn và kênh nộp đơn nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-filing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đã gửi đơn mà chưa được duyệt, tự nghỉ thì nội quy xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn và kênh nộp đơn nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.pn-24",
+      "title": "PN-24 — Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.leave-approval"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hồ sơ nghỉ phép đã được duyệt do bộ phận nào lưu?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền duyệt và nơi lưu hồ sơ nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-01",
+      "title": "BH-01 — Nghỉ riêng hưởng nguyên lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bản thân kết hôn hoặc con kết hôn thì được nghỉ riêng bao nhiêu ngày hưởng lương?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ riêng hưởng nguyên lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-02",
+      "title": "BH-02 — Nghỉ riêng hưởng nguyên lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bố mẹ mình, bố mẹ vợ/chồng, vợ/chồng hoặc con mất thì được nghỉ bao nhiêu ngày?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ riêng hưởng nguyên lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-03",
+      "title": "BH-03 — Điều kiện nghỉ không lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.unpaid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Cha mẹ hoặc anh chị em ruột kết hôn thì có thể xin nghỉ theo diện nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện nghỉ không lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-04",
+      "title": "BH-04 — Điều kiện nghỉ không lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.unpaid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ông bà hoặc anh chị em ruột mất thì nội quy quy định loại nghỉ nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện nghỉ không lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-05",
+      "title": "BH-05 — Nghỉ riêng hưởng nguyên lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ việc riêng có cần báo trước cho quản lý trực tiếp không?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ riêng hưởng nguyên lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-06",
+      "title": "BH-06 — Điều kiện nghỉ không lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.unpaid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đã hết phép năm thì tôi có thể xin nghỉ không lương không, và ai phê duyệt?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện nghỉ không lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-07",
+      "title": "BH-07 — Điều kiện nghỉ không lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.unpaid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu bị bệnh hoặc tai nạn nhưng thiếu chứng từ hoặc đã vượt số ngày nghỉ thì có thể xin nghỉ theo diện nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện nghỉ không lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-08",
+      "title": "BH-08 — Điều kiện nghỉ không lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.unpaid-personal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tự nghỉ không lương khi quản lý chưa đồng ý có thể ảnh hưởng gì đến lương hoặc kỷ luật?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện nghỉ không lương."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-09",
+      "title": "BH-09 — Nghỉ trong giờ khi hành kinh hoặc nuôi con nhỏ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.women-breaks"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lao động nữ trong thời gian hành kinh được bố trí nghỉ trong giờ làm thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ trong giờ khi hành kinh hoặc nuôi con nhỏ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-10",
+      "title": "BH-10 — Nghỉ trong giờ khi hành kinh hoặc nuôi con nhỏ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.women-breaks"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lao động nữ đang nuôi con dưới 12 tháng được nghỉ trong giờ làm thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ trong giờ khi hành kinh hoặc nuôi con nhỏ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-11",
+      "title": "BH-11 — Điều kiện BHXH và thời gian thai sản",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Theo nội quy, điều kiện tham gia BHXH để hưởng chế độ khi sinh con là gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện BHXH và thời gian thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-12",
+      "title": "BH-12 — Điều kiện BHXH và thời gian thai sản",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trường hợp phải nghỉ dưỡng thai theo chỉ định thì điều kiện đóng BHXH có khác không?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện BHXH và thời gian thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-13",
+      "title": "BH-13 — Điều kiện BHXH và thời gian thai sản",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nghỉ thai sản trước và sau khi sinh được tính thế nào, và nghỉ trước sinh tối đa bao lâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện BHXH và thời gian thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-14",
+      "title": "BH-14 — Điều kiện BHXH và thời gian thai sản",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sinh đôi hoặc sinh nhiều con thì thời gian nghỉ thai sản được tính thêm thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện BHXH và thời gian thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-15",
+      "title": "BH-15 — Nghỉ không lương sau thai sản",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.maternity-unpaid"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi hết thời gian thai sản, tôi có thể xin nghỉ thêm không lương trong bao lâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ không lương sau thai sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-16",
+      "title": "BH-16 — Chứng từ nghỉ ốm hoặc chăm con ốm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.sick-leave"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi bị ốm thì cần giấy gì để nghỉ hưởng BHXH, và ngày nghỉ đó có bị trừ phép năm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Chứng từ nghỉ ốm hoặc chăm con ốm. Mức trợ cấp của từng hồ sơ cần được xác minh theo dữ liệu và quy định áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-17",
+      "title": "BH-17 — Chứng từ nghỉ ốm hoặc chăm con ốm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.sick-leave"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi cần nghỉ chăm con ốm thì cần xin loại giấy chứng nhận nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Chứng từ nghỉ ốm hoặc chăm con ốm. Mức trợ cấp của từng hồ sơ cần được xác minh theo dữ liệu và quy định áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-18",
+      "title": "BH-18 — Nghỉ khi vợ sinh con",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi vợ sinh con, ngày nghỉ riêng theo nội quy và chế độ BHXH khác nhau thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ khi vợ sinh con. Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-19",
+      "title": "BH-19 — Nghỉ khi vợ sinh con",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Theo tài liệu, chế độ nghỉ của chồng khác nhau thế nào giữa sinh thường, sinh mổ, sinh non và sinh nhiều con?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ khi vợ sinh con. Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.bh-20",
+      "title": "BH-20 — Nghỉ khi vợ sinh con",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.paternity"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trường hợp vợ sinh con thì thời gian nghỉ hưởng BHXH phải thực hiện trong khoảng nào sau khi sinh?",
+          "expectation": "Trả lời đủ trọng tâm theo Nghỉ khi vợ sinh con. Xác minh quan hệ giữa hai chế độ trước khi cộng ngày nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-01",
+      "title": "TP-01 — Trang phục, thẻ tên và kiểm tra ra vào",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-attire"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy yêu cầu gì về tác phong, trang phục và thẻ tên khi làm việc?",
+          "expectation": "Trả lời đủ trọng tâm theo Trang phục, thẻ tên và kiểm tra ra vào."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-02",
+      "title": "TP-02 — Trang phục, thẻ tên và kiểm tra ra vào",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-attire"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quên đeo thẻ hoặc không mặc đồng phục thì bảo vệ có thể từ chối cho vào không?",
+          "expectation": "Trả lời đủ trọng tâm theo Trang phục, thẻ tên và kiểm tra ra vào."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-03",
+      "title": "TP-03 — Trang phục, thẻ tên và kiểm tra ra vào",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-attire"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc có ngoại lệ nào về thẻ tên hoặc đồng phục không?",
+          "expectation": "Trả lời đủ trọng tâm theo Trang phục, thẻ tên và kiểm tra ra vào."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-04",
+      "title": "TP-04 — Trang phục, thẻ tên và kiểm tra ra vào",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-attire"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi ra vào công ty, nhân viên có phải phối hợp kiểm tra hành lý không?",
+          "expectation": "Trả lời đủ trọng tâm theo Trang phục, thẻ tên và kiểm tra ra vào."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-05",
+      "title": "TP-05 — Làm ngoài nơi làm việc và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-working-outside"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi gặp khách trong giờ làm thì phải báo ai và cần xác nhận gì để ra vào?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm ngoài nơi làm việc và ra vào ngoài giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-06",
+      "title": "TP-06 — Làm ngoài nơi làm việc và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-working-outside"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Muốn ở lại văn phòng sau giờ làm thì cần xin phép ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm ngoài nơi làm việc và ra vào ngoài giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-07",
+      "title": "TP-07 — Làm ngoài nơi làm việc và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-working-outside"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Muốn vào công ty vào ngày nghỉ, ngày lễ hoặc ngoài giờ thì cần ai chấp thuận?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm ngoài nơi làm việc và ra vào ngoài giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-08",
+      "title": "TP-08 — Tiếp khách và người đã thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tiếp khách ở đâu, và muốn đưa khách vào khu vực khác thì phải xin phép ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Tiếp khách và người đã thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-09",
+      "title": "TP-09 — Tiếp khách và người đã thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có phải đi cùng khách trong thời gian khách ở công ty không?",
+          "expectation": "Trả lời đủ trọng tâm theo Tiếp khách và người đã thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-10",
+      "title": "TP-10 — Tiếp khách và người đã thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khách cần ở lại sau giờ làm thì ai có thẩm quyền đồng ý?",
+          "expectation": "Trả lời đủ trọng tâm theo Tiếp khách và người đã thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-11",
+      "title": "TP-11 — Tiếp khách và người đã thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Người đã thôi việc hoặc đang bị đình chỉ muốn liên hệ công việc tại công ty thì ra vào theo diện nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Tiếp khách và người đã thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-12",
+      "title": "TP-12 — Đặt phòng họp qua lễ tân hoặc Hành chính",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-meeting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Muốn đặt phòng họp qua lễ tân hoặc Hành chính thì cần báo những thông tin gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Đặt phòng họp qua lễ tân hoặc Hành chính."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-13",
+      "title": "TP-13 — Sử dụng dụng cụ và tài sản công ty",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-tools"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có thể dùng máy tính hoặc dụng cụ của đồng nghiệp khi chưa được đồng ý không?",
+          "expectation": "Trả lời đủ trọng tâm theo Sử dụng dụng cụ và tài sản công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-14",
+      "title": "TP-14 — Rượu bia và chất kích thích tại nơi làm việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-alcohol"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy quy định thế nào về người vào nơi làm việc sau khi uống rượu bia hoặc sử dụng chất kích thích?",
+          "expectation": "Trả lời đủ trọng tâm theo Rượu bia và chất kích thích tại nơi làm việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tp-15",
+      "title": "TP-15 — Người cùng gia đình làm chung bộ phận",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-family"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Người cùng gia đình có thể làm chung một bộ phận không?",
+          "expectation": "Trả lời đủ trọng tâm theo Người cùng gia đình làm chung bộ phận."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-01",
+      "title": "AT-01 — Xử lý email, đường dẫn và USB đáng ngờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-information"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi gặp email, đường dẫn hoặc tệp đính kèm đáng ngờ thì nên báo bộ phận nào theo nội quy?",
+          "expectation": "Trả lời đủ trọng tâm theo Xử lý email, đường dẫn và USB đáng ngờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-02",
+      "title": "AT-02 — Xử lý email, đường dẫn và USB đáng ngờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-information"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trước khi dùng USB hoặc thiết bị lưu trữ trên máy công ty, nhân viên phải kiểm tra gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Xử lý email, đường dẫn và USB đáng ngờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-03",
+      "title": "AT-03 — An toàn thiết bị và lối thoát",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trước khi sử dụng máy móc hoặc thiết bị điện, nhân viên phải kiểm tra những gì?",
+          "expectation": "Trả lời đủ trọng tâm theo An toàn thiết bị và lối thoát."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-04",
+      "title": "AT-04 — An toàn thiết bị và lối thoát",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phát hiện nguy cơ tai nạn hoặc thiết bị mất an toàn thì phải báo cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo An toàn thiết bị và lối thoát."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-05",
+      "title": "AT-05 — An toàn thiết bị và lối thoát",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Người về cuối ca có trách nhiệm gì với điện, thiết bị, cửa văn phòng và kho?",
+          "expectation": "Trả lời đủ trọng tâm theo An toàn thiết bị và lối thoát."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-06",
+      "title": "AT-06 — An toàn thiết bị và lối thoát",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-equipment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có được để hàng hóa, vật liệu hoặc dụng cụ ở lối thoát hiểm và gần thiết bị chữa cháy không?",
+          "expectation": "Trả lời đủ trọng tâm theo An toàn thiết bị và lối thoát."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-07",
+      "title": "AT-07 — Bảo hộ, hóa chất và kiểm tra an toàn",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-health"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai phải sử dụng phương tiện bảo hộ, và nếu làm mất thì nội quy quy định thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Bảo hộ, hóa chất và kiểm tra an toàn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-08",
+      "title": "AT-08 — Bảo hộ, hóa chất và kiểm tra an toàn",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-health"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy quy định gì về hóa chất, dung môi và khu vực được hút thuốc?",
+          "expectation": "Trả lời đủ trọng tâm theo Bảo hộ, hóa chất và kiểm tra an toàn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-09",
+      "title": "AT-09 — Bảo hộ, hóa chất và kiểm tra an toàn",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-health"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty tổ chức khám sức khỏe, huấn luyện an toàn và kiểm định xe nâng như thế nào theo tài liệu?",
+          "expectation": "Trả lời đủ trọng tâm theo Bảo hộ, hóa chất và kiểm tra an toàn."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-10",
+      "title": "AT-10 — Vệ sinh nơi làm việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.safety-cleaning"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên có trách nhiệm gì về vệ sinh bàn làm việc, máy móc, rác và phế liệu?",
+          "expectation": "Trả lời đủ trọng tâm theo Vệ sinh nơi làm việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-11",
+      "title": "AT-11 — Mang tài sản công ty ra ngoài",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-outside"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Muốn mang thiết bị hoặc tài sản công ty ra ngoài thì cần sự chấp thuận của ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Mang tài sản công ty ra ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-12",
+      "title": "AT-12 — Quyền sở hữu và sao chép tài liệu công ty",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.confidentiality"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tài liệu, quy trình, mã nguồn hoặc giải pháp tạo ra trong quá trình làm việc thuộc về ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Quyền sở hữu và sao chép tài liệu công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-13",
+      "title": "AT-13 — Quyền sở hữu và sao chép tài liệu công ty",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.confidentiality"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào được sao chép tài liệu công ty ra ngoài phục vụ công việc?",
+          "expectation": "Trả lời đủ trọng tâm theo Quyền sở hữu và sao chép tài liệu công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-14",
+      "title": "AT-14 — Quyền sở hữu và sao chép tài liệu công ty",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.confidentiality"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi dùng xong bản sao tài liệu đã được phép mang ra ngoài thì phải xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Quyền sở hữu và sao chép tài liệu công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-15",
+      "title": "AT-15 — Thẩm quyền cung cấp thông tin công ty",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.company-publication"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai được phép cung cấp thông tin công ty cho báo chí, truyền thông hoặc bên thứ ba?",
+          "expectation": "Trả lời đủ trọng tâm theo Thẩm quyền cung cấp thông tin công ty."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.at-16",
+      "title": "AT-16 — Xử lý nguy cơ thất thoát hoặc lộ thông tin",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-incidents"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi phát hiện thất thoát tài sản hoặc nghi ngờ lộ thông tin công ty thì phải báo ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Xử lý nguy cơ thất thoát hoặc lộ thông tin. Nguồn chưa quy định một đầu mối riêng cho mọi vụ thất thoát tài sản."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-01",
+      "title": "QR-01 — Hành vi và phạm vi quấy rối tình dục",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy xác định những hành vi nào là quấy rối tình dục tại nơi làm việc?",
+          "expectation": "Trả lời đủ trọng tâm theo Hành vi và phạm vi quấy rối tình dục."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-02",
+      "title": "QR-02 — Hành vi và phạm vi quấy rối tình dục",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tin nhắn, cuộc gọi, chuyến công tác, buổi đào tạo hoặc xe đưa đón có thuộc phạm vi áp dụng không?",
+          "expectation": "Trả lời đủ trọng tâm theo Hành vi và phạm vi quấy rối tình dục."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-03",
+      "title": "QR-03 — Hành vi và phạm vi quấy rối tình dục",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-scope"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Một lời đùa, nhận xét hoặc lời mời lặp lại dù người nhận không mong muốn có thể thuộc diện nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hành vi và phạm vi quấy rối tình dục."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-04",
+      "title": "QR-04 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi bị quấy rối hoặc chứng kiến việc đó thì báo cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-05",
+      "title": "QR-05 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quản lý nhận được phản ánh hoặc có nghi ngờ có căn cứ thì phải làm gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-06",
+      "title": "QR-06 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có tiếp nhận và xác minh khi chưa có đơn chính thức không?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-07",
+      "title": "QR-07 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phòng Nhân sự và Kiểm soát nội bộ có vai trò gì trong quá trình xác minh?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-08",
+      "title": "QR-08 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy bảo vệ danh tính, danh dự và an toàn của người báo cáo như thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-09",
+      "title": "QR-09 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy xử lý việc trả đũa người báo cáo thiện chí như thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.qr-10",
+      "title": "QR-10 — Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.harassment-reporting"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi có kết quả xác minh, công ty tiến hành xử lý trong thời hạn nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Báo cáo và xác minh quấy rối."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-01",
+      "title": "HD-01 — Nộp và cập nhật hồ sơ nhân sự",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.personnel-records"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi được tuyển chính thức, tôi phải nộp hồ sơ cá nhân cho bộ phận nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp và cập nhật hồ sơ nhân sự."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-02",
+      "title": "HD-02 — Nộp và cập nhật hồ sơ nhân sự",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.personnel-records"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi đổi địa chỉ, giấy tờ hoặc thông tin cá nhân thì phải báo cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp và cập nhật hồ sơ nhân sự."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-03",
+      "title": "HD-03 — Thời hạn, kết thúc và đánh giá thử việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian thử việc tối đa khác nhau thế nào theo từng nhóm chức danh?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn, kết thúc và đánh giá thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-04",
+      "title": "HD-04 — Thời hạn, kết thúc và đánh giá thử việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trong thời gian thử việc, hai bên có thể kết thúc thỏa thuận mà không báo trước không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn, kết thúc và đánh giá thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-05",
+      "title": "HD-05 — Thời hạn, kết thúc và đánh giá thử việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nghỉ trong thời gian thử việc thì có phải bàn giao công việc và tài sản không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn, kết thúc và đánh giá thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-06",
+      "title": "HD-06 — Thời hạn, kết thúc và đánh giá thử việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.probation-term"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai đánh giá kết quả thử việc, và không đạt thì xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn, kết thúc và đánh giá thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-07",
+      "title": "HD-07 — Loại hợp đồng và các lần ký",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.contracts-terms"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hợp đồng xác định thời hạn và không xác định thời hạn khác nhau thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Loại hợp đồng và các lần ký."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-08",
+      "title": "HD-08 — Loại hợp đồng và các lần ký",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.contracts-terms"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy quy định gì về việc ký hợp đồng lần đầu và các lần tiếp theo?",
+          "expectation": "Trả lời đủ trọng tâm theo Loại hợp đồng và các lần ký."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-09",
+      "title": "HD-09 — Nội dung của hợp đồng lao động",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.contracts-contents"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Hợp đồng lao động phải có những thông tin gì về công việc, nơi làm, lương, giờ làm và bảo hiểm?",
+          "expectation": "Trả lời đủ trọng tâm theo Nội dung của hợp đồng lao động."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-10",
+      "title": "HD-10 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có thể tạm chuyển tôi sang công việc khác trong những trường hợp nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-11",
+      "title": "HD-11 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi điều chuyển, công ty phải báo trước bao lâu và thông báo những gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-12",
+      "title": "HD-12 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Mỗi năm có thể bị điều chuyển cộng dồn tối đa bao lâu trước khi cần đồng ý bằng văn bản?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-13",
+      "title": "HD-13 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu công việc tạm thời có lương thấp hơn thì lương được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.hd-14",
+      "title": "HD-14 — Điều kiện, báo trước và lương khi điều chuyển",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.temporary-transfer"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi không đồng ý làm công việc khác sau khi đã vượt giới hạn điều chuyển thì thời gian ngừng việc được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Điều kiện, báo trước và lương khi điều chuyển."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-01",
+      "title": "NV-01 — Các trường hợp chấm dứt hợp đồng",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.termination-list"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Có những trường hợp nào dẫn đến chấm dứt hợp đồng lao động theo nội quy?",
+          "expectation": "Trả lời đủ trọng tâm theo Các trường hợp chấm dứt hợp đồng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-02",
+      "title": "NV-02 — Nộp đơn và thời hạn báo trước khi chủ động nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi muốn nghỉ việc thì gửi đơn cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp đơn và thời hạn báo trước khi chủ động nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-03",
+      "title": "NV-03 — Nộp đơn và thời hạn báo trước khi chủ động nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi phải báo trước bao lâu nếu ký hợp đồng không xác định thời hạn?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp đơn và thời hạn báo trước khi chủ động nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-04",
+      "title": "NV-04 — Nộp đơn và thời hạn báo trước khi chủ động nghỉ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thời hạn báo trước thay đổi thế nào với hợp đồng có thời hạn từ 12 đến 36 tháng hoặc dưới 12 tháng?",
+          "expectation": "Trả lời đủ trọng tâm theo Nộp đơn và thời hạn báo trước khi chủ động nghỉ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-05",
+      "title": "NV-05 — Ngoại lệ người lao động không báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-no-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trong trường hợp nào người lao động có thể nghỉ việc mà không phải báo trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Ngoại lệ người lao động không báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-06",
+      "title": "NV-06 — Ngoại lệ người lao động không báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-no-notice"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bị bố trí sai công việc, trả lương chậm hoặc bị quấy rối thì nội quy quy định gì về việc nghỉ không báo trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Ngoại lệ người lao động không báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-07",
+      "title": "NV-07 — Công ty đơn phương chấm dứt và báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.employer-termination"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty có thể đơn phương chấm dứt hợp đồng trong những trường hợp nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Công ty đơn phương chấm dứt và báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-08",
+      "title": "NV-08 — Công ty đơn phương chấm dứt và báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.employer-termination"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi công ty đơn phương chấm dứt hợp đồng, phải báo trước bao lâu theo từng loại hợp đồng?",
+          "expectation": "Trả lời đủ trọng tâm theo Công ty đơn phương chấm dứt và báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-09",
+      "title": "NV-09 — Công ty đơn phương chấm dứt và báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.employer-termination"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào công ty có thể đơn phương chấm dứt hợp đồng mà không phải báo trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Công ty đơn phương chấm dứt và báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-10",
+      "title": "NV-10 — Công ty đơn phương chấm dứt và báo trước",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.employer-termination"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty xử lý thế nào nếu nhân viên không quay lại sau thời gian tạm hoãn hợp đồng hoặc tự ý bỏ việc?",
+          "expectation": "Trả lời đủ trọng tâm theo Công ty đơn phương chấm dứt và báo trước."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-11",
+      "title": "NV-11 — Bàn giao, bảo mật và cam kết khi thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-handover"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nghỉ việc, tôi phải bàn giao công việc, hồ sơ, thiết bị, chìa khóa, đồng phục và thẻ tên cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Bàn giao, bảo mật và cam kết khi thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-12",
+      "title": "NV-12 — Bàn giao, bảo mật và cam kết khi thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-handover"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu chưa hoàn tất bàn giao thì ai lập kiểm kê và quyền lợi khi nghỉ việc được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Bàn giao, bảo mật và cam kết khi thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-13",
+      "title": "NV-13 — Bàn giao, bảo mật và cam kết khi thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-handover"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sau khi nghỉ, tôi còn nghĩa vụ gì về bảo mật tài liệu hoặc chi phí đào tạo đã cam kết?",
+          "expectation": "Trả lời đủ trọng tâm theo Bàn giao, bảo mật và cam kết khi thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-14",
+      "title": "NV-14 — Bàn giao, bảo mật và cam kết khi thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-handover"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nghỉ sai thời hạn báo trước thì nội quy đề cập những nghĩa vụ bồi thường nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Bàn giao, bảo mật và cam kết khi thôi việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-15",
+      "title": "NV-15 — Trợ cấp thôi việc và trợ cấp thất nghiệp",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-allowances"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy phân biệt trợ cấp thôi việc và trợ cấp thất nghiệp thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trợ cấp thôi việc và trợ cấp thất nghiệp. Hồ sơ thực tế cần được đối chiếu với nguồn có hiệu lực và dữ liệu tham gia bảo hiểm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.nv-16",
+      "title": "NV-16 — Thời hạn thanh toán quyền lợi khi thôi việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.resignation-settlement"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Các khoản quyền lợi khi chấm dứt hợp đồng được thanh toán trong thời hạn nào, và khi nào thời hạn có thể kéo dài?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời hạn thanh toán quyền lợi khi thôi việc. Chưa thể xác định ngày thanh toán thực tế chỉ từ nội quy."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-01",
+      "title": "KL-01 — Hình thức và trường hợp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-levels"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy quy định các hình thức kỷ luật nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức và trường hợp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-02",
+      "title": "KL-02 — Hình thức và trường hợp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-levels"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào vi phạm có thể bị khiển trách, kéo dài thời hạn nâng lương, cách chức hoặc sa thải?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức và trường hợp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-03",
+      "title": "KL-03 — Hình thức và trường hợp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-levels"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tái phạm trong thời gian chưa được xóa kỷ luật có thể bị xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức và trường hợp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-04",
+      "title": "KL-04 — Hình thức và trường hợp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-levels"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tự ý bỏ việc bao nhiêu ngày có thể dẫn đến sa thải, và lý do nào được xem là chính đáng?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức và trường hợp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-05",
+      "title": "KL-05 — Thông báo, thành phần và bào chữa trong họp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phòng Nhân sự phải thu thập chứng cứ gì và thông báo cho ai trước khi xử lý kỷ luật?",
+          "expectation": "Trả lời đủ trọng tâm theo Thông báo, thành phần và bào chữa trong họp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-06",
+      "title": "KL-06 — Thông báo, thành phần và bào chữa trong họp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Cuộc họp kỷ luật phải được thông báo trước bao lâu, và thông báo cần có nội dung gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Thông báo, thành phần và bào chữa trong họp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-07",
+      "title": "KL-07 — Thông báo, thành phần và bào chữa trong họp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai phải tham dự họp kỷ luật, và nhân viên có quyền tự bào chữa hoặc nhờ người bào chữa không?",
+          "expectation": "Trả lời đủ trọng tâm theo Thông báo, thành phần và bào chữa trong họp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-08",
+      "title": "KL-08 — Thông báo, thành phần và bào chữa trong họp kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu một bên không thể tham dự hoặc không xác nhận tham dự thì cuộc họp được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thông báo, thành phần và bào chữa trong họp kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-09",
+      "title": "KL-09 — Biên bản, thời hiệu và quyết định kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-record"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Biên bản họp kỷ luật được lập và ký thế nào nếu có người từ chối ký?",
+          "expectation": "Trả lời đủ trọng tâm theo Biên bản, thời hiệu và quyết định kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-10",
+      "title": "KL-10 — Biên bản, thời hiệu và quyết định kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-record"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thời hiệu xử lý kỷ luật thông thường khác thế nào với vi phạm về tài chính, tài sản hoặc bí mật kinh doanh?",
+          "expectation": "Trả lời đủ trọng tâm theo Biên bản, thời hiệu và quyết định kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-11",
+      "title": "KL-11 — Biên bản, thời hiệu và quyết định kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-record"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai có thẩm quyền ra quyết định kỷ luật, và quyết định phải gửi cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Biên bản, thời hiệu và quyết định kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-12",
+      "title": "KL-12 — Tạm đình chỉ, tạm ứng và trở lại làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-suspension"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào công ty có thể tạm đình chỉ công việc để xác minh?",
+          "expectation": "Trả lời đủ trọng tâm theo Tạm đình chỉ, tạm ứng và trở lại làm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-13",
+      "title": "KL-13 — Tạm đình chỉ, tạm ứng và trở lại làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-suspension"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tạm đình chỉ tối đa bao lâu, và nhân viên được tạm ứng bao nhiêu lương trong thời gian đó?",
+          "expectation": "Trả lời đủ trọng tâm theo Tạm đình chỉ, tạm ứng và trở lại làm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-14",
+      "title": "KL-14 — Tạm đình chỉ, tạm ứng và trở lại làm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-suspension"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu hết thời gian đình chỉ mà không bị kỷ luật thì được nhận lại công việc và thanh toán lương thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Tạm đình chỉ, tạm ứng và trở lại làm."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-15",
+      "title": "KL-15 — Xóa và giảm thời hạn kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-clearance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào được xóa kỷ luật sau khiển trách, kéo dài nâng lương hoặc cách chức?",
+          "expectation": "Trả lời đủ trọng tâm theo Xóa và giảm thời hạn kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-16",
+      "title": "KL-16 — Xóa và giảm thời hạn kỷ luật",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-clearance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trường hợp nào có thể được xét giảm thời gian kéo dài nâng lương?",
+          "expectation": "Trả lời đủ trọng tâm theo Xóa và giảm thời hạn kỷ luật."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-17",
+      "title": "KL-17 — Kênh và thời hạn giải quyết khiếu nại",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-complaint"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi có thắc mắc về công, lương hoặc kỷ luật thì gửi cho ai trước?",
+          "expectation": "Trả lời đủ trọng tâm theo Kênh và thời hạn giải quyết khiếu nại."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-18",
+      "title": "KL-18 — Kênh và thời hạn giải quyết khiếu nại",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.workplace-complaint"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu quản lý hoặc Nhân sự chưa giải quyết khiếu nại đúng thời hạn thì chuyển tiếp cho ai?",
+          "expectation": "Trả lời đủ trọng tâm theo Kênh và thời hạn giải quyết khiếu nại."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-19",
+      "title": "KL-19 — Trách nhiệm vật chất, giá và ngoại lệ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm hỏng, làm mất tài sản hoặc tiêu hao vật tư quá định mức thì trách nhiệm bồi thường được xem xét thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm vật chất, giá và ngoại lệ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-20",
+      "title": "KL-20 — Trách nhiệm vật chất, giá và ngoại lệ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi xác định thiệt hại, công ty căn cứ vào giá bán, giá thay thế hay thiệt hại thực tế?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm vật chất, giá và ngoại lệ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-21",
+      "title": "KL-21 — Trách nhiệm vật chất, giá và ngoại lệ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-liability"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Những sự kiện khách quan nào được nội quy nêu như ngoại lệ về trách nhiệm bồi thường?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm vật chất, giá và ngoại lệ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-22",
+      "title": "KL-22 — Tường trình và thẩm quyền bồi thường",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quy trình xử lý bồi thường có cần bản tường trình và họp lập biên bản không?",
+          "expectation": "Trả lời đủ trọng tâm theo Tường trình và thẩm quyền bồi thường."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.kl-23",
+      "title": "KL-23 — Tường trình và thẩm quyền bồi thường",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.property-process"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai tiếp nhận, giám sát và ra quyết định về bồi thường thiệt hại?",
+          "expectation": "Trả lời đủ trọng tâm theo Tường trình và thẩm quyền bồi thường."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-01",
+      "title": "LT-01 — Kỳ trả lương và cách tính lương ngày hoặc giờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-cycle"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Công ty trả lương vào thời điểm nào, và nếu kỳ trả trùng ngày nghỉ hoặc ngày lễ thì xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Kỳ trả lương và cách tính lương ngày hoặc giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-02",
+      "title": "LT-02 — Kỳ trả lương và cách tính lương ngày hoặc giờ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-cycle"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lương ngày và lương giờ được tính từ lương tháng như thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Kỳ trả lương và cách tính lương ngày hoặc giờ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-03",
+      "title": "LT-03 — Mức lương thử việc",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-probation"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lương thử việc được xác định thế nào so với mức lương chính thức?",
+          "expectation": "Trả lời đủ trọng tâm theo Mức lương thử việc."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-04",
+      "title": "LT-04 — Hình thức chi phụ cấp và căn cứ xét tăng lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-allowances"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phụ cấp bữa trưa, giữa ca và các phụ cấp theo vị trí được chi trả theo hình thức nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức chi phụ cấp và căn cứ xét tăng lương. Cách chi các khoản phụ cấp ngoài bữa ăn phụ thuộc chính sách và hợp đồng áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-05",
+      "title": "LT-05 — Hình thức chi phụ cấp và căn cứ xét tăng lương",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-allowances"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai xét tăng lương, và nội quy nêu những căn cứ nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hình thức chi phụ cấp và căn cứ xét tăng lương. Cách chi các khoản phụ cấp ngoài bữa ăn phụ thuộc chính sách và hợp đồng áp dụng."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-06",
+      "title": "LT-06 — Căn cứ và điều kiện xét thưởng tháng 13",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-bonus"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thưởng tháng 13 căn cứ vào lương tháng nào và những điều kiện nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ và điều kiện xét thưởng tháng 13."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-07",
+      "title": "LT-07 — Căn cứ và điều kiện xét thưởng tháng 13",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-bonus"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu nghỉ việc trước thời điểm chi thưởng thì nội quy quy định việc xét thưởng tháng 13 thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ và điều kiện xét thưởng tháng 13."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-08",
+      "title": "LT-08 — Lương khi được cử đào tạo",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-training"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Được công ty cử đi đào tạo thì có được hưởng nguyên lương không?",
+          "expectation": "Trả lời đủ trọng tâm theo Lương khi được cử đào tạo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-09",
+      "title": "LT-09 — Các nhóm phúc lợi trong nội quy",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.pay-benefits"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy đề cập những nhóm phúc lợi nào và dẫn chiếu văn bản nào để xem điều kiện chi tiết?",
+          "expectation": "Trả lời đủ trọng tâm theo Các nhóm phúc lợi trong nội quy."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-10",
+      "title": "LT-10 — Căn cứ đóng và quyền lợi bảo hiểm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.social-insurance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy dùng mức lương nào làm căn cứ đóng bảo hiểm, và có liệt kê tỷ lệ đóng cụ thể không?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ đóng và quyền lợi bảo hiểm. Điều được dẫn không liệt kê tỷ lệ đóng cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.lt-11",
+      "title": "LT-11 — Căn cứ đóng và quyền lợi bảo hiểm",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.social-insurance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy đề cập những quyền lợi nào thuộc BHXH, BHYT và bảo hiểm thất nghiệp?",
+          "expectation": "Trả lời đủ trọng tâm theo Căn cứ đóng và quyền lợi bảo hiểm. Điều được dẫn không liệt kê tỷ lệ đóng cụ thể."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-01",
+      "title": "CC-01 — Đối tượng và thời gian chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-scope"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Những ai phải quét vân tay khi vào làm và khi ra về?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng và thời gian chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-02",
+      "title": "CC-02 — Đối tượng và thời gian chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-scope"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc và thời vụ có phải chấm công như nhân viên chính thức không?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng và thời gian chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-03",
+      "title": "CC-03 — Đối tượng và thời gian chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-scope"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Giờ chấm công căn cứ vào lịch làm việc nào của từng vị trí?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng và thời gian chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-04",
+      "title": "CC-04 — Miễn quét vân tay và giải trình công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-exempt"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khu vực chưa có máy chấm công thì ghi nhận ngày công thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Miễn quét vân tay và giải trình công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-05",
+      "title": "CC-05 — Miễn quét vân tay và giải trình công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-exempt"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Cấp quản lý nào không phải chấm công bằng máy, và ai duyệt các ngoại lệ khác?",
+          "expectation": "Trả lời đủ trọng tâm theo Miễn quét vân tay và giải trình công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-06",
+      "title": "CC-06 — Miễn quét vân tay và giải trình công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-exempt"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên được miễn quét vân tay phải giải trình công thế nào và ai xác nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Miễn quét vân tay và giải trình công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-07",
+      "title": "CC-07 — Đăng ký vân tay cho nhân viên mới",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-enroll"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên mới đến đâu để đăng ký vân tay ở văn phòng chính hoặc chi nhánh?",
+          "expectation": "Trả lời đủ trọng tâm theo Đăng ký vân tay cho nhân viên mới."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-08",
+      "title": "CC-08 — Quên chấm công và phiếu xác nhận ngày công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-forgot"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi quên quét vân tay lúc vào làm hoặc lúc tan ca thì cần làm gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-09",
+      "title": "CC-09 — Quên chấm công và phiếu xác nhận ngày công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-forgot"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Phiếu xác nhận ngày công cần ai ký và gửi về bộ phận nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Quên chấm công và phiếu xác nhận ngày công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-10",
+      "title": "CC-10 — Lỗi máy, thiếu dữ liệu hoặc mất thẻ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-device"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Máy chấm công bị lỗi hoặc không nhận vân tay thì báo ai, trong thời hạn nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Lỗi máy, thiếu dữ liệu hoặc mất thẻ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-11",
+      "title": "CC-11 — Lỗi máy, thiếu dữ liệu hoặc mất thẻ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-device"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi đã quét vân tay nhưng bảng công không có dữ liệu thì cần ai xác nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Lỗi máy, thiếu dữ liệu hoặc mất thẻ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-12",
+      "title": "CC-12 — Lỗi máy, thiếu dữ liệu hoặc mất thẻ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-device"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi mất hoặc làm hỏng thẻ chấm công thì phải báo ai và có thể cần làm lại thẻ không?",
+          "expectation": "Trả lời đủ trọng tâm theo Lỗi máy, thiếu dữ liệu hoặc mất thẻ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-13",
+      "title": "CC-13 — Ghi nhận công khi làm việc bên ngoài",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-external"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Sáng đi gặp khách bên ngoài trước giờ vào làm thì chấm công và xác nhận ngày công thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Ghi nhận công khi làm việc bên ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-14",
+      "title": "CC-14 — Ghi nhận công khi làm việc bên ngoài",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-external"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Chiều đi xử lý công việc bên ngoài rồi về sớm thì cần quét vân tay và nộp mẫu gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Ghi nhận công khi làm việc bên ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-15",
+      "title": "CC-15 — Ghi nhận công khi làm việc bên ngoài",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-external"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi công việc bên ngoài từ một ngày trở lên thì dùng phiếu đề xuất hay phiếu xác nhận công?",
+          "expectation": "Trả lời đủ trọng tâm theo Ghi nhận công khi làm việc bên ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-16",
+      "title": "CC-16 — Ghi nhận công khi làm việc bên ngoài",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-external"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Xác nhận qua email của quản lý có được chấp nhận cho phiếu công hoặc phiếu đi công tác không?",
+          "expectation": "Trả lời đủ trọng tâm theo Ghi nhận công khi làm việc bên ngoài."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-17",
+      "title": "CC-17 — Chấp thuận đi trễ, về sớm và cách đếm lượt",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-approved"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ hoặc về sớm vì việc công ty thì phải xin ai và có bị tính vi phạm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Chấp thuận đi trễ, về sớm và cách đếm lượt."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-18",
+      "title": "CC-18 — Chấp thuận đi trễ, về sớm và cách đếm lượt",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-approved"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ hoặc về sớm vì lý do cá nhân đã được duyệt thì được ghi nhận thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Chấp thuận đi trễ, về sớm và cách đếm lượt."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-19",
+      "title": "CC-19 — Chấp thuận đi trễ, về sớm và cách đếm lượt",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-approved"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quên chấm công và đi trễ/về sớm có được cộng chung số lần trong tháng không?",
+          "expectation": "Trả lời đủ trọng tâm theo Chấp thuận đi trễ, về sớm và cách đếm lượt."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-20",
+      "title": "CC-20 — Trừ công đến và trên 120 phút",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-threshold"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ hoặc về sớm đã được duyệt trong phạm vi cho phép thì bị trừ công theo thời gian thực tế hay theo bảng?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ công đến và trên 120 phút."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-21",
+      "title": "CC-21 — Trừ công đến và trên 120 phút",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-threshold"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đi trễ đúng 120 phút hoặc quá 120 phút thì cách ghi nhận công khác nhau thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ công đến và trên 120 phút."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-22",
+      "title": "CC-22 — Trừ công đến và trên 120 phút",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-threshold"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi nào đi trễ hoặc về sớm phải chuyển thành nghỉ phép năm?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ công đến và trên 120 phút."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-23",
+      "title": "CC-23 — Lựa chọn trừ khi vượt số lần chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-deductions"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Quên chấm công hoặc đi trễ/về sớm vượt số lần cho phép trong tháng thì có những phương án trừ nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Lựa chọn trừ khi vượt số lần chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-24",
+      "title": "CC-24 — Lựa chọn trừ khi vượt số lần chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-deductions"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu đã hết phép năm thì lần vượt giới hạn được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Lựa chọn trừ khi vượt số lần chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-25",
+      "title": "CC-25 — Lựa chọn trừ khi vượt số lần chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-deductions"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bảng trừ công áp dụng thế nào cho các khoảng 1–15, 16–30, 31–60 và 61–120 phút?",
+          "expectation": "Trả lời đủ trọng tâm theo Lựa chọn trừ khi vượt số lần chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-26",
+      "title": "CC-26 — Ví dụ quên chấm công và ba lần đi trễ",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-example"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ví dụ tôi quên chấm công một lần và đi trễ ba lần, mỗi lần 30 phút, tất cả đều được quản lý xác nhận, thì từng lần được ghi nhận thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Ví dụ quên chấm công và ba lần đi trễ."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-27",
+      "title": "CC-27 — Chấp thuận đi trễ, về sớm và cách đếm lượt",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-approved"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Đi trễ đã báo nhưng chưa được quản lý đồng ý có bị tính vi phạm không?",
+          "expectation": "Trả lời đủ trọng tâm theo Chấp thuận đi trễ, về sớm và cách đếm lượt."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-28",
+      "title": "CC-28 — Biên bản vi phạm chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-discipline"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bao nhiêu lần vi phạm cộng dồn trong năm thì lập một biên bản?",
+          "expectation": "Trả lời đủ trọng tâm theo Biên bản vi phạm chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-29",
+      "title": "CC-29 — Biên bản vi phạm chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-discipline"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Biên bản vi phạm chấm công từ lần đầu đến lần thứ tư được xử lý thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Biên bản vi phạm chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-30",
+      "title": "CC-30 — Giới hạn đổi ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-shifts"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên làm ca thay đổi được đổi ca tối đa bao nhiêu lần trong tháng?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn đổi ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-31",
+      "title": "CC-31 — Trách nhiệm và kỳ nộp chứng từ chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-owner"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ai chịu trách nhiệm sửa lỗi máy, xuất dữ liệu công, lưu hồ sơ và xác nhận công bổ sung?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm và kỳ nộp chứng từ chấm công. Nguồn chưa nêu ngày nộp cố định cho mọi đơn vị."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-32",
+      "title": "CC-32 — Trách nhiệm và kỳ nộp chứng từ chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-owner"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Các phiếu nghỉ, xác nhận công và đi công tác phải gửi vào kỳ nào để được ghi nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Trách nhiệm và kỳ nộp chứng từ chấm công. Nguồn chưa nêu ngày nộp cố định cho mọi đơn vị."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.cc-33",
+      "title": "CC-33 — Hiệu lực thông báo chấm công",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.attendance-effective"
+        ],
+        "document_ids": [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thông báo chấm công 02/2023/TB-HCNS có hiệu lực từ khi nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Hiệu lực thông báo chấm công."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-01",
+      "title": "TC-01 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khi phát sinh công việc cấp thiết, ai lập đề nghị tăng ca và ai phê duyệt?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-02",
+      "title": "TC-02 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Những vị trí hoặc bộ phận nào được nêu trong nội quy là đối tượng xem xét tăng ca?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-03",
+      "title": "TC-03 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu vị trí của tôi không nằm trong danh sách thì ai xem xét?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-04",
+      "title": "TC-04 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi tự ở lại làm thêm mà chưa có kế hoạch được duyệt thì nội quy quy định thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-05",
+      "title": "TC-05 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Giới hạn tăng ca thông thường theo ngày, tháng và năm là bao nhiêu?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-06",
+      "title": "TC-06 — Đối tượng, phê duyệt và giới hạn tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-policy"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trong những trường hợp nào có thể áp dụng giới hạn tăng ca cao hơn trong năm?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối tượng, phê duyệt và giới hạn tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-07",
+      "title": "TC-07 — Làm thêm trong tình huống khẩn cấp",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-emergency"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trường hợp huy động vì thiên tai, hỏa hoạn hoặc tình huống khẩn cấp khác tăng ca thông thường thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm thêm trong tình huống khẩn cấp."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-08",
+      "title": "TC-08 — Làm thêm trong tình huống khẩn cấp",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-emergency"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu làm thêm trong tình huống khẩn cấp có nguy cơ ảnh hưởng đến tính mạng hoặc sức khỏe thì nội quy quy định gì?",
+          "expectation": "Trả lời đủ trọng tâm theo Làm thêm trong tình huống khẩn cấp."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-09",
+      "title": "TC-09 — Trả tiền làm thêm theo vị trí và di chuyển công tác",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-eligibility"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên văn phòng, quản lý, làm theo dự án hoặc hưởng lương khoán được xem xét trả tiền làm thêm trong trường hợp nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trả tiền làm thêm theo vị trí và di chuyển công tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-10",
+      "title": "TC-10 — Trả tiền làm thêm theo vị trí và di chuyển công tác",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-eligibility"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Di chuyển ngoài giờ trong chuyến công tác được xử lý thế nào theo nội quy?",
+          "expectation": "Trả lời đủ trọng tâm theo Trả tiền làm thêm theo vị trí và di chuyển công tác."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-11",
+      "title": "TC-11 — Thời điểm bắt đầu tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-clock"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm thêm vào ngày làm việc bình thường thì bắt đầu tính từ lúc nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời điểm bắt đầu tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-12",
+      "title": "TC-12 — Thời điểm bắt đầu tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-clock"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Làm thêm vào ngày nghỉ hằng tuần hoặc ngày lễ thì tính từ mốc nào đến mốc nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời điểm bắt đầu tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-13",
+      "title": "TC-13 — Thời điểm bắt đầu tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-clock"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu lịch của tôi được nghỉ nửa ngày thứ Bảy, tăng ca chiều thứ Bảy bắt đầu tính từ mấy giờ?",
+          "expectation": "Trả lời đủ trọng tâm theo Thời điểm bắt đầu tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-14",
+      "title": "TC-14 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tăng ca từ 8 giờ đến 17 giờ thì trừ khoảng nghỉ nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-15",
+      "title": "TC-15 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu bắt đầu sau 17 giờ và kết thúc trước 22 giờ thì trừ bao nhiêu thời gian nghỉ?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-16",
+      "title": "TC-16 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu bắt đầu sau 17 giờ và làm qua 22 giờ thì khoảng nghỉ được trừ thế nào?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-17",
+      "title": "TC-17 — Giới hạn nguồn về mốc tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-boundary"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu kết thúc đúng 22 giờ thì tờ trình có nêu rõ áp dụng trường hợp nào không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn nguồn về mốc tăng ca. Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-18",
+      "title": "TC-18 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ví dụ tôi làm thêm từ 17 giờ 30 đến 21 giờ thì cần xác định gì để tính số giờ được ghi nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-19",
+      "title": "TC-19 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Ví dụ tôi làm thêm từ 18 giờ đến 23 giờ thì quy tắc nghỉ giữa ca nào được áp dụng?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-20",
+      "title": "TC-20 — Trừ thời gian nghỉ khi tính tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-breaks"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Thời gian nghỉ giữa ca có được tính vào giờ làm thêm hưởng lương không?",
+          "expectation": "Trả lời đủ trọng tâm theo Trừ thời gian nghỉ khi tính tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-21",
+      "title": "TC-21 — Giới hạn nguồn về mốc tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-boundary"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu chỉ tăng ca một phần ngày nghỉ hoặc bắt đầu muộn hơn khung giờ trong bảng thì tài liệu có hướng dẫn cách tính riêng không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn nguồn về mốc tăng ca. Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-22",
+      "title": "TC-22 — Tăng ca lái xe, giao nhận và xác nhận",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-driver"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lái xe hoặc lái xe kiêm giao nhận làm xuyên suốt thì khi nào được tính toàn bộ thời gian tăng ca?",
+          "expectation": "Trả lời đủ trọng tâm theo Tăng ca lái xe, giao nhận và xác nhận."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-23",
+      "title": "TC-23 — Tăng ca lái xe, giao nhận và xác nhận",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-driver"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tài xế làm thêm theo yêu cầu của trưởng bộ phận hoặc người sử dụng xe cần ai xác nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Tăng ca lái xe, giao nhận và xác nhận."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-24",
+      "title": "TC-24 — Tăng ca lái xe, giao nhận và xác nhận",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-driver"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Lái xe khoán việc và lái xe phục vụ lãnh đạo có thuộc diện tính tăng ca toàn thời gian không?",
+          "expectation": "Trả lời đủ trọng tâm theo Tăng ca lái xe, giao nhận và xác nhận."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-25",
+      "title": "TC-25 — Đối chiếu nội quy và tờ trình tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-sources"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nội quy và tờ trình tính tăng ca lần lượt quy định gì về đối tượng, phê duyệt và số giờ được ghi nhận?",
+          "expectation": "Trả lời đủ trọng tâm theo Đối chiếu nội quy và tờ trình tăng ca."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-26",
+      "title": "TC-26 — Giới hạn nguồn về mốc tăng ca",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-boundary"
+        ],
+        "document_ids": [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tờ trình có quy định mức tiền làm thêm theo ngày thường, ngày nghỉ hoặc ngày lễ không?",
+          "expectation": "Trả lời đủ trọng tâm theo Giới hạn nguồn về mốc tăng ca. Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.labor-attendance-overtime.tc-27",
+      "title": "TC-27 — Nơi xem công và xác minh tăng ca cá nhân",
+      "tags": [
+        "type-a",
+        "labor-231"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.overtime-personal-check"
+        ],
+        "document_ids": [
+          "bcc9e137-9dfe-479e-91a2-409ba042553f"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Căn cứ được xuất bản, hiện hành và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nếu tôi muốn biết số giờ tăng ca đã được duyệt và ghi nhận trong tháng này thì cần kiểm tra ở đâu?",
+          "expectation": "Trả lời đủ trọng tâm theo Nơi xem công và xác minh tăng ca cá nhân. Cần xác minh số giờ đã duyệt trên bảng công hoặc với HCNS."
+        }
+      ]
+    }
+  ]
+}

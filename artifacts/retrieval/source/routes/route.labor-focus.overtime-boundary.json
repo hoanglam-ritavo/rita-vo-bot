@@ -1,0 +1,42 @@
+{
+  "id": "route.labor-focus.overtime-boundary",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-boundary",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ket thuc dung 22 gio",
+          "dung 22 gio"
+        ],
+        [
+          "to trinh",
+          "truong hop"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mot phan ngay nghi",
+          "bat dau muon hon khung gio"
+        ],
+        [
+          "cach tinh",
+          "tang ca"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "to trinh"
+        ],
+        [
+          "muc tien lam them",
+          "tai lieu co huong dan cach tinh rieng"
+        ]
+      ]
+    }
+  ]
+}

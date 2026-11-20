@@ -1,0 +1,41 @@
+{
+  "id": "route.labor-focus.attendance-scope",
+  "family": "attendance",
+  "task_id": "task.labor-focus.attendance-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quet van tay"
+        ],
+        [
+          "vao lam",
+          "ra ve",
+          "nhung ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu viec va thoi vu",
+          "nhan vien thu viec"
+        ],
+        [
+          "cham cong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gio cham cong"
+        ],
+        [
+          "lich lam viec",
+          "vi tri"
+        ]
+      ]
+    }
+  ]
+}

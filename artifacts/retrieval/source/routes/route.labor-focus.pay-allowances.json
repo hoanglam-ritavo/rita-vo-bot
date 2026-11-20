@@ -1,0 +1,31 @@
+{
+  "id": "route.labor-focus.pay-allowances",
+  "family": "labor",
+  "task_id": "task.labor-focus.pay-allowances",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phu cap bua trua",
+          "phu cap giua ca"
+        ],
+        [
+          "hinh thuc nao",
+          "chi tra"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ai xet tang luong",
+          "xet tang luong"
+        ],
+        [
+          "can cu nao",
+          "noi quy neu"
+        ]
+      ]
+    }
+  ]
+}

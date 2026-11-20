@@ -1,0 +1,59 @@
+{
+  "id": "route.labor-focus.overtime-policy",
+  "family": "labor",
+  "task_id": "task.labor-focus.overtime-policy",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "de nghi tang ca"
+        ],
+        [
+          "ai lap",
+          "ai phe duyet",
+          "cap thiet"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "doi tuong xem xet tang ca"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vi tri cua toi"
+        ],
+        [
+          "khong nam trong danh sach"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "o lai lam them"
+        ],
+        [
+          "chua co ke hoach",
+          "duoc duyet"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gioi han tang ca"
+        ],
+        [
+          "theo ngay",
+          "trong nam",
+          "cao hon"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.labor-focus",
+  "turns": [
+    {
+      "case_id": "q.conversation.labor-focus.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-forgot"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Khi quên quét vân tay, lập phiếu xác nhận ngày công, xin chữ ký Trưởng Phòng/Ban hoặc quản lý trực tiếp và chuyển về HCNS."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "925f5d6905c25847b9e1435aaf571d78cdb4d7ab28b5e7988ff56351f5b10438"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.001",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-forgot"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Khi quên quét vân tay, lập phiếu xác nhận ngày công, xin chữ ký Trưởng Phòng/Ban hoặc quản lý trực tiếp và chuyển về HCNS."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "925f5d6905c25847b9e1435aaf571d78cdb4d7ab28b5e7988ff56351f5b10438"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.001",
+      "turn": 2,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-forgot"
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "amount"
+      ],
+      "claims": "none",
+      "fallback_reasons": [
+        "answer_section_unavailable"
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.001",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.pay-probation"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu lương thử việc ít nhất 85% lương của công việc chính thức và không thấp hơn mức tối thiểu được dẫn chiếu."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "974fdb4180b2fa574a690be056d188447c30afa6f390bb03152ae9450de30db7"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-breaks"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tờ trình nêu ca 08:00–17:00 trừ khoảng 12:00–13:00. Ca bắt đầu sau 17:00 và kết thúc trước 22:00 trừ 30 phút. Ca bắt đầu sau 17:00 và kết thúc sau 22:00 trừ 1 giờ. Thời gian nghỉ không tính vào giờ hưởng lương. Để áp dụng cho một lượt làm thêm, xác nhận ngày, giờ bắt đầu/kết thúc, diện áp dụng và chứng từ duyệt. Với 17:30–21:00 là nhánh trước 22:00, còn 18:00–23:00 thuộc nhánh sau 22:00 nếu các điều kiện khác phù hợp."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "446d718a96ced958e4c8b445aa4116200abd5f448b53b9c779db963f0fc10f53"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.002",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-breaks"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tờ trình nêu ca 08:00–17:00 trừ khoảng 12:00–13:00. Ca bắt đầu sau 17:00 và kết thúc trước 22:00 trừ 30 phút. Ca bắt đầu sau 17:00 và kết thúc sau 22:00 trừ 1 giờ. Thời gian nghỉ không tính vào giờ hưởng lương. Để áp dụng cho một lượt làm thêm, xác nhận ngày, giờ bắt đầu/kết thúc, diện áp dụng và chứng từ duyệt. Với 17:30–21:00 là nhánh trước 22:00, còn 18:00–23:00 thuộc nhánh sau 22:00 nếu các điều kiện khác phù hợp."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "446d718a96ced958e4c8b445aa4116200abd5f448b53b9c779db963f0fc10f53"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.002",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.overtime-boundary"
+      ],
+      "required_source_groups": [
+        [
+          "06a4bc95-5d83-40a2-bb67-4dd6676945de"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Tờ trình mô tả ca sau 17:00 kết thúc trước hoặc sau 22:00, chưa nêu mốc kết thúc đúng 22:00. Nguồn nêu cách tính theo giờ làm và các khung nghỉ, chưa nêu cách trừ riêng cho mọi ca một phần ngày hoặc bắt đầu ngoài các khung. Văn bản này không quy định mức tiền làm thêm theo loại ngày. Xác minh với HCNS nếu tình huống nằm ngoài các trường hợp mô tả."
+      ],
+      "required_limitations": [
+        "Tờ trình chưa nêu cách xử lý đúng 22:00, mọi ca ngoài khung hoặc mức tiền."
+      ],
+      "required_citations": [
+        {
+          "document_id": "06a4bc95-5d83-40a2-bb67-4dd6676945de",
+          "revision_id": "85db0e0c-1671-413b-91e1-9fba42908d23",
+          "quote_sha256": "446d718a96ced958e4c8b445aa4116200abd5f448b53b9c779db963f0fc10f53"
+        }
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.harassment-reporting"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Báo ngay Phòng Nhân sự nếu nghi bị quấy rối. Quản lý hoặc người liên quan cũng phải báo khi chứng kiến, được báo hoặc nghi có căn cứ. Nhân sự và Kiểm soát nội bộ điều tra, xác minh hoặc giám sát, kể cả khi chưa có đơn chính thức. Công ty bảo mật, bảo vệ danh dự và an toàn các bên, chống trả đũa người báo thiện chí. Tài liệu nêu tiến hành xử lý trong 3 ngày sau khi có kết quả xác minh."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "4fa988a703c504b71a372353eb13c1a8fd0b19a20d63f0cf40dfc187211823f6"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.003",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.harassment-reporting"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Báo ngay Phòng Nhân sự nếu nghi bị quấy rối. Quản lý hoặc người liên quan cũng phải báo khi chứng kiến, được báo hoặc nghi có căn cứ. Nhân sự và Kiểm soát nội bộ điều tra, xác minh hoặc giám sát, kể cả khi chưa có đơn chính thức. Công ty bảo mật, bảo vệ danh dự và an toàn các bên, chống trả đũa người báo thiện chí. Tài liệu nêu tiến hành xử lý trong 3 ngày sau khi có kết quả xác minh."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "4fa988a703c504b71a372353eb13c1a8fd0b19a20d63f0cf40dfc187211823f6"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.004",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.attendance-forgot"
+      ],
+      "required_source_groups": [
+        [
+          "c9973704-0f00-4562-9320-132befb6d1c1"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Khi quên quét vân tay, lập phiếu xác nhận ngày công, xin chữ ký Trưởng Phòng/Ban hoặc quản lý trực tiếp và chuyển về HCNS."
+      ],
+      "required_citations": [
+        {
+          "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+          "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+          "quote_sha256": "925f5d6905c25847b9e1435aaf571d78cdb4d7ab28b5e7988ff56351f5b10438"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.004",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "employee_fields": [],
+      "fixture": "withdrawn",
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.probation-term"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Nội quy nêu thời gian thử việc tối đa 180 ngày với quản lý doanh nghiệp, 60 ngày với chức danh cần từ cao đẳng, 30 ngày với nhóm trung cấp hoặc kỹ thuật, và 6 ngày làm việc với công việc khác. Trong thời gian thử việc, mỗi bên có thể hủy mà không báo trước hoặc bồi thường, nhân viên vẫn phải bàn giao. Cuối kỳ, Trưởng bộ phận hoặc Tổng giám đốc cùng Nhân sự đánh giá. Nếu không đạt thì chấm dứt theo nội quy.",
+        "Nội quy nêu lương thử việc ít nhất 85% lương của công việc chính thức và không thấp hơn mức tối thiểu được dẫn chiếu."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "9315badea6a62861fe45548abfaf5565cba5e278e16560c2098c71d0ff0bae34"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "974fdb4180b2fa574a690be056d188447c30afa6f390bb03152ae9450de30db7"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.leave-approval"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Quản lý trực tiếp duyệt nhân viên. Tổng giám đốc duyệt trưởng phòng, phó giám đốc, giám đốc và phó tổng giám đốc. Chủ tịch Hội đồng thành viên duyệt tổng giám đốc. Quản lý từ phó phòng trở lên đã được duyệt còn báo Ban Tổng giám đốc và Chủ tịch trước khi nghỉ theo kênh nội quy nêu. Phòng Nhân sự lưu hồ sơ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "cbe7650039252a24e74a2fc8b4c3ea02946c46ff5be04088ded0a40e692cd4e0"
+        }
+      ]
+    },
+    {
+      "case_id": "q.conversation.labor-focus.006",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.labor-focus.leave-approval"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "expected_aspects": [
+        "overview"
+      ],
+      "claims": "required",
+      "expected_policy_claim_texts": [
+        "Quản lý trực tiếp duyệt nhân viên. Tổng giám đốc duyệt trưởng phòng, phó giám đốc, giám đốc và phó tổng giám đốc. Chủ tịch Hội đồng thành viên duyệt tổng giám đốc. Quản lý từ phó phòng trở lên đã được duyệt còn báo Ban Tổng giám đốc và Chủ tịch trước khi nghỉ theo kênh nội quy nêu. Phòng Nhân sự lưu hồ sơ."
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "cbe7650039252a24e74a2fc8b4c3ea02946c46ff5be04088ded0a40e692cd4e0"
+        }
+      ]
+    }
+  ]
+}

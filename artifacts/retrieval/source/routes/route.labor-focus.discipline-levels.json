@@ -1,0 +1,49 @@
+{
+  "id": "route.labor-focus.discipline-levels",
+  "family": "labor",
+  "task_id": "task.labor-focus.discipline-levels",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hinh thuc ky luat nao"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cach chuc",
+          "khien trach",
+          "sa thai"
+        ],
+        [
+          "khi nao vi pham",
+          "tai pham",
+          "ly do nao duoc xem la chinh dang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tu y bo viec"
+        ],
+        [
+          "co the dan den sa thai",
+          "ly do nao duoc xem la chinh dang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tai pham"
+        ],
+        [
+          "chua duoc xoa ky luat"
+        ]
+      ]
+    }
+  ]
+}

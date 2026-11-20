@@ -519,6 +519,24 @@
       "group_id": "policy.business-expansion",
       "case_count": 416,
       "turn_count": 416
+    },
+    {
+      "path": "policy/labor-attendance-overtime.json",
+      "group_id": "policy.labor-attendance-overtime",
+      "cases": 231,
+      "turns": 231
+    },
+    {
+      "path": "policy/labor-attendance-overtime-holdout.json",
+      "group_id": "policy.labor-attendance-overtime-holdout",
+      "cases": 39,
+      "turns": 39
+    },
+    {
+      "path": "conversation/labor-focus.json",
+      "group_id": "conversation.labor-focus",
+      "cases": 6,
+      "turns": 14
     }
   ],
   "totals": {
@@ -8949,7 +8967,10 @@
     "oracles/software.eworkdate.json",
     "oracles/software.outlook.json",
     "oracles/software.workit.json",
-    "oracles/policy.business-expansion.json"
+    "oracles/policy.business-expansion.json",
+    "oracles/policy.labor-attendance-overtime.json",
+    "oracles/policy.labor-attendance-overtime-holdout.json",
+    "oracles/conversation.labor-focus.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

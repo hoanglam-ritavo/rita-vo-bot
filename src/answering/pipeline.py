@@ -46,9 +46,9 @@ def requested_aspects(question):
         r'(?:thoi gian|thoi han|thoi luong)\b.*\bbao nhieu)\b', query))
     terms = {'amount': ('bao nhiêu tiền', 'mức hỗ trợ', 'mức thưởng', 'số tiền'),
              'conditions': ('điều kiện', 'áp dụng cho', 'đối tượng'),
-             'paperwork': ('giấy tờ', 'hồ sơ', 'giấy gì'),
+             'paperwork': ('giấy tờ', 'hồ sơ', 'giấy gì', 'chứng từ'),
              'procedure': ('cách', 'thủ tục', 'các bước', 'làm thế nào', 'cần làm gì', 'phải làm gì')}
-    terms['procedure'] += ('làm sao',)
+    terms['procedure'] += ('làm sao', 'xử lý thế nào', 'đăng ký ở đâu', 'nộp ở đâu')
     if not duration:
         terms['amount'] += ('bao nhiêu',)
     aspects = [key for key, phrases in terms.items() if any(phrase(query, normalized(p)) for p in phrases)]
@@ -72,7 +72,7 @@ def select_cards(question, catalog, lexicon, policy=None, *, contextual=False):
     question = query_variants(question)[-1]
     concepts = matching_concepts(lexicon, question)
     cards = [c for c in catalog.cards
-             if (any(phrase_matches(p, question) for p in c.aliases) or bool(set(c.concept_ids) & concepts))
+             if not getattr(c, 'routed_only', False) and (any(phrase_matches(p, question) for p in c.aliases) or bool(set(c.concept_ids) & concepts))
              and (not c.requires_any or any(phrase_matches(p, question) for p in c.requires_any))
              and not any(phrase_matches(p, question) for p in c.excludes_any)]
     complex_terms = ('tổng', 'so sánh', 'bao nhiêu mục', 'bao nhiêu loại', 'có mấy')
@@ -93,7 +93,7 @@ def select_cards(question, catalog, lexicon, policy=None, *, contextual=False):
     for clause in clauses if len(clauses) > 1 else []:
         clause_concepts = matching_concepts(lexicon, clause)
         clause_cards.update(c.id for c in catalog.cards
-            if (any(phrase_matches(p, clause) for p in c.aliases)
+            if not getattr(c, 'routed_only', False) and (any(phrase_matches(p, clause) for p in c.aliases)
                 or bool(set(c.concept_ids) & clause_concepts))
             and (not c.requires_any or any(phrase_matches(p, clause) for p in c.requires_any))
             and not any(phrase_matches(p, clause) for p in c.excludes_any))
@@ -158,9 +158,17 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         sources = evidence_sources(result['matches'])
         claims = [{'text': source['content'], 'citations': [{'source_id': key, 'quote': source['content']}]}
                   for key, source in sources.items() if 0 < len(source['content']) <= 2000][:12]
-        row.update(status='partial' if claims else 'insufficient_evidence', claims=claims, sources=sources,
-                   intro=EXCERPTS if claims else '', reason='document_lookup', limitations=[
-                       'Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ.'])
+        if claims:
+            row.update(status='partial', claims=claims, sources=sources, intro=EXCERPTS,
+                       reason='document_lookup', limitations=[
+                           'Các trích đoạn chưa được xác nhận về độ liên quan hoặc tính đầy đủ.'])
+        elif result.get('fallback_reason') == 'no_eligible_documents':
+            row['limitations'] = ['Kho tra cứu hiện chưa có tài liệu đáp ứng điều kiện truy cập và lập chỉ mục.']
+        elif result.get('fallback_reason') == 'no_candidates':
+            row['limitations'] = ['Lượt tra cứu chưa tìm được đoạn tài liệu để hiển thị. Bạn có thể thử tên tài liệu hoặc từ khóa cụ thể hơn.']
+        elif not row['reason']:
+            row['reason'] = 'no_displayable_excerpts'
+            row['limitations'] = ['Có kết quả tra cứu nhưng chưa có trích đoạn phù hợp để hiển thị.']
         return row
     cards, ambiguous = analysis.cards, analysis.ambiguous
     if ambiguous:
@@ -174,12 +182,11 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
             'nếu muốn tìm nguồn, hãy yêu cầu tìm tài liệu.'])
         return row
     sources = evidence_sources(result['matches'])
-    if len(cards) == 1:
-        card = cards[0]
+    if len(cards) == 1 or analysis.focused_policy:
         aspects = analysis.aspects
         claims, complete = [], True
         limitations, reasons = [], set()
-        for aspect in aspects:
+        for card, aspect in ((card, aspect) for card in cards for aspect in aspects):
             section = card.sections.get(aspect)
             if section is None:
                 logger.info('document_answer state=incomplete reason=section_missing')
@@ -223,8 +230,11 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
             logger.info('document_answer complete=%s section_missing=%s section_incomplete=%s reference_unavailable=%s bounded=%s',
                         complete, 'section_missing' in reasons, 'section_incomplete' in reasons,
                         'reference_unavailable' in reasons, 'output_bounded' in reasons)
+            limits = {card.scope_limit for card in cards if getattr(card, 'scope_limit', None)}
+            reason = (next(iter(limits)) if reasons == {'section_incomplete'} and len(limits) == 1
+                      else 'incomplete_template_evidence')
             row.update(status='answered' if complete else 'partial', claims=claims[:12 if complete else 3], sources=sources,
-                       reason=None if complete else 'incomplete_template_evidence',
+                       reason=None if complete else reason,
                        limitations=[] if complete else list(dict.fromkeys(limitations)))
             return row
     if contextual and len(cards) == 1:
@@ -240,6 +250,10 @@ def render(question, result, catalog, lexicon, policy=None, *, contextual=False,
         else:
             row.update(reason='answer_reference_unavailable', limitations=[
                 f'{message} Căn cứ đã khai báo cho phần này hiện không khả dụng.'])
+        return row
+    if analysis.focused_policy:
+        row.update(reason='answer_reference_unavailable',
+                   limitations=['Các căn cứ đã khai báo cho những phần được hỏi hiện không khả dụng.'])
         return row
     row.update(reason='template_evidence_missing', limitations=[cards[0].clarification,
         'Chưa đủ bằng chứng hiện hành để trả lời theo mẫu.'])

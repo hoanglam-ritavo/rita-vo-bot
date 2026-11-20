@@ -1,0 +1,27 @@
+{
+  "id": "route.labor-focus.policy-effective",
+  "family": "labor",
+  "task_id": "task.labor-focus.policy-effective",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "noi quy"
+        ],
+        [
+          "hieu luc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thang tren bia"
+        ],
+        [
+          "ngay ky"
+        ]
+      ]
+    }
+  ]
+}
