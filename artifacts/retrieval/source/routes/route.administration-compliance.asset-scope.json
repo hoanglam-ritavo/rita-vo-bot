@@ -1,0 +1,57 @@
+{
+  "id": "route.administration-compliance.asset-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy trình thanh lý"
+        ],
+        [
+          "phạm vi"
+        ],
+        [
+          "công cụ dụng cụ",
+          "phế liệu",
+          "ccdc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy trình thanh lý"
+        ],
+        [
+          "showroom"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Những tài sản, công cụ dụng cụ, hàng hóa hoặc phế liệu nào thuộc phạm vi quy trình thanh lý?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy trình thanh lý áp dụng cho những phòng ban, showroom, kho vận và chi nhánh nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "conditions"
+}

@@ -156,6 +156,24 @@
         "seal-technique",
         "sealing",
         "uniform"
+      ],
+      "clarifications": [
+        {
+          "requires_all": [
+            [
+              "vi phạm"
+            ],
+            [
+              "tại cơ sở",
+              "ở cơ sở"
+            ],
+            [
+              "xử lý",
+              "giải quyết"
+            ]
+          ],
+          "prompt": "Bạn đang hỏi về vi phạm của nhân viên công ty hay của nhân viên bảo vệ thuê ngoài?"
+        }
       ]
     },
     {
@@ -23073,6 +23091,33 @@
               "nhan lai cong viec"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "tạm đình chỉ công việc"
+            ],
+            [
+              "quyền lợi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đình chỉ để xác minh"
+            ],
+            [
+              "lương"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào công ty có thể tạm đình chỉ công việc để xác minh và quyền lợi trong thời gian đó được tính thế nào?"
+            ]
+          ]
         }
       ],
       "follow_up_terms": [
@@ -32190,6 +32235,6176 @@
         "workflow": "outlook",
         "action": "calendar"
       }
+    },
+    {
+      "id": "route.administration-compliance.seal-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy chế quản lý và sử dụng con dấu"
+            ],
+            [
+              "áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy chế con dấu"
+            ],
+            [
+              "thử việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy chế con dấu"
+            ],
+            [
+              "đã nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy chế quản lý và sử dụng con dấu áp dụng cho những ai và những đơn vị nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên thử việc, học việc hoặc đã nghỉ việc có còn thuộc phạm vi quy chế con dấu trong trường hợp nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "conditions"
+    },
+    {
+      "id": "route.administration-compliance.seal-custody",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-custody",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "con dấu"
+            ],
+            [
+              "nơi lưu giữ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cất dấu ở đâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mang con dấu ra ngoài"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai chịu trách nhiệm quản lý con dấu và ai được trực tiếp đóng dấu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Con dấu phải được bảo quản ở đâu và ai có quyền cho phép mang dấu ra khỏi nơi lưu giữ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-handover",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-handover",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người giữ dấu"
+            ],
+            [
+              "nghỉ phép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bàn giao con dấu"
+            ],
+            [
+              "biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghỉ phép"
+            ],
+            [
+              "giao dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi người giữ dấu nghỉ phép, việc bàn giao cho người thay thế cần được ai đồng ý và lập hồ sơ gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.seal-check",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-check",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trước khi đóng dấu"
+            ],
+            [
+              "kiểm tra"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thể thức"
+            ],
+            [
+              "chữ ký"
+            ],
+            [
+              "đóng dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trước khi đóng dấu, người giữ dấu phải kiểm tra thể thức, nội dung và chữ ký như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-blank",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-blank",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đóng dấu khống"
+            ],
+            [
+              "ngoại lệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trống nội dung"
+            ],
+            [
+              "đóng dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đóng dấu"
+            ],
+            [
+              "giấy trắng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Văn bản đã ký nhưng còn trống nội dung có được đóng dấu không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Thế nào là đóng dấu khống và trường hợp ngoại lệ phải xin ý kiến ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-signature",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-signature",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đóng dấu lên chữ ký"
+            ],
+            [
+              "vị trí"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "con dấu"
+            ],
+            [
+              "trùm"
+            ],
+            [
+              "chữ ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi đóng dấu lên chữ ký, dấu phải đặt ở vị trí nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-hanging",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-hanging",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dấu treo"
+            ],
+            [
+              "loại văn bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dấu treo"
+            ],
+            [
+              "văn bản nội bộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dấu treo"
+            ],
+            [
+              "phụ lục"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dấu treo"
+            ],
+            [
+              "ký nháy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Dấu treo dùng cho những loại văn bản nào và phải đóng ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Văn bản nội bộ cần đóng dấu treo thì phải được ai phê duyệt?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phụ lục hợp đồng cần đóng dấu treo thì ai phải ký nháy xác nhận?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-overlap",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-overlap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "dấu giáp lai"
+            ],
+            [
+              "bao nhiêu trang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giáp lai"
+            ],
+            [
+              "nhiều trang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "từ mấy trang"
+            ],
+            [
+              "giáp lai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Văn bản từ bao nhiêu trang phải đóng dấu giáp lai và nếu nhiều trang quá thì xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-sign-authority",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-sign-authority",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phó tổng giám đốc"
+            ],
+            [
+              "ký văn bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ký văn bản chuyên môn"
+            ],
+            [
+              "ủy quyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người được ủy quyền ký"
+            ],
+            [
+              "trách nhiệm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào Phó Tổng Giám đốc, Giám đốc hoặc Phó Giám đốc được ký văn bản để đóng dấu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trưởng hoặc Phó phòng được tự ký văn bản chuyên môn nào và khi nào cần ủy quyền bằng văn bản?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người được ủy quyền ký phải chịu trách nhiệm gì về nội dung văn bản?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-log",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-log",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sổ theo dõi con dấu"
+            ],
+            [
+              "ghi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hợp đồng"
+            ],
+            [
+              "công văn"
+            ],
+            [
+              "ghi nhận"
+            ],
+            [
+              "đóng dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lập sổ dấu"
+            ],
+            [
+              "nội dung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sổ theo dõi con dấu và sổ theo dõi văn bản đã đóng dấu cần ghi những thông tin gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hợp đồng, giấy ủy quyền, công văn gửi ra ngoài và hồ sơ gửi cơ quan nhà nước phải được ghi nhận thế nào khi đóng dấu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.seal-renew",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-renew",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "con dấu bị mòn"
+            ],
+            [
+              "đổi dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi mẫu dấu"
+            ],
+            [
+              "dấu cũ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thay dấu"
+            ],
+            [
+              "thông báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Con dấu bị mòn, hỏng hoặc thông tin doanh nghiệp thay đổi thì ai trình duyệt việc đổi dấu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi có quyết định đổi mẫu dấu, con dấu cũ được xử lý thế nào và ai phải được thông báo?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.seal-loss",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-loss",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mất con dấu"
+            ],
+            [
+              "biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thất lạc con dấu"
+            ],
+            [
+              "báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.seal-current",
+      "family": "administration",
+      "task_id": "task.administration-compliance.seal-current",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảng thống kê"
+            ],
+            [
+              "số con dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "con dấu"
+            ],
+            [
+              "đang dùng hiện nay"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có mấy con dấu"
+            ],
+            [
+              "hiện giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "nếu bị mất thì sao": "task.administration-compliance.seal-loss"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy trình thanh lý"
+            ],
+            [
+              "phạm vi"
+            ],
+            [
+              "công cụ dụng cụ",
+              "phế liệu",
+              "ccdc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy trình thanh lý"
+            ],
+            [
+              "showroom"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Những tài sản, công cụ dụng cụ, hàng hóa hoặc phế liệu nào thuộc phạm vi quy trình thanh lý?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy trình thanh lý áp dụng cho những phòng ban, showroom, kho vận và chi nhánh nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "conditions"
+    },
+    {
+      "id": "route.administration-compliance.asset-start",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-start",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "máy tính hỏng"
+            ],
+            [
+              "gửi đề xuất"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đề xuất thanh lý"
+            ],
+            [
+              "ảnh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "không rõ mã"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "gửi mail"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bộ phận có máy tính hỏng hoặc thiết bị không còn sử dụng thì phải gửi đề xuất cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài sản mất tem hoặc không rõ mã tài sản có thể đưa vào đề xuất không và cần ghi nhận ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      },
+      "follow_up_tasks": {
+        "sau khi phê duyệt thì sao": "task.administration-compliance.asset-execution"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-remote",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-remote",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chi nhánh ngoài hà nội"
+            ],
+            [
+              "tập trung tài sản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "ngoài hà nội"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "ngoài hcm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Chi nhánh ngoài Hà Nội và TP.HCM phải tập trung tài sản ở đâu và chờ đánh giá theo lịch nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.asset-evaluate",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-evaluate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đội đánh giá"
+            ],
+            [
+              "tài sản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đánh giá"
+            ],
+            [
+              "sửa chữa"
+            ],
+            [
+              "hủy bỏ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai lập đội đánh giá tình trạng tài sản và những bộ phận nào tham gia?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Đội đánh giá quyết định giữa sửa chữa, thay thế, thanh lý và hủy bỏ dựa trên những nội dung nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.asset-vendor",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-vendor",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "tìm nhà thầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trình phương án"
+            ],
+            [
+              "ban giám đốc"
+            ],
+            [
+              "chưa được duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hủy bỏ"
+            ],
+            [
+              "ksnb"
+            ],
+            [
+              "nhà thầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phương án thanh lý hoặc hủy bỏ được thống nhất, ai tìm nhà thầu và ai xem xét đề xuất?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai trình phương án lên Ban Giám đốc và phải làm gì nếu phương án chưa được duyệt?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-schedule",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-schedule",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy trình thanh lý"
+            ],
+            [
+              "t+1"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "t+6"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "mốc thời gian"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy trình thanh lý có những bước nào và các mốc T+1 đến T+6 được hiểu ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-execution",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-execution",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phê duyệt"
+            ],
+            [
+              "giám sát thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "được duyệt"
+            ],
+            [
+              "giám sát thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổ bỏ"
+            ],
+            [
+              "bán thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phế liệu"
+            ],
+            [
+              "tiền thu hồi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thu tiền thanh lý"
+            ],
+            [
+              "nộp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi được duyệt, những bên nào phải có mặt để giám sát thanh lý?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hủy hoặc đổ bỏ tài sản khác gì so với bán thanh lý về hồ sơ và người giám sát?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Số lượng, khối lượng phế liệu, mã tài sản và tiền thu hồi được ghi nhận ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai trực tiếp thu tiền thanh lý và tiền được nộp về đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.asset-inventory-form",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-inventory-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biên bản thống kê tài sản"
+            ],
+            [
+              "ghi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "biên bản thống kê"
+            ],
+            [
+              "thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Biên bản thống kê tài sản cần thanh lý phải ghi những mục nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-exit-form",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-exit-form",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biên bản xử lý kiêm phiếu xuất kho"
+            ],
+            [
+              "ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "phiếu xuất kho"
+            ],
+            [
+              "ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào phải lập biên bản xử lý kiêm phiếu xuất kho và những ai ký?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.asset-close",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-close",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đối chiếu chứng từ"
+            ],
+            [
+              "cập nhật hệ thống"
+            ],
+            [
+              "thông báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau thanh lý"
+            ],
+            [
+              "đối chiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi xử lý, ai đối chiếu chứng từ, cập nhật hệ thống và thông báo kết quả?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.asset-before-approval",
+      "family": "administration",
+      "task_id": "task.administration-compliance.asset-before-approval",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tự bán"
+            ],
+            [
+              "thiết bị"
+            ],
+            [
+              "duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cho đi thiết bị"
+            ],
+            [
+              "thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thanh lý"
+            ],
+            [
+              "trước phê duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được tự bán hoặc cho đi thiết bị đã bỏ không trước khi phương án thanh lý được duyệt không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-scope",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy định sử dụng xe tập đoàn"
+            ],
+            [
+              "loại xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bố trí xe riêng"
+            ],
+            [
+              "gửi đề xuất"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đủ điều kiện"
+            ],
+            [
+              "đề xuất xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cần xe đi gặp khách hàng"
+            ],
+            [
+              "xin duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đi giữa hai chi nhánh"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng xe Tập đoàn áp dụng cho những loại xe và đơn vị nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai thuộc nhóm được bố trí xe riêng và ai phải gửi đề xuất sử dụng xe?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Những công việc nào đủ điều kiện đề xuất xe Tập đoàn?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit",
+        "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+      }
+    },
+    {
+      "id": "route.administration-compliance.vehicle-workit",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-workit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tạo phiếu"
+            ],
+            [
+              "đề xuất sử dụng xe"
+            ],
+            [
+              "workit"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đặt xe công tác"
+            ],
+            [
+              "khai những thông tin"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tạo phiếu đề xuất sử dụng xe trên Workit ở đâu và phải khai những thông tin gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      },
+      "follow_up_tasks": {
+        "còn ai có quyền điều xe": "task.administration-compliance.vehicle-dispatch"
+      }
+    },
+    {
+      "id": "route.administration-compliance.vehicle-confirm",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-confirm",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu đề xuất"
+            ],
+            [
+              "xe và tài xế"
+            ],
+            [
+              "đã được bố trí"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không còn xe"
+            ],
+            [
+              "phương tiện thay thế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đơn xe"
+            ],
+            [
+              "ai xác nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Phiếu đề xuất đã được duyệt thì xe và tài xế đã được bố trí chưa, hay tôi phải xác nhận thêm với ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+      }
+    },
+    {
+      "id": "route.administration-compliance.vehicle-dispatch",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-dispatch",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người quản lý điều xe"
+            ],
+            [
+              "thẩm quyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "điều xe đang thuộc bộ phận khác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "việc sử dụng xe"
+            ],
+            [
+              "cấp cứu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "điều xe khẩn"
+            ],
+            [
+              "phòng ban"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ban lãnh đạo, HCNS và người quản lý điều xe có thẩm quyền khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi có công việc đột xuất, ai có quyền điều xe đang thuộc bộ phận khác?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Trong tình huống cấp cứu, việc sử dụng xe và báo cáo sau đó được thực hiện thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-prohibitions",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-prohibitions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe tập đoàn"
+            ],
+            [
+              "việc cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe công ty"
+            ],
+            [
+              "thực phẩm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe tập đoàn"
+            ],
+            [
+              "cho mượn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chở sầu riêng"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe Tập đoàn có được dùng cho việc cá nhân, cho mượn hoặc chuyên chở đồ ngoài nhiệm vụ được duyệt không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định cấm chở những loại hàng hóa hoặc thực phẩm nào trên xe công ty?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-trip-change",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-trip-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lộ trình"
+            ],
+            [
+              "giữa chuyến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giờ trả xe"
+            ],
+            [
+              "báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người sử dụng xe"
+            ],
+            [
+              "xác nhận"
+            ],
+            [
+              "chuyến đi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đổi điểm đến, lộ trình hoặc giờ trả xe giữa chuyến, tài xế cần báo cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người sử dụng xe phải xác nhận thông tin nào sau chuyến đi?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-custody",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-custody",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tài xế và bảo vệ"
+            ],
+            [
+              "kiểm tra"
+            ],
+            [
+              "xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe phải đỗ ở đâu"
+            ],
+            [
+              "chìa khóa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe bị va quẹt"
+            ],
+            [
+              "báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe trầy"
+            ],
+            [
+              "biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế và bảo vệ phải kiểm tra những gì trước khi xe đi và sau khi xe về?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe phải đỗ ở đâu trong và ngoài giờ làm việc, và ai quản lý chìa khóa?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu xe bị va quẹt, hư hỏng hoặc phát sinh sự cố trong chuyến đi, tài xế báo ai và cần lập hồ sơ gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-log",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-log",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sổ nhật trình xe"
+            ],
+            [
+              "ký xác nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số kilomet đầu kỳ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "km đầu kỳ"
+            ],
+            [
+              "nhật trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sổ nhật trình xe ghi những thông tin gì, do ai ghi và ai ký xác nhận?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai theo dõi số kilomet đầu kỳ, cuối kỳ và ghi nhận sai lệch?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.vehicle-maintenance",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-maintenance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xe cần thay lốp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bảo dưỡng"
+            ],
+            [
+              "xe ở tỉnh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau khi sửa xe"
+            ],
+            [
+              "cập nhật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe tỉnh"
+            ],
+            [
+              "xin duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài xế phải làm gì khi phát hiện xe cần thay lốp, bảo dưỡng định kỳ hoặc sửa chữa?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe ở tỉnh cần bảo dưỡng hoặc sửa chữa thì xin duyệt theo quy trình nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi sửa xe, ai xác nhận hạng mục đã làm và cập nhật sổ theo dõi?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.vehicle-fuel",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-fuel",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "định mức xăng dầu"
+            ],
+            [
+              "mức áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hồ sơ quyết toán xăng dầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vượt định mức"
+            ],
+            [
+              "tài xế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chi phí xe"
+            ],
+            [
+              "mẫu đề nghị tạm ứng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai xây dựng và điều chỉnh định mức xăng dầu, và mức áp dụng cho từng xe được tra ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Kỳ thanh toán chi phí xe được tính thế nào và hồ sơ quyết toán xăng dầu gồm những gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu lượng nhiên liệu thực tế vượt định mức, tài xế phải giải trình với ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Chi phí xe dùng mẫu đề nghị tạm ứng hay mẫu đề nghị thanh toán trong từng trường hợp?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.vehicle-vetc",
+      "family": "vehicles",
+      "task_id": "task.administration-compliance.vehicle-vetc",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đăng kiểm"
+            ],
+            [
+              "phí đường bộ"
+            ],
+            [
+              "bảo hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe mới"
+            ],
+            [
+              "thẻ vetc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tài khoản vetc"
+            ],
+            [
+              "thiếu tiền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai theo dõi hạn đăng kiểm, phí đường bộ và bảo hiểm bắt buộc của xe?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe mới cần dán thẻ VETC thì tài xế liên hệ ai, và xe đang dùng cần xử lý thế nào khi tài khoản thiếu tiền?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy định sử dụng bảo vệ"
+            ],
+            [
+              "áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "dịch vụ bảo vệ"
+            ],
+            [
+              "phạm vi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng bảo vệ áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-vendor",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-vendor",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhà cung cấp dịch vụ bảo vệ"
+            ],
+            [
+              "giấy tờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhà cung cấp bảo vệ"
+            ],
+            [
+              "điều kiện"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhà cung cấp dịch vụ bảo vệ phải đáp ứng tiêu chuẩn gì và nộp những giấy tờ nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.guard-personnel",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-personnel",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ thuê ngoài"
+            ],
+            [
+              "tiêu chuẩn tuyển chọn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hồ sơ điều động"
+            ],
+            [
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lệnh điều động"
+            ],
+            [
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên bảo vệ thuê ngoài phải đáp ứng tiêu chuẩn tuyển chọn nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Hồ sơ điều động nhân viên bảo vệ đến một địa điểm làm việc cần có những giấy tờ gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.guard-change",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thay người đột xuất"
+            ],
+            [
+              "bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi nhân sự bảo vệ"
+            ],
+            [
+              "bao lâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đổi ca bảo vệ"
+            ],
+            [
+              "báo trước"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nhà cung cấp đổi nhân sự bảo vệ theo kế hoạch hoặc thay người đột xuất, phải báo cho ai và trước bao lâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-tender",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-tender",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy trình chọn nhà cung cấp dịch vụ bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "báo giá"
+            ],
+            [
+              "dịch vụ bảo vệ"
+            ],
+            [
+              "vượt khung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tuyển nhà cung cấp bảo vệ"
+            ],
+            [
+              "phê duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy trình chọn nhà cung cấp dịch vụ bảo vệ mới gồm những bước nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu báo giá dịch vụ bảo vệ vượt khung, ai trình và ai phê duyệt?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.guard-site",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-site",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "số lượng và vị trí bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy trình tuyển chọn"
+            ],
+            [
+              "tiếp nhận nhân viên bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tuyển bảo vệ"
+            ],
+            [
+              "hồ sơ"
+            ],
+            [
+              "tiếp nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai đề xuất số lượng và vị trí bảo vệ tại từng cơ sở?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy trình tuyển chọn, kiểm tra hồ sơ và tiếp nhận nhân viên bảo vệ gồm những bước nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-visitors",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-visitors",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "ghi nhận"
+            ],
+            [
+              "khách hoặc nhà thầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhà thầu"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "đăng ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải kiểm tra và ghi nhận thông tin gì khi khách hoặc nhà thầu đến làm việc?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-goods",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-goods",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xuất hoặc nhập qua cổng"
+            ],
+            [
+              "chứng từ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số lượng hàng thực tế khác chứng từ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa có giấy phép ra cổng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xuất nhập hàng"
+            ],
+            [
+              "bảo vệ"
+            ],
+            [
+              "đối chiếu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi hàng hóa xuất hoặc nhập qua cổng, bảo vệ phải đối chiếu với chứng từ nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu số lượng hàng thực tế khác chứng từ hoặc hàng chưa có giấy phép ra cổng, bảo vệ phải xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-patrol",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-patrol",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "tuần tra"
+            ],
+            [
+              "bàn giao ca"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trực bảo vệ"
+            ],
+            [
+              "bàn giao"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ cần thực hiện và ghi nhận việc tuần tra, bàn giao ca như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-report",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-report",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "sự cố an ninh"
+            ],
+            [
+              "báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "báo cáo tình hình an ninh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "an ninh"
+            ],
+            [
+              "báo cáo hàng tháng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi gặp mất cắp, hư hỏng hoặc một sự cố an ninh, bảo vệ phải báo cáo cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ phải báo cáo tình hình an ninh định kỳ với nội dung và tần suất nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-roles",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-roles",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý trực tiếp tại cơ sở"
+            ],
+            [
+              "lực lượng bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ban an ninh"
+            ],
+            [
+              "kiểm soát nội bộ"
+            ],
+            [
+              "quản lý dịch vụ bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cách bố trí bảo vệ"
+            ],
+            [
+              "ngoại lệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý trực tiếp tại cơ sở phải theo dõi và phối hợp với lực lượng bảo vệ như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ban An ninh, HCNS và Kiểm soát nội bộ phụ trách phần việc nào trong quản lý dịch vụ bảo vệ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cơ sở cần áp dụng cách bố trí bảo vệ khác quy trình chung, những ai phải xem xét ngoại lệ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guard-violation",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guard-violation",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân viên bảo vệ vi phạm"
+            ],
+            [
+              "nhà cung cấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mẫu lý lịch trích ngang nhân viên bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xử lý lỗi"
+            ],
+            [
+              "bảo vệ thuê ngoài"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nhân viên bảo vệ vi phạm, quy trình ghi nhận, lập biên bản và xử lý nhà cung cấp diễn ra thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mẫu lý lịch trích ngang nhân viên bảo vệ và mẫu biên bản xử lý vi phạm có mã gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "ý tôi là nhân viên công ty": "task.administration-compliance.discipline-intake"
+      }
+    },
+    {
+      "id": "route.administration-compliance.sealing-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.sealing-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy định niêm phong"
+            ],
+            [
+              "địa điểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "áp dụng"
+            ],
+            [
+              "ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định niêm phong áp dụng cho những địa điểm và những người nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.sealing-close",
+      "family": "administration",
+      "task_id": "task.administration-compliance.sealing-close",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ra về cuối cùng"
+            ],
+            [
+              "dán niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giấy niêm phong"
+            ],
+            [
+              "sổ niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giấy niêm phong"
+            ],
+            [
+              "dấu gì"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bảo vệ"
+            ],
+            [
+              "dán hoặc mở niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người ra về cuối cùng phải làm gì trước khi dán niêm phong?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai ký trên giấy niêm phong và ai ký vào sổ niêm phong?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Giấy niêm phong cần có dấu gì và phải dán ở vị trí nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Bảo vệ cần chứng kiến những bước nào khi dán hoặc mở niêm phong?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.sealing-open",
+      "family": "administration",
+      "task_id": "task.administration-compliance.sealing-open",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người đến làm việc đầu tiên"
+            ],
+            [
+              "mở cửa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mở cửa đầu ngày"
+            ],
+            [
+              "niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "kiểm tra"
+            ],
+            [
+              "trước khi mở"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Người đến làm việc đầu tiên phải kiểm tra những gì trước khi mở cửa?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.sealing-incident",
+      "family": "administration",
+      "task_id": "task.administration-compliance.sealing-incident",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "bị rách"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "bất thường"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "niêm phong"
+            ],
+            [
+              "biên bản xử lý tại chỗ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quên niêm phong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sau khi đã niêm phong"
+            ],
+            [
+              "xin phép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu giấy niêm phong bị rách, mất hoặc biến dạng thì có được mở cửa ngay không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện niêm phong bất thường, cần chụp lại gì, báo ai và lập biên bản như thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong có vấn đề?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Lỡ ra về mà quên niêm phong, hoặc hôm sau mở cửa khi chưa có bảo vệ chứng kiến, thì cần báo ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép và bàn giao lại thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nội quy tòa nhà"
+            ],
+            [
+              "nhân viên"
+            ],
+            [
+              "nhà thầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "phạm vi áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nội quy tòa nhà áp dụng thế nào với nhân viên, khách hàng, nhà cung cấp và nhà thầu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-guests",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-guests",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khách đến gặp nhân viên"
+            ],
+            [
+              "đăng ký"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đưa khách"
+            ],
+            [
+              "khu vực hạn chế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quản lý tòa nhà"
+            ],
+            [
+              "từ chối cho ra vào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khách vào kho"
+            ],
+            [
+              "xin phép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khách đến gặp nhân viên phải đăng ký ở đâu, và nhân viên đón khách có trách nhiệm gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể đưa khách vào khu vực làm việc, kho hoặc khu vực hạn chế trong trường hợp nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý tòa nhà hoặc bảo vệ được từ chối cho ra vào trong những trường hợp nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-children",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-children",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đưa con vào tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trẻ em"
+            ],
+            [
+              "tòa nhà"
+            ],
+            [
+              "công ty có sự kiện"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc khi công ty có sự kiện không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-access",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-access",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cửa chính"
+            ],
+            [
+              "cửa phụ"
+            ],
+            [
+              "cửa thoát hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ở lại ngoài giờ"
+            ],
+            [
+              "vào tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vào tây đô"
+            ],
+            [
+              "ngoài giờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào được sử dụng cửa chính, cửa phụ và cửa thoát hiểm?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên ở lại ngoài giờ hoặc vào tòa nhà ngày nghỉ phải đăng ký với ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-lift",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-lift",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thang máy"
+            ],
+            [
+              "tải trọng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thang máy"
+            ],
+            [
+              "bị kẹt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thang máy"
+            ],
+            [
+              "dừng bất thường"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi dùng thang máy để di chuyển hoặc vận chuyển hàng, phải tuân thủ tải trọng và hướng dẫn gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu thang máy dừng bất thường hoặc có người bị kẹt, phải báo cho bộ phận nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-ac-hours",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-ac-hours",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lịch mở và tắt điều hòa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giờ bật điều hòa"
+            ],
+            [
+              "tầng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lịch điều hòa"
+            ],
+            [
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-ac-roles",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-ac-roles",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khách đến showroom"
+            ],
+            [
+              "khung giờ bật điều hòa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ra về"
+            ],
+            [
+              "kiểm tra điều hòa"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không có khách"
+            ],
+            [
+              "thiết bị điện"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có khách đến showroom ngoài khung giờ bật điều hòa thì ai được quyết định bật?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi ra về hoặc khi khu vực không có khách, ai chịu trách nhiệm kiểm tra điều hòa, đèn và các thiết bị điện?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-blinds",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-blinds",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quy định sử dụng rèm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ánh sáng tự nhiên"
+            ],
+            [
+              "tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định sử dụng rèm và ánh sáng tự nhiên tại tòa nhà như thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-outage",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-outage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mất điện"
+            ],
+            [
+              "nhân viên báo cho ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mất điện"
+            ],
+            [
+              "xử lý thiết bị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mất điện"
+            ],
+            [
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi mất điện, nhân viên báo cho ai và cần xử lý thiết bị đang sử dụng ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-goods",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-goods",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mang hàng hóa"
+            ],
+            [
+              "tài sản ra vào tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe giao hàng"
+            ],
+            [
+              "phối hợp với bảo vệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vận chuyển hàng"
+            ],
+            [
+              "tây đô"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mang hàng hóa, hàng mẫu hoặc tài sản ra vào tòa nhà cần thông báo ai và xuất trình giấy tờ gì?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Xe giao hàng phải vận chuyển qua khu vực nào và phối hợp với bảo vệ ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      },
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-common",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-common",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thùng carton"
+            ],
+            [
+              "lối thoát hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "không được phân công"
+            ],
+            [
+              "phòng kỹ thuật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vệ sinh"
+            ],
+            [
+              "nhà vệ sinh"
+            ],
+            [
+              "khu vực dùng chung"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được để hàng, thùng carton hoặc rác ở hành lang, cầu thang và lối thoát hiểm không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên không được phân công có được vào kho hoặc phòng kỹ thuật không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định giữ vệ sinh khu vực làm việc, nhà vệ sinh và khu vực dùng chung gồm những gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-damage",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-damage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hỏng sản phẩm trưng bày"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tài sản tòa nhà"
+            ],
+            [
+              "quy trình ghi nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "làm hỏng"
+            ],
+            [
+              "tài sản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu làm hỏng sản phẩm trưng bày hoặc tài sản tòa nhà, phải báo ai và quy trình ghi nhận thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-kitchen",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-kitchen",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sử dụng phòng bếp"
+            ],
+            [
+              "dọn dẹp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phòng bếp"
+            ],
+            [
+              "tắt thiết bị"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai được sử dụng phòng bếp và phải dọn dẹp, tắt thiết bị thế nào sau khi dùng?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-chair-room",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-chair-room",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ra vào phòng chủ tịch"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phòng chủ tịch"
+            ],
+            [
+              "ai có quyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Điều kiện ra vào phòng Chủ tịch là gì và ai có quyền cho phép?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-parking",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-parking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mất vé xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe ngoài giờ"
+            ],
+            [
+              "xác minh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên và khách phải đỗ xe ở đâu và nhận, trả thẻ xe thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu làm mất vé xe hoặc cần lấy xe ngoài giờ, tôi phải xác minh với ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-smoking",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-smoking",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hút thuốc trong tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hút thuốc"
+            ],
+            [
+              "bãi xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tây đô"
+            ],
+            [
+              "hút thuốc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Có được hút thuốc trong tòa nhà hoặc bãi xe không, và vi phạm được xử lý theo quy định nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-emergency",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-emergency",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đầu mối hỗ trợ"
+            ],
+            [
+              "sự cố"
+            ],
+            [
+              "phòng cháy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chuông báo cháy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phát hiện khói"
+            ],
+            [
+              "tòa nhà"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tòa nhà có đầu mối hỗ trợ nào khi gặp sự cố an ninh, kỹ thuật hoặc phòng cháy chữa cháy?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi có chuông báo cháy hoặc phát hiện khói, nhân viên và khách phải làm gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-fire-prevention",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-fire-prevention",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bố trí hàng hóa"
+            ],
+            [
+              "thiết bị điện"
+            ],
+            [
+              "phòng cháy"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "yêu cầu phòng cháy"
+            ],
+            [
+              "vật tư"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Việc bố trí hàng hóa, vật tư và thiết bị điện phải đáp ứng yêu cầu gì về phòng cháy chữa cháy?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.building-roles",
+      "family": "administration",
+      "task_id": "task.administration-compliance.building-roles",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quản lý tòa nhà"
+            ],
+            [
+              "ban an ninh"
+            ],
+            [
+              "khi có sự cố"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thất lạc tài sản"
+            ],
+            [
+              "camera"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kiểm tra camera"
+            ],
+            [
+              "đầu mối"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý tòa nhà, Kỹ thuật, HCNS, Bảo vệ và Ban An ninh chịu trách nhiệm gì khi có sự cố?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Sau khi phát hiện thất lạc tài sản, tôi phải báo ai và đề nghị kiểm tra camera qua đầu mối nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+        "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+      }
+    },
+    {
+      "id": "route.administration-compliance.uniform-scope",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tác phong"
+            ],
+            [
+              "đồng phục"
+            ],
+            [
+              "thẻ tên"
+            ],
+            [
+              "nhóm nhân viên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy định đồng phục"
+            ],
+            [
+              "phạm vi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định tác phong, đồng phục và thẻ tên áp dụng cho những nhóm nhân viên nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.uniform-support",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-support",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cấp bao nhiêu áo đồng phục"
+            ],
+            [
+              "văn phòng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "lịch mặc đồng phục"
+            ],
+            [
+              "lái xe"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhân viên kỹ thuật"
+            ],
+            [
+              "bộ bảo hộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giày bảo hộ"
+            ],
+            [
+              "bao lâu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên văn phòng và cấp quản lý được cấp bao nhiêu áo đồng phục mỗi năm và phải mặc vào ngày nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Định mức và lịch mặc đồng phục của lái xe, tạp vụ, kho vận, mộc và cắt gạch khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên kỹ thuật được cấp bao nhiêu bộ bảo hộ và bao lâu được cấp giày bảo hộ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount"
+    },
+    {
+      "id": "route.administration-compliance.uniform-business",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-business",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "depot"
+            ],
+            [
+              "đại lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "khối café"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "khối thời trang"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên kinh doanh vật liệu xây dựng, nội thất, Depot, đại lý và ô tô được cấp đồng phục thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Đồng phục của nhân viên kinh doanh và nhân viên sản xuất khối Café khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên kinh doanh, giám sát và quản lý khối Thời trang có quy định đồng phục riêng ra sao?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khối Piaggio và Life Window quy định đồng phục khác nhau thế nào giữa văn phòng, kinh doanh, kỹ thuật và sản xuất?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount"
+    },
+    {
+      "id": "route.administration-compliance.uniform-issue",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-issue",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "cấp ngay khi nhận việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "thời điểm cấp phát"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Đồng phục được cấp vào những thời điểm nào và nhóm nào được cấp ngay khi nhận việc?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.uniform-wear",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-wear",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sửa kiểu dáng đồng phục"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "áo ngoài"
+            ],
+            [
+              "che đồng phục"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên showroom, giao nhận hoặc kỹ thuật đi làm thứ Bảy, Chủ nhật hoặc ngày lễ có phải mặc đồng phục không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có được tự sửa kiểu dáng đồng phục hoặc mặc áo ngoài che đồng phục không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.uniform-casual",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-casual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trang phục tự do"
+            ],
+            [
+              "giày dép"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mặc tự do"
+            ],
+            [
+              "quần áo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi được mặc trang phục tự do, công ty quy định gì về quần áo, váy và giày dép?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.uniform-badges",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-badges",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thử việc"
+            ],
+            [
+              "loại thẻ tên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đeo ở đâu"
+            ],
+            [
+              "quên thẻ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thẻ đã cũ mờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thẻ tên"
+            ],
+            [
+              "xin cấp lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nhân viên thử việc và nhân viên chính thức được cấp loại thẻ tên nào, vào thời điểm nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Thẻ tên phải đeo ở đâu và cần làm gì nếu đi làm mà quên thẻ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mất thẻ, làm hỏng thẻ hoặc thẻ đã cũ mờ thì xin cấp lại ở đâu, và trường hợp nào phát sinh chi phí?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.uniform-return",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-return",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bàn giao đồng phục và thẻ tên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "làm hỏng đồng phục"
+            ],
+            [
+              "mức bồi hoàn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "nghỉ việc"
+            ],
+            [
+              "trả"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nghỉ việc, tôi phải bàn giao đồng phục và thẻ tên cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Mất hoặc làm hỏng đồng phục thì mức bồi hoàn được xác định theo thời gian đã nhận ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount"
+    },
+    {
+      "id": "route.administration-compliance.uniform-conduct",
+      "family": "administration",
+      "task_id": "task.administration-compliance.uniform-conduct",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giao tiếp trước mặt khách"
+            ],
+            [
+              "giữ trật tự"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vi phạm tác phong hoặc đồng phục"
+            ],
+            [
+              "lập biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đồng phục"
+            ],
+            [
+              "nhắc nhở"
+            ],
+            [
+              "vi phạm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Công ty quy định thế nào về giao tiếp trước mặt khách, giữ trật tự và sắp xếp nơi làm việc?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đã được nhắc nhở mà vẫn vi phạm tác phong hoặc đồng phục, ai lập biên bản và áp dụng hình thức nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-scope",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiêu chuẩn đạo đức nghề nghiệp"
+            ],
+            [
+              "áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trung thực"
+            ],
+            [
+              "công bằng"
+            ],
+            [
+              "đồng nghiệp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nói xấu đồng nghiệp"
+            ],
+            [
+              "lan truyền"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tiêu chuẩn đạo đức nghề nghiệp áp dụng cho ai và nghĩa vụ nào còn liên quan sau khi nghỉ việc?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Công ty yêu cầu gì về trung thực, công bằng và hỗ trợ đồng nghiệp khi làm việc?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nói xấu đồng nghiệp, lan truyền thông tin chưa kiểm chứng hoặc gây mất đoàn kết được xem xét theo quy định nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-confidential",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-confidential",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chia sẻ thông tin lương"
+            ],
+            [
+              "hồ sơ nhân sự"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thông tin kinh doanh"
+            ],
+            [
+              "khách hàng"
+            ],
+            [
+              "bảo mật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Công ty quy định thế nào về việc chia sẻ thông tin lương, phúc lợi và hồ sơ nhân sự?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Những thông tin kinh doanh, quản lý hoặc khách hàng nào cần được bảo mật?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-sharing",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-sharing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "sao chép tài liệu công ty"
+            ],
+            [
+              "email cá nhân"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đối tác cần tài liệu nội bộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi nhầm tài liệu nội bộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "gửi tài liệu cho đối tác"
+            ],
+            [
+              "phê duyệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có được sao chép tài liệu công ty sang email cá nhân hoặc thiết bị riêng để làm việc không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi đối tác cần tài liệu nội bộ để triển khai công việc, phải xin ai phê duyệt trước khi gửi?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi phải xử lý thế nào khi được gửi nhầm tài liệu nội bộ hoặc thông tin mật của đối tác?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-ip",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-ip",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mã nguồn của công ty"
+            ],
+            [
+              "sau khi nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quy trình"
+            ],
+            [
+              "sản phẩm"
+            ],
+            [
+              "sau khi nghỉ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quy định nói gì về việc sử dụng tài liệu, quy trình, sản phẩm hoặc mã nguồn của công ty sau khi nghỉ việc?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-media",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-media",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cung cấp thông tin về công ty"
+            ],
+            [
+              "báo chí"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thông tin công ty"
+            ],
+            [
+              "đăng tải công khai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phát ngôn"
+            ],
+            [
+              "công ty"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có quyền cung cấp thông tin về công ty cho báo chí hoặc đăng tải công khai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-partners",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-partners",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiếp xúc khách hàng và nhà cung cấp"
+            ],
+            [
+              "ứng xử"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cam kết đã thống nhất với đối tác"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đối tác"
+            ],
+            [
+              "đổi cam kết"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi tiếp xúc khách hàng và nhà cung cấp, tôi phải tuân thủ những nguyên tắc ứng xử nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có được tự thay đổi thông tin, điều kiện hoặc cam kết đã thống nhất với đối tác không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-bribery",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-bribery",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đối tác đề nghị"
+            ],
+            [
+              "hoa hồng riêng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có quan hệ cá nhân"
+            ],
+            [
+              "nhà cung cấp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thông tin sai lệch cho đối tác"
+            ],
+            [
+              "báo"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phát hiện dấu hiệu hối lộ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đối tác đề nghị hoa hồng riêng, quà tặng hoặc lợi ích cá nhân, tôi phải xử lý và báo cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu tôi có quan hệ cá nhân hoặc lợi ích liên quan đến một nhà cung cấp, tôi cần khai báo với ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu đồng nghiệp yêu cầu tôi cung cấp thông tin sai lệch cho đối tác, tôi phải báo qua kênh nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện dấu hiệu hối lộ, gian dối hoặc sử dụng tài sản công ty cho lợi ích riêng, cần báo ai và cung cấp thông tin gì?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.ethics-orientation",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-orientation",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biên bản hoàn thành chương trình định hướng"
+            ],
+            [
+              "gồm những nội dung",
+              "phải ghi",
+              "cần ký",
+              "cam kết"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "cam kết"
+            ],
+            [
+              "định hướng nhân viên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Biên bản hoàn thành chương trình định hướng nhân viên gồm những nội dung và cam kết nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.ethics-harassment",
+      "family": "labor",
+      "task_id": "task.administration-compliance.ethics-harassment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quấy rối"
+            ],
+            [
+              "có thể báo cho ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trách nhiệm"
+            ],
+            [
+              "phản ánh về quấy rối"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quấy rối"
+            ],
+            [
+              "thông tin"
+            ],
+            [
+              "bảo mật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu gặp hoặc chứng kiến hành vi quấy rối tại nơi làm việc, trong chuyến công tác hoặc qua kênh điện tử, tôi có thể báo cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Quản lý và người chứng kiến có trách nhiệm gì khi nhận được phản ánh về quấy rối?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai tiếp nhận, xác minh phản ánh về quấy rối và thông tin của người liên quan được bảo mật ra sao?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.discipline-intake",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-intake",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phát hiện vi phạm nội quy hành chính"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội quy hành chính"
+            ],
+            [
+              "báo ai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi phát hiện vi phạm nội quy hành chính, nhân viên nên báo quản lý trực tiếp, HCNS, Ban An ninh hay Kiểm soát nội bộ?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "follow_up_tasks": {
+        "ý tôi là bảo vệ thuê ngoài": "task.administration-compliance.guard-violation"
+      }
+    },
+    {
+      "id": "route.administration-compliance.discipline-record",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-record",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lập biên bản"
+            ],
+            [
+              "thu thập chứng cứ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "yêu cầu viết tường trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội dung bản tường trình"
+            ],
+            [
+              "vi phạm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có trách nhiệm lập biên bản, thu thập chứng cứ và thông báo cho các bên liên quan?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi bị yêu cầu viết tường trình, tôi cần trình bày những gì và được cung cấp tài liệu nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.discipline-hearing",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-hearing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tham dự cuộc họp xử lý kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vắng mặt hoặc từ chối ký biên bản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "họp kỷ luật"
+            ],
+            [
+              "ai tham dự"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai phải tham dự cuộc họp xử lý kỷ luật và người lao động có thể nhờ ai hỗ trợ?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu người lao động vắng mặt hoặc từ chối ký biên bản, cuộc họp và biên bản được xử lý thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "procedure",
+      "follow_up_aspects": {
+        "thực hiện thế nào": "procedure",
+        "các bước cụ thể là gì": "procedure"
+      }
+    },
+    {
+      "id": "route.administration-compliance.discipline-authority",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-authority",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thẩm quyền ra quyết định kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ai quyết định bồi thường"
+            ],
+            [
+              "kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Ai có thẩm quyền ra quyết định kỷ luật và ai có thẩm quyền quyết định bồi thường?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.discipline-deadline",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-deadline",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thời hiệu xử lý vi phạm"
+            ],
+            [
+              "tài sản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thời hiệu kỷ luật"
+            ],
+            [
+              "bí mật kinh doanh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Thời hiệu xử lý vi phạm liên quan đến tài sản hoặc bí mật kinh doanh khác gì so với vi phạm thông thường?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.discipline-appeal",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-appeal",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "không đồng ý với biên bản"
+            ],
+            [
+              "khiếu nại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khiếu nại"
+            ],
+            [
+              "mức bồi thường"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "khiếu nại quyết định kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu không đồng ý với biên bản, quyết định xử lý hoặc mức bồi thường, tôi gửi khiếu nại cho ai?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.discipline-damage",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-damage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tiêu hao vật tư vượt định mức"
+            ],
+            [
+              "bồi thường"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "căn cứ tính bồi thường"
+            ],
+            [
+              "tiền mặt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tài sản hư do hao mòn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhiều người cùng sử dụng"
+            ],
+            [
+              "trách nhiệm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Làm mất tài sản, làm hỏng thiết bị và làm tiêu hao vật tư vượt định mức được xem xét bồi thường khác nhau thế nào?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Căn cứ tính bồi thường đối với hàng hóa, thiết bị và tiền mặt có khác nhau không?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tài sản hư do hao mòn, sự cố ngoài khả năng kiểm soát hoặc có nhiều người cùng sử dụng thì xác định trách nhiệm thế nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "amount"
+    },
+    {
+      "id": "route.administration-compliance.discipline-clearance",
+      "family": "labor",
+      "task_id": "task.administration-compliance.discipline-clearance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "xóa hoặc giảm thời hạn kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bao lâu"
+            ],
+            [
+              "được xóa kỷ luật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Khi nào được xóa hoặc giảm thời hạn kỷ luật và nhân viên có cần làm đề nghị không?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guide-documents",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guide-documents",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bản áp dụng hiện tại"
+            ],
+            [
+              "con dấu"
+            ],
+            [
+              "thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "áp dụng chung toàn tập đoàn"
+            ],
+            [
+              "chỉ áp dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội quy chung"
+            ],
+            [
+              "quy định tại địa điểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa tìm thấy quy định"
+            ],
+            [
+              "hcns"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi tìm bản áp dụng hiện tại của các quy định về con dấu, bảo vệ, xe, niêm phong và thanh lý tài sản ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Làm sao để biết một quy định áp dụng chung toàn Tập đoàn hay chỉ áp dụng cho một chi nhánh hoặc tòa nhà?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu nội quy chung và quy định tại địa điểm làm việc khác nhau, tôi hỏi bộ phận nào để xác nhận điều khoản áp dụng?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu chưa tìm thấy quy định cho tình huống của mình, tôi phải gửi thông tin gì để HCNS xác nhận cách xử lý?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guide-forms",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guide-forms",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tải biểu mẫu bàn giao con dấu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tải biểu mẫu"
+            ],
+            [
+              "sửa chữa xe"
+            ],
+            [
+              "thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi có thể tải biểu mẫu bàn giao con dấu, đề xuất sửa chữa xe, thanh lý tài sản và lập biên bản vi phạm ở đâu?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ],
+      "initial_aspect": "paperwork",
+      "follow_up_aspects": {
+        "cần giấy tờ gì": "paperwork",
+        "hồ sơ gồm những gì": "paperwork"
+      }
+    },
+    {
+      "id": "route.administration-compliance.guide-contact",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guide-contact",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "số điện thoại trong tài liệu cũ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tên người phụ trách"
+            ],
+            [
+              "đã thay đổi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số cũ"
+            ],
+            [
+              "đầu mối hiện tại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Nếu tên người phụ trách hoặc số điện thoại trong tài liệu cũ đã thay đổi, tôi tìm đầu mối hiện tại ở đâu?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "số liên hệ đã cũ",
+              "điện thoại cũ",
+              "số trên tài liệu đã đổi"
+            ],
+            [
+              "đầu mối",
+              "liên hệ ai"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
+    },
+    {
+      "id": "route.administration-compliance.guide-progress",
+      "family": "administration",
+      "task_id": "task.administration-compliance.guide-progress",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ thanh lý"
+            ],
+            [
+              "báo cáo sự cố"
+            ],
+            [
+              "đến bước nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phiếu đề xuất xe"
+            ],
+            [
+              "đã được tiếp nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã xử lý đến bước nào"
+            ],
+            [
+              "hồ sơ thanh lý"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "Tôi kiểm tra ở đâu để biết phiếu đề xuất xe, hồ sơ thanh lý hoặc báo cáo sự cố của mình đã được tiếp nhận và xử lý đến bước nào?"
+            ]
+          ]
+        }
+      ],
+      "excludes_any": [
+        "system prompt",
+        "bỏ qua quyền",
+        "đóng dấu giúp tôi",
+        "tự thanh lý giúp tôi",
+        "đặt xe giúp tôi",
+        "hồ sơ của đồng nghiệp",
+        "hồ sơ của người khác",
+        "cho xem hồ sơ của"
+      ]
     }
   ]
 }

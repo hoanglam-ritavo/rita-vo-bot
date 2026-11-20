@@ -1,0 +1,64 @@
+{
+  "id": "route.administration-compliance.uniform-conduct",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-conduct",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giao tiếp trước mặt khách"
+        ],
+        [
+          "giữ trật tự"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vi phạm tác phong hoặc đồng phục"
+        ],
+        [
+          "lập biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "nhắc nhở"
+        ],
+        [
+          "vi phạm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Công ty quy định thế nào về giao tiếp trước mặt khách, giữ trật tự và sắp xếp nơi làm việc?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đã được nhắc nhở mà vẫn vi phạm tác phong hoặc đồng phục, ai lập biên bản và áp dụng hình thức nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

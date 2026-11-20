@@ -1,0 +1,48 @@
+{
+  "id": "route.administration-compliance.uniform-wear",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-wear",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sửa kiểu dáng đồng phục"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "áo ngoài"
+        ],
+        [
+          "che đồng phục"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên showroom, giao nhận hoặc kỹ thuật đi làm thứ Bảy, Chủ nhật hoặc ngày lễ có phải mặc đồng phục không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có được tự sửa kiểu dáng đồng phục hoặc mặc áo ngoài che đồng phục không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

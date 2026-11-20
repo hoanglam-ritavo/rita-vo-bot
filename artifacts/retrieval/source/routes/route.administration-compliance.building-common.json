@@ -1,0 +1,75 @@
+{
+  "id": "route.administration-compliance.building-common",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-common",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thùng carton"
+        ],
+        [
+          "lối thoát hiểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không được phân công"
+        ],
+        [
+          "phòng kỹ thuật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vệ sinh"
+        ],
+        [
+          "nhà vệ sinh"
+        ],
+        [
+          "khu vực dùng chung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được để hàng, thùng carton hoặc rác ở hành lang, cầu thang và lối thoát hiểm không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên không được phân công có được vào kho hoặc phòng kỹ thuật không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định giữ vệ sinh khu vực làm việc, nhà vệ sinh và khu vực dùng chung gồm những gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

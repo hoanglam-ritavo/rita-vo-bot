@@ -1,0 +1,64 @@
+{
+  "id": "route.administration-compliance.guard-report",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-report",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "sự cố an ninh"
+        ],
+        [
+          "báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "báo cáo tình hình an ninh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "an ninh"
+        ],
+        [
+          "báo cáo hàng tháng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi gặp mất cắp, hư hỏng hoặc một sự cố an ninh, bảo vệ phải báo cáo cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ phải báo cáo tình hình an ninh định kỳ với nội dung và tần suất nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

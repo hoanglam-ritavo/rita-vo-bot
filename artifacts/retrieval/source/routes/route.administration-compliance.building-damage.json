@@ -1,0 +1,58 @@
+{
+  "id": "route.administration-compliance.building-damage",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-damage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hỏng sản phẩm trưng bày"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tài sản tòa nhà"
+        ],
+        [
+          "quy trình ghi nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "làm hỏng"
+        ],
+        [
+          "tài sản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu làm hỏng sản phẩm trưng bày hoặc tài sản tòa nhà, phải báo ai và quy trình ghi nhận thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "route.administration-compliance.seal-handover",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-handover",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người giữ dấu"
+        ],
+        [
+          "nghỉ phép"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bàn giao con dấu"
+        ],
+        [
+          "biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghỉ phép"
+        ],
+        [
+          "giao dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi người giữ dấu nghỉ phép, việc bàn giao cho người thay thế cần được ai đồng ý và lập hồ sơ gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

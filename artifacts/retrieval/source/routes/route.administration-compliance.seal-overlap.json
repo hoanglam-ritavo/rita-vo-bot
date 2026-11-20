@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.seal-overlap",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-overlap",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dấu giáp lai"
+        ],
+        [
+          "bao nhiêu trang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giáp lai"
+        ],
+        [
+          "nhiều trang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "từ mấy trang"
+        ],
+        [
+          "giáp lai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Văn bản từ bao nhiêu trang phải đóng dấu giáp lai và nếu nhiều trang quá thì xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

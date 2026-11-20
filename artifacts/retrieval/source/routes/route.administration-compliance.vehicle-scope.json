@@ -1,0 +1,99 @@
+{
+  "id": "route.administration-compliance.vehicle-scope",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy định sử dụng xe tập đoàn"
+        ],
+        [
+          "loại xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bố trí xe riêng"
+        ],
+        [
+          "gửi đề xuất"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đủ điều kiện"
+        ],
+        [
+          "đề xuất xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cần xe đi gặp khách hàng"
+        ],
+        [
+          "xin duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đi giữa hai chi nhánh"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định sử dụng xe Tập đoàn áp dụng cho những loại xe và đơn vị nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai thuộc nhóm được bố trí xe riêng và ai phải gửi đề xuất sử dụng xe?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Những công việc nào đủ điều kiện đề xuất xe Tập đoàn?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit",
+    "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "task.administration-compliance.asset-vendor",
+  "label": "Chọn nhà thầu và phê duyệt thanh lý",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Chọn nhà thầu và phê duyệt thanh lý"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về chọn nhà thầu và phê duyệt thanh lý?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-vendor.1",
+          "text": "HCNS tìm nhà thầu phù hợp để KSNB xem xét. KSNB trình Ban Giám đốc duyệt. Nếu chưa duyệt, hồ sơ trả về HCNS để xử lý theo chỉ đạo.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 7,
+              "content_sha256": "aa03a417e15a13d5085f24efc32d24b69a76bd03238adf4d90b6d318ec9811e8",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 3: Tìm kiếm nhà thầu xử lý\nTrường hợp đội đánh giá tình trạng đồng ý phương án Thanh lý/ hủy bỏ TS - CCDC/ PL, phòng HCNS lên phương án tìm kiếm nhà thầu tương ứng chuyển KSNB xem xét.\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.\n5.2.2 — Bước 4: Trình phê duyệt BOD\n- Sau khi tìm kiếm nhà thầu xử lý, KSNB trình BOD phê duyệt.\n- Nếu BOD không đồng ý, trả về phòng HCNS, thực hiện theo chỉ đạo\nTrách nhiệm: HCNS; KSNB; BOD.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "procedure": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-vendor.1",
+          "text": "HCNS tìm nhà thầu phù hợp để KSNB xem xét. KSNB trình Ban Giám đốc duyệt. Nếu chưa duyệt, hồ sơ trả về HCNS để xử lý theo chỉ đạo.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 7,
+              "content_sha256": "aa03a417e15a13d5085f24efc32d24b69a76bd03238adf4d90b6d318ec9811e8",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 3: Tìm kiếm nhà thầu xử lý\nTrường hợp đội đánh giá tình trạng đồng ý phương án Thanh lý/ hủy bỏ TS - CCDC/ PL, phòng HCNS lên phương án tìm kiếm nhà thầu tương ứng chuyển KSNB xem xét.\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.\n5.2.2 — Bước 4: Trình phê duyệt BOD\n- Sau khi tìm kiếm nhà thầu xử lý, KSNB trình BOD phê duyệt.\n- Nếu BOD không đồng ý, trả về phòng HCNS, thực hiện theo chỉ đạo\nTrách nhiệm: HCNS; KSNB; BOD.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

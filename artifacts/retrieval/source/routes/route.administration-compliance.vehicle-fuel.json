@@ -1,0 +1,82 @@
+{
+  "id": "route.administration-compliance.vehicle-fuel",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-fuel",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "định mức xăng dầu"
+        ],
+        [
+          "mức áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hồ sơ quyết toán xăng dầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vượt định mức"
+        ],
+        [
+          "tài xế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chi phí xe"
+        ],
+        [
+          "mẫu đề nghị tạm ứng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai xây dựng và điều chỉnh định mức xăng dầu, và mức áp dụng cho từng xe được tra ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Kỳ thanh toán chi phí xe được tính thế nào và hồ sơ quyết toán xăng dầu gồm những gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu lượng nhiên liệu thực tế vượt định mức, tài xế phải giải trình với ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Chi phí xe dùng mẫu đề nghị tạm ứng hay mẫu đề nghị thanh toán trong từng trường hợp?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

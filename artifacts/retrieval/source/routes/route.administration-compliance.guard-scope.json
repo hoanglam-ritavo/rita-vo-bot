@@ -1,0 +1,44 @@
+{
+  "id": "route.administration-compliance.guard-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy định sử dụng bảo vệ"
+        ],
+        [
+          "áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "dịch vụ bảo vệ"
+        ],
+        [
+          "phạm vi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định sử dụng bảo vệ áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

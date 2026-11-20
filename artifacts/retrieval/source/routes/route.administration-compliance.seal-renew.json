@@ -1,0 +1,61 @@
+{
+  "id": "route.administration-compliance.seal-renew",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-renew",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "con dấu bị mòn"
+        ],
+        [
+          "đổi dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi mẫu dấu"
+        ],
+        [
+          "dấu cũ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thay dấu"
+        ],
+        [
+          "thông báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Con dấu bị mòn, hỏng hoặc thông tin doanh nghiệp thay đổi thì ai trình duyệt việc đổi dấu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi có quyết định đổi mẫu dấu, con dấu cũ được xử lý thế nào và ai phải được thông báo?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

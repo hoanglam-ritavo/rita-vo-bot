@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.ethics-media",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-media",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cung cấp thông tin về công ty"
+        ],
+        [
+          "báo chí"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thông tin công ty"
+        ],
+        [
+          "đăng tải công khai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phát ngôn"
+        ],
+        [
+          "công ty"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có quyền cung cấp thông tin về công ty cho báo chí hoặc đăng tải công khai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

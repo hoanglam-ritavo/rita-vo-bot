@@ -1,0 +1,44 @@
+{
+  "id": "route.administration-compliance.uniform-issue",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-issue",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "cấp ngay khi nhận việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "thời điểm cấp phát"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Đồng phục được cấp vào những thời điểm nào và nhóm nào được cấp ngay khi nhận việc?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

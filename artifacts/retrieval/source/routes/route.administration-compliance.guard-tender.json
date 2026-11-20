@@ -1,0 +1,66 @@
+{
+  "id": "route.administration-compliance.guard-tender",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-tender",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy trình chọn nhà cung cấp dịch vụ bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "báo giá"
+        ],
+        [
+          "dịch vụ bảo vệ"
+        ],
+        [
+          "vượt khung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tuyển nhà cung cấp bảo vệ"
+        ],
+        [
+          "phê duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy trình chọn nhà cung cấp dịch vụ bảo vệ mới gồm những bước nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu báo giá dịch vụ bảo vệ vượt khung, ai trình và ai phê duyệt?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

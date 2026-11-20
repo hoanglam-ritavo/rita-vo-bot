@@ -1,0 +1,70 @@
+{
+  "id": "route.administration-compliance.building-goods",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-goods",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mang hàng hóa"
+        ],
+        [
+          "tài sản ra vào tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe giao hàng"
+        ],
+        [
+          "phối hợp với bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vận chuyển hàng"
+        ],
+        [
+          "tây đô"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Mang hàng hóa, hàng mẫu hoặc tài sản ra vào tòa nhà cần thông báo ai và xuất trình giấy tờ gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe giao hàng phải vận chuyển qua khu vực nào và phối hợp với bảo vệ ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  },
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "route.administration-compliance.vehicle-vetc",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-vetc",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đăng kiểm"
+        ],
+        [
+          "phí đường bộ"
+        ],
+        [
+          "bảo hiểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe mới"
+        ],
+        [
+          "thẻ vetc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tài khoản vetc"
+        ],
+        [
+          "thiếu tiền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai theo dõi hạn đăng kiểm, phí đường bộ và bảo hiểm bắt buộc của xe?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe mới cần dán thẻ VETC thì tài xế liên hệ ai, và xe đang dùng cần xử lý thế nào khi tài khoản thiếu tiền?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

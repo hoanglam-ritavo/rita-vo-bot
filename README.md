@@ -54,6 +54,30 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Administration and compliance - 2026-11-20
+
+On `82bb598` plus the administration changes, 100 authored cards and one
+reused card cover the 189 requested questions using evidence from 159 chunks
+across 11 source packages. The bot distinguishes site and role, preserves
+source-specific conditions, and directs current counts, contacts and workflow
+status to their operational owners.
+
+The baseline asked for clarification on 172 questions and returned sources
+for 16. The current local fixture run returned sources for all **189 questions**,
+with 129 complete and 60 partial answers. The HTTP and reducer evaluator passed
+**2,031/2,031 turns across 1,895 cases**, including 37 turns in 12 new
+conversations and all 1,805 existing turns. The separately authored local
+variant set passed **30/30**. One variant used to tune routing became a
+regression and was replaced before that run. Independent reviewer acceptance
+is pending.
+
+The non-integration suite passed **1,321 tests**, with 1 skipped and 59
+deselected. Artifact build and reproducibility, catalog validation, template
+coverage inventory, all **2,510 reference checks** and the **22-file runtime
+inventory** passed. The evaluator used local source fixtures. An authorized
+read-only target PostgreSQL connection and authenticated Portal staging were
+unavailable. See the [staging procedure](docs/conversations.md#deletion-and-verification).
+
 ### Office 365 - 2026-11-20
 
 On `d172a2f` plus the Office 365 changes, 96 routes use 89 new cards and

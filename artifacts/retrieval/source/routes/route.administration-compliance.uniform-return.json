@@ -1,0 +1,62 @@
+{
+  "id": "route.administration-compliance.uniform-return",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-return",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bàn giao đồng phục và thẻ tên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "làm hỏng đồng phục"
+        ],
+        [
+          "mức bồi hoàn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "nghỉ việc"
+        ],
+        [
+          "trả"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nghỉ việc, tôi phải bàn giao đồng phục và thẻ tên cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Mất hoặc làm hỏng đồng phục thì mức bồi hoàn được xác định theo thời gian đã nhận ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount"
+}

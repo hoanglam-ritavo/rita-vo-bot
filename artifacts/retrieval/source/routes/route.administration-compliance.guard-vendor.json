@@ -1,0 +1,49 @@
+{
+  "id": "route.administration-compliance.guard-vendor",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-vendor",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhà cung cấp dịch vụ bảo vệ"
+        ],
+        [
+          "giấy tờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhà cung cấp bảo vệ"
+        ],
+        [
+          "điều kiện"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhà cung cấp dịch vụ bảo vệ phải đáp ứng tiêu chuẩn gì và nộp những giấy tờ nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

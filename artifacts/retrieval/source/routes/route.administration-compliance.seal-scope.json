@@ -1,0 +1,62 @@
+{
+  "id": "route.administration-compliance.seal-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy chế quản lý và sử dụng con dấu"
+        ],
+        [
+          "áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy chế con dấu"
+        ],
+        [
+          "thử việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy chế con dấu"
+        ],
+        [
+          "đã nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy chế quản lý và sử dụng con dấu áp dụng cho những ai và những đơn vị nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên thử việc, học việc hoặc đã nghỉ việc có còn thuộc phạm vi quy chế con dấu trong trường hợp nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "conditions"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "route.administration-compliance.sealing-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.sealing-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy định niêm phong"
+        ],
+        [
+          "địa điểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "áp dụng"
+        ],
+        [
+          "ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định niêm phong áp dụng cho những địa điểm và những người nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

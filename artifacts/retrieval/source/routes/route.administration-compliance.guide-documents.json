@@ -1,0 +1,88 @@
+{
+  "id": "route.administration-compliance.guide-documents",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guide-documents",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bản áp dụng hiện tại"
+        ],
+        [
+          "con dấu"
+        ],
+        [
+          "thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "áp dụng chung toàn tập đoàn"
+        ],
+        [
+          "chỉ áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nội quy chung"
+        ],
+        [
+          "quy định tại địa điểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa tìm thấy quy định"
+        ],
+        [
+          "hcns"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tìm bản áp dụng hiện tại của các quy định về con dấu, bảo vệ, xe, niêm phong và thanh lý tài sản ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Làm sao để biết một quy định áp dụng chung toàn Tập đoàn hay chỉ áp dụng cho một chi nhánh hoặc tòa nhà?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu nội quy chung và quy định tại địa điểm làm việc khác nhau, tôi hỏi bộ phận nào để xác nhận điều khoản áp dụng?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu chưa tìm thấy quy định cho tình huống của mình, tôi phải gửi thông tin gì để HCNS xác nhận cách xử lý?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

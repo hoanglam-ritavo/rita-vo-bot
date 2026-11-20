@@ -1,0 +1,51 @@
+{
+  "id": "route.administration-compliance.building-fire-prevention",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-fire-prevention",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bố trí hàng hóa"
+        ],
+        [
+          "thiết bị điện"
+        ],
+        [
+          "phòng cháy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "yêu cầu phòng cháy"
+        ],
+        [
+          "vật tư"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Việc bố trí hàng hóa, vật tư và thiết bị điện phải đáp ứng yêu cầu gì về phòng cháy chữa cháy?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

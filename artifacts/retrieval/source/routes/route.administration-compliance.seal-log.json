@@ -1,0 +1,72 @@
+{
+  "id": "route.administration-compliance.seal-log",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-log",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sổ theo dõi con dấu"
+        ],
+        [
+          "ghi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hợp đồng"
+        ],
+        [
+          "công văn"
+        ],
+        [
+          "ghi nhận"
+        ],
+        [
+          "đóng dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lập sổ dấu"
+        ],
+        [
+          "nội dung"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sổ theo dõi con dấu và sổ theo dõi văn bản đã đóng dấu cần ghi những thông tin gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hợp đồng, giấy ủy quyền, công văn gửi ra ngoài và hồ sơ gửi cơ quan nhà nước phải được ghi nhận thế nào khi đóng dấu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

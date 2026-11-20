@@ -1,0 +1,57 @@
+{
+  "id": "route.administration-compliance.guide-progress",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guide-progress",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ thanh lý"
+        ],
+        [
+          "báo cáo sự cố"
+        ],
+        [
+          "đến bước nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phiếu đề xuất xe"
+        ],
+        [
+          "đã được tiếp nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã xử lý đến bước nào"
+        ],
+        [
+          "hồ sơ thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi kiểm tra ở đâu để biết phiếu đề xuất xe, hồ sơ thanh lý hoặc báo cáo sự cố của mình đã được tiếp nhận và xử lý đến bước nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

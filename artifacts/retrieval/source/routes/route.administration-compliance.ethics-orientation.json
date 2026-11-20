@@ -1,0 +1,52 @@
+{
+  "id": "route.administration-compliance.ethics-orientation",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-orientation",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "biên bản hoàn thành chương trình định hướng"
+        ],
+        [
+          "gồm những nội dung",
+          "phải ghi",
+          "cần ký",
+          "cam kết"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cam kết"
+        ],
+        [
+          "định hướng nhân viên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Biên bản hoàn thành chương trình định hướng nhân viên gồm những nội dung và cam kết nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

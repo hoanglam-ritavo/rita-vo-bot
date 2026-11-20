@@ -1,0 +1,78 @@
+{
+  "id": "task.administration-compliance.asset-before-approval",
+  "label": "Xử lý tài sản trước phê duyệt",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xử lý tài sản trước phê duyệt"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về xử lý tài sản trước phê duyệt?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-before-approval.1",
+          "text": "Quy trình đặt bước xử lý sau khi Ban Giám đốc phê duyệt. Nếu còn chờ, gửi thông tin cho HCNS và KSNB để lập, đánh giá và trình phương án trước khi chuyển giao hoặc xử lý tài sản.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 3,
+              "content_sha256": "fadca82bd284e175ab8b7b22fe7b6f2a6f6f7890287fc8ed1bd7a0edb0c95843",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\nV. NỘI DUNG QUY TRÌNH:\n5.1. Quy định chung:\n- Khi có TS-CCDC/PL cần xử lý (thanh lý, thay thế, hủy bỏ…), các phòng ban phải thực hiện theo quy trình này. Các trường hợp tự ý điều chuyển, di dời, thanh lý…không theo quy định này sẽ xử lý theo nội quy Công ty\n- Tất cả việc nhập/xuất các TS-CCDC/PL này phải có các chứng từ khi điều chuyển ra khỏi Công ty, nếu không có đầy đủ các chứng từ hoặc biên bản phê duyệt từ BOD của công ty, BVDV đình chỉ và ngăn chặn không cho xuất/nhập và thông tin đến BAN và phòng HCNS.\n- Toàn bộ quá trình xuất phải được thực hiện dưới khu vực camera.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            },
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 4,
+              "content_sha256": "1436756cfa90f9b86a04fe8c4c7cdd7301f1e52b5b3674d77bfcb9b9ac7a3259",
+              "quote": "Quy trình thanh lý TS-CCDC/PL — lưu đồ 5.2.1 gồm 7 bước: (1) Đề xuất, ngày T; (2) Đánh giá và đề xuất phương án, T+1; (3) Tìm nhà thầu, T+3; (4) Trình BOD, T+4; không duyệt quay về đánh giá, duyệt chuyển xử lý; (5) Giám sát xử lý và lập biên bản kiêm phiếu xuất kho, T+5; (6) Đối chiếu hệ thống chứng từ, T+6; (7) Kết thúc. Các mốc T là ký hiệu trong lưu đồ; nguồn không định nghĩa là ngày làm việc hay ngày lịch.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            },
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 7,
+              "content_sha256": "aa03a417e15a13d5085f24efc32d24b69a76bd03238adf4d90b6d318ec9811e8",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 3: Tìm kiếm nhà thầu xử lý\nTrường hợp đội đánh giá tình trạng đồng ý phương án Thanh lý/ hủy bỏ TS - CCDC/ PL, phòng HCNS lên phương án tìm kiếm nhà thầu tương ứng chuyển KSNB xem xét.\nTrách nhiệm: HCNS; KSNB; Bộ phận chuyên môn.\n5.2.2 — Bước 4: Trình phê duyệt BOD\n- Sau khi tìm kiếm nhà thầu xử lý, KSNB trình BOD phê duyệt.\n- Nếu BOD không đồng ý, trả về phòng HCNS, thực hiện theo chỉ đạo\nTrách nhiệm: HCNS; KSNB; BOD.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

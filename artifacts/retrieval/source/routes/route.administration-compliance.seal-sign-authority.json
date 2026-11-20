@@ -1,0 +1,68 @@
+{
+  "id": "route.administration-compliance.seal-sign-authority",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-sign-authority",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phó tổng giám đốc"
+        ],
+        [
+          "ký văn bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ký văn bản chuyên môn"
+        ],
+        [
+          "ủy quyền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người được ủy quyền ký"
+        ],
+        [
+          "trách nhiệm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào Phó Tổng Giám đốc, Giám đốc hoặc Phó Giám đốc được ký văn bản để đóng dấu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trưởng hoặc Phó phòng được tự ký văn bản chuyên môn nào và khi nào cần ủy quyền bằng văn bản?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người được ủy quyền ký phải chịu trách nhiệm gì về nội dung văn bản?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

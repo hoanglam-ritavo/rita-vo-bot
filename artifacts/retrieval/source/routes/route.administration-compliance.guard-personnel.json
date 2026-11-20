@@ -1,0 +1,66 @@
+{
+  "id": "route.administration-compliance.guard-personnel",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-personnel",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ thuê ngoài"
+        ],
+        [
+          "tiêu chuẩn tuyển chọn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hồ sơ điều động"
+        ],
+        [
+          "bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lệnh điều động"
+        ],
+        [
+          "bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên bảo vệ thuê ngoài phải đáp ứng tiêu chuẩn tuyển chọn nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hồ sơ điều động nhân viên bảo vệ đến một địa điểm làm việc cần có những giấy tờ gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

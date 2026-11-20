@@ -1,0 +1,58 @@
+{
+  "id": "route.administration-compliance.building-outage",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-outage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mất điện"
+        ],
+        [
+          "nhân viên báo cho ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mất điện"
+        ],
+        [
+          "xử lý thiết bị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mất điện"
+        ],
+        [
+          "tây đô"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi mất điện, nhân viên báo cho ai và cần xử lý thiết bị đang sử dụng ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

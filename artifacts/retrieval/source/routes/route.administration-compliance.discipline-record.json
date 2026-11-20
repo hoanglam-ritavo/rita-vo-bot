@@ -1,0 +1,63 @@
+{
+  "id": "route.administration-compliance.discipline-record",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-record",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lập biên bản"
+        ],
+        [
+          "thu thập chứng cứ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "yêu cầu viết tường trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nội dung bản tường trình"
+        ],
+        [
+          "vi phạm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có trách nhiệm lập biên bản, thu thập chứng cứ và thông báo cho các bên liên quan?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi bị yêu cầu viết tường trình, tôi cần trình bày những gì và được cung cấp tài liệu nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "route.administration-compliance.discipline-damage",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-damage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tiêu hao vật tư vượt định mức"
+        ],
+        [
+          "bồi thường"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "căn cứ tính bồi thường"
+        ],
+        [
+          "tiền mặt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tài sản hư do hao mòn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhiều người cùng sử dụng"
+        ],
+        [
+          "trách nhiệm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Làm mất tài sản, làm hỏng thiết bị và làm tiêu hao vật tư vượt định mức được xem xét bồi thường khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Căn cứ tính bồi thường đối với hàng hóa, thiết bị và tiền mặt có khác nhau không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài sản hư do hao mòn, sự cố ngoài khả năng kiểm soát hoặc có nhiều người cùng sử dụng thì xác định trách nhiệm thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount"
+}

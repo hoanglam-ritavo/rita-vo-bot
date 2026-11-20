@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.ethics-confidential",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-confidential",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chia sẻ thông tin lương"
+        ],
+        [
+          "hồ sơ nhân sự"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thông tin kinh doanh"
+        ],
+        [
+          "khách hàng"
+        ],
+        [
+          "bảo mật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Công ty quy định thế nào về việc chia sẻ thông tin lương, phúc lợi và hồ sơ nhân sự?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Những thông tin kinh doanh, quản lý hoặc khách hàng nào cần được bảo mật?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "route.administration-compliance.uniform-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tác phong"
+        ],
+        [
+          "đồng phục"
+        ],
+        [
+          "thẻ tên"
+        ],
+        [
+          "nhóm nhân viên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy định đồng phục"
+        ],
+        [
+          "phạm vi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định tác phong, đồng phục và thẻ tên áp dụng cho những nhóm nhân viên nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

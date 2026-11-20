@@ -1,0 +1,90 @@
+{
+  "id": "route.administration-compliance.sealing-close",
+  "family": "administration",
+  "task_id": "task.administration-compliance.sealing-close",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ra về cuối cùng"
+        ],
+        [
+          "dán niêm phong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giấy niêm phong"
+        ],
+        [
+          "sổ niêm phong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giấy niêm phong"
+        ],
+        [
+          "dấu gì"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "dán hoặc mở niêm phong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người ra về cuối cùng phải làm gì trước khi dán niêm phong?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai ký trên giấy niêm phong và ai ký vào sổ niêm phong?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Giấy niêm phong cần có dấu gì và phải dán ở vị trí nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ cần chứng kiến những bước nào khi dán hoặc mở niêm phong?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

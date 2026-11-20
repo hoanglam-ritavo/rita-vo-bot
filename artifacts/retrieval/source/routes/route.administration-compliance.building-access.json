@@ -1,0 +1,68 @@
+{
+  "id": "route.administration-compliance.building-access",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-access",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cửa chính"
+        ],
+        [
+          "cửa phụ"
+        ],
+        [
+          "cửa thoát hiểm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ở lại ngoài giờ"
+        ],
+        [
+          "vào tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vào tây đô"
+        ],
+        [
+          "ngoài giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào được sử dụng cửa chính, cửa phụ và cửa thoát hiểm?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên ở lại ngoài giờ hoặc vào tòa nhà ngày nghỉ phải đăng ký với ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

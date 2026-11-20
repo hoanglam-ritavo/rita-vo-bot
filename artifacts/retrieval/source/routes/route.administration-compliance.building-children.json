@@ -1,0 +1,48 @@
+{
+  "id": "route.administration-compliance.building-children",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-children",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đưa con vào tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trẻ em"
+        ],
+        [
+          "tòa nhà"
+        ],
+        [
+          "công ty có sự kiện"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc khi công ty có sự kiện không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

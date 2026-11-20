@@ -1,0 +1,71 @@
+{
+  "id": "route.administration-compliance.vehicle-prohibitions",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-prohibitions",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe tập đoàn"
+        ],
+        [
+          "việc cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe công ty"
+        ],
+        [
+          "thực phẩm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe tập đoàn"
+        ],
+        [
+          "cho mượn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chở sầu riêng"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe Tập đoàn có được dùng cho việc cá nhân, cho mượn hoặc chuyên chở đồ ngoài nhiệm vụ được duyệt không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định cấm chở những loại hàng hóa hoặc thực phẩm nào trên xe công ty?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

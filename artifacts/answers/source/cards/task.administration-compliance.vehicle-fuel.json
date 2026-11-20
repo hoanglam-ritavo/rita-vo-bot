@@ -1,0 +1,110 @@
+{
+  "id": "task.administration-compliance.vehicle-fuel",
+  "label": "Định mức, tạm ứng và quyết toán nhiên liệu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Định mức, tạm ứng và quyết toán nhiên liệu"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về định mức, tạm ứng và quyết toán nhiên liệu?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.vehicle-fuel.1",
+          "text": "HCNS, Kế toán và bộ phận chuyên môn phối hợp xây dựng định mức. Hỏi Quản lý điều xe về bảng của từng xe. Kỳ thanh toán gồm ngày 1–15 và từ ngày 16 đến cuối tháng. Tạm ứng dùng phiếu đề nghị tạm ứng; thanh toán dùng phiếu tương ứng kèm nhật trình đã xác nhận, hóa đơn và chứng từ liên quan. Chi phí nhiên liệu vượt lượng tính trong kỳ không tự động được hoàn; chuyển sai lệch để Quản lý điều xe/HCNS và Kế toán đối chiếu.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 6,
+              "content_sha256": "54eb77ca4d6702ba7e55d63418c82ef7f6e76ee04fa26efcf0e33b4e0137526f",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 3. Định nghĩa từ ngữ (tiếp):\n- Kỳ thanh toán: mỗi 2 tuần, bắt đầu từ ngày đầu tiên, kết thúc ngày 15 của tháng; kỳ tiếp theo bắt đầu từ ngày 16, kết thúc ngày cuối tháng.\n- Thẻ VETC: Dịch vụ thu phí tự động đường bộ VETC",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 15,
+              "content_sha256": "c2c2ec3dcb0fed5663e3fa6a6d4930dc8a02b312908b7ecdbc113fdbbe8cd2c7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 4.12.e) Phiếu đề nghị tạm ứng: P. HCNS/ quản lý điều xe tạm ứng chi phí phù hợp với số lượng xe bộ phận đang đảm trách.\nf) Phiếu đề nghị thanh toán xăng dầu: P. HCNS/ Quản lý điều xe/ CBNV chịu trách nhiệm thanh toán chi phí, lập phiếu đề nghị thanh toán xăng dầu kèm theo hồ sơ thanh toán xăng dầu (hóa đơn xăng/ dầu, phiếu cầu đường, phiếu vá vỏ…) gửi P. KT vào ngày thứ 7 mỗi kỳ để kịp thời thanh toán chi phí xăng dầu cho xe:",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 20,
+              "content_sha256": "5e5da72f899792bcfec9c335604a27eeeda1117e459ca5877ef9ac27934377b7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.1.d) Phối hợp với P. KT, Trưởng bộ phận sửa chữa, bảo trì xe trong việc xây dựng định mức nhiên liệu cho các loại xe, thanh toán chi phí xăng xe, cầu đường,…, hướng dẫn cho quản lý điều xe các bộ phận cách thức thanh toán chi phí xăng xe, cầu đường…. của xe thuộc bộ phận mình. Cung cấp, phối hợp với Phòng kế toán để kiểm tra, xác minh chi phí xăng xe, bảo trì, bảo dưỡng sửa chữa xe... theo đúng quy định của Tập đoàn.\ne) Kiểm tra theo dõi việc cập nhật sổ nhật trình xe, tình hình xe, chi phí sử dụng xe. Đối chiếu số liệu hệ thống định vị các xe, làm cơ sở đánh giá tình hình quản lý, sử dụng xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 34,
+              "content_sha256": "59253cd8c815c1a9907bdfe3b215fcdfa69e4bc515b49dc94341fc1afc3ff6ec",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.2. Thanh toán hàng tháng\n- Dựa trên bảng định mức xăng dầu, bộ phận quản lý, điều xe sẽ chịu trách nhiệm thực hiện thủ tục tạm ứng tiền xăng dầu và thanh toán phí xăng dầu với P. KT\n- Số tiền thanh toán xăng dầu sẽ được tính dựa trên công thức sau:\nGTB = HD/LHD; L = (K x D)/100; TD = GTB x L\n- Trong đó:\n  - HD: Tổng giá trị hóa đơn xăng dầu đã đổ trong kì\n  - LHD: Tổng số lít xăng dầu theo hóa đơn\n  - GTB: Giá xăng dầu (lít) trung bình\n  - K: số Km sử dụng trong kì\n  - D: Định mức xăng dầu được duyệt\n  - L: Tổng số lít xăng dầu tiêu thụ\n  - TD: Tổng tiền dầu thực tính trong kì",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 35,
+              "content_sha256": "ab5b2450e1f24a2b6fedc4d9c191fb224f244534b77190627b41fb9749945aef",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 9.2. Hồ sơ quyết toán xăng dầu bao gồm:\n- Sổ nhật trình xe (có ký xác nhận của trưởng bộ phận và người sử dụng xe)\n- Hóa đơn xăng/ dầu có đầy đủ, chính xác thông tin xuất hóa đơn (hóa đơn xăng/ dầu sau khi cung cấp để thanh toán của kỳ đó, nếu tổng giá trị hóa đơn cao hơn so với lượng nhiên liệu thực tính trong kỳ sẽ không được hoàn lại)\n- Hóa đơn/ biên nhận đậu đỗ xe, cầu đường, vá vỏ, cân mâm… (biên nhận vá vỏ, đảo vỏ…phải kèm theo hình chụp thực tế xe đưa vào gara và tình trạng xe thời điểm đó)\n- Phiếu thu chành xe: nhân viên lái xe cung cấp kèm theo biên bản giao nhận hàng của chuyến chành xe đó, hình ảnh hàng hóa chành xe\n- Biên bản bàn giao xe (nếu là xe mới).",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

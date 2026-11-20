@@ -106,6 +106,12 @@ the absence of evidence from the other interface, and the action and
 interface retained in conversation context. Cases in the original Workit
 bank whose expected outcome is interface selection retain their original IDs.
 
+The administration and compliance bank retains 189 supplied questions with
+stable IDs across ten topics. Separate oracles verify claim text, source
+revisions, citations and limitations. Conversation cases cover changes in
+location, role, task and source availability, plus operational and privacy
+boundaries.
+
 The Office 365 bank retains the 193 requested questions and their original
 topic identifiers. Oracles distinguish the four workflows, channel-specific
 steps, documented limits and operational verification. Conversation cases
@@ -203,7 +209,7 @@ mode grants quality acceptance. The original snapshot below is historical.
 
 ## Current executable coverage
 
-The current set contains **867 cases / 901 turns in 21 groups** and 21 oracle
+The original expanded snapshot contained **867 cases / 901 turns in 21 groups** and 21 oracle
 files. Original 416 cases and their prose/IDs are preserved. Additional direct
 wiring and aspect cases cover 279 tasks; source-label alternatives use explicit
 source IDs where needed. The paperwork pilot exercises template claims and source

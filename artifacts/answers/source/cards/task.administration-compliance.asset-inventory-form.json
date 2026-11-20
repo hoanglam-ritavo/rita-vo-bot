@@ -1,0 +1,73 @@
+{
+  "id": "task.administration-compliance.asset-inventory-form",
+  "label": "Biên bản thống kê tài sản thanh lý",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Biên bản thống kê tài sản thanh lý"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về biên bản thống kê tài sản thanh lý?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-inventory-form.1",
+          "text": "Mẫu 6.1 ghi bộ phận, địa chỉ, ngày lập, số biên bản và danh mục tài sản gồm tên hoặc ký hiệu, số hiệu quy ước, số lượng, tình trạng và phương án đề xuất theo mẫu.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 10,
+              "content_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084",
+              "quote": "Quy trình thanh lý — mẫu 6.1 Biên bản thống kê tài sản cần thanh lý/hủy bỏ: ghi bộ phận, địa chỉ, ngày, số biên bản, căn cứ đề xuất, thành phần/đại diện tham gia. Bảng gồm STT, tên tài sản/ký hiệu, số hiệu tài sản quy ước, đơn vị tính, số lượng ước tính, khối lượng ước lượng kg, hình ảnh, tình trạng, đề xuất. Quản lý bộ phận, bộ phận chuyên môn, đại diện KSNB và HCNS ký ghi rõ họ tên. Chỉ mô tả các trường và vai trò ký của mẫu; không cung cấp dữ liệu giao dịch.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "paperwork": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-inventory-form.1",
+          "text": "Mẫu 6.1 ghi bộ phận, địa chỉ, ngày lập, số biên bản và danh mục tài sản gồm tên hoặc ký hiệu, số hiệu quy ước, số lượng, tình trạng và phương án đề xuất theo mẫu.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 10,
+              "content_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084",
+              "quote": "Quy trình thanh lý — mẫu 6.1 Biên bản thống kê tài sản cần thanh lý/hủy bỏ: ghi bộ phận, địa chỉ, ngày, số biên bản, căn cứ đề xuất, thành phần/đại diện tham gia. Bảng gồm STT, tên tài sản/ký hiệu, số hiệu tài sản quy ước, đơn vị tính, số lượng ước tính, khối lượng ước lượng kg, hình ảnh, tình trạng, đề xuất. Quản lý bộ phận, bộ phận chuyên môn, đại diện KSNB và HCNS ký ghi rõ họ tên. Chỉ mô tả các trường và vai trò ký của mẫu; không cung cấp dữ liệu giao dịch.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "route.administration-compliance.ethics-ip",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-ip",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mã nguồn của công ty"
+        ],
+        [
+          "sau khi nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy trình"
+        ],
+        [
+          "sản phẩm"
+        ],
+        [
+          "sau khi nghỉ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy định nói gì về việc sử dụng tài liệu, quy trình, sản phẩm hoặc mã nguồn của công ty sau khi nghỉ việc?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

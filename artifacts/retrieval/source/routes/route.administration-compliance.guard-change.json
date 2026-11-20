@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.guard-change",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thay người đột xuất"
+        ],
+        [
+          "bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi nhân sự bảo vệ"
+        ],
+        [
+          "bao lâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổi ca bảo vệ"
+        ],
+        [
+          "báo trước"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nhà cung cấp đổi nhân sự bảo vệ theo kế hoạch hoặc thay người đột xuất, phải báo cho ai và trước bao lâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "route.administration-compliance.discipline-intake",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-intake",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phát hiện vi phạm nội quy hành chính"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nội quy hành chính"
+        ],
+        [
+          "báo ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện vi phạm nội quy hành chính, nhân viên nên báo quản lý trực tiếp, HCNS, Ban An ninh hay Kiểm soát nội bộ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "ý tôi là bảo vệ thuê ngoài": "task.administration-compliance.guard-violation"
+  }
+}

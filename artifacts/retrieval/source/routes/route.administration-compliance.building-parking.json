@@ -1,0 +1,52 @@
+{
+  "id": "route.administration-compliance.building-parking",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-parking",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mất vé xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe ngoài giờ"
+        ],
+        [
+          "xác minh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên và khách phải đỗ xe ở đâu và nhận, trả thẻ xe thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu làm mất vé xe hoặc cần lấy xe ngoài giờ, tôi phải xác minh với ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

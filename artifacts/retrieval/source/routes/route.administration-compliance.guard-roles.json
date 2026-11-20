@@ -1,0 +1,71 @@
+{
+  "id": "route.administration-compliance.guard-roles",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-roles",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý trực tiếp tại cơ sở"
+        ],
+        [
+          "lực lượng bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ban an ninh"
+        ],
+        [
+          "kiểm soát nội bộ"
+        ],
+        [
+          "quản lý dịch vụ bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cách bố trí bảo vệ"
+        ],
+        [
+          "ngoại lệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý trực tiếp tại cơ sở phải theo dõi và phối hợp với lực lượng bảo vệ như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ban An ninh, HCNS và Kiểm soát nội bộ phụ trách phần việc nào trong quản lý dịch vụ bảo vệ?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cơ sở cần áp dụng cách bố trí bảo vệ khác quy trình chung, những ai phải xem xét ngoại lệ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

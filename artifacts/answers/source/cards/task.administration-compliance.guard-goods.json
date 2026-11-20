@@ -1,0 +1,66 @@
+{
+  "id": "task.administration-compliance.guard-goods",
+  "label": "Bảo vệ giám sát xuất nhập hàng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Bảo vệ giám sát xuất nhập hàng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về bảo vệ giám sát xuất nhập hàng?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.guard-goods.1",
+          "text": "Bảo vệ đối chiếu, ký xác nhận chứng từ và theo dõi xuất hoặc nhập đến khi hoàn tất. Ghi nhận sai lệch và báo người phụ trách tại điểm xuất nhập để đối chiếu trước khi xác nhận. Việc đăng ký tài sản, vật tư thực hiện theo nội quy cơ sở.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 7,
+              "content_sha256": "2d28f83e1f98ffce6f3642cbea112d9a584f5f1ca5001da613b982146e3da7a4",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. Trong quá trình giám sát xuất - nhập hàng tại các cửa của bảo vệ:\n- Bảo vệ có trách nhiệm kiểm tra, đối chiếu, ký xác nhận chứng từ xuất nhập hàng và giám sát quá trình xuất nhập hàng, liên đới chịu trách nhiệm nếu hoạt động xuất – nhập xảy ra sự cố (mất mát, hư hỏng hàng hóa,..).\n- Không được bỏ đi khi việc xuất nhập hàng chưa hoàn thành.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 8,
+              "content_sha256": "99581b11deb084091f994a053a6ba664be3befa4ae3d3fb7a8bb0666f5c0cd11",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n4. Trách nhiệm của lực lượng bảo vệ (tiếp):\n- Giám sát hoạt động tuần tra của bảo vệ theo ranh giới bảo vệ được quy định tại từng mục tiêu để đảm bảo an ninh trật tự, phòng chống cháy nổ tối thiểu 30 phút/ lần.\n- Kiểm tra, đăng ký quản lý tài sản, vật tư ra vào công ty theo nội quy, quy định Công ty.\n- Nhắc nhở hướng dẫn CBNV chấp hành nội quy, quy định tại công ty về an toàn PCCC. Phối hợp với lực lượng (PCCC) của nhà nước thực hiện tốt công tác PCCC.\n- Trông giữ xe cho nhân viên và khách hàng của Công ty (theo quy định Công ty).\n- Lịch sự, ân cần, tận tình trong công việc.\n- Khi có sự cố về an ninh xảy ra, NV bảo vệ làm công tác bảo vệ hiện trường cho tới khi bàn giao cho các cấp có liên quan.\n- Giải quyết nhanh chóng và báo cáo lại cho B.A.N, P.HCNS tất cả sự cố an ninh xảy ra trong ca trực.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Tên giấy phép và cách xử lý từng loại sai lệch cần đối chiếu quy trình của cơ sở và bộ phận giao nhận."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

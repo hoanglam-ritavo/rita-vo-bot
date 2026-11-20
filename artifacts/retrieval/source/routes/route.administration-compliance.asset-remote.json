@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.asset-remote",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-remote",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chi nhánh ngoài hà nội"
+        ],
+        [
+          "tập trung tài sản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "ngoài hà nội"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "ngoài hcm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Chi nhánh ngoài Hà Nội và TP.HCM phải tập trung tài sản ở đâu và chờ đánh giá theo lịch nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

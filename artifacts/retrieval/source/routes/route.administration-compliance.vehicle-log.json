@@ -1,0 +1,63 @@
+{
+  "id": "route.administration-compliance.vehicle-log",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-log",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sổ nhật trình xe"
+        ],
+        [
+          "ký xác nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số kilomet đầu kỳ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "km đầu kỳ"
+        ],
+        [
+          "nhật trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sổ nhật trình xe ghi những thông tin gì, do ai ghi và ai ký xác nhận?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai theo dõi số kilomet đầu kỳ, cuối kỳ và ghi nhận sai lệch?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

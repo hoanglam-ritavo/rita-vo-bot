@@ -1,0 +1,59 @@
+{
+  "id": "route.administration-compliance.asset-schedule",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-schedule",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quy trình thanh lý"
+        ],
+        [
+          "t+1"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "t+6"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "mốc thời gian"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy trình thanh lý có những bước nào và các mốc T+1 đến T+6 được hiểu ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "route.administration-compliance.guide-contact",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guide-contact",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "số điện thoại trong tài liệu cũ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tên người phụ trách"
+        ],
+        [
+          "đã thay đổi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số cũ"
+        ],
+        [
+          "đầu mối hiện tại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu tên người phụ trách hoặc số điện thoại trong tài liệu cũ đã thay đổi, tôi tìm đầu mối hiện tại ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số liên hệ đã cũ",
+          "điện thoại cũ",
+          "số trên tài liệu đã đổi"
+        ],
+        [
+          "đầu mối",
+          "liên hệ ai"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

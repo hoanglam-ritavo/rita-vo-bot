@@ -1,0 +1,82 @@
+{
+  "id": "route.administration-compliance.building-guests",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-guests",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khách đến gặp nhân viên"
+        ],
+        [
+          "đăng ký"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đưa khách"
+        ],
+        [
+          "khu vực hạn chế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quản lý tòa nhà"
+        ],
+        [
+          "từ chối cho ra vào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khách vào kho"
+        ],
+        [
+          "xin phép"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khách đến gặp nhân viên phải đăng ký ở đâu, và nhân viên đón khách có trách nhiệm gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể đưa khách vào khu vực làm việc, kho hoặc khu vực hạn chế trong trường hợp nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý tòa nhà hoặc bảo vệ được từ chối cho ra vào trong những trường hợp nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

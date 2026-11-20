@@ -1,0 +1,80 @@
+{
+  "id": "route.administration-compliance.uniform-badges",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-badges",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thử việc"
+        ],
+        [
+          "loại thẻ tên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đeo ở đâu"
+        ],
+        [
+          "quên thẻ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thẻ đã cũ mờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thẻ tên"
+        ],
+        [
+          "xin cấp lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên thử việc và nhân viên chính thức được cấp loại thẻ tên nào, vào thời điểm nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Thẻ tên phải đeo ở đâu và cần làm gì nếu đi làm mà quên thẻ?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Mất thẻ, làm hỏng thẻ hoặc thẻ đã cũ mờ thì xin cấp lại ở đâu, và trường hợp nào phát sinh chi phí?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

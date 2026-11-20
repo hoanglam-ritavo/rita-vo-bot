@@ -1,0 +1,94 @@
+{
+  "id": "task.administration-compliance.guard-site",
+  "label": "Đề xuất vị trí và tiếp nhận bảo vệ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đề xuất vị trí và tiếp nhận bảo vệ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về đề xuất vị trí và tiếp nhận bảo vệ?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.guard-site.1",
+          "text": "Ban An ninh đề xuất vị trí đã được duyệt. HCNS kiểm tra nhu cầu, chọn nhà cung cấp, tiếp nhận lý lịch và tuyển chọn. HCNS cung cấp nhân sự đã chọn, Ban An ninh kiểm tra và tiếp nhận, thông báo cho HCNS lưu hồ sơ. Nhân sự chưa đạt được trả lại bước tuyển chọn hoặc bố trí theo mục 9.2.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 13,
+              "content_sha256": "4c1880c28c8bcb001a51ec49ca215dd38c23abd99ca328f01a126a0e5f681e3c",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n5. Quyền hạn và trách nhiệm của Ban An Ninh (tiếp):\n- Khảo sát, đề xuất số vị trí bảo vệ tại các mục tiêu theo mẫu RTV/2020-01.\n- Thông qua hệ thống camera, giám sát và nhắc nhở nhân viên bảo vệ thực hiện nhiệm vụ theo đúng hợp đồng và xử lý khi phát hiện nhân viên bảo vệ vi phạm hợp đồng\n- Chủ động đề xuất, yêu cầu thay đổi điều chuyển nhân sự công ty bảo vệ nếu trong quá trình giám sát nhận thấy có rủi ro cho Công ty\n- Gửi báo cáo tình hình công tác bảo vệ, tình hình an ninh của công ty đến BOD hàng tháng",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 24,
+              "content_sha256": "78cbed85c02095f45a8ced9016c9698c2c13899dd16475a23957fb2810bf498e",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n9.2. Quy trình tuyển chọn nhân viên bảo vệ\nQUY TRÌNH TUYỂN CHỌN NVBV\nCột: BƯỚC; LƯU ĐỒ THỰC HIỆN; BP. ĐẢM TRÁCH; HƯỚNG DẪN/ BIỂU MẪU\n1. Đề xuất vị trí bảo vệ. B.A.N: B.A.N gửi đề xuất NVBV (mẫu đề xuất RTV/2020-01) đã được BGĐ duyệt, trước 3 ngày kể từ ngày cần sử dụng bảo vệ.\n2. Kiểm tra đề xuất. P.HCNS: P.HCNS tiếp nhận và kiểm tra hồ sơ theo quy định. Ko Đạt quay lại bước 1; Đạt sang bước 3.\n3. Lựa chọn NCC theo tiêu chuẩn. P.HCNS: P.HCNS lựa chọn và cung cấp NVBV theo tiêu chuẩn quy định theo Điều 2 Quy định này.\n4. P.HCNS lựa chọn NCC. Không có NCC phù hợp: thực hiện theo quy trình chọn NCC. Đã có NCC phù hợp: gửi yêu cầu cho NCC, lập hợp đồng/ phụ lục HĐ. Hai nhánh đến bước 5.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 25,
+              "content_sha256": "874dd3f133e91aa547dc0b17debe1b7a141737143834f7dfc430c9e558a3034c",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n9.2. Quy trình tuyển chọn NVBV (tiếp):\n5. NCC giới thiệu lý lịch NVBV. NCC: NCC cung cấp hồ sơ NVBV theo Điều 2.2 Quy định này\n6. Tuyển chọn NVBV do NCC gửi đến. P.HCNS: P.HCNS tuyển chọn NVBV theo tiêu chuẩn theo Điều 3 Quy định này. Ko Đạt quay lại bước 5; Đạt sang bước 7.\n7. Cung cấp NVBV. P.HCNS: P.HCNS cung cấp NVBV\n8. Kiểm tra NVBV theo tiêu chuẩn. B.A.N: B.A.N kiểm tra lý lịch NVBV phù hợp theo tiêu chuẩn Công ty đã quy định. Trường hợp DVBV bổ sung NVBV gấp do trống vị trí đột ngột, P.HCNS cung cấp hồ sơ vào ngày hôm sau. Nhánh Ko quay lại bước 7; Đạt sang bước 9.\n9. Nhận NVBV vào vị trí, báo tin cho P.HCNS. B.A.N: B.A.N nhận NVBV vào vị trí và báo tin bằng email cho P.HCNS\n10. Lưu hồ sơ. P.HCNS: P.HCNS lưu hồ sơ",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 26,
+              "content_sha256": "d7ed9f91273c92e90882258cf0961bb7dcfb77cfdec1e8847ba3f46f307dfcf4",
+              "quote": "Quy định bảo vệ HCNS-QT01, mục 9.2 — toàn bộ mười bước tuyển chọn NVBV: (1) Ban An Ninh đề xuất vị trí đã được BGĐ duyệt; (2) HCNS kiểm tra đề xuất, không đạt trả lại; (3–4) HCNS chọn NCC theo tiêu chuẩn, chưa có NCC phù hợp thì theo quy trình chọn NCC, đã có thì gửi yêu cầu và lập hợp đồng/phụ lục; (5) NCC giới thiệu lý lịch; (6) HCNS tuyển chọn, không đạt quay lại bước 5; (7) HCNS cung cấp NVBV; (8) Ban An Ninh kiểm tra, không đạt quay lại bước 7; (9) Ban An Ninh nhận người, email HCNS; (10) HCNS lưu hồ sơ. Trường hợp bổ sung gấp do trống vị trí đột ngột, HCNS cung cấp hồ sơ ngày hôm sau.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

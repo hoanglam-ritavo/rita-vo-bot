@@ -1,0 +1,46 @@
+{
+  "id": "task.administration-compliance.asset-close",
+  "label": "Đối chiếu sau thanh lý",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đối chiếu sau thanh lý"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về đối chiếu sau thanh lý?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.asset-close.1",
+          "text": "KSNB thông báo kết quả cho các phòng ban. Kế toán dùng giá trị trên biên bản xử lý kiêm phiếu xuất kho để cập nhật hệ thống khi có nghiệp vụ cần ghi nhận. HCNS, KSNB và Kế toán chịu trách nhiệm ở bước đối chiếu.",
+          "refs": [
+            {
+              "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+              "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+              "source_sha256": "a5128d4e731ec335add7a3cb8c815ef0050a57e99011661006220ef6f23e59e6",
+              "chunk_index": 9,
+              "content_sha256": "b7e8a9b7e5077a149235f97dcc059b13d52369680ae2af3ebedc5c31f588fd60",
+              "quote": "Quy trình thanh lý tài sản – CCDC – phế liệu\n5.2.2 — Bước 6: Xử lý đối chiếu hệ thống chứng từ\n- KSNB thông tin kết quả xử lý đến các phòng ban\n* Thanh lý/ hủy bỏ: Căn cứ theo giá trị ghi nhận trên Biên bản xử lý TS-CCDC/PL kiêm Phiếu xuất kho, kế toán xử lý trên hệ thống (nếu có)\nTrách nhiệm: HCNS; KSNB; Kế toán.",
+              "metadata": {
+                "title": "Quy trình thanh lý tài sản – CCDC – phế liệu",
+                "applicability": "Toàn bộ các phòng ban khi cần xử lý tài sản, công cụ dụng cụ, hàng hóa không còn khả năng sử dụng của Công ty TNHH Tập Đoàn Rita Võ, theo mục II của nguồn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "01/23",
+                "source_path": "noi-quy-qui-dinh/quy-trinh-thanh-ly-tai-san/rtv-quy-trinh-thanh-ly-tai-san-ccdc-phe-lieu.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "route.administration-compliance.ethics-partners",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-partners",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tiếp xúc khách hàng và nhà cung cấp"
+        ],
+        [
+          "ứng xử"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cam kết đã thống nhất với đối tác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đối tác"
+        ],
+        [
+          "đổi cam kết"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi tiếp xúc khách hàng và nhà cung cấp, tôi phải tuân thủ những nguyên tắc ứng xử nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có được tự thay đổi thông tin, điều kiện hoặc cam kết đã thống nhất với đối tác không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

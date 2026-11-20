@@ -1,0 +1,55 @@
+{
+  "id": "route.administration-compliance.seal-custody",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-custody",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "con dấu"
+        ],
+        [
+          "nơi lưu giữ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cất dấu ở đâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mang con dấu ra ngoài"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai chịu trách nhiệm quản lý con dấu và ai được trực tiếp đóng dấu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Con dấu phải được bảo quản ở đâu và ai có quyền cho phép mang dấu ra khỏi nơi lưu giữ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "route.administration-compliance.building-roles",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-roles",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quản lý tòa nhà"
+        ],
+        [
+          "ban an ninh"
+        ],
+        [
+          "khi có sự cố"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thất lạc tài sản"
+        ],
+        [
+          "camera"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kiểm tra camera"
+        ],
+        [
+          "đầu mối"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý tòa nhà, Kỹ thuật, HCNS, Bảo vệ và Ban An ninh chịu trách nhiệm gì khi có sự cố?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi phát hiện thất lạc tài sản, tôi phải báo ai và đề nghị kiểm tra camera qua đầu mối nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

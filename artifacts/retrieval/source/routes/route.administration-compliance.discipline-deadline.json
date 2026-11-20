@@ -1,0 +1,44 @@
+{
+  "id": "route.administration-compliance.discipline-deadline",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-deadline",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thời hiệu xử lý vi phạm"
+        ],
+        [
+          "tài sản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thời hiệu kỷ luật"
+        ],
+        [
+          "bí mật kinh doanh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Thời hiệu xử lý vi phạm liên quan đến tài sản hoặc bí mật kinh doanh khác gì so với vi phạm thông thường?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

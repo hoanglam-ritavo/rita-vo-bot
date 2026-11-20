@@ -1,0 +1,47 @@
+{
+  "id": "route.administration-compliance.asset-close",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-close",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đối chiếu chứng từ"
+        ],
+        [
+          "cập nhật hệ thống"
+        ],
+        [
+          "thông báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau thanh lý"
+        ],
+        [
+          "đối chiếu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi xử lý, ai đối chiếu chứng từ, cập nhật hệ thống và thông báo kết quả?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

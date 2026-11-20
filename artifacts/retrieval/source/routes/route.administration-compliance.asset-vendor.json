@@ -1,0 +1,72 @@
+{
+  "id": "route.administration-compliance.asset-vendor",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-vendor",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "tìm nhà thầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trình phương án"
+        ],
+        [
+          "ban giám đốc"
+        ],
+        [
+          "chưa được duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hủy bỏ"
+        ],
+        [
+          "ksnb"
+        ],
+        [
+          "nhà thầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phương án thanh lý hoặc hủy bỏ được thống nhất, ai tìm nhà thầu và ai xem xét đề xuất?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai trình phương án lên Ban Giám đốc và phải làm gì nếu phương án chưa được duyệt?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

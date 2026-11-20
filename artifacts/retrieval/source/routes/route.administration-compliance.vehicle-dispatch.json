@@ -1,0 +1,75 @@
+{
+  "id": "route.administration-compliance.vehicle-dispatch",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-dispatch",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người quản lý điều xe"
+        ],
+        [
+          "thẩm quyền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "điều xe đang thuộc bộ phận khác"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "việc sử dụng xe"
+        ],
+        [
+          "cấp cứu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "điều xe khẩn"
+        ],
+        [
+          "phòng ban"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ban lãnh đạo, HCNS và người quản lý điều xe có thẩm quyền khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi có công việc đột xuất, ai có quyền điều xe đang thuộc bộ phận khác?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trong tình huống cấp cứu, việc sử dụng xe và báo cáo sau đó được thực hiện thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

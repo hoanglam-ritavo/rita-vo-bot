@@ -1,0 +1,81 @@
+{
+  "id": "route.administration-compliance.vehicle-custody",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-custody",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tài xế và bảo vệ"
+        ],
+        [
+          "kiểm tra"
+        ],
+        [
+          "xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe phải đỗ ở đâu"
+        ],
+        [
+          "chìa khóa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe bị va quẹt"
+        ],
+        [
+          "báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe trầy"
+        ],
+        [
+          "biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế và bảo vệ phải kiểm tra những gì trước khi xe đi và sau khi xe về?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe phải đỗ ở đâu trong và ngoài giờ làm việc, và ai quản lý chìa khóa?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu xe bị va quẹt, hư hỏng hoặc phát sinh sự cố trong chuyến đi, tài xế báo ai và cần lập hồ sơ gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

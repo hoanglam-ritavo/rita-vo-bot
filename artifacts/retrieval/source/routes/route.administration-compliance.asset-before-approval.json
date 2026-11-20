@@ -1,0 +1,57 @@
+{
+  "id": "route.administration-compliance.asset-before-approval",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-before-approval",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tự bán"
+        ],
+        [
+          "thiết bị"
+        ],
+        [
+          "duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "cho đi thiết bị"
+        ],
+        [
+          "thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "trước phê duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được tự bán hoặc cho đi thiết bị đã bỏ không trước khi phương án thanh lý được duyệt không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

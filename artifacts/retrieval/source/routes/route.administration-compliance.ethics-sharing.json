@@ -1,0 +1,72 @@
+{
+  "id": "route.administration-compliance.ethics-sharing",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-sharing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sao chép tài liệu công ty"
+        ],
+        [
+          "email cá nhân"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đối tác cần tài liệu nội bộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi nhầm tài liệu nội bộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "gửi tài liệu cho đối tác"
+        ],
+        [
+          "phê duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có được sao chép tài liệu công ty sang email cá nhân hoặc thiết bị riêng để làm việc không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi đối tác cần tài liệu nội bộ để triển khai công việc, phải xin ai phê duyệt trước khi gửi?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi phải xử lý thế nào khi được gửi nhầm tài liệu nội bộ hoặc thông tin mật của đối tác?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

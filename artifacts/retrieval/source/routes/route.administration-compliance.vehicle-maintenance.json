@@ -1,0 +1,80 @@
+{
+  "id": "route.administration-compliance.vehicle-maintenance",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-maintenance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xe cần thay lốp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bảo dưỡng"
+        ],
+        [
+          "xe ở tỉnh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau khi sửa xe"
+        ],
+        [
+          "cập nhật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe tỉnh"
+        ],
+        [
+          "xin duyệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài xế phải làm gì khi phát hiện xe cần thay lốp, bảo dưỡng định kỳ hoặc sửa chữa?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Xe ở tỉnh cần bảo dưỡng hoặc sửa chữa thì xin duyệt theo quy trình nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi sửa xe, ai xác nhận hạng mục đã làm và cập nhật sổ theo dõi?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

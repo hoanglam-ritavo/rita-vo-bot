@@ -1,0 +1,67 @@
+{
+  "id": "route.administration-compliance.vehicle-confirm",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-confirm",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu đề xuất"
+        ],
+        [
+          "xe và tài xế"
+        ],
+        [
+          "đã được bố trí"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không còn xe"
+        ],
+        [
+          "phương tiện thay thế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đơn xe"
+        ],
+        [
+          "ai xác nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phiếu đề xuất đã được duyệt thì xe và tài xế đã được bố trí chưa, hay tôi phải xác nhận thêm với ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "tôi hỏi cách tạo phiếu trên workit": "task.administration-compliance.vehicle-workit"
+  }
+}

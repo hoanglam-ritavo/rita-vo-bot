@@ -1,0 +1,55 @@
+{
+  "id": "route.administration-compliance.building-smoking",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-smoking",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hút thuốc trong tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hút thuốc"
+        ],
+        [
+          "bãi xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "hút thuốc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có được hút thuốc trong tòa nhà hoặc bãi xe không, và vi phạm được xử lý theo quy định nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

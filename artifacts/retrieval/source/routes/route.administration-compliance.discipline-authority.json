@@ -1,0 +1,41 @@
+{
+  "id": "route.administration-compliance.discipline-authority",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-authority",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thẩm quyền ra quyết định kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ai quyết định bồi thường"
+        ],
+        [
+          "kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai có thẩm quyền ra quyết định kỷ luật và ai có thẩm quyền quyết định bồi thường?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

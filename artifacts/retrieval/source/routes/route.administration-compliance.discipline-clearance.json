@@ -1,0 +1,41 @@
+{
+  "id": "route.administration-compliance.discipline-clearance",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-clearance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xóa hoặc giảm thời hạn kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bao lâu"
+        ],
+        [
+          "được xóa kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào được xóa hoặc giảm thời hạn kỷ luật và nhân viên có cần làm đề nghị không?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

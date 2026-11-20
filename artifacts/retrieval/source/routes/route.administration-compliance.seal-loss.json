@@ -1,0 +1,49 @@
+{
+  "id": "route.administration-compliance.seal-loss",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-loss",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mất con dấu"
+        ],
+        [
+          "biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thất lạc con dấu"
+        ],
+        [
+          "báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

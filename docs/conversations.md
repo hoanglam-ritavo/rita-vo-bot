@@ -266,6 +266,15 @@ disposable fixture. Confirm the bot offers the available Office guide
 without presenting its steps as the Workit procedure. Release and roll
 back the bot and generated catalogs together.
 
+For administration and compliance, verify eligible publications for the
+policy and Workit references in the question bank. In an authenticated staging
+room, ask about Tay Do and switch to another site, ask about an employee
+violation and correct the role to outsourced security, and ask how to confirm
+a vehicle assignment after approval. Verify that the historical seal table
+carries its source date and that the answer directs current counts to HCNS.
+Repeat a paperwork follow-up with its source withdrawn in a disposable
+fixture. Keep the bot and generated catalogs paired during release and rollback.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

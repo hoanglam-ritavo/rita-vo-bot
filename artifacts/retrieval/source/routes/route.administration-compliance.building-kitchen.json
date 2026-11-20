@@ -1,0 +1,48 @@
+{
+  "id": "route.administration-compliance.building-kitchen",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-kitchen",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "sử dụng phòng bếp"
+        ],
+        [
+          "dọn dẹp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phòng bếp"
+        ],
+        [
+          "tắt thiết bị"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai được sử dụng phòng bếp và phải dọn dẹp, tắt thiết bị thế nào sau khi dùng?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

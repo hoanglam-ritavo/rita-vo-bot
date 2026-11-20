@@ -1,0 +1,86 @@
+{
+  "id": "route.administration-compliance.asset-start",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-start",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "máy tính hỏng"
+        ],
+        [
+          "gửi đề xuất"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đề xuất thanh lý"
+        ],
+        [
+          "ảnh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "không rõ mã"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "gửi mail"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bộ phận có máy tính hỏng hoặc thiết bị không còn sử dụng thì phải gửi đề xuất cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tài sản mất tem hoặc không rõ mã tài sản có thể đưa vào đề xuất không và cần ghi nhận ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  },
+  "follow_up_tasks": {
+    "sau khi phê duyệt thì sao": "task.administration-compliance.asset-execution"
+  }
+}

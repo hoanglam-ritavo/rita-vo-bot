@@ -1,0 +1,62 @@
+{
+  "id": "task.administration-compliance.vehicle-trip-change",
+  "label": "Đổi lộ trình và xác nhận chuyến xe",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Đổi lộ trình và xác nhận chuyến xe"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về đổi lộ trình và xác nhận chuyến xe?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.vehicle-trip-change.1",
+          "text": "Tài xế phải xin Quản lý điều xe đồng ý trước khi thay đổi lộ trình hoặc thời gian. Sau chuyến, người sử dụng hoặc đại diện phòng ban ký xác nhận lịch trình và chi phí phát sinh vào sổ nhật trình hoặc phiếu liên quan khi có.",
+          "refs": [
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 24,
+              "content_sha256": "6642dbe92c48835853964ec46152a7b2042d495301d85be9aa8225d18784ded7",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3.h) Nhân viên tài xế sử dụng xe đúng mục đích, tải trọng, lộ trình, thời gian đã được phê duyệt:\n- Lộ trình di chuyển, thời gian khởi hành phải hợp lý, tránh lãng phí và phòng trừ trường hợp tắc đường. Không tự tiện thay đổi lộ trình hay thời gian khi chưa được sự đồng ý của quản lý điều xe. Nhân viên tài xế được quyền từ chối yêu cầu của người sử dụng xe/ người ngồi trên xe nếu thay đổi lộ trình di chuyển phục vụ cho mục đích cá nhân. Đảm bảo chuyên chở người, hàng hóa trên xe đúng số lượng người, tải trọng theo quy định cho phép chuyên chở khi tham gia giao thông được quy định tại giấy chứng nhận kiểm định của xe.\n- Đảm bảo đúng giờ và địa điểm đón, trả nhân viên theo yêu cầu của phiếu đăng ký xe.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            },
+            {
+              "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+              "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+              "source_sha256": "1c51771228f3bae99f3003f91ebd337ac81d0c406561a713a4fc3712e74e03df",
+              "chunk_index": 25,
+              "content_sha256": "0b17305a8e1890bbc13aced262ae2d2489b1c702775d5dc4bbf2322f6cc8bc42",
+              "quote": "Quy định sử dụng xe của Tập đoàn — HCNS-QT02\nĐiều 6.3.h) (tiếp):\n- Nhân viên tài xế yêu cầu đại diện phòng ban/ cá nhân sử dụng xe sau khi sử dụng xe phải ký xác nhận lịch trình và chi phí phát sinh của chuyến đi vào sổ nhật trình của xe hoặc phiếu đề nghị tăng ca, công tác xa, qua ngày (nếu có). Tài xế tự làm đề xuất xin duyệt công tác phí.\n- Ghi chép đầy đủ, chính xác thông tin lịch trình vào sổ nhật trình xe theo quy định.\n- Nộp hồ sơ thanh toán đầy đủ theo quy định tại Điều 9 quy định này.",
+              "metadata": {
+                "title": "Quy định sử dụng xe của Tập đoàn",
+                "applicability": "Công ty TNHH Tập Đoàn Rita Võ và các chi nhánh, văn phòng đại diện, công ty thành viên, trực thuộc; xe tải, ô tô, xe gắn máy thuộc tài sản Tập đoàn.",
+                "effective_from": "2023-04-07",
+                "effective_to": null,
+                "version_label": "HCNS-QT02 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-xe-tap-doan/hcns-qt02-quy-dinh-su-dung-xe-tap-doan-07-04-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "route.administration-compliance.seal-hanging",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-hanging",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "dấu treo"
+        ],
+        [
+          "loại văn bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "dấu treo"
+        ],
+        [
+          "văn bản nội bộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "dấu treo"
+        ],
+        [
+          "phụ lục"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "dấu treo"
+        ],
+        [
+          "ký nháy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Dấu treo dùng cho những loại văn bản nào và phải đóng ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Văn bản nội bộ cần đóng dấu treo thì phải được ai phê duyệt?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Phụ lục hợp đồng cần đóng dấu treo thì ai phải ký nháy xác nhận?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

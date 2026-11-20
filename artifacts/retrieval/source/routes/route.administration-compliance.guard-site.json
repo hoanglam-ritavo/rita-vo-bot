@@ -1,0 +1,61 @@
+{
+  "id": "route.administration-compliance.guard-site",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-site",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "số lượng và vị trí bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quy trình tuyển chọn"
+        ],
+        [
+          "tiếp nhận nhân viên bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tuyển bảo vệ"
+        ],
+        [
+          "hồ sơ"
+        ],
+        [
+          "tiếp nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai đề xuất số lượng và vị trí bảo vệ tại từng cơ sở?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quy trình tuyển chọn, kiểm tra hồ sơ và tiếp nhận nhân viên bảo vệ gồm những bước nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

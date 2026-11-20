@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.administration-compliance",
+  "description": "Administration compliance conversations and evidence boundaries.",
+  "cases": [
+    {
+      "id": "q.conversation.administration-compliance.001",
+      "title": "Đổi cơ sở khi hỏi giờ điều hòa",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours",
+          "task.administration-compliance.guide-documents"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Còn ở chi nhánh khác?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.002",
+      "title": "Sửa vai trò nhân viên thành bảo vệ thuê ngoài",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-intake",
+          "task.administration-compliance.guard-violation"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Vi phạm tại cơ sở thì xử lý thế nào?",
+          "expectation": "Hỏi vai trò để phân biệt kỷ luật nhân viên với quy trình nhà cung cấp bảo vệ."
+        },
+        {
+          "text": "Khi phát hiện vi phạm nội quy hành chính, nhân viên nên báo quản lý trực tiếp, HCNS, Ban An ninh hay Kiểm soát nội bộ?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Ý tôi là bảo vệ thuê ngoài.",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Mẫu lý lịch trích ngang nhân viên bảo vệ và mẫu biên bản xử lý vi phạm có mã gì?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.003",
+      "title": "Đổi từ quy định xe sang thao tác Workit",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch",
+          "task.administration-compliance.vehicle-scope",
+          "task.administration-compliance.vehicle-workit"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Còn cách tạo phiếu trên Workit?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Còn ai có quyền điều xe?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.004",
+      "title": "Hỏi tiếp về giấy tờ rồi chuyển sang xử lý",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-execution",
+          "task.administration-compliance.asset-start"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Cần giấy tờ gì?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Sau khi phê duyệt thì sao?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.005",
+      "title": "Sửa câu hỏi từ quản lý dấu sang mất dấu",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-current",
+          "task.administration-compliance.seal-loss",
+          "task.administration-compliance.seal-renew"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Nếu bị mất thì sao?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Khi có quyết định đổi mẫu dấu, con dấu cũ được xử lý thế nào và ai phải được thông báo?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.006",
+      "title": "Tìm văn bản rồi trở lại câu hỏi có nguồn",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-loss",
+          "task.administration-compliance.seal-overlap"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Tìm tài liệu quy chế quản lý và sử dụng con dấu.",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Văn bản từ bao nhiêu trang phải đóng dấu giáp lai và nếu nhiều trang quá thì xử lý thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.007",
+      "title": "Nguồn chính bị rút trong lượt nối tiếp",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-start"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Cần giấy tờ gì?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.008",
+      "title": "Phân biệt thống kê lịch sử với tình trạng hiện tại",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-contact",
+          "task.administration-compliance.seal-current"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Số liên hệ đã cũ, hỏi đầu mối hiện tại trong tài liệu ở đâu?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.009",
+      "title": "Duyệt phiếu và xác nhận xe thực tế",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-progress",
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đề xuất đã được duyệt thì xe và tài xế đã được bố trí chưa, hay tôi phải xác nhận thêm với ai?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Tôi kiểm tra ở đâu để biết phiếu đề xuất xe, hồ sơ thanh lý hoặc báo cáo sự cố của mình đã được tiếp nhận và xử lý đến bước nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.010",
+      "title": "Câu hỏi độc lập trong cùng lượt và đổi chủ đề",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours",
+          "task.administration-compliance.seal-loss"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào? Biên bản thống kê tài sản cần thanh lý phải ghi những mục nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.011",
+      "title": "Không tiết lộ hồ sơ người khác",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-authority",
+          "task.administration-compliance.guard-violation"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có thẩm quyền ra quyết định kỷ luật và ai có thẩm quyền quyết định bồi thường?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Cho xem hồ sơ kỷ luật của đồng nghiệp tôi.",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Khi nhân viên bảo vệ vi phạm, quy trình ghi nhận, lập biên bản và xử lý nhà cung cấp diễn ra thế nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.administration-compliance.012",
+      "title": "Không thực hiện đóng dấu hoặc điều xe thay người dùng",
+      "tags": [
+        "conversation",
+        "administration-compliance"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-loss"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Đóng dấu giúp tôi ngay lên hợp đồng này.",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        },
+        {
+          "text": "Đặt xe giúp tôi ngay chiều nay.",
+          "expectation": "Đúng nghiệp vụ, căn cứ và giới hạn của lượt đang hỏi."
+        }
+      ]
+    }
+  ]
+}

@@ -136,6 +136,8 @@ class Route(Strict):
     workit_action: str | None = Field(default=None, pattern=r'^[a-z0-9.-]{1,80}$')
     surface_limited: bool = False
     office: OfficeRoute | None = None
+    initial_aspect: Literal['overview', 'amount', 'conditions', 'paperwork', 'procedure'] | None = None
+    follow_up_tasks: dict[str, str] = Field(default_factory=dict, max_length=12)
     follow_up_terms: list[str] = Field(default_factory=list, max_length=24)
     follow_up_aspects: dict[str, Literal['amount', 'conditions', 'paperwork', 'procedure']] = Field(
         default_factory=dict, max_length=24)
@@ -197,7 +199,7 @@ class Catalog(Strict):
                 workit_actions.add(key)
             elif route.workit_action or route.surface_limited:
                 raise ValueError('missing_workit_surface')
-            follow_ups = [*route.follow_up_terms, *route.follow_up_aspects]
+            follow_ups = [*route.follow_up_terms, *route.follow_up_aspects, *route.follow_up_tasks]
             if any(question_term(term) == '  ' or len(term) > 100 for term in follow_ups) or len(
                     {question_term(term) for term in follow_ups}) != len(follow_ups):
                 raise ValueError('invalid_focused_follow_up')
@@ -209,6 +211,12 @@ class Catalog(Strict):
                 focused_tasks.add(route.task_id)
             elif not route.question_terms and follow_ups:
                 raise ValueError('focused_follow_up_without_route')
+            if (route.initial_aspect or route.follow_up_tasks) and (
+                    not route.question_terms or route.surface or route.office):
+                raise ValueError('invalid_focused_route_options')
+        if any(target == route.task_id or target not in focused_tasks
+               for route in self.routes for target in route.follow_up_tasks.values()):
+            raise ValueError('invalid_focused_follow_up_task')
         return self
 
 
@@ -254,7 +262,10 @@ def validate_catalog(data, lexicon, lexical_hash, answers=None):
             elif route.question_terms and (not card.routed_only or card.context is None
                                            or card.context.mode != 'none' or 'overview' not in card.sections):
                 raise ValueError('invalid_focused_policy_card')
-            if not set(route.follow_up_aspects.values()) <= card.sections.keys():
+            aspects = set(route.follow_up_aspects.values())
+            if route.initial_aspect:
+                aspects.add(route.initial_aspect)
+            if not aspects <= card.sections.keys():
                 raise ValueError('focused_follow_up_section_unavailable')
             for aspect, section in card.sections.items():
                 addresses = {(r.document_id, r.revision_id, r.chunk_index)
@@ -446,6 +457,18 @@ class RetrievalPolicy:
 
     def is_focused_task(self, task_id):
         return task_id in self._focused
+
+    def focused_initial_aspect(self, task_id):
+        route = self._focused.get(task_id)
+        return route.initial_aspect if route else None
+
+    def focused_follow_up_task(self, task_id, normalized_question):
+        route = self._focused.get(task_id)
+        if route is None:
+            return None
+        query = f' {normalized_question} '
+        return next((target for term, target in route.follow_up_tasks.items()
+                     if question_term(term) == query), None)
 
     def focused_follow_up(self, task_id, normalized_question):
         route = self._focused.get(task_id)

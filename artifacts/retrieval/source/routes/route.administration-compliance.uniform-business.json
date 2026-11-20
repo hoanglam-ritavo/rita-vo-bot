@@ -1,0 +1,79 @@
+{
+  "id": "route.administration-compliance.uniform-business",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-business",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "depot"
+        ],
+        [
+          "đại lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "khối café"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đồng phục"
+        ],
+        [
+          "khối thời trang"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên kinh doanh vật liệu xây dựng, nội thất, Depot, đại lý và ô tô được cấp đồng phục thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Đồng phục của nhân viên kinh doanh và nhân viên sản xuất khối Café khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên kinh doanh, giám sát và quản lý khối Thời trang có quy định đồng phục riêng ra sao?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khối Piaggio và Life Window quy định đồng phục khác nhau thế nào giữa văn phòng, kinh doanh, kỹ thuật và sản xuất?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount"
+}

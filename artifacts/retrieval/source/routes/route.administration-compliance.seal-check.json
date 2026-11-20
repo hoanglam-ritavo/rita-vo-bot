@@ -1,0 +1,47 @@
+{
+  "id": "route.administration-compliance.seal-check",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-check",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trước khi đóng dấu"
+        ],
+        [
+          "kiểm tra"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thể thức"
+        ],
+        [
+          "chữ ký"
+        ],
+        [
+          "đóng dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Trước khi đóng dấu, người giữ dấu phải kiểm tra thể thức, nội dung và chữ ký như thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

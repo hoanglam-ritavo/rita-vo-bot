@@ -1,0 +1,51 @@
+{
+  "id": "route.administration-compliance.discipline-appeal",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-appeal",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "không đồng ý với biên bản"
+        ],
+        [
+          "khiếu nại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khiếu nại"
+        ],
+        [
+          "mức bồi thường"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "khiếu nại quyết định kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu không đồng ý với biên bản, quyết định xử lý hoặc mức bồi thường, tôi gửi khiếu nại cho ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

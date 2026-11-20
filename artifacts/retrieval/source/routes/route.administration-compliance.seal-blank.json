@@ -1,0 +1,61 @@
+{
+  "id": "route.administration-compliance.seal-blank",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-blank",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đóng dấu khống"
+        ],
+        [
+          "ngoại lệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trống nội dung"
+        ],
+        [
+          "đóng dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đóng dấu"
+        ],
+        [
+          "giấy trắng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Văn bản đã ký nhưng còn trống nội dung có được đóng dấu không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Thế nào là đóng dấu khống và trường hợp ngoại lệ phải xin ý kiến ai?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

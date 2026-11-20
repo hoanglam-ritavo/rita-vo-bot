@@ -1,0 +1,95 @@
+{
+  "id": "route.administration-compliance.asset-execution",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-execution",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phê duyệt"
+        ],
+        [
+          "giám sát thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "được duyệt"
+        ],
+        [
+          "giám sát thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đổ bỏ"
+        ],
+        [
+          "bán thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phế liệu"
+        ],
+        [
+          "tiền thu hồi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thu tiền thanh lý"
+        ],
+        [
+          "nộp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Sau khi được duyệt, những bên nào phải có mặt để giám sát thanh lý?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Hủy hoặc đổ bỏ tài sản khác gì so với bán thanh lý về hồ sơ và người giám sát?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Số lượng, khối lượng phế liệu, mã tài sản và tiền thu hồi được ghi nhận ở đâu?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai trực tiếp thu tiền thanh lý và tiền được nộp về đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

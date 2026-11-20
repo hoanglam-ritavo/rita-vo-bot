@@ -1,0 +1,54 @@
+{
+  "id": "route.administration-compliance.asset-evaluate",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-evaluate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đội đánh giá"
+        ],
+        [
+          "tài sản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đánh giá"
+        ],
+        [
+          "sửa chữa"
+        ],
+        [
+          "hủy bỏ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai lập đội đánh giá tình trạng tài sản và những bộ phận nào tham gia?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Đội đánh giá quyết định giữa sửa chữa, thay thế, thanh lý và hủy bỏ dựa trên những nội dung nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

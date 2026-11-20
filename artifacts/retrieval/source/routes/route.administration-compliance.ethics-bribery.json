@@ -1,0 +1,82 @@
+{
+  "id": "route.administration-compliance.ethics-bribery",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-bribery",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đối tác đề nghị"
+        ],
+        [
+          "hoa hồng riêng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "có quan hệ cá nhân"
+        ],
+        [
+          "nhà cung cấp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thông tin sai lệch cho đối tác"
+        ],
+        [
+          "báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phát hiện dấu hiệu hối lộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đối tác đề nghị hoa hồng riêng, quà tặng hoặc lợi ích cá nhân, tôi phải xử lý và báo cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu tôi có quan hệ cá nhân hoặc lợi ích liên quan đến một nhà cung cấp, tôi cần khai báo với ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đồng nghiệp yêu cầu tôi cung cấp thông tin sai lệch cho đối tác, tôi phải báo qua kênh nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện dấu hiệu hối lộ, gian dối hoặc sử dụng tài sản công ty cho lợi ích riêng, cần báo ai và cung cấp thông tin gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

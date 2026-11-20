@@ -1,0 +1,1252 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.administration-compliance",
+  "turns": [
+    {
+      "case_id": "q.conversation.administration-compliance.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.001",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guide-documents"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "c0a563f83aae85f3fda8a9c9086b22da52a7027d78391ff62cd73ad9537c6360"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "30be3a8b19f958de8db9338cd9cd9227effb4dd5d5969708db79eab6dfe1d203"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7a1c0eec97cefc62dc46e3cac3d2e8f106eabe576ec710310b18ff9e0971ac22"
+        },
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "95d97525e5afa3c9dc1290dfe66da753f42775b2fe33768673b929012e46f02d"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "4e7d05ca82d1b11d8f0a89316e08df0b6c2273237052d0ddd0f7e8c30fc6bf19"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "a6581bc8586b8546f0689f082f59b7ca8626f0c852e09129a6cdecaa9a4d9888"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "848b201df4a1cf66120ed2394b2fc1c796f4015790eb961bd9b6cd9b6230aede"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tra theo tên hoặc mã văn bản và xem phạm vi áp dụng, phiên bản, ngày hiệu lực trong nguồn. Quy chế con dấu, bảo vệ, xe, niêm phong và thanh lý có phạm vi riêng.",
+        "Quy định Tây Đô áp dụng tại địa điểm này. Nội quy lao động cho phép đơn vị cụ thể hóa quy định trong phạm vi phù hợp."
+      ],
+      "required_limitations": [
+        "Nếu quy định khác nhau hoặc thiếu hướng dẫn, gửi HCNS tên cơ sở, vai trò của bạn, thời điểm, việc cần xử lý và văn bản đang đối chiếu. HCNS hoặc quản lý cơ sở xác nhận điều khoản áp dụng."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.001",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.002",
+      "turn": 0,
+      "statuses": [
+        "needs_clarification"
+      ],
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi về vi phạm của nhân viên công ty hay của nhân viên bảo vệ thuê ngoài?"
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.002",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.discipline-intake"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "14b2640ef58c4aadc61d62a945c26bd0de64ef803477f1f81833a44d848154a3"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Báo quản lý trực tiếp và HCNS về vi phạm nội quy. HCNS tiếp nhận, báo cáo và thực hiện xử lý; KSNB tham mưu, giám sát. Với tình huống an ninh khẩn cấp, liên hệ ngay Ban An ninh theo quy định bảo vệ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.002",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-violation"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh tổng hợp lỗi và đề nghị xử lý. HCNS đối chiếu hợp đồng, gửi văn bản cho nhà cung cấp, xử lý và thông báo theo mục 9.3. Mã mẫu lý lịch là HCNS-QT01-LLTN; mã biên bản xử lý là HCNS-QT01-BBXLVP."
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.002",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-violation"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh tổng hợp lỗi và đề nghị xử lý. HCNS đối chiếu hợp đồng, gửi văn bản cho nhà cung cấp, xử lý và thông báo theo mục 9.3. Mã mẫu lý lịch là HCNS-QT01-LLTN; mã biên bản xử lý là HCNS-QT01-BBXLVP."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.003",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-scope"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7a1c0eec97cefc62dc46e3cac3d2e8f106eabe576ec710310b18ff9e0971ac22"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "f4fcb3e16efbbe9a23629affeed8bc85abd9ef07f59dc514894680765a982401"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "787a6005861565052a4cc04199552c43c6cf0188e049b9fea432976f42f5aa13"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "090239b6211af00518f90ec50b68b17477799b95ac14a8bd775025968f43104c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quy định áp dụng cho các đơn vị thuộc Tập đoàn và xe tải, ô tô, xe gắn máy là tài sản Tập đoàn. Xe phục vụ công việc. Trừ Ban lãnh đạo và người được cấp xe riêng, người cần xe liên hệ Admin hoặc Quản lý điều xe và xin cấp có thẩm quyền duyệt. Điều 7 liệt kê đối tượng được cấp xe và nhóm đề xuất, gồm phòng ban có công việc được quản lý phê duyệt."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.003",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-workit"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        },
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trên Workit Web, mở Quy trình số → Xe công tác → Thêm. Chọn xe, tài xế, thời gian, nơi đi và nơi đến, tổng số người và danh sách người đi theo vai trò, rồi lưu. Trên Workit Mobile, chọn biểu mẫu xe công tác trong Quy trình số."
+      ],
+      "required_limitations": [
+        "Các trường chi tiết kể trên được xác nhận cho Web. Trên Mobile, kiểm tra biểu mẫu hiển thị theo quyền của bạn."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.003",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-dispatch"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "bdcb0dcbe643dfd84f88c9c59b08a1f4e9a82a1d50e7c28f85e7cba48a84decc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban lãnh đạo có quyền giao và điều xe. Giám đốc hoặc Trưởng phòng HCNS quản lý, bàn giao và điều phối xe; trong việc cấp thiết có thể huy động xe của phòng ban theo quy định. Khi cấp cứu, tổ giao hàng hoặc lái xe có thể dùng xe theo đề nghị của nhân viên y tế rồi báo ngay Ban lãnh đạo và HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.004",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.asset-start"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "3ed405cc58803d10b8ddfc693176667d9d4e27ca0fb0e9011ef63276657d390d"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bộ phận đề xuất gửi email cho HCNS và KSNB, kèm ít nhất 3 ảnh toàn cảnh và chi tiết. Ghi tên, số lượng và tình trạng tài sản. Ghi mã nếu có; nếu thiếu mã, nêu rõ và gửi ảnh để đội đánh giá đối chiếu."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.004",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.asset-start"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "3ed405cc58803d10b8ddfc693176667d9d4e27ca0fb0e9011ef63276657d390d"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bộ phận đề xuất gửi email cho HCNS và KSNB, kèm ít nhất 3 ảnh toàn cảnh và chi tiết. Ghi tên, số lượng và tình trạng tài sản. Ghi mã nếu có; nếu thiếu mã, nêu rõ và gửi ảnh để đội đánh giá đối chiếu."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.004",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.asset-execution"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "b7b52b986ffa14b9306182c6e93a40f9998ccde272c35b6e669ca762517f8116"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS phối hợp KSNB, bộ phận đề xuất, kế toán thu tiền và bảo vệ dịch vụ giám sát. Biên bản kiêm phiếu xuất kho ghi số lượng, khối lượng, mã nếu có và tiền thu hồi. Kế toán trực tiếp thu tiền và nộp vào tài khoản công ty. Hủy hoặc đổ bỏ theo các bước giám sát và lập hồ sơ tương tự."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.005",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-current"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "a5de6a0e7769f763a0939c199f009ed2362ea903ffd2badf0e6ec86bf60fac09"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "98ebdaf464b9e6b37e4b98320699d4a5cbd0e13e5a6ca1b5d0cef7c50c3fc0b3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảng ngày 01/12/2022 ghi tổng 30, gồm cả dòng hết hiệu lực và đang sử dụng tại thời điểm đó. Quản lý HCNS là đầu mối đối chiếu sổ theo dõi."
+      ],
+      "required_limitations": [
+        "Bảng lịch sử chưa xác nhận số con dấu đang sử dụng hiện nay. Hãy hỏi quản lý HCNS theo pháp nhân hoặc chi nhánh cần tra."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.005",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-loss"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong vòng 1 ngày làm việc từ khi phát hiện mất dấu, quản lý HCNS lập biên bản làm rõ nguyên nhân, xử lý trách nhiệm và báo Ban lãnh đạo cùng Kiểm soát nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.005",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-renew"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "318022e1909bec9d193f034574292b66ef015f7e30d173c4030eb63ef944f87c"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý HCNS báo cáo và trình Chủ tịch hoặc Tổng Giám đốc việc đổi dấu. Sau quyết định, HCNS bảo quản dấu cũ và làm thủ tục khắc dấu mới. Người giữ dấu thông báo quyết định cho KSNB, Tài chính – Kế toán và phòng ban liên quan."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-loss"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong vòng 1 ngày làm việc từ khi phát hiện mất dấu, quản lý HCNS lập biên bản làm rõ nguyên nhân, xử lý trách nhiệm và báo Ban lãnh đạo cùng Kiểm soát nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.006",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "answer_kind": "excerpt",
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.006",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-overlap"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "7719fb6a41301f337ce2adb8eef362d297bd02b368102bf58e879a0f4d4b9967"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Văn bản từ 2 trang trở lên phải đóng dấu giáp lai ở giữa các mép phải. Nếu một dấu không trùm hết, chia thành các dấu liên tiếp sao cho không sót trang."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.asset-start"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "3ed405cc58803d10b8ddfc693176667d9d4e27ca0fb0e9011ef63276657d390d"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bộ phận đề xuất gửi email cho HCNS và KSNB, kèm ít nhất 3 ảnh toàn cảnh và chi tiết. Ghi tên, số lượng và tình trạng tài sản. Ghi mã nếu có; nếu thiếu mã, nêu rõ và gửi ảnh để đội đánh giá đối chiếu."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.007",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "claims": "none",
+      "task_ids_any": [
+        "task.administration-compliance.asset-start"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "unavailable_documents": [
+        "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+      ],
+      "forbidden_documents": [
+        "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+      ],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.007",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.asset-start"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "3ed405cc58803d10b8ddfc693176667d9d4e27ca0fb0e9011ef63276657d390d"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "f4099fdf8043d28871e21491167785105891bb5898033f0d3e8d3d8428c1e084"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bộ phận đề xuất gửi email cho HCNS và KSNB, kèm ít nhất 3 ảnh toàn cảnh và chi tiết. Ghi tên, số lượng và tình trạng tài sản. Ghi mã nếu có; nếu thiếu mã, nêu rõ và gửi ảnh để đội đánh giá đối chiếu."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.008",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-current"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "a5de6a0e7769f763a0939c199f009ed2362ea903ffd2badf0e6ec86bf60fac09"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "98ebdaf464b9e6b37e4b98320699d4a5cbd0e13e5a6ca1b5d0cef7c50c3fc0b3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảng ngày 01/12/2022 ghi tổng 30, gồm cả dòng hết hiệu lực và đang sử dụng tại thời điểm đó. Quản lý HCNS là đầu mối đối chiếu sổ theo dõi."
+      ],
+      "required_limitations": [
+        "Bảng lịch sử chưa xác nhận số con dấu đang sử dụng hiện nay. Hãy hỏi quản lý HCNS theo pháp nhân hoặc chi nhánh cần tra."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.008",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guide-contact"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "revision_id": "4e80106a-60cd-4ec5-aba9-41d4fb8f5546",
+          "quote_sha256": "b0674a7f1ae2e5ac46a8b9702978ad8154d31957cb9fdb0f1c7e5ba5e886687d"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "c9bf2657954b0aec46bf2d2bc618765fc5bcadbf409cac9c22d90a6c3824ff65"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Niêm phong và quy trình tại cơ sở có đầu mối quản lý, HCNS hoặc bảo vệ. Sự cố an ninh dùng Ban An ninh và sự cố tòa nhà báo Quản lý tòa nhà hoặc bộ phận liên quan."
+      ],
+      "required_limitations": [
+        "Số liên hệ in trong tài liệu cũ chưa được xác minh hiện tại. Kiểm tra danh bạ nội bộ hoặc liên hệ HCNS tại đúng cơ sở."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.008",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-current"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "a5de6a0e7769f763a0939c199f009ed2362ea903ffd2badf0e6ec86bf60fac09"
+        },
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "98ebdaf464b9e6b37e4b98320699d4a5cbd0e13e5a6ca1b5d0cef7c50c3fc0b3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bảng ngày 01/12/2022 ghi tổng 30, gồm cả dòng hết hiệu lực và đang sử dụng tại thời điểm đó. Quản lý HCNS là đầu mối đối chiếu sổ theo dõi."
+      ],
+      "required_limitations": [
+        "Bảng lịch sử chưa xác nhận số con dấu đang sử dụng hiện nay. Hãy hỏi quản lý HCNS theo pháp nhân hoặc chi nhánh cần tra."
+      ],
+      "required_numbers": [
+        30
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.009",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-confirm"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS thông báo xe và tài xế có đáp ứng được yêu cầu hay không. Khi không có xe sẵn, HCNS bố trí dịch vụ vận chuyển tương tự như taxi hoặc Grab cho công việc."
+      ],
+      "required_limitations": [
+        "Phiếu được duyệt chưa xác nhận xe và tài xế đã được phân. Hãy hỏi Admin hoặc Quản lý điều xe, kèm mã phiếu, khung giờ và điểm đi/đến."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.009",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guide-progress"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        },
+        {
+          "document_id": "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "revision_id": "2916980f-dba2-468c-ad6a-52d4e4e8be6f",
+          "quote_sha256": "b7e8a9b7e5077a149235f97dcc059b13d52369680ae2af3ebedc5c31f588fd60"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "e5d350cf1efaa100b00a5d0ef48e5fcbe76bed9313d6523d095ed1ed344b72dc"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Với phiếu xe, mở danh sách Xe công tác trong Workit và hỏi Quản lý điều xe để xác nhận việc bố trí. Với thanh lý, hỏi HCNS hoặc KSNB phụ trách hồ sơ. Với sự cố, hỏi quản lý cơ sở hoặc Ban An ninh theo nơi đã báo."
+      ],
+      "required_limitations": [
+        "Bot không xác nhận trạng thái thực tế của một hồ sơ. Khi liên hệ, cung cấp mã phiếu hoặc ngày gửi, địa điểm và người nhận qua kênh nội bộ phù hợp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.009",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.vehicle-confirm"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS thông báo xe và tài xế có đáp ứng được yêu cầu hay không. Khi không có xe sẵn, HCNS bố trí dịch vụ vận chuyển tương tự như taxi hoặc Grab cho công việc."
+      ],
+      "required_limitations": [
+        "Phiếu được duyệt chưa xác nhận xe và tài xế đã được phân. Hãy hỏi Admin hoặc Quản lý điều xe, kèm mã phiếu, khung giờ và điểm đi/đến."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.010",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-loss"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong vòng 1 ngày làm việc từ khi phát hiện mất dấu, quản lý HCNS lập biên bản làm rõ nguyên nhân, xử lý trách nhiệm và báo Ban lãnh đạo cùng Kiểm soát nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.010",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ]
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "expected_policy_claim_texts": [
+        "Trong vòng 1 ngày làm việc từ khi phát hiện mất dấu, quản lý HCNS lập biên bản làm rõ nguyên nhân, xử lý trách nhiệm và báo Ban lãnh đạo cùng Kiểm soát nội bộ.",
+        "Mẫu 6.1 ghi bộ phận, địa chỉ, ngày lập, số biên bản và danh mục tài sản gồm tên hoặc ký hiệu, số hiệu quy ước, số lượng, tình trạng và phương án đề xuất theo mẫu."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.010",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.building-ac-hours"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "3e0f391d4102de9bfb97957879463b93c4309398bc89574b439171a41252e237"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "898c8c977be96508c98c1f04ad9dc5c50a8dfe7c2cdddffe7aadad7685b422d2"
+        },
+        {
+          "document_id": "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "revision_id": "67faafa1-7deb-4db4-b962-40e62e0c893b",
+          "quote_sha256": "fbd80f7bc91abf87d55069c9714dd99072b4f03450dba158dcaa8dad8e7a152d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tại Tây Đô, tầng 1, 3 và 4 theo lịch 8:00–17:00. Tầng 2 linh hoạt, mở khi có khách. Tầng 5 theo lịch 8:00–17:00 ở khu làm việc; khu khác chỉ mở khi cần. Tầng 6 không có máy lạnh."
+      ],
+      "forbidden_documents": [
+        "293575cf-576e-4cc5-a906-67c8000b20bb",
+        "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.011",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.discipline-authority"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "14b2640ef58c4aadc61d62a945c26bd0de64ef803477f1f81833a44d848154a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tổng Giám đốc hoặc người đại diện theo pháp luật có thẩm quyền xử lý kỷ luật và bồi thường. HCNS tiếp nhận và tổ chức thực hiện; KSNB hướng dẫn, tham mưu và giám sát."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.011",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "claims": "none",
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+      ],
+      "employee_fields": []
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.011",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.guard-violation"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965"
+        },
+        {
+          "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+          "quote_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ban An ninh tổng hợp lỗi và đề nghị xử lý. HCNS đối chiếu hợp đồng, gửi văn bản cho nhà cung cấp, xử lý và thông báo theo mục 9.3. Mã mẫu lý lịch là HCNS-QT01-LLTN; mã biên bản xử lý là HCNS-QT01-BBXLVP."
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.012",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.administration-compliance.seal-loss"
+      ],
+      "claims": "required",
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "revision_id": "ae57a59e-3833-4657-82c7-22b100da5520",
+          "quote_sha256": "6bd098b1b62f25303a21df8713fa437e9e1f69863b8d60554b46df083b7c2d1d"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trong vòng 1 ngày làm việc từ khi phát hiện mất dấu, quản lý HCNS lập biên bản làm rõ nguyên nhân, xử lý trách nhiệm và báo Ban lãnh đạo cùng Kiểm soát nội bộ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.012",
+      "turn": 1,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "claims": "none",
+      "forbidden_documents": [
+        "293575cf-576e-4cc5-a906-67c8000b20bb"
+      ],
+      "employee_fields": []
+    },
+    {
+      "case_id": "q.conversation.administration-compliance.012",
+      "turn": 2,
+      "statuses": [
+        "needs_clarification",
+        "insufficient_evidence",
+        "unsupported"
+      ],
+      "claims": "none",
+      "employee_fields": []
+    }
+  ]
+}

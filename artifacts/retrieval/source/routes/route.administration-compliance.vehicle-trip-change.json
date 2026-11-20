@@ -1,0 +1,64 @@
+{
+  "id": "route.administration-compliance.vehicle-trip-change",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-trip-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lộ trình"
+        ],
+        [
+          "giữa chuyến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giờ trả xe"
+        ],
+        [
+          "báo"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người sử dụng xe"
+        ],
+        [
+          "xác nhận"
+        ],
+        [
+          "chuyến đi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu đổi điểm đến, lộ trình hoặc giờ trả xe giữa chuyến, tài xế cần báo cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Người sử dụng xe phải xác nhận thông tin nào sau chuyến đi?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

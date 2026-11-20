@@ -1,0 +1,57 @@
+{
+  "id": "route.administration-compliance.seal-current",
+  "family": "administration",
+  "task_id": "task.administration-compliance.seal-current",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảng thống kê"
+        ],
+        [
+          "số con dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "con dấu"
+        ],
+        [
+          "đang dùng hiện nay"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "có mấy con dấu"
+        ],
+        [
+          "hiện giờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "nếu bị mất thì sao": "task.administration-compliance.seal-loss"
+  }
+}

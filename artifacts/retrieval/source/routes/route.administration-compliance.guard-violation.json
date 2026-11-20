@@ -1,0 +1,61 @@
+{
+  "id": "route.administration-compliance.guard-violation",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-violation",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhân viên bảo vệ vi phạm"
+        ],
+        [
+          "nhà cung cấp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mẫu lý lịch trích ngang nhân viên bảo vệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xử lý lỗi"
+        ],
+        [
+          "bảo vệ thuê ngoài"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nhân viên bảo vệ vi phạm, quy trình ghi nhận, lập biên bản và xử lý nhà cung cấp diễn ra thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Mẫu lý lịch trích ngang nhân viên bảo vệ và mẫu biên bản xử lý vi phạm có mã gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "ý tôi là nhân viên công ty": "task.administration-compliance.discipline-intake"
+  }
+}

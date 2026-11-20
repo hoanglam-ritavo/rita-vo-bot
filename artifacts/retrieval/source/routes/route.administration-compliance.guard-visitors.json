@@ -1,0 +1,50 @@
+{
+  "id": "route.administration-compliance.guard-visitors",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-visitors",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảo vệ"
+        ],
+        [
+          "ghi nhận"
+        ],
+        [
+          "khách hoặc nhà thầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhà thầu"
+        ],
+        [
+          "bảo vệ"
+        ],
+        [
+          "đăng ký"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Bảo vệ phải kiểm tra và ghi nhận thông tin gì khi khách hoặc nhà thầu đến làm việc?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "route.administration-compliance.uniform-support",
+  "family": "administration",
+  "task_id": "task.administration-compliance.uniform-support",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cấp bao nhiêu áo đồng phục"
+        ],
+        [
+          "văn phòng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lịch mặc đồng phục"
+        ],
+        [
+          "lái xe"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhân viên kỹ thuật"
+        ],
+        [
+          "bộ bảo hộ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giày bảo hộ"
+        ],
+        [
+          "bao lâu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên văn phòng và cấp quản lý được cấp bao nhiêu áo đồng phục mỗi năm và phải mặc vào ngày nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Định mức và lịch mặc đồng phục của lái xe, tạp vụ, kho vận, mộc và cắt gạch khác nhau thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nhân viên kỹ thuật được cấp bao nhiêu bộ bảo hộ và bao lâu được cấp giày bảo hộ?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "amount"
+}

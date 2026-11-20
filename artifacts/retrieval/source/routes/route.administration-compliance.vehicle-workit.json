@@ -1,0 +1,55 @@
+{
+  "id": "route.administration-compliance.vehicle-workit",
+  "family": "vehicles",
+  "task_id": "task.administration-compliance.vehicle-workit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tạo phiếu"
+        ],
+        [
+          "đề xuất sử dụng xe"
+        ],
+        [
+          "workit"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đặt xe công tác"
+        ],
+        [
+          "khai những thông tin"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi tạo phiếu đề xuất sử dụng xe trên Workit ở đâu và phải khai những thông tin gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  },
+  "follow_up_tasks": {
+    "còn ai có quyền điều xe": "task.administration-compliance.vehicle-dispatch"
+  }
+}

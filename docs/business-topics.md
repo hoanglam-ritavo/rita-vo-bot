@@ -167,6 +167,25 @@ already perfect, and no wrong subject, platform, source, HRM field or completene
 claims. All eligible Type A checks must pass before a target release. Report an
 offline result separately if target publication checks are still deferred.
 
+## Administration and compliance
+
+The administration and compliance bank covers the 189 requested questions,
+with separate answer and evidence expectations for ten topics. It includes
+source-bound procedure, role, form and applicability questions. It also
+exercises current information that needs verification outside the document
+catalog, including seal counts, service contacts and operational status.
+
+Focused routes can declare an initial answer section and a short follow-up
+that selects another registered focused task. The reducer clears the previous
+request scope when following such a link. Direct questions use the selected
+document scope on each turn. When a required source becomes unavailable, the
+answer omits dependent claims and reports the limitation.
+
+The Tay Do building rules apply to that site. The guard service process covers
+the provider relationship. Employee disciplinary guidance uses the labor rules.
+Guide and historical tables keep their original scope and dates. References to
+approval, a contact or a checklist do not establish a live operational result.
+
 ## Historical verification
 
 The pre-pilot verification snapshot on 2026-11-18 passed 1,010 non-integration

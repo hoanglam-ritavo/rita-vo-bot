@@ -1,0 +1,104 @@
+{
+  "id": "route.administration-compliance.sealing-incident",
+  "family": "administration",
+  "task_id": "task.administration-compliance.sealing-incident",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "bị rách"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "bất thường"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "niêm phong"
+        ],
+        [
+          "biên bản xử lý tại chỗ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quên niêm phong"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sau khi đã niêm phong"
+        ],
+        [
+          "xin phép"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu giấy niêm phong bị rách, mất hoặc biến dạng thì có được mở cửa ngay không?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi phát hiện niêm phong bất thường, cần chụp lại gì, báo ai và lập biên bản như thế nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong có vấn đề?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Lỡ ra về mà quên niêm phong, hoặc hôm sau mở cửa khi chưa có bảo vệ chứng kiến, thì cần báo ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép và bàn giao lại thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

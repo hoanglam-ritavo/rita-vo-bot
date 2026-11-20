@@ -228,7 +228,10 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
             indexed = {card.id: card for card in catalog.cards if card.routed_only}
             cards = tuple(indexed[key] for key in dict.fromkeys(task_ids) if key in indexed)
             if len(cards) == len(set(task_ids)):
-                aspects = tuple(request.get('aspects') or ('overview',))
+                declared_aspect = None
+                if len(cards) == 1 and not selected:
+                    declared_aspect = registry.focused_initial_aspect(cards[0].id)
+                aspects = tuple(request.get('aspects') or (declared_aspect or 'overview',))
                 references = {(ref.document_id, ref.revision_id, ref.chunk_index) for card in cards
                               for aspect in aspects if aspect in card.sections
                               for unit in card.sections[aspect].units for ref in unit.refs}

@@ -1,0 +1,4987 @@
+{
+  "schema_version": 1,
+  "group_id": "policy.administration-compliance",
+  "description": "Exact requested administration and compliance questions.",
+  "cases": [
+    {
+      "id": "q.policy.administration-compliance.001",
+      "title": "Phạm vi quy chế con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-scope"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy chế quản lý và sử dụng con dấu áp dụng cho những ai và những đơn vị nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.002",
+      "title": "Phạm vi quy chế con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-scope"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc, học việc hoặc đã nghỉ việc có còn thuộc phạm vi quy chế con dấu trong trường hợp nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.003",
+      "title": "Quản lý và bảo quản con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-custody"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai chịu trách nhiệm quản lý con dấu và ai được trực tiếp đóng dấu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.004",
+      "title": "Bàn giao con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-handover"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi người giữ dấu nghỉ phép, việc bàn giao cho người thay thế cần được ai đồng ý và lập hồ sơ gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.005",
+      "title": "Quản lý và bảo quản con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-custody"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Con dấu phải được bảo quản ở đâu và ai có quyền cho phép mang dấu ra khỏi nơi lưu giữ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.006",
+      "title": "Kiểm tra trước khi đóng dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-check"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trước khi đóng dấu, người giữ dấu phải kiểm tra thể thức, nội dung và chữ ký như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.007",
+      "title": "Đóng dấu khống",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-blank"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Văn bản đã ký nhưng còn trống nội dung có được đóng dấu không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.008",
+      "title": "Đóng dấu khống",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-blank"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Thế nào là đóng dấu khống và trường hợp ngoại lệ phải xin ý kiến ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.009",
+      "title": "Vị trí đóng dấu lên chữ ký",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-signature"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đóng dấu lên chữ ký, dấu phải đặt ở vị trí nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.010",
+      "title": "Dấu treo và ký nháy",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-hanging"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Dấu treo dùng cho những loại văn bản nào và phải đóng ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.011",
+      "title": "Dấu treo và ký nháy",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-hanging"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Văn bản nội bộ cần đóng dấu treo thì phải được ai phê duyệt?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.012",
+      "title": "Dấu treo và ký nháy",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-hanging"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phụ lục hợp đồng cần đóng dấu treo thì ai phải ký nháy xác nhận?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.013",
+      "title": "Dấu giáp lai",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-overlap"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Văn bản từ bao nhiêu trang phải đóng dấu giáp lai và nếu nhiều trang quá thì xử lý thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.014",
+      "title": "Thẩm quyền ký văn bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-sign-authority"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào Phó Tổng Giám đốc, Giám đốc hoặc Phó Giám đốc được ký văn bản để đóng dấu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.015",
+      "title": "Thẩm quyền ký văn bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-sign-authority"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trưởng hoặc Phó phòng được tự ký văn bản chuyên môn nào và khi nào cần ủy quyền bằng văn bản?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.016",
+      "title": "Thẩm quyền ký văn bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-sign-authority"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người được ủy quyền ký phải chịu trách nhiệm gì về nội dung văn bản?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.017",
+      "title": "Sổ theo dõi dấu và văn bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-log"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ theo dõi con dấu và sổ theo dõi văn bản đã đóng dấu cần ghi những thông tin gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.018",
+      "title": "Sổ theo dõi dấu và văn bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-log"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hợp đồng, giấy ủy quyền, công văn gửi ra ngoài và hồ sơ gửi cơ quan nhà nước phải được ghi nhận thế nào khi đóng dấu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.019",
+      "title": "Đổi mẫu dấu và giữ dấu cũ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-renew"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Con dấu bị mòn, hỏng hoặc thông tin doanh nghiệp thay đổi thì ai trình duyệt việc đổi dấu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.020",
+      "title": "Xử lý mất con dấu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-loss"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất con dấu, phải lập biên bản trong bao lâu và báo cho những bộ phận nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.021",
+      "title": "Đổi mẫu dấu và giữ dấu cũ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-renew"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi có quyết định đổi mẫu dấu, con dấu cũ được xử lý thế nào và ai phải được thông báo?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.022",
+      "title": "Số con dấu theo bảng lịch sử và hiện tại",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "seal"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.seal-current"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể tra cứu số con dấu tại thời điểm lập bảng thống kê và xác nhận số đang dùng hiện nay ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.023",
+      "title": "Phạm vi thanh lý tài sản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-scope"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Những tài sản, công cụ dụng cụ, hàng hóa hoặc phế liệu nào thuộc phạm vi quy trình thanh lý?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.024",
+      "title": "Phạm vi thanh lý tài sản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-scope"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy trình thanh lý áp dụng cho những phòng ban, showroom, kho vận và chi nhánh nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.025",
+      "title": "Gửi đề xuất thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-start"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bộ phận có máy tính hỏng hoặc thiết bị không còn sử dụng thì phải gửi đề xuất cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.026",
+      "title": "Gửi đề xuất thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-start"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Email đề xuất thanh lý cần có thông tin gì và phải kèm ảnh chụp như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.027",
+      "title": "Gửi đề xuất thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-start"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài sản mất tem hoặc không rõ mã tài sản có thể đưa vào đề xuất không và cần ghi nhận ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.028",
+      "title": "Thanh lý tại địa điểm ngoài Hà Nội và TP.HCM",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-remote"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi nhánh ngoài Hà Nội và TP.HCM phải tập trung tài sản ở đâu và chờ đánh giá theo lịch nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.029",
+      "title": "Đội đánh giá tài sản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-evaluate"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai lập đội đánh giá tình trạng tài sản và những bộ phận nào tham gia?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.030",
+      "title": "Đội đánh giá tài sản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-evaluate"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đội đánh giá quyết định giữa sửa chữa, thay thế, thanh lý và hủy bỏ dựa trên những nội dung nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.031",
+      "title": "Chọn nhà thầu và phê duyệt thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-vendor"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phương án thanh lý hoặc hủy bỏ được thống nhất, ai tìm nhà thầu và ai xem xét đề xuất?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.032",
+      "title": "Chọn nhà thầu và phê duyệt thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-vendor"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai trình phương án lên Ban Giám đốc và phải làm gì nếu phương án chưa được duyệt?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.033",
+      "title": "Các bước và mốc thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-schedule"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy trình thanh lý có những bước nào và các mốc T+1 đến T+6 được hiểu ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.034",
+      "title": "Giám sát, hủy bỏ và thu tiền thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-execution"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi được duyệt, những bên nào phải có mặt để giám sát thanh lý?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.035",
+      "title": "Giám sát, hủy bỏ và thu tiền thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-execution"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hủy hoặc đổ bỏ tài sản khác gì so với bán thanh lý về hồ sơ và người giám sát?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.036",
+      "title": "Biên bản thống kê tài sản thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-inventory-form"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Biên bản thống kê tài sản cần thanh lý phải ghi những mục nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.037",
+      "title": "Biên bản xử lý kiêm phiếu xuất kho",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-exit-form"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào phải lập biên bản xử lý kiêm phiếu xuất kho và những ai ký?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.038",
+      "title": "Giám sát, hủy bỏ và thu tiền thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-execution"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Số lượng, khối lượng phế liệu, mã tài sản và tiền thu hồi được ghi nhận ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.039",
+      "title": "Giám sát, hủy bỏ và thu tiền thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-execution"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai trực tiếp thu tiền thanh lý và tiền được nộp về đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.040",
+      "title": "Đối chiếu sau thanh lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-close"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi xử lý, ai đối chiếu chứng từ, cập nhật hệ thống và thông báo kết quả?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.041",
+      "title": "Xử lý tài sản trước phê duyệt",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "asset"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.asset-before-approval"
+        ],
+        "document_ids": [
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được tự bán hoặc cho đi thiết bị đã bỏ không trước khi phương án thanh lý được duyệt không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.042",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng xe Tập đoàn áp dụng cho những loại xe và đơn vị nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.043",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai thuộc nhóm được bố trí xe riêng và ai phải gửi đề xuất sử dụng xe?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.044",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Những công việc nào đủ điều kiện đề xuất xe Tập đoàn?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.045",
+      "title": "Phạm vi và đề xuất xe Tập đoàn",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-scope"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi cần xe đi gặp khách hàng hoặc đi giữa hai chi nhánh thì liên hệ ai và xin duyệt thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.046",
+      "title": "Đề xuất xe trên Workit",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-workit"
+        ],
+        "document_ids": [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tạo phiếu đề xuất sử dụng xe trên Workit ở đâu và phải khai những thông tin gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.047",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Phiếu đề xuất đã được duyệt thì xe và tài xế đã được bố trí chưa, hay tôi phải xác nhận thêm với ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.048",
+      "title": "Thẩm quyền điều xe và trường hợp đặc biệt",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ban lãnh đạo, HCNS và người quản lý điều xe có thẩm quyền khác nhau thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.049",
+      "title": "Thẩm quyền điều xe và trường hợp đặc biệt",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi có công việc đột xuất, ai có quyền điều xe đang thuộc bộ phận khác?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.050",
+      "title": "Xác nhận bố trí xe và phương tiện thay thế",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-confirm"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu không còn xe hoặc tài xế phù hợp, HCNS có thể bố trí phương tiện thay thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.051",
+      "title": "Thẩm quyền điều xe và trường hợp đặc biệt",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-dispatch"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Trong tình huống cấp cứu, việc sử dụng xe và báo cáo sau đó được thực hiện thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.052",
+      "title": "Mục đích sử dụng và hàng cấm chở trên xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-prohibitions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe Tập đoàn có được dùng cho việc cá nhân, cho mượn hoặc chuyên chở đồ ngoài nhiệm vụ được duyệt không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.053",
+      "title": "Mục đích sử dụng và hàng cấm chở trên xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-prohibitions"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định cấm chở những loại hàng hóa hoặc thực phẩm nào trên xe công ty?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.054",
+      "title": "Đổi lộ trình và xác nhận chuyến xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-trip-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đổi điểm đến, lộ trình hoặc giờ trả xe giữa chuyến, tài xế cần báo cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.055",
+      "title": "Đổi lộ trình và xác nhận chuyến xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-trip-change"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người sử dụng xe phải xác nhận thông tin nào sau chuyến đi?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.056",
+      "title": "Kiểm tra, giữ xe và báo sự cố",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-custody"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế và bảo vệ phải kiểm tra những gì trước khi xe đi và sau khi xe về?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.057",
+      "title": "Kiểm tra, giữ xe và báo sự cố",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-custody"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe phải đỗ ở đâu trong và ngoài giờ làm việc, và ai quản lý chìa khóa?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.058",
+      "title": "Sổ nhật trình và số kilomet",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-log"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sổ nhật trình xe ghi những thông tin gì, do ai ghi và ai ký xác nhận?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.059",
+      "title": "Sổ nhật trình và số kilomet",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-log"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai theo dõi số kilomet đầu kỳ, cuối kỳ và ghi nhận sai lệch?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.060",
+      "title": "Bảo dưỡng và sửa chữa xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-maintenance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài xế phải làm gì khi phát hiện xe cần thay lốp, bảo dưỡng định kỳ hoặc sửa chữa?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.061",
+      "title": "Bảo dưỡng và sửa chữa xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-maintenance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe ở tỉnh cần bảo dưỡng hoặc sửa chữa thì xin duyệt theo quy trình nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.062",
+      "title": "Bảo dưỡng và sửa chữa xe",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-maintenance"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi sửa xe, ai xác nhận hạng mục đã làm và cập nhật sổ theo dõi?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.063",
+      "title": "Định mức, tạm ứng và quyết toán nhiên liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-fuel"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai xây dựng và điều chỉnh định mức xăng dầu, và mức áp dụng cho từng xe được tra ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.064",
+      "title": "Định mức, tạm ứng và quyết toán nhiên liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-fuel"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Kỳ thanh toán chi phí xe được tính thế nào và hồ sơ quyết toán xăng dầu gồm những gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.065",
+      "title": "Định mức, tạm ứng và quyết toán nhiên liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-fuel"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu lượng nhiên liệu thực tế vượt định mức, tài xế phải giải trình với ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.066",
+      "title": "Định mức, tạm ứng và quyết toán nhiên liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-fuel"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Chi phí xe dùng mẫu đề nghị tạm ứng hay mẫu đề nghị thanh toán trong từng trường hợp?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.067",
+      "title": "Đăng kiểm, bảo hiểm và thẻ VETC",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-vetc"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai theo dõi hạn đăng kiểm, phí đường bộ và bảo hiểm bắt buộc của xe?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.068",
+      "title": "Đăng kiểm, bảo hiểm và thẻ VETC",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-vetc"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe mới cần dán thẻ VETC thì tài xế liên hệ ai, và xe đang dùng cần xử lý thế nào khi tài khoản thiếu tiền?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.069",
+      "title": "Kiểm tra, giữ xe và báo sự cố",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "vehicle"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.vehicle-custody"
+        ],
+        "document_ids": [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu xe bị va quẹt, hư hỏng hoặc phát sinh sự cố trong chuyến đi, tài xế báo ai và cần lập hồ sơ gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.070",
+      "title": "Phạm vi quy định sử dụng bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-scope"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng bảo vệ áp dụng cho những cơ sở, bộ phận và nhà cung cấp nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.071",
+      "title": "Điều kiện và hồ sơ nhà cung cấp bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-vendor"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhà cung cấp dịch vụ bảo vệ phải đáp ứng tiêu chuẩn gì và nộp những giấy tờ nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.072",
+      "title": "Tiêu chuẩn và hồ sơ nhân viên bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-personnel"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên bảo vệ thuê ngoài phải đáp ứng tiêu chuẩn tuyển chọn nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.073",
+      "title": "Tiêu chuẩn và hồ sơ nhân viên bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-personnel"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Hồ sơ điều động nhân viên bảo vệ đến một địa điểm làm việc cần có những giấy tờ gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.074",
+      "title": "Thay người bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-change"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nhà cung cấp đổi nhân sự bảo vệ theo kế hoạch hoặc thay người đột xuất, phải báo cho ai và trước bao lâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.075",
+      "title": "Tuyển chọn và duyệt giá dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-tender"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy trình chọn nhà cung cấp dịch vụ bảo vệ mới gồm những bước nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.076",
+      "title": "Đề xuất vị trí và tiếp nhận bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-site"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai đề xuất số lượng và vị trí bảo vệ tại từng cơ sở?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.077",
+      "title": "Tuyển chọn và duyệt giá dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-tender"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu báo giá dịch vụ bảo vệ vượt khung, ai trình và ai phê duyệt?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.078",
+      "title": "Đề xuất vị trí và tiếp nhận bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-site"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy trình tuyển chọn, kiểm tra hồ sơ và tiếp nhận nhân viên bảo vệ gồm những bước nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.079",
+      "title": "Kiểm soát khách và nhà thầu ra vào",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-visitors"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải kiểm tra và ghi nhận thông tin gì khi khách hoặc nhà thầu đến làm việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.080",
+      "title": "Bảo vệ giám sát xuất nhập hàng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-goods"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi hàng hóa xuất hoặc nhập qua cổng, bảo vệ phải đối chiếu với chứng từ nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.081",
+      "title": "Bảo vệ giám sát xuất nhập hàng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-goods"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu số lượng hàng thực tế khác chứng từ hoặc hàng chưa có giấy phép ra cổng, bảo vệ phải xử lý thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.082",
+      "title": "Tuần tra và bàn giao ca bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-patrol"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ cần thực hiện và ghi nhận việc tuần tra, bàn giao ca như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.083",
+      "title": "Báo cáo an ninh của bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-report"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi gặp mất cắp, hư hỏng hoặc một sự cố an ninh, bảo vệ phải báo cáo cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.084",
+      "title": "Báo cáo an ninh của bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-report"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ phải báo cáo tình hình an ninh định kỳ với nội dung và tần suất nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.085",
+      "title": "Phối hợp quản lý dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-roles"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý trực tiếp tại cơ sở phải theo dõi và phối hợp với lực lượng bảo vệ như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.086",
+      "title": "Phối hợp quản lý dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-roles"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ban An ninh, HCNS và Kiểm soát nội bộ phụ trách phần việc nào trong quản lý dịch vụ bảo vệ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.087",
+      "title": "Xử lý vi phạm của dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-violation"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nhân viên bảo vệ vi phạm, quy trình ghi nhận, lập biên bản và xử lý nhà cung cấp diễn ra thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.088",
+      "title": "Xử lý vi phạm của dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-violation"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mẫu lý lịch trích ngang nhân viên bảo vệ và mẫu biên bản xử lý vi phạm có mã gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.089",
+      "title": "Phối hợp quản lý dịch vụ bảo vệ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guard"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guard-roles"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cơ sở cần áp dụng cách bố trí bảo vệ khác quy trình chung, những ai phải xem xét ngoại lệ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.090",
+      "title": "Phạm vi quy định niêm phong",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-scope"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định niêm phong áp dụng cho những địa điểm và những người nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.091",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người ra về cuối cùng phải làm gì trước khi dán niêm phong?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.092",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai ký trên giấy niêm phong và ai ký vào sổ niêm phong?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.093",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Giấy niêm phong cần có dấu gì và phải dán ở vị trí nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.094",
+      "title": "Dán niêm phong cuối ngày",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-close"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Bảo vệ cần chứng kiến những bước nào khi dán hoặc mở niêm phong?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.095",
+      "title": "Kiểm tra trước khi mở niêm phong",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-open"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Người đến làm việc đầu tiên phải kiểm tra những gì trước khi mở cửa?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.096",
+      "title": "Niêm phong bất thường và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-incident"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu giấy niêm phong bị rách, mất hoặc biến dạng thì có được mở cửa ngay không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.097",
+      "title": "Niêm phong bất thường và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-incident"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện niêm phong bất thường, cần chụp lại gì, báo ai và lập biên bản như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.098",
+      "title": "Niêm phong bất thường và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-incident"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phải ký biên bản xử lý tại chỗ khi phát hiện niêm phong có vấn đề?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.099",
+      "title": "Niêm phong bất thường và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-incident"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lỡ ra về mà quên niêm phong, hoặc hôm sau mở cửa khi chưa có bảo vệ chứng kiến, thì cần báo ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.100",
+      "title": "Niêm phong bất thường và ra vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "sealing"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.sealing-incident"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu cần vào kho hoặc văn phòng sau khi đã niêm phong, tôi phải xin phép và bàn giao lại thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.101",
+      "title": "Phạm vi nội quy Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-scope"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nội quy tòa nhà áp dụng thế nào với nhân viên, khách hàng, nhà cung cấp và nhà thầu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.102",
+      "title": "Khách ra vào, khu vực hạn chế và trường hợp từ chối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-guests"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khách đến gặp nhân viên phải đăng ký ở đâu, và nhân viên đón khách có trách nhiệm gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.103",
+      "title": "Khách ra vào, khu vực hạn chế và trường hợp từ chối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-guests"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể đưa khách vào khu vực làm việc, kho hoặc khu vực hạn chế trong trường hợp nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.104",
+      "title": "Khách ra vào, khu vực hạn chế và trường hợp từ chối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-guests"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý tòa nhà hoặc bảo vệ được từ chối cho ra vào trong những trường hợp nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.105",
+      "title": "Đưa trẻ em vào tòa nhà Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-children"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên có được đưa con vào tòa nhà trong ngày làm việc hoặc khi công ty có sự kiện không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.106",
+      "title": "Cửa ra vào và vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-access"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào được sử dụng cửa chính, cửa phụ và cửa thoát hiểm?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.107",
+      "title": "Cửa ra vào và vào ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-access"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên ở lại ngoài giờ hoặc vào tòa nhà ngày nghỉ phải đăng ký với ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.108",
+      "title": "Sử dụng thang máy và báo kẹt thang",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-lift"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi dùng thang máy để di chuyển hoặc vận chuyển hàng, phải tuân thủ tải trọng và hướng dẫn gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.109",
+      "title": "Sử dụng thang máy và báo kẹt thang",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-lift"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu thang máy dừng bất thường hoặc có người bị kẹt, phải báo cho bộ phận nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.110",
+      "title": "Lịch điều hòa theo tầng tại Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-hours"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.111",
+      "title": "Bật tắt điều hòa, đèn và thiết bị",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-roles"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có khách đến showroom ngoài khung giờ bật điều hòa thì ai được quyết định bật?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.112",
+      "title": "Bật tắt điều hòa, đèn và thiết bị",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-ac-roles"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi ra về hoặc khi khu vực không có khách, ai chịu trách nhiệm kiểm tra điều hòa, đèn và các thiết bị điện?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.113",
+      "title": "Rèm và ánh sáng tự nhiên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-blinds"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định sử dụng rèm và ánh sáng tự nhiên tại tòa nhà như thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.114",
+      "title": "Xử lý mất điện tại Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-outage"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi mất điện, nhân viên báo cho ai và cần xử lý thiết bị đang sử dụng ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.115",
+      "title": "Vận chuyển hàng hóa ra vào Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-goods"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mang hàng hóa, hàng mẫu hoặc tài sản ra vào tòa nhà cần thông báo ai và xuất trình giấy tờ gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.116",
+      "title": "Vận chuyển hàng hóa ra vào Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-goods"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Xe giao hàng phải vận chuyển qua khu vực nào và phối hợp với bảo vệ ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.117",
+      "title": "Vệ sinh, lối đi và khu vực hạn chế",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-common"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được để hàng, thùng carton hoặc rác ở hành lang, cầu thang và lối thoát hiểm không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.118",
+      "title": "Vệ sinh, lối đi và khu vực hạn chế",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-common"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên không được phân công có được vào kho hoặc phòng kỹ thuật không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.119",
+      "title": "Báo hư hỏng tài sản tòa nhà",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-damage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu làm hỏng sản phẩm trưng bày hoặc tài sản tòa nhà, phải báo ai và quy trình ghi nhận thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.120",
+      "title": "Vệ sinh, lối đi và khu vực hạn chế",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-common"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định giữ vệ sinh khu vực làm việc, nhà vệ sinh và khu vực dùng chung gồm những gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.121",
+      "title": "Sử dụng phòng bếp Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-kitchen"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai được sử dụng phòng bếp và phải dọn dẹp, tắt thiết bị thế nào sau khi dùng?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.122",
+      "title": "Ra vào phòng Chủ tịch",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-chair-room"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Điều kiện ra vào phòng Chủ tịch là gì và ai có quyền cho phép?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.123",
+      "title": "Gửi xe, vé xe và xác minh ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-parking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên và khách phải đỗ xe ở đâu và nhận, trả thẻ xe thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.124",
+      "title": "Gửi xe, vé xe và xác minh ngoài giờ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-parking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu làm mất vé xe hoặc cần lấy xe ngoài giờ, tôi phải xác minh với ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.125",
+      "title": "Hút thuốc trong tòa nhà và bãi xe Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-smoking"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Có được hút thuốc trong tòa nhà hoặc bãi xe không, và vi phạm được xử lý theo quy định nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.126",
+      "title": "Đầu mối khẩn cấp và báo cháy tại Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-emergency"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tòa nhà có đầu mối hỗ trợ nào khi gặp sự cố an ninh, kỹ thuật hoặc phòng cháy chữa cháy?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.127",
+      "title": "Đầu mối khẩn cấp và báo cháy tại Tây Đô",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-emergency"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi có chuông báo cháy hoặc phát hiện khói, nhân viên và khách phải làm gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.128",
+      "title": "Bố trí hàng và thiết bị để phòng cháy",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-fire-prevention"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Việc bố trí hàng hóa, vật tư và thiết bị điện phải đáp ứng yêu cầu gì về phòng cháy chữa cháy?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.129",
+      "title": "Trách nhiệm xử lý sự cố, thất lạc và camera",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-roles"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý tòa nhà, Kỹ thuật, HCNS, Bảo vệ và Ban An ninh chịu trách nhiệm gì khi có sự cố?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.130",
+      "title": "Trách nhiệm xử lý sự cố, thất lạc và camera",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "building"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.building-roles"
+        ],
+        "document_ids": [
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Sau khi phát hiện thất lạc tài sản, tôi phải báo ai và đề nghị kiểm tra camera qua đầu mối nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.131",
+      "title": "Phạm vi đồng phục và thẻ tên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-scope"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định tác phong, đồng phục và thẻ tên áp dụng cho những nhóm nhân viên nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.132",
+      "title": "Đồng phục khối Hỗ trợ và kỹ thuật",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-support"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên văn phòng và cấp quản lý được cấp bao nhiêu áo đồng phục mỗi năm và phải mặc vào ngày nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.133",
+      "title": "Đồng phục khối Hỗ trợ và kỹ thuật",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-support"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Định mức và lịch mặc đồng phục của lái xe, tạp vụ, kho vận, mộc và cắt gạch khác nhau thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.134",
+      "title": "Đồng phục khối Hỗ trợ và kỹ thuật",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-support"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên kỹ thuật được cấp bao nhiêu bộ bảo hộ và bao lâu được cấp giày bảo hộ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.135",
+      "title": "Đồng phục các khối kinh doanh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-business"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên kinh doanh vật liệu xây dựng, nội thất, Depot, đại lý và ô tô được cấp đồng phục thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.136",
+      "title": "Đồng phục các khối kinh doanh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-business"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đồng phục của nhân viên kinh doanh và nhân viên sản xuất khối Café khác nhau thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.137",
+      "title": "Đồng phục các khối kinh doanh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-business"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên kinh doanh, giám sát và quản lý khối Thời trang có quy định đồng phục riêng ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.138",
+      "title": "Đồng phục các khối kinh doanh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-business"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khối Piaggio và Life Window quy định đồng phục khác nhau thế nào giữa văn phòng, kinh doanh, kỹ thuật và sản xuất?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.139",
+      "title": "Thời điểm cấp đồng phục",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-issue"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Đồng phục được cấp vào những thời điểm nào và nhóm nào được cấp ngay khi nhận việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.140",
+      "title": "Mặc đồng phục và thay đổi kiểu dáng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-wear"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên showroom, giao nhận hoặc kỹ thuật đi làm thứ Bảy, Chủ nhật hoặc ngày lễ có phải mặc đồng phục không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.141",
+      "title": "Mặc đồng phục và thay đổi kiểu dáng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-wear"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được tự sửa kiểu dáng đồng phục hoặc mặc áo ngoài che đồng phục không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.142",
+      "title": "Quy định trang phục tự do",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-casual"
+        ],
+        "document_ids": [
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi được mặc trang phục tự do, công ty quy định gì về quần áo, váy và giày dép?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.143",
+      "title": "Cấp, đeo và cấp lại thẻ tên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-badges"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nhân viên thử việc và nhân viên chính thức được cấp loại thẻ tên nào, vào thời điểm nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.144",
+      "title": "Cấp, đeo và cấp lại thẻ tên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-badges"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Thẻ tên phải đeo ở đâu và cần làm gì nếu đi làm mà quên thẻ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.145",
+      "title": "Cấp, đeo và cấp lại thẻ tên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-badges"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mất thẻ, làm hỏng thẻ hoặc thẻ đã cũ mờ thì xin cấp lại ở đâu, và trường hợp nào phát sinh chi phí?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.146",
+      "title": "Bàn giao và bồi hoàn đồng phục",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-return"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nghỉ việc, tôi phải bàn giao đồng phục và thẻ tên cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.147",
+      "title": "Bàn giao và bồi hoàn đồng phục",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-return"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Mất hoặc làm hỏng đồng phục thì mức bồi hoàn được xác định theo thời gian đã nhận ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.148",
+      "title": "Tác phong và xử lý vi phạm đồng phục",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-conduct"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Công ty quy định thế nào về giao tiếp trước mặt khách, giữ trật tự và sắp xếp nơi làm việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.149",
+      "title": "Tác phong và xử lý vi phạm đồng phục",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "uniform"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.uniform-conduct"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "b020eea1-3bed-43a3-b18d-359c7a236e95"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đã được nhắc nhở mà vẫn vi phạm tác phong hoặc đồng phục, ai lập biên bản và áp dụng hình thức nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.150",
+      "title": "Phạm vi và ứng xử nội bộ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-scope"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tiêu chuẩn đạo đức nghề nghiệp áp dụng cho ai và nghĩa vụ nào còn liên quan sau khi nghỉ việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.151",
+      "title": "Phạm vi và ứng xử nội bộ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-scope"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Công ty yêu cầu gì về trung thực, công bằng và hỗ trợ đồng nghiệp khi làm việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.152",
+      "title": "Phạm vi và ứng xử nội bộ",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-scope"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nói xấu đồng nghiệp, lan truyền thông tin chưa kiểm chứng hoặc gây mất đoàn kết được xem xét theo quy định nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.153",
+      "title": "Bảo mật thông tin nội bộ và khách hàng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-confidential"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Công ty quy định thế nào về việc chia sẻ thông tin lương, phúc lợi và hồ sơ nhân sự?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.154",
+      "title": "Bảo mật thông tin nội bộ và khách hàng",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-confidential"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Những thông tin kinh doanh, quản lý hoặc khách hàng nào cần được bảo mật?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.155",
+      "title": "Sao chép, gửi và nhận nhầm tài liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-sharing"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được sao chép tài liệu công ty sang email cá nhân hoặc thiết bị riêng để làm việc không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.156",
+      "title": "Sao chép, gửi và nhận nhầm tài liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-sharing"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi đối tác cần tài liệu nội bộ để triển khai công việc, phải xin ai phê duyệt trước khi gửi?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.157",
+      "title": "Sao chép, gửi và nhận nhầm tài liệu",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-sharing"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi phải xử lý thế nào khi được gửi nhầm tài liệu nội bộ hoặc thông tin mật của đối tác?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.158",
+      "title": "Tài liệu và sản phẩm sau nghỉ việc",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-ip"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quy định nói gì về việc sử dụng tài liệu, quy trình, sản phẩm hoặc mã nguồn của công ty sau khi nghỉ việc?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.159",
+      "title": "Phát ngôn và công bố thông tin",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-media"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có quyền cung cấp thông tin về công ty cho báo chí hoặc đăng tải công khai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.160",
+      "title": "Ứng xử và cam kết với đối tác",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-partners"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi tiếp xúc khách hàng và nhà cung cấp, tôi phải tuân thủ những nguyên tắc ứng xử nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.161",
+      "title": "Lợi ích riêng, hối lộ và phản ánh đạo đức",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-bribery"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đối tác đề nghị hoa hồng riêng, quà tặng hoặc lợi ích cá nhân, tôi phải xử lý và báo cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.162",
+      "title": "Lợi ích riêng, hối lộ và phản ánh đạo đức",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-bribery"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu tôi có quan hệ cá nhân hoặc lợi ích liên quan đến một nhà cung cấp, tôi cần khai báo với ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.163",
+      "title": "Ứng xử và cam kết với đối tác",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-partners"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có được tự thay đổi thông tin, điều kiện hoặc cam kết đã thống nhất với đối tác không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.164",
+      "title": "Lợi ích riêng, hối lộ và phản ánh đạo đức",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-bribery"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu đồng nghiệp yêu cầu tôi cung cấp thông tin sai lệch cho đối tác, tôi phải báo qua kênh nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.165",
+      "title": "Lợi ích riêng, hối lộ và phản ánh đạo đức",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-bribery"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện dấu hiệu hối lộ, gian dối hoặc sử dụng tài sản công ty cho lợi ích riêng, cần báo ai và cung cấp thông tin gì?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.166",
+      "title": "Biên bản định hướng nhân viên",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-orientation"
+        ],
+        "document_ids": [
+          "7523b7f7-7b6d-4d8a-9ab8-9dff794eee0a"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Biên bản hoàn thành chương trình định hướng nhân viên gồm những nội dung và cam kết nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.167",
+      "title": "Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-harassment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu gặp hoặc chứng kiến hành vi quấy rối tại nơi làm việc, trong chuyến công tác hoặc qua kênh điện tử, tôi có thể báo cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.168",
+      "title": "Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-harassment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Quản lý và người chứng kiến có trách nhiệm gì khi nhận được phản ánh về quấy rối?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.169",
+      "title": "Báo cáo và xác minh quấy rối",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "ethics"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.ethics-harassment"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai tiếp nhận, xác minh phản ánh về quấy rối và thông tin của người liên quan được bảo mật ra sao?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.170",
+      "title": "Đầu mối báo vi phạm hành chính",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-intake"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi phát hiện vi phạm nội quy hành chính, nhân viên nên báo quản lý trực tiếp, HCNS, Ban An ninh hay Kiểm soát nội bộ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.171",
+      "title": "Biên bản, chứng cứ và tường trình",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-record"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có trách nhiệm lập biên bản, thu thập chứng cứ và thông báo cho các bên liên quan?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.172",
+      "title": "Biên bản, chứng cứ và tường trình",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-record"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi bị yêu cầu viết tường trình, tôi cần trình bày những gì và được cung cấp tài liệu nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.173",
+      "title": "Họp xử lý kỷ luật và biên bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-hearing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai phải tham dự cuộc họp xử lý kỷ luật và người lao động có thể nhờ ai hỗ trợ?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.174",
+      "title": "Họp xử lý kỷ luật và biên bản",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-hearing"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu người lao động vắng mặt hoặc từ chối ký biên bản, cuộc họp và biên bản được xử lý thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.175",
+      "title": "Thẩm quyền kỷ luật và bồi thường",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-authority"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Ai có thẩm quyền ra quyết định kỷ luật và ai có thẩm quyền quyết định bồi thường?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.176",
+      "title": "Thời hiệu xử lý kỷ luật",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-deadline"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Thời hiệu xử lý vi phạm liên quan đến tài sản hoặc bí mật kinh doanh khác gì so với vi phạm thông thường?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.177",
+      "title": "Tạm đình chỉ công việc để xác minh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.labor-focus.discipline-suspension"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào công ty có thể tạm đình chỉ công việc để xác minh và quyền lợi trong thời gian đó được tính thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.178",
+      "title": "Khiếu nại quyết định xử lý",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-appeal"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu không đồng ý với biên bản, quyết định xử lý hoặc mức bồi thường, tôi gửi khiếu nại cho ai?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.179",
+      "title": "Căn cứ bồi thường và xác minh thiệt hại",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-damage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm mất tài sản, làm hỏng thiết bị và làm tiêu hao vật tư vượt định mức được xem xét bồi thường khác nhau thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.180",
+      "title": "Căn cứ bồi thường và xác minh thiệt hại",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-damage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Căn cứ tính bồi thường đối với hàng hóa, thiết bị và tiền mặt có khác nhau không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.181",
+      "title": "Căn cứ bồi thường và xác minh thiệt hại",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-damage"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tài sản hư do hao mòn, sự cố ngoài khả năng kiểm soát hoặc có nhiều người cùng sử dụng thì xác định trách nhiệm thế nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.182",
+      "title": "Xóa hoặc giảm thời hạn kỷ luật",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "discipline"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.discipline-clearance"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Khi nào được xóa hoặc giảm thời hạn kỷ luật và nhân viên có cần làm đề nghị không?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.183",
+      "title": "Xác định bản, phạm vi áp dụng và đầu mối HCNS",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-documents"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi tìm bản áp dụng hiện tại của các quy định về con dấu, bảo vệ, xe, niêm phong và thanh lý tài sản ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.184",
+      "title": "Xác định bản, phạm vi áp dụng và đầu mối HCNS",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-documents"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Làm sao để biết một quy định áp dụng chung toàn Tập đoàn hay chỉ áp dụng cho một chi nhánh hoặc tòa nhà?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.185",
+      "title": "Xác định bản, phạm vi áp dụng và đầu mối HCNS",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-documents"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu nội quy chung và quy định tại địa điểm làm việc khác nhau, tôi hỏi bộ phận nào để xác nhận điều khoản áp dụng?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.186",
+      "title": "Biểu mẫu hành chính và nơi xác minh",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-forms"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi có thể tải biểu mẫu bàn giao con dấu, đề xuất sửa chữa xe, thanh lý tài sản và lập biên bản vi phạm ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.187",
+      "title": "Xác minh đầu mối liên hệ hiện tại",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-contact"
+        ],
+        "document_ids": [
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu tên người phụ trách hoặc số điện thoại trong tài liệu cũ đã thay đổi, tôi tìm đầu mối hiện tại ở đâu?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.188",
+      "title": "Xác minh tình trạng phiếu, thanh lý hoặc báo cáo",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-progress"
+        ],
+        "document_ids": [
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb",
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Tôi kiểm tra ở đâu để biết phiếu đề xuất xe, hồ sơ thanh lý hoặc báo cáo sự cố của mình đã được tiếp nhận và xử lý đến bước nào?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    },
+    {
+      "id": "q.policy.administration-compliance.189",
+      "title": "Xác định bản, phạm vi áp dụng và đầu mối HCNS",
+      "tags": [
+        "type-a",
+        "administration-compliance",
+        "guide"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.administration-compliance.guide-documents"
+        ],
+        "document_ids": [
+          "293575cf-576e-4cc5-a906-67c8000b20bb",
+          "52ff7a79-3f8b-495a-9c8d-638ab883b77d",
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+          "95b9cbfe-3d5b-4032-9411-1feb48553c79",
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "c7065069-38ac-4ccd-9720-43c6d5ecbdfb"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [],
+      "turns": [
+        {
+          "text": "Nếu chưa tìm thấy quy định cho tình huống của mình, tôi phải gửi thông tin gì để HCNS xác nhận cách xử lý?",
+          "expectation": "Đúng phạm vi, nội dung, nguồn và giới hạn đã khai báo."
+        }
+      ]
+    }
+  ]
+}

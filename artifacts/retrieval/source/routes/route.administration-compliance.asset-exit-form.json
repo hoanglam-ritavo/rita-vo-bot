@@ -1,0 +1,52 @@
+{
+  "id": "route.administration-compliance.asset-exit-form",
+  "family": "administration",
+  "task_id": "task.administration-compliance.asset-exit-form",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "biên bản xử lý kiêm phiếu xuất kho"
+        ],
+        [
+          "ký"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thanh lý"
+        ],
+        [
+          "phiếu xuất kho"
+        ],
+        [
+          "ký"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi nào phải lập biên bản xử lý kiêm phiếu xuất kho và những ai ký?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}

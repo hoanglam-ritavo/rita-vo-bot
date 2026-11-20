@@ -1,0 +1,65 @@
+{
+  "id": "route.administration-compliance.building-lift",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-lift",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thang máy"
+        ],
+        [
+          "tải trọng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thang máy"
+        ],
+        [
+          "bị kẹt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thang máy"
+        ],
+        [
+          "dừng bất thường"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi dùng thang máy để di chuyển hoặc vận chuyển hàng, phải tuân thủ tải trọng và hướng dẫn gì?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu thang máy dừng bất thường hoặc có người bị kẹt, phải báo cho bộ phận nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

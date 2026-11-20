@@ -1,0 +1,65 @@
+{
+  "id": "route.administration-compliance.building-emergency",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-emergency",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đầu mối hỗ trợ"
+        ],
+        [
+          "sự cố"
+        ],
+        [
+          "phòng cháy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chuông báo cháy"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phát hiện khói"
+        ],
+        [
+          "tòa nhà"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tòa nhà có đầu mối hỗ trợ nào khi gặp sự cố an ninh, kỹ thuật hoặc phòng cháy chữa cháy?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi có chuông báo cháy hoặc phát hiện khói, nhân viên và khách phải làm gì?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

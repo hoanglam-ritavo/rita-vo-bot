@@ -1,0 +1,55 @@
+{
+  "id": "route.administration-compliance.building-ac-hours",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-ac-hours",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lịch mở và tắt điều hòa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giờ bật điều hòa"
+        ],
+        [
+          "tầng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "lịch điều hòa"
+        ],
+        [
+          "tây đô"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Lịch mở và tắt điều hòa theo từng tầng hoặc khu vực được quy định thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

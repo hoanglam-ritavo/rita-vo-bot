@@ -1,0 +1,71 @@
+{
+  "id": "route.administration-compliance.ethics-scope",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tiêu chuẩn đạo đức nghề nghiệp"
+        ],
+        [
+          "áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trung thực"
+        ],
+        [
+          "công bằng"
+        ],
+        [
+          "đồng nghiệp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nói xấu đồng nghiệp"
+        ],
+        [
+          "lan truyền"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tiêu chuẩn đạo đức nghề nghiệp áp dụng cho ai và nghĩa vụ nào còn liên quan sau khi nghỉ việc?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Công ty yêu cầu gì về trung thực, công bằng và hỗ trợ đồng nghiệp khi làm việc?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nói xấu đồng nghiệp, lan truyền thông tin chưa kiểm chứng hoặc gây mất đoàn kết được xem xét theo quy định nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

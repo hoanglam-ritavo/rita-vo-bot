@@ -1,0 +1,60 @@
+{
+  "id": "route.administration-compliance.discipline-hearing",
+  "family": "labor",
+  "task_id": "task.administration-compliance.discipline-hearing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tham dự cuộc họp xử lý kỷ luật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vắng mặt hoặc từ chối ký biên bản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "họp kỷ luật"
+        ],
+        [
+          "ai tham dự"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai phải tham dự cuộc họp xử lý kỷ luật và người lao động có thể nhờ ai hỗ trợ?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu người lao động vắng mặt hoặc từ chối ký biên bản, cuộc họp và biên bản được xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "procedure",
+  "follow_up_aspects": {
+    "thực hiện thế nào": "procedure",
+    "các bước cụ thể là gì": "procedure"
+  }
+}

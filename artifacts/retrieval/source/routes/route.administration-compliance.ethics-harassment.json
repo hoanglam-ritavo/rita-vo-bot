@@ -1,0 +1,71 @@
+{
+  "id": "route.administration-compliance.ethics-harassment",
+  "family": "labor",
+  "task_id": "task.administration-compliance.ethics-harassment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quấy rối"
+        ],
+        [
+          "có thể báo cho ai"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trách nhiệm"
+        ],
+        [
+          "phản ánh về quấy rối"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quấy rối"
+        ],
+        [
+          "thông tin"
+        ],
+        [
+          "bảo mật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu gặp hoặc chứng kiến hành vi quấy rối tại nơi làm việc, trong chuyến công tác hoặc qua kênh điện tử, tôi có thể báo cho ai?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Quản lý và người chứng kiến có trách nhiệm gì khi nhận được phản ánh về quấy rối?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Ai tiếp nhận, xác minh phản ánh về quấy rối và thông tin của người liên quan được bảo mật ra sao?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

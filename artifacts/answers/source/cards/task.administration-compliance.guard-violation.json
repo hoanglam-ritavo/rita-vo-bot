@@ -1,0 +1,78 @@
+{
+  "id": "task.administration-compliance.guard-violation",
+  "label": "Xử lý vi phạm của dịch vụ bảo vệ",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xử lý vi phạm của dịch vụ bảo vệ"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về xử lý vi phạm của dịch vụ bảo vệ?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.guard-violation.1",
+          "text": "Ban An ninh tổng hợp lỗi và đề nghị xử lý. HCNS đối chiếu hợp đồng, gửi văn bản cho nhà cung cấp, xử lý và thông báo theo mục 9.3. Mã mẫu lý lịch là HCNS-QT01-LLTN; mã biên bản xử lý là HCNS-QT01-BBXLVP.",
+          "refs": [
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 27,
+              "content_sha256": "0a8834985e313474384278dfd6f42d706c9bfc23eba19a71b4260933a1e7a923",
+              "quote": "Quy định bảo vệ HCNS-QT01, mục 9.3 — sáu bước xử lý DVBV có nhân viên vi phạm: (1) ngày 1 hàng tháng Ban An Ninh gửi tổng hợp lỗi và đề nghị xử lý; (2) HCNS xem xét, đối chiếu lỗi với hợp đồng mẫu và quy định Công ty; (3) HCNS gửi công văn/biên bản HCNS-QT01-BBXLVP cho NCC yêu cầu xử lý theo hợp đồng; (4) HCNS xử phạt theo hợp đồng, cấn trừ tiền phạt vào thanh toán phí DVBV hàng tháng; (5) HCNS thông báo kết quả cho KSNB, Ban An Ninh, Kế toán; (6) HCNS lưu hồ sơ.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 28,
+              "content_sha256": "1f510935290318b3a412e9d202aa572da79c394f809c9e5de3625beff4194965",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n10. PHỤ LỤC\n10.1. Biểu mẫu lý lịch trích trang nhân viên bảo vệ (HCNS-QT01-LLTN)\nCTY TNHH RITA VÕ — PHÒNG HCNS\nLÝ LỊCH TRÍCH NGANG NHÂN VIÊN BẢO VỆ\nCÔNG TY DVBV: …\nMỤC TIÊU: …\nChỉ huy mục tiêu: … Số điện thoại: …\nCột: STT; HỌ TÊN; NĂM SINH; HÌNH CMND/ CCCD (Mặt trước, Mặt sau); ĐỊA CHỈ THƯỜNG TRÚ; NƠI Ở HIỆN TẠI; VỊ TRÍ; CA LÀM VIỆC; SỐ ĐIỆN THOẠI; NGÀY LÊN MỤC TIÊU; GHI CHÚ.\nCác dòng dữ liệu để trống.",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            },
+            {
+              "document_id": "8640ee34-0c09-4ea9-ac5b-397222cea5f3",
+              "revision_id": "0be78e15-c029-4d98-b963-7d26d7376ded",
+              "source_sha256": "9a887e34cd702de1b6cd7b920999fd4a60fe5ba875da9913678af98e6959aedf",
+              "chunk_index": 29,
+              "content_sha256": "12cab04410b44e6aecb61c4b01016d4749ff1bbf95a2b36d85c2ca370da31bda",
+              "quote": "Quy định sử dụng bảo vệ — HCNS-QT01, lần ban hành 01\n10.2. Biểu mẫu biên bản xử lý vi phạm (HCNS-QT01-BBXLVP)\nCÔNG TY TNHH RI TA VÕ\nSố: …/2022/BBXLVP-RTV\nV/v: Xử lý vi phạm nhân viên bảo vệ\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nHồ Chí Minh, ngày … tháng … năm 2022\nBIÊN BẢN XỬ LÝ VI PHẠM\nCăn cứ vào hợp đồng bảo vệ số …/2022/HĐBV/RTV-… thỏa thuận giữa Công ty TNHH Ri Ta Võ và Công ty TNHH DVBV …\nPhạt đối với vi phạm của nhân viên bảo vệ Công ty TNHH DVBV …, lỗi vi phạm:\nMục tiêu: …\nCột: Thời gian vi phạm; Vị trí; Ca trực; Lỗi vi phạm; Kết luận mức phạt. Các dòng để trống.\nQua sự việc trên, căn cứ vào điều khoản thỏa thuận của hợp đồng đã ký kết giữa hai bên công ty chúng tôi thống nhất mức phạt: … VNĐ (… triệu đồng chẵn).\nBên cạnh đó chấn chỉnh nhân viên bảo vệ tại các mục tiêu, không để tái phạm các lỗi như đã nêu.\nBiên bản được lập thành 02 bản, mỗi bên giữ 01 bản\nĐại diện Công ty bảo vệ (Ký và ghi rõ họ tên)\nBên HCNS (Ký và ghi rõ họ tên)",
+              "metadata": {
+                "title": "Quy định sử dụng bảo vệ",
+                "applicability": "Toàn hệ thống trực thuộc Công ty TNHH Ri Ta Võ; bảo vệ thuê ngoài, HCNS, Ban An Ninh, KSNB và quản lý văn phòng, showroom, kho vận.",
+                "effective_from": "2022-03-09",
+                "effective_to": null,
+                "version_label": "HCNS-QT01 — 01",
+                "source_path": "noi-quy-qui-dinh/quy-dinh-su-dung-bao-ve/hcns-qt01-quy-dinh-su-dung-bao-ve-09-03-2022.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

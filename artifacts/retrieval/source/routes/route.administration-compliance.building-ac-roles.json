@@ -1,0 +1,65 @@
+{
+  "id": "route.administration-compliance.building-ac-roles",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-ac-roles",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khách đến showroom"
+        ],
+        [
+          "khung giờ bật điều hòa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ra về"
+        ],
+        [
+          "kiểm tra điều hòa"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "không có khách"
+        ],
+        [
+          "thiết bị điện"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Có khách đến showroom ngoài khung giờ bật điều hòa thì ai được quyết định bật?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi ra về hoặc khi khu vực không có khách, ai chịu trách nhiệm kiểm tra điều hòa, đèn và các thiết bị điện?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

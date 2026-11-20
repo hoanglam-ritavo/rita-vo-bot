@@ -1,0 +1,51 @@
+{
+  "id": "route.administration-compliance.building-scope",
+  "family": "administration",
+  "task_id": "task.administration-compliance.building-scope",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nội quy tòa nhà"
+        ],
+        [
+          "nhân viên"
+        ],
+        [
+          "nhà thầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tây đô"
+        ],
+        [
+          "phạm vi áp dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nội quy tòa nhà áp dụng thế nào với nhân viên, khách hàng, nhà cung cấp và nhà thầu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "follow_up_tasks": {
+    "còn ở chi nhánh khác": "task.administration-compliance.guide-documents",
+    "địa điểm khác thì sao": "task.administration-compliance.guide-documents"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "task.administration-compliance.uniform-wear",
+  "label": "Mặc đồng phục và thay đổi kiểu dáng",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Mặc đồng phục và thay đổi kiểu dáng"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn cần xem phần nào về mặc đồng phục và thay đổi kiểu dáng?",
+  "context": {
+    "mode": "none",
+    "note": "Guidance scoped to the declared policy references."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.administration-compliance.uniform-wear.1",
+          "text": "Nhóm thường xuyên tiếp xúc khách như kinh doanh trực tiếp, showroom, giao nhận và kỹ thuật mặc đồng phục cả cuối tuần hoặc ngày lễ nếu làm việc. Không tự sửa mẫu, chất liệu, màu hoặc kiểu dáng. Nhân viên showroom và Depot phải mặc áo đúng tác phong quy định.",
+          "refs": [
+            {
+              "document_id": "b020eea1-3bed-43a3-b18d-359c7a236e95",
+              "revision_id": "d0a29e84-fed8-4bfb-a5ca-c9fc8b65c78e",
+              "source_sha256": "50917f7122e25cd9a3d5cfff9e86eb4c18779bb7754f31596876cddd3812b068",
+              "chunk_index": 6,
+              "content_sha256": "163ba6f293b5d1dae02ee61bcaff3937e10ae6a96ebe79e8ca1731b4eabc4320",
+              "quote": "Quy định về tác phong, đồng phục, trang phục nơi công sở — 08/11/2021\n1.2 Quy định chung:\n- CBNV phải tuân thủ quy định về đồng phục theo từng thời điểm (chất liệu, màu sắc, kiểu dáng), không được tự ý sửa đổi mẫu mã khác với mẫu đã quy định.\n- Đối Nhân viên làm việc tại các Showroom, Depot không được cho áo ra khỏi váy/quần.\n- Đối với Nhân viên do đặc thù công việc thường xuyên tiếp xúc với khách hàng như: Nhân viên kinh doanh/ bán hàng trực tiếp hoặc làm việc tại Showroom, nhân viên giao nhận, nhân viên kỹ thuật… phải mặc đồng phục khi đi làm kể cả Thứ Bảy, Chủ nhật hay ngày lễ.\n1.2 Quy định chung (tiếp): Nhân viên văn phòng và quản lý sẽ được yêu cầu mặc đồng phục vào những sự kiện chung của công ty và sẽ được thông báo trước.",
+              "metadata": {
+                "title": "Quy định về tác phong, đồng phục, trang phục nơi công sở",
+                "applicability": "Toàn thể CBNV Ri Ta Võ theo mục II; câu riêng cho khối Nhà Hàng Cà Phê trong nguồn bị thiếu phần kết thúc, không suy diễn nội dung ngoại lệ.",
+                "effective_from": "2021-11-08",
+                "effective_to": null,
+                "version_label": "02/QĐ-01-BM01; soát xét 00",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/8-qd-tac-phong-dong-phuc.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Quy định về kiểu dáng và tác phong là căn cứ chung. Hỏi HCNS hoặc quản lý về loại áo khoác được phép dùng tại nơi làm."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

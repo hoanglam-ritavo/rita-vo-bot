@@ -1,0 +1,68 @@
+{
+  "id": "route.administration-compliance.guard-goods",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guard-goods",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "xuất hoặc nhập qua cổng"
+        ],
+        [
+          "chứng từ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "số lượng hàng thực tế khác chứng từ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa có giấy phép ra cổng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "xuất nhập hàng"
+        ],
+        [
+          "bảo vệ"
+        ],
+        [
+          "đối chiếu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Khi hàng hóa xuất hoặc nhập qua cổng, bảo vệ phải đối chiếu với chứng từ nào?"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Nếu số lượng hàng thực tế khác chứng từ hoặc hàng chưa có giấy phép ra cổng, bảo vệ phải xử lý thế nào?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ]
+}

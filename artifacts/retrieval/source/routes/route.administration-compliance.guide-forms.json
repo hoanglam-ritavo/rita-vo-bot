@@ -1,0 +1,49 @@
+{
+  "id": "route.administration-compliance.guide-forms",
+  "family": "administration",
+  "task_id": "task.administration-compliance.guide-forms",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tải biểu mẫu bàn giao con dấu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tải biểu mẫu"
+        ],
+        [
+          "sửa chữa xe"
+        ],
+        [
+          "thanh lý"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "Tôi có thể tải biểu mẫu bàn giao con dấu, đề xuất sửa chữa xe, thanh lý tài sản và lập biên bản vi phạm ở đâu?"
+        ]
+      ]
+    }
+  ],
+  "excludes_any": [
+    "system prompt",
+    "bỏ qua quyền",
+    "đóng dấu giúp tôi",
+    "tự thanh lý giúp tôi",
+    "đặt xe giúp tôi",
+    "hồ sơ của đồng nghiệp",
+    "hồ sơ của người khác",
+    "cho xem hồ sơ của"
+  ],
+  "initial_aspect": "paperwork",
+  "follow_up_aspects": {
+    "cần giấy tờ gì": "paperwork",
+    "hồ sơ gồm những gì": "paperwork"
+  }
+}
