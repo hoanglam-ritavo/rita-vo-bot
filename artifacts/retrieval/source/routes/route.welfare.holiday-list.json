@@ -1,0 +1,30 @@
+{
+  "id": "route.welfare.holiday-list",
+  "family": "benefits",
+  "task_id": "task.welfare.holiday-list",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi"
+        ],
+        [
+          "những ngày lễ",
+          "dịp tết nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phúc lợi riêng",
+          "tết nguyên đán"
+        ],
+        [
+          "khoản phúc lợi",
+          "thưởng tết"
+        ]
+      ]
+    }
+  ]
+}

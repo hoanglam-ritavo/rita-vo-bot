@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.insurance-reconcile",
+  "family": "benefits",
+  "task_id": "task.welfare.insurance-reconcile",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lịch sử bhxh"
+        ],
+        [
+          "lịch sử",
+          "bị thiếu",
+          "thiếu tháng",
+          "sai thông tin"
+        ]
+      ]
+    }
+  ]
+}

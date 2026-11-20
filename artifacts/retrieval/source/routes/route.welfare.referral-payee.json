@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.referral-payee",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-payee",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "người giới thiệu"
+        ],
+        [
+          "ứng viên được tuyển"
+        ],
+        [
+          "khoản thưởng",
+          "trả cho"
+        ]
+      ]
+    }
+  ]
+}

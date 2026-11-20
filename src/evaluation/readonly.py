@@ -39,7 +39,7 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
         families = {route.task_id: route.family for route in service.policy.catalog.routes}
         buckets = {}
         for oracle in oracles.values():
-            if oracle.claims == 'required' and oracle.fixture == 'current':
+            if oracle.claims == 'required' and oracle.fixture == 'current' and not oracle.unavailable_documents:
                 for task in oracle.task_ids_any:
                     buckets.setdefault(families.get(task, 'other'), set()).add(task)
         buckets = {key: sorted(values) for key,values in sorted(buckets.items())}
@@ -55,13 +55,17 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
                 key = dict(case_id=case['id'], turn=n)
                 # Fixture-only source failures and personnel are not exercised
                 # against the application DB or represented as passing checks.
-                document_task = service.policy.resolve_generic(turn['text']).state == 'task'
-                route = route_question(turn['text'], document_task=document_task)
-                if (oracle.fixture != 'current' or oracle.employee_fields or route.source != 'type_a'
+                if (oracle.fixture != 'current' or oracle.unavailable_documents or oracle.employee_fields
                         or 'mixed' in case['tags'] or 'type-b' in case['tags']):
                     rows.append({**key, 'state': 'deferred', 'reason': 'requires_isolated_fixture'})
                     continue
-                analysis, state = plan_turn(turn['text'], state, catalog, lexicon, policy=service.policy)
+                analysis, next_state = plan_turn(turn['text'], state, catalog, lexicon, policy=service.policy)
+                if not analysis.focused_policy:
+                    document_task = service.policy.resolve_generic(turn['text']).state == 'task'
+                    if route_question(turn['text'], document_task=document_task).source != 'type_a':
+                        rows.append({**key, 'state': 'deferred', 'reason': 'requires_isolated_fixture'})
+                        continue
+                state = next_state
                 question = analysis.question
                 cards, ambiguous = analysis.cards, analysis.ambiguous
                 refs = [ref for card in cards for aspect in analysis.aspects
@@ -76,7 +80,7 @@ async def run_readonly(root, *, retrieval_limit=40, questions_dir=None):
                 response = format_answer(rendered, started).model_dump(mode='json')
                 selected = () if ambiguous else cards
                 failures = check_turn(oracle, 200, response, [c.id for c in selected], aspects=analysis.aspects)
-                state = compact(state, response)
+                state = compact(state, response, analysis=analysis)
                 rows.append({**key, 'state': 'failed' if failures else 'passed', 'failures': failures,
                              **turn_metadata(response, selected, analysis.aspects)})
                 sample_key = tuple(c.id for c in cards)

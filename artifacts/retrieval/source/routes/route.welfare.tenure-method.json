@@ -1,0 +1,39 @@
+{
+  "id": "route.welfare.tenure-method",
+  "family": "benefits",
+  "task_id": "task.welfare.tenure-method",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "từ ngày 16 trở đi",
+          "ngày bắt đầu làm việc là 16"
+        ],
+        [
+          "tháng đầu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tính từ ngày bắt đầu làm việc"
+        ],
+        [
+          "thâm niên hưởng phúc lợi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thiếu một ngày"
+        ],
+        [
+          "24 hoặc 48 tháng",
+          "làm tròn lên"
+        ]
+      ]
+    }
+  ]
+}

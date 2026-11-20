@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.hospital-paperwork",
+  "family": "benefits",
+  "task_id": "task.welfare.hospital-paperwork",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ hỗ trợ nằm viện",
+          "giấy ra viện"
+        ],
+        [
+          "hóa đơn viện phí",
+          "cần giấy",
+          "mất giấy ra viện",
+          "bản sao",
+          "giấy xác nhận"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mất giấy ra viện"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.child-june",
+  "family": "benefits",
+  "task_id": "task.welfare.child-june",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quà quốc tế thiếu nhi",
+          "nhân ngày quốc tế thiếu nhi"
+        ],
+        [
+          "trị giá",
+          "bao nhiêu"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "route.welfare.death-paperwork",
+  "family": "benefits",
+  "task_id": "task.welfare.death-paperwork",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy chứng tử",
+          "trích lục khai tử",
+          "giấy báo tử đã đủ",
+          "tổ chức tang lễ",
+          "giấy báo tử"
+        ],
+        [
+          "thay",
+          "thay giấy",
+          "đã đủ",
+          "chưa có giấy",
+          "xác minh quan hệ",
+          "công ty gửi vòng hoa"
+        ]
+      ]
+    }
+  ]
+}

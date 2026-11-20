@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.child-age",
+  "family": "benefits",
+  "task_id": "task.welfare.child-age",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đúng 15 tuổi",
+          "tròn 15 tuổi",
+          "vừa tròn 15 tuổi"
+        ],
+        [
+          "quà",
+          "thiếu nhi",
+          "dưới 15 tuổi trở xuống"
+        ]
+      ]
+    }
+  ]
+}

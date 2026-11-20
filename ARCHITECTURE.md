@@ -90,6 +90,14 @@ Each answer reads exact eligible references in the current snapshot. Catalog
 limitations distinguish an incomplete policy source from a direction to verify
 operational data in Workit or through the responsible team.
 
+Welfare and referral conversation routes can bind a short follow-up to an
+existing answer section. The registry validates that the section exists on the
+routed card. Planning applies the address limit to the sections selected for
+the current turn. Official welfare or referral documents and the November
+conversation clarification record are separate sources. Independent evidence
+units preserve official claims if the supplemental record is unavailable.
+An interpretation unit requires all cited sources in the current snapshot.
+
 Employee-source startup/connection failures allow a bounded recheck on subsequent
 requests needing personnel data: one check at a time, at least 30 seconds between
 checks, with a 15-second check deadline. Record validation/conflict failures remain

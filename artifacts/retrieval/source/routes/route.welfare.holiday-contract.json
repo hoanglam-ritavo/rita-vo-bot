@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.holiday-contract",
+  "family": "benefits",
+  "task_id": "task.welfare.holiday-contract",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hợp đồng chính thức đúng ngày chốt",
+          "thử việc vào ngày lễ"
+        ],
+        [
+          "kỳ lương",
+          "có được xét"
+        ]
+      ]
+    }
+  ]
+}

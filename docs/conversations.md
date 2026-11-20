@@ -240,6 +240,15 @@ record. In disposable staging data, withdraw the source and exercise the same
 follow-up again. The reply must reflect source unavailability. Roll back the
 bot and its catalogs together.
 
+For welfare and referrals, confirm the welfare decision, labor rules, referral
+notice, interpretation record and relevant Workit instructions are accessible
+in staging. Check a marriage paperwork follow-up, an age or hospitalization
+boundary and the second referral installment in an authenticated room. Ask
+about a missing payment and confirm the answer guides the employee to their
+own record and the responsible team. Exercise source withdrawal in disposable
+data and verify the remaining claims still have valid citations. Release and
+roll back the bot and generated catalogs together.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

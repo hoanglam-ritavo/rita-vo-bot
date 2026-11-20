@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.general-tenure",
+  "family": "benefits",
+  "task_id": "task.welfare.general-tenure",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thâm niên tối thiểu"
+        ],
+        [
+          "mới vào làm",
+          "mọi khoản phúc lợi"
+        ]
+      ]
+    }
+  ]
+}

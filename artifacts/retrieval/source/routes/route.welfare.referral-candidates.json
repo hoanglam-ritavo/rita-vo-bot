@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.referral-candidates",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-candidates",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giới thiệu"
+        ],
+        [
+          "vợ chồng",
+          "người thân hoặc bạn bè",
+          "số ứng viên",
+          "giới hạn số ứng viên",
+          "thực tập sinh",
+          "quay lại công ty",
+          "nhân viên nội bộ chuyển"
+        ]
+      ]
+    }
+  ]
+}

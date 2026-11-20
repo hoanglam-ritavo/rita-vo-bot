@@ -54,6 +54,28 @@ files. See [source layout, import and recovery](docs/runtime-artifacts.md#split-
 
 ## Current verification status
 
+### Welfare and referral rewards - 2026-11-20
+
+On `4238339` plus the topic changes, 109 new tasks and five reused tasks
+cover the 225 requested questions with 59 chunks from eight packages. The
+baseline asked for clarification on 193 of those questions. The current
+source-fixture run produced 102 complete answers and 123 partial answers.
+Of the partial answers, 113 explain source limits and 10 direct the employee
+to verify operational records.
+
+The HTTP and reducer fixture evaluator passed **1,440/1,440** turns. It covers
+the new **225 original questions** and **30 conversation turns**, plus all
+**1,185 existing regression turns**. A separately authored 42-question local
+set passed **42/42**, with three cases per group. Independent reviewer
+acceptance remains pending. The non-integration suite passed **1,321 tests**,
+with **1 skipped** and **59 deselected**. Catalog regeneration, validation, all
+**1,769 reference checks** and the **22-file runtime inventory** passed.
+
+The local runs use package fixtures. An authorized target PostgreSQL
+connection and authenticated Portal staging were unavailable. Release the
+bot with its generated catalogs after target publication and Portal checks.
+See the [staging procedure](docs/conversations.md#deletion-and-verification).
+
 ### Labor rules, attendance and overtime - 2026-11-20
 
 On `ee662ec` plus the HRM working-tree changes, 88 tasks cover the 231

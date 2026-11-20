@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.maternity-process",
+  "family": "benefits",
+  "task_id": "task.welfare.maternity-process",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiếu nghỉ thai sản"
+        ],
+        [
+          "đồng thời nộp",
+          "đồng thời gửi"
+        ]
+      ]
+    }
+  ]
+}

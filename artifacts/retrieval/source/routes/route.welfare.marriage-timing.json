@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.marriage-timing",
+  "family": "benefits",
+  "task_id": "task.welfare.marriage-timing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đăng ký kết hôn"
+        ],
+        [
+          "chưa tổ chức đám cưới",
+          "xét theo ngày nào"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.amount-changes",
+  "family": "benefits",
+  "task_id": "task.welfare.amount-changes",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mức phúc lợi",
+          "mức chi phúc lợi"
+        ],
+        [
+          "tình hình kinh doanh",
+          "điều chỉnh được",
+          "thay đổi"
+        ]
+      ]
+    }
+  ]
+}

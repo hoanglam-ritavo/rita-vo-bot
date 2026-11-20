@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.referral-rate-table",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-rate-table",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bảng thưởng giới thiệu"
+        ],
+        [
+          "bao nhiêu bậc",
+          "phân nhóm"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giới thiệu hai ứng viên"
+        ],
+        [
+          "mức thưởng",
+          "cùng một vị trí"
+        ]
+      ]
+    }
+  ]
+}

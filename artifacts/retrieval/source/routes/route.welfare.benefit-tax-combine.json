@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.benefit-tax-combine",
+  "family": "benefits",
+  "task_id": "task.welfare.benefit-tax-combine",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi tiền mặt"
+        ],
+        [
+          "khấu trừ thuế"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "có giới hạn tổng chi",
+          "nhiều khoản phúc lợi"
+        ],
+        [
+          "trong cùng tháng",
+          "tổng chi"
+        ]
+      ]
+    }
+  ]
+}

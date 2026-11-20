@@ -52,6 +52,7 @@ class Oracle(Strict):
     required_source_groups: list[list[str]] = Field(default_factory=list)
     required_citations: list[ExpectedCitation] = Field(default_factory=list, max_length=10)
     fallback_reasons: list[str] | None = Field(default=None, min_length=1)
+    unavailable_documents: list[str] = Field(default_factory=list, max_length=10)
     forbidden_documents: list[str] = Field(default_factory=list)
     employee_fields: list[str] = Field(default_factory=list)
     expected_employee_claim_fields: list[str] = Field(default_factory=list)
@@ -249,11 +250,14 @@ class FixtureRetrieval:
     def __init__(self, policy, records):
         self.policy, self.records = policy, records
         self.fixture = 'current'
+        self.unavailable_documents = set()
 
     async def read_evidence(self, references):
         from src.retrieval.reranking import relevance
         found = []
         for ref in references:
+            if ref.document_id in self.unavailable_documents:
+                continue
             row = self.records.get((ref.document_id, ref.revision_id, ref.chunk_index))
             if row is None:
                 continue
@@ -279,6 +283,7 @@ class FixtureRetrieval:
                 if (r.document_id,r.revision_id,r.chunk_index) in self.records][:top_k]
         rows = rows or [deepcopy(row) for row in self.records.values()
                 if any(term in key and term in folded(row['title']) for term in ('e leave', 'workit', 'bravo', 'outlook'))][:top_k]
+        rows = [row for row in rows if row['document_id'] not in self.unavailable_documents]
         from src.retrieval.reranking import relevance
         return dict(status='matches_found' if rows else 'no_matches', matches=rows, relevance=relevance(rows),
                     fallback_reason=None if rows else 'no_candidates', rerank_seconds=0.)
@@ -388,6 +393,7 @@ async def run_fixture(root=REPOSITORY_ROOT, *, questions_dir=None):
             for n, turn in enumerate(case['turns']):
                 oracle = oracles[(case['id'], n)]
                 retrieval.fixture = oracle.fixture
+                retrieval.unavailable_documents = set(oracle.unavailable_documents)
                 owner.answers.available = oracle.fixture != 'catalog_unavailable'
                 owner.context.available = oracle.fixture != 'employee_unavailable'
                 for field in oracle.null_fields:

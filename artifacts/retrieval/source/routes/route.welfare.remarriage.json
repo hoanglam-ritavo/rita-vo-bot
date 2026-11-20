@@ -1,0 +1,17 @@
+{
+  "id": "route.welfare.remarriage",
+  "family": "benefits",
+  "task_id": "task.welfare.remarriage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hỗ trợ kết hôn"
+        ],
+        [
+          "tái hôn"
+        ]
+      ]
+    }
+  ]
+}

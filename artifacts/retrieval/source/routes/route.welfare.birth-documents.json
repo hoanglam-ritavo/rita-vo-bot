@@ -1,0 +1,31 @@
+{
+  "id": "route.welfare.birth-documents",
+  "family": "benefits",
+  "task_id": "task.welfare.birth-documents",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy chứng sinh"
+        ],
+        [
+          "xin hỗ trợ",
+          "giấy khai sinh"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sinh con"
+        ],
+        [
+          "đang thử việc"
+        ],
+        [
+          "ngày nộp hồ sơ"
+        ]
+      ]
+    }
+  ]
+}

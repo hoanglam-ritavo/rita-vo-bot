@@ -1,0 +1,41 @@
+{
+  "id": "route.welfare.bonus-detail-gap",
+  "family": "benefits",
+  "task_id": "task.welfare.bonus-detail-gap",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lương của tôi thay đổi"
+        ],
+        [
+          "tháng 12"
+        ],
+        [
+          "mức nào"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "giữa năm"
+        ],
+        [
+          "xét theo số tháng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thử việc hoặc nghỉ thai sản"
+        ],
+        [
+          "chi thưởng",
+          "có được xét"
+        ]
+      ]
+    }
+  ]
+}

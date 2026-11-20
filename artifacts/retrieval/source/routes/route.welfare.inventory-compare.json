@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.inventory-compare",
+  "family": "benefits",
+  "task_id": "task.welfare.inventory-compare",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "danh mục phúc lợi"
+        ],
+        [
+          "điều 43",
+          "khác danh mục"
+        ]
+      ]
+    }
+  ]
+}

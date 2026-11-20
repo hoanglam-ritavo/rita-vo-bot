@@ -1,0 +1,28 @@
+{
+  "id": "route.welfare.holiday-cutoff",
+  "family": "benefits",
+  "task_id": "task.welfare.holiday-cutoff",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chốt vào ngày nào"
+        ],
+        [
+          "thâm niên",
+          "30 4"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghỉ bù dịp lễ"
+        ],
+        [
+          "ngày chốt phúc lợi"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "route.welfare.referral-selection",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-selection",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phòng hcns",
+          "ngoài hcns"
+        ],
+        [
+          "nhận thưởng",
+          "quyết định tuyển dụng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "trưởng phòng"
+        ],
+        [
+          "giới thiệu ứng viên"
+        ],
+        [
+          "phòng ban khác",
+          "bộ phận khác",
+          "chính phòng mình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chỉ chuyển hồ sơ",
+          "nhận xét chuyên môn"
+        ],
+        [
+          "tham gia tuyển chọn"
+        ]
+      ]
+    }
+  ]
+}

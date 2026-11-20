@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.version",
+  "family": "benefits",
+  "task_id": "task.welfare.version",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phiên bản chính sách phúc lợi",
+          "bản phúc lợi"
+        ],
+        [
+          "ở đâu",
+          "đang áp dụng"
+        ]
+      ]
+    }
+  ]
+}

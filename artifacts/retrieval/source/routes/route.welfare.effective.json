@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.effective",
+  "family": "benefits",
+  "task_id": "task.welfare.effective",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quyết định phúc lợi"
+        ],
+        [
+          "hiệu lực từ ngày",
+          "thay thế những quy định"
+        ]
+      ]
+    }
+  ]
+}

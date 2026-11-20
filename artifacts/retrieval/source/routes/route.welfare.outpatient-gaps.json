@@ -1,0 +1,31 @@
+{
+  "id": "route.welfare.outpatient-gaps",
+  "family": "benefits",
+  "task_id": "task.welfare.outpatient-gaps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ngoại trú"
+        ],
+        [
+          "cộng từ nhiều đợt",
+          "cộng dồn",
+          "cần liên tục"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đơn thuốc",
+          "giấy hẹn tái khám"
+        ],
+        [
+          "thay được",
+          "giấy chứng nhận nghỉ việc hưởng bhxh"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "route.welfare.outpatient",
+  "family": "benefits",
+  "task_id": "task.welfare.outpatient",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "điều trị ngoại trú"
+        ],
+        [
+          "mức hỗ trợ",
+          "đúng 5 ngày",
+          "tối thiểu mấy ngày",
+          "phải nghỉ bao nhiêu"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

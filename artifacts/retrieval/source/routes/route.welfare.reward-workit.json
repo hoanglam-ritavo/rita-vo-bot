@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.reward-workit",
+  "family": "benefits",
+  "task_id": "task.welfare.reward-workit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khen thưởng cá nhân",
+          "khen thưởng của tôi"
+        ],
+        [
+          "workit",
+          "số tiền thực chi"
+        ]
+      ]
+    }
+  ]
+}

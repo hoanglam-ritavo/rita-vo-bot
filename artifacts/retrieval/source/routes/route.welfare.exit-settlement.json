@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.exit-settlement",
+  "family": "benefits",
+  "task_id": "task.welfare.exit-settlement",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi đã phát sinh",
+          "hồ sơ bàn giao"
+        ],
+        [
+          "chưa chi",
+          "đối chiếu"
+        ]
+      ]
+    }
+  ]
+}

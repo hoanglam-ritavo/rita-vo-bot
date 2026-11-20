@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.marriage-duplicates",
+  "family": "benefits",
+  "task_id": "task.welfare.marriage-duplicates",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hai vợ chồng",
+          "cả hai vợ chồng"
+        ],
+        [
+          "đều là nhân viên",
+          "đều làm"
+        ],
+        [
+          "kết hôn",
+          "mừng cưới"
+        ]
+      ]
+    }
+  ]
+}

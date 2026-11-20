@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.may",
+  "family": "benefits",
+  "task_id": "task.welfare.may",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "30 4"
+        ],
+        [
+          "1 5"
+        ],
+        [
+          "khoản chung",
+          "tính riêng"
+        ]
+      ]
+    }
+  ]
+}

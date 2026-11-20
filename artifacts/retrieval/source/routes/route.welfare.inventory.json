@@ -1,0 +1,27 @@
+{
+  "id": "route.welfare.inventory",
+  "family": "benefits",
+  "task_id": "task.welfare.inventory",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chế độ phúc lợi nào",
+          "có những chế độ phúc lợi"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "có mấy mục",
+          "bao nhiêu nhóm"
+        ],
+        [
+          "phúc lợi 2023",
+          "phúc lợi năm 2023"
+        ]
+      ]
+    }
+  ]
+}

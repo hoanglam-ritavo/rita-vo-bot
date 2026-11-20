@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.marriage-leave",
+  "family": "benefits",
+  "task_id": "task.welfare.marriage-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "kết hôn"
+        ],
+        [
+          "nghỉ việc riêng",
+          "nghỉ hưởng lương"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "route.welfare.referral-rate-lead",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-rate-lead",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "trưởng nhóm giám sát",
+          "trúng tuyển làm giám sát",
+          "giám sát"
+        ],
+        [
+          "giới thiệu thành công",
+          "tiền thưởng bao nhiêu"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

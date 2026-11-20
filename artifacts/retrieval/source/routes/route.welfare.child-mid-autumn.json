@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.child-mid-autumn",
+  "family": "benefits",
+  "task_id": "task.welfare.child-mid-autumn",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quà tết trung thu",
+          "quà trung thu"
+        ],
+        [
+          "trị giá bao nhiêu",
+          "mức bao nhiêu"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

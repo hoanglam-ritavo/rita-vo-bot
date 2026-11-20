@@ -1,0 +1,41 @@
+{
+  "id": "route.welfare.referral-milestone-gap",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-milestone-gap",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đợt thưởng đầu"
+        ],
+        [
+          "ngày ký hợp đồng chính thức",
+          "ngày được xác nhận đạt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ứng viên không phải thử việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ứng viên nghỉ đúng ngày",
+          "thu hồi đợt đầu",
+          "ứng viên nghỉ thai sản",
+          "ứng viên chuyển chi nhánh"
+        ],
+        [
+          "đợt hai",
+          "mốc 3 tháng",
+          "3 tháng",
+          "thu hồi"
+        ]
+      ]
+    }
+  ]
+}

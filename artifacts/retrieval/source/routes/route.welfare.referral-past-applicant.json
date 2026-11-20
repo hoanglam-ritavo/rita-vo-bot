@@ -1,0 +1,17 @@
+{
+  "id": "route.welfare.referral-past-applicant",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-past-applicant",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "từng được một đồng nghiệp giới thiệu"
+        ],
+        [
+          "bây giờ tôi giới thiệu"
+        ]
+      ]
+    }
+  ]
+}

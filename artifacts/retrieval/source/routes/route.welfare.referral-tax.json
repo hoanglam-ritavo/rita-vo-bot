@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.referral-tax",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-tax",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "mức thưởng niêm yết"
+        ],
+        [
+          "khấu trừ thuế",
+          "thu nhập cá nhân"
+        ]
+      ]
+    }
+  ]
+}

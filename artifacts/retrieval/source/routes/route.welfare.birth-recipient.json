@@ -1,0 +1,32 @@
+{
+  "id": "route.welfare.birth-recipient",
+  "family": "benefits",
+  "task_id": "task.welfare.birth-recipient",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vợ sinh con",
+          "khi vợ sinh"
+        ],
+        [
+          "nhận khoản hỗ trợ",
+          "hỗ trợ sinh con"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hai vợ chồng"
+        ],
+        [
+          "ai đứng tên"
+        ],
+        [
+          "hỗ trợ sinh con"
+        ]
+      ]
+    }
+  ]
+}

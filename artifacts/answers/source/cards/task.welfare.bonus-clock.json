@@ -1,0 +1,46 @@
+{
+  "id": "task.welfare.bonus-clock",
+  "label": "Ảnh hưởng của chấm công đến tháng 13",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Ảnh hưởng của chấm công đến tháng 13"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần nào về ảnh hưởng của chấm công đến tháng 13?",
+  "context": {
+    "mode": "none",
+    "note": "Evidence-bound guidance for the declared policy topic."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.welfare.bonus-clock.1",
+          "text": "Theo thông báo chấm công, biên bản vi phạm lần thứ ba kéo dài thời hạn nâng lương 6 tháng và không xét thưởng tháng 13. Văn bản phân biệt số lần vi phạm với số biên bản.",
+          "refs": [
+            {
+              "document_id": "c9973704-0f00-4562-9320-132befb6d1c1",
+              "revision_id": "f49a1a39-b715-4205-9aa8-60691221ec40",
+              "chunk_index": 11,
+              "source_sha256": "5f79a2f61674bd0b4330dd21b13929c5f244fecfda1f76dab75d14ca22dd8222",
+              "content_sha256": "bd8713c68352fa6012ff34ba4d8046f02ddbba2527dbe368d22f3499aa354eef",
+              "quote": "Quy định chấm công — 02/2023/TB-HCNS\nV.3. Đối với các trường hợp Vi phạm: cứ 03 lần vi phạm cộng dồn trong năm sẽ bị lập 01 biên bản\nHình thức xử phạt vi phạm kỷ luật về quy định chấm công như sau:\n- Biên bản vi phạm lần 1: nhắc nhở lần 1.\n- Biên bản vi phạm lần 2: nhắc nhở lần 2.\n- Biên bản vi phạm lần 3: kéo dài thời hạn nâng lương 06 tháng và không xét thưởng lương tháng 13.\n- Biên bản vi phạm lần 4: chấm dứt hợp đồng lao động.\nLưu ý: Tất cả các biểu mẫu, đơn nghỉ phép…. đều phải có xác nhận của cấp quản lý",
+              "metadata": {
+                "title": "Thông báo quy định chấm công",
+                "applicability": "Toàn hệ thống Công ty TNHH Tập Đoàn Rita Võ và các công ty thuộc hệ thống; người lao động chính thức, thử việc, thời vụ, với ngoại lệ chấm công máy tại mục II.3.",
+                "effective_from": "2023-04-01",
+                "effective_to": null,
+                "version_label": "02/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/3-quy-dinh-cham-cong-2023.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

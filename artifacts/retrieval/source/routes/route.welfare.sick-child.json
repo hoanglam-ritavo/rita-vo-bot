@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.sick-child",
+  "family": "benefits",
+  "task_id": "task.welfare.sick-child",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ chăm con ốm"
+        ],
+        [
+          "hỗ trợ của công ty",
+          "cần làm hồ sơ"
+        ]
+      ]
+    }
+  ]
+}

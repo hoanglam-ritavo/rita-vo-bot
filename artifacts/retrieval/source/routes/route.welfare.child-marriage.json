@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.child-marriage",
+  "family": "benefits",
+  "task_id": "task.welfare.child-marriage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "con của nhân viên kết hôn",
+          "con tôi kết hôn",
+          "con tôi lấy chồng",
+          "con nhân viên lấy vợ"
+        ],
+        [
+          "hỗ trợ",
+          "giấy tờ",
+          "giấy chứng minh"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "cần giấy gì": "paperwork",
+    "còn hồ sơ thì sao": "paperwork",
+    "cần những giấy tờ gì": "paperwork",
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

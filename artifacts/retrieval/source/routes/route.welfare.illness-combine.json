@@ -1,0 +1,33 @@
+{
+  "id": "route.welfare.illness-combine",
+  "family": "benefits",
+  "task_id": "task.welfare.illness-combine",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nằm viện"
+        ],
+        [
+          "ngoại trú"
+        ],
+        [
+          "hai khoản"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hỗ trợ ốm đau"
+        ],
+        [
+          "đồng thời"
+        ],
+        [
+          "bhxh"
+        ]
+      ]
+    }
+  ]
+}

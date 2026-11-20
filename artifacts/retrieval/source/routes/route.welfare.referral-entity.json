@@ -1,0 +1,39 @@
+{
+  "id": "route.welfare.referral-entity",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-entity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chính thức tại chi nhánh",
+          "công ty thành viên"
+        ],
+        [
+          "phạm vi chương trình"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhân viên thời vụ",
+          "cộng tác viên"
+        ],
+        [
+          "tham gia chương trình giới thiệu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nhân viên thuê ngoài"
+        ],
+        [
+          "đứng tên người giới thiệu"
+        ]
+      ]
+    }
+  ]
+}

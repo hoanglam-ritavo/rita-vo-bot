@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.insurance-workit",
+  "family": "benefits",
+  "task_id": "task.welfare.insurance-workit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "workit"
+        ],
+        [
+          "quá trình tham gia bhxh",
+          "lịch sử đóng bảo hiểm xã hội"
+        ]
+      ]
+    }
+  ]
+}

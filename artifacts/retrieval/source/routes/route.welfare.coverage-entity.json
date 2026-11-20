@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.coverage-entity",
+  "family": "benefits",
+  "task_id": "task.welfare.coverage-entity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi"
+        ],
+        [
+          "những công ty",
+          "chi nhánh và bộ phận",
+          "bán thời gian"
+        ]
+      ]
+    }
+  ]
+}

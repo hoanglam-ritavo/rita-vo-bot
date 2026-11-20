@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.welfare-and-referrals",
+  "description": "Benefit and referral follow-ups, topic switches, exact thresholds and independent source withdrawal.",
+  "cases": [
+    {
+      "id": "q.conversation.welfare-and-referrals.001",
+      "title": "Chuyển người kết hôn sau khi hỏi giấy tờ",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.own-marriage",
+          "task.welfare.child-marriage"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bản thân nhân viên kết hôn thì công ty hỗ trợ bao nhiêu tiền?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ nhân viên kết hôn và trích đúng căn cứ."
+        },
+        {
+          "text": "Cần giấy gì?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ nhân viên kết hôn và trích đúng căn cứ."
+        },
+        {
+          "text": "Bao nhiêu tiền?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ nhân viên kết hôn và trích đúng căn cứ."
+        },
+        {
+          "text": "Con của nhân viên kết hôn thì công ty hỗ trợ bao nhiêu tiền?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ khi con nhân viên kết hôn và trích đúng căn cứ."
+        },
+        {
+          "text": "Còn hồ sơ thì sao?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ khi con nhân viên kết hôn và trích đúng căn cứ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.002",
+      "title": "Hỏi đợt hai, đợt đầu rồi chuyển qua Workit",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.referral-milestones",
+          "task.welfare.maternity-workit"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tiền thưởng giới thiệu được chia thành mấy đợt và bao nhiêu phần trăm?",
+          "expectation": "Trả lời phần hỏi theo Hai mốc chi thưởng giới thiệu và trích đúng căn cứ."
+        },
+        {
+          "text": "Đợt hai thì sao?",
+          "expectation": "Trả lời phần hỏi theo Hai mốc chi thưởng giới thiệu và trích đúng căn cứ."
+        },
+        {
+          "text": "Còn đợt đầu?",
+          "expectation": "Trả lời phần hỏi theo Hai mốc chi thưởng giới thiệu và trích đúng căn cứ."
+        },
+        {
+          "text": "Cần hồ sơ gì?",
+          "expectation": "Trả lời phần hỏi theo Hai mốc chi thưởng giới thiệu và trích đúng căn cứ."
+        },
+        {
+          "text": "Tôi tạo phiếu nghỉ thai sản trên Workit ở đâu và chọn loại phép nào?",
+          "expectation": "Trả lời phần hỏi theo Tạo phiếu nghỉ thai sản trên Workit và trích đúng căn cứ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.003",
+      "title": "Đối chiếu đúng 3 ngày khi rút từng nguồn riêng",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.hospital-boundary"
+        ],
+        "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Tôi nằm viện đúng 3 ngày thì có được xét hỗ trợ không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 3 ngày nằm viện và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Tôi nằm viện đúng 3 ngày thì có được xét hỗ trợ không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 3 ngày nằm viện và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Tôi nằm viện đúng 3 ngày thì có được xét hỗ trợ không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 3 ngày nằm viện và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Tôi nằm viện đúng 3 ngày thì có được xét hỗ trợ không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 3 ngày nằm viện và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Tôi nằm viện đúng 3 ngày thì có được xét hỗ trợ không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 3 ngày nằm viện và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.004",
+      "title": "Biên tuổi thiếu nhi khi nguồn thay đổi",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.child-age"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Trẻ đúng 15 tuổi có được nhận quà 1/6 hoặc Trung thu không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 15 tuổi cho quà thiếu nhi và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Trẻ đúng 15 tuổi có được nhận quà 1/6 hoặc Trung thu không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 15 tuổi cho quà thiếu nhi và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Trẻ đúng 15 tuổi có được nhận quà 1/6 hoặc Trung thu không?",
+          "expectation": "Trả lời phần hỏi theo Mốc đúng 15 tuổi cho quà thiếu nhi và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.005",
+      "title": "Đối tượng thưởng giới thiệu khi nguồn thay đổi",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.referral-payee"
+        ],
+        "document_ids": [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Khoản thưởng được trả cho người giới thiệu hay cho ứng viên được tuyển?",
+          "expectation": "Trả lời phần hỏi theo Người nhận tiền thưởng giới thiệu và trích đúng căn cứ."
+        },
+        {
+          "text": "Khoản thưởng được trả cho người giới thiệu hay cho ứng viên được tuyển?",
+          "expectation": "Trả lời phần hỏi theo Người nhận tiền thưởng giới thiệu và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Khoản thưởng được trả cho người giới thiệu hay cho ứng viên được tuyển?",
+          "expectation": "Trả lời phần hỏi theo Người nhận tiền thưởng giới thiệu và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.006",
+      "title": "Nguồn bị rút giữa lượt hỏi hồ sơ",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.own-marriage",
+          "task.welfare.referral-rate-worker"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bản thân nhân viên kết hôn thì công ty hỗ trợ bao nhiêu tiền?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ nhân viên kết hôn và trích đúng căn cứ."
+        },
+        {
+          "text": "Cần giấy gì?",
+          "expectation": "Trả lời phần hỏi theo Hỗ trợ nhân viên kết hôn và trích đúng căn cứ. Nêu giới hạn của nguồn hoặc nơi có thể kiểm tra."
+        },
+        {
+          "text": "Giới thiệu thành công một vị trí lao động phổ thông được thưởng bao nhiêu?",
+          "expectation": "Trả lời phần hỏi theo Thưởng giới thiệu lao động phổ thông và trích đúng căn cứ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.007",
+      "title": "Các mốc thâm niên và chuyển loại hợp đồng",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.tenure-tiers",
+          "task.welfare.holiday-contract"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Nhân viên có thâm niên đúng 24 tháng vào ngày lễ thuộc bậc nào?",
+          "expectation": "Trả lời phần hỏi theo Các bậc tiền lễ theo thâm niên và trích đúng căn cứ."
+        },
+        {
+          "text": "Nhân viên có thâm niên đúng 48 tháng vào ngày lễ thuộc bậc nào?",
+          "expectation": "Trả lời phần hỏi theo Các bậc tiền lễ theo thâm niên và trích đúng căn cứ."
+        },
+        {
+          "text": "Tôi ký hợp đồng chính thức đúng ngày chốt thì có được xét phúc lợi ngày lễ đó không?",
+          "expectation": "Trả lời phần hỏi theo Chuyển chính thức quanh ngày lễ và trích đúng căn cứ."
+        },
+        {
+          "text": "Tôi còn thử việc vào ngày lễ nhưng ký chính thức trước kỳ lương chi trả thì có được xét không?",
+          "expectation": "Trả lời phần hỏi theo Chuyển chính thức quanh ngày lễ và trích đúng căn cứ."
+        }
+      ]
+    },
+    {
+      "id": "q.conversation.welfare-and-referrals.008",
+      "title": "Hai câu hỏi về hai chính sách trong cùng một lượt",
+      "tags": [
+        "type-a",
+        "multi-turn",
+        "welfare-coverage"
+      ],
+      "support": "conditional",
+      "references": {
+        "task_ids": [
+          "task.welfare.own-marriage",
+          "task.welfare.referral-rate-worker",
+          "task.welfare.maternity-workit"
+        ],
+        "document_ids": [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ],
+        "employee_fields": []
+      },
+      "preconditions": [
+        "Nguồn phù hợp còn hiệu lực, được công bố và truy cập được."
+      ],
+      "turns": [
+        {
+          "text": "Bản thân nhân viên kết hôn thì công ty hỗ trợ bao nhiêu tiền? Giới thiệu thành công một vị trí lao động phổ thông được thưởng bao nhiêu?",
+          "expectation": "Trả lời hai phần với đúng căn cứ riêng từng chính sách."
+        },
+        {
+          "text": "Tôi tạo phiếu nghỉ thai sản trên Workit ở đâu và chọn loại phép nào?",
+          "expectation": "Trả lời phần hỏi theo Tạo phiếu nghỉ thai sản trên Workit và trích đúng căn cứ."
+        }
+      ]
+    }
+  ]
+}

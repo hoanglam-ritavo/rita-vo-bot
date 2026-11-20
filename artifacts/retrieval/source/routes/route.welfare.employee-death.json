@@ -1,0 +1,28 @@
+{
+  "id": "route.welfare.employee-death",
+  "family": "benefits",
+  "task_id": "task.welfare.employee-death",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khi nhân viên qua đời",
+          "chính nhân viên qua đời",
+          "người mất là chính nhân viên",
+          "nhân viên mất"
+        ],
+        [
+          "gia đình",
+          "giấy tờ",
+          "hỗ trợ"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "cần giấy gì": "paperwork",
+    "còn hồ sơ thì sao": "paperwork",
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

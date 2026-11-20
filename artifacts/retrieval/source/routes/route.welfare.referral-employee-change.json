@@ -1,0 +1,25 @@
+{
+  "id": "route.welfare.referral-employee-change",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-employee-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đang thử việc khi giới thiệu"
+        ],
+        [
+          "có cần cập nhật"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tôi nghỉ việc trước kỳ chi",
+          "chuyển phòng ban hoặc chi nhánh trước kỳ chi"
+        ]
+      ]
+    }
+  ]
+}

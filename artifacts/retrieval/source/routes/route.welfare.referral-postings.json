@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.referral-postings",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-postings",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vị trí đang tuyển",
+          "công việc đang cần tuyển"
+        ],
+        [
+          "chương trình giới thiệu",
+          "kênh nào"
+        ]
+      ]
+    }
+  ]
+}

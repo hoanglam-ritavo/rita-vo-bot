@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.bonus-uniform",
+  "family": "benefits",
+  "task_id": "task.welfare.bonus-uniform",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vi phạm tác phong",
+          "đồng phục"
+        ],
+        [
+          "thưởng tháng",
+          "thưởng quý",
+          "thưởng năm"
+        ]
+      ]
+    }
+  ]
+}

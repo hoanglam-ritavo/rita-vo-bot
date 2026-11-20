@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.hospital-amount",
+  "family": "benefits",
+  "task_id": "task.welfare.hospital-amount",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nằm viện"
+        ],
+        [
+          "vì ốm đau",
+          "hỗ trợ bao nhiêu",
+          "tiền thăm hỏi"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

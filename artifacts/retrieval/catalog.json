@@ -18542,6 +18542,17 @@
               "gio lam"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "nuôi con dưới 12 tháng"
+            ],
+            [
+              "nghỉ trong giờ làm",
+              "thời gian nghỉ"
+            ]
+          ]
         }
       ]
     },
@@ -18597,6 +18608,29 @@
               "dieu kien tham gia"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "điều kiện đóng bhxh"
+            ],
+            [
+              "chế độ khi sinh con",
+              "nghỉ dưỡng thai"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thời gian nghỉ trước và sau sinh"
+            ],
+            [
+              "thai sản",
+              "sinh nhiều con",
+              "quy định"
+            ]
+          ]
         }
       ]
     },
@@ -18614,6 +18648,16 @@
             [
               "nghi them",
               "khong luong"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hết thời gian nghỉ thai sản"
+            ],
+            [
+              "xin nghỉ không lương"
             ]
           ]
         }
@@ -20808,6 +20852,16 @@
               "duoc huong luong"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "công ty cử đi đào tạo"
+            ],
+            [
+              "nguyên lương"
+            ]
+          ]
         }
       ]
     },
@@ -20860,6 +20914,2793 @@
             [
               "bhyt",
               "that nghiep"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội quy"
+            ],
+            [
+              "bhxh bhyt và bhtn",
+              "tỷ lệ đóng của người lao động"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nội quy lấy khoản lương"
+            ],
+            [
+              "căn cứ đóng bảo hiểm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "công ty lấy mức lương"
+            ],
+            [
+              "căn cứ đóng bhxh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "các chế độ ốm đau"
+            ],
+            [
+              "tử tuất"
+            ],
+            [
+              "ai chi trả"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.inventory",
+      "family": "benefits",
+      "task_id": "task.welfare.inventory",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chế độ phúc lợi nào",
+              "có những chế độ phúc lợi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có mấy mục",
+              "bao nhiêu nhóm"
+            ],
+            [
+              "phúc lợi 2023",
+              "phúc lợi năm 2023"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.inventory-compare",
+      "family": "benefits",
+      "task_id": "task.welfare.inventory-compare",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "danh mục phúc lợi"
+            ],
+            [
+              "điều 43",
+              "khác danh mục"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.coverage",
+      "family": "benefits",
+      "task_id": "task.welfare.coverage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hợp đồng lao động chính thức",
+              "hợp đồng thời vụ",
+              "cộng tác viên",
+              "đã lên chính thức"
+            ],
+            [
+              "phúc lợi",
+              "quyết định năm 2023"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chỉ dành cho người"
+            ],
+            [
+              "phúc lợi 2023"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.coverage-entity",
+      "family": "benefits",
+      "task_id": "task.welfare.coverage-entity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi"
+            ],
+            [
+              "những công ty",
+              "chi nhánh và bộ phận",
+              "bán thời gian"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.trial-scope",
+      "family": "benefits",
+      "task_id": "task.welfare.trial-scope",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân viên thử việc"
+            ],
+            [
+              "những phúc lợi nào",
+              "được hưởng những phúc lợi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.general-tenure",
+      "family": "benefits",
+      "task_id": "task.welfare.general-tenure",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thâm niên tối thiểu"
+            ],
+            [
+              "mới vào làm",
+              "mọi khoản phúc lợi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.on-leave",
+      "family": "benefits",
+      "task_id": "task.welfare.on-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đang nghỉ thai sản",
+              "nghỉ ốm"
+            ],
+            [
+              "nghỉ không lương"
+            ],
+            [
+              "còn được xét phúc lợi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.effective",
+      "family": "benefits",
+      "task_id": "task.welfare.effective",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quyết định phúc lợi"
+            ],
+            [
+              "hiệu lực từ ngày",
+              "thay thế những quy định"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.amount-changes",
+      "family": "benefits",
+      "task_id": "task.welfare.amount-changes",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mức phúc lợi",
+              "mức chi phúc lợi"
+            ],
+            [
+              "tình hình kinh doanh",
+              "điều chỉnh được",
+              "thay đổi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.version",
+      "family": "benefits",
+      "task_id": "task.welfare.version",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiên bản chính sách phúc lợi",
+              "bản phúc lợi"
+            ],
+            [
+              "ở đâu",
+              "đang áp dụng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.policy-gap",
+      "family": "benefits",
+      "task_id": "task.welfare.policy-gap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chưa được quy định"
+            ],
+            [
+              "chính sách phúc lợi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.source-dispute",
+      "family": "benefits",
+      "task_id": "task.welfare.source-dispute",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nội quy lao động"
+            ],
+            [
+              "quyết định phúc lợi"
+            ],
+            [
+              "ghi khác nhau",
+              "đối chiếu theo nguồn nào"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.definitions",
+      "family": "benefits",
+      "task_id": "task.welfare.definitions",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi"
+            ],
+            [
+              "viết tắt",
+              "cbnv tn"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.own-marriage",
+      "family": "benefits",
+      "task_id": "task.welfare.own-marriage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bản thân kết hôn",
+              "bản thân nhân viên kết hôn",
+              "nhân viên tự mình kết hôn",
+              "chưa có giấy đăng ký kết hôn"
+            ],
+            [
+              "hỗ trợ",
+              "mừng bao nhiêu",
+              "có được xét"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "cần giấy gì": "paperwork",
+        "còn hồ sơ thì sao": "paperwork",
+        "cần những giấy tờ gì": "paperwork",
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.child-marriage",
+      "family": "benefits",
+      "task_id": "task.welfare.child-marriage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "con của nhân viên kết hôn",
+              "con tôi kết hôn",
+              "con tôi lấy chồng",
+              "con nhân viên lấy vợ"
+            ],
+            [
+              "hỗ trợ",
+              "giấy tờ",
+              "giấy chứng minh"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "cần giấy gì": "paperwork",
+        "còn hồ sơ thì sao": "paperwork",
+        "cần những giấy tờ gì": "paperwork",
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.marriage-timing",
+      "family": "benefits",
+      "task_id": "task.welfare.marriage-timing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đăng ký kết hôn"
+            ],
+            [
+              "chưa tổ chức đám cưới",
+              "xét theo ngày nào"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.adopted-marriage",
+      "family": "benefits",
+      "task_id": "task.welfare.adopted-marriage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "con nuôi"
+            ],
+            [
+              "kết hôn"
+            ],
+            [
+              "hỗ trợ"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.marriage-duplicates",
+      "family": "benefits",
+      "task_id": "task.welfare.marriage-duplicates",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hai vợ chồng",
+              "cả hai vợ chồng"
+            ],
+            [
+              "đều là nhân viên",
+              "đều làm"
+            ],
+            [
+              "kết hôn",
+              "mừng cưới"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.remarriage",
+      "family": "benefits",
+      "task_id": "task.welfare.remarriage",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hỗ trợ kết hôn"
+            ],
+            [
+              "tái hôn"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.marriage-leave",
+      "family": "benefits",
+      "task_id": "task.welfare.marriage-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kết hôn"
+            ],
+            [
+              "nghỉ việc riêng",
+              "nghỉ hưởng lương"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.employee-death",
+      "family": "benefits",
+      "task_id": "task.welfare.employee-death",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khi nhân viên qua đời",
+              "chính nhân viên qua đời",
+              "người mất là chính nhân viên",
+              "nhân viên mất"
+            ],
+            [
+              "gia đình",
+              "giấy tờ",
+              "hỗ trợ"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "cần giấy gì": "paperwork",
+        "còn hồ sơ thì sao": "paperwork",
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.close-family",
+      "family": "benefits",
+      "task_id": "task.welfare.close-family",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tứ thân phụ mẫu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bố hoặc mẹ ruột",
+              "bố hoặc mẹ của vợ",
+              "bố hoặc mẹ của chồng",
+              "mẹ vợ",
+              "mẹ chồng"
+            ],
+            [
+              "qua đời",
+              "mất",
+              "tang gia"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "vợ chồng hoặc con"
+            ],
+            [
+              "qua đời"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.relatives",
+      "family": "benefits",
+      "task_id": "task.welfare.relatives",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ông bà nội hoặc ngoại",
+              "ông bà nội ngoại",
+              "anh chị hoặc em ruột",
+              "em ruột qua đời"
+            ],
+            [
+              "qua đời",
+              "vòng hoa",
+              "mất"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.other-family",
+      "family": "benefits",
+      "task_id": "task.welfare.other-family",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bố mẹ nuôi",
+              "con riêng",
+              "anh chị em dâu",
+              "ông bà của vợ"
+            ],
+            [
+              "diện hỗ trợ",
+              "tang gia"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.death-paperwork",
+      "family": "benefits",
+      "task_id": "task.welfare.death-paperwork",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy chứng tử",
+              "trích lục khai tử",
+              "giấy báo tử đã đủ",
+              "tổ chức tang lễ",
+              "giấy báo tử"
+            ],
+            [
+              "thay",
+              "thay giấy",
+              "đã đủ",
+              "chưa có giấy",
+              "xác minh quan hệ",
+              "công ty gửi vòng hoa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.flower-cash",
+      "family": "benefits",
+      "task_id": "task.welfare.flower-cash",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vòng hoa"
+            ],
+            [
+              "đổi thành tiền",
+              "cộng vào khoản hỗ trợ"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.death-duplicates",
+      "family": "benefits",
+      "task_id": "task.welfare.death-duplicates",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hai nhân viên"
+            ],
+            [
+              "cha hoặc mẹ qua đời",
+              "anh chị em ruột và cùng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bereavement-leave",
+      "family": "benefits",
+      "task_id": "task.welfare.bereavement-leave",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ có lương hoặc không lương"
+            ],
+            [
+              "người thân qua đời",
+              "tang gia"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.birth-payment",
+      "family": "benefits",
+      "task_id": "task.welfare.birth-payment",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân viên nữ sinh con",
+              "lao động nữ đẻ con"
+            ],
+            [
+              "được công ty hỗ trợ",
+              "bao nhiêu mỗi lần",
+              "mức công ty hỗ trợ",
+              "một lần"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hỗ trợ sinh con"
+            ],
+            [
+              "tính theo lần sinh",
+              "số con"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "cần giấy gì": "paperwork",
+        "còn hồ sơ thì sao": "paperwork",
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.birth-recipient",
+      "family": "benefits",
+      "task_id": "task.welfare.birth-recipient",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vợ sinh con",
+              "khi vợ sinh"
+            ],
+            [
+              "nhận khoản hỗ trợ",
+              "hỗ trợ sinh con"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hai vợ chồng"
+            ],
+            [
+              "ai đứng tên"
+            ],
+            [
+              "hỗ trợ sinh con"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.birth-documents",
+      "family": "benefits",
+      "task_id": "task.welfare.birth-documents",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy chứng sinh"
+            ],
+            [
+              "xin hỗ trợ",
+              "giấy khai sinh"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sinh con"
+            ],
+            [
+              "đang thử việc"
+            ],
+            [
+              "ngày nộp hồ sơ"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.birth-vs-insurance",
+      "family": "benefits",
+      "task_id": "task.welfare.birth-vs-insurance",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hỗ trợ sinh con",
+              "công ty hỗ trợ khi sinh con"
+            ],
+            [
+              "trợ cấp thai sản",
+              "khoản thai sản",
+              "thai sản bhxh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.paternity",
+      "family": "benefits",
+      "task_id": "task.welfare.paternity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vợ sinh con",
+              "vợ sinh"
+            ],
+            [
+              "được nghỉ theo nội quy",
+              "chế độ bhxh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.maternity-workit",
+      "family": "benefits",
+      "task_id": "task.welfare.maternity-workit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "tạo phiếu nghỉ thai sản",
+              "khai loại phép maternity",
+              "khai phiếu nghỉ thai sản"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.maternity-process",
+      "family": "benefits",
+      "task_id": "task.welfare.maternity-process",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phiếu nghỉ thai sản"
+            ],
+            [
+              "đồng thời nộp",
+              "đồng thời gửi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.hospital-amount",
+      "family": "benefits",
+      "task_id": "task.welfare.hospital-amount",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nằm viện"
+            ],
+            [
+              "vì ốm đau",
+              "hỗ trợ bao nhiêu",
+              "tiền thăm hỏi"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.hospital-boundary",
+      "family": "benefits",
+      "task_id": "task.welfare.hospital-boundary",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nằm viện"
+            ],
+            [
+              "đúng 3 ngày",
+              "tròn ba ngày",
+              "tròn 3 ngày",
+              "từ 3 ngày"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.hospital-day-count",
+      "family": "benefits",
+      "task_id": "task.welfare.hospital-day-count",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nằm viện",
+              "nhập viện",
+              "chuyển viện"
+            ],
+            [
+              "ngày nhập và ra viện",
+              "cộng để xét",
+              "cuối tuần",
+              "nhiều lần trong năm",
+              "giới hạn số lần"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.hospital-paperwork",
+      "family": "benefits",
+      "task_id": "task.welfare.hospital-paperwork",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ hỗ trợ nằm viện",
+              "giấy ra viện"
+            ],
+            [
+              "hóa đơn viện phí",
+              "cần giấy",
+              "mất giấy ra viện",
+              "bản sao",
+              "giấy xác nhận"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mất giấy ra viện"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.outpatient",
+      "family": "benefits",
+      "task_id": "task.welfare.outpatient",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "điều trị ngoại trú"
+            ],
+            [
+              "mức hỗ trợ",
+              "đúng 5 ngày",
+              "tối thiểu mấy ngày",
+              "phải nghỉ bao nhiêu"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.outpatient-gaps",
+      "family": "benefits",
+      "task_id": "task.welfare.outpatient-gaps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "ngoại trú"
+            ],
+            [
+              "cộng từ nhiều đợt",
+              "cộng dồn",
+              "cần liên tục"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đơn thuốc",
+              "giấy hẹn tái khám"
+            ],
+            [
+              "thay được",
+              "giấy chứng nhận nghỉ việc hưởng bhxh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.illness-combine",
+      "family": "benefits",
+      "task_id": "task.welfare.illness-combine",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nằm viện"
+            ],
+            [
+              "ngoại trú"
+            ],
+            [
+              "hai khoản"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "hỗ trợ ốm đau"
+            ],
+            [
+              "đồng thời"
+            ],
+            [
+              "bhxh"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.sick-child",
+      "family": "benefits",
+      "task_id": "task.welfare.sick-child",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ chăm con ốm"
+            ],
+            [
+              "hỗ trợ của công ty",
+              "cần làm hồ sơ"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.holiday-list",
+      "family": "benefits",
+      "task_id": "task.welfare.holiday-list",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi"
+            ],
+            [
+              "những ngày lễ",
+              "dịp tết nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phúc lợi riêng",
+              "tết nguyên đán"
+            ],
+            [
+              "khoản phúc lợi",
+              "thưởng tết"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.march",
+      "family": "benefits",
+      "task_id": "task.welfare.march",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi lễ 8 3",
+              "phúc lợi ngày 8 3",
+              "phúc lợi 8 3"
+            ],
+            [
+              "ai",
+              "có những mức",
+              "nam"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.may",
+      "family": "benefits",
+      "task_id": "task.welfare.may",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "30 4"
+            ],
+            [
+              "1 5"
+            ],
+            [
+              "khoản chung",
+              "tính riêng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.september",
+      "family": "benefits",
+      "task_id": "task.welfare.september",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi quốc khánh",
+              "phúc lợi 2 9"
+            ],
+            [
+              "thâm niên",
+              "tính theo"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.new-year",
+      "family": "benefits",
+      "task_id": "task.welfare.new-year",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tết dương lịch"
+            ],
+            [
+              "được hưởng bao nhiêu",
+              "từng bậc thâm niên"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.tenure-tiers",
+      "family": "benefits",
+      "task_id": "task.welfare.tenure-tiers",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "24 tháng",
+              "48 tháng"
+            ],
+            [
+              "thuộc bậc",
+              "ngày lễ thì",
+              "ngày lễ thuộc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thang mức tiền"
+            ],
+            [
+              "phúc lợi",
+              "8 3"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.tenure-fifteen",
+      "family": "benefits",
+      "task_id": "task.welfare.tenure-fifteen",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vào làm đúng ngày 15"
+            ],
+            [
+              "tính tròn",
+              "thâm niên"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.tenure-method",
+      "family": "benefits",
+      "task_id": "task.welfare.tenure-method",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "từ ngày 16 trở đi",
+              "ngày bắt đầu làm việc là 16"
+            ],
+            [
+              "tháng đầu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tính từ ngày bắt đầu làm việc"
+            ],
+            [
+              "thâm niên hưởng phúc lợi"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thiếu một ngày"
+            ],
+            [
+              "24 hoặc 48 tháng",
+              "làm tròn lên"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.holiday-cutoff",
+      "family": "benefits",
+      "task_id": "task.welfare.holiday-cutoff",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chốt vào ngày nào"
+            ],
+            [
+              "thâm niên",
+              "30 4"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghỉ bù dịp lễ"
+            ],
+            [
+              "ngày chốt phúc lợi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.holiday-contract",
+      "family": "benefits",
+      "task_id": "task.welfare.holiday-contract",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hợp đồng chính thức đúng ngày chốt",
+              "thử việc vào ngày lễ"
+            ],
+            [
+              "kỳ lương",
+              "có được xét"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.tenure-continuity",
+      "family": "benefits",
+      "task_id": "task.welfare.tenure-continuity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thâm niên cũ"
+            ],
+            [
+              "chuyển chi nhánh",
+              "có được giữ lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nghỉ việc rồi quay lại"
+            ],
+            [
+              "cộng dồn"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thâm niên xét phúc lợi"
+            ],
+            [
+              "nghỉ thai sản",
+              "nghỉ không lương"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-june",
+      "family": "benefits",
+      "task_id": "task.welfare.child-june",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quà quốc tế thiếu nhi",
+              "nhân ngày quốc tế thiếu nhi"
+            ],
+            [
+              "trị giá",
+              "bao nhiêu"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.child-mid-autumn",
+      "family": "benefits",
+      "task_id": "task.welfare.child-mid-autumn",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quà tết trung thu",
+              "quà trung thu"
+            ],
+            [
+              "trị giá bao nhiêu",
+              "mức bao nhiêu"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.child-unit",
+      "family": "benefits",
+      "task_id": "task.welfare.child-unit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quà được tính"
+            ],
+            [
+              "theo từng bé",
+              "mỗi nhân viên"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có thể nhận cả quà"
+            ],
+            [
+              "trung thu",
+              "1 6"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-age",
+      "family": "benefits",
+      "task_id": "task.welfare.child-age",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đúng 15 tuổi",
+              "tròn 15 tuổi",
+              "vừa tròn 15 tuổi"
+            ],
+            [
+              "quà",
+              "thiếu nhi",
+              "dưới 15 tuổi trở xuống"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-age-count",
+      "family": "benefits",
+      "task_id": "task.welfare.child-age-count",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "tuổi của bé"
+            ],
+            [
+              "ngày tổ chức lễ",
+              "năm sinh",
+              "ngày lập danh sách"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa đủ 15 tuổi"
+            ],
+            [
+              "trước tết trung thu",
+              "hai dịp"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "sinh sau ngày 1 6"
+            ],
+            [
+              "trung thu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-family",
+      "family": "benefits",
+      "task_id": "task.welfare.child-family",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "con nuôi con riêng",
+              "trẻ do nhân viên giám hộ"
+            ],
+            [
+              "nhận quà",
+              "có được xét"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "bố mẹ đều là nhân viên",
+              "cả bố và mẹ đều làm"
+            ],
+            [
+              "cùng một bé",
+              "mấy phần quà"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-paperwork",
+      "family": "benefits",
+      "task_id": "task.welfare.child-paperwork",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy khai sinh mỗi dịp",
+              "cập nhật hồ sơ gia đình"
+            ],
+            [
+              "chỉ cập nhật",
+              "một lần"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chưa có giấy khai sinh"
+            ],
+            [
+              "giấy chứng sinh tạm thời",
+              "bổ sung sau"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-holiday-contract",
+      "family": "benefits",
+      "task_id": "task.welfare.child-holiday-contract",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hợp đồng chính thức giữa ngày 1 6"
+            ],
+            [
+              "trung thu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "quà cho con nhân viên"
+            ],
+            [
+              "hiện vật",
+              "chuyển khoản",
+              "kỳ lương"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.child-missing",
+      "family": "benefits",
+      "task_id": "task.welfare.child-missing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giấy khai sinh"
+            ],
+            [
+              "thiếu tên trong danh sách"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-intake",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-intake",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nộp hồ sơ phúc lợi",
+              "biểu mẫu riêng",
+              "hồ sơ phúc lợi",
+              "chứng từ phúc lợi",
+              "phát sinh sự kiện",
+              "nộp hồ sơ muộn",
+              "phê duyệt từng loại hồ sơ",
+              "người thân hoặc quản lý có thể nộp"
+            ],
+            [
+              "công ty",
+              "workit",
+              "email",
+              "phúc lợi",
+              "bản gốc",
+              "bao lâu",
+              "hạn cuối",
+              "nộp",
+              "phát sinh",
+              "truy lĩnh",
+              "phê duyệt",
+              "nằm viện"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-pay-cycle",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-pay-cycle",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi",
+              "khoản hỗ trợ kết hôn",
+              "hỗ trợ kết hôn"
+            ],
+            [
+              "kỳ trả lương",
+              "có lịch chi riêng",
+              "như các khoản dịp lễ",
+              "chi theo kỳ lương"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-payroll",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-payroll",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi"
+            ],
+            [
+              "tên khoản nào",
+              "trạng thái hồ sơ",
+              "bị trả lại",
+              "thiếu khoản",
+              "thiếu tiền phúc lợi",
+              "soát lại"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thiếu khoản phúc lợi"
+            ],
+            [
+              "trên bảng lương"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-exit",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-exit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nghỉ việc trước kỳ lương"
+            ],
+            [
+              "phúc lợi",
+              "chi trả"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-tax-combine",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-tax-combine",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi tiền mặt"
+            ],
+            [
+              "khấu trừ thuế"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "có giới hạn tổng chi",
+              "nhiều khoản phúc lợi"
+            ],
+            [
+              "trong cùng tháng",
+              "tổng chi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.benefit-units",
+      "family": "benefits",
+      "task_id": "task.welfare.benefit-units",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "so sánh các mức phúc lợi",
+              "tiền mặt một lần"
+            ],
+            [
+              "theo người",
+              "theo bé",
+              "vòng hoa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.insurance-workit",
+      "family": "benefits",
+      "task_id": "task.welfare.insurance-workit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "workit"
+            ],
+            [
+              "quá trình tham gia bhxh",
+              "lịch sử đóng bảo hiểm xã hội"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.insurance-reconcile",
+      "family": "benefits",
+      "task_id": "task.welfare.insurance-reconcile",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lịch sử bhxh"
+            ],
+            [
+              "lịch sử",
+              "bị thiếu",
+              "thiếu tháng",
+              "sai thông tin"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.health-annual",
+      "family": "benefits",
+      "task_id": "task.welfare.health-annual",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khám sức khỏe định kỳ"
+            ],
+            [
+              "nhân viên",
+              "hằng năm",
+              "thuộc diện",
+              "xem lịch"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.hardship",
+      "family": "benefits",
+      "task_id": "task.welfare.hardship",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thiên tai",
+              "khó khăn đột xuất"
+            ],
+            [
+              "hỗ trợ",
+              "trợ cấp",
+              "đề nghị",
+              "ảnh hưởng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.exit-settlement",
+      "family": "benefits",
+      "task_id": "task.welfare.exit-settlement",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phúc lợi đã phát sinh",
+              "hồ sơ bàn giao"
+            ],
+            [
+              "chưa chi",
+              "đối chiếu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.birthday",
+      "family": "benefits",
+      "task_id": "task.welfare.birthday",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "quà hoặc hỗ trợ sinh nhật",
+              "quà sinh nhật"
+            ],
+            [
+              "phúc lợi",
+              "công ty",
+              "riêng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-principle",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-principle",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thưởng tháng 13",
+              "lương tháng 13"
+            ],
+            [
+              "có quy định",
+              "có cố định",
+              "có chắc",
+              "một tháng tiền lương",
+              "kết quả kinh doanh",
+              "căn cứ vào lương",
+              "ai quyết định"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thời điểm chi thưởng tháng 13"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kết quả kinh doanh"
+            ],
+            [
+              "mức hoàn thành công việc"
+            ],
+            [
+              "xét thưởng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-detail-gap",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-detail-gap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lương của tôi thay đổi"
+            ],
+            [
+              "tháng 12"
+            ],
+            [
+              "mức nào"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giữa năm"
+            ],
+            [
+              "xét theo số tháng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thử việc hoặc nghỉ thai sản"
+            ],
+            [
+              "chi thưởng",
+              "có được xét"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-exit",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-exit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vẫn đang làm",
+              "nghỉ việc trước ngày chi thưởng",
+              "thôi việc trước lúc chi"
+            ],
+            [
+              "nộp đơn nghỉ việc",
+              "chi theo tỷ lệ",
+              "tháng 13"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-clock",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-clock",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "biên bản vi phạm chấm công"
+            ],
+            [
+              "tháng 13",
+              "lần thứ mấy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-uniform",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-uniform",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vi phạm tác phong",
+              "đồng phục"
+            ],
+            [
+              "thưởng tháng",
+              "thưởng quý",
+              "thưởng năm"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.bonus-comparison",
+      "family": "benefits",
+      "task_id": "task.welfare.bonus-comparison",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thưởng tháng 13"
+            ],
+            [
+              "thưởng tết",
+              "thưởng doanh số"
+            ],
+            [
+              "thưởng giới thiệu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.reward-workit",
+      "family": "benefits",
+      "task_id": "task.welfare.reward-workit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "khen thưởng cá nhân",
+              "khen thưởng của tôi"
+            ],
+            [
+              "workit",
+              "số tiền thực chi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-effective",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-effective",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chính sách thưởng giới thiệu"
+            ],
+            [
+              "hiệu lực từ ngày"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-worker",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-worker",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "nhân viên thử việc",
+              "trong thời gian thử việc"
+            ],
+            [
+              "giới thiệu ứng viên",
+              "nhận thưởng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "người đã nghỉ việc"
+            ],
+            [
+              "có thể giới thiệu ứng viên"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-past-applicant",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-past-applicant",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "từng được một đồng nghiệp giới thiệu"
+            ],
+            [
+              "bây giờ tôi giới thiệu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-entity",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-entity",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chính thức tại chi nhánh",
+              "công ty thành viên"
+            ],
+            [
+              "phạm vi chương trình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhân viên thời vụ",
+              "cộng tác viên"
+            ],
+            [
+              "tham gia chương trình giới thiệu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "nhân viên thuê ngoài"
+            ],
+            [
+              "đứng tên người giới thiệu"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-outsourcing",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-outsourcing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vị trí thuê ngoài"
+            ],
+            [
+              "giới thiệu",
+              "tính thưởng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-selection",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-selection",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phòng hcns",
+              "ngoài hcns"
+            ],
+            [
+              "nhận thưởng",
+              "quyết định tuyển dụng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "trưởng phòng"
+            ],
+            [
+              "giới thiệu ứng viên"
+            ],
+            [
+              "phòng ban khác",
+              "bộ phận khác",
+              "chính phòng mình"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "chỉ chuyển hồ sơ",
+              "nhận xét chuyên môn"
+            ],
+            [
+              "tham gia tuyển chọn"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-payee",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-payee",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "người giới thiệu"
+            ],
+            [
+              "ứng viên được tuyển"
+            ],
+            [
+              "khoản thưởng",
+              "trả cho"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-candidates",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-candidates",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "giới thiệu"
+            ],
+            [
+              "vợ chồng",
+              "người thân hoặc bạn bè",
+              "số ứng viên",
+              "giới hạn số ứng viên",
+              "thực tập sinh",
+              "quay lại công ty",
+              "nhân viên nội bộ chuyển"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-postings",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-postings",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vị trí đang tuyển",
+              "công việc đang cần tuyển"
+            ],
+            [
+              "chương trình giới thiệu",
+              "kênh nào"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-submit",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-submit",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "gửi hồ sơ ứng viên",
+              "gửi cv giới thiệu",
+              "hồ sơ giới thiệu"
+            ],
+            [
+              "sơ yếu lý lịch",
+              "bằng cấp",
+              "kênh nào",
+              "gửi hồ sơ ứng viên"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-intake-gaps",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-intake-gaps",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hcns ghi nhận tên",
+              "ứng viên tự nộp hồ sơ",
+              "ứng viên đã ứng tuyển trước đó",
+              "bổ sung thông tin người giới thiệu",
+              "giới thiệu cho nhiều vị trí",
+              "gửi hồ sơ khi vị trí chưa mở tuyển",
+              "hồ sơ ứng viên thiếu bằng cấp"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-duplicate",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-duplicate",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "cùng giới thiệu một ứng viên",
+              "giới thiệu cùng một ứng viên"
+            ],
+            [
+              "ghi nhận",
+              "xác định người giới thiệu",
+              "chia tiền thưởng"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-screening",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-screening",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ giới thiệu"
+            ],
+            [
+              "sàng lọc"
+            ],
+            [
+              "thông báo kết quả"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-status",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-status",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "hồ sơ đã được ghi nhận"
+            ],
+            [
+              "ứng viên đang ở bước nào"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-roles",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-roles",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "kế toán"
+            ],
+            [
+              "kiểm soát nội bộ"
+            ],
+            [
+              "phụ trách",
+              "chương trình"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-rate-worker",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-worker",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lao động phổ thông"
+            ],
+            [
+              "giới thiệu",
+              "thưởng giới thiệu"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.referral-rate-specialist",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-specialist",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "chuyên viên nghiệp vụ"
+            ],
+            [
+              "giới thiệu thành công",
+              "thưởng"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.referral-rate-lead",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-lead",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "trưởng nhóm giám sát",
+              "trúng tuyển làm giám sát",
+              "giám sát"
+            ],
+            [
+              "giới thiệu thành công",
+              "tiền thưởng bao nhiêu"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.referral-rate-manager",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-manager",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "phó phòng"
+            ],
+            [
+              "trưởng phòng"
+            ],
+            [
+              "giới thiệu thành công",
+              "được thưởng"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "còn mức hỗ trợ thì sao": "amount",
+        "bao nhiêu tiền": "amount"
+      }
+    },
+    {
+      "id": "route.welfare.referral-rate-table",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-table",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "bảng thưởng giới thiệu"
+            ],
+            [
+              "bao nhiêu bậc",
+              "phân nhóm"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "giới thiệu hai ứng viên"
+            ],
+            [
+              "mức thưởng",
+              "cùng một vị trí"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-rate-change",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-rate-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "vị trí ban đầu tôi giới thiệu",
+              "vị trí ứng viên được tuyển",
+              "đổi chức danh sau khi",
+              "không trùng tên trong bảng thưởng giới thiệu",
+              "vị trí có tên gọi khác bảng thưởng",
+              "mức thưởng đặc biệt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "công ty tuyển vào vị trí giám sát"
+            ],
+            [
+              "dùng mức thưởng nào"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-tax",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-tax",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "mức thưởng niêm yết"
+            ],
+            [
+              "khấu trừ thuế",
+              "thu nhập cá nhân"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-milestones",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-milestones",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "lượt giới thiệu"
+            ],
+            [
+              "là thành công"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ứng viên đã nhận thư mời",
+              "đã nhận thư mời"
+            ],
+            [
+              "được nhận thưởng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tiền thưởng giới thiệu",
+              "thưởng giới thiệu"
+            ],
+            [
+              "chia thành mấy đợt",
+              "chia tỷ lệ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mốc 3 tháng",
+              "ba tháng"
+            ],
+            [
+              "đợt còn lại",
+              "nhận nốt tiền giới thiệu"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "mỗi đợt thưởng"
+            ],
+            [
+              "được trả ngay",
+              "kỳ lương"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "kéo dài thử việc",
+              "rút ngắn thử việc"
+            ],
+            [
+              "lịch chi thưởng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ứng viên nghỉ trước khi hoàn thành thử việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã qua thử việc"
+            ],
+            [
+              "nghỉ trước khi đủ 3 tháng"
+            ]
+          ]
+        }
+      ],
+      "follow_up_aspects": {
+        "đợt hai thì sao": "conditions",
+        "đợt 2 thì sao": "conditions",
+        "còn đợt hai": "conditions",
+        "khi nào nhận đợt hai": "conditions",
+        "còn đợt đầu": "procedure",
+        "đợt đầu thì sao": "procedure",
+        "cần giấy gì": "paperwork",
+        "cần hồ sơ gì": "paperwork",
+        "còn hồ sơ thì sao": "paperwork"
+      }
+    },
+    {
+      "id": "route.welfare.referral-milestone-gap",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-milestone-gap",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đợt thưởng đầu"
+            ],
+            [
+              "ngày ký hợp đồng chính thức",
+              "ngày được xác nhận đạt"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ứng viên không phải thử việc"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "ứng viên nghỉ đúng ngày",
+              "thu hồi đợt đầu",
+              "ứng viên nghỉ thai sản",
+              "ứng viên chuyển chi nhánh"
+            ],
+            [
+              "đợt hai",
+              "mốc 3 tháng",
+              "3 tháng",
+              "thu hồi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-employee-change",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-employee-change",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đang thử việc khi giới thiệu"
+            ],
+            [
+              "có cần cập nhật"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "tôi nghỉ việc trước kỳ chi",
+              "chuyển phòng ban hoặc chi nhánh trước kỳ chi"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-tax-timing",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-tax-timing",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "thuế thu nhập cá nhân"
+            ],
+            [
+              "thưởng giới thiệu"
+            ],
+            [
+              "ở mỗi đợt",
+              "quyết toán cả khoản"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route.welfare.referral-payroll",
+      "family": "benefits",
+      "task_id": "task.welfare.referral-payroll",
+      "question_terms": [
+        {
+          "requires_all": [
+            [
+              "đã nhận đợt nào",
+              "mốc chi dự kiến"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "đã đủ mốc"
+            ],
+            [
+              "bảng lương"
+            ],
+            [
+              "số tiền thưởng",
+              "tiền thưởng"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "phiếu lương",
+              "bảng lương"
+            ],
+            [
+              "thiếu một đợt",
+              "trả sai mức"
+            ],
+            [
+              "xem",
+              "kiểm tra",
+              "đối soát",
+              "nhờ"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "thực tế đủ điều kiện nhận thưởng"
+            ],
+            [
+              "lượt giới thiệu cụ thể"
             ]
           ]
         }

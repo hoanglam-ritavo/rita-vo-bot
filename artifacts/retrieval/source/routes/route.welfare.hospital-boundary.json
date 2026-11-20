@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.hospital-boundary",
+  "family": "benefits",
+  "task_id": "task.welfare.hospital-boundary",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nằm viện"
+        ],
+        [
+          "đúng 3 ngày",
+          "tròn ba ngày",
+          "tròn 3 ngày",
+          "từ 3 ngày"
+        ]
+      ]
+    }
+  ]
+}

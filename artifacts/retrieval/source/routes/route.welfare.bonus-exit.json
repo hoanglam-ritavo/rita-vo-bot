@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.bonus-exit",
+  "family": "benefits",
+  "task_id": "task.welfare.bonus-exit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vẫn đang làm",
+          "nghỉ việc trước ngày chi thưởng",
+          "thôi việc trước lúc chi"
+        ],
+        [
+          "nộp đơn nghỉ việc",
+          "chi theo tỷ lệ",
+          "tháng 13"
+        ]
+      ]
+    }
+  ]
+}

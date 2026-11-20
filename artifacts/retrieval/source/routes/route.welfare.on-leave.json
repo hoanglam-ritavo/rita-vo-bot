@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.on-leave",
+  "family": "benefits",
+  "task_id": "task.welfare.on-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đang nghỉ thai sản",
+          "nghỉ ốm"
+        ],
+        [
+          "nghỉ không lương"
+        ],
+        [
+          "còn được xét phúc lợi"
+        ]
+      ]
+    }
+  ]
+}

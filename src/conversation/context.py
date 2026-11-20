@@ -255,8 +255,8 @@ def plan_turn(text, previous, catalog, lexicon, *, identity_stamp=None, legacy_i
         else:
             aspect, focus_unit = claims[position - 1]
             request.update(selected_task=active_task, aspects=[aspect])
-    elif prior and getattr(policy, 'focused_follow_up', lambda *_: False)(active_task, query):
-        request = {**prior, 'selected_task': active_task, 'aspects': ['overview']}
+    elif prior and (aspect := getattr(policy, 'focused_follow_up', lambda *_: None)(active_task, query)):
+        request = {**prior, 'selected_task': active_task, 'aspects': [aspect]}
         continuation, turn_kind = True, 'followup'
     elif prior and not getattr(policy, 'focused_task', lambda _: None)(text):
         update = recognize(text, policy)

@@ -1,0 +1,102 @@
+{
+  "id": "route.welfare.referral-milestones",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-milestones",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "lượt giới thiệu"
+        ],
+        [
+          "là thành công"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ứng viên đã nhận thư mời",
+          "đã nhận thư mời"
+        ],
+        [
+          "được nhận thưởng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "tiền thưởng giới thiệu",
+          "thưởng giới thiệu"
+        ],
+        [
+          "chia thành mấy đợt",
+          "chia tỷ lệ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mốc 3 tháng",
+          "ba tháng"
+        ],
+        [
+          "đợt còn lại",
+          "nhận nốt tiền giới thiệu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "mỗi đợt thưởng"
+        ],
+        [
+          "được trả ngay",
+          "kỳ lương"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kéo dài thử việc",
+          "rút ngắn thử việc"
+        ],
+        [
+          "lịch chi thưởng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "ứng viên nghỉ trước khi hoàn thành thử việc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã qua thử việc"
+        ],
+        [
+          "nghỉ trước khi đủ 3 tháng"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "đợt hai thì sao": "conditions",
+    "đợt 2 thì sao": "conditions",
+    "còn đợt hai": "conditions",
+    "khi nào nhận đợt hai": "conditions",
+    "còn đợt đầu": "procedure",
+    "đợt đầu thì sao": "procedure",
+    "cần giấy gì": "paperwork",
+    "cần hồ sơ gì": "paperwork",
+    "còn hồ sơ thì sao": "paperwork"
+  }
+}

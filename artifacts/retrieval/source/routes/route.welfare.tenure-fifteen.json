@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.tenure-fifteen",
+  "family": "benefits",
+  "task_id": "task.welfare.tenure-fifteen",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vào làm đúng ngày 15"
+        ],
+        [
+          "tính tròn",
+          "thâm niên"
+        ]
+      ]
+    }
+  ]
+}

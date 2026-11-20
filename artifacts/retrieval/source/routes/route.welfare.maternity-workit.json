@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.maternity-workit",
+  "family": "benefits",
+  "task_id": "task.welfare.maternity-workit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "workit"
+        ],
+        [
+          "tạo phiếu nghỉ thai sản",
+          "khai loại phép maternity",
+          "khai phiếu nghỉ thai sản"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "task.welfare.referral-screening",
+  "label": "Sàng lọc và thông báo kết quả giới thiệu",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Sàng lọc và thông báo kết quả giới thiệu"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần nào về sàng lọc và thông báo kết quả giới thiệu?",
+  "context": {
+    "mode": "none",
+    "note": "Evidence-bound guidance for the declared policy topic."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.welfare.referral-screening.1",
+          "text": "Nhân sự sàng lọc và phỏng vấn. Công ty thông báo kết quả cho người giới thiệu và ứng viên được giới thiệu thành công theo mục II.",
+          "refs": [
+            {
+              "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+              "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+              "chunk_index": 2,
+              "source_sha256": "6c11a2a87b42b0f52360841ed4c5c126d9043eb6f4d7e12e4a60dcb6d79e5a1b",
+              "content_sha256": "b11523b581f85d0f8ecd570ee6f81764ca731b6403022d3b2b9e2f5c2dd704c7",
+              "quote": "Chính sách thưởng giới thiệu nhân viên mới — 05/2022/TB-HCNS\nII. Quy trình giới thiệu:\nNếu Anh/chị có ứng viên thích hợp cho các vị trí đang cần tuyển dụng của Công ty, Anh/chị gửi sơ yếu lý lịch và các bằng cấp liên quan của ứng viên đó cho Phòng nhân sự. Phòng Nhân sự sẽ thực hiện sàng lọc và phỏng vấn. Công ty sẽ thông báo kết quả đến cho Anh/chị cũng như ứng viên Anh/chị giới thiệu thành công",
+              "metadata": {
+                "title": "Chính sách thưởng cho việc giới thiệu nhân viên mới dành cho nhân viên công ty",
+                "applicability": "Nhân viên RI TA VÕ thử việc hoặc chính thức giới thiệu ứng viên; không áp dụng nhân viên thuê ngoài; giữ các giới hạn và ngoại lệ liên quan HCNS, người tham gia tuyển chọn và quyết định tuyển dụng tại mục I.",
+                "effective_from": "2022-05-01",
+                "effective_to": null,
+                "version_label": "05/2022/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/10-chinh-sach-gioi-thieu-nhan-su-moi.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

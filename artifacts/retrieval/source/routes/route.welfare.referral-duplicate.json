@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.referral-duplicate",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-duplicate",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "cùng giới thiệu một ứng viên",
+          "giới thiệu cùng một ứng viên"
+        ],
+        [
+          "ghi nhận",
+          "xác định người giới thiệu",
+          "chia tiền thưởng"
+        ]
+      ]
+    }
+  ]
+}

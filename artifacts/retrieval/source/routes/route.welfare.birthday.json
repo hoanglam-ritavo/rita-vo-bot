@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.birthday",
+  "family": "benefits",
+  "task_id": "task.welfare.birthday",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quà hoặc hỗ trợ sinh nhật",
+          "quà sinh nhật"
+        ],
+        [
+          "phúc lợi",
+          "công ty",
+          "riêng"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.child-holiday-contract",
+  "family": "benefits",
+  "task_id": "task.welfare.child-holiday-contract",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hợp đồng chính thức giữa ngày 1 6"
+        ],
+        [
+          "trung thu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "quà cho con nhân viên"
+        ],
+        [
+          "hiện vật",
+          "chuyển khoản",
+          "kỳ lương"
+        ]
+      ]
+    }
+  ]
+}

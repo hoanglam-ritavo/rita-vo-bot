@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.other-family",
+  "family": "benefits",
+  "task_id": "task.welfare.other-family",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "bố mẹ nuôi",
+          "con riêng",
+          "anh chị em dâu",
+          "ông bà của vợ"
+        ],
+        [
+          "diện hỗ trợ",
+          "tang gia"
+        ]
+      ]
+    }
+  ]
+}

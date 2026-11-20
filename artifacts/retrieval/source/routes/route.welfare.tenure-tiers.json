@@ -1,0 +1,31 @@
+{
+  "id": "route.welfare.tenure-tiers",
+  "family": "benefits",
+  "task_id": "task.welfare.tenure-tiers",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "24 tháng",
+          "48 tháng"
+        ],
+        [
+          "thuộc bậc",
+          "ngày lễ thì",
+          "ngày lễ thuộc"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thang mức tiền"
+        ],
+        [
+          "phúc lợi",
+          "8 3"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "route.welfare.referral-rate-specialist",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-rate-specialist",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chuyên viên nghiệp vụ"
+        ],
+        [
+          "giới thiệu thành công",
+          "thưởng"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

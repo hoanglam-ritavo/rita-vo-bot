@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.child-unit",
+  "family": "benefits",
+  "task_id": "task.welfare.child-unit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "quà được tính"
+        ],
+        [
+          "theo từng bé",
+          "mỗi nhân viên"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "có thể nhận cả quà"
+        ],
+        [
+          "trung thu",
+          "1 6"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "route.welfare.benefit-payroll",
+  "family": "benefits",
+  "task_id": "task.welfare.benefit-payroll",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi"
+        ],
+        [
+          "tên khoản nào",
+          "trạng thái hồ sơ",
+          "bị trả lại",
+          "thiếu khoản",
+          "thiếu tiền phúc lợi",
+          "soát lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thiếu khoản phúc lợi"
+        ],
+        [
+          "trên bảng lương"
+        ]
+      ]
+    }
+  ]
+}

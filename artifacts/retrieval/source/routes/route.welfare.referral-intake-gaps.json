@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.referral-intake-gaps",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-intake-gaps",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hcns ghi nhận tên",
+          "ứng viên tự nộp hồ sơ",
+          "ứng viên đã ứng tuyển trước đó",
+          "bổ sung thông tin người giới thiệu",
+          "giới thiệu cho nhiều vị trí",
+          "gửi hồ sơ khi vị trí chưa mở tuyển",
+          "hồ sơ ứng viên thiếu bằng cấp"
+        ]
+      ]
+    }
+  ]
+}

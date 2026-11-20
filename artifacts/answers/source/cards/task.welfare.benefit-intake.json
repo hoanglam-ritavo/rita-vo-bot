@@ -1,0 +1,136 @@
+{
+  "id": "task.welfare.benefit-intake",
+  "label": "Nộp và bổ sung hồ sơ phúc lợi",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Nộp và bổ sung hồ sơ phúc lợi"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần nào về nộp và bổ sung hồ sơ phúc lợi?",
+  "context": {
+    "mode": "none",
+    "note": "Evidence-bound guidance for the declared policy topic."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.welfare.benefit-intake.1",
+          "text": "Quyết định chỉ rõ ví dụ giấy đăng ký kết hôn, giấy báo tử, giấy khai sinh, giấy ra viện và giấy nghỉ hưởng BHXH theo từng khoản.",
+          "refs": [
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 6,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 1.1 — Nhân viên kết hôn: hỗ trợ 1.000.000đ/trường hợp, cần giấy đăng ký kết hôn. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            },
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 8,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "c7e206161e16f6617ee20cc19f62273c828cd70026611825840818081ca37f5c",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 2.1 Tang gia — Bản thân cán bộ nhân viên qua đời: hỗ trợ 5.000.000đ/trường hợp và 01 vòng hoa trị giá 1.000.000đ; cần giấy báo tử. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            },
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 11,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "76498e419ef5f78e1e81fba98ef4343db90ab5a88b748aad229509669bf5ca07",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 3 — Nhân viên nữ sinh con: hỗ trợ 1.000.000đ/1 lần, cần giấy khai sinh. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            },
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 12,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "8a63002e7f177e969b212378b4854a1fa35acdaf9d0f15566b9b9b0dd8b50a86",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 4 — Cán bộ nghỉ ốm nằm viện trên 03 ngày: hỗ trợ 1.000.000đ/1 lần; cần giấy ra viện. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            },
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 13,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "efff2bef67548d69514363d4abb8d8b411066a22dd5c1aa3aedeb7138055d336",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 5 — Nhân viên nghỉ ốm điều trị ngoại trú từ 05 ngày trở lên, có xác nhận bác sĩ: hỗ trợ 500.000đ/1 lần; cần giấy nghỉ hưởng BHXH. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "id": "evidence.welfare.benefit-intake.2",
+          "text": "HCNS là nơi lưu quyết định.",
+          "refs": [
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 26,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "b8fe0122d28c21733e7bf5ab475cf0b4fc150eca2e9288adde0bb25caa2c730c",
+              "quote": "Chính sách phúc lợi 2023 — Thông tin hành chính và vai trò ký ghi trên văn bản.\nRITAVÕ\nWE WIN WITH THE INTEGRITY & QUALITY\nCÔNG TY TNHH TẬP ĐOÀN RITA VÕ\n327 Xa lộ Hà Nội, KP4, P. An Phú, TP. Thủ Đức, TP. HCM\nNơi nhận:\n- Các Phòng Ban;\n- Lưu: HCNS;\nTp, HCM Ngày 08 tháng 03 năm 2023\nBan Lãnh Đạo | Phê duyệt | VÕ MẬU QUỐC DUY\nP.KSNB | Xem xét | TRẦN THỊ TUYẾT MAI\nP.Kế Toán | Xem xét | THÁI TRUNG\nP.HCNS | Đề xuất | HOÀNG VÂN",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Văn bản không chỉ định kênh nộp, biểu mẫu chung, kiểu bản sao, hạn nộp, truy lĩnh, quy trình duyệt hay người nộp thay. Hỏi HCNS phụ trách khoản tương ứng để lấy hướng dẫn."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

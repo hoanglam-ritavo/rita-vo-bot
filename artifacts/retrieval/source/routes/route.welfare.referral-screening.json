@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.referral-screening",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-screening",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ giới thiệu"
+        ],
+        [
+          "sàng lọc"
+        ],
+        [
+          "thông báo kết quả"
+        ]
+      ]
+    }
+  ]
+}

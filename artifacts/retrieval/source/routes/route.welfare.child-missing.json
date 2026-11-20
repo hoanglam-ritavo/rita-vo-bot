@@ -1,0 +1,17 @@
+{
+  "id": "route.welfare.child-missing",
+  "family": "benefits",
+  "task_id": "task.welfare.child-missing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy khai sinh"
+        ],
+        [
+          "thiếu tên trong danh sách"
+        ]
+      ]
+    }
+  ]
+}

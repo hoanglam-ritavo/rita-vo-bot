@@ -1,0 +1,44 @@
+{
+  "id": "route.welfare.close-family",
+  "family": "benefits",
+  "task_id": "task.welfare.close-family",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tứ thân phụ mẫu"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bố hoặc mẹ ruột",
+          "bố hoặc mẹ của vợ",
+          "bố hoặc mẹ của chồng",
+          "mẹ vợ",
+          "mẹ chồng"
+        ],
+        [
+          "qua đời",
+          "mất",
+          "tang gia"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "vợ chồng hoặc con"
+        ],
+        [
+          "qua đời"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

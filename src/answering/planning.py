@@ -142,10 +142,11 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
             indexed = {card.id: card for card in catalog.cards if card.routed_only}
             cards = tuple(indexed[key] for key in dict.fromkeys(task_ids) if key in indexed)
             if len(cards) == len(set(task_ids)):
+                aspects = tuple(request.get('aspects') or ('overview',))
                 references = {(ref.document_id, ref.revision_id, ref.chunk_index) for card in cards
-                              for unit in card.sections['overview'].units for ref in unit.refs}
+                              for aspect in aspects if aspect in card.sections
+                              for unit in card.sections[aspect].units for ref in unit.refs}
                 if len(references) <= 10:
-                    aspects = tuple(request.get('aspects') or ('overview',))
                     return RequestAnalysis(cards=cards, question=question, parts=('documents',),
                                            aspects=aspects, general_guidance=True, focused_policy=True)
     cards, ambiguous = ([], False) if lookup else select_cards(question, catalog, lexicon, policy,

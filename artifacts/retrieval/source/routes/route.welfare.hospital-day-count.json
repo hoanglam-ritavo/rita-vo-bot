@@ -1,0 +1,23 @@
+{
+  "id": "route.welfare.hospital-day-count",
+  "family": "benefits",
+  "task_id": "task.welfare.hospital-day-count",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nằm viện",
+          "nhập viện",
+          "chuyển viện"
+        ],
+        [
+          "ngày nhập và ra viện",
+          "cộng để xét",
+          "cuối tuần",
+          "nhiều lần trong năm",
+          "giới hạn số lần"
+        ]
+      ]
+    }
+  ]
+}

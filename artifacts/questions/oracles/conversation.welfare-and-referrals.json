@@ -1,0 +1,1058 @@
+{
+  "schema_version": 1,
+  "group_id": "conversation.welfare-and-referrals",
+  "turns": [
+    {
+      "case_id": "q.conversation.welfare-and-referrals.001",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên có HĐLĐ chính thức kết hôn được hỗ trợ 1.000.000 đồng/trường hợp. Hồ sơ yêu cầu giấy đăng ký kết hôn. Tổ chức đám cưới chưa thay thế giấy tờ này."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.001",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Để xin hỗ trợ kết hôn cho bản thân, chuẩn bị giấy đăng ký kết hôn. Điều kiện chung là hợp đồng chính thức."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.001",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage"
+      ],
+      "expected_aspects": [
+        "amount"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mức hỗ trợ nhân viên kết hôn là 1.000.000 đồng/trường hợp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.001",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.child-marriage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "c97373bed8bf2ed590f74bde158dd3528a02b762947674a9d882cff1a1485049"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Con của nhân viên kết hôn được hỗ trợ 500.000 đồng/trường hợp, cần giấy chứng thực quan hệ và giấy đăng ký kết hôn. Nhân viên phải thuộc phạm vi hợp đồng chính thức."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.001",
+      "turn": 4,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.child-marriage"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "c97373bed8bf2ed590f74bde158dd3528a02b762947674a9d882cff1a1485049"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Để xin hỗ trợ con kết hôn, cần giấy chứng thực quan hệ và giấy đăng ký kết hôn."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.002",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-milestones"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Ứng viên thuộc vị trí đang tuyển phải được chọn vào làm. Đợt 1 là 50% sau khi hoàn thành thử việc; đợt 2 là 50% sau khi làm đủ 3 tháng tính từ khi hết thử việc. Chi theo kỳ lương tương ứng. Nhận thư mời, bắt đầu làm hoặc nghỉ trước khi xong thử việc chưa đạt mốc đợt 1; nếu chỉ đạt mốc thứ nhất thì chưa đủ mốc đợt 2. Thay đổi thời gian thử việc làm thay đổi mốc tính theo ngày hoàn thành thực tế."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.002",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-milestones"
+      ],
+      "expected_aspects": [
+        "conditions"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đợt hai chi 50% còn lại vào kỳ lương tương ứng khi ứng viên đã làm việc đủ 3 tháng tính từ khi hoàn thành thử việc."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.002",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-milestones"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Đợt đầu chi 50% vào kỳ lương tương ứng sau khi ứng viên hoàn thành thử việc."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.002",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-milestones"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "b11523b581f85d0f8ecd570ee6f81764ca731b6403022d3b2b9e2f5c2dd704c7"
+        },
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "f142493f1016ac9b239af127a41e197547dd807a6203b301e522a411833d965b"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Gửi sơ yếu lý lịch và bằng cấp liên quan của ứng viên cho Phòng Nhân sự. Nhân sự sẽ tiếp nhận và ghi nhận hồ sơ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.002",
+      "turn": 4,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.maternity-workit"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "89ac22568845149949556c5024ef196f9df22ed7bbd3e8959379ae134aafd109"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trên Workit, vào Quy trình số → Nghỉ phép → Thêm (F2). Chọn Nghỉ thai sản (S1, Maternity) và bấm Lưu để khai báo."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.003",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.hospital-boundary"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        [
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "dcddf5af8ea006eec5aec4bd3d0728f655e8715c64e7da07e450b17ee832547f"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "8a63002e7f177e969b212378b4854a1fa35acdaf9d0f15566b9b9b0dd8b50a86"
+        },
+        {
+          "document_id": "130dbf93-cbc9-4aa1-86bd-6a00486919b6",
+          "revision_id": "e12a6fc4-9d4b-40a2-b386-8343e2da5194",
+          "quote_sha256": "bf75e014c4ffea20ed613eb82589df5e5d0a2b5cbc3a26785f46b213a69d9531"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Điều 43.1 Nội quy lao động ghi nằm viện từ 3 ngày trở lên do ốm đau hoặc tai nạn, mức 1.000.000 đồng.",
+        "Quyết định phúc lợi ghi nằm viện trên 3 ngày, hỗ trợ 1.000.000 đồng/lần, cần giấy ra viện và thuộc diện HĐLĐ chính thức.",
+        "Bản ghi làm rõ ngày 16/11 chọn cách hiểu theo Điều 43.1 cho trường hợp đúng 3 ngày; hồ sơ giấy ra viện và phạm vi hợp đồng chính thức vẫn áp dụng. Bản ghi là căn cứ đối chiếu, không phải quyết định phúc lợi mới."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "required_limitations": [
+        "Hai văn bản ghi ngưỡng khác nhau. Xác nhận cách áp dụng với HCNS nếu cần quyết định cho hồ sơ cụ thể."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.003",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.hospital-boundary"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "dcddf5af8ea006eec5aec4bd3d0728f655e8715c64e7da07e450b17ee832547f"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "8a63002e7f177e969b212378b4854a1fa35acdaf9d0f15566b9b9b0dd8b50a86"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Điều 43.1 Nội quy lao động ghi nằm viện từ 3 ngày trở lên do ốm đau hoặc tai nạn, mức 1.000.000 đồng.",
+        "Quyết định phúc lợi ghi nằm viện trên 3 ngày, hỗ trợ 1.000.000 đồng/lần, cần giấy ra viện và thuộc diện HĐLĐ chính thức."
+      ],
+      "fallback_reasons": [
+        "incomplete_template_evidence"
+      ],
+      "unavailable_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "forbidden_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "required_limitations": [
+        "Hai văn bản ghi ngưỡng khác nhau. Xác nhận cách áp dụng với HCNS nếu cần quyết định cho hồ sơ cụ thể."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.003",
+      "turn": 2,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.hospital-boundary"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "8a63002e7f177e969b212378b4854a1fa35acdaf9d0f15566b9b9b0dd8b50a86"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quyết định phúc lợi ghi nằm viện trên 3 ngày, hỗ trợ 1.000.000 đồng/lần, cần giấy ra viện và thuộc diện HĐLĐ chính thức."
+      ],
+      "fallback_reasons": [
+        "incomplete_template_evidence"
+      ],
+      "unavailable_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+      ],
+      "required_limitations": [
+        "Hai văn bản ghi ngưỡng khác nhau. Xác nhận cách áp dụng với HCNS nếu cần quyết định cho hồ sơ cụ thể."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.003",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.hospital-boundary"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "dcddf5af8ea006eec5aec4bd3d0728f655e8715c64e7da07e450b17ee832547f"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Điều 43.1 Nội quy lao động ghi nằm viện từ 3 ngày trở lên do ốm đau hoặc tai nạn, mức 1.000.000 đồng."
+      ],
+      "fallback_reasons": [
+        "incomplete_template_evidence"
+      ],
+      "unavailable_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "forbidden_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "required_limitations": [
+        "Hai văn bản ghi ngưỡng khác nhau. Xác nhận cách áp dụng với HCNS nếu cần quyết định cho hồ sơ cụ thể."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.003",
+      "turn": 4,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.welfare.hospital-boundary"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [],
+      "employee_fields": [],
+      "claims": "none",
+      "required_citations": [],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "unavailable_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "forbidden_documents": [
+        "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.004",
+      "turn": 0,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.child-age"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        [
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "d7072c824bb257c1a4eaf766aab5311d95ea91db19a9ad7d6950907ceb57c12a"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "d1fff98b3f129670843bfd658db6ebbfa70ac6844d7f604f712d6032efac89c1"
+        },
+        {
+          "document_id": "130dbf93-cbc9-4aa1-86bd-6a00486919b6",
+          "revision_id": "e12a6fc4-9d4b-40a2-b386-8343e2da5194",
+          "quote_sha256": "a00c7291f97a68a135978e84e6b14a2faea94515a87754882ea51bd1768ed41f"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quyết định phúc lợi dùng cụm “dưới 15 tuổi trở xuống” cho cả quà 1/6 và Trung thu.",
+        "Bản ghi làm rõ ngày 16/11 ghi hai khoản này áp dụng cho trẻ dưới 15 tuổi, không gồm trẻ đúng 15 tuổi. Mức 200.000 đồng/bé, giấy khai sinh và phạm vi hợp đồng vẫn theo quyết định. Đây là cách hiểu ghi nhận riêng, không đổi nguyên văn quyết định."
+      ],
+      "fallback_reasons": [
+        "policy_source_limit"
+      ],
+      "required_limitations": [
+        "Chính sách không ghi ngày chốt hay cách làm tròn tuổi. Với trường hợp cụ thể, xác nhận độ tuổi theo hồ sơ với HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.004",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.child-age"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "d7072c824bb257c1a4eaf766aab5311d95ea91db19a9ad7d6950907ceb57c12a"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "d1fff98b3f129670843bfd658db6ebbfa70ac6844d7f604f712d6032efac89c1"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quyết định phúc lợi dùng cụm “dưới 15 tuổi trở xuống” cho cả quà 1/6 và Trung thu."
+      ],
+      "fallback_reasons": [
+        "incomplete_template_evidence"
+      ],
+      "unavailable_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "forbidden_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "required_limitations": [
+        "Chính sách không ghi ngày chốt hay cách làm tròn tuổi. Với trường hợp cụ thể, xác nhận độ tuổi theo hồ sơ với HCNS."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.004",
+      "turn": 2,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.welfare.child-age"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [],
+      "employee_fields": [],
+      "claims": "none",
+      "required_citations": [],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "unavailable_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "forbidden_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.005",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-payee"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ],
+        [
+          "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        },
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "3a68eb404b81a15983f1ca8df40e142713777062fc4d27a7191f7c074ea8d6c6"
+        },
+        {
+          "document_id": "130dbf93-cbc9-4aa1-86bd-6a00486919b6",
+          "revision_id": "e12a6fc4-9d4b-40a2-b386-8343e2da5194",
+          "quote_sha256": "56fa545c08b332cddd8842e76f7c5dd676e41ce9c56aa9403e9c5ec00030fc54"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mục III quy định khoản thưởng được trả cho nhân viên giới thiệu ứng viên cho vị trí đang tuyển và ứng viên được chọn vào làm.",
+        "Bản ghi ngày 16/11 làm rõ người hưởng là người trung gian giới thiệu đủ điều kiện, không phải ứng viên của lượt đó hoặc phòng HCNS. Các mốc chi vẫn theo thông báo."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.005",
+      "turn": 1,
+      "statuses": [
+        "partial"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-payee"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mục III quy định khoản thưởng được trả cho nhân viên giới thiệu ứng viên cho vị trí đang tuyển và ứng viên được chọn vào làm."
+      ],
+      "fallback_reasons": [
+        "incomplete_template_evidence"
+      ],
+      "unavailable_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ],
+      "forbidden_documents": [
+        "130dbf93-cbc9-4aa1-86bd-6a00486919b6"
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.005",
+      "turn": 2,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-payee"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [],
+      "employee_fields": [],
+      "claims": "none",
+      "required_citations": [],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "unavailable_documents": [
+        "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+      ],
+      "forbidden_documents": [
+        "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.006",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên có HĐLĐ chính thức kết hôn được hỗ trợ 1.000.000 đồng/trường hợp. Hồ sơ yêu cầu giấy đăng ký kết hôn. Tổ chức đám cưới chưa thay thế giấy tờ này."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.006",
+      "turn": 1,
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage"
+      ],
+      "expected_aspects": [
+        "paperwork"
+      ],
+      "required_source_groups": [],
+      "employee_fields": [],
+      "claims": "none",
+      "required_citations": [],
+      "fallback_reasons": [
+        "answer_reference_unavailable"
+      ],
+      "unavailable_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ],
+      "forbidden_documents": [
+        "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.006",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.referral-rate-worker"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Mức ghi trong bảng cho lao động phổ thông là 300.000 đồng cho lượt giới thiệu thành công đủ điều kiện. Chi theo hai mốc của chương trình."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.007",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.tenure-tiers"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "5e3ed2d8fa82b4607855eb75def2668cfed231d39a98713fa8b48488cac6744e"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "44f2d9b706c1559507cf6547961d618bb1e291522b74632bf8726edf5f45c367"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bốn mục 8/3, 30/4–1/5, 2/9 và Tết Dương lịch dùng cùng ba bậc: dưới 24 tháng 200.000 đồng; 24 đến 48 tháng, gồm đúng 24 và đúng 48, 400.000 đồng; trên 48 tháng 1.000.000 đồng/người. Điều kiện đối tượng và ngày chốt vẫn theo từng dịp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.007",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.tenure-tiers"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "5e3ed2d8fa82b4607855eb75def2668cfed231d39a98713fa8b48488cac6744e"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "44f2d9b706c1559507cf6547961d618bb1e291522b74632bf8726edf5f45c367"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Bốn mục 8/3, 30/4–1/5, 2/9 và Tết Dương lịch dùng cùng ba bậc: dưới 24 tháng 200.000 đồng; 24 đến 48 tháng, gồm đúng 24 và đúng 48, 400.000 đồng; trên 48 tháng 1.000.000 đồng/người. Điều kiện đối tượng và ngày chốt vẫn theo từng dịp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.007",
+      "turn": 2,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.holiday-contract"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "cabf0d6aa5c53308e64a80d36ec6bc23a3bc0f97bee63a0cf3b6a5d80139b359"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "f2f14fbc8695e003c3fe50b475be3303443671f5f174e3301fd8ad45a8cf145a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chốt loại hợp đồng theo ngày lễ hưởng chính sách. Nếu hợp đồng chính thức có hiệu lực đúng mốc thì đạt điều kiện về loại hợp đồng; nếu vẫn thử việc tại mốc và chỉ chuyển chính thức sau đó thì chưa đạt điều kiện này tại mốc. Kỳ lương là thời điểm chi, còn các điều kiện khác xét riêng."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.007",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.holiday-contract"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "cabf0d6aa5c53308e64a80d36ec6bc23a3bc0f97bee63a0cf3b6a5d80139b359"
+        },
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "f2f14fbc8695e003c3fe50b475be3303443671f5f174e3301fd8ad45a8cf145a"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Chốt loại hợp đồng theo ngày lễ hưởng chính sách. Nếu hợp đồng chính thức có hiệu lực đúng mốc thì đạt điều kiện về loại hợp đồng; nếu vẫn thử việc tại mốc và chỉ chuyển chính thức sau đó thì chưa đạt điều kiện này tại mốc. Kỳ lương là thời điểm chi, còn các điều kiện khác xét riêng."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.008",
+      "turn": 0,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.own-marriage",
+        "task.welfare.referral-rate-worker"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d1ed5f3f-57ed-465d-a080-97c4a39efd8d"
+        ],
+        [
+          "9b8dd80f-855a-4033-ae37-f9e1c95fee2d"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+          "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+          "quote_sha256": "a95ca18c9b2635a81ac3bf13d458dbd6b040405b75b8a4dccdeae39678042a23"
+        },
+        {
+          "document_id": "9b8dd80f-855a-4033-ae37-f9e1c95fee2d",
+          "revision_id": "bc364f8c-804d-4292-a5a9-87f28fa36c1c",
+          "quote_sha256": "36b0c1fd4cc0c309e646dc14255cc5b2d6b2313b8179795668fae19aee8860ad"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Nhân viên có HĐLĐ chính thức kết hôn được hỗ trợ 1.000.000 đồng/trường hợp. Hồ sơ yêu cầu giấy đăng ký kết hôn. Tổ chức đám cưới chưa thay thế giấy tờ này.",
+        "Mức ghi trong bảng cho lao động phổ thông là 300.000 đồng cho lượt giới thiệu thành công đủ điều kiện. Chi theo hai mốc của chương trình."
+      ]
+    },
+    {
+      "case_id": "q.conversation.welfare-and-referrals.008",
+      "turn": 1,
+      "statuses": [
+        "answered"
+      ],
+      "task_ids_any": [
+        "task.welfare.maternity-workit"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "ac98d5af-37dd-4187-a3cc-735ae2a7033c"
+        ]
+      ],
+      "employee_fields": [],
+      "claims": "required",
+      "required_citations": [
+        {
+          "document_id": "ac98d5af-37dd-4187-a3cc-735ae2a7033c",
+          "revision_id": "0d6e8e5d-b07a-4597-a688-8e334f5ea3e5",
+          "quote_sha256": "89ac22568845149949556c5024ef196f9df22ed7bbd3e8959379ae134aafd109"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trên Workit, vào Quy trình số → Nghỉ phép → Thêm (F2). Chọn Nghỉ thai sản (S1, Maternity) và bấm Lưu để khai báo."
+      ]
+    }
+  ]
+}

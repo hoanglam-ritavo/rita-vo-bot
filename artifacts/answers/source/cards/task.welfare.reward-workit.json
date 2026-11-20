@@ -1,0 +1,66 @@
+{
+  "id": "task.welfare.reward-workit",
+  "label": "Xem khen thưởng và phiếu lương Workit",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Xem khen thưởng và phiếu lương Workit"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần nào về xem khen thưởng và phiếu lương workit?",
+  "context": {
+    "mode": "none",
+    "note": "Evidence-bound guidance for the declared policy topic."
+  },
+  "sections": {
+    "overview": {
+      "complete": false,
+      "units": [
+        {
+          "id": "evidence.welfare.reward-workit.1",
+          "text": "Thông tin khen thưởng nằm ở Workit → Nhân sự → Khen thưởng cá nhân. Muốn đối chiếu khoản đã trả, mở Tiền lương → Phiếu lương và chọn tháng.",
+          "refs": [
+            {
+              "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+              "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+              "chunk_index": 14,
+              "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+              "content_sha256": "07fb045b7c40a8cc7fb38229e653b77ad130e074d196da3e91903dae4291045d",
+              "quote": "Workit — Nhân sự > Khen thưởng cá nhân hoặc Kỷ luật dùng quản lý thông tin khen thưởng và kỷ luật của nhân viên. Dữ liệu vi phạm trong ảnh là minh họa; tài liệu này không thiết lập mức xử lý kỷ luật hoặc chính sách tiền thưởng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+                "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+              }
+            },
+            {
+              "document_id": "bcc9e137-9dfe-479e-91a2-409ba042553f",
+              "revision_id": "e9fbc401-601c-41c3-9d4f-1004531dcfcf",
+              "chunk_index": 17,
+              "source_sha256": "30f61736ff2f5c3b92103015b759994e4b6272cd072a311ec25b8347f0cdc47d",
+              "content_sha256": "b50a204cc0f71ada77182d70706cd7b5f7e16561aaf7c0fc9e066deb1e2fc50b",
+              "quote": "Workit — xem phiếu lương của bản thân theo tháng: Apps > Tiền lương > Phiếu lương; B1 chọn tháng lương, B2 tìm tên nhân sự, B3 nhấn Tìm. Đây là thao tác tra cứu; hướng dẫn không cung cấp mức lương thực tế hiện tại của người dùng.",
+              "metadata": {
+                "title": "Workit — Hướng dẫn sử dụng phân hệ Nhân sự",
+                "applicability": "Người dùng Workit xem hồ sơ cá nhân, lương, công và đăng ký bổ sung công; quản lý và nhân sự tham gia phê duyệt theo hướng dẫn.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "HDSD-29/3/25-V1",
+                "source_path": "huong-dan-su-dung/workit/1-workit-nhan-su-hdsd-v1.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Hướng dẫn mục Khen thưởng không xác nhận số tiền thực chi hay một khoản cá nhân."
+      ]
+    }
+  },
+  "scope_limit": "policy_source_limit"
+}

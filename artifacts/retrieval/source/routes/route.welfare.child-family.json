@@ -1,0 +1,31 @@
+{
+  "id": "route.welfare.child-family",
+  "family": "benefits",
+  "task_id": "task.welfare.child-family",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "con nuôi con riêng",
+          "trẻ do nhân viên giám hộ"
+        ],
+        [
+          "nhận quà",
+          "có được xét"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "bố mẹ đều là nhân viên",
+          "cả bố và mẹ đều làm"
+        ],
+        [
+          "cùng một bé",
+          "mấy phần quà"
+        ]
+      ]
+    }
+  ]
+}

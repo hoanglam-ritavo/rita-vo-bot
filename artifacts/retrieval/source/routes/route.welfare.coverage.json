@@ -1,0 +1,31 @@
+{
+  "id": "route.welfare.coverage",
+  "family": "benefits",
+  "task_id": "task.welfare.coverage",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hợp đồng lao động chính thức",
+          "hợp đồng thời vụ",
+          "cộng tác viên",
+          "đã lên chính thức"
+        ],
+        [
+          "phúc lợi",
+          "quyết định năm 2023"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chỉ dành cho người"
+        ],
+        [
+          "phúc lợi 2023"
+        ]
+      ]
+    }
+  ]
+}

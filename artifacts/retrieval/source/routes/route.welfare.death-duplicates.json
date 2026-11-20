@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.death-duplicates",
+  "family": "benefits",
+  "task_id": "task.welfare.death-duplicates",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hai nhân viên"
+        ],
+        [
+          "cha hoặc mẹ qua đời",
+          "anh chị em ruột và cùng"
+        ]
+      ]
+    }
+  ]
+}

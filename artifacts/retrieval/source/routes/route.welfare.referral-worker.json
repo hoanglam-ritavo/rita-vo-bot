@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.referral-worker",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-worker",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhân viên thử việc",
+          "trong thời gian thử việc"
+        ],
+        [
+          "giới thiệu ứng viên",
+          "nhận thưởng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "người đã nghỉ việc"
+        ],
+        [
+          "có thể giới thiệu ứng viên"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "route.welfare.bonus-principle",
+  "family": "benefits",
+  "task_id": "task.welfare.bonus-principle",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thưởng tháng 13",
+          "lương tháng 13"
+        ],
+        [
+          "có quy định",
+          "có cố định",
+          "có chắc",
+          "một tháng tiền lương",
+          "kết quả kinh doanh",
+          "căn cứ vào lương",
+          "ai quyết định"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thời điểm chi thưởng tháng 13"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "kết quả kinh doanh"
+        ],
+        [
+          "mức hoàn thành công việc"
+        ],
+        [
+          "xét thưởng"
+        ]
+      ]
+    }
+  ]
+}

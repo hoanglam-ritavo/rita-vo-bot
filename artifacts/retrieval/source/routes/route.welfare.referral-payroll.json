@@ -1,0 +1,57 @@
+{
+  "id": "route.welfare.referral-payroll",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-payroll",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "đã nhận đợt nào",
+          "mốc chi dự kiến"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "đã đủ mốc"
+        ],
+        [
+          "bảng lương"
+        ],
+        [
+          "số tiền thưởng",
+          "tiền thưởng"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "phiếu lương",
+          "bảng lương"
+        ],
+        [
+          "thiếu một đợt",
+          "trả sai mức"
+        ],
+        [
+          "xem",
+          "kiểm tra",
+          "đối soát",
+          "nhờ"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thực tế đủ điều kiện nhận thưởng"
+        ],
+        [
+          "lượt giới thiệu cụ thể"
+        ]
+      ]
+    }
+  ]
+}

@@ -58,7 +58,8 @@ def build_inventory(cases, oracles):
         original = oracles[case['id'], 0]
         oracle = original.model_dump() if hasattr(original, 'model_dump') else dict(original)
         reason = ('conversation_required' if len(case['turns']) != 1 else
-                  'controlled_fixture_required' if oracle['fixture'] != 'current' else None)
+                  'controlled_fixture_required'
+                  if oracle['fixture'] != 'current' or oracle.get('unavailable_documents') else None)
         for endpoint in ENDPOINTS:
             scenarios.append(Scenario(case['id'], '.'.join(case['id'].split('.')[1:-1]),
                 endpoint, case['turns'][0]['text'], dict(oracle), tuple(case['tags']), reason,

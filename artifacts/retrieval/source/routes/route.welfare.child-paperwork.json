@@ -1,0 +1,30 @@
+{
+  "id": "route.welfare.child-paperwork",
+  "family": "benefits",
+  "task_id": "task.welfare.child-paperwork",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "giấy khai sinh mỗi dịp",
+          "cập nhật hồ sơ gia đình"
+        ],
+        [
+          "chỉ cập nhật",
+          "một lần"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa có giấy khai sinh"
+        ],
+        [
+          "giấy chứng sinh tạm thời",
+          "bổ sung sau"
+        ]
+      ]
+    }
+  ]
+}

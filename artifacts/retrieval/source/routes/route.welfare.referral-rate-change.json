@@ -1,0 +1,29 @@
+{
+  "id": "route.welfare.referral-rate-change",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-rate-change",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vị trí ban đầu tôi giới thiệu",
+          "vị trí ứng viên được tuyển",
+          "đổi chức danh sau khi",
+          "không trùng tên trong bảng thưởng giới thiệu",
+          "vị trí có tên gọi khác bảng thưởng",
+          "mức thưởng đặc biệt"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "công ty tuyển vào vị trí giám sát"
+        ],
+        [
+          "dùng mức thưởng nào"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "route.welfare.relatives",
+  "family": "benefits",
+  "task_id": "task.welfare.relatives",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "ông bà nội hoặc ngoại",
+          "ông bà nội ngoại",
+          "anh chị hoặc em ruột",
+          "em ruột qua đời"
+        ],
+        [
+          "qua đời",
+          "vòng hoa",
+          "mất"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

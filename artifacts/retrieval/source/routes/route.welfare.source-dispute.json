@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.source-dispute",
+  "family": "benefits",
+  "task_id": "task.welfare.source-dispute",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nội quy lao động"
+        ],
+        [
+          "quyết định phúc lợi"
+        ],
+        [
+          "ghi khác nhau",
+          "đối chiếu theo nguồn nào"
+        ]
+      ]
+    }
+  ]
+}

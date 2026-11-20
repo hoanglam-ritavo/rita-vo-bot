@@ -1,0 +1,38 @@
+{
+  "id": "route.welfare.birth-payment",
+  "family": "benefits",
+  "task_id": "task.welfare.birth-payment",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nhân viên nữ sinh con",
+          "lao động nữ đẻ con"
+        ],
+        [
+          "được công ty hỗ trợ",
+          "bao nhiêu mỗi lần",
+          "mức công ty hỗ trợ",
+          "một lần"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "hỗ trợ sinh con"
+        ],
+        [
+          "tính theo lần sinh",
+          "số con"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "cần giấy gì": "paperwork",
+    "còn hồ sơ thì sao": "paperwork",
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

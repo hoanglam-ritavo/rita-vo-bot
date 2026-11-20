@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.bereavement-leave",
+  "family": "benefits",
+  "task_id": "task.welfare.bereavement-leave",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ có lương hoặc không lương"
+        ],
+        [
+          "người thân qua đời",
+          "tang gia"
+        ]
+      ]
+    }
+  ]
+}

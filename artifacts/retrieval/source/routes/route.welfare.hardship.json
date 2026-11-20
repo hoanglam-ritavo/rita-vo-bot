@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.hardship",
+  "family": "benefits",
+  "task_id": "task.welfare.hardship",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thiên tai",
+          "khó khăn đột xuất"
+        ],
+        [
+          "hỗ trợ",
+          "trợ cấp",
+          "đề nghị",
+          "ảnh hưởng"
+        ]
+      ]
+    }
+  ]
+}

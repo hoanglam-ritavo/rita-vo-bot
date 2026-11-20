@@ -1,0 +1,40 @@
+{
+  "id": "route.welfare.child-age-count",
+  "family": "benefits",
+  "task_id": "task.welfare.child-age-count",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "tuổi của bé"
+        ],
+        [
+          "ngày tổ chức lễ",
+          "năm sinh",
+          "ngày lập danh sách"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "chưa đủ 15 tuổi"
+        ],
+        [
+          "trước tết trung thu",
+          "hai dịp"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "sinh sau ngày 1 6"
+        ],
+        [
+          "trung thu"
+        ]
+      ]
+    }
+  ]
+}

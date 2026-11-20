@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.flower-cash",
+  "family": "benefits",
+  "task_id": "task.welfare.flower-cash",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vòng hoa"
+        ],
+        [
+          "đổi thành tiền",
+          "cộng vào khoản hỗ trợ"
+        ]
+      ]
+    }
+  ]
+}

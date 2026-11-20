@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.health-annual",
+  "family": "benefits",
+  "task_id": "task.welfare.health-annual",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "khám sức khỏe định kỳ"
+        ],
+        [
+          "nhân viên",
+          "hằng năm",
+          "thuộc diện",
+          "xem lịch"
+        ]
+      ]
+    }
+  ]
+}

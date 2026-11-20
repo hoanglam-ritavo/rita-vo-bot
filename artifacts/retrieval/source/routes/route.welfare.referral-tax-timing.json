@@ -1,0 +1,21 @@
+{
+  "id": "route.welfare.referral-tax-timing",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-tax-timing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thuế thu nhập cá nhân"
+        ],
+        [
+          "thưởng giới thiệu"
+        ],
+        [
+          "ở mỗi đợt",
+          "quyết toán cả khoản"
+        ]
+      ]
+    }
+  ]
+}

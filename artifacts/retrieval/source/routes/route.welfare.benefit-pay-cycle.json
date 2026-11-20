@@ -1,0 +1,22 @@
+{
+  "id": "route.welfare.benefit-pay-cycle",
+  "family": "benefits",
+  "task_id": "task.welfare.benefit-pay-cycle",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phúc lợi",
+          "khoản hỗ trợ kết hôn",
+          "hỗ trợ kết hôn"
+        ],
+        [
+          "kỳ trả lương",
+          "có lịch chi riêng",
+          "như các khoản dịp lễ",
+          "chi theo kỳ lương"
+        ]
+      ]
+    }
+  ]
+}

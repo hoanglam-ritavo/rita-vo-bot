@@ -92,6 +92,13 @@ excerpt text linked to a policy claim. `fallback_reasons` constrains the respons
 reason. Conversation cases exercise active-task follow-ups, topic changes,
 independent questions and withdrawn evidence with local source fixtures.
 
+The welfare and referral bank preserves all 225 requested Vietnamese
+questions by their original group and number. Each turn checks linked evidence
+and the expected outcome, including source limits and directions to verify
+personal records. In source-fixture mode, `unavailable_documents` removes the
+named document IDs for one turn and leaves other sources available. Readonly and
+socket runs defer these controlled scenarios.
+
 For Retrieve, `retrieve_statuses` declares allowed endpoint outcomes and
 `retrieve_documents` can require matches or require the absence of document
 lookup, including `document_status: null`. `retrieve_forbidden_documents` can

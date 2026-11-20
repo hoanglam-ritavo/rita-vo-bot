@@ -1,0 +1,17 @@
+{
+  "id": "route.welfare.referral-status",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-status",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hồ sơ đã được ghi nhận"
+        ],
+        [
+          "ứng viên đang ở bước nào"
+        ]
+      ]
+    }
+  ]
+}

@@ -537,6 +537,18 @@
       "group_id": "conversation.labor-focus",
       "cases": 6,
       "turns": 14
+    },
+    {
+      "path": "policy/welfare-and-referrals.json",
+      "group_id": "policy.welfare-and-referrals",
+      "cases": 225,
+      "turns": 225
+    },
+    {
+      "path": "conversation/welfare-and-referrals.json",
+      "group_id": "conversation.welfare-and-referrals",
+      "cases": 8,
+      "turns": 30
     }
   ],
   "totals": {
@@ -8970,7 +8982,9 @@
     "oracles/policy.business-expansion.json",
     "oracles/policy.labor-attendance-overtime.json",
     "oracles/policy.labor-attendance-overtime-holdout.json",
-    "oracles/conversation.labor-focus.json"
+    "oracles/conversation.labor-focus.json",
+    "oracles/policy.welfare-and-referrals.json",
+    "oracles/conversation.welfare-and-referrals.json"
   ],
   "evaluation": {
     "oracle_schema_version": 1,

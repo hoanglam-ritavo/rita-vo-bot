@@ -128,6 +128,8 @@ class Route(Strict):
     required_slots: list[Literal['system', 'subtype']] = Field(default_factory=list)
     question_terms: list[QuestionTerms] = Field(default_factory=list, max_length=20)
     follow_up_terms: list[str] = Field(default_factory=list, max_length=24)
+    follow_up_aspects: dict[str, Literal['amount', 'conditions', 'paperwork', 'procedure']] = Field(
+        default_factory=dict, max_length=24)
     prompt: str = 'Bạn cần hướng dẫn nội dung nào và trên hệ thống nào?'
 
 
@@ -173,14 +175,17 @@ class Catalog(Strict):
                 raise ValueError('invalid_policy_rule')
         focused_tasks = set()
         for route in self.routes:
-            if any(not p.strip() or len(p) > 240 for p in
-                   route.aliases + route.requires_any + route.excludes_any + route.follow_up_terms):
+            follow_ups = [*route.follow_up_terms, *route.follow_up_aspects]
+            if any(question_term(term) == '  ' or len(term) > 100 for term in follow_ups) or len(
+                    {question_term(term) for term in follow_ups}) != len(follow_ups):
+                raise ValueError('invalid_focused_follow_up')
+            if any(not p.strip() or len(p) > 240 for p in route.aliases + route.requires_any + route.excludes_any):
                 raise ValueError('invalid_policy_phrase')
             if route.question_terms:
                 if route.task_id in focused_tasks or route.required_slots or route.system or route.subtype:
                     raise ValueError('invalid_focused_policy_route')
                 focused_tasks.add(route.task_id)
-            elif route.follow_up_terms:
+            elif follow_ups:
                 raise ValueError('focused_follow_up_without_route')
         return self
 
@@ -215,6 +220,8 @@ def validate_catalog(data, lexicon, lexical_hash, answers=None):
             if route.question_terms and (not card.routed_only or card.context is None
                                          or card.context.mode != 'none' or 'overview' not in card.sections):
                 raise ValueError('invalid_focused_policy_card')
+            if not set(route.follow_up_aspects.values()) <= card.sections.keys():
+                raise ValueError('focused_follow_up_section_unavailable')
             for aspect, section in card.sections.items():
                 addresses = {(r.document_id, r.revision_id, r.chunk_index)
                              for unit in section.units for r in unit.refs}
@@ -360,10 +367,14 @@ class RetrievalPolicy:
         return task_id in self._focused
 
     def focused_follow_up(self, task_id, normalized_question):
-        from src.type_b.tasks import normalized
-
         route = self._focused.get(task_id)
-        return bool(route and any(normalized(term) == normalized_question for term in route.follow_up_terms))
+        if route is None:
+            return None
+        phrase = f' {normalized_question} '
+        for term, aspect in route.follow_up_aspects.items():
+            if question_term(term) == phrase:
+                return aspect
+        return 'overview' if any(question_term(term) == phrase for term in route.follow_up_terms) else None
 
     def analyze(self, question):
         if self.catalog is None:

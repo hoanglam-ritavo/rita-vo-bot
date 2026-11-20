@@ -1,0 +1,17 @@
+{
+  "id": "route.welfare.referral-effective",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-effective",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "chính sách thưởng giới thiệu"
+        ],
+        [
+          "hiệu lực từ ngày"
+        ]
+      ]
+    }
+  ]
+}

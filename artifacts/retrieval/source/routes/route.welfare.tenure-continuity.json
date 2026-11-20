@@ -1,0 +1,39 @@
+{
+  "id": "route.welfare.tenure-continuity",
+  "family": "benefits",
+  "task_id": "task.welfare.tenure-continuity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "thâm niên cũ"
+        ],
+        [
+          "chuyển chi nhánh",
+          "có được giữ lại"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "nghỉ việc rồi quay lại"
+        ],
+        [
+          "cộng dồn"
+        ]
+      ]
+    },
+    {
+      "requires_all": [
+        [
+          "thâm niên xét phúc lợi"
+        ],
+        [
+          "nghỉ thai sản",
+          "nghỉ không lương"
+        ]
+      ]
+    }
+  ]
+}

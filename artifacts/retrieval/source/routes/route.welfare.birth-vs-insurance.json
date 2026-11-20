@@ -1,0 +1,20 @@
+{
+  "id": "route.welfare.birth-vs-insurance",
+  "family": "benefits",
+  "task_id": "task.welfare.birth-vs-insurance",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "hỗ trợ sinh con",
+          "công ty hỗ trợ khi sinh con"
+        ],
+        [
+          "trợ cấp thai sản",
+          "khoản thai sản",
+          "thai sản bhxh"
+        ]
+      ]
+    }
+  ]
+}

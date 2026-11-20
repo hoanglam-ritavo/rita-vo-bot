@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.bonus-clock",
+  "family": "benefits",
+  "task_id": "task.welfare.bonus-clock",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "biên bản vi phạm chấm công"
+        ],
+        [
+          "tháng 13",
+          "lần thứ mấy"
+        ]
+      ]
+    }
+  ]
+}

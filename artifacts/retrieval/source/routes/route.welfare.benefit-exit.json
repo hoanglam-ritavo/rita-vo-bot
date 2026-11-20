@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.benefit-exit",
+  "family": "benefits",
+  "task_id": "task.welfare.benefit-exit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nghỉ việc trước kỳ lương"
+        ],
+        [
+          "phúc lợi",
+          "chi trả"
+        ]
+      ]
+    }
+  ]
+}

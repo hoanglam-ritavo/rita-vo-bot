@@ -1,0 +1,19 @@
+{
+  "id": "route.welfare.paternity",
+  "family": "benefits",
+  "task_id": "task.welfare.paternity",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vợ sinh con",
+          "vợ sinh"
+        ],
+        [
+          "được nghỉ theo nội quy",
+          "chế độ bhxh"
+        ]
+      ]
+    }
+  ]
+}

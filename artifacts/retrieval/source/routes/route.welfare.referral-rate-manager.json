@@ -1,0 +1,25 @@
+{
+  "id": "route.welfare.referral-rate-manager",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-rate-manager",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "phó phòng"
+        ],
+        [
+          "trưởng phòng"
+        ],
+        [
+          "giới thiệu thành công",
+          "được thưởng"
+        ]
+      ]
+    }
+  ],
+  "follow_up_aspects": {
+    "còn mức hỗ trợ thì sao": "amount",
+    "bao nhiêu tiền": "amount"
+  }
+}

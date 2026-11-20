@@ -1,0 +1,22 @@
+{
+  "id": "route.welfare.referral-submit",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-submit",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "gửi hồ sơ ứng viên",
+          "gửi cv giới thiệu",
+          "hồ sơ giới thiệu"
+        ],
+        [
+          "sơ yếu lý lịch",
+          "bằng cấp",
+          "kênh nào",
+          "gửi hồ sơ ứng viên"
+        ]
+      ]
+    }
+  ]
+}

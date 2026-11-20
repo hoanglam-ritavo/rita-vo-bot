@@ -1,0 +1,18 @@
+{
+  "id": "route.welfare.referral-outsourcing",
+  "family": "benefits",
+  "task_id": "task.welfare.referral-outsourcing",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "vị trí thuê ngoài"
+        ],
+        [
+          "giới thiệu",
+          "tính thưởng"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "route.welfare.benefit-intake",
+  "family": "benefits",
+  "task_id": "task.welfare.benefit-intake",
+  "question_terms": [
+    {
+      "requires_all": [
+        [
+          "nộp hồ sơ phúc lợi",
+          "biểu mẫu riêng",
+          "hồ sơ phúc lợi",
+          "chứng từ phúc lợi",
+          "phát sinh sự kiện",
+          "nộp hồ sơ muộn",
+          "phê duyệt từng loại hồ sơ",
+          "người thân hoặc quản lý có thể nộp"
+        ],
+        [
+          "công ty",
+          "workit",
+          "email",
+          "phúc lợi",
+          "bản gốc",
+          "bao lâu",
+          "hạn cuối",
+          "nộp",
+          "phát sinh",
+          "truy lĩnh",
+          "phê duyệt",
+          "nằm viện"
+        ]
+      ]
+    }
+  ]
+}

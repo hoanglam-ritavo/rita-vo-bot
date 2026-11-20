@@ -1,0 +1,62 @@
+{
+  "id": "task.welfare.birth-vs-insurance",
+  "label": "Hỗ trợ sinh con và chế độ thai sản BHXH",
+  "source_type": "type_a",
+  "routed_only": true,
+  "concept_ids": [],
+  "aliases": [
+    "Hỗ trợ sinh con và chế độ thai sản BHXH"
+  ],
+  "requires_any": [],
+  "excludes_any": [],
+  "clarification": "Bạn muốn hỏi phần nào về hỗ trợ sinh con và chế độ thai sản bhxh?",
+  "context": {
+    "mode": "none",
+    "note": "Evidence-bound guidance for the declared policy topic."
+  },
+  "sections": {
+    "overview": {
+      "complete": true,
+      "units": [
+        {
+          "id": "evidence.welfare.birth-vs-insurance.1",
+          "text": "Hỗ trợ của công ty ghi cho nhân viên nữ có hợp đồng chính thức sinh con, 1.000.000 đồng/lần và cần giấy khai sinh. Trợ cấp thai sản là chế độ BHXH với điều kiện đóng riêng. Quyết định phúc lợi không đặt điều kiện phải được BHXH chi thai sản mới được xét khoản hỗ trợ công ty.",
+          "refs": [
+            {
+              "document_id": "d1ed5f3f-57ed-465d-a080-97c4a39efd8d",
+              "revision_id": "9ccea696-6089-48de-8367-315648f9668b",
+              "chunk_index": 11,
+              "source_sha256": "bc6f92879f56a29b7a541f83a3e8ddd2b8fcf2cbe141217d0c45e0ed157fd0f9",
+              "content_sha256": "76498e419ef5f78e1e81fba98ef4343db90ab5a88b748aad229509669bf5ca07",
+              "quote": "Chính sách phúc lợi 2023 — Điều 4.1, mục 3 — Nhân viên nữ sinh con: hỗ trợ 1.000.000đ/1 lần, cần giấy khai sinh. Chỉ áp dụng HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng thử việc, thời vụ, học việc, cộng tác viên. Mức phúc lợi có thể thay đổi theo điều kiện, kinh doanh và lợi nhuận Tập đoàn.",
+              "metadata": {
+                "title": "QUYẾT ĐỊNH (V/v Chính sách phúc lợi)",
+                "applicability": "Toàn thể CBNV đã ký HĐLĐ chính thức với Công ty TNHH Tập Đoàn Rita Võ; không áp dụng với HĐLĐ thử việc, hợp đồng thời vụ, hợp đồng học việc hoặc cộng tác viên.",
+                "effective_from": "2023-03-08",
+                "effective_to": null,
+                "version_label": "01/2023/TB-HCNS",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/2-quy-dinh-chinh-sach-phuc-loi-2023.pdf"
+              }
+            },
+            {
+              "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+              "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+              "chunk_index": 12,
+              "source_sha256": "ed48a8a61bf4a8e884d6200e9f46d499d904eba8b7e15f170077983d125451cb",
+              "content_sha256": "582417a898797b51ca057e91a3c761a8f1da1044205fb46f7f1fdb20717ae9db",
+              "quote": "Nội quy lao động — Điều 10.2.a, chế độ BHXH khi sinh con: nguồn yêu cầu đóng đủ 6 tháng trong 12 tháng trước sinh; nếu đã đóng đủ 12 tháng và phải nghỉ dưỡng thai theo chỉ định cơ sở có thẩm quyền thì đủ 3 tháng trong 12 tháng trước sinh. Nghỉ trước/sau sinh tổng 6 tháng, trước sinh tối đa 2 tháng; sinh đôi trở lên mỗi con từ con thứ hai thêm 1 tháng. BHXH chi trả theo quy định. Đây là nội dung tài liệu, tách biệt khoản hỗ trợ sinh con của công ty.",
+              "metadata": {
+                "title": "Nội quy lao động — Công ty TNHH Tập Đoàn Rita Võ",
+                "applicability": "Tất cả người lao động Công ty TNHH Tập Đoàn Rita Võ, mọi hình thức/hợp đồng kể cả học nghề, thực tập, thử việc; điều kiện từng quyền lợi theo điều khoản riêng.",
+                "effective_from": null,
+                "effective_to": null,
+                "version_label": "Bìa tháng 01/2023; trang ký 03/10/2023",
+                "source_path": "noi-quy-qui-dinh/noi-quy-lao-dong-quy-dinh-quy-trinh-hien-hanh/1-noi-quy-lao-dong-tap-doan-rita-vo.pdf"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
