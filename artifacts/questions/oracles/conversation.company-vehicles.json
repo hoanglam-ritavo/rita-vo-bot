@@ -87,6 +87,85 @@
       ]
     },
     {
+      "case_id": "q.conversation.company-vehicles.001",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.platform-compare"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+        ],
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        },
+        {
+          "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
+          "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
+          "quote_sha256": "886ce32930dbd1dd5616a0c4825821ecd34931c1c705390640d994c99c87b8e5"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trên Workit Web, mở Quy trình số → Xe công tác → Thêm để tạo phiếu. Tài liệu mô tả các trường của chuyến và danh sách lịch dạng lưới hoặc ngày.",
+        "Trên Workit Mobile, hướng dẫn xác nhận mục Xe trong Quy trình số. Chạm mục Xe để mở chức năng."
+      ],
+      "required_limitations": [
+        "Nguồn chưa xác nhận thao tác sửa hoặc theo dõi từng trạng thái phiếu xe trên cả hai giao diện. Trên Mobile, tài liệu chỉ xác nhận mục Xe. Kiểm tra các nút hiển thị theo quyền của bạn."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.001",
+      "turn": 4,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.platform-compare"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "d906cfac-afda-498d-bb6c-bdfb08f9e2b5"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
+          "revision_id": "72a3f27a-c44b-4dde-8941-6f21dac0548c",
+          "quote_sha256": "70ae9cd12518434ea654d213d23a52df183be630a9c15b018dfe2f6123bc6f29"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Trên Workit Web, mở Quy trình số → Xe công tác → Thêm để tạo phiếu. Tài liệu mô tả các trường của chuyến và danh sách lịch dạng lưới hoặc ngày."
+      ],
+      "required_limitations": [
+        "Nguồn chưa xác nhận thao tác sửa hoặc theo dõi từng trạng thái phiếu xe trên cả hai giao diện. Trên Mobile, tài liệu chỉ xác nhận mục Xe. Kiểm tra các nút hiển thị theo quyền của bạn."
+      ],
+      "unavailable_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ],
+      "forbidden_documents": [
+        "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4"
+      ]
+    },
+    {
       "case_id": "q.conversation.company-vehicles.002",
       "turn": 0,
       "statuses": [
@@ -209,6 +288,40 @@
       ],
       "required_limitations": [
         "Đối chiếu giấy tờ, nhiên liệu và thiết bị cần kiểm tra với điều xe. Điều khoản không liệt kê bảng kiểm đầy đủ."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.002",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.scope"
+      ],
+      "expected_aspects": [
+        "conditions"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7a1c0eec97cefc62dc46e3cac3d2e8f106eabe576ec710310b18ff9e0971ac22"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "b7649ed090c2aa2c82fa0ac1b88edcc86a3534e29e0d62d7e064872c5b3e5865"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "HCNS-QT02 áp dụng cho Công ty TNHH Tập Đoàn Rita Võ, chi nhánh, văn phòng đại diện và các đơn vị thành viên, trực thuộc trong phạm vi văn bản. Xe tải, ô tô và xe gắn máy là tài sản Tập đoàn đều thuộc phạm vi quản lý."
       ]
     },
     {
@@ -342,6 +455,48 @@
       ],
       "expected_policy_claim_texts": [
         "Tài xế lập HCNS-QT02-S01 theo kỳ, ghi ngày, mục đích, người/bộ phận, nơi và giờ đi/đến, kilomet đầu/cuối, hóa đơn, phí khác và xác nhận người dùng xe. Điều 4.12.a nêu ngoại lệ xe riêng của Ban lãnh đạo. HCNS/điều xe theo dõi kilomet và Kế toán dùng sổ để soát chi phí."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.003",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.driver-change"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6642dbe92c48835853964ec46152a7b2042d495301d85be9aa8225d18784ded7"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "0b17305a8e1890bbc13aced262ae2d2489b1c702775d5dc4bbf2322f6cc8bc42"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5e37a1d00e09bf42e80faec580c30942e27f9084dae63f5f09b8f1238ae1dcdd"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Tài xế phải dùng xe đúng mục đích, tải trọng, lộ trình và thời gian đã duyệt. Xin Quản lý điều xe đồng ý trước khi đổi lộ trình hoặc giờ. Tài xế có quyền từ chối đổi lộ trình vì việc riêng. Người dùng xe xác nhận chi phí và lịch trình vào nhật trình hoặc phiếu tăng ca/công tác xa, qua ngày nếu có."
+      ],
+      "required_limitations": [
+        "Nguồn chưa nêu thủ tục riêng khi thêm người ngoài đề xuất. Hỏi Quản lý điều xe trước khi thay đổi."
       ]
     },
     {
@@ -688,6 +843,50 @@
       ]
     },
     {
+      "case_id": "q.conversation.company-vehicles.006",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.maintenance-complete"
+      ],
+      "expected_aspects": [
+        "procedure"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "513cf6be16795c3d140b9f365b46c49afa7815746ba137abac2ad353614bdb3d"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "5916140a2b35f1fe04f27b44f2fd78de4310bee1ed57d3cb43bf2eee734c8e3d"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "a7460d48a43991adc355cd58cfa4e94b4c3d32b84432086585d530628fa01208"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "757234c37e8b9fbed26f8e1a7dd0d53b059c9930213595d2598549b2487e3c67"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Phiếu DXSC01 ghi kilomet sau sửa, hạng mục hoàn thành hoặc chưa hoàn thành, lý do và xác nhận người sử dụng cùng Kỹ thuật. Tài xế/HCNS cập nhật tình trạng, hạng mục, kilomet và chi phí vào HCNS-QT02-S02; chuyển HCNS xác nhận."
+      ]
+    },
+    {
       "case_id": "q.conversation.company-vehicles.007",
       "turn": 0,
       "statuses": [
@@ -941,6 +1140,48 @@
       ]
     },
     {
+      "case_id": "q.conversation.company-vehicles.008",
+      "turn": 3,
+      "statuses": [
+        "partial"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.vetc-owner"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6d86b8929f373a6429c7a43e3e580cfd7b86536346b79ddbf4c51dd8e48579cc"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "7c78c90e7855dcae1b6df9666bd427ea60ff7f700a19e177128a79669928e185"
+        },
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6487c52c61cb6b8ae53bb003640767f27cf048c9300bb03620a71a3abd833779"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Quản lý điều xe dùng một tài khoản VETC cho các xe bộ phận quản lý, và người quản lý tài khoản phải theo dõi số dư."
+      ],
+      "required_limitations": [
+        "Khi chuyển xe, báo Quản lý điều xe của hai đơn vị và HCNS, kèm biển số và biên bản bàn giao. Nguồn chưa mô tả các bước đổi tài khoản."
+      ]
+    },
+    {
       "case_id": "q.conversation.company-vehicles.009",
       "turn": 0,
       "statuses": [
@@ -1061,6 +1302,48 @@
       ],
       "required_limitations": [
         "Quy định chưa xác nhận quyền xem camera hoặc dữ liệu định vị. Đầu mối quản lý phải kiểm tra quyền trước khi cung cấp."
+      ]
+    },
+    {
+      "case_id": "q.conversation.company-vehicles.009",
+      "turn": 3,
+      "statuses": [
+        "answered"
+      ],
+      "claims": "required",
+      "task_ids_any": [
+        "task.company-vehicles.incident-appeal"
+      ],
+      "expected_aspects": [
+        "overview"
+      ],
+      "required_source_groups": [
+        [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661"
+        ],
+        [
+          "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
+        ]
+      ],
+      "required_citations": [
+        {
+          "document_id": "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa",
+          "revision_id": "a57e9318-9b33-448f-8fe7-60fcce924a70",
+          "quote_sha256": "6ccfb2117f7fe944cb242c8c980a293ebc69ed556fd434caf239e50109d97a40"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "0cad4f351dc548ae68cdc2144b00c6bcc57f12c9dc1098cb76a31a0c7db03416"
+        },
+        {
+          "document_id": "7f1f2cf6-e181-42a8-8caf-f9429094e661",
+          "revision_id": "76e4cb02-6902-4548-ae2e-2b250662bb61",
+          "quote_sha256": "14b2640ef58c4aadc61d62a945c26bd0de64ef803477f1f81833a44d848154a3"
+        }
+      ],
+      "expected_policy_claim_texts": [
+        "Gửi giải trình cùng biên bản, nhật trình và chứng từ cho quản lý trực tiếp/Trưởng bộ phận. Nếu chưa xử lý, trình Nhân sự theo trình tự khiếu nại tại Điều 28; HCNS tiếp nhận và báo cáo theo thẩm quyền."
       ]
     },
     {

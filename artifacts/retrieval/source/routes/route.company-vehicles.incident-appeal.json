@@ -29,6 +29,16 @@
           "Nếu không đồng ý với biên bản sự cố hoặc mức bồi thường, tôi gửi giải trình cho ai?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "biên bản sự cố xe"
+        ],
+        [
+          "giải trình"
+        ]
+      ]
     }
   ],
   "excludes_any": [

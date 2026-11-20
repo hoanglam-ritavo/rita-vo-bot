@@ -12,6 +12,7 @@
       "support": "conditional",
       "references": {
         "task_ids": [
+          "task.company-vehicles.platform-compare",
           "task.workit-surface.car.mobile",
           "task.workit-surface.car.web"
         ],
@@ -34,6 +35,14 @@
         {
           "text": "Tôi tạo phiếu Xe công tác trên Workit Web ở đâu?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Workit Web và Mobile có hỗ trợ cùng các thao tác đặt, sửa và theo dõi phiếu xe không?",
+          "expectation": "So sánh Web và Mobile bằng các bằng chứng độc lập."
+        },
+        {
+          "text": "Workit Web và Mobile có hỗ trợ cùng các thao tác đặt, sửa và theo dõi phiếu xe không?",
+          "expectation": "Giữ phần Web còn khả dụng khi tài liệu Mobile bị rút."
         }
       ]
     },
@@ -49,6 +58,7 @@
         "task_ids": [
           "task.administration-compliance.vehicle-scope",
           "task.company-vehicles.pretrip",
+          "task.company-vehicles.scope",
           "task.company-vehicles.self-drive"
         ],
         "document_ids": [
@@ -69,6 +79,10 @@
         {
           "text": "Trước khi nhận xe, tài xế phải kiểm tra những gì?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Quy định xe tập đoàn có áp dụng cho xe tải và xe gắn máy của đơn vị không?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
         }
       ]
     },
@@ -82,6 +96,7 @@
       "support": "conditional",
       "references": {
         "task_ids": [
+          "task.company-vehicles.driver-change",
           "task.company-vehicles.log-fields",
           "task.company-vehicles.trip-handover"
         ],
@@ -102,6 +117,10 @@
         },
         {
           "text": "Còn sổ nhật trình thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Trong chuyến đi có thêm điểm dừng thì tài xế xin ai?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
         }
       ]
@@ -207,6 +226,10 @@
         {
           "text": "Sau khi sửa, ai kiểm tra, xác nhận hạng mục, chi phí và số kilomet?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Sổ theo dõi bảo dưỡng và sửa chữa xe dùng mẫu nào?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
         }
       ]
     },
@@ -277,6 +300,10 @@
         {
           "text": "Nếu tài khoản VETC thiếu tiền trước khi đi qua trạm, tài xế liên hệ ai?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Ai quản lý tài khoản VETC và số dư của các xe trong phòng?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
         }
       ]
     },
@@ -291,10 +318,12 @@
       "references": {
         "task_ids": [
           "task.company-vehicles.guard-check",
+          "task.company-vehicles.incident-appeal",
           "task.company-vehicles.incident-records",
           "task.company-vehicles.incident-report"
         ],
         "document_ids": [
+          "7f1f2cf6-e181-42a8-8caf-f9429094e661",
           "b114fe60-8e52-45a3-bfcd-9cd03e4b8aaa"
         ],
         "employee_fields": []
@@ -311,6 +340,10 @@
         },
         {
           "text": "Nếu cần xem camera thì sao?",
+          "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
+        },
+        {
+          "text": "Biên bản sự cố xe ghi sai, gửi giải trình cho ai?",
           "expectation": "Kiểm tra nghiệp vụ, ngữ cảnh và nguồn của lượt này."
         }
       ]

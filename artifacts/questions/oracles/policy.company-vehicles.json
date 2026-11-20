@@ -1246,7 +1246,10 @@
       "statuses": [
         "needs_clarification"
       ],
-      "claims": "none"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+      ]
     },
     {
       "case_id": "q.policy.company-vehicles.034",
@@ -1334,10 +1337,11 @@
         }
       ],
       "expected_policy_claim_texts": [
-        "Web có Quy trình số → Xe công tác → Thêm, các trường chuyến và lịch dạng lưới hoặc ngày. Hướng dẫn Mobile xác nhận mục Xe trong Quy trình số, có thể chạm để mở."
+        "Trên Workit Web, mở Quy trình số → Xe công tác → Thêm để tạo phiếu. Tài liệu mô tả các trường của chuyến và danh sách lịch dạng lưới hoặc ngày.",
+        "Trên Workit Mobile, hướng dẫn xác nhận mục Xe trong Quy trình số. Chạm mục Xe để mở chức năng."
       ],
       "required_limitations": [
-        "Nguồn Mobile chưa xác nhận toàn bộ thao tác tạo, sửa và theo dõi như Web. Kiểm tra các nút trong phiếu theo quyền truy cập."
+        "Nguồn chưa xác nhận thao tác sửa hoặc theo dõi từng trạng thái phiếu xe trên cả hai giao diện. Trên Mobile, tài liệu chỉ xác nhận mục Xe. Kiểm tra các nút hiển thị theo quyền của bạn."
       ]
     },
     {
@@ -1386,7 +1390,10 @@
       "statuses": [
         "needs_clarification"
       ],
-      "claims": "none"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+      ]
     },
     {
       "case_id": "q.policy.company-vehicles.039",
@@ -1599,7 +1606,10 @@
       "statuses": [
         "needs_clarification"
       ],
-      "claims": "none"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+      ]
     },
     {
       "case_id": "q.policy.company-vehicles.046",
@@ -1607,7 +1617,10 @@
       "statuses": [
         "needs_clarification"
       ],
-      "claims": "none"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+      ]
     },
     {
       "case_id": "q.policy.company-vehicles.047",
@@ -1647,7 +1660,10 @@
       "statuses": [
         "needs_clarification"
       ],
-      "claims": "none"
+      "claims": "none",
+      "required_limitations": [
+        "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+      ]
     },
     {
       "case_id": "q.policy.company-vehicles.049",

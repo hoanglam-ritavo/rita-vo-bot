@@ -64,6 +64,17 @@
           "Có được chở thêm người không có tên trong đề xuất đã duyệt không?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "thêm điểm dừng"
+        ],
+        [
+          "tài xế",
+          "lộ trình"
+        ]
+      ]
     }
   ],
   "excludes_any": [

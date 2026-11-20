@@ -106,6 +106,12 @@ the absence of evidence from the other interface, and the action and
 interface retained in conversation context. Cases in the original Workit
 bank whose expected outcome is interface selection retain their original IDs.
 
+The company vehicles bank preserves 140 supplied questions in ten groups.
+Oracles check the applicable role, Workit surface, source-backed operating
+requirements and the distinction between policy guidance and a live assignment
+or settlement. The conversation group includes correction, follow-up and
+independent evidence checks for Web and Mobile.
+
 The administration and compliance bank retains 189 supplied questions with
 stable IDs across ten topics. Separate oracles verify claim text, source
 revisions, citations and limitations. Conversation cases cover changes in

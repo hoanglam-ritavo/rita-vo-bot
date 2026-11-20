@@ -39,6 +39,20 @@
           "Xe tải, ô tô và xe gắn máy thuộc tài sản Tập đoàn có cùng thuộc phạm vi quy định không?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "xe tải"
+        ],
+        [
+          "xe gắn máy"
+        ],
+        [
+          "quy định xe",
+          "quy định sử dụng xe"
+        ]
+      ]
     }
   ],
   "excludes_any": [

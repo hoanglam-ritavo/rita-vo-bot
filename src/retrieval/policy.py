@@ -389,6 +389,7 @@ class WorkitResolution:
     surface: Surface | None = None
     clarification: str | None = None
     unavailable: tuple[Surface, ...] = ()
+    allow_focused_fallback: bool = False
 
 
 def _route_score(route, text):
@@ -523,8 +524,10 @@ class RetrievalPolicy:
             winners = [key for key, score in scores.items() if score == best] if best else []
             if len(winners) != 1:
                 if surface or len(supplied) > 1:
-                    return WorkitResolution(None, surface=surface, clarification=(
-                        'Bạn cần hướng dẫn thao tác nào trên Workit? Hãy nêu tên chức năng hoặc việc cần làm.'))
+                    return WorkitResolution(
+                        None, surface=surface, clarification=(
+                            'Bạn cần hướng dẫn thao tác nào trên Workit? Hãy nêu tên chức năng hoặc việc cần làm.'),
+                        allow_focused_fallback=len(supplied) > 1 and not winners)
                 return None
             action = winners[0]
         choices = self._workit[action]

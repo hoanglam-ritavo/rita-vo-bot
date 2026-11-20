@@ -84,7 +84,11 @@ def choice_labels(cards, *, include_filenames=False):
 
 
 def unknown_topic_prompt(question, policy):
+    from src.retrieval.policy import clarification_for
+
     query = policy.analyze(question) if policy is not None else None
+    if query and (prompt := clarification_for(getattr(policy, 'catalog', None), question, query.family)):
+        return prompt
     systems = {'workit': 'Workit', 'workit-mobile': 'Workit Mobile', 'eleave': 'E-Leave',
                'epostal': 'E-Postal', 'eworkdate': 'E-Workdate', 'outlook': 'Outlook', 'bravo': 'Bravo'}
     families = {'vehicles': 'sử dụng xe', 'attendance': 'chấm công', 'travel': 'công tác phí',
@@ -209,8 +213,9 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
     workit_choices = None
     if not lookup and workit and len([p for p in re.split(r'[?!;\n]', question) if p.strip()]) == 1:
         workit_choices = workit(question, slots=request.get('slots'))
-        if workit_choices and (workit_choices.surface or workit_choices.clarification
-                              or len(workit_choices.routes) > 1 or workit_choices.unavailable):
+        if workit_choices and not workit_choices.allow_focused_fallback and (
+                workit_choices.surface or workit_choices.clarification
+                or len(workit_choices.routes) > 1 or workit_choices.unavailable):
             return _workit_analysis(question, catalog, workit_choices, request)
     focused = getattr(registry, 'focused_task', None)
     if not lookup and focused is not None and not request.get('source_id') and not any(
@@ -238,6 +243,10 @@ def analyze_question(question, catalog=None, lexicon=None, policy=None, *, reque
                 if len(references) <= 10:
                     return RequestAnalysis(cards=cards, question=question, parts=('documents',),
                                            aspects=aspects, general_guidance=True, focused_policy=True)
+    if workit_choices and workit_choices.allow_focused_fallback:
+        # An explicit two-interface question can have a declared comparison
+        # even when neither surface has an individual route for the action.
+        return _workit_analysis(question, catalog, workit_choices, request)
     cards, ambiguous = ([], False) if lookup else select_cards(question, catalog, lexicon, policy,
         contextual=True) if catalog and lexicon else ([], False)
     resolution = None

@@ -36,6 +36,17 @@
           "Khi chuyển xe giữa hai phòng ban, ai cập nhật thông tin xe trong tài khoản VETC?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "quản lý tài khoản vetc"
+        ],
+        [
+          "số dư",
+          "trong phòng"
+        ]
+      ]
     }
   ],
   "excludes_any": [

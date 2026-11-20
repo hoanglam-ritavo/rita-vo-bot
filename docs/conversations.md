@@ -275,6 +275,14 @@ carries its source date and that the answer directs current counts to HCNS.
 Repeat a paperwork follow-up with its source withdrawn in a disposable
 fixture. Keep the bot and generated catalogs paired during release and rollback.
 
+For company vehicles, test the approved regulations, forms and Workit manuals
+in the target corpus. In authenticated staging, switch from the Workit Web
+instructions to Mobile, compare both interfaces, and confirm that approval
+guidance directs the employee to Dispatch to verify assignment. Check the fuel
+formula, its inputs and the settlement handoff. On disposable data, withdraw
+the Mobile source during a comparison and verify that the available Web claim
+retains its own citation. Release the bot with its paired catalogs.
+
 ## Contextual answer revision
 
 All answer/retry bodies require a positive hrm_user_id. Results use the unified

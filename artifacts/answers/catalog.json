@@ -67431,8 +67431,8 @@
           "complete": false,
           "units": [
             {
-              "id": "evidence.company-vehicles.platform-compare",
-              "text": "Web có Quy trình số → Xe công tác → Thêm, các trường chuyến và lịch dạng lưới hoặc ngày. Hướng dẫn Mobile xác nhận mục Xe trong Quy trình số, có thể chạm để mở.",
+              "id": "evidence.company-vehicles.platform-compare.web",
+              "text": "Trên Workit Web, mở Quy trình số → Xe công tác → Thêm để tạo phiếu. Tài liệu mô tả các trường của chuyến và danh sách lịch dạng lưới hoặc ngày.",
               "refs": [
                 {
                   "document_id": "d906cfac-afda-498d-bb6c-bdfb08f9e2b5",
@@ -67449,7 +67449,13 @@
                     "version_label": "HDSD-29/3/25-V1",
                     "source_path": "huong-dan-su-dung/workit/3-1-workit-quy-trinh-so-hdsd-v1.pdf"
                   }
-                },
+                }
+              ]
+            },
+            {
+              "id": "evidence.company-vehicles.platform-compare.mobile",
+              "text": "Trên Workit Mobile, hướng dẫn xác nhận mục Xe trong Quy trình số. Chạm mục Xe để mở chức năng.",
+              "refs": [
                 {
                   "document_id": "2cb00d36-126c-4c2e-9f2c-bd8091ee6bf4",
                   "revision_id": "529e2467-9dbf-49b7-b334-835b9248fb40",
@@ -67470,7 +67476,7 @@
             }
           ],
           "limitations": [
-            "Nguồn Mobile chưa xác nhận toàn bộ thao tác tạo, sửa và theo dõi như Web. Kiểm tra các nút trong phiếu theo quyền truy cập."
+            "Nguồn chưa xác nhận thao tác sửa hoặc theo dõi từng trạng thái phiếu xe trên cả hai giao diện. Trên Mobile, tài liệu chỉ xác nhận mục Xe. Kiểm tra các nút hiển thị theo quyền của bạn."
           ]
         }
       },

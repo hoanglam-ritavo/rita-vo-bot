@@ -42,6 +42,18 @@
           "Sổ theo dõi bảo dưỡng, sửa chữa xe có mã mẫu gì và do ai cập nhật?"
         ]
       ]
+    },
+    {
+      "requires_all": [
+        [
+          "sổ theo dõi sửa chữa xe",
+          "sổ theo dõi bảo dưỡng và sửa chữa xe"
+        ],
+        [
+          "dùng mẫu nào",
+          "cập nhật chi phí"
+        ]
+      ]
     }
   ],
   "excludes_any": [

@@ -321,6 +321,36 @@
         "workit-signature",
         "workit-supply",
         "workit-trip"
+      ],
+      "clarifications": [
+        {
+          "requires_all": [
+            [
+              "phiếu bị từ chối",
+              "phiếu đang chờ duyệt",
+              "sau khi gửi phiếu"
+            ],
+            [
+              "gửi lại",
+              "người đang duyệt",
+              "thu hồi"
+            ]
+          ],
+          "prompt": "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+        },
+        {
+          "requires_all": [
+            [
+              "tạo phiếu trên workit",
+              "lưu nháp rồi bổ sung"
+            ],
+            [
+              "trường nào bắt buộc",
+              "trước khi gửi duyệt"
+            ]
+          ],
+          "prompt": "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+        }
       ]
     }
   ],
@@ -38731,6 +38761,20 @@
               "Xe tải, ô tô và xe gắn máy thuộc tài sản Tập đoàn có cùng thuộc phạm vi quy định không?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "xe tải"
+            ],
+            [
+              "xe gắn máy"
+            ],
+            [
+              "quy định xe",
+              "quy định sử dụng xe"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -39832,6 +39876,17 @@
               "Có được chở thêm người không có tên trong đề xuất đã duyệt không?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "thêm điểm dừng"
+            ],
+            [
+              "tài xế",
+              "lộ trình"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -40600,6 +40655,18 @@
               "Sổ theo dõi bảo dưỡng, sửa chữa xe có mã mẫu gì và do ai cập nhật?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "sổ theo dõi sửa chữa xe",
+              "sổ theo dõi bảo dưỡng và sửa chữa xe"
+            ],
+            [
+              "dùng mẫu nào",
+              "cập nhật chi phí"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -41246,6 +41313,17 @@
               "Khi chuyển xe giữa hai phòng ban, ai cập nhật thông tin xe trong tài khoản VETC?"
             ]
           ]
+        },
+        {
+          "requires_all": [
+            [
+              "quản lý tài khoản vetc"
+            ],
+            [
+              "số dư",
+              "trong phòng"
+            ]
+          ]
         }
       ],
       "excludes_any": [
@@ -41551,6 +41629,16 @@
           "requires_all": [
             [
               "Nếu không đồng ý với biên bản sự cố hoặc mức bồi thường, tôi gửi giải trình cho ai?"
+            ]
+          ]
+        },
+        {
+          "requires_all": [
+            [
+              "biên bản sự cố xe"
+            ],
+            [
+              "giải trình"
             ]
           ]
         }

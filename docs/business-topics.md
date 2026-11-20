@@ -186,6 +186,20 @@ the provider relationship. Employee disciplinary guidance uses the labor rules.
 Guide and historical tables keep their original scope and dates. References to
 approval, a contact or a checklist do not establish a live operational result.
 
+## Company vehicles
+
+Company vehicle questions extend the administration rules and Workit car
+routes. HCNS-QT02 owns vehicle eligibility, dispatch, handover, maintenance,
+fuel and related forms. Workit sources describe the documented interface.
+A form choice, an approval and a confirmed vehicle assignment each require
+their own evidence. The catalog sends live assignment, account balance and
+settlement questions to the operational owner.
+
+An explicit Workit Web and Mobile comparison may use a declared focused task
+when the interface registry has no matching action. Each interface claim
+keeps its own source reference. Doc types, active publications and effective
+dates are evaluated through the usual evidence gates on every turn.
+
 ## Historical verification
 
 The pre-pilot verification snapshot on 2026-11-18 passed 1,010 non-integration

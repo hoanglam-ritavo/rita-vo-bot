@@ -70,5 +70,35 @@
     "workit-signature",
     "workit-supply",
     "workit-trip"
+  ],
+  "clarifications": [
+    {
+      "requires_all": [
+        [
+          "phiếu bị từ chối",
+          "phiếu đang chờ duyệt",
+          "sau khi gửi phiếu"
+        ],
+        [
+          "gửi lại",
+          "người đang duyệt",
+          "thu hồi"
+        ]
+      ],
+      "prompt": "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+    },
+    {
+      "requires_all": [
+        [
+          "tạo phiếu trên workit",
+          "lưu nháp rồi bổ sung"
+        ],
+        [
+          "trường nào bắt buộc",
+          "trước khi gửi duyệt"
+        ]
+      ],
+      "prompt": "Bạn đang hỏi loại phiếu nào? Nếu dùng Workit, hãy cho biết bạn dùng Web hay Mobile và phiếu đang ở trạng thái nào."
+    }
   ]
 }
